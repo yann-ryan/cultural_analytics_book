@@ -106,7 +106,11 @@ In order to work with this function, you need to know how the Natural Earth data
 -   physical: physical features such as rivers, lakes, mountains.
 -   raster: geographic data made from pixels instead of shapes. We won't work with this on this course.
 
-Next, the data is at one of three scales: - small - medium - large.
+Next, the data is at one of three scales:
+
+-   small
+-   medium
+-   large
 
 On the Natural Earth data download page, you'll see that there are links to each of these categories at each different scale.
 
@@ -124,7 +128,7 @@ Clicking on a category button will bring you to a page with download links. Righ
 
 Now we can construct our query. Within the ne_download() function, specify the correct `scale` from small, medium large. Next choose the `category`, from cultural, physical or raster.
 
-**Finally, specify the `type`. For this, take the saved download link, and take everything after the ne\_ and the scale, (in this case `ne_10m_`, and before the .zip. In this example this is simply `populated_places`.**
+**Finally, specify the `type`. For this, take the saved download link, and take everything after the ne\_ and the scale (in this case `ne_50m_`), and before the .zip. In this example this is simply `populated_places`.**
 
 Finally, set the `returnclass` argument to `"sf"` as before.
 

@@ -26,7 +26,7 @@ Recall that the 'grammar' of a ggplot chart is made up of a number of different 
 
 ![](images/35_themes/01.png){width="500"}
 
-The look of the non-data elements of your chart can be highly customised, using the **theme** layer, described in this diagram as 'all the non-data ink'. The non-data elements are things like the color and size of the ticks and lines, the font and color of the titles, and the look of the chart background. Below is a typical chart, with all of the elements we can make changes to.
+The look of the non-data elements of your chart can be highly customised, using the **theme** layer, described in this diagram as 'all the non-data ink'. The non-data elements are things like the colour and size of the ticks and lines, the font and colour of the titles, and the look of the chart background. Below is a typical chart, with all of the elements we can make changes to.
 
 ![](images/35_themes/02.png){width="500"}
 
@@ -59,13 +59,13 @@ Using the default settings will make an accurate representation of your data but
 
 Each visual part of a chart is known as an **element**, and we can make changes to each part separately. This is done by adding `+ theme()` layer to your chart, followed by the element you want to change, then an element type, and finally, the aesthetics of that element you want to change. The full list of elements and types can be found in the figure below - it's very useful to save a copy as a reference.
 
-It seems like a lot, so let's see how this works with an example. Let's change the **size** of the **x and y axis text** in the chart we made above.
+It seems like a lot, so let's see how this works with an example. Let's change the **size** of the **x axis title** in the chart we made above (this is the axis label itself, e.g. "lifeExp" - not to be confused with `axis.text`, which controls the tick labels/numbers along the axis).
 
 To do this, I first add a new layer with `+ theme()` to my existing plot.
 
 Next, within this `theme()`, I add:
 
--   The plot element I would like to change, which in this case is `axis.title` followed by an `=` sign. We can also specify separate using `axis.title.x` or `axis.title.y`.
+-   The plot element I would like to change, which in this case is `axis.title.x` followed by an `=` sign. We can also change both axes at once using `axis.title`, or just the y axis using `axis.title.y`.
 
 -   The type of element it is (we'll come back to this), either `element_text()`, `element_rect()`, `element_line()` or, if I want to remove it entirely, `element_blank()`.
 

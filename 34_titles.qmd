@@ -30,7 +30,7 @@ There are many ways to add labels to your charts. The simplest is by adding `lab
 
 Within the parentheses of the `labs()` layer, you can specify the arguments `title =`, `subtitle =`, `caption =`, as well as any aesthetic in your plot, for example, `x =`, `y =`, `fill =` and so forth.
 
-Make sure to include the text of your label within quotation marks. If you would like to spread your title across multiple lines, you can specify a line break by adding the code `/n` within your title.
+Make sure to include the text of your label within quotation marks. If you would like to spread your title across multiple lines, you can specify a line break by adding the code `\n` within your title.
 
 ```{webr-r}
 #| context: setup
@@ -132,9 +132,10 @@ There are a few ways you can add labels to your charts themselves. One is to add
 Starting with the first, using geom_text. Geom_text will add text to your chart based on x and y positions, plus an extra label argument specifying which column it should take labels from.
 
 ```{webr-r}
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
+df |>
+  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  +
+  geom_point() +
+  geom_text(aes(label = country), size = 3) +
   labs(title = "GDP and Life\nExpectancy",
        x = NULL)
 ```
@@ -181,7 +182,7 @@ Question: Can you fix the chart so the writing is not covered? (think back to th
 
 ```
 
-::: callout-hint
+::: {.callout-tip}
 It can also be useful to make changes to the text in other ways. the `stringr` package has some functions which will allow you to make changes to the formatting of the text before you plot it.
 
 -   str_trunc will shorten the text to a fixed length, useful for overly long labels. Set the number of characters with the `width =` argument.

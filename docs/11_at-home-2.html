@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -647,13 +647,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>The at-home exercises should be completed using Posit cloud, in the workspace project ‘Home exercise 2’. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown. Delete the existing boilerplate text in the markdown file, underneath the title part.</p>
-<p>It’s best to save the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: [lastname][firstname][week number]. Regularly re-save the file.</p>
+<p>The at-home exercises should be completed using Posit cloud, in the workspace project ‘Home exercise 2’. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown). Delete the existing boilerplate text in the markdown file, underneath the title part.</p>
+<p>It’s best to save the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: exercise_2_lastname_firstname. Regularly re-save the file.</p>
 <p>When you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.</p>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p>For this exercise, you’ll be working with the file <code>bellevue_almshouse_modified.csv</code>, which you can find in the folder. This dataset contains information on Irish-born immigrants admitted to the Bellevue Almshouse in the 1840s. This dataset was transcribed from the almshouse’s own admissions records by Anelise Shrout. For more information about this dataset, see <a href="#0">The Almshouse Records</a>. The copy here is taken from the version used by Melanie Walsh as part of the course <a href="#0">Introduction to Cultural Analytics &amp; Python</a>.</p>
+<p>For this exercise, you’ll be working with the file <code>bellevue_almshouse_modified.csv</code>, which you can find in the folder. This dataset contains information on Irish-born immigrants admitted to the Bellevue Almshouse in the 1840s. This dataset was transcribed from the almshouse’s own admissions records by Anelise Shrout. For more information about this dataset, see <a href="https://newyorkscapes.org/project/digital-almshouse-project/">The Digital Almshouse Project</a>. The copy here is taken from the version used by Melanie Walsh as part of the course <a href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html#irish-immigrants-admitted-to-nycs-bellevue-almshouse">Introduction to Cultural Analytics &amp; Python</a>.</p>
 <p>The first step is to load the necessary packages and read the dataset into the RStudio environment, which we didn’t cover in class.</p>
 <p>You can do that by copying the following code into a new cell in your R Markdown file. This cell should always be the first one in your document.</p>
 <div class="cell">
@@ -675,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For each exercise, write the objective followed by the code in one or multiple code cells. Use the commands we’ve learned so far, plus the pipe operator, to do the following:</p>
 <ul>
 <li><p>Read the dataset into the project environment.</p></li>
-<li><p>Print a preview of the first 10 rows of the dataset using one of the methods we’ve looked at in the course. (hint, use slice()</p></li>
+<li><p>Print a preview of the first 10 rows of the dataset using one of the methods we’ve looked at in the course. (hint, use <code>slice()</code>)</p></li>
 <li><p>Remove the <code>children</code> column, and then print the first 10 rows of the dataset</p></li>
 <li><p>Rename the <code>last_name</code> column to <code>family_name</code>, and then print the first 10 rows of the dataset.</p></li>
 <li><p>Who are the five oldest men in the dataset?</p></li>

@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"editor-font-scale":"1","comment":"","read-only":"false","editor-quick-suggestions":"false","output":"true","fig-cap":"","message":"true","out-width":"700px","out-height":"","context":"setup","results":"markup","classes":"","editor-max-height":"","autorun":"true","editor-word-wrap":"true","warning":"true","dpi":72,"fig-width":7,"label":"unnamed-chunk-1","fig-height":5},"id":1},{"code":"locations_df","options":{"editor-font-scale":"1","comment":"","read-only":"false","editor-quick-suggestions":"false","output":"true","fig-cap":"","message":"true","out-width":"700px","out-height":"","context":"interactive","results":"markup","classes":"","editor-max-height":"","autorun":"false","editor-word-wrap":"true","warning":"true","dpi":72,"fig-width":7,"label":"unnamed-chunk-2","fig-height":5},"id":2},{"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"editor-font-scale":"1","comment":"","read-only":"false","editor-quick-suggestions":"false","output":"true","fig-cap":"","message":"true","out-width":"700px","out-height":"","context":"interactive","results":"markup","classes":"","editor-max-height":"","autorun":"false","editor-word-wrap":"true","warning":"true","dpi":72,"fig-width":7,"label":"unnamed-chunk-3","fig-height":5},"id":3},{"code":"","options":{"editor-font-scale":"1","comment":"","read-only":"false","editor-quick-suggestions":"false","output":"true","fig-cap":"","message":"true","out-width":"700px","out-height":"","context":"interactive","results":"markup","classes":"","editor-max-height":"","autorun":"false","editor-word-wrap":"true","warning":"true","dpi":72,"fig-width":7,"label":"unnamed-chunk-4","fig-height":5},"id":4}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","autorun":"true","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-1","context":"setup","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"warning":"true","autorun":"false","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-2","context":"interactive","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":"locations_df"},{"id":3,"options":{"warning":"true","autorun":"false","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-3","context":"interactive","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"warning":"true","autorun":"false","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-4","context":"interactive","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":""}];
 
 </script>
 <script type="module">
@@ -1626,7 +1626,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -2067,7 +2067,7 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#left_join-inner_join-anti_join" id="toc-left_join-inner_join-anti_join" class="nav-link active" data-scroll-target="#left_join-inner_join-anti_join">left_join(), inner_join(), anti_join()</a></li>
+  <li><a href="#left_join-right_join-inner_join" id="toc-left_join-right_join-inner_join" class="nav-link active" data-scroll-target="#left_join-right_join-inner_join">left_join(), right_join(), inner_join()</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
@@ -2380,8 +2380,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<section id="left_join-inner_join-anti_join" class="level3">
-<h3 class="anchored" data-anchor-id="left_join-inner_join-anti_join">left_join(), inner_join(), anti_join()</h3>
+<section id="left_join-right_join-inner_join" class="level3">
+<h3 class="anchored" data-anchor-id="left_join-right_join-inner_join">left_join(), right_join(), inner_join()</h3>
 <p>Another set of commands we’ll use quite often in this course are the <code>join()</code> ‘family’. Joins are a very powerful but simple way of selecting certain subsets of data, and adding information from multiple tables together.</p>
 <p>Remember the titanic dataset had a column ‘embarked’, which contained either Q, S or C, which told where the passenger got on?</p>
 <p>Let’s say we wanted to display the full name of the embarking location, plus some other information. We have another dataset, called locations_df, which contains the code and the equivalent full name, plus the country name and coordinates of the location. You can see what this looks like by running the cell below:</p>

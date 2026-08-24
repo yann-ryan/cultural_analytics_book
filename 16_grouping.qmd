@@ -88,7 +88,7 @@ Create a summary of the data containing the the average age of male and female p
 Other functions we have come across also work with groups. For instance, we can find the five oldest passengers for each passenger class by first using `group_by()`, and then using `slice_max()`:
 
 ```{webr-r}
-titanic_new_df |> 
+titanic_df |>
   group_by(pclass) |>
   slice_max(order_by = age, n = 5)
 ```
@@ -102,7 +102,7 @@ You can also use `slice_min()` in much the same way.
 You can also use group_by with mutate(). In this case, it will add the total for each group as a new column, and not remove anything else.
 
 ```{webr-r}
-titanic_new_df |> 
+titanic_df |>
   group_by(pclass) |>
   mutate(total_class = n())
 ```
@@ -119,7 +119,7 @@ Sometimes you'll want to do something in groups and then remove them afterwards 
 
 ```
 
--   The Embarked column indicates where the passengers got onto the ship. The code is C = Cherbourg, Q = Queenstown (Cobh in Ireland today), S = Southampton.
+-   The embarked column indicates where the passengers got onto the ship. The code is C = Cherbourg, Q = Queenstown (Cobh in Ireland today), S = Southampton.
 
 -   How many passengers got on at each location?
 

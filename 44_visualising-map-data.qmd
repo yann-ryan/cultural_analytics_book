@@ -120,8 +120,6 @@ Just as with regular ggplot charts, you can adjust the scales, themes, and even 
 
 ```
 
-## Add titles and labels:
-
 ## Coordinates layer
 
 One layer we skipped over in ggplot is the coordinates layer. This is because in most cases we don't want to change it. It is more useful to adjust the coordinates when mapping. Particularly setting limits to zoom in on a particular area of the map. We can make adjustments by specifying the coordinate layer using `coord_sf()`. Next, you can set the xlim and ylim arguments:
@@ -134,13 +132,18 @@ ggplot() +
 
 ```
 
-**Try it yourself:**
+**Try it yourself:** Adjust the `xlim` and `ylim` values above to zoom the map in on Scandinavia instead.
+
+```{webr-r}
+
+
+```
 
 ## Working with data maps
 
 Creating maps is a little less exact than making regular visualisations. In most cases, you'll want to filter the data before hand, as well as limit the coordinates. Here is what happens if we only do one or the other.
 
-Setting the coordinate limits doesn't change the data before visualisation. This means that the color scale will be based on the entire map rather than the section used. If the data is mapped to something like population, this might mean that the map colors don't represent the full range of the data on the visible map, as here:
+Setting the coordinate limits doesn't change the data before visualisation. This means that the colour scale will be based on the entire map rather than the section used. If the data is mapped to something like population, this might mean that the map colours don't represent the full range of the data on the visible map, as here:
 
 ```{webr-r}
 
@@ -190,8 +193,6 @@ ggplot() +
 -   Over 170 projections available in sf package
 -   You can view them using `sf_proj_info()` in the console
 
-## Changing projection
-
 Add the correct string with `+proj=` to the `crs =` argument in `st_transform()`:
 
 ```{webr-r}
@@ -201,17 +202,18 @@ worldmap_moll <- worldmap |>
 
 ```
 
-## Changing projection
+Now plot the transformed map - notice the shape of the world has changed to this new (Winkel Tripel) projection:
 
 ```{webr-r}
 
-ggplot(data = worldmap_moll, aes(fill = pop_est)) + 
+ggplot(data = worldmap_moll, aes(fill = pop_est)) +
   geom_sf()
 
 ```
 
 #### Compromise
 
+-   A compromise projection doesn't try to be perfectly accurate on any one property (area, angle, or distance) - instead it aims for a reasonable, visually-pleasing balance across all of them. The Winkel Tripel projection above is one example; another is the Robinson projection:
 -   Used to draw a visual map of the world
 -   E.g. Robinson projection
 
@@ -268,8 +270,6 @@ A geographic CRS uses longitude and latitude to describe a location on earth's s
 -   Universal Transverse Mercator (UTM) most popular
 -   Globe is divided into zones - you need to know the zone along with the values
 -   Values are northing and easting
-
-#### Projected
 
 ![](images/44_visualising-map-data/04.png){width="400"}
 

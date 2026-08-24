@@ -3,7 +3,7 @@ title: "Data Visualisation and Accessibility Considerations"
 ---
 
 ```{webr-r}
-#| context:setup
+#| context: setup
 
 library(tidyverse) 
 library(palmerpenguins)  
@@ -12,7 +12,7 @@ penguins = palmerpenguins::penguins
 
 ```
 
-![](images/38_accessibility/01.png){fig-alt="A man walking with his partner turns his head to look at another person, symbolizing a web user’s shift from inaccessible to accessible content. The original partner, representing inaccessible content, is ignored in favor of the accessible option, which is more appealing and inclusive." fig-align="center" width="500"}
+![](images/38_accessibility/01.png){fig-alt="A man walking with his partner turns his head to look at another person, symbolising a web user’s shift from inaccessible to accessible content. The original partner, representing inaccessible content, is ignored in favour of the accessible option, which is more appealing and inclusive." fig-align="center" width="500"}
 
 ### **What does it mean to make our content accessible?**
 
@@ -30,21 +30,21 @@ Some key ways in which we make visualisations *less* accessible include:
 
 -   Prioritising the visual experience without consideration for people navigating via screen reader.
 
--   Color schemes that are not accessible to people who are color blind or have low vision
+-   Colour schemes that are not accessible to people who are colour blind or have low vision
 
 -   Interactive elements that are not reachable for people navigating via keyboard.
 
 ### Color-blindness
 
-Color blindness (or color vision deficiency, CVD) is the decreased ability to see color or differences in color, specifically hue.
+Colour blindness (or colour vision deficiency, CVD) is the decreased ability to see colour or differences in colour, specifically hue.
 
 The most common is less distinction on red-green (deuteranomaly or protanomaly) or blue-yellow (tritanomaly) axis. Red green affects about 8% of males and 0.05% of females.
 
-In order to understand how colour in data visualisation is perceived by those with CVD, we should think back to the previous week's lesson on the differences between scales. The three key scales, as you'll remember, are **sequential** (for continuous data), **categorical** (for text or categories), and **diverging** (which are sequential, but with a 'midpoint'. These are affected in different ways.
+In order to understand how colour in data visualisation is perceived by those with CVD, we should think back to the previous week's lesson on the differences between scales. The three key scales, as you'll remember, are **sequential** (for continuous data), **categorical** (for text or categories), and **diverging** (which is sequential, but with a 'midpoint'). These are affected in different ways.
 
-#### Sequential color scales
+#### Sequential colour scales
 
-**Sequential color scales** are affected the least, because they are generally made up of a single hue. However, the default blue color scale provided by ggplot is not terribly good for those with general sight impairments - the 'Viridis' color palette, which we have used last week, is a good alternative choice as it is easier to distinguish differences. Another option is to apply a gradient scale, running from one distinct colour to another.
+**Sequential colour scales** are affected the least, because they are generally made up of a single hue. However, the default blue colour scale provided by ggplot is not terribly good for those with general sight impairments - the 'Viridis' colour palette, which we used earlier in the course, is a good alternative choice as it is easier to distinguish differences. Another option is to apply a gradient scale, running from one distinct colour to another.
 
 ![](images/38_accessibility/02.png){width="400"}
 
@@ -59,11 +59,11 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = b
 
 ```
 
-#### Diverging color scale
+#### Diverging colour scale
 
-A special type of gradient is a 'diverging' color palette, where third color is used as a midpoint.
+A special type of gradient is a 'diverging' colour palette, where a third colour is used as a midpoint.
 
-In both these cases, we should be mindful of using problematic color pairs. Red-green diverging, in particular, should be replaced with another color scale.
+In both these cases, we should be mindful of using problematic colour pairs. Red-green diverging, in particular, should be replaced with another colour scale.
 
 ![](images/38_accessibility/03.png){width="450"}
 
@@ -89,11 +89,11 @@ states_map |>
 
 ```
 
-#### Categorical color scales
+#### Categorical colour scales
 
-Finally, categorical color schemes (where the data is unordered, usually for categories or text), use a palette of distinct colors specifically chosen to be safe for color vision deficiency. You can find a set of built-in palettes on the [ColorBrewer website](https://colorbrewer2.org/). Select 'qualitative' and tick the 'color-blind safe' checkbox. The three remaining palettes are 'Dark2', 'Set2', and 'Paired'.
+Finally, categorical colour schemes (where the data is unordered, usually for categories or text), use a palette of distinct colours specifically chosen to be safe for colour vision deficiency. You can find a set of built-in palettes on the [ColorBrewer website](https://colorbrewer2.org/). Select 'qualitative' and tick the 'color-blind safe' checkbox. The three remaining palettes are 'Dark2', 'Set2', and 'Paired'.
 
-**Try it yourself:** To choose a specific palette for a categorical value (such as species, in this case), use `scale_color_distiller()` and specify the palette from the list of color blind safe above.
+**Try it yourself:** To choose a specific palette for a categorical value (such as species, in this case), use `scale_color_brewer()` and specify the palette from the list of colour blind safe above.
 
 ```{webr-r}
 
@@ -104,7 +104,7 @@ ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = s
 
 ### Contrast
 
-Another important thing to take into account is contrast. Contrast can be defined as the difference in perceived luminance between two colors. Higher contrasts are easier to perceive for everybody, particularly those with sight impairments.
+Another important thing to take into account is contrast. Contrast can be defined as the difference in perceived luminance between two colours. Higher contrasts are easier to perceive for everybody, particularly those with sight impairments.
 
 For example, in comparison to a white background (the most commonly-used colour):
 
@@ -114,9 +114,9 @@ Pure green has a ratio of 1.4:1 (very low)
 
 Pure blue has a ratio of 8.6:1 (quite high).
 
-Again, think about this when designing color schemes.
+Again, think about this when designing colour schemes.
 
-For instance, try not to use colors with a low contrast ratio, particularly against a white background. By default, ggplot2 uses a grey background, but often white is a requirement or desired for design choices.
+For instance, try not to use colours with a low contrast ratio, particularly against a white background. By default, ggplot2 uses a grey background, but often white is a requirement or desired for design choices.
 
 **Try it yourself:** use scales to pick more suitable colours for the plot below.
 
@@ -146,7 +146,7 @@ In the previous chapter we learned how to customise 'non-data elements' (titles,
 
 ## Alt-text
 
-A final consideration, particularly when making charts which are to be viewed online, is to take into account readers who use screen-reading software. We should aim to provide **alt-text** for images, which will be read out loud by screen readers. In doing so, you should aim to summarize the visual elements and key points of the chart.
+A final consideration, particularly when making charts which are to be viewed online, is to take into account readers who use screen-reading software. We should aim to provide **alt-text** for images, which will be read out loud by screen readers. In doing so, you should aim to summarise the visual elements and key points of the chart.
 
 ### **Alt Text defined [from Webaim](https://webaim.org/techniques/alttext/):**
 
@@ -190,7 +190,7 @@ To add alt-text to R Markdown files, switch to the Source editor in Posit Cloud/
 
 We can add what are known as 'cell options', which allow us to edit how the result of a code cell is displayed in the knitted markdown file. In R Markdown, enter your code cell options between the first set of curly brackets, after the r. Leave a space, then each option, an equal sign, and the required value. Leave a comma in between each option.
 
-You can use this to change the figure width and height in the output (`fig.width` and `fig.height`), whether or not the code is displayed in the finished file (`echo=false)`, and many more.
+You can use this to change the figure width and height in the output (`fig.width` and `fig.height`), whether or not the code is displayed in the finished file (`echo=false`), and many more.
 
 Alt-text can be added to a generated figure from a code cell using the cell option `fig.alt`. The screenshot below shows how it should be added to a code cell:
 

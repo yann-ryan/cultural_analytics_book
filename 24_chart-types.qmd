@@ -158,7 +158,7 @@ ggplot(aes(x = lifeExp, y = gdpPercap, size = pop,shape = continent)) +
   geom_point()
 ```
 
-::: callout:hint
+::: {.callout-tip}
 ## More on shapes
 
 Notice that shapes 21 through 25 are blue with a black outline? Using these allows you to set the outline and the fill of a shape separately. If you set the shape to one of these, you can now use `colour =` to set the outline and `fill =` to set the inside colour, resulting in a 'bubble chart'.
@@ -202,7 +202,7 @@ Draw a similar plot, for a country in the dataset of your choice.
 
 #### Colour
 
-You can set line color:
+You can set line colour:
 
 ::: callout-tip
 You can choose from a huge number of colours in your charts. A lot of colours have specific names, which are all listed [here](https://r-charts.com/colors/). Alternatively, you can choose colours using HEX codes: put \# before the code and add it as normal.
@@ -273,7 +273,7 @@ Draw a chart combining a bar and a line plot, using the data fields of your choi
 
 ```
 
-# Other geoms
+## Other geoms
 
 ## Statistical chart types
 
@@ -293,7 +293,7 @@ gapminder_df |>
 
 The code for a histogram looks a little different than usual. We only set the `x` variable - the y position will be automatically calculated when it does the statistical transformation.
 
-Second, you'll notice a message: `stat_bin()` using `bins = 30`. Pick better value with `binwidth` underneath the plot. Ggplot automatically divides the data into 30 equal-sized bins by default, but this is often not the clearest way to represent the distribution. We can choose either another number of bins with the argument `bins =`, or choose how big each range should be with the code `binwidth =`.
+Second, you'll notice a message underneath the plot: `` `stat_bin()` using `bins = 30`. Pick better value with `binwidth`. `` Ggplot automatically divides the data into 30 equal-sized bins by default, but this is often not the clearest way to represent the distribution. We can choose either another number of bins with the argument `bins =`, or choose how big each range should be with the code `binwidth =`.
 
 ```{webr-r}
 
@@ -356,12 +356,12 @@ Why have I used `+ 2000` and `round()` here?
 As well as these geoms which create recognisable chart types, it's also useful to know that you can essentially create almost anything by using ggplot to draw shapes either with data or with absolute values. For example, you can make a 'lollipop chart' with a combination of `geom_segment` and `geom_point`, such as here to show the change in GDP from 2002 to 2007:
 
 ```{webr-r}
-gapminder_df |> 
+gapminder_df |>
   filter(year %in% c(2002, 2007)) |>
   filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
-  count(year, country, wt = gdpPercap) |> 
-  pivot_wider(names_from = year, values_from = n)  |>
-  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) + 
+  select(year, country, gdpPercap) |>
+  pivot_wider(names_from = year, values_from = gdpPercap)  |>
+  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) +
   geom_segment() +
   geom_point(size=3) +
   geom_point(aes(y = `2007`), size=3)+

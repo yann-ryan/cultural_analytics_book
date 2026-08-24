@@ -19,7 +19,7 @@ webr:
 
 ## Dataframes
 
-One of the data types that we can work with in R is a **dataframe**. This in a object with rows and columns, like a spreadsheet in Microsoft Excel or Google Sheets.
+One of the data types that we can work with in R is a **dataframe**. This is an object with rows and columns, like a spreadsheet in Microsoft Excel or Google Sheets.
 
 Almost all structured data comes in this form, and for the rest of the course the datasets we'll work with will all be dataframes. Later, you'll learn how to import dataframes from your computer or online sources. For now, we'll work with a dataframe which has been loaded into the memory of the programming language in this book.
 
@@ -127,13 +127,13 @@ It's good to familiarise yourself with how a function looks and how you can use 
 
 ![](images/06_data-analysis-1/01.png)
 
-Different functions will need different instructions, depending on what they do. The code above runs the filter() function on the dataset `titanic_df`, with the instruction that the data in the `Age` column should equal 50.
+Different functions will need different instructions, depending on what they do. The code above runs the filter() function on the dataset `titanic_df`, with the instruction that the data in the `age` column should equal 50.
 
 Here is another example:
 
 ![](images/06_data-analysis-1/02.png)
 
-Here, we use the function `slice_max` on the dataframe `titanic_df` (we'll learn what this does later). This time we have to set two parameters. Parameters have specific names and we set their values using an single equal sign. Here, we have to set the `order_by` parameter, which we have set to the column `Age`, and we have to set the `n` parameter, which we set to `10`.
+Here, we use the function `slice_max` on the dataframe `titanic_df` (we'll learn what this does later). This time we have to set two parameters. Parameters have specific names and we set their values using an single equal sign. Here, we have to set the `order_by` parameter, which we have set to the column `age`, and we have to set the `n` parameter, which we set to `10`.
 
 ::: callout-warning
 Notice in the first function we used `Age == 50`, and in the second function we used `order_by = Age`? This is because they mean different things. In R, a double equal sign (`==`) means 'check if this is equal to'. A single equal sign (`=`) means 'set this to the value of'.

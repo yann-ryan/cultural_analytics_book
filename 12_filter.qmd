@@ -22,7 +22,7 @@ titanic_df =  read_csv('titanic_df.csv')
 
 One of the most useful things you will do in data analysis is to filter to only look at certain parts of your data. This is done with a verb called filter(). Filter is very powerful because you can set it to filter for any number of conditions or patterns.
 
-![Source: <https://allisonhorst.com/r-packages-functions>](images/12_filter/01.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads \"dplyr::mutate - add columns, keep existing.\"" width="600"}
+![Source: <https://allisonhorst.com/r-packages-functions>](images/12_filter/01.png){fig-alt="Cartoon illustrating dplyr::filter(): a fuzzy monster points at a map showing which rows of a data table (type, food, site) satisfy the condition type == \"otter\" & site == \"bay\", keeping only the matching rows and discarding the rest." width="600"}
 
 The `filter()` function keeps only certain rows in a dataframe, based on a condition which you set within the function. This is very useful when working with data visualisations, because often you will want to focus on a small amount of the data, or perhaps a single category.
 
@@ -43,7 +43,7 @@ titanic_df |>
   filter(sex == 'female') 
 ```
 
-**Try it yourself:** in the code cell below, write code to filter the `titanic_df` dataset to contain only rows where the `Embarked` column is equal to the character `Q`.
+**Try it yourself:** in the code cell below, write code to filter the `titanic_df` dataset to contain only rows where the `embarked` column is equal to the character `Q`.
 
 ```{webr-r}
 
@@ -56,7 +56,7 @@ titanic_df |>
   filter(age == 50)
 ```
 
-**Try it yourself:** With numeric columns, we can also use greater than or less than. Write code to filter the `Fare` column to be greater than 5.
+**Try it yourself:** With numeric columns, we can also use greater than or less than. Write code to filter the `fare` column to be greater than 5.
 
 ```{webr-r}
 

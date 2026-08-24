@@ -4,9 +4,9 @@ title: "Home Exercise"
 
 ## Instructions
 
-The at-home exercises should be completed using Posit cloud, Home Exercise 5. Create a new .Rmd file (use File -\> New File -\> R Markdown.
+The at-home exercises should be completed using Posit cloud, Home Exercise 7. Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
-I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: lastname_firstname5. Regularly re-save the file.
+I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_7_lastname_firstname. Regularly re-save the file.
 
 When you have finished the exercise (or part of it), 'knit' the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.
 
@@ -51,7 +51,7 @@ plot_df |>
 
 The editor gets back to you and says it's great (phew!), but requests that you make the chart more accessible, particularly for those with vision impairments, but generally just easier to read in a small online format.
 
--   Start by saving the image and uploading to a [CVD simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/) Do you think the colour combination would be difficult to distinguish for any types of CVD?
+-   Start by saving the image and uploading to a [CVD simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/). Do you think the colour combination would be difficult to distinguish for any types of CVD?
 
 Copy and paste the code for the chart into a new cell and make adjustments.
 

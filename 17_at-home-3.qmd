@@ -4,9 +4,9 @@ title: "Home exercises"
 
 ## Instructions
 
-The at-home exercises should be completed using Posit cloud. Open the new assignment 'Home Exercise 3'. Create a new .Rmd file (use File -\> New File -\> R Markdown.
+The at-home exercises should be completed using Posit cloud. Open the new assignment 'Home Exercise 3'. Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
-I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: lastname_firstname3. Regularly re-save the file.
+I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_3_lastname_firstname. Regularly re-save the file.
 
 When you have finished the exercise (or part of it), 'knit' the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.
 

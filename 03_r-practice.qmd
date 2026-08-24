@@ -1,5 +1,5 @@
 ---
-title: "Practice the basics"
+title: "Practise the basics"
 ---
 
 ## Arithmetic and Variables

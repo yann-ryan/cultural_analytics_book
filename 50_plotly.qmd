@@ -12,12 +12,39 @@ In R, we can use a library called plotly to easily turn our visualisations inter
 
 First, create a regular ggplot plot. Importantly, you should name this plot in your environment by setting a name followed by `=`.
 
-We'll remove some unnecessary elements, such as the labels and lines, but leave in the colored extra line and the titles.
+We'll highlight a single country against the rest, and keep the titles and labels, but leave off any extra annotations - plotly's own hover tooltips will do that job for us.
 
-`{r} p = ggplot() +      geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +   geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') +    labs(title = "Asylum seekers to Germany\nby country of origin",         subtitle = "2000-2020 inclusive",         caption = "Data from https://www.unhcr.org/refugee-statistics/",        x = NULL,        y = "Number seeking asylum") +    theme(axis.title = element_text(size = 16))}`
+```{r}
+#| message: false
+#| warning: false
 
-Now, load the library plotly. If it's not installed, install using \`install.packages('plotly').
+library(tidyverse)
+
+gapminder_df = read_tsv('gapminder_df.csv') |> filter(continent != 'FSU')
+
+europe_df = gapminder_df |> filter(continent == 'Europe')
+netherlands_df = gapminder_df |> filter(country == 'Netherlands')
+
+p = ggplot() +
+  geom_line(data = europe_df, aes(x = year, y = gdpPercap, group = country), alpha = .5) +
+  geom_line(data = netherlands_df, aes(x = year, y = gdpPercap), linewidth = 1.5, color = 'forestgreen') +
+  labs(title = "GDP per Capita in Europe",
+       subtitle = "1952-2007, Netherlands highlighted",
+       caption = "Data from the Gapminder Foundation",
+       x = NULL,
+       y = "GDP per capita") +
+  theme(axis.title = element_text(size = 16))
+```
+
+Now, load the library plotly. If it's not installed, install using `install.packages('plotly')`.
 
 You can make plots directly in plotly using this syntax, or you can use a function called `ggplotly()` to automatically convert your static chart. Simply pass your chart name to the function:
 
-`{r} library(plotly)  ggplotly(p)}`
+```{r}
+#| message: false
+#| warning: false
+
+library(plotly)
+
+ggplotly(p)
+```

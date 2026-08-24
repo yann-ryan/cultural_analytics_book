@@ -111,7 +111,7 @@ Adding each layer (anything after a + sign) on a new line makes the code easier 
 
 Each chart type will allow you to manipulate different aesthetics, depending on what makes sense for that particular shape. If you are working in Posit/RStudio, you can check all of the options for a function by typing `?` before it, e.g. `?geom_col`, in to the console (the bottom left pane).
 
-For `geom_col`, we *have to* set `x` and `y` and we can *optionally* set `alpha` (the transparency), `colour` (the color of the outline of the bars), `fill` (the color of the inside of the bars), and `linetype` and `linewidth` (allowing you to customise the look of the outline further.
+For `geom_col`, we *have to* set `x` and `y` and we can *optionally* set `alpha` (the transparency), `colour` (the colour of the outline of the bars), `fill` (the colour of the inside of the bars), and `linetype` and `linewidth` (allowing you to customise the look of the outline further).
 
 #### Within aes() or outside aes()?
 

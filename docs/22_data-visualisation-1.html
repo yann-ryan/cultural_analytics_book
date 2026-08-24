@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -724,7 +724,7 @@ Note
 <p>You can view the code I’ve used to make the plots, which might be useful later, as a reference.</p>
 <section id="position" class="level4">
 <h4 class="anchored" data-anchor-id="position">Position</h4>
-<p>All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the GDP per capita on the x axis and the life expectancy on the y axis.</p>
+<p>All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the life expectancy on the x axis and the GDP per capita on the y axis.</p>
 <p>The resulting <em>scatterplot</em> shows the relationship between the two variables. It’s not linear, but in general, the higher the GDP, the higher the life expectancy.</p>
 <div class="cell">
 <details class="code-fold">
@@ -825,11 +825,10 @@ Note
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gapminder_df <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Netherlands'</span>, <span class="st">'France'</span>, <span class="st">"Germany"</span>, <span class="st">"Italy"</span>, <span class="st">"Belgium"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(year, country, <span class="at">wt =</span> lifeExp) <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n, <span class="at">linetype =</span> country)) <span class="sc">+</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Life Expectancy"</span>, <span class="at">subtitle =</span> <span class="st">"Select Countries, 1952 - 2007"</span>) <span class="sc">+</span> </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp, <span class="at">linetype =</span> country)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Life Expectancy"</span>, <span class="at">subtitle =</span> <span class="st">"Select Countries, 1952 - 2007"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>

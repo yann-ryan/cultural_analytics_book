@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -677,7 +677,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">'bornLong'</span>,<span class="st">'bornLat'</span> ), </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">crs =</span> <span class="dv">4326</span>,<span class="at">na.fail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The argument <code>coords =</code> needs the names of the longitude and latitude columns, in the correct order. They should be given in a vector (surrounded by <code>c()</code>. Next we specify the Coordinate Reference System using <code>crs =</code>. We’ll use the CRS 4326, which is a very widely used one. Last, we need to specify that it should ignore missing values, with the code <code>na.fail =FALSE</code>. Otherwise, it would give an error if we have any missing coordinates.</p>
+<p>The argument <code>coords =</code> needs the names of the longitude and latitude columns, in the correct order. They should be given in a vector (surrounded by <code>c()</code>). Next we specify the Coordinate Reference System using <code>crs =</code>. We’ll use the CRS 4326, which is a very widely used one. Last, we need to specify that it should ignore missing values, with the code <code>na.fail =FALSE</code>. Otherwise, it would give an error if we have any missing coordinates.</p>
 </section>
 <section id="map-with-ggplot-and-geom_sf" class="level3">
 <h3 class="anchored" data-anchor-id="map-with-ggplot-and-geom_sf">Map with ggplot and geom_sf</h3>
@@ -722,7 +722,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>summarised_data <span class="ot">=</span> nobel_laureates_sf <span class="sc">|&gt;</span> <span class="fu">group_by</span>(bornCity_now, category) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can specify the color using color = within the aes(), as with size. However, we will also run into the problem of points being invisible because others are drawn on top of them. One trick to fix this is to set the transparency of the points to a value lower than one, <code>using alpha =</code>. In this case, <code>alpha =</code> should <em>not</em> go within the aes(), because we want to set all points to a single value.</p>
+<p>We can specify the colour using color = within the aes(), as with size. However, we will also run into the problem of points being invisible because others are drawn on top of them. One trick to fix this is to set the transparency of the points to a value lower than one, <code>using alpha =</code>. In this case, <code>alpha =</code> should <em>not</em> go within the aes(), because we want to set all points to a single value.</p>
 <p><code>show.legend = "point"</code> is necessary to tell ggplot how it should draw the legend, for some technical reason (because it’s not exactly a point but a geographic object, so it works slightly differently).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
@@ -809,7 +809,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Using the <a href="https://ec.europa.eu/eurostat/data/database">eurosat database</a>, choose a dataset to visualise. You want to choose something from Detailed datasets -&gt; General and Regional Statistics -&gt; Regional statistics by NUTS classification (reg), as in the screenshot here:</p>
 <p><img src="images/47_points-map/01.png" class="img-fluid"></p>
 <ul>
-<li><p>Download a shapefile of the NUTS regions from the <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics">official EU site</a>. Choose the least-detailed scale so you don’t run into computer memory problems. Select the ESPG: 4326 CRS.</p></li>
+<li><p>Download a shapefile of the NUTS regions from the <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics">official EU site</a>. Choose the least-detailed scale so you don’t run into computer memory problems. Select the EPSG: 4326 CRS.</p></li>
 <li><p>Upload these files to Posit cloud (or keep on your local machine if you’re running R there).</p></li>
 <li><p>Make a map. Start by selecting a single year and shading each region by the colour of your dataset.</p></li>
 </ul>
@@ -818,7 +818,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Use a fill colour palette which more easily distinguishes the lower and higher values.</p></li>
 <li><p>Use theming to remove unwanted elements of the map.</p></li>
 <li><p>Adjust the coordinate limits to focus on the main region of Europe, ignoring the Atlantic islands.</p></li>
-<li><p>The map looks a little strange with missing regions and countries (i.e the UK). How could we solve this, so they are at least present, but perhaps grayed out?</p></li>
+<li><p>The map looks a little strange with missing regions and countries (i.e the UK). How could we solve this, so they are at least present, but perhaps greyed out?</p></li>
 <li><p><strong>Try this extra challenge:</strong> make a version which creates a series of mini-maps, one for each year in the data. To do this you’ll need to <code>pivot</code> your data so that it is in a ‘long’ format, with each data point for each year in a single row, and use a function called <code>facet_wrap()</code>.</p></li>
 </ul>
 

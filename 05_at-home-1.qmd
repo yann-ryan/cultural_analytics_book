@@ -4,7 +4,7 @@ title: "Home exercises"
 
 ## Instructions
 
-The at-home exercises should be completed using Posit cloud. Log in to your Posit account and open the project `Home Exercise 1`. Create a new .Rmd file (use File -\> New File -\> R Markdown.
+The at-home exercises should be completed using Posit cloud. Log in to your Posit account and open the project `Home Exercise 1`. Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
 I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_1_lastname_firstname. Regularly re-save the file.
 
@@ -29,18 +29,18 @@ The largest size (a single fold) was called *folio*, followed by *quarto*, *octa
 ::: callout-note
 ## Why does this matter?
 
-In the study of the book (bibliography), determing the format is important: folio-sized books were reserved for important and expensive publications which were meant to last. In a real-world example, we could do this on a large dataset of information from a book catalogue, to look for patterns and changes over time. In that case, we would usually do a similar calculation, but over a whole column of numbers.
+In the study of the book (bibliography), determining the format is important: folio-sized books were reserved for important and expensive publications which were meant to last. In a real-world example, we could do this on a large dataset of information from a book catalogue, to look for patterns and changes over time. In that case, we would usually do a similar calculation, but over a whole column of numbers.
 :::
 
 </div>
 
 #### Steps
 
-1.  In a first code cell, create two variables, called `book_height` and `book_width`. Set each to a number: make up some realistic values for book height and width in milimetres.
+1.  In a first code cell, create two variables, called `book_height` and `book_width`. Set each to a number: make up some realistic values for book height and width in millimetres.
 
 2.  In a new code cell, write code that will multiply them together, and save this as a variable `book_area`.
 
-3.  Now, let's calculate the area of a typical folio book. A full sheet of paper measured 500 x 740 mm. In a new code cell, write code to calculate the area, in millimeters squared, of a folio page (**remember the full sheet of paper is also folded in half to make the page**).
+3.  Now, let's calculate the area of a typical folio book. A full sheet of paper measured 500 x 740 mm. In a new code cell, write code to calculate the area, in millimetres squared, of a folio page (**remember the full sheet of paper is also folded in half to make the page**).
 
 Any book which has an area equal or larger than this is considered folio size.
 
@@ -51,9 +51,9 @@ See below for the answer if you get stuck:
 ```{r}
 #| code-fold: true
 
-book_height <- 500
+book_height <- 250
 
-book_width <- 700
+book_width <- 180
 
 book_area <- book_height * book_width
 
@@ -84,5 +84,3 @@ The easiest way to compare two vectors is to use another command, `%in%`. This e
 
 e.g., `vector_1 %in% vector_2`
 :::
-
-#### 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img" aria-label="A simple vector map showing country borders as dashed lines, a river as a blue line, and cities as points">
+  <rect x="0" y="0" width="480" height="320" fill="#f5f3ee" stroke="#ccc" stroke-width="1"/>
+
+  <!-- Country borders (polygons) -->
+  <path d="M 20 30 L 230 20 L 250 150 L 180 300 L 40 280 Z"
+        fill="none" stroke="#8a6d3b" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M 250 150 L 460 40 L 450 290 L 180 300 Z"
+        fill="none" stroke="#8a6d3b" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- River (line) -->
+  <path d="M 60 40 C 100 90, 140 120, 160 170 S 220 250, 260 290"
+        fill="none" stroke="#4a90d9" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Cities (points) -->
+  <circle cx="120" cy="90" r="6" fill="#c0392b"/>
+  <circle cx="210" cy="180" r="6" fill="#c0392b"/>
+  <circle cx="330" cy="120" r="6" fill="#c0392b"/>
+  <circle cx="370" cy="230" r="6" fill="#c0392b"/>
+  <circle cx="90" cy="230" r="6" fill="#c0392b"/>
+
+  <!-- Legend -->
+  <g font-family="sans-serif" font-size="14" fill="#333">
+    <line x1="30" y1="290" x2="55" y2="290" stroke="#8a6d3b" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="62" y="295">country border</text>
+
+    <line x1="180" y1="290" x2="205" y2="290" stroke="#4a90d9" stroke-width="3"/>
+    <text x="212" y="295">river</text>
+
+    <circle cx="290" cy="290" r="6" fill="#c0392b"/>
+    <text x="304" y="295">city</text>
+  </g>
+</svg>

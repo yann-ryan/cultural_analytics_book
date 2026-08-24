@@ -36,7 +36,7 @@ It can have different geographic units in *different* columns, for example one c
 
 ### 3: Find and read in a shapefile
 
-You need to find a map containing features which correspond to the geographic unit you are going to use in your data. If you have a dataset where information is recorded on the country level, you'll need a world map in which each feature is a country (as the one we used last week from R Natural Earth.
+You need to find a map containing features which correspond to the geographic unit you are going to use in your data. If you have a dataset where information is recorded on the country level, you'll need a world map in which each feature is a country (as the one we used last week from R Natural Earth).
 
 If you have more specific geographic data, you'll probably need to find a corresponding file storing geographic information. There are many different formats which store this information, and it's important to know how to find suitable ones and read them into R. Two of the most common are **shapefiles** and **geoJSON.** There are also formats which package together multiple layers of geographic information, for example **GeoPackage (.gpkg).**
 
@@ -169,4 +169,4 @@ Now, you can make a map! Remember to use aes() and fill = to specify how ggplot 
 
 Now, make edits to your map to make it more readable and looking better aesthetically. You'll probably want to adjust the limits and projection of the map using `coord_sf`, and experiment with the scale using `scale_fill_`. You could also think about binning the colors (often it's easier to interpret specific colors on maps rather than a continuous scale). This is the point where you will need to use `facet_wrap()` to draw maps separately, if you went down this route.
 
-You could also add a map scale bar and a compass using the package ggsn (you'll need to install it separately using `install.packages()`.
+You could also add a map scale bar and a compass using the package ggsn (you'll need to install it separately using `install.packages()`).

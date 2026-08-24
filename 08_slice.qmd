@@ -65,7 +65,7 @@ slice_min(titanic_df, order_by = age, n = 10)
 Another useful `slice_` function is `slice_sample()`, which picks a random sample of your data.
 :::
 
-**Try it yourself:** Use a slice\_ function to find the five **oldest** passengers (look at how we used `select()` on the previous page to figure out how to do this).
+**Try it yourself:** Use a slice\_ function to find the five **oldest** passengers (look at how we used `slice_min()` above to figure out how to do this).
 
 ```{webr-r}
 

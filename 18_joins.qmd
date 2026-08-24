@@ -23,7 +23,7 @@ locations_df = tribble(
 )
 ```
 
-### left_join(), inner_join(), anti_join()
+### left_join(), right_join(), inner_join()
 
 Another set of commands we'll use quite often in this course are the `join()` 'family'. Joins are a very powerful but simple way of selecting certain subsets of data, and adding information from multiple tables together.
 

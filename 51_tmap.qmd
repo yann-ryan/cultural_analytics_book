@@ -86,7 +86,7 @@ The following code only works in RStudio so it is static in the book:
 
 -   `tm_shape()` is more or less the equivalent of `ggplot()`: it's the 'base' of the map, where we specify which shapefile should be used. On top of this we add layers, such as polygons or points, and also additional map elements such as a legend, scale, projection, and so forth. We can also add additional `tm_shape()` layers.
 
--   Add the `tm_polygons()` layer which will draw polygon shapes on the map based on the shapefile. Set the `col` to the `income_grp` column. Note the difference from ggplot - where we would set the `fill`, and the column name would *not* be in quotation marks. Set the `id` which will determine which column is used to display text with a mouse hover.
+-   Add the `tm_polygons()` layer which will draw polygon shapes on the map based on the shapefile. Set the `fill` to the `income_grp` column, in quotation marks (just as with ggplot, `fill` is the argument for the shaded area of a polygon; `col` is reserved for the border colour). Set the `id` which will determine which column is used to display text with a mouse hover.
 
 -   Add a `tm_view()` layer, which allows us to set options for the interactive viewer. Add a vector of three numbers: the starting latitude and longitude, and the zoom level.
 

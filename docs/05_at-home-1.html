@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -646,7 +646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<p>The at-home exercises should be completed using Posit cloud. Log in to your Posit account and open the project <code>Home Exercise 1</code>. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown.</p>
+<p>The at-home exercises should be completed using Posit cloud. Log in to your Posit account and open the project <code>Home Exercise 1</code>. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).</p>
 <p>I advise saving the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: exercise_1_lastname_firstname. Regularly re-save the file.</p>
 <p>When you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.</p>
 <section id="exercise-1-work-with-variables-and-mathematical-operations" class="level3">
@@ -674,16 +674,16 @@ Why does this matter?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In the study of the book (bibliography), determing the format is important: folio-sized books were reserved for important and expensive publications which were meant to last. In a real-world example, we could do this on a large dataset of information from a book catalogue, to look for patterns and changes over time. In that case, we would usually do a similar calculation, but over a whole column of numbers.</p>
+<p>In the study of the book (bibliography), determining the format is important: folio-sized books were reserved for important and expensive publications which were meant to last. In a real-world example, we could do this on a large dataset of information from a book catalogue, to look for patterns and changes over time. In that case, we would usually do a similar calculation, but over a whole column of numbers.</p>
 </div>
 </div>
 </div>
 <section id="steps" class="level4">
 <h4 class="anchored" data-anchor-id="steps">Steps</h4>
 <ol type="1">
-<li><p>In a first code cell, create two variables, called <code>book_height</code> and <code>book_width</code>. Set each to a number: make up some realistic values for book height and width in milimetres.</p></li>
+<li><p>In a first code cell, create two variables, called <code>book_height</code> and <code>book_width</code>. Set each to a number: make up some realistic values for book height and width in millimetres.</p></li>
 <li><p>In a new code cell, write code that will multiply them together, and save this as a variable <code>book_area</code>.</p></li>
-<li><p>Now, let’s calculate the area of a typical folio book. A full sheet of paper measured 500 x 740 mm. In a new code cell, write code to calculate the area, in millimeters squared, of a folio page (<strong>remember the full sheet of paper is also folded in half to make the page</strong>).</p></li>
+<li><p>Now, let’s calculate the area of a typical folio book. A full sheet of paper measured 500 x 740 mm. In a new code cell, write code to calculate the area, in millimetres squared, of a folio page (<strong>remember the full sheet of paper is also folded in half to make the page</strong>).</p></li>
 </ol>
 <p>Any book which has an area equal or larger than this is considered folio size.</p>
 <ol start="4" type="1">
@@ -693,9 +693,9 @@ Why does this matter?
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>book_height <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>book_height <span class="ot">&lt;-</span> <span class="dv">250</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>book_width <span class="ot">&lt;-</span> <span class="dv">700</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>book_width <span class="ot">&lt;-</span> <span class="dv">180</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>book_area <span class="ot">&lt;-</span> book_height <span class="sc">*</span> book_width</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -704,7 +704,7 @@ Why does this matter?
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>book_area <span class="sc">&gt;=</span> folio_area <span class="co"># check if book area is greater than or equal to folio_area.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] FALSE</code></pre>
 </div>
 </div>
 </section>
@@ -747,11 +747,8 @@ Tip
 <p>e.g., <code>vector_1 %in% vector_2</code></p>
 </div>
 </div>
-<section id="section" class="level4">
-<h4 class="anchored" data-anchor-id="section"></h4>
 
 
-</section>
 </section>
 </section>
 

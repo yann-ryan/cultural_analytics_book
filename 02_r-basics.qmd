@@ -123,7 +123,7 @@ x <- 10
 Don't forget to run the code! If you don't, the variable will not be assigned and you won't be able to use it later!
 :::
 
-**Try it yourself:** In this next box, create a variable called `y` with the value `5`. You need to run the code in order for it to actually create the variable .
+**Try it yourself:** In this next box, create a variable called `y` with the value `5`. You need to run the code in order for it to actually create the variable.
 
 ```{webr-r}
 
@@ -133,13 +133,12 @@ Don't forget to run the code! If you don't, the variable will not be assigned an
 Now, instead of doing arithmetic directly on numbers, we can do it on these named variables:
 
 ```{webr-r}
-#| eval: false
 
 x * y
 
 ```
 
-You can change the value of a variable by simpy assigning it to a new value - it will be replaced in the memory with this new value.
+You can change the value of a variable by simply assigning it to a new value - it will be replaced in the memory with this new value.
 
 The concept of assigning variables is important, because we will often use it: as well as numbers, variables can also be vectors, strings, or dataframes (which we'll learn about below).
 
@@ -347,4 +346,3 @@ Before moving on, take a look and see if you are confident with all of the follo
 -   [ ] Know how to check conditions:
 -   [ ] Equals (numbers and text), greater than, less than, greater than or equal to
 -   [ ] Do the same but with vectors
--   [ ] Know what data types are

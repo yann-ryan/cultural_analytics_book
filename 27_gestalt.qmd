@@ -2,7 +2,7 @@
 title: "Gestalt Principles"
 ---
 
-There are some formal theories or methods which can help with understanding how and why data visualisation works in a broad sense. Two useful frameworks are **gestalt principles** and **pre-attentive attributes**
+There are some formal theories or methods which can help with understanding how and why data visualisation works in a broad sense. Two useful frameworks are **gestalt principles** and **pre-attentive attributes**.
 
 ## Gestalt Principles
 
@@ -10,7 +10,7 @@ Gestalt principles were developed from the late 1800s and could be considered pa
 
 In other words, we simplify our visual stimuli in order to make sense of what we are seeing, and the wider world.
 
-The developers of Gestalt boiled this down to a series of principles, which they say govern how we do this simplifcation. The data visusalisation types and default settings we use naturally use these principles - we don't need to actively think about them most of the time. However, it's worth understanding them to have some kind of theory as to why data visualisation works.
+The developers of Gestalt boiled this down to a series of principles, which they say govern how we do this simplification. The data visualisation types and default settings we use naturally use these principles - we don't need to actively think about them most of the time. However, it's worth understanding them to have some kind of theory as to why data visualisation works.
 
 The principles which apply particularly to data visualisation are:
 
@@ -91,9 +91,8 @@ gapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')
 
 gapminder_df |>
   filter(country == 'Netherlands') |>
-  count(year, wt = gdpPercap) |>
-  ggplot() + 
-  geom_line(aes(x = year, y = n), linetype = 'dashed') + 
+  ggplot() +
+  geom_line(aes(x = year, y = gdpPercap), linetype = 'dashed') +
   labs(title = "GDP Per Capita", subtitle = "Netherlands, 1952 - 2007") + theme_bw()
 
 
@@ -108,9 +107,8 @@ gapminder_df |>
 
 gapminder_df |>
   filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
-  count(year, country, wt = lifeExp) |>
-  ggplot() + 
-  geom_line(aes(x = year, y = n, color = country)) + 
+  ggplot() +
+  geom_line(aes(x = year, y = lifeExp, color = country)) +
   labs(title = "Life Expectancy", subtitle = "Select Countries, 1952 - 2007") + theme_bw()
 
 ```
@@ -129,8 +127,8 @@ This principle states that if objects are connected, we perceive them as a unifi
 
 gapminder_df |> filter(year %in% c(2002, 2007)) |>
   filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
-  count(year, country, wt = gdpPercap) %>% pivot_wider(names_from = year, values_from = n)  %>% 
-  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) + 
+  select(year, country, gdpPercap) %>% pivot_wider(names_from = year, values_from = gdpPercap)  %>%
+  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) +
   geom_segment( color="grey", linetype = 'dashed') +
   geom_point(color=rgb(0.2,0.7,0.1,0.5), size=3 ) +
   geom_point(aes(y = `2007`), color=rgb(0.7,0.2,0.1,0.5), size=3 )+
@@ -142,6 +140,14 @@ gapminder_df |> filter(year %in% c(2002, 2007)) |>
   labs(title = "Change in GDP per Capita", subtitle = "2002 to 2007")
 
 ```
+
+## Pre-attentive attributes
+
+The second framework mentioned at the start of this chapter is **pre-attentive attributes**. These are visual properties that our brains process automatically and almost instantly (in well under half a second), before we consciously focus our attention on them - long before we could read a label or count individual items.
+
+Attributes such as colour, size, orientation, and motion are all processed pre-attentively. This is why a single red point among a field of grey ones seems to 'pop out' immediately, without you needing to scan the image - our visual system detects this kind of difference automatically.
+
+This is directly useful for data visualisation: if you want a viewer to notice something at a glance, map it to a pre-attentive attribute (like colour or size), rather than relying on something that requires careful, conscious reading (like a small text label).
 
 ## Exercise
 

@@ -54,7 +54,7 @@ For the rest of this course, the code will be written using the pipe command. I 
 
 Use `select()`, `slice()` and `arrange()` (and the pipe operator) to do the following:
 
--   In one operation, slice the titanic_df dataframe to keep only the hundred oldest passengers, put them in order of the fare they paid (in descending order), and select only the Name, Age, and Fare columns.
+-   In one operation, slice the titanic_df dataframe to keep only the hundred oldest passengers, put them in order of the fare they paid (in descending order), and select only the name, age, and fare columns.
 
 ```{webr-r}
 

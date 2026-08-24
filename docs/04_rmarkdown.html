@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -677,7 +677,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="logging-into-posit-cloud-and-opening-a-notebook." class="level3">
 <h3 class="anchored" data-anchor-id="logging-into-posit-cloud-and-opening-a-notebook.">Logging into Posit Cloud and opening a notebook.</h3>
-<p>The first step is the create an account with Posit cloud. This is a service which will allow you to load R remotely, so you can complete this practical sessions for this course (you can also use R and R studio on your local machine if you use it already).</p>
+<p>The first step is to create an account with Posit cloud. This is a service which will allow you to load R remotely, so you can complete this practical sessions for this course (you can also use R and R studio on your local machine if you use it already).</p>
 <p><img src="images/04_rmarkdown/01.png" class="img-fluid"></p>
 <p>Sign up to Posit cloud with an email address here: <a href="https://posit.cloud/plans" class="uri">https://posit.cloud/plans</a></p>
 <p>Click on ‘Learn more’ under the Free plan, and then ‘Sign up’.</p>
@@ -694,13 +694,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>This pane has a number of tabs. The default is files, which will show all the files in the current folder. You can use this to import or export additional files to R-Studio from your local machine.</p></li>
 <li><p>The console allows you to type and execute R commands directly: do this by typing here and pressing return.</p></li>
 </ol>
-<p>All four of these panes are important and worth it’s worth exploring more of the buttons and menu items. Throughout this course, you’ll complete exercises by using the source editor to edit notebooks. As you execute code in these notebooks, you’ll see objects pop into the environment pane. The console can be useful to test code that you don’t want to keep in a document. Lastly, getting to know how to use and navigate the directory structure using the files pane is essential.</p>
+<p>All four of these panes are important, and it’s worth exploring more of the buttons and menu items. Throughout this course, you’ll complete exercises by using the source editor to edit notebooks. As you execute code in these notebooks, you’ll see objects pop into the environment pane. The console can be useful to test code that you don’t want to keep in a document. Lastly, getting to know how to use and navigate the directory structure using the files pane is essential.</p>
 <p>You can play around with the R-Studio interface. Don’t worry about breaking anything, but you should regularly save your work.</p>
 </section>
 </section>
 <section id="your-derived-workspace" class="level2">
 <h2 class="anchored" data-anchor-id="your-derived-workspace">Your Derived Workspace</h2>
-<p>You can return to the workspace overview by clicking on the sidebar and on the ‘Information Visualization[…]’ menu item again.</p>
+<p>You can return to the workspace overview by clicking on the sidebar and on the ‘Information Visualisation[…]’ menu item again.</p>
 <p>If you do this, you’ll see that there are now <em>two</em> workspace items. This is because when you started the workspace, it created a ‘derived’ version - meaning it has created a unique copy for you to work with, without changing the original one.</p>
 <p>You can delete this version, copy it, or export a copy to your local machine. When you want to resume your work, you should open this copy. <strong>Please note that as the instructor, I can see and edit all the derived workspaces.</strong></p>
 <p><img src="images/04_rmarkdown/05.png" class="img-fluid"></p>
@@ -800,9 +800,9 @@ Warning
 </section>
 <section id="adding-files" class="level2">
 <h2 class="anchored" data-anchor-id="adding-files">Adding files</h2>
-<p>The last thing we’ll do is practise adding files to the Rstudio area. Most times, you’ll need to upload files to your workspace in order to work with them. First, you’ll up load them to the workspace, and second, you’ll read them into R.</p>
+<p>The last thing we’ll do is practise adding files to the Rstudio area. Most times, you’ll need to upload files to your workspace in order to work with them. First, you’ll upload them to the workspace, and second, you’ll read them into R.</p>
 <p>You could also upload other files, for example if your final project markdown includes some images not generated by code.</p>
-<p>We’ll practice this by downloading a file from Brightspace, and uploading it to Posit Cloud. This file can be found under the ‘Files’ area on the course site. Download the file ‘box_office’ to your local machine first.</p>
+<p>We’ll practise this by downloading a file from Brightspace, and uploading it to Posit Cloud. This file can be found under the ‘Files’ area on the course site. Download the file ‘box_office’ to your local machine first.</p>
 <p>To upload a file to Posit cloud, look at the file manager in the bottom-right pane. Click on ‘Upload’, and then browse to the file on your computer, and click OK. You’ll see the file appear in the file browser in a moment.</p>
 <p><img src="images/04_rmarkdown/20.png" class="img-fluid"></p>
 </section>
@@ -821,12 +821,11 @@ Warning
 <h2 class="anchored" data-anchor-id="reading-in-external-data">Reading in external data</h2>
 <p>Most of the time, you’ll be working with external data sources. These most commonly come in the form of comma separated values (.csv) or tab separated values (.tsv). The tidyverse commands to read these are <code>read_csv()</code> and <code>read_tsv</code>. You can also use <code>read_delim()</code>, and specify the type of delimited using <code>delim = ','</code> or <code>delim = '/t</code>. The path to the file is given as a string to the argument <code>file=</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">'top_movie.csv'</span>) <span class="co"># Read a .csv file as a network, specify the path to the file here.</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">'top_movie.csv'</span>) <span class="co"># Read a .csv file, specifying the path to the file here.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice that each column has a data type beside it, either <chr> for text or <dbl> for numbers. This is important if you want to sort or run calculations on the data.</dbl></chr></p>
-<p>Advanced: <code>str_¥</code></p>
 </section>
 <section id="learning-objectives-1" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives-1">Learning Objectives</h2>
@@ -1269,8 +1268,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03_r-practice.html" class="pagination-link" aria-label="Practice the basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span>
+      <a href="./03_r-practice.html" class="pagination-link" aria-label="Practise the basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

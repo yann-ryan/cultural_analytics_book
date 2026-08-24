@@ -41,7 +41,7 @@ If you look at the output of the code above, you'll see a new column, called 'pr
 
 You can also use existing functions with mutate. In our dataset, the age is given in decimal, but you want to round to the nearest whole number. There is a simple function in R called `round()` which will do this.
 
-Write code to create a new column called `age_in_years` with `mutate()`. Use the `round()` function on the `Age` column, like this:
+Write code to create a new column called `age_in_years` with `mutate()`. Use the `round()` function on the `age` column, like this:
 
 ```{webr-r}
 titanic_df |> 
@@ -78,13 +78,13 @@ titanic_df |>
 
 ### Exercises:
 
--   You've just been told that the Age in the dataset was calculated incorrectly - it was underestimated by five years. Create a new column in the dataset called corrected_age, with the new value.
+-   You've just been told that the age in the dataset was calculated incorrectly - it was underestimated by five years. Create a new column in the dataset called corrected_age, with the new value.
 
 ```{webr-r}
 
 ```
 
--   Use the Age (or age_in_years) column to calculate the approximate year of birth for passengers (the Titanic sank in 1912. You can use `round()` on your new column, or you can leave it as a decimal.
+-   Use the age (or age_in_years) column to calculate the approximate year of birth for passengers (the Titanic sank in 1912). You can use `round()` on your new column, or you can leave it as a decimal.
 
 ```{webr-r}
 

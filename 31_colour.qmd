@@ -46,7 +46,7 @@ sample_for_bar_chart |>
 
 ```
 
-The `continent` variable is categorical, so if we set it to the `fill` aesthetic, ggplot2 will pick a **discrete** scale. The default scale depends on the number of categories: up to seven, and ggplot will choose colours spaced as far apart on the [colour wheel](https://en.wikipedia.org/wiki/Color_wheel) as possible; more than that, and ggplot will use a rainbow palette.
+The `continent` variable is categorical, so if we set it to the `fill` aesthetic, ggplot2 will pick a **discrete** scale. By default, ggplot spaces the colours as evenly as possible around the [colour wheel](https://en.wikipedia.org/wiki/Color_wheel), so that each category gets as distinct a colour as possible - though as the number of categories grows, the colours inevitably become harder to tell apart, so it's worth choosing a more deliberate palette (see below) once you have more than a handful of categories.
 
 ```{webr-r}
 sample_for_bar_chart |>
@@ -64,7 +64,7 @@ This is done slightly differently depending on whether it's a continuous or disc
 
 #### Use 'built in' scales
 
-One way to alter the continuous colour scale is to specify a 'built in' one, either from ggplot2 or from another package. One example is `scale_fill_viridis_c`, which is apparently good for perception and takes into account color vision deficiencies:
+One way to alter the continuous colour scale is to specify a 'built in' one, either from ggplot2 or from another package. One example is `scale_fill_viridis_c`, which is apparently good for perception and takes into account colour vision deficiencies:
 
 ```{webr-r}
 sample_for_bar_chart |> 
@@ -75,7 +75,7 @@ sample_for_bar_chart |>
 
 #### Create a scale from a palette
 
-Use `scale_color_distiller` to specify that ggplot should take a particular palette and distribute the values evenly along it. This is the full list of palettes and their codes.
+Use `scale_fill_distiller` to specify that ggplot should take a particular palette and distribute the values evenly along it. This is the full list of palettes and their codes.
 
 ![](images/31_colour/01.png){width="500"}
 
@@ -96,7 +96,7 @@ sample_for_bar_chart |>
 
 #### Create your own continuous scale
 
-You can also 'make your own' palette. For instance, `scale_color_gradient` will create a gradient colour scale in between two colours you specify. A large list of R colour names can be found here: https://r-charts.com/colors/
+You can also 'make your own' palette. For instance, `scale_fill_gradient` will create a gradient colour scale in between two colours you specify. A large list of R colour names can be found here: https://r-charts.com/colors/
 
 ```{webr-r}
 sample_for_bar_chart |> 
@@ -105,7 +105,7 @@ sample_for_bar_chart |>
   scale_fill_gradient(low = 'firebrick', high ='gold')
 ```
 
-An alternative is to use `scale_gradient2()`, which allows you to specify 3 colours, a low, mid and high. The function will create a scale similar to above but with a specified midpoint:
+An alternative is to use `scale_fill_gradient2()`, which allows you to specify 3 colours, a low, mid and high. The function will create a scale similar to above but with a specified midpoint:
 
 ```{webr-r}
 
@@ -162,7 +162,7 @@ gapminder_df |>
   geom_point()
 ```
 
-On small tip is to replace `scale_size` with `scale_size_area()`, which ensure that values of 0 are mapped to zero. You can also set the `max_size =` argument within this scale to get a range of sizes you are happy with.
+One small tip is to replace `scale_size` with `scale_size_area()`, which ensures that values of 0 are mapped to zero. You can also set the `max_size =` argument within this scale to get a range of sizes you are happy with.
 
 ```{webr-r}
 gapminder_df |>
@@ -188,10 +188,10 @@ sample_for_bar_chart |>
 Set the breaks using the below:
 
 ```{webr-r}
-sample_for_bar_chart |> 
+sample_for_bar_chart |>
   ggplot(aes(x = country, y = gdpPercap, fill = lifeExp)) +
-  geom_col() + 
-  scale_fill_continuous(breaks = c(50:80))
+  geom_col() +
+  scale_fill_continuous(breaks = seq(50, 80, by = 10))
 ```
 
 You can make changes to the legend in other ways, using the `guides()` function. Here are some examples:

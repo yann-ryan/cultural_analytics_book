@@ -6,7 +6,7 @@ For this data challenge, I'll ask you to work with a real-world cultural dataset
 
 You're asked to carry out the whole process, from start to finish, including importing the raw data file and exporting the result.
 
-The dataset is a record of performances and attendances at performing arts venues in the Netherlands, from 1999 to 2023. It's a good example of the kinds of things you'll often need to do to datasets in order to make them useable for visualisation and analysis. You can find the dataset [here](https://opendata.cbs.nl/statline/#/CBS/en/dataset/70077eng/table?ts=1759748419232). click on Original Dataset on the left hand side, and then click on Download CSV.
+The dataset is a record of performances and attendances at performing arts venues in the Netherlands, from 1999 to 2023. It's a good example of the kinds of things you'll often need to do to datasets in order to make them useable for visualisation and analysis. You can find the dataset [here](https://opendata.cbs.nl/statline/#/CBS/en/dataset/70077eng/table?ts=1759748419232). Click on Original Dataset on the left hand side, and then click on Download CSV.
 
 Do the following in the Posit cloud workspace.
 
@@ -20,11 +20,11 @@ Take a look at the dataset.
 
 -   The Periods column has some extra text after the year.
 
--   The regions contains all the various regional divisions, meaning it has rows for the Netherlands for a whole, one for larger regions, and one for provinces.
+-   The regions contain all the various regional divisions, meaning it has rows for the Netherlands as a whole, one for larger regions, and one for provinces.
 
 The basic cleaning steps are to:
 
--   Filter the dataset to include only the PV level regional codes.
+-   Filter the dataset to include only the PV level regional codes (PV = *provincie*, i.e. rows at the province level).
 
 -   Adjust the Periods column so it contains only the year, as a number. This should be recognised as a number by R.
 

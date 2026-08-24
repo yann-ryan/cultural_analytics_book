@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"editor-word-wrap":"true","message":"true","out-width":"700px","editor-quick-suggestions":"false","classes":"","out-height":"","editor-max-height":"","output":"true","fig-cap":"","label":"unnamed-chunk-1","warning":"true","fig-width":7,"autorun":"true","comment":"","results":"markup","read-only":"false","context":"setup","dpi":72,"editor-font-scale":"1","fig-height":5},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"editor-word-wrap":"true","message":"true","out-width":"700px","editor-quick-suggestions":"false","classes":"","out-height":"","editor-max-height":"","output":"true","fig-cap":"","label":"unnamed-chunk-2","warning":"true","fig-width":7,"autorun":"false","comment":"","results":"markup","read-only":"false","context":"interactive","dpi":72,"editor-font-scale":"1","fig-height":5},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"editor-word-wrap":"true","message":"true","out-width":"700px","editor-quick-suggestions":"false","classes":"","out-height":"","editor-max-height":"","output":"true","fig-cap":"","label":"unnamed-chunk-3","warning":"true","fig-width":7,"autorun":"false","comment":"","results":"markup","read-only":"false","context":"interactive","dpi":72,"editor-font-scale":"1","fig-height":5},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"editor-word-wrap":"true","message":"true","out-width":"700px","editor-quick-suggestions":"false","classes":"","out-height":"","editor-max-height":"","output":"true","fig-cap":"","label":"unnamed-chunk-4","warning":"true","fig-width":7,"autorun":"false","comment":"","results":"markup","read-only":"false","context":"interactive","dpi":72,"editor-font-scale":"1","fig-height":5},"code":"titanic_df |> "},{"id":5,"options":{"editor-word-wrap":"true","message":"true","out-width":"700px","editor-quick-suggestions":"false","classes":"","out-height":"","editor-max-height":"","output":"true","fig-cap":"","label":"unnamed-chunk-5","warning":"true","fig-width":7,"autorun":"false","comment":"","results":"markup","read-only":"false","context":"interactive","dpi":72,"editor-font-scale":"1","fig-height":5},"code":"titanic_df |> "}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"output":"true","editor-quick-suggestions":"false","autorun":"true","editor-word-wrap":"true","read-only":"false","comment":"","message":"true","context":"setup","editor-font-scale":"1","label":"unnamed-chunk-1","out-width":"700px","out-height":"","classes":"","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","fig-width":7,"dpi":72,"fig-height":5},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"output":"true","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","comment":"","message":"true","context":"interactive","editor-font-scale":"1","label":"unnamed-chunk-2","out-width":"700px","out-height":"","classes":"","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","fig-width":7,"dpi":72,"fig-height":5},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"output":"true","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","comment":"","message":"true","context":"interactive","editor-font-scale":"1","label":"unnamed-chunk-3","out-width":"700px","out-height":"","classes":"","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","fig-width":7,"dpi":72,"fig-height":5},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"output":"true","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","comment":"","message":"true","context":"interactive","editor-font-scale":"1","label":"unnamed-chunk-4","out-width":"700px","out-height":"","classes":"","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","fig-width":7,"dpi":72,"fig-height":5},"code":""},{"id":5,"options":{"output":"true","editor-quick-suggestions":"false","autorun":"false","editor-word-wrap":"true","read-only":"false","comment":"","message":"true","context":"interactive","editor-font-scale":"1","label":"unnamed-chunk-5","out-width":"700px","out-height":"","classes":"","fig-cap":"","warning":"true","results":"markup","editor-max-height":"","fig-width":7,"dpi":72,"fig-height":5},"code":""}];
 
 </script>
 <script type="module">
@@ -1626,7 +1626,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -2388,7 +2388,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Examples should help. To calculate the total number of rows, we can use a function called <code>n()</code>, which does exactly that:</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>What if we want to calculate the total amount of Fare paid? In that case, we can use a function called <code>sum()</code>:</p>
+<p>What if we want to calculate the total amount of fare paid? In that case, we can use a function called <code>sum()</code>:</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2399,7 +2399,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notice that as well as putting the Fare column within the brackets of the sum() function, there is also some extra text after a comma: <code>na.rm = TRUE</code>? This is an extra instruction to the sum function, telling it to exclude values where there is no data (NA). Otherwise the result will return NA as the value.</p>
+<p>Notice that as well as putting the fare column within the brackets of the sum() function, there is also some extra text after a comma: <code>na.rm = TRUE</code>? This is an extra instruction to the sum function, telling it to exclude values where there is no data (NA). Otherwise the result will return NA as the value.</p>
 </div>
 </div>
 <div id="qwebr-insertion-location-3"></div>
@@ -2424,7 +2424,7 @@ Save some typing by using tally()
 </div>
 <div class="callout-body-container callout-body">
 <p>Because summarise combined with n() or sum() is used so frequently, there is a shorter way of writing it, in a single command. To calculate the total rows you can use the verb <code>tally()</code>. You don’t even need to specify a new column name, as it will call it n by default. In other words, tally() is exactly the same as writing summarise(n = n()).</p>
-<p>tally(Fare) is the same as writing summarise(n = sum(Fare, na.rm = TRUE))</p>
+<p>If you want a sum instead of a count of rows, give tally() a <code>wt</code> (weight) argument: <code>tally(wt = fare)</code> is the same as writing <code>summarise(n = sum(fare, na.rm = TRUE))</code>.</p>
 </div>
 </div>
 </section>
@@ -2433,7 +2433,7 @@ Save some typing by using tally()
 <p>What is the <em>average</em> age of all the passengers? Average can be calculated using a function called mean().</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>What is the maximum Fare paid? You can use the function max() for this.</p>
+<p>What is the maximum fare paid? You can use the function max() for this.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 

@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","id":1,"options":{"label":"unnamed-chunk-1","fig-width":7,"autorun":"true","out-width":"700px","editor-word-wrap":"true","context":"setup","dpi":72,"warning":"true","editor-quick-suggestions":"false","comment":"","editor-max-height":"","results":"markup","fig-cap":"","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","out-height":"","classes":"","message":"true"}},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","id":2,"options":{"label":"unnamed-chunk-2","fig-width":7,"autorun":"false","out-width":"700px","editor-word-wrap":"true","context":"interactive","dpi":72,"warning":"true","editor-quick-suggestions":"false","comment":"","editor-max-height":"","results":"markup","fig-cap":"","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","out-height":"","classes":"","message":"true"}},{"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","id":3,"options":{"label":"unnamed-chunk-3","fig-width":7,"autorun":"false","out-width":"700px","editor-word-wrap":"true","context":"interactive","dpi":72,"warning":"false","editor-quick-suggestions":"false","comment":"","editor-max-height":"","results":"markup","error":"false","fig-cap":"","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","out-height":"","classes":"","message":"false"}},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","id":4,"options":{"label":"unnamed-chunk-4","fig-width":7,"autorun":"false","out-width":"700px","editor-word-wrap":"true","context":"interactive","dpi":72,"warning":"true","editor-quick-suggestions":"false","comment":"","editor-max-height":"","results":"markup","fig-cap":"","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","out-height":"","classes":"","message":"true"}},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","id":5,"options":{"label":"unnamed-chunk-5","fig-width":7,"autorun":"false","out-width":"700px","editor-word-wrap":"true","context":"interactive","dpi":72,"warning":"true","editor-quick-suggestions":"false","comment":"","editor-max-height":"","results":"markup","fig-cap":"","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","out-height":"","classes":"","message":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","options":{"editor-font-scale":"1","editor-max-height":"","classes":"","results":"markup","message":"true","context":"setup","autorun":"true","out-height":"","read-only":"false","dpi":72,"warning":"true","fig-height":5,"fig-width":7,"editor-word-wrap":"true","comment":"","output":"true","out-width":"700px","label":"unnamed-chunk-1","fig-cap":"","editor-quick-suggestions":"false"}},{"id":2,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","options":{"editor-font-scale":"1","editor-max-height":"","classes":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-height":"","read-only":"false","dpi":72,"warning":"true","fig-height":5,"fig-width":7,"editor-word-wrap":"true","comment":"","output":"true","out-width":"700px","label":"unnamed-chunk-2","fig-cap":"","editor-quick-suggestions":"false"}},{"id":3,"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","options":{"editor-font-scale":"1","editor-max-height":"","classes":"","results":"markup","message":"false","context":"interactive","autorun":"false","out-height":"","read-only":"false","dpi":72,"label":"unnamed-chunk-3","warning":"false","fig-height":5,"fig-width":7,"editor-word-wrap":"true","comment":"","output":"true","out-width":"700px","error":"false","fig-cap":"","editor-quick-suggestions":"false"}},{"id":4,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","options":{"editor-font-scale":"1","editor-max-height":"","classes":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-height":"","read-only":"false","dpi":72,"warning":"true","fig-height":5,"fig-width":7,"editor-word-wrap":"true","comment":"","output":"true","out-width":"700px","label":"unnamed-chunk-4","fig-cap":"","editor-quick-suggestions":"false"}},{"id":5,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","options":{"editor-font-scale":"1","editor-max-height":"","classes":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-height":"","read-only":"false","dpi":72,"warning":"true","fig-height":5,"fig-width":7,"editor-word-wrap":"true","comment":"","output":"true","out-width":"700px","label":"unnamed-chunk-5","fig-cap":"","editor-quick-suggestions":"false"}}];
 
 </script>
 <script type="module">
@@ -1626,7 +1626,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -2389,7 +2389,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/38_accessibility/01.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A man walking with his partner turns his head to look at another person, symbolizing a web user’s shift from inaccessible to accessible content. The original partner, representing inaccessible content, is ignored in favor of the accessible option, which is more appealing and inclusive." width="500"></p>
+<p><img src="images/38_accessibility/01.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A man walking with his partner turns his head to look at another person, symbolising a web user’s shift from inaccessible to accessible content. The original partner, representing inaccessible content, is ignored in favour of the accessible option, which is more appealing and inclusive." width="500"></p>
 </figure>
 </div>
 <section id="what-does-it-mean-to-make-our-content-accessible" class="level3">
@@ -2404,50 +2404,50 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Some key ways in which we make visualisations <em>less</em> accessible include:</p>
 <ul>
 <li><p>Prioritising the visual experience without consideration for people navigating via screen reader.</p></li>
-<li><p>Color schemes that are not accessible to people who are color blind or have low vision</p></li>
+<li><p>Colour schemes that are not accessible to people who are colour blind or have low vision</p></li>
 <li><p>Interactive elements that are not reachable for people navigating via keyboard.</p></li>
 </ul>
 </section>
 <section id="color-blindness" class="level3">
 <h3 class="anchored" data-anchor-id="color-blindness">Color-blindness</h3>
-<p>Color blindness (or color vision deficiency, CVD) is the decreased ability to see color or differences in color, specifically hue.</p>
+<p>Colour blindness (or colour vision deficiency, CVD) is the decreased ability to see colour or differences in colour, specifically hue.</p>
 <p>The most common is less distinction on red-green (deuteranomaly or protanomaly) or blue-yellow (tritanomaly) axis. Red green affects about 8% of males and 0.05% of females.</p>
-<p>In order to understand how colour in data visualisation is perceived by those with CVD, we should think back to the previous week’s lesson on the differences between scales. The three key scales, as you’ll remember, are <strong>sequential</strong> (for continuous data), <strong>categorical</strong> (for text or categories), and <strong>diverging</strong> (which are sequential, but with a ‘midpoint’. These are affected in different ways.</p>
-<section id="sequential-color-scales" class="level4">
-<h4 class="anchored" data-anchor-id="sequential-color-scales">Sequential color scales</h4>
-<p><strong>Sequential color scales</strong> are affected the least, because they are generally made up of a single hue. However, the default blue color scale provided by ggplot is not terribly good for those with general sight impairments - the ‘Viridis’ color palette, which we have used last week, is a good alternative choice as it is easier to distinguish differences. Another option is to apply a gradient scale, running from one distinct colour to another.</p>
+<p>In order to understand how colour in data visualisation is perceived by those with CVD, we should think back to the previous week’s lesson on the differences between scales. The three key scales, as you’ll remember, are <strong>sequential</strong> (for continuous data), <strong>categorical</strong> (for text or categories), and <strong>diverging</strong> (which is sequential, but with a ‘midpoint’). These are affected in different ways.</p>
+<section id="sequential-colour-scales" class="level4">
+<h4 class="anchored" data-anchor-id="sequential-colour-scales">Sequential colour scales</h4>
+<p><strong>Sequential colour scales</strong> are affected the least, because they are generally made up of a single hue. However, the default blue colour scale provided by ggplot is not terribly good for those with general sight impairments - the ‘Viridis’ colour palette, which we used earlier in the course, is a good alternative choice as it is easier to distinguish differences. Another option is to apply a gradient scale, running from one distinct colour to another.</p>
 <p><img src="images/38_accessibility/02.png" class="img-fluid" width="400"></p>
 <p>To make these changes in our code, we’ll need to use the <code>scale_colour_</code> functions. For instance, to specify the gradient colors for a scatter plot, use <code>scale_color_gradient()</code>.</p>
 <p><strong>Try it yourself:</strong> Edit the plot below to use either the ‘Viridis’ continuous scale, or a gradient with two colours of your choice.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="diverging-color-scale" class="level4">
-<h4 class="anchored" data-anchor-id="diverging-color-scale">Diverging color scale</h4>
-<p>A special type of gradient is a ‘diverging’ color palette, where third color is used as a midpoint.</p>
-<p>In both these cases, we should be mindful of using problematic color pairs. Red-green diverging, in particular, should be replaced with another color scale.</p>
+<section id="diverging-colour-scale" class="level4">
+<h4 class="anchored" data-anchor-id="diverging-colour-scale">Diverging colour scale</h4>
+<p>A special type of gradient is a ‘diverging’ colour palette, where a third colour is used as a midpoint.</p>
+<p>In both these cases, we should be mindful of using problematic colour pairs. Red-green diverging, in particular, should be replaced with another colour scale.</p>
 <p><img src="images/38_accessibility/03.png" class="img-fluid" width="450"></p>
 <p><strong>Try it yourself:</strong> How can you make this chart of the US election results in 2020 more accessible?</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="categorical-color-scales" class="level4">
-<h4 class="anchored" data-anchor-id="categorical-color-scales">Categorical color scales</h4>
-<p>Finally, categorical color schemes (where the data is unordered, usually for categories or text), use a palette of distinct colors specifically chosen to be safe for color vision deficiency. You can find a set of built-in palettes on the <a href="https://colorbrewer2.org/">ColorBrewer website</a>. Select ‘qualitative’ and tick the ‘color-blind safe’ checkbox. The three remaining palettes are ‘Dark2’, ‘Set2’, and ‘Paired’.</p>
-<p><strong>Try it yourself:</strong> To choose a specific palette for a categorical value (such as species, in this case), use <code>scale_color_distiller()</code> and specify the palette from the list of color blind safe above.</p>
+<section id="categorical-colour-scales" class="level4">
+<h4 class="anchored" data-anchor-id="categorical-colour-scales">Categorical colour scales</h4>
+<p>Finally, categorical colour schemes (where the data is unordered, usually for categories or text), use a palette of distinct colours specifically chosen to be safe for colour vision deficiency. You can find a set of built-in palettes on the <a href="https://colorbrewer2.org/">ColorBrewer website</a>. Select ‘qualitative’ and tick the ‘color-blind safe’ checkbox. The three remaining palettes are ‘Dark2’, ‘Set2’, and ‘Paired’.</p>
+<p><strong>Try it yourself:</strong> To choose a specific palette for a categorical value (such as species, in this case), use <code>scale_color_brewer()</code> and specify the palette from the list of colour blind safe above.</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 </section>
 <section id="contrast" class="level3">
 <h3 class="anchored" data-anchor-id="contrast">Contrast</h3>
-<p>Another important thing to take into account is contrast. Contrast can be defined as the difference in perceived luminance between two colors. Higher contrasts are easier to perceive for everybody, particularly those with sight impairments.</p>
+<p>Another important thing to take into account is contrast. Contrast can be defined as the difference in perceived luminance between two colours. Higher contrasts are easier to perceive for everybody, particularly those with sight impairments.</p>
 <p>For example, in comparison to a white background (the most commonly-used colour):</p>
 <p>Pure red has a ratio of 4:1</p>
 <p>Pure green has a ratio of 1.4:1 (very low)</p>
 <p>Pure blue has a ratio of 8.6:1 (quite high).</p>
-<p>Again, think about this when designing color schemes.</p>
-<p>For instance, try not to use colors with a low contrast ratio, particularly against a white background. By default, ggplot2 uses a grey background, but often white is a requirement or desired for design choices.</p>
+<p>Again, think about this when designing colour schemes.</p>
+<p>For instance, try not to use colours with a low contrast ratio, particularly against a white background. By default, ggplot2 uses a grey background, but often white is a requirement or desired for design choices.</p>
 <p><strong>Try it yourself:</strong> use scales to pick more suitable colours for the plot below.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -2466,7 +2466,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="alt-text" class="level2">
 <h2 class="anchored" data-anchor-id="alt-text">Alt-text</h2>
-<p>A final consideration, particularly when making charts which are to be viewed online, is to take into account readers who use screen-reading software. We should aim to provide <strong>alt-text</strong> for images, which will be read out loud by screen readers. In doing so, you should aim to summarize the visual elements and key points of the chart.</p>
+<p>A final consideration, particularly when making charts which are to be viewed online, is to take into account readers who use screen-reading software. We should aim to provide <strong>alt-text</strong> for images, which will be read out loud by screen readers. In doing so, you should aim to summarise the visual elements and key points of the chart.</p>
 <section id="alt-text-defined-from-webaim" class="level3">
 <h3 class="anchored" data-anchor-id="alt-text-defined-from-webaim"><strong>Alt Text defined <a href="https://webaim.org/techniques/alttext/">from Webaim</a>:</strong></h3>
 <blockquote class="blockquote">
@@ -2504,7 +2504,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="code-cell-options" class="level4">
 <h4 class="anchored" data-anchor-id="code-cell-options">Code cell options</h4>
 <p>We can add what are known as ‘cell options’, which allow us to edit how the result of a code cell is displayed in the knitted markdown file. In R Markdown, enter your code cell options between the first set of curly brackets, after the r. Leave a space, then each option, an equal sign, and the required value. Leave a comma in between each option.</p>
-<p>You can use this to change the figure width and height in the output (<code>fig.width</code> and <code>fig.height</code>), whether or not the code is displayed in the finished file (<code>echo=false)</code>, and many more.</p>
+<p>You can use this to change the figure width and height in the output (<code>fig.width</code> and <code>fig.height</code>), whether or not the code is displayed in the finished file (<code>echo=false</code>), and many more.</p>
 <p>Alt-text can be added to a generated figure from a code cell using the cell option <code>fig.alt</code>. The screenshot below shows how it should be added to a code cell:</p>
 <p><img src="images/38_accessibility/05.png" class="img-fluid"></p>
 

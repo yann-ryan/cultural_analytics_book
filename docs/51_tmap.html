@@ -189,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -789,7 +789,7 @@ Caused by warning:
 <li><p>Download a map from R Natural Earth</p></li>
 <li><p>Switch to the ‘view’ mode using <code>tmap_mode("view")</code> to make the output an interactive map.</p></li>
 <li><p><code>tm_shape()</code> is more or less the equivalent of <code>ggplot()</code>: it’s the ‘base’ of the map, where we specify which shapefile should be used. On top of this we add layers, such as polygons or points, and also additional map elements such as a legend, scale, projection, and so forth. We can also add additional <code>tm_shape()</code> layers.</p></li>
-<li><p>Add the <code>tm_polygons()</code> layer which will draw polygon shapes on the map based on the shapefile. Set the <code>col</code> to the <code>income_grp</code> column. Note the difference from ggplot - where we would set the <code>fill</code>, and the column name would <em>not</em> be in quotation marks. Set the <code>id</code> which will determine which column is used to display text with a mouse hover.</p></li>
+<li><p>Add the <code>tm_polygons()</code> layer which will draw polygon shapes on the map based on the shapefile. Set the <code>fill</code> to the <code>income_grp</code> column, in quotation marks (just as with ggplot, <code>fill</code> is the argument for the shaded area of a polygon; <code>col</code> is reserved for the border colour). Set the <code>id</code> which will determine which column is used to display text with a mouse hover.</p></li>
 <li><p>Add a <code>tm_view()</code> layer, which allows us to set options for the interactive viewer. Add a vector of three numbers: the starting latitude and longitude, and the zoom level.</p></li>
 </ul>
 <div class="cell">

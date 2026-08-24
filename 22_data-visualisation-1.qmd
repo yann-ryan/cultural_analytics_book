@@ -84,7 +84,7 @@ You can view the code I've used to make the plots, which might be useful later, 
 
 #### Position
 
-All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the GDP per capita on the x axis and the life expectancy on the y axis.
+All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the life expectancy on the x axis and the GDP per capita on the y axis.
 
 The resulting *scatterplot* shows the relationship between the two variables. It's not linear, but in general, the higher the GDP, the higher the life expectancy.
 
@@ -174,10 +174,9 @@ Linetype isn't so widely used in scatterplots, but can be used in other types to
 
 gapminder_df |>
   filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
-  count(year, country, wt = lifeExp) |>
-  ggplot() + 
-  geom_line(aes(x = year, y = n, linetype = country)) + 
-  labs(title = "Life Expectancy", subtitle = "Select Countries, 1952 - 2007") + 
+  ggplot() +
+  geom_line(aes(x = year, y = lifeExp, linetype = country)) +
+  labs(title = "Life Expectancy", subtitle = "Select Countries, 1952 - 2007") +
   theme_bw()
 
 

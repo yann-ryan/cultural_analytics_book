@@ -25,7 +25,7 @@ Another typical task or manipulation we might want to do with our data is to put
 
 ### The arrange() function
 
-We can sort data using the verb `arrange()`. As with `select()` and `slice()`, the first element in the function will be the dataset, then followed by the column or columns we want to sort the data by. For example, this will sort the titanic_df dataframe by the column Age:
+We can sort data using the verb `arrange()`. As with `select()` and `slice()`, the first element in the function will be the dataset, then followed by the column or columns we want to sort the data by. For example, this will sort the titanic_df dataframe by the column age:
 
 ```{webr-r}
 arrange(titanic_df, age) 
@@ -61,7 +61,7 @@ arrange(titanic_df, sex, -age)
 
 ### Exercise
 
-Sort by the `Fare` column. What is unusual about this and why? How do you think you could fix it? (Hint: use `glimpse()` to look at the data types)
+Sort by the `fare` column. What is unusual about this and why? How do you think you could fix it? (Hint: use `glimpse()` to look at the data types)
 
 ```{webr-r}
 

@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practice the basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -676,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="find-and-read-in-a-shapefile" class="level3">
 <h3 class="anchored" data-anchor-id="find-and-read-in-a-shapefile">3: Find and read in a shapefile</h3>
-<p>You need to find a map containing features which correspond to the geographic unit you are going to use in your data. If you have a dataset where information is recorded on the country level, you’ll need a world map in which each feature is a country (as the one we used last week from R Natural Earth.</p>
+<p>You need to find a map containing features which correspond to the geographic unit you are going to use in your data. If you have a dataset where information is recorded on the country level, you’ll need a world map in which each feature is a country (as the one we used last week from R Natural Earth).</p>
 <p>If you have more specific geographic data, you’ll probably need to find a corresponding file storing geographic information. There are many different formats which store this information, and it’s important to know how to find suitable ones and read them into R. Two of the most common are <strong>shapefiles</strong> and <strong>geoJSON.</strong> There are also formats which package together multiple layers of geographic information, for example <strong>GeoPackage (.gpkg).</strong></p>
 <section id="shapefiles" class="level4">
 <h4 class="anchored" data-anchor-id="shapefiles">Shapefiles</h4>
@@ -826,7 +826,7 @@ Note
 <section id="finishing-touches" class="level3">
 <h3 class="anchored" data-anchor-id="finishing-touches">9: Finishing Touches</h3>
 <p>Now, make edits to your map to make it more readable and looking better aesthetically. You’ll probably want to adjust the limits and projection of the map using <code>coord_sf</code>, and experiment with the scale using <code>scale_fill_</code>. You could also think about binning the colors (often it’s easier to interpret specific colors on maps rather than a continuous scale). This is the point where you will need to use <code>facet_wrap()</code> to draw maps separately, if you went down this route.</p>
-<p>You could also add a map scale bar and a compass using the package ggsn (you’ll need to install it separately using <code>install.packages()</code>.</p>
+<p>You could also add a map scale bar and a compass using the package ggsn (you’ll need to install it separately using <code>install.packages()</code>).</p>
 
 
 </section>

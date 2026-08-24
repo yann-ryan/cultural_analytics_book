@@ -40,7 +40,7 @@ Whatever dataset you use, a really important task is to read the documentation a
 
 -   The Bellevue Almshouse data. This is a dataset of records of immigrants who were admitted to the Bellevue Almshouse (house for the poor) in the 1840s. You can find more information and links to the data [here](https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html#irish-immigrants-admitted-to-nycs-bellevue-almshouse).
 
--   The Movie Dialogue dataset. You can find more information about this dataset [here](https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html#irish-immigrants-admitted-to-nycs-bellevue-almshouse). I created the third file, `imdb_genre`, from a larger IMDB dataset. You can find that file [here](https://github.com/yann-ryan/infovis_data/blob/main/movies/imdb_genre.csv).
+-   The Movie Dialogue dataset. You can find more information about this dataset [here](https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html#hollywood-film-dialogue-by-character-gender-and-age). I created the third file, `imdb_genre`, from a larger IMDB dataset. You can find that file [here](https://github.com/yann-ryan/infovis_data/blob/main/movies/imdb_genre.csv).
 
 -   The Nobel Prize Winners dataset. A dataset containing two tables, with information on the Nobel Prizes and the Nobel Prize winners. I created this using the [official Nobel API](https://www.nobelprize.org/organization/developer-zone-2/). You can find the files [here](https://github.com/yann-ryan/infovis_data/tree/main/nobel).
 
@@ -60,7 +60,7 @@ At the moment this is a random assortment of datasets and data sources related t
 
 -   Shakespeare and Co datasets. Very nice geocoded library lending data. Article [here](https://culturalanalytics.org/article/32551-shakespeare-and-company-project-data-sets) and the datasets are divided into [members](https://doi.org/10.34770/8c2s-a169), [books](https://doi.org/10.34770/yj5r-0m59), and [events](https://doi.org/10.34770/nz90-ym25) (events generally mean library loans here).
 -   [Title list of British Library Newspapers](https://bl.iro.bl.uk/concern/datasets/943bd083-6355-44a1-97eb-b8ff898f87d5)
--   This [structured literary dataset](https://github.com/karinavdo/RiddleData) made for the litRiddle project. There's also an R package, `install.packages("litRiddle").`
+-   This [structured literary dataset](https://github.com/karinavdo/RiddleData) made for the litRiddle project. There's also an R package: `install.packages("litRiddle")`.
 -   The [Museum of Modern Art dataset](https://github.com/MuseumofModernArt/collection). Nice dataset for analysis of cultural heritage (more examples in the next section).
 -   [This dataset](https://github.com/cldf-datasets/wals/tree/master/cldf) based on the [World Atlas of Language Structures](https://wals.info/). It's a little difficult to find what you need, but has interesting geographic linguistic data. The [languages table](https://github.com/cldf-datasets/wals/blob/master/cldf/languages.csv) is the most important.
 -   This [dataset of extinct or nearly extinct world languages](https://www.kaggle.com/datasets/the-guardian/extinct-languages) (thanks to Ran for this one)

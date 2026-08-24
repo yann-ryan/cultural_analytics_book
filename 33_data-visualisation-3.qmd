@@ -39,7 +39,7 @@ ggplot() +
 
 -   It has a title and a subtitle
 -   The y-axis title has been changed to read something more descriptive
--   the x-axis title has been remove completely, because it obviously refers to years.
+-   the x-axis title has been removed completely, because it obviously refers to years.
 -   It has an annotation to highlight the first year of the pandemic.
 -   Some elements of the underlying visual parts of the chart have been changed, for example the light blue background, and the white, horizontal gridlines (the vertical gridlines have been removed).
 

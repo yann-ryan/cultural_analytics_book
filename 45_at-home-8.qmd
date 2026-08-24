@@ -4,9 +4,9 @@ title: "Home Exercise"
 
 ## Instructions
 
-The at-home exercises should be completed using Posit cloud, Home Exercise 7. Create a new .Rmd file (use File -\> New File -\> R Markdown.
+The at-home exercises should be completed using Posit cloud, Home Exercise 8. Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
-I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: lastname_firstname7. Regularly re-save the file.
+I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_8_lastname_firstname. Regularly re-save the file.
 
 When you have finished the exercise (or part of it), 'knit' the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.
 
@@ -35,6 +35,6 @@ library(sf)
 
 -   Improve the basic map with a suitable title, subtitle, legend title, and appropriate themes or theme items.
 
--   Can you figure out how to change the country border **color** to black?
+-   Can you figure out how to change the country border **colour** to black?
 
 -   Optional: look in the course book at the section on map projections, and choose another one for this map.

@@ -8,9 +8,9 @@ You'll also need to familiarise yourself with the course [Brightspace area](http
 
 ## What do we mean by 'information visualisation'?
 
-Information visualization (or data visualization, which I'll use interchangeablely) could be defined as ***the graphical representation of information and data***.
+Information visualisation (or data visualisation, which I'll use interchangeably) could be defined as ***the graphical representation of information and data***.
 
-Data visualization is often used to convey or communicate messages about complex or large-scale data. It has been around in its present form---charts, graphs and so forth---since at least the eighteenth century. One form of data visualisation---maps---have been around for even longer. Today, we come across data visualizations in our daily lives: in everything from scientific articles to news media, and in advertisements.
+Data visualisation is often used to convey or communicate messages about complex or large-scale data. It has been around in its present form---charts, graphs and so forth---since at least the eighteenth century. One form of data visualisation---maps---have been around for even longer. Today, we come across data visualisations in our daily lives: in everything from scientific articles to news media, and in advertisements.
 
 In the humanities, the data we use might be, for example, historical statistics or networks, or the text (or data derived from it) found in literary works. It might be something totally different such as audio, images, or spatial data.
 
@@ -24,11 +24,11 @@ In the humanities, the data we use might be, for example, historical statistics 
 
     -   Understand how a FAIR (Findable, Accessible, Interoperable, and Reusable) approach to data is important for your work and that of others.
 
-    -   Be able to critically reflect on a range of visualizations, with a specific focus on network and spatial data.
+    -   Be able to critically reflect on a range of visualisations, with a specific focus on network and spatial data.
 
-    -   Know where to find some of the inspiring visualizations, thinkers, and designers in this field.
+    -   Know where to find some of the inspiring visualisations, thinkers, and designers in this field.
 
-    -   Be able to discuss your views on information visualization with peers as well as give and receive feedback.
+    -   Be able to discuss your views on information visualisation with peers as well as give and receive feedback.
 
 In terms of concrete skills, by the end of this course, you should be able to use humanities-focused data to make informative, highly-customised visualisations such as this:
 
@@ -114,7 +114,7 @@ Your final and most important piece of work will be a *Markdown report:* a publi
 
 ### Information Visualisation...
 
-Most importantly, you'll learn the basic principles of information visualization, and put them into practice using a platform called R (more on that below). R is widely used by, for example, data journalists at the BBC, and in publications like *The Economist* and the *Financial Times.*
+Most importantly, you'll learn the basic principles of information visualisation, and put them into practice using a platform called R (more on that below). R is widely used by, for example, data journalists at the BBC, and in publications like *The Economist* and the *Financial Times.*
 
 Using a language like R or python instead of Excel or a simple application for visualising data has many advantages. For one, it's much easier to work with large datasets. You want to analyse huge datasets of movies like [these ones](https://datasets.imdbws.com/), with 11 millions rows of data? It'll take a split second in R. A second advantage is that everything you make can be reproducible, meaning your visualisations and analyses can be scientifically checked and verified.
 
@@ -124,11 +124,11 @@ In your final project, you'll combine text, data and visual outputs to make a *r
 
 ### ...and the Humanities
 
-This is not to say the course will be an exhaustive 'how to' for scientific data visualisations. One of your superpowers as a humanities student is that you learn to to move beyond the surface level and consider the subtexts, biases, and so forth in cultural objects. In this course, we'll put those skills to good use, and you'll use your own expertise and interests to tell compelling and truthful stories about humanities subjects, using data.
+This is not to say the course will be an exhaustive 'how to' for scientific data visualisations. One of your superpowers as a humanities student is that you learn to move beyond the surface level and consider the subtexts, biases, and so forth in cultural objects. In this course, we'll put those skills to good use, and you'll use your own expertise and interests to tell compelling and truthful stories about humanities subjects, using data.
 
 Just as importantly, you'll learn how to critique data visualisations and design. As a group we'll ask: what makes them good or bad, scientific or unethical? Can we trust the intentions behind commercial or political data visualisations? Can we spot when they are being misleading, and describe exactly *how*? What are the negative and positive connotations around certain graphical representations, and why do we use them? How can we make better, more ethical data visualisations? How can we make visualisations which properly consider those with accessibility needs?
 
-## Doing not reading.. mostly
+## Doing, not reading... mostly
 
 This will be a 'doing' course: you'll spend most of your self-study time completing at-home exercises and assignments. There will be two compulsory readings to get a background on some of the wider themes of the course, which we will discuss in class. The two pieces we'll read are:
 
@@ -140,11 +140,10 @@ There will also be some weekly recommended reading if you would like to dig deep
 
 ## Schedule
 
-Below is the course schedule. In the first couple of weeks, you'll learn how to do the very basics using the coding language R. This will be followed by three weeks focusing on data analysis, then two blocks of three: first, data visualisation, and second, digital mapping. We'll wrap things up with a week on creating polished, publishable data visualisations, and how to make your charts and maps interactive.
+Below is the course schedule. In the first couple of weeks, you'll learn how to do the very basics using the coding language R. This will be followed by three weeks focusing on data analysis, then a four-week block on data visualisation and a three-week block on digital mapping. We'll wrap things up with a week on creating polished, publishable data visualisations, and how to make your charts and maps interactive.
 
-|  |  |  |  |  |
-|----|----|----|----|----|
 | **Week** | **Date** | **Topic** | **Topic** | **Assignment** |
+|----|----|----|----|----|
 | 1 | 2025-09-08 | Introductions | Tour of the course book |  |
 | 2 | 2025-09-15 | Introduction to R | How to use R and Posit cloud |  |
 | 3 | 2025-09-22 | Data analysis 1 | Working with dataframes. Selecting and subsetting data. | Discussion of reading 1. |
@@ -158,7 +157,7 @@ Below is the course schedule. In the first couple of weeks, you'll learn how to 
 | 11 | 2025-11-24 | Digital mapping 2 | Importing shapefiles and mapping external data |  |
 | 12 | 2025-12-01 | Digital mapping 3 | The tmap package |  |
 | 13 | 2025-12-08 | Publication | R Markdown and Interactivity | Assignment 2 (create a map visualisation) due. |
-|  | 2026-14-01 |  |  | Final project due |
+|  | 2026-01-14 |  |  | Final project due |
 
 : Course Schedule {tbl-colwidths="\[10,25,65\]" .striped}
 
@@ -170,7 +169,7 @@ In practice, creating data visualisations involves mapping numerical data of som
 
 You'll put these skills into practice using a tool called R. R is a coding language often used for data science - it's particularly good at working with what are called 'dataframes': structured data in the form of rows and columns which we'll mostly be using on this course.
 
-To begin with, you'll practice the basics using interactive code snippets embedded directly in this book. Later, we have set up a learning environment called 'Posit cloud', where you can import data, export visualisations, and code in a 'real world' way.
+To begin with, you'll practise the basics using interactive code snippets embedded directly in this book. Later, we have set up a learning environment called 'Posit cloud', where you can import data, export visualisations, and code in a 'real world' way.
 
 Using a coding language like this allows us to have direct control over every aspect of a visualisation - we can choose from many different geometries depending on our data and what we want to show, adjust the colours in precise ways, and pick the scale we want to use. We can also use R to summarise data, or limit it to just the parts we want to work with. This will complement the learning of Python you're doing in your other course.
 
@@ -218,6 +217,12 @@ Total course load 5 EC x 28 hours = 140 hours:
 
 This course will be very practical and your self-study time will be mostly spent completing exercises or assignments. As such, most of the reading is recommended rather than required. Some of the below will relate directly to the class and others I just think are interesting if you'd like to know more about the topic. Compulsory reading is marked in bold.
 
+::: callout-warning
+## TODO: update for 2025-2026
+
+This reading schedule still has the dates and week numbers from the previous (2024-2025) run of the course, and doesn't line up with the Course Schedule table above (which has already been updated). It's also missing rows for weeks 7 and 8. Needs a manual pass to bring it in line with the current syllabus before publishing.
+:::
+
 +------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week | **Date**   | **Reading**                                                                                                                                                                                                                                                                                                                                                                                                              |
 +======+============+==========================================================================================================================================================================================================================================================================================================================================================================================================================+
@@ -247,7 +252,7 @@ This course will be very practical and your self-study time will be mostly spent
 +------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 6    | 2024-11-04 | Claus Wilke, *Fundamentals of Data Visualization* (available online). Chapter [15](https://clauswilke.com/dataviz/geospatial-data.html).                                                                                                                                                                                                                                                                                 |
 +------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 9    | 2024-11-11 | D'Ignazio, C. and Klein, L. (2020) '2. Collect, Analyze, Imagine, Teach', in *Data Feminism*. Available at: https://data-feminism.mitpress.mit.edu/pub/ei7cogfn                                                                                                                                                                                                                                                          |
+| 9    | 2024-11-11 | **D'Ignazio, C. and Klein, L. (2020) '2. Collect, Analyze, Imagine, Teach', in *Data Feminism*. Available at: https://data-feminism.mitpress.mit.edu/pub/ei7cogfn**                                                                                                                                                                                                                                                      |
 +------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 10   | 2024-11-18 | Venturini, T., Jacomy, M., & Jensen, P. (2021). What do we see when we look at networks: Visual network analysis, relational ambiguity, and force-directed layouts. *Big Data & Society*, *8*(1). <https://doi.org/10.1177/20539517211018488>                                                                                                                                                                            |
 +------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

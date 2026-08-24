@@ -32,10 +32,10 @@ titanic_df |>
   summarise(count = n())
 ```
 
-What if we want to calculate the total amount of Fare paid? In that case, we can use a function called `sum()`:
+What if we want to calculate the total amount of fare paid? In that case, we can use a function called `sum()`:
 
 ::: callout-note
-Notice that as well as putting the Fare column within the brackets of the sum() function, there is also some extra text after a comma: `na.rm = TRUE`? This is an extra instruction to the sum function, telling it to exclude values where there is no data (NA). Otherwise the result will return NA as the value.
+Notice that as well as putting the fare column within the brackets of the sum() function, there is also some extra text after a comma: `na.rm = TRUE`? This is an extra instruction to the sum function, telling it to exclude values where there is no data (NA). Otherwise the result will return NA as the value.
 :::
 
 ```{webr-r}
@@ -62,7 +62,7 @@ Here is a list of some of the most useful summarise functions:
 
 Because summarise combined with n() or sum() is used so frequently, there is a shorter way of writing it, in a single command. To calculate the total rows you can use the verb `tally()`. You don't even need to specify a new column name, as it will call it n by default. In other words, tally() is exactly the same as writing summarise(n = n()).
 
-tally(Fare) is the same as writing summarise(n = sum(Fare, na.rm = TRUE))
+If you want a sum instead of a count of rows, give tally() a `wt` (weight) argument: `tally(wt = fare)` is the same as writing `summarise(n = sum(fare, na.rm = TRUE))`.
 :::
 
 ## Exercises:
@@ -70,12 +70,11 @@ tally(Fare) is the same as writing summarise(n = sum(Fare, na.rm = TRUE))
 What is the *average* age of all the passengers? Average can be calculated using a function called mean().
 
 ```{webr-r}
-titanic_df |> 
+
 ```
 
-
-What is the maximum Fare paid? You can use the function max() for this.
+What is the maximum fare paid? You can use the function max() for this.
 
 ```{webr-r}
-titanic_df |> 
+
 ```

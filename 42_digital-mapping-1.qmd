@@ -10,7 +10,7 @@ In this part of the course, we'll learn how to create digital maps. More specifi
 
 Maps are useful because some data or information has inherently spatial aspects - *where* the data is from is as important as *what.* We might want to understand geographic patterns of a phenomenon, for instance how language is used in different regions, or the demographic and economic patterns of particular places, and so forth.
 
-On benefit of a map is that they can be useful cognitive shortcuts. Because we all have models of maps in our head already (think about how you know certain pieces of information about the borders of the provinces or positions of towns in your home country), we can often grasp very quickly lots of information. If you know the rough positions of the towns and provinces of the Netherlands, for instance, you will probably be able to understand some data about them more quickly than if the same information was presented to you in the form of a list or table.
+One benefit of a map is that it can be a useful cognitive shortcut. Because we all have models of maps in our head already (think about how you know certain pieces of information about the borders of the provinces or positions of towns in your home country), we can often grasp very quickly lots of information. If you know the rough positions of the towns and provinces of the Netherlands, for instance, you will probably be able to understand some data about them more quickly than if the same information was presented to you in the form of a list or table.
 
 Data maps also help us to see patterns which are specifically geographic in nature - we might see, for example, that a certain data point is more common on coasts, or in particular regions, or notice differences between the centre and periphery.
 
@@ -34,13 +34,13 @@ This kind of map can be read by a computer, to calculate things like travel time
 
 The other kind of map is called a vector map. A vector map represents geographic elements as a series of numerical values. These geographic elements are generally points, lines, or polygons. For instance, a point is represented by a set of two coordinates, giving the latitude and longitude on earth. A line would be represented by a series of numbers, which when joined together make up a line on a map.
 
-![A vector map containing rivers, cities, and country borders](vector.svg){width="472"}
+![A vector map containing rivers, cities, and country borders](images/42_digital-mapping-1/06.svg){width="472"}
 
 The main difference between the two is that vector maps contain shapes which can be specifically read by computer code. Unlike a raster map, with vector data, we can outline the shape of a river or road, or the outline of a province or other political border. This makes vector data particularly useful for creating data visualisations.
 
 ## Mapping also involves mapping aesthetics to values
 
-As with all data visualisation, the process involves mapping aesthetics to values. The key difference between maps and other data visualisations is that position is usually based on geographic position, i.e. a real physical location on earth. The most common kinds of data maps you'll find will use **position**, **size**, **color**, and **shape** to draw **points** on a map, or will use position and color (and perhaps patterns) to fill in **polygons**.
+As with all data visualisation, the process involves mapping aesthetics to values. The key difference between maps and other data visualisations is that position is usually based on geographic position, i.e. a real physical location on earth. The most common kinds of data maps you'll find will use **position**, **size**, **colour**, and **shape** to draw **points** on a map, or will use position and colour (and perhaps patterns) to fill in **polygons**.
 
 Which is used is usually dependent on the specific kind of geographic data you have. Points 'point' to specific, precise places on a map, for instance a town, village, or even an exact address. Polygons are widely used when the data we have relates to political or cultural regions and borders.
 
@@ -72,7 +72,7 @@ A map where colour is used to present statistical data through polygon shapes is
 
 However, there are some issues we should be aware of making choropleth maps. In the example of the election map above, about half of the map is coloured blue. This might lead us to think that the VVD party received over half of the total votes. But while they were the largest party, in fact they won 112 seats out of a total of 566 - about one-fifth of the votes.
 
-This is of course because this map hides the fact that elections are related to population rather than land area. The VVD party are bigger in rural areas which tend to be sparsely populated. Generally, when creating data visualizations, it is best practice that each pixel or piece of 'ink' on the page represents the same amount of numerical value. This is not the case if we use geographic data like this. In this case, the numerical unit is a vote, and some votes are represented by less area than others, because of population density.
+This is of course because this map hides the fact that elections are related to population rather than land area. The VVD party are bigger in rural areas which tend to be sparsely populated. Generally, when creating data visualisations, it is best practice that each pixel or piece of 'ink' on the page represents the same amount of numerical value. This is not the case if we use geographic data like this. In this case, the numerical unit is a vote, and some votes are represented by less area than others, because of population density.
 
 One fix for this is to create a cartogram map. This attempts to distort a map so that the area better reflects the data. This example distorts the shapes of the countries of the European Union so that the area of each is related to the amount of the budget they either contribute or receive (between 2007 and 2013, and per capita).
 

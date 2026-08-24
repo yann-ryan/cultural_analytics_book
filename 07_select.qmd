@@ -12,7 +12,7 @@ There are lots of different instructions we can give to the `select()` function 
 
 #### Selecting by name
 
-One simple way to select columns is by the column names. After specifying the dataset, simply enter each column you want to keep, separated by a comma. To select the `Age` and `Sex` columns from the `titanic_df` dataset, use the below code.
+One simple way to select columns is by the column names. After specifying the dataset, simply enter each column you want to keep, separated by a comma. To select the `age` and `sex` columns from the `titanic_df` dataset, use the below code.
 
 ```{webr-r}
 #| context: setup
@@ -101,7 +101,7 @@ If you have programmed with Python before, this method of selecting using two co
 
 ### Tidyselect functions
 
-You can also select columns using more complicated methods. There are a g roup of 'tidyselect' helpers to select columns based on more complicated criteria. The most useful are:
+You can also select columns using more complicated methods. There are a group of 'tidyselect' helpers to select columns based on more complicated criteria. The most useful are:
 
 -   starts_with()
 
@@ -109,13 +109,13 @@ You can also select columns using more complicated methods. There are a g roup o
 
 -   contains()
 
-First, starts_with() will look for and any columns which starts with some chosen text. It works as the following:
+First, starts_with() will look for any columns which start with some chosen text. It works as the following:
 
 ```{webr-r}
 select(titanic_df, starts_with("s")) 
 ```
 
-**Try it yourself:** In the cell below write a select function which using starts_with() which selects the `passengerID` and `parch` columns, but **not** the `pclass` column.
+**Try it yourself:** In the cell below write a select function using starts_with() which selects the `parch` column, but **not** the `pclass` column.
 
 ```{webr-r}
 
@@ -142,7 +142,7 @@ select(titanic_df, contains("ar"))
 ::: {.callout-tip collapse="true"}
 ## Expand to learn how to rename columns
 
-To rename columns, we can use the `rename()` function with the syntax `rename(dataset, new_name = old_name)`. For example, to rename the `name` column to `passenger_names` in the Titanic dataframe, we can use:
+To rename columns, we can use the `rename()` function with the syntax `rename(dataset, new_name = old_name)`. For example, to rename the `name` column to `passenger_name` in the Titanic dataframe, we can use:
 
 ```{webr-r}
 rename(titanic_df, passenger_name = name) 

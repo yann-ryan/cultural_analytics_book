@@ -111,15 +111,15 @@ Here are the main layers we can add:
 
 -   [`tm_symbols()`](https://r-tmap.github.io/tmap/reference/tm_symbols.html): symbols for (multi)points, (multi)linestrings, and (multi)polygons
 
--   [`tm_raster()`](https://r-tmap.github.io/tmap/reference/tm_raster.html): colored cells of raster data (there is also [`tm_rgb()`](https://r-tmap.github.io/tmap/reference/tm_rgb.html) for rasters with three layers)
+-   [`tm_raster()`](https://r-tmap.github.io/tmap/reference/tm_raster.html): coloured cells of raster data (there is also [`tm_rgb()`](https://r-tmap.github.io/tmap/reference/tm_rgb.html) for rasters with three layers)
 
 -   [`tm_text()`](https://r-tmap.github.io/tmap/reference/tm_text.html): text information for (multi)points, (multi)linestrings, and (multi)polygons
 
 If we pass an sf object to `tm_shape()` and then add an appropriate layer, we will get a basic map. To map further data to this map, we can map data columns to aesthetics, again, similarly to that we added using ggplot. Here is the most common aesthetics:
 
--   `fill`: fill color of a polygon
+-   `fill`: fill colour of a polygon
 
--   `col`: color of a polygon border, line, point, or raster
+-   `col`: colour of a polygon border, line, point, or raster
 
 -   `lwd`: line width
 
@@ -141,65 +141,12 @@ To make an interactive map using the worldmap, do the following:
 
 -   `tm_shape()` is more or less the equivalent of `ggplot()`: it's the 'base' of the map, where we specify which shapefile should be used. On top of this we add layers, such as polygons or points, and also additional map elements such as a legend, scale, projection, and so forth. We can also add additional `tm_shape()` layers.
 
--   Add the `tm_polygons()` layer which will draw polygon shapes on the map based on the shapefile. Set the `col` to the `income_grp` column. Note the difference from ggplot - where we would set the `fill`, and the column name would *not* be in quotation marks. Set the `id` which will determine which column is used to display text with a mouse hover.
+-   Add the `tm_polygons()` layer which will draw polygon shapes on the map based on the shapefile. Set the `fill` to the `income_grp` column, in quotation marks. Set the `id` which will determine which column is used to display text with a mouse hover.
 
 -   Add a `tm_view()` layer, which allows us to set options for the interactive viewer. Add a vector of three numbers: the starting latitude and longitude, and the zoom level.
 
-```{r}
-#| error: false
-#| warning: false
-#| message: false
-
-library(tmap)
-library(tidyverse)
-library(rnaturalearth)
-library(sf)
-
-sf_use_s2(FALSE)
-
-worldmap = ne_countries(scale = 'medium', returnclass = 'sf') 
-
-tmap_mode("view")
-
-tm_shape(worldmap) +
-  tm_polygons(fill="income_grp", id = 'name' ) +
-  tm_view(set.view = c(0, 50, 3))
-
-```
-
-Tmap can do cool things like interactive facets, using the layer `tm_facets()`:
-
-```{r}
-
-
-tm_shape(worldmap) +
-  tm_polygons(c("income_grp", 'pop_est'), id = 'name') +
-  tm_view(set.view = c(0, 50, 4)) + 
-  tm_facets(sync = TRUE, ncol = 2)
-```
+A full worked example of this - including interactive facets with `tm_facets()` - is in the next chapter, [Tmap](51_tmap.qmd#interactive-choropleth-maps).
 
 ## In class exercise:
 
-The following is a good example of the kind of real-world workflow in making a map from external data, including the kinds of problems with matching and cleaning you'll often encounter.
-
-Using the [eurosat database](https://ec.europa.eu/eurostat/data/database), choose a dataset to visualise. You want to choose something from Detailed datasets -\> General and Regional Statistics -\> Regional statistics by NUTS classification (reg), as in the screenshot here:
-
-![](images/49_interactive-maps/01.png){width="500"}
-
--   Download a shapefile of the NUTS regions from the official EU site. Choose the least-detailed scale so you don't run into computer memory problems. Select the ESPG: 4326 CRS.
-
--   Upload these files to Posit cloud (or keep on your local machine if you're running R there).
-
--   Make a map. Start by selecting a single year and shading each region by the colour of your dataset.
-
-See how far you can get with the following:
-
--   Use a fill colour palette which more easily distinguishes the lower and higher values.
-
--   Use theming to remove unwanted elements of the map.
-
--   Adjust the coordinate limits to focus on the main region of Europe, ignoring the Atlantic islands.
-
--   The map looks a little strange with missing regions and countries (i.e the UK). How could we solve this, so they are at least present, but perhaps grayed out?
-
--   **Try this extra challenge:** make a version which creates a series of mini-maps, one for each year in the data. To do this you'll need to `pivot` your data so that it is in a 'long' format, with each data point for each year in a single row, and use a function called `facet_wrap()`.
+The following is a good example of the kind of real-world workflow in making a map from external data, including the kinds of problems with matching and cleaning you'll often encounter. You'll find it in the previous chapter, [Creating your own geographic objects](47_points-map.qmd#in-class-exercise-2).
