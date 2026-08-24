@@ -7,97 +7,97 @@ book:
   author: "Yann Ryan"
   date: "2024-09-01"
   sidebar:
-    logo: Designer.jpeg
+    logo: images/logo.jpeg
   chapters:
     - index.qmd
     - part: "Introduction to R"
       chapters:
-        - 2_r_intro.qmd
-        - basics.qmd
-        - practise.qmd
-        - 1_rmarkdown.qmd
-        - at-home-000.qmd
+        - 01_r-intro.qmd
+        - 02_r-basics.qmd
+        - 03_r-practice.qmd
+        - 04_rmarkdown.qmd
+        - 05_at-home-1.qmd
     - part: "Data Analysis 1"
       chapters:
-        - 3_data_analysis_1.qmd
-        - select.qmd
-        - slice.qmd
-        - arrange.qmd
-        - pipes.qmd
-        - at-home-001.qmd
+        - 06_data-analysis-1.qmd
+        - 07_select.qmd
+        - 08_slice.qmd
+        - 09_arrange.qmd
+        - 10_pipes.qmd
+        - 11_at-home-2.qmd
     - part: "Data Analysis 2"
       chapters:
-        - filter.qmd
-        - regex.qmd
-        - mutate.qmd
-        - summarise.qmd
-        - grouping.qmd
-        - at-home-002.qmd
+        - 12_filter.qmd
+        - 13_regex.qmd
+        - 14_mutate.qmd
+        - 15_summarise.qmd
+        - 16_grouping.qmd
+        - 17_at-home-3.qmd
     - part: "Data Analysis 3"
       chapters:
-        - joins.qmd
-        - tidy.qmd
-        - challenge.qmd
-        - at-home-003.qmd
+        - 18_joins.qmd
+        - 19_tidying-data.qmd
+        - 20_data-challenge.qmd
+        - 21_at-home-4.qmd
     - part: "Data Visualisation 1"
       chapters:
-        - 7_data_visualisation_1.qmd
-        - ggplot2.qmd
-        - chart_types.qmd
-        - at-home-004.qmd
+        - 22_data-visualisation-1.qmd
+        - 23_ggplot2.qmd
+        - 24_chart-types.qmd
+        - 25_at-home-5.qmd
     - part: "Data Visualisation 2"
       chapters:
-        - 8_data_visualisation_2.qmd
-        - gestalt.qmd
-        - scales.qmd
-        - position.qmd
-        - date_scales.qmd
-        - colour.qmd
-        - at-home-005.qmd
+        - 26_data-visualisation-2.qmd
+        - 27_gestalt.qmd
+        - 28_scales.qmd
+        - 29_position-scales.qmd
+        - 30_date-scales.qmd
+        - 31_colour.qmd
+        - 32_at-home-6.qmd
     - part: "Data Visualisation 3"
       chapters:
-        - 9_data_visualisation_3.qmd
-        - titles.qmd
-        - themes.qmd
-        - annotations.qmd
+        - 33_data-visualisation-3.qmd
+        - 34_titles.qmd
+        - 35_themes.qmd
+        - 36_annotations.qmd
     - part: "Data Visualisation 4"
       chapters:
-        - fair.qmd
-        - accessibility.qmd
-        - tidytuesday.qmd
-        - at-home-006.qmd
+        - 37_fair-data.qmd
+        - 38_accessibility.qmd
+        - 39_tidytuesday-challenge.qmd
+        - 40_at-home-7.qmd
     - part: "Useful information"
       chapters:
-        - data.qmd
+        - 41_data-sources.qmd
     - part: "Digital Mapping 1"
       chapters:
-        - 10_digital_mapping_1.qmd
+        - 42_digital-mapping-1.qmd
    #     - digital_mapping.qmd
     #    - maps_in_r.qmd
-        - basemaps.qmd
-        - visualising.qmd
+        - 43_basemaps.qmd
+        - 44_visualising-map-data.qmd
       #  - map_scales.qmd
       #  - features.qmd
-        - at-home-007.qmd
+        - 45_at-home-8.qmd
     - part: "Digital Mapping 2"
       chapters:
-        - full_map.qmd
-        - points_map.qmd
+        - 46_full-map.qmd
+        - 47_points-map.qmd
     - part: "Digital Mapping 3"
       chapters:
-        - 12_digital_mapping_3.qmd
-        - points_map.qmd
-        - interactives.qmd
+        - 48_digital-mapping-3.qmd
+        - 47_points-map.qmd
+        - 49_interactive-maps.qmd
  #    # - part: "Advanced Chart Design and markdown reports"
  #    #   chapters: 
  #    #     - 13_design.qmd
- #    #     - titles.qmd
- #    #     - themes.qmd
- #    #     - annotations.qmd
+ #    #     - 34_titles.qmd
+ #    #     - 35_themes.qmd
+ #    #     - 36_annotations.qmd
     - part: "Bonus: Interactivity"
       chapters:
-        - plotly.qmd
-        - tmap.qmd
+        - 50_plotly.qmd
+        - 51_tmap.qmd
   #  appendices:
  #    - extra_exercises.qmd
 

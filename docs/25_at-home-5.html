@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Yann Ryan">
-<meta name="dcterms.date" content="2024-09-01">
 
-<title>Information Visualization and the Humanities: Course Book</title>
+<title>25&nbsp; Home Exercises – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_r-intro.html" rel="next">
+<link href="./26_data-visualisation-2.html" rel="next">
+<link href="./24_chart-types.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,6 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_data-visualisation-1.html">Data Visualisation 1</a></li><li class="breadcrumb-item"><a href="./25_at-home-5.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home Exercises</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Course Overview</span></a>
   </div>
 </li>
@@ -349,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
+  <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
@@ -615,28 +616,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
   <ul class="collapse">
-  <li><a href="#what-do-we-mean-by-information-visualisation" id="toc-what-do-we-mean-by-information-visualisation" class="nav-link" data-scroll-target="#what-do-we-mean-by-information-visualisation">What do we mean by ‘information visualisation’?</a></li>
-  <li><a href="#course-aims-and-objectives" id="toc-course-aims-and-objectives" class="nav-link" data-scroll-target="#course-aims-and-objectives">Course Aims and Objectives</a>
-  <ul class="collapse">
-  <li><a href="#information-visualisation" id="toc-information-visualisation" class="nav-link" data-scroll-target="#information-visualisation">Information Visualisation…</a></li>
-  <li><a href="#and-the-humanities" id="toc-and-the-humanities" class="nav-link" data-scroll-target="#and-the-humanities">…and the Humanities</a></li>
-  </ul></li>
-  <li><a href="#doing-not-reading..-mostly" id="toc-doing-not-reading..-mostly" class="nav-link" data-scroll-target="#doing-not-reading..-mostly">Doing not reading.. mostly</a></li>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#data-visualisation" id="toc-data-visualisation" class="nav-link" data-scroll-target="#data-visualisation">Data Visualisation</a>
-  <ul class="collapse">
-  <li><a href="#what-will-i-actually-do-on-this-course" id="toc-what-will-i-actually-do-on-this-course" class="nav-link" data-scroll-target="#what-will-i-actually-do-on-this-course">What will I actually do on this course?</a></li>
-  </ul></li>
-  <li><a href="#course-load" id="toc-course-load" class="nav-link" data-scroll-target="#course-load">Course Load</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  <li><a href="#mostly-recommended-reading" id="toc-mostly-recommended-reading" class="nav-link" data-scroll-target="#mostly-recommended-reading">(Mostly recommended) Reading</a></li>
-  <li><a href="#the-fine-print" id="toc-the-fine-print" class="nav-link" data-scroll-target="#the-fine-print">The Fine Print</a>
-  <ul class="collapse">
-  <li><a href="#use-of-chatbots-for-assignments" id="toc-use-of-chatbots-for-assignments" class="nav-link" data-scroll-target="#use-of-chatbots-for-assignments">Use of Chatbots for assignments</a></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -644,28 +626,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_data-visualisation-1.html">Data Visualisation 1</a></li><li class="breadcrumb-item"><a href="./25_at-home-5.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Information Visualization and the Humanities: Course Book</h1>
+<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home Exercises</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Yann Ryan </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 1, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -675,404 +645,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="course-overview" class="level1 unnumbered">
-<h1 class="unnumbered">Course Overview</h1>
-<p>Welcome! You’re probably here because you are taking the course <em>Information Visualization and the Humanities,</em> taking place in Semester 1, 2025-2026, at Leiden University. It’s part of the minor in Digital Humanities. The course instructor is Dr.&nbsp;Yann Ryan.</p>
-<p>This e-book will serve as the course website. The menu on the left side lists the chapters, one for each week of the course. More will appear as the course progresses. The menu on the right contains the table of contents for this particular chapter, so you can skip to different sections. There’s a search function just below the title on the left, which students have found very useful when they want to find some code we’ve discussed and use it later on in an assignment.</p>
-<p>You’ll also need to familiarise yourself with the course <a href="https://brightspace.universiteitleiden.nl/d2l/home/402636">Brightspace area</a>, where I’ll put further information and you’ll submit assignments.</p>
-<section id="what-do-we-mean-by-information-visualisation" class="level2">
-<h2 class="anchored" data-anchor-id="what-do-we-mean-by-information-visualisation">What do we mean by ‘information visualisation’?</h2>
-<p>Information visualization (or data visualization, which I’ll use interchangeablely) could be defined as <strong><em>the graphical representation of information and data</em></strong>.</p>
-<p>Data visualization is often used to convey or communicate messages about complex or large-scale data. It has been around in its present form—charts, graphs and so forth—since at least the eighteenth century. One form of data visualisation—maps—have been around for even longer. Today, we come across data visualizations in our daily lives: in everything from scientific articles to news media, and in advertisements.</p>
-<p>In the humanities, the data we use might be, for example, historical statistics or networks, or the text (or data derived from it) found in literary works. It might be something totally different such as audio, images, or spatial data.</p>
-</section>
-<section id="course-aims-and-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="course-aims-and-objectives">Course Aims and Objectives</h2>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p>The at-home exercises should be completed using Posit cloud, Home Exercise 5. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown.</p>
+<p>I advise saving the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: lastname_firstname5. Regularly re-save the file.</p>
+<p>When you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.</p>
+<section id="task" class="level3">
+<h3 class="anchored" data-anchor-id="task">Task</h3>
+<p>Load the Bellevue Almshouse dataset we used a few weeks ago, which can be found in this project files tab. Load the Tidyverse library.</p>
+<p>Create a series of charts using ggplot2, visualising the following aspects of the data. In most cases, you’ll need to prepare the data by filtering and/or summarising. Create each one in a separate code cell.</p>
 <ul>
-<li><p>At the end of this course, you will:</p>
-<ul>
-<li><p>Be able to construct data visualisations from scratch using the coding language R.</p></li>
-<li><p>Use online publication formats such as Markdown to make professional-standard visual essays containing code, visualisations, and explanatory text.</p></li>
-<li><p>Understand how a FAIR (Findable, Accessible, Interoperable, and Reusable) approach to data is important for your work and that of others.</p></li>
-<li><p>Be able to critically reflect on a range of visualizations, with a specific focus on network and spatial data.</p></li>
-<li><p>Know where to find some of the inspiring visualizations, thinkers, and designers in this field.</p></li>
-<li><p>Be able to discuss your views on information visualization with peers as well as give and receive feedback.</p></li>
-</ul></li>
+<li><p>A bar chart of the number of male and female individuals. First filter out any missing or ambiguous data.</p></li>
+<li><p>A bar chart of the ten most frequent diseases on the x axis, and the count of each on the y axis (look back to previous weeks for this one). Filter out NA values first.</p></li>
 </ul>
-<p>In terms of concrete skills, by the end of this course, you should be able to use humanities-focused data to make informative, highly-customised visualisations such as this:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To filter out NA values, the function is.na checks if a value is NA or not. So, <code>filter(!is.na(disease))</code>will keep any rows where the value is <em>not</em> NA.</p>
+</div>
+</div>
+<ul>
+<li><p>A bar chart of the ten most frequent female first names on the y axis and the count of each on the x axis.</p></li>
+<li><p>Using <code>geom_histogram()</code>, chart the distribution of the values for age, for male and female gender categories.</p></li>
+<li><p>Create a line chart visualising the number of individuals admitted per week, with the week on the x axis and the count on the y axis.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The function <code>floor_date(unit = 'week')</code> will take a full date and round it down to the start of the week (starting on Sunday, because it’s American). So for example, running floor_date on today’s date and tomorrow’s date (2025-10-13 and 2025-10-14) would give 2025-10-12 for both.</p>
+<p>Try creating a new column with the ‘floored’ dates, and then summarise using these as groups.</p>
+</div>
+</div>
+<ul>
+<li>Do the same except using months instead of weeks, and visualise male and females separately.</li>
+</ul>
+<p><strong>Final challenge:</strong></p>
+<p>You’ve been asked to visualise the professions in the dataset, as a bar chart. Let’s take a look at a summary of this data first (this is not live code):</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999999</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>bellevue_dataset <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'bellevue_almshouse_modified.csv'</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">'box_office.csv'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">billions =</span>total_inflation_adjusted_box_office<span class="sc">/</span><span class="dv">1000000000</span> )</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(year, <span class="fu">as.numeric</span>(billions)), <span class="at">size=</span> <span class="dv">1</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(year, <span class="fu">as.numeric</span>(billions)), <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">23</span>), <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span> </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">15</span>)) <span class="sc">+</span> </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Domestic Yearly Box Office, 1995 to 2023'</span>, </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"In billion US dollars, adjusted for inflation"</span>, </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Box office in billions US (inflation adjusted)"</span>)  <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2020</span>, <span class="at">color =</span> <span class="st">'red'</span>, <span class="at">alpha =</span> .<span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="dv">2019</span>, <span class="at">y=</span><span class="dv">5</span>, <span class="at">label=</span><span class="st">"First Pandemic Year"</span>, <span class="at">angle=</span><span class="dv">90</span>) <span class="sc">+</span> </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bellevue_dataset <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(profession) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["profession"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"laborer","2":"3106"},{"1":"married","2":"1582"},{"1":"spinster","2":"1520"},{"1":"widow","2":"1052"},{"1":"NA","2":"1014"},{"1":"shoemaker","2":"158"},{"1":"tailor","2":"116"},{"1":"blacksmith","2":"103"},{"1":"mason","2":"98"},{"1":"carpenter","2":"65"},{"1":"weaver","2":"65"},{"1":"baker","2":"48"},{"1":"waiter","2":"41"},{"1":"clerk","2":"28"},{"1":"stone cutter","2":"27"},{"1":"painter","2":"26"},{"1":"cooper","2":"24"},{"1":"gardener","2":"24"},{"1":"farmer","2":"21"},{"1":"peddler","2":"19"},{"1":"cartman","2":"15"},{"1":"wheelwright","2":"13"},{"1":"butcher","2":"11"},{"1":"hatter","2":"11"},{"1":"hostler","2":"11"},{"1":"boot maker","2":"10"},{"1":"coachman","2":"10"},{"1":"printer","2":"10"},{"1":"sailor","2":"10"},{"1":"teacher","2":"10"},{"1":"tinsmith","2":"10"},{"1":"harness maker","2":"9"},{"1":"boatman","2":"8"},{"1":"boiler maker","2":"8"},{"1":"nailer","2":"8"},{"1":"servant","2":"8"},{"1":"cabinet maker","2":"7"},{"1":"(illegible)","2":"6"},{"1":"nail maker","2":"6"},{"1":"plasterer","2":"6"},{"1":"porter","2":"6"},{"1":"umbrella maker","2":"6"},{"1":"grocer","2":"5"},{"1":"machinist","2":"5"},{"1":"marble polisher","2":"5"},{"1":"seaman","2":"5"},{"1":"soldier","2":"5"},{"1":"bookmaker","2":"4"},{"1":"brick layer","2":"4"},{"1":"dyer","2":"4"},{"1":"hackman","2":"4"},{"1":"turner","2":"4"},{"1":"1552","2":"3"},{"1":"brass founder","2":"3"},{"1":"brewer","2":"3"},{"1":"courier","2":"3"},{"1":"locksmith","2":"3"},{"1":"merchant","2":"3"},{"1":"paper stainer","2":"3"},{"1":"pavier","2":"3"},{"1":"saddler","2":"3"},{"1":"seamstress","2":"3"},{"1":"ship carpenter","2":"3"},{"1":"starch maker","2":"3"},{"1":"tinman","2":"3"},{"1":"varnisher","2":"3"},{"1":"bar keeper","2":"2"},{"1":"bar tender","2":"2"},{"1":"barber","2":"2"},{"1":"barker","2":"2"},{"1":"cab driver","2":"2"},{"1":"carver","2":"2"},{"1":"chair maker","2":"2"},{"1":"copper smith","2":"2"},{"1":"engineer","2":"2"},{"1":"engraver","2":"2"},{"1":"glass cutter","2":"2"},{"1":"glove maker","2":"2"},{"1":"lawyer","2":"2"},{"1":"marries","2":"2"},{"1":"miner","2":"2"},{"1":"morocco dresser","2":"2"},{"1":"paper maker","2":"2"},{"1":"quarry man","2":"2"},{"1":"rigger","2":"2"},{"1":"sawyer","2":"2"},{"1":"shipwright","2":"2"},{"1":"single","2":"2"},{"1":"stevedore","2":"2"},{"1":"store keeper","2":"2"},{"1":"tanner","2":"2"},{"1":"type caster","2":"2"},{"1":"apothecary","2":"1"},{"1":"arths","2":"1"},{"1":"auctioneer","2":"1"},{"1":"basket maker","2":"1"},{"1":"boder maker","2":"1"},{"1":"book binder","2":"1"},{"1":"book pedlar","2":"1"},{"1":"book seller","2":"1"},{"1":"bookkeeper","2":"1"},{"1":"brass turner","2":"1"},{"1":"brush maker","2":"1"},{"1":"builder","2":"1"},{"1":"ca printer","2":"1"},{"1":"cab maker","2":"1"},{"1":"cabman","2":"1"},{"1":"cabrener","2":"1"},{"1":"calico finnter(?)","2":"1"},{"1":"calico printer","2":"1"},{"1":"caulker","2":"1"},{"1":"chandler","2":"1"},{"1":"clery","2":"1"},{"1":"cloth printer","2":"1"},{"1":"cook","2":"1"},{"1":"copoper","2":"1"},{"1":"cotton sampler","2":"1"},{"1":"croper","2":"1"},{"1":"dancing master","2":"1"},{"1":"drayman","2":"1"},{"1":"dugget","2":"1"},{"1":"fardener","2":"1"},{"1":"fishman","2":"1"},{"1":"flag cutter","2":"1"},{"1":"flag pavier","2":"1"},{"1":"flagger","2":"1"},{"1":"food carrier","2":"1"},{"1":"gas fitter","2":"1"},{"1":"gas manufacturer","2":"1"},{"1":"glover","2":"1"},{"1":"groom","2":"1"},{"1":"gun maker","2":"1"},{"1":"gw anderson per e witherell","2":"1"},{"1":"hacker","2":"1"},{"1":"harterer(?)","2":"1"},{"1":"hodman","2":"1"},{"1":"hood carrier","2":"1"},{"1":"hoster","2":"1"},{"1":"iron moulder","2":"1"},{"1":"jeweller","2":"1"},{"1":"jobber","2":"1"},{"1":"joiner","2":"1"},{"1":"klaborer","2":"1"},{"1":"laourer","2":"1"},{"1":"leather draper","2":"1"},{"1":"leather dresser","2":"1"},{"1":"magician","2":"1"},{"1":"manow(?)","2":"1"},{"1":"manufacturer","2":"1"},{"1":"marble cutter","2":"1"},{"1":"marble sawyer","2":"1"},{"1":"mariner","2":"1"},{"1":"marketmab","2":"1"},{"1":"mider","2":"1"},{"1":"miniature painter","2":"1"},{"1":"moulder","2":"1"},{"1":"music painter","2":"1"},{"1":"musician","2":"1"},{"1":"oysterman","2":"1"},{"1":"paner","2":"1"},{"1":"paper-carrier","2":"1"},{"1":"parrier","2":"1"},{"1":"pealar","2":"1"},{"1":"plumber","2":"1"},{"1":"polisher","2":"1"},{"1":"qweaver","2":"1"},{"1":"rectifier","2":"1"},{"1":"sail maker","2":"1"},{"1":"sale (sail?) maker","2":"1"},{"1":"saw maker","2":"1"},{"1":"school teacher","2":"1"},{"1":"schoolmaster","2":"1"},{"1":"sercant","2":"1"},{"1":"sham","2":"1"},{"1":"ship gambler?","2":"1"},{"1":"ship sawyer","2":"1"},{"1":"shop-keeper","2":"1"},{"1":"soap boiler","2":"1"},{"1":"soap comber","2":"1"},{"1":"soapmaker","2":"1"},{"1":"soinster","2":"1"},{"1":"stage driver","2":"1"},{"1":"stod carriedr","2":"1"},{"1":"stone keeper","2":"1"},{"1":"stone sawyer","2":"1"},{"1":"stove mounter","2":"1"},{"1":"stove-maker","2":"1"},{"1":"strap maker","2":"1"},{"1":"superintendent","2":"1"},{"1":"surveyor","2":"1"},{"1":"tavern keeper","2":"1"},{"1":"teamster","2":"1"},{"1":"tin man","2":"1"},{"1":"truss maker","2":"1"},{"1":"upholsterer","2":"1"},{"1":"waterman","2":"1"},{"1":"wheelnight","2":"1"},{"1":"whitesmith","2":"1"},{"1":"widows","2":"1"},{"1":"wood sawyer","2":"1"},{"1":"wool manufacturer","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
-<p>or this:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"top_movie.csv"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> df2 <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">billions =</span>total_in_2022_dollars<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>top_data <span class="ot">=</span> df2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> total_in_2022_dollars, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>   p <span class="ot">=</span>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>(<span class="at">data =</span> df2,(<span class="fu">aes</span>(<span class="at">x =</span> year, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">y =</span> billions, </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">size =</span> billions, </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> distributor)), </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">color =</span> <span class="st">'black'</span>, <span class="at">alpha =</span> .<span class="dv">6</span>, <span class="at">stroke=</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_label_repel</span>(<span class="at">data =</span> top_data, <span class="fu">aes</span>(<span class="at">x =</span> year, </span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">y =</span> billions, </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">label =</span> movie, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">fill =</span> distributor), </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                       <span class="at">alpha =</span> .<span class="dv">6</span>,<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">6</span>) <span class="sc">+</span> </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Rise and Rise of Disney"</span>, </span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">subtitle =</span> <span class="st">"Nearly 1/3 of the highest-grossing movies (in the US) of the last 30 years</span><span class="sc">\n</span><span class="st">have been made by the Disney Company"</span>) <span class="sc">+</span> </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span> </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Box office in billions US (inflation adjusted)"</span>, </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="st">"Takings (Billions): "</span>, <span class="at">fill =</span> <span class="st">'Distributor: '</span>) <span class="sc">+</span> </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'bottom'</span>, </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.box=</span><span class="st">"vertical"</span>, </span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.margin=</span><span class="fu">margin</span>())</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Perhaps most importantly, you will have total control over every aspect of the visualisation, from the colours, to the titles, labels, and scales. Use the ‘show the code’ button above the visualisation to see the code it was made from.</p>
-<p>Your final and most important piece of work will be a <em>Markdown report:</em> a publishable document containing code, text, and data visualisations. This report will show off all the skills you have learned during the course.</p>
-<section id="information-visualisation" class="level3">
-<h3 class="anchored" data-anchor-id="information-visualisation">Information Visualisation…</h3>
-<p>Most importantly, you’ll learn the basic principles of information visualization, and put them into practice using a platform called R (more on that below). R is widely used by, for example, data journalists at the BBC, and in publications like <em>The Economist</em> and the <em>Financial Times.</em></p>
-<p>Using a language like R or python instead of Excel or a simple application for visualising data has many advantages. For one, it’s much easier to work with large datasets. You want to analyse huge datasets of movies like <a href="https://datasets.imdbws.com/">these ones</a>, with 11 millions rows of data? It’ll take a split second in R. A second advantage is that everything you make can be reproducible, meaning your visualisations and analyses can be scientifically checked and verified.</p>
-<p>The visualisations above were made with a few lines of the R language. If you click the ‘Show the code’ button above them, you’ll see the code I used to create them. It might look a little complicated now, but if you follow the course, you should be able to make similar (and hopefully much nicer) ones by the end of the twelve weeks.</p>
-<p>In your final project, you’ll combine text, data and visual outputs to make a <em>report</em> on a topic you’re interested in. You’ll make a document like this. For this course, it’s more than enough to stick to the basic charts like the above. But if you’re interested, you can explore fancier things such as interactive maps and charts, 3D-rendered visualisations, and more.</p>
-</section>
-<section id="and-the-humanities" class="level3">
-<h3 class="anchored" data-anchor-id="and-the-humanities">…and the Humanities</h3>
-<p>This is not to say the course will be an exhaustive ‘how to’ for scientific data visualisations. One of your superpowers as a humanities student is that you learn to to move beyond the surface level and consider the subtexts, biases, and so forth in cultural objects. In this course, we’ll put those skills to good use, and you’ll use your own expertise and interests to tell compelling and truthful stories about humanities subjects, using data.</p>
-<p>Just as importantly, you’ll learn how to critique data visualisations and design. As a group we’ll ask: what makes them good or bad, scientific or unethical? Can we trust the intentions behind commercial or political data visualisations? Can we spot when they are being misleading, and describe exactly <em>how</em>? What are the negative and positive connotations around certain graphical representations, and why do we use them? How can we make better, more ethical data visualisations? How can we make visualisations which properly consider those with accessibility needs?</p>
-</section>
-</section>
-<section id="doing-not-reading..-mostly" class="level2">
-<h2 class="anchored" data-anchor-id="doing-not-reading..-mostly">Doing not reading.. mostly</h2>
-<p>This will be a ‘doing’ course: you’ll spend most of your self-study time completing at-home exercises and assignments. There will be two compulsory readings to get a background on some of the wider themes of the course, which we will discuss in class. The two pieces we’ll read are:</p>
-<ul>
-<li><p>D’Ignazio, C., &amp; Klein, L. (2020). 2. Collect, Analyze, Imagine, Teach. In Data Feminism. Retrieved from https://data-feminism.mitpress.mit.edu/pub/ei7cogfn</p></li>
-<li><p>D’Ignazio, C., &amp; Klein, L. (2020). 3. On Rational, Scientific, Objective Viewpoints from Mythical, Imaginary, Impossible Standpoints. In Data Feminism. Retrieved from https://data-feminism.mitpress.mit.edu/pub/5evfe9yd</p></li>
-</ul>
-<p>There will also be some weekly recommended reading if you would like to dig deeper into topics on your own time. You can find it near the end of this page.</p>
-</section>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p>Below is the course schedule. In the first couple of weeks, you’ll learn how to do the very basics using the coding language R. This will be followed by three weeks focusing on data analysis, then two blocks of three: first, data visualisation, and second, digital mapping. We’ll wrap things up with a week on creating polished, publishable data visualisations, and how to make your charts and maps interactive.</p>
-<table class="table-striped caption-top table">
-<caption>Course Schedule</caption>
-<colgroup>
-<col style="width: 4%">
-<col style="width: 11%">
-<col style="width: 28%">
-<col style="width: 28%">
-<col style="width: 28%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Week</strong></td>
-<td><strong>Date</strong></td>
-<td><strong>Topic</strong></td>
-<td><strong>Topic</strong></td>
-<td><strong>Assignment</strong></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>2025-09-08</td>
-<td>Introductions</td>
-<td>Tour of the course book</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>2025-09-15</td>
-<td>Introduction to R</td>
-<td>How to use R and Posit cloud</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>2025-09-22</td>
-<td>Data analysis 1</td>
-<td>Working with dataframes. Selecting and subsetting data.</td>
-<td>Discussion of reading 1.</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>2025-09-29</td>
-<td>Data analysis 2</td>
-<td>Filtering and changing data</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>2025-10-06</td>
-<td>Data analysis 3</td>
-<td>Summarising and grouping data</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>2025-10-13</td>
-<td>Data visualisation 1</td>
-<td>Getting started with R and ggplot2.</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>2025-10-20</td>
-<td>Data visualisation 2</td>
-<td>Scales and legends</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>2025-11-03</td>
-<td>Data visualisation 3</td>
-<td>Annotations and themes</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>2025-11-10</td>
-<td>Data visualisation 4</td>
-<td>Ethics, reproducibility, and accessibility</td>
-<td>Assignment 1 (create a datavis) due. Discussion of reading 2.</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>2025-11-17</td>
-<td>Digital mapping 1</td>
-<td>Working with R as a GIS. Creating base maps.</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>2025-11-24</td>
-<td>Digital mapping 2</td>
-<td>Importing shapefiles and mapping external data</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>2025-12-01</td>
-<td>Digital mapping 3</td>
-<td>The tmap package</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>2025-12-08</td>
-<td>Publication</td>
-<td>R Markdown and Interactivity</td>
-<td>Assignment 2 (create a map visualisation) due.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>2026-14-01</td>
-<td></td>
-<td></td>
-<td>Final project due</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="data-visualisation" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualisation">Data Visualisation</h2>
-<p>In practice, creating data visualisations involves mapping numerical data of some sort to graphical representations - often called geometries. A geometry might be the length of a line, the x and y position on a graph, or the temperature of a colour on a map. A good data visualisation will use this mapping to tell a story about the data, while representing it faithfully.</p>
-<section id="what-will-i-actually-do-on-this-course" class="level3">
-<h3 class="anchored" data-anchor-id="what-will-i-actually-do-on-this-course">What will I actually do on this course?</h3>
-<p>You’ll put these skills into practice using a tool called R. R is a coding language often used for data science - it’s particularly good at working with what are called ‘dataframes’: structured data in the form of rows and columns which we’ll mostly be using on this course.</p>
-<p>To begin with, you’ll practice the basics using interactive code snippets embedded directly in this book. Later, we have set up a learning environment called ‘Posit cloud’, where you can import data, export visualisations, and code in a ‘real world’ way.</p>
-<p>Using a coding language like this allows us to have direct control over every aspect of a visualisation - we can choose from many different geometries depending on our data and what we want to show, adjust the colours in precise ways, and pick the scale we want to use. We can also use R to summarise data, or limit it to just the parts we want to work with. This will complement the learning of Python you’re doing in your other course.</p>
-<p>In this course, you’ll learn these very practical skills. It might be hard-going or frustrating at first, but it is very worthwhile. Skills in R or any other programming language are very valuable to all sorts of employers.</p>
-<p>At the same time, there is one important thing to note:</p>
-<p><strong>Your grade for any assessment will never be dependent on your coding ability.</strong></p>
-<p>This is not a coding course: some of you may pick it up straight away, and others may stay at a basic level throughout the course. That is completely fine. You are welcome to ask for help from me, your peers, and online. In all your assessments, I’ll take into account your understanding of data science and visualisations on a more fundamental, humanities-led level.</p>
-<p>It’s easy to get stuck or lost in assignments. When you’re learning a new skill like coding, you can spend many hours agonising over what might turn out to be a simple problem when it’s explained to you.</p>
-<p>The key is to <strong><em>stick strictly to the number of hours given to each assignment</em></strong> - don’t waste lots of time working out what might turn out to be a small mistake. Set a timer and stop when it runs out - make a note and we can discuss what went wrong in the next class.</p>
-</section>
-</section>
-<section id="course-load" class="level2">
-<h2 class="anchored" data-anchor-id="course-load">Course Load</h2>
-<p>Total course load 5 EC x 28 hours = 140 hours:</p>
-<ul>
-<li><p>Seminar: 13 x 2 (26 hours)</p></li>
-<li><p>Course readings and coding practice (34 hours)</p></li>
-<li><p>Assignment(s): (40 hours)</p></li>
-<li><p>Final project/paper: (40 hours)</p></li>
-</ul>
-</section>
-<section id="grading" class="level2">
-<h2 class="anchored" data-anchor-id="grading">Grading</h2>
-<ul>
-<li><p>Assignments: 40 percent</p>
-<ul>
-<li><p>Assignment 1 (data visualisation): 20%</p></li>
-<li><p>Assignment 2 (digital map): 20%</p></li>
-</ul></li>
-<li><p>Class Participation &amp; Peer Feedback: 20 percent</p>
-<ul>
-<li><p>General class participation: 10%</p></li>
-<li><p>Weekly home exercises: 10%</p></li>
-</ul></li>
-<li><p>Final project: 40 percent</p></li>
-</ul>
-</section>
-<section id="mostly-recommended-reading" class="level2">
-<h2 class="anchored" data-anchor-id="mostly-recommended-reading">(Mostly recommended) Reading</h2>
-<p>This course will be very practical and your self-study time will be mostly spent completing exercises or assignments. As such, most of the reading is recommended rather than required. Some of the below will relate directly to the class and others I just think are interesting if you’d like to know more about the topic. Compulsory reading is marked in bold.</p>
-<table class="table-striped caption-top table">
-<caption>Weekly Reading Schedule</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 25%">
-<col style="width: 65%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th><strong>Date</strong></th>
-<th><strong>Reading</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>2024-09-09</td>
-<td>Isabel Mereilles, <em>Design for Information,</em> ‘Introduction’ (<a href="https://catalogue.leidenuniv.nl/permalink/f/n95gpj/UBL_ALMA51257896950002711">ebook available through Library catalogue</a>)</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>2024-09-16</td>
-<td><p>Day, Shawn. (2023) ‘Visualising humanities data’, in O’Sullivan, J. (ed.) The Bloomsbury Handbook to the Digital Humanities. London: Bloomsbury Publishing, pp.&nbsp;211-219. (ebook available <a href="https://catalogue.leidenuniv.nl/permalink/31UKB_LEU/18s393l/alma9940180698402711">through the Library</a> or open access version available <a href="https://cora.ucc.ie/bitstreams/1cf13aee-b962-416f-88b5-b8edc0786e7f/download">here</a>)</p>
-<p>Jeffrey Heer, Michael Bostock, and Vadim Ogievetsky: <a href="https://queue.acm.org/detail.cfm?id=1805128">A Tour Through the Visualization Zoo</a></p></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>2024-09-23</td>
-<td><p><a href="http://faculty.salisbury.edu/~jtanderson/teaching/cosc311/fa21/files/tufte.pdf">Edward Tufte, <em>The Visual Display of Quantitative Information</em> (Cheshire: 2001)</a>: Chapter 1</p>
-<p><strong>Chapter 3, ‘On Rational, Scientific, Objective Viewpoints from Mythical, Imaginary, Impossible Standpoints’, from the book <em>Data Feminism</em> (open access, available <a href="https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/5">here</a>)</strong></p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>2024-09-30</td>
-<td>Claus Wilke, <em>Fundamentals of Data Visualization</em> (available online). Chapters <a href="https://clauswilke.com/dataviz/aesthetic-mapping.html">2</a>, <a href="https://clauswilke.com/dataviz/coordinate-systems-axes.html">3</a>, and <a href="https://clauswilke.com/dataviz/color-basics.html">4</a>.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>2024-10-07</td>
-<td><p><a href="https://view.e.economist.com/?qs=f4d0eecea29f1f91774da16cecf280cb31af5fbc06a5916a37f22c049437192916c8af311beed6f52e3ef7e985b7d44f421f783c3fa3272cc08649f97dca80cc14f33497c6a1b1f485f718837a4f7f5a">Olivia Vane and Rosamund Pearce, ‘How to Visualise Sensitive Topics’</a></p>
-<p><a href="https://view.e.economist.com/?qs=857a751c0e864d3ba45ac0e90aa6ef007db79f778e542dbf21c28f42244b8a3ffee2e8aae4c8a260eb93e716a66edfb0f42e240a6e188df9c5e1ac38c75fce8f91e421db50aa777e57e48fdab6644bed&amp;utm_campaign=r.data-newsletter&amp;utm_medium=email.internal-newsletter.np&amp;utm_source=salesforce-marketing-cloud&amp;utm_term=6/21/2022&amp;utm_id=1209740">Alex Selby-Boothroyd, ‘Mapping Refugee Flows’</a></p>
-<p>https://it.wisc.edu/learn/accessible-content-tech/accessible-data-visualizations/</p></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>2024-10-14</td>
-<td>Field Trip - No Reading</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>2024-11-21</td>
-<td><p>Isabel Mereilles, <em>Design for Information,</em> ‘Chapter 4 (Spatial Structures: Maps)’ (<a href="https://catalogue.leidenuniv.nl/permalink/f/n95gpj/UBL_ALMA51257896950002711">ebook available through Library catalogue</a>)</p>
-<p>Jeppesen and Sartoretto, <a href="https://www.cogitatiopress.com/mediaandcommunication/article/view/6043">Cartographies of Resistance: Counter-Data Mapping as the New Frontier of Digital Media Activism</a></p></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>2024-11-04</td>
-<td>Claus Wilke, <em>Fundamentals of Data Visualization</em> (available online). Chapter <a href="https://clauswilke.com/dataviz/geospatial-data.html">15</a>.</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>2024-11-11</td>
-<td>D’Ignazio, C. and Klein, L. (2020) ‘2. Collect, Analyze, Imagine, Teach’, in <em>Data Feminism</em>. Available at: https://data-feminism.mitpress.mit.edu/pub/ei7cogfn</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>2024-11-18</td>
-<td>Venturini, T., Jacomy, M., &amp; Jensen, P. (2021). What do we see when we look at networks: Visual network analysis, relational ambiguity, and force-directed layouts. <em>Big Data &amp; Society</em>, <em>8</em>(1). <a href="https://doi.org/10.1177/20539517211018488" class="uri">https://doi.org/10.1177/20539517211018488</a></td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>2024-11-25</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>2024-12-02</td>
-<td><p>Read some style guides, e.g.&nbsp;<a href="https://design-system.economist.com/documents/CHARTstyleguide_20170505.pdf">the Economist</a>, <a href="http://urbaninstitute.github.io/graphics-styleguide/">Urban Institute</a></p>
-<p>https://blog.datawrapper.de/text-in-data-visualizations/</p></td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td>2024-12-09</td>
-<td><strong>Drucker, J., 2011. Humanities Approaches to Graphical Display. <em>Digital Humanities Quarterly</em>, 005(1). Available at https://www.digitalhumanities.org/dhq/vol/5/1/000091/000091.html</strong></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="the-fine-print" class="level2">
-<h2 class="anchored" data-anchor-id="the-fine-print">The Fine Print</h2>
-<p><strong>Attendance</strong> is required. If you know you will need to miss a class, please indicate this at least two weeks prior. If you know beforehand you will have to miss three or more classes, you cannot take this course. If you miss a class due to sickness or other unforeseen circumstances, please notify me without delay.</p>
-<p>Class <strong>participation</strong> is part of your final grade. Aside from participation being part of your grade, I really <strong>appreciate your</strong> <strong>input</strong>. If you think you have something to ask, please speak up: there <em>are</em> no stupid questions, but there are a lot of lost opportunities for information exchange and learning. This field is full of exciting new ideas and developments and it is impossible to be aware of them all. So, if you can share information on an idea, article, project, or tool that is of you value to you, please do!</p>
-<p>If you need to speak to me, I’m happy to arrange a meeting to discuss any issues or problems you encounter on the course. Ideally, send a request a week in advance, via email.</p>
-<p><strong>Plagiarism</strong>: If you have not done so already, please inform yourself on Leiden University’s views and regulations on <a href="https://www.organisatiegids.universiteitleiden.nl/binaries/content/assets/ul2student/reglementen/gedragscode-plagiaat-universiteit-leiden-eng--cvb.docx">plagiarism</a>. This Leiden university library <a href="https://www.library.universiteitleiden.nl/students/citing">portal</a> has several accessible web courses on how to quote and cite right and tips for bibliographic management. Note that plagiarism, copyright and other information sharing or copying issues are often extra complex when dealing with digital sources. If you are still in doubt whether (parts of) any work for this course may constitute plagiarism, you need to signal and verify this with me before you hand it in for grading.</p>
-<section id="use-of-chatbots-for-assignments" class="level3">
-<h3 class="anchored" data-anchor-id="use-of-chatbots-for-assignments">Use of Chatbots for assignments</h3>
-<p>Generative language models or chatbots are clearly very useful tools and could probably provide code for most of this course with ease. You will likely use them throughout your studies and career. However, they are of little use if you don’t understand the absolute fundamentals of programming and computational thinking, which this course aims to teach.</p>
-<p>Therefore, the use of chatbots for assignments on this course is specifically forbidden. It is much better to attempt and fail rather than submit something created by a chatbot which you don’t understand. Throughout the course, I will ask you to explain your submitted code line by line. If it looks likely to have been created by a chatbot, the chances of being asked will rise significantly!</p>
-</section>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p>As you can see, there are far too many professions listed to visualise as individual bars. How would you solve this? Try to think of a solution to this - you could use another visualisation method, or re-organise/rename the data to have a pragmatic solution.</p>
+<p>If you can’t code the solution, you can simply write a description of what you would like to do, and we can try to solve it in the class!</p>
 
 
 </section>
@@ -1501,10 +1143,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./24_chart-types.html" class="pagination-link" aria-label="More chart types">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">More chart types</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_r-intro.html" class="pagination-link" aria-label="Introduction to R">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./26_data-visualisation-2.html" class="pagination-link" aria-label="More Data Visualisation">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
