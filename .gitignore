@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+
+/.quarto/
+
+# Local knitr/quarto build caches and per-source figure dumps.
+# The actual published assets live inside docs/, which is tracked.
+/*_cache/
+/*_files/
