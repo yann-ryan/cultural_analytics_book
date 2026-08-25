@@ -57,6 +57,7 @@ book:
         - 29_position-scales.qmd
         - 30_date-scales.qmd
         - 31_colour.qmd
+        - 31a_data-visualisation-2-exercises.qmd
         - 32_at-home-6.qmd
     - part: "Data Visualisation 3"
       chapters:
