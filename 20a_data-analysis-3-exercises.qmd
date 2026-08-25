@@ -1,0 +1,11 @@
+---
+title: "Practice exercises: joins and tidying data"
+---
+
+The exercises below run in your browser and check your code automatically, giving you feedback as you go. They cover `left_join()` and `pivot_longer()`, and give you a chance to combine these with everything else you've learned in Data Analysis 1-3. The last two are a bit more of a challenge - don't worry if you need a few tries.
+
+The data challenge exercise on the previous page isn't included here, since it's too open-ended for automatic checking - keep doing that one in Posit Cloud.
+
+```{=html}
+<iframe src="https://yann-ryan.github.io/cultural-analytics-exercises/data-analysis-3.html" width="100%" height="2400" style="border: 1px solid #ddd; border-radius: 6px;" loading="lazy"></iframe>
+```

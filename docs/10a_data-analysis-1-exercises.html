@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>50&nbsp; Creating your own geographic objects – Cultural Analytics: Course Book</title>
+<title>11&nbsp; Practice exercises: select, slice, arrange, pipes – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./48_digital-mapping-3.html" rel="next">
-<link href="./46_full-map.html" rel="prev">
+<link href="./11_at-home-2.html" rel="next">
+<link href="./10_pipes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./46_full-map.html">Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./47_points-map.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_data-analysis-1.html">Data Analysis 1</a></li><li class="breadcrumb-item"><a href="./10a_data-analysis-1-exercises.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -231,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10a_data-analysis-1-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="./10a_data-analysis-1-exercises.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></span></a>
   </div>
 </li>
@@ -564,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link active">
+  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
@@ -627,32 +593,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#making-points-maps-in-r" id="toc-making-points-maps-in-r" class="nav-link active" data-scroll-target="#making-points-maps-in-r">Making points maps in R</a>
-  <ul class="collapse">
-  <li><a href="#making-a-simple-features-object" id="toc-making-a-simple-features-object" class="nav-link" data-scroll-target="#making-a-simple-features-object">Making a simple features object</a></li>
-  <li><a href="#map-with-ggplot-and-geom_sf" id="toc-map-with-ggplot-and-geom_sf" class="nav-link" data-scroll-target="#map-with-ggplot-and-geom_sf">Map with ggplot and geom_sf</a></li>
-  <li><a href="#aggregating-the-points-data" id="toc-aggregating-the-points-data" class="nav-link" data-scroll-target="#aggregating-the-points-data">Aggregating the points data</a></li>
-  <li><a href="#adding-further-variables" id="toc-adding-further-variables" class="nav-link" data-scroll-target="#adding-further-variables">Adding further variables</a></li>
-  </ul></li>
-  <li><a href="#adding-a-basemap." id="toc-adding-a-basemap." class="nav-link" data-scroll-target="#adding-a-basemap.">Adding a basemap.</a></li>
-  <li><a href="#zooming-in-on-your-map" id="toc-zooming-in-on-your-map" class="nav-link" data-scroll-target="#zooming-in-on-your-map">‘Zooming in’ on your map</a></li>
-  <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting">Faceting</a></li>
-  <li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1" class="nav-link" data-scroll-target="#in-class-exercise-1">In-class exercise 1:</a></li>
-  <li><a href="#in-class-exercise-2" id="toc-in-class-exercise-2" class="nav-link" data-scroll-target="#in-class-exercise-2">In class exercise 2:</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./46_full-map.html">Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./47_points-map.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_data-analysis-1.html">Data Analysis 1</a></li><li class="breadcrumb-item"><a href="./10a_data-analysis-1-exercises.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></h1>
 </div>
 
 
@@ -669,179 +618,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="making-points-maps-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="making-points-maps-in-r">Making points maps in R</h2>
-<p>Last week we made maps of shaded polygons called thematic maps or choropleth maps. Another common visual data map are points maps: that is, a map where geographic data is visualised as individual points, often sized and coloured according to further variables. These are useful when your data are at the level of individual addresses or cities, rather than countries.</p>
-<p>To make a map like this, you need to create a geographic object from a set of coordinates within a dataset. Often, you’ll want to summarise the data first of all, if you have multiple observations (rows of information) about the same place.</p>
-<p>To begin with, you’ll need a dataset with latitude and longitude coordinates. These may already be in your dataset, or you may need to find and add them yourself (see the next page on some methods for this).</p>
-<p>If you do have coordinates in a dataset, they are often included in a single column. You can use the function <code>separate()</code> to split them into two.</p>
-<section id="making-a-simple-features-object" class="level3">
-<h3 class="anchored" data-anchor-id="making-a-simple-features-object">Making a simple features object</h3>
-<p>Once you have your coordinates, you’ll need to make your own <strong>simple features</strong> object from this dataset. If you remember from last week, a simple features object is a special geographic object, which can be created and edited using the R package sf. The maps we downloaded from RNaturalEarth were in this format.</p>
-<p>Let’s start with the dataset of Nobel prize winners from last week, this time with longitude and latitude points for each place of birth and death, making it quite easy to turn into a map.</p>
-<p>In order to turn this into a simple features object, we use a function from the sf package called <code>st_as_sf()</code>. In this function, we will need to specify three things: the dataset of coordinates, the columns containing those coordinates, and the Coordinate Reference System (CRS). Recall from last week that the CRS specifies how distances should be calculated, and which projection should be used.</p>
-<p>First, let’s load the dataset and the libraries we need to use.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>nobel_laureates <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'nobel-prize-winners.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Create the sf object using the following code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nobel_laureates_sf <span class="ot">=</span> <span class="fu">st_as_sf</span>(nobel_laureates <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bornLong)), </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">'bornLong'</span>,<span class="st">'bornLat'</span> ), </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">crs =</span> <span class="dv">4326</span>,<span class="at">na.fail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The argument <code>coords =</code> needs the names of the longitude and latitude columns, in the correct order. They should be given in a vector (surrounded by <code>c()</code>). Next we specify the Coordinate Reference System using <code>crs =</code>. We’ll use the CRS 4326, which is a very widely used one. Last, we need to specify that it should ignore missing values, with the code <code>na.fail =FALSE</code>. Otherwise, it would give an error if we have any missing coordinates.</p>
-</section>
-<section id="map-with-ggplot-and-geom_sf" class="level3">
-<h3 class="anchored" data-anchor-id="map-with-ggplot-and-geom_sf">Map with ggplot and geom_sf</h3>
-<p>Turning this into a basic map is very simple, and follows the syntax from previous weeks, using <code>geom_sf</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>    </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> nobel_laureates_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="47_points-map_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This map obviously needs some work to make it readable. Most likely, it’ll need a background map of the world to help with orientation. This is done by simply downloading a base map using RNaturalEarth, and adding it as a layer to the code above (add it before the points data so it doesn’t draw on top of it). We may also want to adjust the limits of the coordinates using <code>coord_sf()</code>.</p>
-</section>
-<section id="aggregating-the-points-data" class="level3">
-<h3 class="anchored" data-anchor-id="aggregating-the-points-data">Aggregating the points data</h3>
-<p>A slightly more fundamental problem in this case is that it’s not a very accurate visual representation of the data. This is because each place is simply drawn as a point. If there are multiple instances of the same set of coordinates, these will be drawn on top of each other and will disappear.</p>
-<p>In most cases, we’ll want to aggregate the points information somehow. This is done using <code>group_by()</code> and <code>tally()</code> or <code>summarise()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>summarised_data <span class="ot">=</span> nobel_laureates_sf <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bornCity_now) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Again, this can be turned into a map using ggplot and geom_sf(), this time setting the size to the calculated column, which is called n.&nbsp;This needs to be done within aes().</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> summarised_data <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(n)), <span class="fu">aes</span>(<span class="at">size =</span> n), <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">show.legend =</span> <span class="st">"point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="47_points-map_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="adding-further-variables" class="level3">
-<h3 class="anchored" data-anchor-id="adding-further-variables">Adding further variables</h3>
-<p>Another thing we might want to do is to visualise the dots by some additional variable, for example the category of Nobel prize. We make a simple dataset, but add the <code>category</code> variable in to the group_by() function.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>summarised_data <span class="ot">=</span> nobel_laureates_sf <span class="sc">|&gt;</span> <span class="fu">group_by</span>(bornCity_now, category) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We can specify the colour using color = within the aes(), as with size. However, we will also run into the problem of points being invisible because others are drawn on top of them. One trick to fix this is to set the transparency of the points to a value lower than one, <code>using alpha =</code>. In this case, <code>alpha =</code> should <em>not</em> go within the aes(), because we want to set all points to a single value.</p>
-<p><code>show.legend = "point"</code> is necessary to tell ggplot how it should draw the legend, for some technical reason (because it’s not exactly a point but a geographic object, so it works slightly differently).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> summarised_data, <span class="fu">aes</span>(<span class="at">size =</span> n, <span class="at">color =</span> category), <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">show.legend =</span> <span class="st">"point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="47_points-map_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="adding-a-basemap." class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-basemap.">Adding a basemap.</h2>
-<p>In most cases with a points map, you’ll want to add a basemap layer to your data, so that viewers understand which points correspond to which geographic places. A basemap is added by adding a layer to your map containing a shapefile corresponding to your area.</p>
-<p>For example, to add a basemap of the world to your map, you can download one using R Natural Earth, as we did last week:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>worldmap_coast <span class="ot">=</span> <span class="fu">ne_coastline</span>(<span class="at">scale =</span> <span class="st">'medium'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>To add to your map, simply add it as a separate layer, <em>before</em> your data layer:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> worldmap_coast) <span class="sc">+</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> summarised_data, <span class="fu">aes</span>(<span class="at">size =</span> n, <span class="at">color =</span> category), <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">show.legend =</span> <span class="st">"point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="47_points-map_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="zooming-in-on-your-map" class="level2">
-<h2 class="anchored" data-anchor-id="zooming-in-on-your-map">‘Zooming in’ on your map</h2>
-<p>The easiest way to do this is to adjust the coordinates using <code>coord_sf()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> worldmap_coast) <span class="sc">+</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> summarised_data, <span class="fu">aes</span>(<span class="at">size =</span> n, <span class="at">color =</span> category), <span class="at">alpha =</span> .<span class="dv">9</span>, <span class="at">show.legend =</span> <span class="st">"point"</span>)<span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">30</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">37</span>, <span class="dv">60</span>)) <span class="sc">+</span> <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="47_points-map_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="faceting" class="level2">
-<h2 class="anchored" data-anchor-id="faceting">Faceting</h2>
-<p>One way to display more variables in your visualisations is to make use of <strong>faceting</strong>. Faceting will create a separate visualisation for each combination of categories you specify. This is not restricted to maps but can be done with all visualisation types.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> worldmap_coast) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> summarised_data, <span class="fu">aes</span>(<span class="at">size =</span> n, <span class="at">color =</span> category), <span class="at">alpha =</span> .<span class="dv">9</span>, <span class="at">show.legend =</span> <span class="st">"point"</span>)<span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">30</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">37</span>, <span class="dv">60</span>)) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="47_points-map_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="in-class-exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-exercise-1">In-class exercise 1:</h2>
-<p>Make a points map using the ‘extinct languages’ dataset in Posit.</p>
-<ul>
-<li><p>Add a basemap using RNaturalEarth</p></li>
-<li><p>Restrict the map to a chosen area</p></li>
-<li><p>Colour the data by the endangered status.</p></li>
-</ul>
-</section>
-<section id="in-class-exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-exercise-2">In class exercise 2:</h2>
-<p>The following is a good example of the kind of real-world workflow in making a map from external data, including the kinds of problems with matching and cleaning you’ll often encounter.</p>
-<p>Using the <a href="https://ec.europa.eu/eurostat/data/database">eurosat database</a>, choose a dataset to visualise. You want to choose something from Detailed datasets -&gt; General and Regional Statistics -&gt; Regional statistics by NUTS classification (reg), as in the screenshot here:</p>
-<p><img src="images/47_points-map/01.png" class="img-fluid"></p>
-<ul>
-<li><p>Download a shapefile of the NUTS regions from the <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics">official EU site</a>. Choose the least-detailed scale so you don’t run into computer memory problems. Select the EPSG: 4326 CRS.</p></li>
-<li><p>Upload these files to Posit cloud (or keep on your local machine if you’re running R there).</p></li>
-<li><p>Make a map. Start by selecting a single year and shading each region by the colour of your dataset.</p></li>
-</ul>
-<p>See how far you can get with the following:</p>
-<ul>
-<li><p>Use a fill colour palette which more easily distinguishes the lower and higher values.</p></li>
-<li><p>Use theming to remove unwanted elements of the map.</p></li>
-<li><p>Adjust the coordinate limits to focus on the main region of Europe, ignoring the Atlantic islands.</p></li>
-<li><p>The map looks a little strange with missing regions and countries (i.e the UK). How could we solve this, so they are at least present, but perhaps greyed out?</p></li>
-<li><p><strong>Try this extra challenge:</strong> make a version which creates a series of mini-maps, one for each year in the data. To do this you’ll need to <code>pivot</code> your data so that it is in a ‘long’ format, with each data point for each year in a single row, and use a function called <code>facet_wrap()</code>.</p></li>
-</ul>
+<p>The exercises below run in your browser and check your code automatically, giving you feedback as you go. They cover everything from this part of the course: <code>select()</code>, <code>slice()</code>, <code>arrange()</code>, and the pipe. The last two are a bit more of a challenge - don’t worry if you need a few tries.</p>
+<iframe src="https://yann-ryan.github.io/cultural-analytics-exercises/data-analysis-1.html" width="100%" height="2400" style="border: 1px solid #ddd; border-radius: 6px;" loading="lazy"></iframe>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1266,13 +1046,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./46_full-map.html" class="pagination-link" aria-label="Full map workflow">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Full map workflow</span></span>
+      <a href="./10_pipes.html" class="pagination-link" aria-label="The pipe operator">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The pipe operator</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./48_digital-mapping-3.html" class="pagination-link" aria-label="Digital Mapping 3">
-        <span class="nav-page-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./11_at-home-2.html" class="pagination-link" aria-label="Home exercises">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Home exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

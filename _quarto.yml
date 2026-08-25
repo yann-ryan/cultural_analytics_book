@@ -24,6 +24,7 @@ book:
         - 08_slice.qmd
         - 09_arrange.qmd
         - 10_pipes.qmd
+        - 10a_data-analysis-1-exercises.qmd
         - 11_at-home-2.qmd
     - part: "Data Analysis 2"
       chapters:
@@ -32,12 +33,14 @@ book:
         - 14_mutate.qmd
         - 15_summarise.qmd
         - 16_grouping.qmd
+        - 16a_data-analysis-2-exercises.qmd
         - 17_at-home-3.qmd
     - part: "Data Analysis 3"
       chapters:
         - 18_joins.qmd
         - 19_tidying-data.qmd
         - 20_data-challenge.qmd
+        - 20a_data-analysis-3-exercises.qmd
         - 21_at-home-4.qmd
     - part: "Data Visualisation 1"
       chapters:

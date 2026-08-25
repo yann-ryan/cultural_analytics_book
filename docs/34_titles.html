@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>34&nbsp; Titles and Labels – Cultural Analytics: Course Book</title>
+<title>37&nbsp; Titles and Labels – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-1","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"setup","results":"markup","fig-cap":"","autorun":"true","editor-max-height":"","output":"true"},"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-2","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":2,"code":"df <- gapminder_df |>\n  filter(year == 2007) |>\n  mutate(pop_millions = pop/1000000)"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-3","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":3,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + \n  geom_point()"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-4","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":4,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\")"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-5","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":5,"code":""},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-6","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":6,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = \"Life Expectancy\")"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-7","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":7,"code":""},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-8","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":8,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-9","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":9,"code":"df |>\n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  +\n  geom_point() +\n  geom_text(aes(label = country), size = 3) +\n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-10","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":10,"code":"df_text = df %>% filter(country %in% c('Ireland', 'Netherlands'))\n\ndf |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  geom_text(data = df_text, aes(label = country), size = 4) + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-11","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":11,"code":"df_text = df |>\n  filter(country %in% c('Ireland', 'Iceland')) |> \n  mutate(country_gdp = paste(country, \" (\", round(gdpPercap), \")\", sep = ''))\n\ndf |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  geom_text(data = df_text, aes(label = country_gdp), size = 4, color = 'black') + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-12","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":12,"code":""},{"options":{"out-height":"","warning":"true","read-only":"false","classes":"","label":"unnamed-chunk-13","dpi":72,"out-width":"700px","editor-font-scale":"1","comment":"","message":"true","fig-width":7,"editor-word-wrap":"true","fig-height":5,"editor-quick-suggestions":"false","context":"interactive","results":"markup","fig-cap":"","autorun":"false","editor-max-height":"","output":"true"},"id":13,"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"comment":"","fig-height":5,"read-only":"false","context":"setup","warning":"true","label":"unnamed-chunk-1","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"true"},"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-2","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":2,"code":"df <- gapminder_df |>\n  filter(year == 2007) |>\n  mutate(pop_millions = pop/1000000)"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-3","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":3,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + \n  geom_point()"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-4","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":4,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\")"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-5","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":5,"code":""},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-6","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":6,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = \"Life Expectancy\")"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-7","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":7,"code":""},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-8","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":8,"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-9","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":9,"code":"df |>\n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  +\n  geom_point() +\n  geom_text(aes(label = country), size = 3) +\n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-10","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":10,"code":"df_text = df %>% filter(country %in% c('Ireland', 'Netherlands'))\n\ndf |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  geom_text(data = df_text, aes(label = country), size = 4) + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-11","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":11,"code":"df_text = df |>\n  filter(country %in% c('Ireland', 'Iceland')) |> \n  mutate(country_gdp = paste(country, \" (\", round(gdpPercap), \")\", sep = ''))\n\ndf |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  geom_text(data = df_text, aes(label = country_gdp), size = 4, color = 'black') + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL)"},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-12","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":12,"code":""},{"options":{"comment":"","fig-height":5,"read-only":"false","context":"interactive","warning":"true","label":"unnamed-chunk-13","out-width":"700px","editor-max-height":"","fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true","classes":"","fig-width":7,"results":"markup","out-height":"","message":"true","editor-quick-suggestions":"false","dpi":72,"autorun":"false"},"id":13,"code":""}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./33_data-visualisation-3.html">Data Visualisation 3</a></li><li class="breadcrumb-item"><a href="./34_titles.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Titles and Labels</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./33_data-visualisation-3.html">Data Visualisation 3</a></li><li class="breadcrumb-item"><a href="./34_titles.html"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Titles and Labels</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1684,8 +1684,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10a_data-analysis-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./11_at-home-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1702,37 +1708,43 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_filter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Filtering data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Filtering data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13_regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pattern matching with str_detect</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Pattern matching with str_detect</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_mutate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Changing columns with mutate</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Changing columns with mutate</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15_summarise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Summarising</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarising</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16_grouping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Grouping</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Grouping</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16a_data-analysis-2-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Practice exercises: filter, mutate, summarise, grouping</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./17_at-home-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1749,25 +1761,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./18_joins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./19_tidying-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tidying data with pivot_longer()</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tidying data with pivot_longer()</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./20_data-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Data challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Data challenge</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20a_data-analysis-3-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Practice exercises: joins and tidying data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_at-home-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1784,25 +1802,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Data Visualisation Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Visualisation Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./23_ggplot2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Using ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Using ggplot2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./24_chart-types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">More chart types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">More chart types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1819,43 +1837,43 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./27_gestalt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./28_scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./29_position-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1872,25 +1890,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./34_titles.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
   </div>
 </li>
       </ul>
@@ -1907,25 +1925,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1942,7 +1960,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -1959,25 +1977,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1994,13 +2012,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
       </ul>
@@ -2017,19 +2035,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2046,13 +2064,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>
@@ -2367,9 +2385,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./33_data-visualisation-3.html">Data Visualisation 3</a></li><li class="breadcrumb-item"><a href="./34_titles.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Titles and Labels</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./33_data-visualisation-3.html">Data Visualisation 3</a></li><li class="breadcrumb-item"><a href="./34_titles.html"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Titles and Labels</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Titles and Labels</span></h1>
+<h1 class="title"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Titles and Labels</span></h1>
 </div>
 
 
@@ -2929,12 +2947,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./33_data-visualisation-3.html" class="pagination-link" aria-label="Data Visualisation 3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./35_themes.html" class="pagination-link" aria-label="Chart Themes">
-        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Chart Themes</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Chart Themes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
