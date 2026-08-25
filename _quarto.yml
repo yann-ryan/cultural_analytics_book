@@ -47,6 +47,7 @@ book:
         - 22_data-visualisation-1.qmd
         - 23_ggplot2.qmd
         - 24_chart-types.qmd
+        - 24a_data-visualisation-1-exercises.qmd
         - 25_at-home-5.qmd
     - part: "Data Visualisation 2"
       chapters:

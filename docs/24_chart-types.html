@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./25_at-home-5.html" rel="next">
+<link href="./24a_data-visualisation-1-exercises.html" rel="next">
 <link href="./23_ggplot2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-1","context":"setup","dpi":72,"classes":"","fig-cap":"","autorun":"true","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"library(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')","id":1},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-2","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df","id":2},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-3","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap)) + \n  geom_point()","id":3},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-4","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap)) + \n  geom_point(size = 5)","id":4},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-5","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) + \n  geom_point()","id":5},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-6","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"","id":6},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-7","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) + \n  geom_point(color = 'red')\n","id":7},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-8","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop,color = continent)) + \n  geom_point()\n","id":8},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-9","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"","id":9},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-10","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop,color = continent)) + \n  geom_point(alpha = .5)","id":10},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-11","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) + \n  geom_point(shape = 2)","id":11},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-12","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2002) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop,shape = continent)) + \n  geom_point()","id":12},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-13","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year == 2002) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop, fill = continent), color = 'black') + \n  geom_point(shape = 21)","id":13},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-14","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = lifeExp)) + \n  geom_line()","id":14},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-15","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"","id":15},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-16","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = gdpPercap)) + \n  geom_line(color = 'forestgreen')","id":16},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-17","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Germany', 'Spain', 'United Kingdom')) |>\n  ggplot(aes(x = year, y = gdpPercap, color = country)) + \n  geom_line()","id":17},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-18","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = gdpPercap)) + \n  geom_line(linetype = 'dashed')","id":18},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-19","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Germany', 'Spain', 'United Kingdom')) |>\n  ggplot(aes(x = year, y = gdpPercap, linetype = country)) + \n  geom_line()","id":19},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-20","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = lifeExp)) + \n  geom_line() + \n  geom_point()","id":20},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-21","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"","id":21},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-22","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(year == 2007) |>\n  ggplot(aes(x = gdpPercap)) + geom_histogram()","id":22},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-23","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(year == 2007) |>\n  ggplot(aes(x = gdpPercap)) + \n  geom_histogram(binwidth = 3000)","id":23},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-24","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(year == 2007) |>\n  ggplot(aes(x = gdpPercap)) + \n  geom_density( )","id":24},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-25","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> \n  filter(year == 2007) |> \n  filter(!is.na(pop)) |>\n  ggplot(aes(x = continent, y = lifeExp, group = continent)) + \n  geom_boxplot()","id":25},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-26","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |> filter(year == 2007) |>\n  filter(country %in% c('Netherlands', 'France', 'Germany', 'Spain', 'United Kingdom')) |>\n  ggplot(aes(x = country, y = gdpPercap)) + \n  geom_col() +\n  geom_text(aes(y =gdpPercap  + 2000, label = round(gdpPercap)))","id":26},{"options":{"comment":"","out-height":"","fig-height":5,"editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","output":"true","fig-width":7,"warning":"true","label":"unnamed-chunk-27","context":"interactive","dpi":72,"classes":"","fig-cap":"","autorun":"false","results":"markup","out-width":"700px","editor-max-height":"","editor-quick-suggestions":"false","message":"true"},"code":"gapminder_df |>\n  filter(year %in% c(2002, 2007)) |>\n  filter(country %in% c('Netherlands', 'France', \"Germany\", \"Italy\", \"Belgium\")) |>\n  select(year, country, gdpPercap) |>\n  pivot_wider(names_from = year, values_from = gdpPercap)  |>\n  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) +\n  geom_segment() +\n  geom_point(size=3) +\n  geom_point(aes(y = `2007`), size=3)+\n  coord_flip()","id":27}];
+globalThis.qwebrCellDetails = [{"code":"library(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')","id":1,"options":{"fig-width":7,"label":"unnamed-chunk-1","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"setup","autorun":"true","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df","id":2,"options":{"fig-width":7,"label":"unnamed-chunk-2","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap)) + \n  geom_point()","id":3,"options":{"fig-width":7,"label":"unnamed-chunk-3","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap)) + \n  geom_point(size = 5)","id":4,"options":{"fig-width":7,"label":"unnamed-chunk-4","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) + \n  geom_point()","id":5,"options":{"fig-width":7,"label":"unnamed-chunk-5","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"","id":6,"options":{"fig-width":7,"label":"unnamed-chunk-6","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) + \n  geom_point(color = 'red')\n","id":7,"options":{"fig-width":7,"label":"unnamed-chunk-7","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop,color = continent)) + \n  geom_point()\n","id":8,"options":{"fig-width":7,"label":"unnamed-chunk-8","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"","id":9,"options":{"fig-width":7,"label":"unnamed-chunk-9","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop,color = continent)) + \n  geom_point(alpha = .5)","id":10,"options":{"fig-width":7,"label":"unnamed-chunk-10","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2007) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) + \n  geom_point(shape = 2)","id":11,"options":{"fig-width":7,"label":"unnamed-chunk-11","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2002) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop,shape = continent)) + \n  geom_point()","id":12,"options":{"fig-width":7,"label":"unnamed-chunk-12","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year == 2002) |>\nggplot(aes(x = lifeExp, y = gdpPercap, size = pop, fill = continent), color = 'black') + \n  geom_point(shape = 21)","id":13,"options":{"fig-width":7,"label":"unnamed-chunk-13","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = lifeExp)) + \n  geom_line()","id":14,"options":{"fig-width":7,"label":"unnamed-chunk-14","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"","id":15,"options":{"fig-width":7,"label":"unnamed-chunk-15","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = gdpPercap)) + \n  geom_line(color = 'forestgreen')","id":16,"options":{"fig-width":7,"label":"unnamed-chunk-16","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Germany', 'Spain', 'United Kingdom')) |>\n  ggplot(aes(x = year, y = gdpPercap, color = country)) + \n  geom_line()","id":17,"options":{"fig-width":7,"label":"unnamed-chunk-17","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = gdpPercap)) + \n  geom_line(linetype = 'dashed')","id":18,"options":{"fig-width":7,"label":"unnamed-chunk-18","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Germany', 'Spain', 'United Kingdom')) |>\n  ggplot(aes(x = year, y = gdpPercap, linetype = country)) + \n  geom_line()","id":19,"options":{"fig-width":7,"label":"unnamed-chunk-19","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(country == 'Netherlands') |>\n  ggplot(aes(x = year, y = lifeExp)) + \n  geom_line() + \n  geom_point()","id":20,"options":{"fig-width":7,"label":"unnamed-chunk-20","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"","id":21,"options":{"fig-width":7,"label":"unnamed-chunk-21","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(year == 2007) |>\n  ggplot(aes(x = gdpPercap)) + geom_histogram()","id":22,"options":{"fig-width":7,"label":"unnamed-chunk-22","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(year == 2007) |>\n  ggplot(aes(x = gdpPercap)) + \n  geom_histogram(binwidth = 3000)","id":23,"options":{"fig-width":7,"label":"unnamed-chunk-23","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(year == 2007) |>\n  ggplot(aes(x = gdpPercap)) + \n  geom_density( )","id":24,"options":{"fig-width":7,"label":"unnamed-chunk-24","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> \n  filter(year == 2007) |> \n  filter(!is.na(pop)) |>\n  ggplot(aes(x = continent, y = lifeExp, group = continent)) + \n  geom_boxplot()","id":25,"options":{"fig-width":7,"label":"unnamed-chunk-25","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |> filter(year == 2007) |>\n  filter(country %in% c('Netherlands', 'France', 'Germany', 'Spain', 'United Kingdom')) |>\n  ggplot(aes(x = country, y = gdpPercap)) + \n  geom_col() +\n  geom_text(aes(y =gdpPercap  + 2000, label = round(gdpPercap)))","id":26,"options":{"fig-width":7,"label":"unnamed-chunk-26","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}},{"code":"gapminder_df |>\n  filter(year %in% c(2002, 2007)) |>\n  filter(country %in% c('Netherlands', 'France', \"Germany\", \"Italy\", \"Belgium\")) |>\n  select(year, country, gdpPercap) |>\n  pivot_wider(names_from = year, values_from = gdpPercap)  |>\n  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) +\n  geom_segment() +\n  geom_point(size=3) +\n  geom_point(aes(y = `2007`), size=3)+\n  coord_flip()","id":27,"options":{"fig-width":7,"label":"unnamed-chunk-27","warning":"true","comment":"","output":"true","out-height":"","editor-word-wrap":"true","read-only":"false","dpi":72,"message":"true","editor-font-scale":"1","context":"interactive","autorun":"false","results":"markup","fig-cap":"","editor-max-height":"","editor-quick-suggestions":"false","fig-height":5,"classes":"","out-width":"700px"}}];
 
 </script>
 <script type="module">
@@ -1819,8 +1819,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./24a_data-visualisation-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Practice exercises: ggplot2 basics and chart types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1837,43 +1843,43 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./27_gestalt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./28_scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./29_position-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1890,25 +1896,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./34_titles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
   </div>
 </li>
       </ul>
@@ -1925,25 +1931,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1960,7 +1966,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -1977,25 +1983,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2012,13 +2018,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
       </ul>
@@ -2035,19 +2041,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2064,13 +2070,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>
@@ -3059,8 +3065,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./25_at-home-5.html" class="pagination-link" aria-label="Home Exercises">
-        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Home Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./24a_data-visualisation-1-exercises.html" class="pagination-link" aria-label="Practice exercises: ggplot2 basics and chart types">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Practice exercises: ggplot2 basics and chart types</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>32&nbsp; Position scales – Cultural Analytics: Course Book</title>
+<title>33&nbsp; Position scales – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')\n","options":{"fig-width":7,"out-height":"","autorun":"true","warning":"true","label":"unnamed-chunk-1","read-only":"false","classes":"","context":"setup","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":2,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line()\n","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-2","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":3,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000))","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-3","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":4,"code":"","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-4","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":5,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000)) ","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-5","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":6,"code":"","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-6","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":7,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = seq(from = 1980, to = 2000, by = 2)) ","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-7","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":8,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000) ","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-8","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":9,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3')) ","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-9","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":10,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = country, y = gdpPercap )) +\n  geom_col()","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-10","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":11,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,desc(gdpPercap)), y = gdpPercap )) +\n  geom_col()","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-11","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}},{"id":12,"code":"gapminder_df |>\n  filter(continent == \"Americas\") |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,gdpPercap), y = gdpPercap )) +\n  geom_col() + coord_flip()","options":{"fig-width":7,"out-height":"","autorun":"false","warning":"true","label":"unnamed-chunk-12","read-only":"false","classes":"","context":"interactive","message":"true","output":"true","fig-height":5,"dpi":72,"fig-cap":"","out-width":"700px","results":"markup","comment":"","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","editor-max-height":""}}];
+globalThis.qwebrCellDetails = [{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-1","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"true","out-height":"","fig-cap":"","fig-width":7,"context":"setup","editor-quick-suggestions":"false"},"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')\n"},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-2","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":2,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line()\n"},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-3","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":3,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000))"},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-4","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":4,"code":""},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-5","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":5,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000)) "},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-6","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":6,"code":""},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-7","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":7,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = seq(from = 1980, to = 2000, by = 2)) "},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-8","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":8,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000) "},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-9","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":9,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3')) "},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-10","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":10,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = country, y = gdpPercap )) +\n  geom_col()"},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-11","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":11,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,desc(gdpPercap)), y = gdpPercap )) +\n  geom_col()"},{"options":{"read-only":"false","warning":"true","label":"unnamed-chunk-12","out-width":"700px","message":"true","fig-height":5,"results":"markup","classes":"","editor-word-wrap":"true","editor-max-height":"","output":"true","editor-font-scale":"1","dpi":72,"comment":"","autorun":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","editor-quick-suggestions":"false"},"id":12,"code":"gapminder_df |>\n  filter(continent == \"Americas\") |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,gdpPercap), y = gdpPercap )) +\n  geom_col() + coord_flip()"}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1819,8 +1819,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./24a_data-visualisation-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Practice exercises: ggplot2 basics and chart types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1837,43 +1843,43 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./27_gestalt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./28_scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./29_position-scales.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1890,25 +1896,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./34_titles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
   </div>
 </li>
       </ul>
@@ -1925,25 +1931,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1960,7 +1966,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -1977,25 +1983,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2012,13 +2018,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
       </ul>
@@ -2035,19 +2041,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2064,13 +2070,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>
@@ -2382,9 +2388,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Position scales</span></h1>
+<h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></h1>
 </div>
 
 
@@ -2933,12 +2939,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./28_scales.html" class="pagination-link" aria-label="Chart scales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Chart scales</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chart scales</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./30_date-scales.html" class="pagination-link" aria-label="Date scales">
-        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Date scales</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Date scales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

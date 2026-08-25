@@ -1,0 +1,9 @@
+---
+title: "Practice exercises: ggplot2 basics and chart types"
+---
+
+The exercises below run in your browser and check your code automatically, giving you feedback as you go. Unlike the Data Analysis exercises, these are checked by comparing your **code** to a model solution rather than the result - so if the feedback doesn't say "correct", it'll point you to the specific part of your `aes()` or `geom_` call to fix. The last two are a bit more of a challenge - don't worry if you need a few tries.
+
+```{=html}
+<iframe src="https://yann-ryan.github.io/cultural-analytics-exercises/data-visualisation-1.html" width="100%" height="2600" style="border: 1px solid #ddd; border-radius: 6px;" loading="lazy"></iframe>
+```
