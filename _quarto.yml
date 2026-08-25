@@ -65,6 +65,7 @@ book:
         - 34_titles.qmd
         - 35_themes.qmd
         - 36_annotations.qmd
+        - 36a_data-visualisation-3-exercises.qmd
     - part: "Data Visualisation 4"
       chapters:
         - 37_fair-data.qmd

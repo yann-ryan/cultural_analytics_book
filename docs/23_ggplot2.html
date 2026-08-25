@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"true","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-1","fig-height":5,"context":"setup"}},{"id":2,"code":"library(dplyr)\nlibrary(ggplot2)","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-2","fig-height":5,"context":"interactive"}},{"id":3,"code":"df <- titanic_df |>\n  group_by(sex) |>\n  summarise(n = n())\n  \ndf\n  ","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-3","fig-height":5,"context":"interactive"}},{"id":4,"code":"ggplot(data = df, aes(x = sex, y = n)) \n  ","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-4","fig-height":5,"context":"interactive"}},{"id":5,"code":"ggplot(data = df, aes(x = sex, y = n)) + \n  geom_col()","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-5","fig-height":5,"context":"interactive"}},{"id":6,"code":"ggplot(data = df, aes(x = sex, y = n)) + \n  geom_col(fill = 'red')","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-6","fig-height":5,"context":"interactive"}},{"id":7,"code":"","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-7","fig-height":5,"context":"interactive"}},{"id":8,"code":"df2 = titanic_df |>\n  group_by(sex, embarked) |>\n  summarise(n = n())\n\ndf2","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-8","fig-height":5,"context":"interactive"}},{"id":9,"code":"ggplot(data = df2, aes(x = sex, y = n, fill = embarked)) + \n  geom_col()","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-9","fig-height":5,"context":"interactive"}},{"id":10,"code":"","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-10","fig-height":5,"context":"interactive"}},{"id":11,"code":"df3 <- titanic_df |>\n  group_by(embarked) |>\n  summarise(avg_paid = mean(fare, na.rm = TRUE), n = n())","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-11","fig-height":5,"context":"interactive"}},{"id":12,"code":"ggplot(data = df3, aes(x = embarked, y =n, fill = avg_paid)) + \n  geom_col()","options":{"editor-max-height":"","editor-word-wrap":"true","autorun":"false","editor-font-scale":"1","classes":"","results":"markup","message":"true","out-width":"700px","warning":"true","fig-cap":"","output":"true","read-only":"false","dpi":72,"fig-width":7,"out-height":"","editor-quick-suggestions":"false","comment":"","label":"unnamed-chunk-12","fig-height":5,"context":"interactive"}}];
+globalThis.qwebrCellDetails = [{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-1","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"true","context":"setup","warning":"true"},"code":"library(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-2","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"library(dplyr)\nlibrary(ggplot2)","id":2},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-3","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"df <- titanic_df |>\n  group_by(sex) |>\n  summarise(n = n())\n  \ndf\n  ","id":3},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-4","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"ggplot(data = df, aes(x = sex, y = n)) \n  ","id":4},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-5","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"ggplot(data = df, aes(x = sex, y = n)) + \n  geom_col()","id":5},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-6","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"ggplot(data = df, aes(x = sex, y = n)) + \n  geom_col(fill = 'red')","id":6},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-7","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"","id":7},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-8","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"df2 = titanic_df |>\n  group_by(sex, embarked) |>\n  summarise(n = n())\n\ndf2","id":8},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-9","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"ggplot(data = df2, aes(x = sex, y = n, fill = embarked)) + \n  geom_col()","id":9},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-10","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"","id":10},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-11","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"df3 <- titanic_df |>\n  group_by(embarked) |>\n  summarise(avg_paid = mean(fare, na.rm = TRUE), n = n())","id":11},{"options":{"fig-cap":"","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-12","message":"true","fig-height":5,"fig-width":7,"output":"true","out-height":"","editor-quick-suggestions":"false","comment":"","results":"markup","dpi":72,"editor-max-height":"","classes":"","out-width":"700px","read-only":"false","autorun":"false","context":"interactive","warning":"true"},"code":"ggplot(data = df3, aes(x = embarked, y =n, fill = avg_paid)) + \n  geom_col()","id":12}];
 
 </script>
 <script type="module">
@@ -1923,6 +1923,12 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1937,25 +1943,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1972,7 +1978,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -1989,25 +1995,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2024,13 +2030,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
       </ul>
@@ -2047,19 +2053,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2076,13 +2082,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>

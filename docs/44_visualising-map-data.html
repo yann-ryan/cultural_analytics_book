@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>49&nbsp; Wrangling and visualising map data – Cultural Analytics: Course Book</title>
+<title>50&nbsp; Wrangling and visualising map data – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -392,7 +392,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"setup","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-1","editor-quick-suggestions":"false","autorun":"true","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":1,"code":"library(tidyverse)\nlibrary(rnaturalearth)\nlibrary(sf)\n\nsf_use_s2(FALSE)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-2","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":2,"code":"glimpse(worldmap)"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-3","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":3,"code":""},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-4","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":4,"code":""},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-5","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":5,"code":"ggplot() +\n  geom_sf(data = worldmap) \n"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-6","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":6,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) \n"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-7","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":7,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  theme_void()\n"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-8","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":8,"code":""},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-9","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":9,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) "},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-10","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":10,"code":""},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-11","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":11,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) "},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-12","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":12,"code":"small_map = worldmap |> \n  filter(name %in% c('United Kingdom', 'Netherlands', 'Ireland', 'France', 'Belgium', 'Luxembourg', 'Denmark', 'Germany'))\n\nggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est))"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-13","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":13,"code":"ggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) "},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-14","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":14,"code":"worldmap_moll <- worldmap |>\n  st_transform(crs = \"+proj=wink\")"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-15","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":15,"code":"ggplot(data = worldmap_moll, aes(fill = pop_est)) +\n  geom_sf()"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-16","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":16,"code":"worldmap |>\n  st_transform(crs = \"+proj=robin\") |>\n  ggplot() + \n  geom_sf()"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-17","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":17,"code":"worldmap |>\n  st_transform(crs = \"+proj=merc\") |>\n  ggplot() + \n  geom_sf()"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-18","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":18,"code":"worldmap |>\n  st_transform(crs = \"+proj=eqc\") |>\n  ggplot() + \n  geom_sf()"},{"options":{"read-only":"false","out-width":"700px","out-height":"","comment":"","fig-cap":"","editor-max-height":"","dpi":72,"context":"interactive","results":"markup","fig-width":7,"fig-height":5,"message":"true","warning":"true","label":"unnamed-chunk-19","editor-quick-suggestions":"false","autorun":"false","classes":"","editor-word-wrap":"true","editor-font-scale":"1","output":"true"},"id":19,"code":""}];
+globalThis.qwebrCellDetails = [{"code":"library(tidyverse)\nlibrary(rnaturalearth)\nlibrary(sf)\n\nsf_use_s2(FALSE)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')","options":{"fig-width":7,"context":"setup","output":"true","fig-cap":"","autorun":"true","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-1","fig-height":5},"id":1},{"code":"glimpse(worldmap)","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-2","fig-height":5},"id":2},{"code":"","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-3","fig-height":5},"id":3},{"code":"","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-4","fig-height":5},"id":4},{"code":"ggplot() +\n  geom_sf(data = worldmap) \n","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-5","fig-height":5},"id":5},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) \n","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-6","fig-height":5},"id":6},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  theme_void()\n","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-7","fig-height":5},"id":7},{"code":"","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-8","fig-height":5},"id":8},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-9","fig-height":5},"id":9},{"code":"","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-10","fig-height":5},"id":10},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-11","fig-height":5},"id":11},{"code":"small_map = worldmap |> \n  filter(name %in% c('United Kingdom', 'Netherlands', 'Ireland', 'France', 'Belgium', 'Luxembourg', 'Denmark', 'Germany'))\n\nggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est))","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-12","fig-height":5},"id":12},{"code":"ggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-13","fig-height":5},"id":13},{"code":"worldmap_moll <- worldmap |>\n  st_transform(crs = \"+proj=wink\")","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-14","fig-height":5},"id":14},{"code":"ggplot(data = worldmap_moll, aes(fill = pop_est)) +\n  geom_sf()","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-15","fig-height":5},"id":15},{"code":"worldmap |>\n  st_transform(crs = \"+proj=robin\") |>\n  ggplot() + \n  geom_sf()","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-16","fig-height":5},"id":16},{"code":"worldmap |>\n  st_transform(crs = \"+proj=merc\") |>\n  ggplot() + \n  geom_sf()","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-17","fig-height":5},"id":17},{"code":"worldmap |>\n  st_transform(crs = \"+proj=eqc\") |>\n  ggplot() + \n  geom_sf()","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-18","fig-height":5},"id":18},{"code":"","options":{"fig-width":7,"context":"interactive","output":"true","fig-cap":"","autorun":"false","message":"true","editor-font-scale":"1","classes":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","editor-quick-suggestions":"false","comment":"","warning":"true","out-height":"","dpi":72,"out-width":"700px","results":"markup","label":"unnamed-chunk-19","fig-height":5},"id":19}];
 
 </script>
 <script type="module">
@@ -1602,7 +1602,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./44_visualising-map-data.html"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./44_visualising-map-data.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1957,6 +1957,12 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1971,25 +1977,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2006,7 +2012,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
       </ul>
@@ -2023,25 +2029,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2058,13 +2064,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
       </ul>
@@ -2081,19 +2087,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2110,13 +2116,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>
@@ -2436,9 +2442,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./44_visualising-map-data.html"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./44_visualising-map-data.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></h1>
+<h1 class="title"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></h1>
 </div>
 
 
@@ -3067,12 +3073,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./43_basemaps.html" class="pagination-link" aria-label="Working with Shapefiles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./45_at-home-8.html" class="pagination-link" aria-label="Home Exercise">
-        <span class="nav-page-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
