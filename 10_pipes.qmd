@@ -78,6 +78,14 @@ Use `select()`, `slice()` and `arrange()` (and the pipe operator) to do the foll
 
 ```
 
+### Checked practice exercises
+
+The exercises below run in your browser and check your code automatically, giving you feedback as you go. They cover everything from this part of the course: `select()`, `slice()`, `arrange()`, and the pipe.
+
+```{=html}
+<iframe src="https://yann-ryan.github.io/cultural-analytics-exercises/data-analysis-1.html" width="100%" height="2400" style="border: 1px solid #ddd; border-radius: 6px;" loading="lazy"></iframe>
+```
+
 ### Learning objectives
 
 Look through these and tick off the ones you think you understand. Be honest with yourself, and make a note of anything which is not clear and we can go over it again in the next class.
