@@ -1,18 +1,20 @@
 # Course Overview {.unnumbered}
 
-Welcome! You're probably here because you are taking the course *Information Visualization and the Humanities,* taking place in Semester 1, 2025-2026, at Leiden University. It's part of the minor in Digital Humanities. The course instructor is Dr. Yann Ryan.
+Welcome! You're probably here because you are taking the course *Cultural Analytics*, taking place in Semester 1, 2025-2026, at Leiden University. It's part of the minor Digital Humanities and Cultural Analytics. The course instructor is Dr. Yann Ryan.
 
 This e-book will serve as the course website. The menu on the left side lists the chapters, one for each week of the course. More will appear as the course progresses. The menu on the right contains the table of contents for this particular chapter, so you can skip to different sections. There's a search function just below the title on the left, which students have found very useful when they want to find some code we've discussed and use it later on in an assignment.
 
 You'll also need to familiarise yourself with the course [Brightspace area](https://brightspace.universiteitleiden.nl/d2l/home/402636), where I'll put further information and you'll submit assignments.
 
-## What do we mean by 'information visualisation'?
+## What is Cultural Analytics?
 
-Information visualisation (or data visualisation, which I'll use interchangeably) could be defined as ***the graphical representation of information and data***.
+Cultural analytics is the use of digital, computational techniques to find, analyse, and understand cultural material - the kinds of data produced by or about culture, and the people who make and consume it.
 
-Data visualisation is often used to convey or communicate messages about complex or large-scale data. It has been around in its present form---charts, graphs and so forth---since at least the eighteenth century. One form of data visualisation---maps---have been around for even longer. Today, we come across data visualisations in our daily lives: in everything from scientific articles to news media, and in advertisements.
+That covers a lot of ground. Cultural data comes in many forms: the text of novels, digitised newspapers, images and film, audio, and - the focus of this course - **structured, tabular data**: the kind of data you'd find in a spreadsheet, with rows and columns. Think of a museum's collection database, a streaming platform's play-count records, a historical census, or a table of shipping records. If you're also taking a course on computational text or image analysis, that's cultural analytics too - just applied to unstructured material rather than tables. This course is deliberately narrower and more hands-on: everything we do here starts from data you could open in a spreadsheet.
 
-In the humanities, the data we use might be, for example, historical statistics or networks, or the text (or data derived from it) found in literary works. It might be something totally different such as audio, images, or spatial data.
+Within that scope, this course is centred on one core technique: **data visualisation** - the graphical representation of information and data. It's one of the most direct ways to explore, analyse, and communicate what a structured dataset can tell us, and it's been part of how people make sense of information since at least the eighteenth century (with maps going back much further still). Today we come across data visualisations everywhere: in scientific articles, news media, advertisements, and increasingly in the humanities and cultural sector - museums visualising their collections, cultural institutions mapping historical migration, streaming platforms illustrating listening habits.
+
+In the humanities, the structured data we use might be, for example, historical statistics or networks, or metadata about text, images, or objects (rather than the text or images themselves). It might be something totally different such as streaming or listening data, or geographic and spatial data.
 
 ## Course Aims and Objectives
 
@@ -112,9 +114,9 @@ Perhaps most importantly, you will have total control over every aspect of the v
 
 Your final and most important piece of work will be a *Markdown report:* a publishable document containing code, text, and data visualisations. This report will show off all the skills you have learned during the course.
 
-### Information Visualisation...
+### Data, Visualised...
 
-Most importantly, you'll learn the basic principles of information visualisation, and put them into practice using a platform called R (more on that below). R is widely used by, for example, data journalists at the BBC, and in publications like *The Economist* and the *Financial Times.*
+Most importantly, you'll learn the basic principles of data visualisation, and put them into practice using a platform called R (more on that below). R is widely used by, for example, data journalists at the BBC, and in publications like *The Economist* and the *Financial Times.*
 
 Using a language like R or python instead of Excel or a simple application for visualising data has many advantages. For one, it's much easier to work with large datasets. You want to analyse huge datasets of movies like [these ones](https://datasets.imdbws.com/), with 11 millions rows of data? It'll take a split second in R. A second advantage is that everything you make can be reproducible, meaning your visualisations and analyses can be scientifically checked and verified.
 
@@ -163,7 +165,7 @@ Below is the course schedule. In the first couple of weeks, you'll learn how to 
 
 ## Data Visualisation
 
-In practice, creating data visualisations involves mapping numerical data of some sort to graphical representations - often called geometries. A geometry might be the length of a line, the x and y position on a graph, or the temperature of a colour on a map. A good data visualisation will use this mapping to tell a story about the data, while representing it faithfully.
+Data visualisation is the main technique we'll use to work with structured cultural data on this course. In practice, creating data visualisations involves mapping numerical data of some sort to graphical representations - often called geometries. A geometry might be the length of a line, the x and y position on a graph, or the temperature of a colour on a map. A good data visualisation will use this mapping to tell a story about the data, while representing it faithfully.
 
 ### What will I actually do on this course?
 
@@ -199,19 +201,23 @@ Total course load 5 EC x 28 hours = 140 hours:
 
 ## Grading
 
--   Assignments: 40 percent
+::: callout-warning
+## TODO: update for 2025-2026
+
+The official course catalog now lists this course's grading as Participation 10% / Examination 40% / Assignments 50%, with a resit possible for the Final Exam. The percentages below have been updated to match, but the breakdown of the Assignments category, and what the Examination actually covers/consists of, still need to be defined and written up - there's currently no exam-prep material anywhere in this book.
+:::
+
+-   Assignments: 50 percent
 
     -   Assignment 1 (data visualisation): 20%
 
     -   Assignment 2 (digital map): 20%
 
--   Class Participation & Peer Feedback: 20 percent
-
-    -   General class participation: 10%
-
     -   Weekly home exercises: 10%
 
--   Final project: 40 percent
+-   Participation: 10 percent
+
+-   Examination: 40 percent
 
 ## (Mostly recommended) Reading
 

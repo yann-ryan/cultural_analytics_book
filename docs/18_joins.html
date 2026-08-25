@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>18&nbsp; Joins – Information Visualization and the Humanities: Course Book</title>
+<title>18&nbsp; Joins – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","autorun":"true","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-1","context":"setup","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"warning":"true","autorun":"false","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-2","context":"interactive","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":"locations_df"},{"id":3,"options":{"warning":"true","autorun":"false","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-3","context":"interactive","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"warning":"true","autorun":"false","output":"true","results":"markup","message":"true","fig-height":5,"read-only":"false","classes":"","editor-word-wrap":"true","dpi":72,"fig-cap":"","fig-width":7,"editor-max-height":"","label":"unnamed-chunk-4","context":"interactive","comment":"","out-width":"700px","editor-quick-suggestions":"false","out-height":"","editor-font-scale":"1"},"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"warning":"true","fig-cap":"","editor-max-height":"","editor-font-scale":"1","classes":"","comment":"","read-only":"false","fig-height":5,"label":"unnamed-chunk-1","results":"markup","fig-width":7,"context":"setup","editor-quick-suggestions":"false","autorun":"true","output":"true","out-width":"700px","dpi":72,"message":"true","out-height":"","editor-word-wrap":"true"}},{"id":2,"code":"locations_df","options":{"warning":"true","fig-cap":"","editor-max-height":"","editor-font-scale":"1","classes":"","comment":"","read-only":"false","fig-height":5,"label":"unnamed-chunk-2","results":"markup","fig-width":7,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","output":"true","out-width":"700px","dpi":72,"message":"true","out-height":"","editor-word-wrap":"true"}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"warning":"true","fig-cap":"","editor-max-height":"","editor-font-scale":"1","classes":"","comment":"","read-only":"false","fig-height":5,"label":"unnamed-chunk-3","results":"markup","fig-width":7,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","output":"true","out-width":"700px","dpi":72,"message":"true","out-height":"","editor-word-wrap":"true"}},{"id":4,"code":"","options":{"warning":"true","fig-cap":"","editor-max-height":"","editor-font-scale":"1","classes":"","comment":"","read-only":"false","fig-height":5,"label":"unnamed-chunk-4","results":"markup","fig-width":7,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","output":"true","out-width":"700px","dpi":72,"message":"true","out-height":"","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -1586,7 +1586,7 @@ globalThis.qwebrExecuteCode = async function (
       <img src="./images/logo.jpeg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Information Visualization and the Humanities: Course Book</a> 
+      <a href="./">Cultural Analytics: Course Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">

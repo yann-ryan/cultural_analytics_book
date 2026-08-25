@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>19&nbsp; Tidying data with pivot_longer() – Information Visualization and the Humanities: Course Book</title>
+<title>19&nbsp; Tidying data with pivot_longer() – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","options":{"dpi":72,"read-only":"false","fig-height":5,"context":"setup","out-width":"700px","editor-max-height":"","fig-cap":"","results":"markup","out-height":"","message":"true","comment":"","label":"unnamed-chunk-1","classes":"","editor-quick-suggestions":"false","fig-width":7,"autorun":"true","editor-word-wrap":"true","output":"true","warning":"true","editor-font-scale":"1"}},{"id":2,"code":"gapminder_population","options":{"dpi":72,"read-only":"false","fig-height":5,"context":"interactive","out-width":"700px","editor-max-height":"","fig-cap":"","results":"markup","out-height":"","message":"true","comment":"","label":"unnamed-chunk-2","classes":"","editor-quick-suggestions":"false","fig-width":7,"autorun":"false","editor-word-wrap":"true","output":"true","warning":"true","editor-font-scale":"1"}},{"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","options":{"dpi":72,"read-only":"false","fig-height":5,"context":"interactive","out-width":"700px","editor-max-height":"","fig-cap":"","results":"markup","out-height":"","message":"true","comment":"","label":"unnamed-chunk-3","classes":"","editor-quick-suggestions":"false","fig-width":7,"autorun":"false","editor-word-wrap":"true","output":"true","warning":"true","editor-font-scale":"1"}}];
+globalThis.qwebrCellDetails = [{"options":{"message":"true","warning":"true","out-width":"700px","classes":"","read-only":"false","label":"unnamed-chunk-1","comment":"","dpi":72,"results":"markup","context":"setup","editor-word-wrap":"true","autorun":"true","fig-height":5,"fig-width":7,"editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-cap":""},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"options":{"message":"true","warning":"true","out-width":"700px","classes":"","read-only":"false","label":"unnamed-chunk-2","comment":"","dpi":72,"results":"markup","context":"interactive","editor-word-wrap":"true","autorun":"false","fig-height":5,"fig-width":7,"editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-cap":""},"id":2,"code":"gapminder_population"},{"options":{"message":"true","warning":"true","out-width":"700px","classes":"","read-only":"false","label":"unnamed-chunk-3","comment":"","dpi":72,"results":"markup","context":"interactive","editor-word-wrap":"true","autorun":"false","fig-height":5,"fig-width":7,"editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-cap":""},"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"}];
 
 </script>
 <script type="module">
@@ -1586,7 +1586,7 @@ globalThis.qwebrExecuteCode = async function (
       <img src="./images/logo.jpeg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Information Visualization and the Humanities: Course Book</a> 
+      <a href="./">Cultural Analytics: Course Book</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
