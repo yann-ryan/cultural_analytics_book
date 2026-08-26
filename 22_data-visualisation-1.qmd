@@ -78,70 +78,82 @@ Some aesthetics only work on one or the other (shapes can only represent categor
 
 ### Key aesthetics
 
-Below are the aesthetics you'll use most often in data visualisation, with some examples. The visualisations are made using the [Gapminder dataset](https://www.gapminder.org/data/), which contains information on the GDP, life expectancy, and population of the world from 1952 until 2007. It is a useful dataset for demonstrations, though personally I think it presents (or at least is often used for) a reductive and overly-rational view of the world and how we measure progress!
+Below are the aesthetics you'll use most often in data visualisation, with some examples. The visualisations are made using the [Nobel Prize dataset](https://www.nobelprize.org/organization/developer-zone-2/), containing information on every laureate and prize awarded since 1901. We've summarised it here to one row per prize category (Chemistry, Economic Sciences, Literature, Peace, Physics, and Physiology or Medicine), giving the number of laureates, the percentage who were women, and the average age at the time of the award.
+
+::: callout-note
+Worth bearing in mind while we use this dataset: it isn't a neutral record of scientific or literary merit. Who gets nominated, who gets recognised, and whose contributions get overlooked (particularly women, and researchers outside a handful of countries) are all shaped by the historical biases of the institutions doing the nominating. A dataset like this rewards exactly the kind of critical, contextual reading that a humanities background gives you - the numbers alone don't tell the whole story.
+:::
 
 You can view the code I've used to make the plots, which might be useful later, as a reference.
 
-#### Position
-
-All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the life expectancy on the x axis and the GDP per capita on the y axis.
-
-The resulting *scatterplot* shows the relationship between the two variables. It's not linear, but in general, the higher the GDP, the higher the life expectancy.
-
 ```{r}
-#| code-fold: true
+#| echo: false
 #| message: false
 #| warning: false
 
 library(tidyverse)
 
-gapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')
+laureates_df <- read_csv('laureates_df.csv', show_col_types = FALSE)
+prize_df <- read_csv('prize_df.csv', show_col_types = FALSE)
 
-gapminder_df |>
-  filter(year == 2002) |>
-  ggplot(aes(x = lifeExp, y = gdpPercap )) +
+nobel_df <- laureates_df |>
+  left_join(prize_df, by = 'prize_id') |>
+  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),
+         age_at_award = award_year - birth_year)
+
+nobel_summary <- nobel_df |>
+  group_by(category) |>
+  summarise(n = n(),
+            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,
+            avg_age = mean(age_at_award, na.rm = TRUE))
+```
+
+#### Position
+
+All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the average age at the time of the award on the x axis and the percentage of laureates who were women on the y axis, for each prize category.
+
+The resulting *scatterplot* shows a relationship between the two variables: categories which tend to honour older laureates (Economic Sciences, Physics) also tend to have a much lower share of women than categories such as Peace and Literature.
+
+```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
+
+nobel_summary |>
+  ggplot(aes(x = avg_age, y = pct_female)) +
   geom_point()
 ```
 
 #### Size
 
-Size is often mapped to amounts or magnitude (we naturally understand that these two things map together). If we take our chart above and map the size variable to the population, the viewer will grasp intuitively that larger sizes equal a larger population. To make this relationship even clearer, we should include a **legend**.
+Size is often mapped to amounts or magnitude (we naturally understand that these two things map together). If we take our chart above and map the size variable to the number of laureates in each category, the viewer will grasp intuitively that larger sizes equal a larger number of prizes given out. To make this relationship even clearer, we should include a **legend**.
 
 ```{r}
 #| code-fold: true
 #| message: false
 #| warning: false
 
-options(scipen = 999999)
-gapminder_df |>
-  filter(year == 2002) |>
-  mutate(pop = pop/1000000) |>
-  ggplot(aes(x = lifeExp, y = gdpPercap, size = pop)) +
-  geom_point() + 
+nobel_summary |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n)) +
+  geom_point() +
   scale_size_area(max_size = 10) +
-  labs(size = "Population (in millions)") 
-
-
+  labs(size = "Number of laureates")
 ```
 
 #### Colour
 
-Colour is a very useful aesthetic and can have many uses. One key one is to group data together, for example mapping the colour to the continent. This helps a user to quickly see differences in the data between the continents.
+Colour is a very useful aesthetic and can have many uses. One key one is to group data together, for example mapping the colour to the prize category. This helps a user to quickly see differences in the data between the categories.
 
 ```{r}
 #| code-fold: true
 #| message: false
 #| warning: false
 
-
-gapminder_df |>
-  filter(year == 2002) |>
-  mutate(pop = pop/1000000) |>
-  ggplot(aes(x = lifeExp, y = gdpPercap, size = pop, color = continent)) +
-  geom_point() + 
+nobel_summary |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category)) +
+  geom_point() +
   scale_size_area(max_size = 10) +
-  labs(size = "Population (in millions)") 
-
+  labs(size = "Number of laureates")
 ```
 
 #### Shape
@@ -153,33 +165,31 @@ Shape can be used similarly to colour to show different groups or categories.
 #| message: false
 #| warning: false
 
-gapminder_df |>
-  filter(year == 2002) |>
-  mutate(pop = pop/1000000) |>
-  ggplot(aes(x = lifeExp, y = gdpPercap, size = pop, shape = continent)) +
-  geom_point() + 
+nobel_summary |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, shape = category)) +
+  geom_point() +
   scale_size_area(max_size = 10) +
-  labs(size = "Population (in millions)") 
-
+  labs(size = "Number of laureates")
 ```
 
 #### Linetype/width
 
-Linetype isn't so widely used in scatterplots, but can be used in other types to distinguish between groups or categories:
+Linetype isn't so widely used in scatterplots, but can be used in other types to distinguish between groups or categories. Here, we count the number of laureates awarded per decade, for a few of the prize categories:
 
 ```{r}
 #| code-fold: true
 #| message: false
 #| warning: false
 
-gapminder_df |>
-  filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
+nobel_df |>
+  filter(category %in% c('Physics', 'Chemistry', 'Peace')) |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  group_by(decade, category) |>
+  summarise(n = n(), .groups = 'drop') |>
   ggplot() +
-  geom_line(aes(x = year, y = lifeExp, linetype = country)) +
-  labs(title = "Life Expectancy", subtitle = "Select Countries, 1952 - 2007") +
+  geom_line(aes(x = decade, y = n, linetype = category)) +
+  labs(title = "Laureates per Decade", subtitle = "Selected categories, 1900s-2020s") +
   theme_bw()
-
-
 ```
 
 #### Transparency
@@ -191,12 +201,9 @@ Transparency can be mapped to data, but it is more useful used as a way to help 
 #| message: false
 #| warning: false
 
-gapminder_df |>
-  filter(year == 2002) |>
-  mutate(pop = pop/1000000) |>
-  ggplot(aes(x = lifeExp, y = gdpPercap, size = pop, fill = continent)) +
-  geom_point(alpha = .5, pch = 21, color = 'black') + 
+nobel_summary |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, fill = category)) +
+  geom_point(alpha = .5, pch = 21, color = 'black') +
   scale_size_area(max_size = 10) +
-  labs(size = "Population (in millions)") 
-
+  labs(size = "Number of laureates")
 ```
