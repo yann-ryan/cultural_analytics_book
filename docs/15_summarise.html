@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"editor-font-scale":"1","label":"unnamed-chunk-1","comment":"","editor-word-wrap":"true","autorun":"true","read-only":"false","output":"true","editor-max-height":"","warning":"true","context":"setup","dpi":72,"fig-width":7,"message":"true","fig-height":5,"editor-quick-suggestions":"false","results":"markup","classes":"","out-height":"","out-width":"700px","fig-cap":""},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1},{"options":{"editor-font-scale":"1","label":"unnamed-chunk-2","comment":"","editor-word-wrap":"true","autorun":"false","read-only":"false","output":"true","editor-max-height":"","warning":"true","context":"interactive","dpi":72,"fig-width":7,"message":"true","fig-height":5,"editor-quick-suggestions":"false","results":"markup","classes":"","out-height":"","out-width":"700px","fig-cap":""},"code":"titanic_df |>\n  summarise(count = n())","id":2},{"options":{"editor-font-scale":"1","label":"unnamed-chunk-3","comment":"","editor-word-wrap":"true","autorun":"false","read-only":"false","output":"true","editor-max-height":"","warning":"true","context":"interactive","dpi":72,"fig-width":7,"message":"true","fig-height":5,"editor-quick-suggestions":"false","results":"markup","classes":"","out-height":"","out-width":"700px","fig-cap":""},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","id":3},{"options":{"editor-font-scale":"1","label":"unnamed-chunk-4","comment":"","editor-word-wrap":"true","autorun":"false","read-only":"false","output":"true","editor-max-height":"","warning":"true","context":"interactive","dpi":72,"fig-width":7,"message":"true","fig-height":5,"editor-quick-suggestions":"false","results":"markup","classes":"","out-height":"","out-width":"700px","fig-cap":""},"code":"","id":4},{"options":{"editor-font-scale":"1","label":"unnamed-chunk-5","comment":"","editor-word-wrap":"true","autorun":"false","read-only":"false","output":"true","editor-max-height":"","warning":"true","context":"interactive","dpi":72,"fig-width":7,"message":"true","fig-height":5,"editor-quick-suggestions":"false","results":"markup","classes":"","out-height":"","out-width":"700px","fig-cap":""},"code":"","id":5}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"comment":"","context":"setup","autorun":"true","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-1","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-2","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-3","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-4","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":""},{"id":5,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-5","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":""}];
 
 </script>
 <script type="module">
@@ -2477,6 +2477,76 @@ Save some typing by using tally()
 </section>
 
 </main> <!-- /main -->
+<script>
+// Auto-resize exercise iframes to match their content height, so the
+// iframe never shows its own inner scrollbar - only the book page scrolls.
+// Works because the book and the exercises site are same-origin
+// (both under yann-ryan.github.io), so we can read the iframe's document.
+(function () {
+  function resizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var height = Math.max(
+        doc.documentElement.scrollHeight,
+        doc.body ? doc.body.scrollHeight : 0
+      );
+      if (height && height > 0) {
+        frame.style.height = height + "px";
+      }
+    } catch (e) {
+      // Cross-origin or not-yet-ready: leave the fallback height in place.
+    }
+  }
+
+  function watchFrame(frame) {
+    resizeFrame(frame);
+
+    var doc = null;
+    try {
+      doc = frame.contentDocument || frame.contentWindow.document;
+    } catch (e) {
+      return;
+    }
+    if (!doc) return;
+
+    // Exercise content (webR loading, gradethis feedback appearing/collapsing)
+    // changes height after load, so keep watching rather than resizing once.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        resizeFrame(frame);
+      });
+      ro.observe(doc.documentElement);
+      if (doc.body) ro.observe(doc.body);
+    } else {
+      var tries = 0;
+      var interval = setInterval(function () {
+        resizeFrame(frame);
+        tries++;
+        if (tries > 60) clearInterval(interval); // ~30s of polling
+      }, 500);
+    }
+  }
+
+  function init() {
+    var frames = document.querySelectorAll("iframe.exercise-frame");
+    frames.forEach(function (frame) {
+      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+        watchFrame(frame);
+      } else {
+        frame.addEventListener("load", function () {
+          watchFrame(frame);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

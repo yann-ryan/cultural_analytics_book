@@ -378,7 +378,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-width":"700px","classes":"","label":"unnamed-chunk-1","results":"markup","autorun":"true","dpi":72,"read-only":"false","output":"true","editor-font-scale":"1","message":"true","comment":"","editor-max-height":"","fig-width":7,"editor-quick-suggestions":"false","fig-height":5,"context":"setup","warning":"true","fig-cap":"","editor-word-wrap":"true","out-height":""},"code":"library(dplyr)\nlibrary(readr)\nlibrary(DT)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1},{"options":{"out-width":"700px","classes":"","label":"unnamed-chunk-2","results":"markup","autorun":"false","dpi":72,"read-only":"false","output":"true","editor-font-scale":"1","message":"true","comment":"","editor-max-height":"","fig-width":7,"editor-quick-suggestions":"false","fig-height":5,"context":"interactive","warning":"true","fig-cap":"","editor-word-wrap":"true","out-height":""},"code":"titanic_df","id":2},{"options":{"out-width":"700px","classes":"","label":"unnamed-chunk-3","results":"markup","autorun":"false","dpi":72,"read-only":"false","output":"true","editor-font-scale":"1","message":"true","comment":"","editor-max-height":"","fig-width":7,"editor-quick-suggestions":"false","fig-height":5,"context":"interactive","warning":"true","fig-cap":"","editor-word-wrap":"true","out-height":""},"code":"","id":3},{"options":{"out-width":"700px","classes":"","label":"unnamed-chunk-4","results":"markup","autorun":"false","dpi":72,"read-only":"false","output":"true","editor-font-scale":"1","message":"true","comment":"","editor-max-height":"","fig-width":7,"editor-quick-suggestions":"false","fig-height":5,"context":"interactive","warning":"true","fig-cap":"","editor-word-wrap":"true","out-height":""},"code":"","id":4}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(DT)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-1","fig-width":7,"context":"setup","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"true","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}},{"id":2,"code":"titanic_df","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-2","fig-width":7,"context":"interactive","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"false","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}},{"id":3,"code":"","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-3","fig-width":7,"context":"interactive","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"false","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}},{"id":4,"code":"","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-4","fig-width":7,"context":"interactive","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"false","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}}];
 
 </script>
 <script type="module">
@@ -2589,6 +2589,76 @@ Warning
 </section>
 
 </main> <!-- /main -->
+<script>
+// Auto-resize exercise iframes to match their content height, so the
+// iframe never shows its own inner scrollbar - only the book page scrolls.
+// Works because the book and the exercises site are same-origin
+// (both under yann-ryan.github.io), so we can read the iframe's document.
+(function () {
+  function resizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var height = Math.max(
+        doc.documentElement.scrollHeight,
+        doc.body ? doc.body.scrollHeight : 0
+      );
+      if (height && height > 0) {
+        frame.style.height = height + "px";
+      }
+    } catch (e) {
+      // Cross-origin or not-yet-ready: leave the fallback height in place.
+    }
+  }
+
+  function watchFrame(frame) {
+    resizeFrame(frame);
+
+    var doc = null;
+    try {
+      doc = frame.contentDocument || frame.contentWindow.document;
+    } catch (e) {
+      return;
+    }
+    if (!doc) return;
+
+    // Exercise content (webR loading, gradethis feedback appearing/collapsing)
+    // changes height after load, so keep watching rather than resizing once.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        resizeFrame(frame);
+      });
+      ro.observe(doc.documentElement);
+      if (doc.body) ro.observe(doc.body);
+    } else {
+      var tries = 0;
+      var interval = setInterval(function () {
+        resizeFrame(frame);
+        tries++;
+        if (tries > 60) clearInterval(interval); // ~30s of polling
+      }, 500);
+    }
+  }
+
+  function init() {
+    var frames = document.querySelectorAll("iframe.exercise-frame");
+    frames.forEach(function (frame) {
+      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+        watchFrame(frame);
+      } else {
+        frame.addEventListener("load", function () {
+          watchFrame(frame);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

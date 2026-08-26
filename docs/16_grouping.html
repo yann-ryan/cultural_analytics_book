@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"read-only":"false","classes":"","context":"setup","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-1","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"true","editor-font-scale":"1","results":"markup"}},{"id":2,"code":"titanic_df |> \n  group_by(sex) ","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-2","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":3,"code":"titanic_df |>\n  group_by(sex, pclass) ","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-3","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":4,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n())","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-4","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":5,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n(), maximum = max(age, na.rm = TRUE)) # calculate the total number and the maximum age for each category.","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-5","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":6,"code":"","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-6","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":7,"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-7","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":8,"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-8","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":9,"code":"","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-9","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":10,"code":"","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-10","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":11,"code":"","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-11","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}},{"id":12,"code":"","options":{"read-only":"false","classes":"","context":"interactive","message":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","warning":"true","label":"unnamed-chunk-12","out-height":"","dpi":72,"output":"true","editor-max-height":"","comment":"","fig-width":7,"autorun":"false","editor-font-scale":"1","results":"markup"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-1","editor-max-height":"","autorun":"true","out-height":"","editor-font-scale":"1","context":"setup","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-2","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"titanic_df |> \n  group_by(sex) "},{"id":3,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-3","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"titanic_df |>\n  group_by(sex, pclass) "},{"id":4,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-4","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n())"},{"id":5,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-5","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n(), maximum = max(age, na.rm = TRUE)) # calculate the total number and the maximum age for each category."},{"id":6,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-6","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":""},{"id":7,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-7","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)"},{"id":8,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-8","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())"},{"id":9,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-9","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":""},{"id":10,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-10","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":""},{"id":11,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-11","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":""},{"id":12,"options":{"editor-word-wrap":"true","classes":"","dpi":72,"read-only":"false","results":"markup","label":"unnamed-chunk-12","editor-max-height":"","autorun":"false","out-height":"","editor-font-scale":"1","context":"interactive","fig-width":7,"fig-cap":"","out-width":"700px","fig-height":5,"message":"true","output":"true","comment":"","editor-quick-suggestions":"false","warning":"true"},"code":""}];
 
 </script>
 <script type="module">
@@ -2517,6 +2517,76 @@ Save some typing by using count()
 </section>
 
 </main> <!-- /main -->
+<script>
+// Auto-resize exercise iframes to match their content height, so the
+// iframe never shows its own inner scrollbar - only the book page scrolls.
+// Works because the book and the exercises site are same-origin
+// (both under yann-ryan.github.io), so we can read the iframe's document.
+(function () {
+  function resizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var height = Math.max(
+        doc.documentElement.scrollHeight,
+        doc.body ? doc.body.scrollHeight : 0
+      );
+      if (height && height > 0) {
+        frame.style.height = height + "px";
+      }
+    } catch (e) {
+      // Cross-origin or not-yet-ready: leave the fallback height in place.
+    }
+  }
+
+  function watchFrame(frame) {
+    resizeFrame(frame);
+
+    var doc = null;
+    try {
+      doc = frame.contentDocument || frame.contentWindow.document;
+    } catch (e) {
+      return;
+    }
+    if (!doc) return;
+
+    // Exercise content (webR loading, gradethis feedback appearing/collapsing)
+    // changes height after load, so keep watching rather than resizing once.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        resizeFrame(frame);
+      });
+      ro.observe(doc.documentElement);
+      if (doc.body) ro.observe(doc.body);
+    } else {
+      var tries = 0;
+      var interval = setInterval(function () {
+        resizeFrame(frame);
+        tries++;
+        if (tries > 60) clearInterval(interval); // ~30s of polling
+      }, 500);
+    }
+  }
+
+  function init() {
+    var frames = document.querySelectorAll("iframe.exercise-frame");
+    frames.forEach(function (frame) {
+      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+        watchFrame(frame);
+      } else {
+        frame.addEventListener("load", function () {
+          watchFrame(frame);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"read-only":"false","results":"markup","comment":"","output":"true","out-width":"700px","editor-quick-suggestions":"false","label":"unnamed-chunk-1","fig-cap":"","fig-height":5,"fig-width":7,"classes":"","autorun":"true","dpi":72,"editor-max-height":"","out-height":"","warning":"true","editor-word-wrap":"true","context":"setup","editor-font-scale":"1","message":"true"}},{"id":2,"code":"locations_df","options":{"read-only":"false","results":"markup","comment":"","output":"true","out-width":"700px","editor-quick-suggestions":"false","label":"unnamed-chunk-2","fig-cap":"","fig-height":5,"fig-width":7,"classes":"","autorun":"false","dpi":72,"editor-max-height":"","out-height":"","warning":"true","editor-word-wrap":"true","context":"interactive","editor-font-scale":"1","message":"true"}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"read-only":"false","results":"markup","comment":"","output":"true","out-width":"700px","editor-quick-suggestions":"false","label":"unnamed-chunk-3","fig-cap":"","fig-height":5,"fig-width":7,"classes":"","autorun":"false","dpi":72,"editor-max-height":"","out-height":"","warning":"true","editor-word-wrap":"true","context":"interactive","editor-font-scale":"1","message":"true"}},{"id":4,"code":"","options":{"read-only":"false","results":"markup","comment":"","output":"true","out-width":"700px","editor-quick-suggestions":"false","label":"unnamed-chunk-4","fig-cap":"","fig-height":5,"fig-width":7,"classes":"","autorun":"false","dpi":72,"editor-max-height":"","out-height":"","warning":"true","editor-word-wrap":"true","context":"interactive","editor-font-scale":"1","message":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"true","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-1","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"setup"}},{"id":2,"code":"locations_df","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"false","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-2","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"interactive"}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"false","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-3","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"interactive"}},{"id":4,"code":"","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"false","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-4","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"interactive"}}];
 
 </script>
 <script type="module">
@@ -2458,6 +2458,76 @@ Tip
 </section>
 
 </main> <!-- /main -->
+<script>
+// Auto-resize exercise iframes to match their content height, so the
+// iframe never shows its own inner scrollbar - only the book page scrolls.
+// Works because the book and the exercises site are same-origin
+// (both under yann-ryan.github.io), so we can read the iframe's document.
+(function () {
+  function resizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var height = Math.max(
+        doc.documentElement.scrollHeight,
+        doc.body ? doc.body.scrollHeight : 0
+      );
+      if (height && height > 0) {
+        frame.style.height = height + "px";
+      }
+    } catch (e) {
+      // Cross-origin or not-yet-ready: leave the fallback height in place.
+    }
+  }
+
+  function watchFrame(frame) {
+    resizeFrame(frame);
+
+    var doc = null;
+    try {
+      doc = frame.contentDocument || frame.contentWindow.document;
+    } catch (e) {
+      return;
+    }
+    if (!doc) return;
+
+    // Exercise content (webR loading, gradethis feedback appearing/collapsing)
+    // changes height after load, so keep watching rather than resizing once.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        resizeFrame(frame);
+      });
+      ro.observe(doc.documentElement);
+      if (doc.body) ro.observe(doc.body);
+    } else {
+      var tries = 0;
+      var interval = setInterval(function () {
+        resizeFrame(frame);
+        tries++;
+        if (tries > 60) clearInterval(interval); // ~30s of polling
+      }, 500);
+    }
+  }
+
+  function init() {
+    var frames = document.querySelectorAll("iframe.exercise-frame");
+    frames.forEach(function (frame) {
+      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+        watchFrame(frame);
+      } else {
+        frame.addEventListener("load", function () {
+          watchFrame(frame);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

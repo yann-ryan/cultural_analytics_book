@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1,"options":{"fig-cap":"","output":"true","classes":"","comment":"","autorun":"true","context":"setup","results":"markup","out-width":"700px","editor-quick-suggestions":"false","warning":"true","out-height":"","label":"unnamed-chunk-1","read-only":"false","fig-height":5,"editor-font-scale":"1","dpi":72,"fig-width":7,"message":"true","editor-word-wrap":"true","editor-max-height":""}},{"code":"gapminder_population","id":2,"options":{"fig-cap":"","output":"true","classes":"","comment":"","autorun":"false","context":"interactive","results":"markup","out-width":"700px","editor-quick-suggestions":"false","warning":"true","out-height":"","label":"unnamed-chunk-2","read-only":"false","fig-height":5,"editor-font-scale":"1","dpi":72,"fig-width":7,"message":"true","editor-word-wrap":"true","editor-max-height":""}},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3,"options":{"fig-cap":"","output":"true","classes":"","comment":"","autorun":"false","context":"interactive","results":"markup","out-width":"700px","editor-quick-suggestions":"false","warning":"true","out-height":"","label":"unnamed-chunk-3","read-only":"false","fig-height":5,"editor-font-scale":"1","dpi":72,"fig-width":7,"message":"true","editor-word-wrap":"true","editor-max-height":""}}];
+globalThis.qwebrCellDetails = [{"options":{"context":"setup","dpi":72,"message":"true","comment":"","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","warning":"true","editor-word-wrap":"true","out-height":"","fig-width":7,"results":"markup","classes":"","label":"unnamed-chunk-1","fig-cap":"","autorun":"true","fig-height":5,"out-width":"700px","editor-quick-suggestions":"false"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"options":{"context":"interactive","dpi":72,"message":"true","comment":"","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","warning":"true","editor-word-wrap":"true","out-height":"","fig-width":7,"results":"markup","classes":"","label":"unnamed-chunk-2","fig-cap":"","autorun":"false","fig-height":5,"out-width":"700px","editor-quick-suggestions":"false"},"id":2,"code":"gapminder_population"},{"options":{"context":"interactive","dpi":72,"message":"true","comment":"","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","warning":"true","editor-word-wrap":"true","out-height":"","fig-width":7,"results":"markup","classes":"","label":"unnamed-chunk-3","fig-cap":"","autorun":"false","fig-height":5,"out-width":"700px","editor-quick-suggestions":"false"},"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"}];
 
 </script>
 <script type="module">
@@ -2479,6 +2479,76 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 
 </main> <!-- /main -->
+<script>
+// Auto-resize exercise iframes to match their content height, so the
+// iframe never shows its own inner scrollbar - only the book page scrolls.
+// Works because the book and the exercises site are same-origin
+// (both under yann-ryan.github.io), so we can read the iframe's document.
+(function () {
+  function resizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var height = Math.max(
+        doc.documentElement.scrollHeight,
+        doc.body ? doc.body.scrollHeight : 0
+      );
+      if (height && height > 0) {
+        frame.style.height = height + "px";
+      }
+    } catch (e) {
+      // Cross-origin or not-yet-ready: leave the fallback height in place.
+    }
+  }
+
+  function watchFrame(frame) {
+    resizeFrame(frame);
+
+    var doc = null;
+    try {
+      doc = frame.contentDocument || frame.contentWindow.document;
+    } catch (e) {
+      return;
+    }
+    if (!doc) return;
+
+    // Exercise content (webR loading, gradethis feedback appearing/collapsing)
+    // changes height after load, so keep watching rather than resizing once.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        resizeFrame(frame);
+      });
+      ro.observe(doc.documentElement);
+      if (doc.body) ro.observe(doc.body);
+    } else {
+      var tries = 0;
+      var interval = setInterval(function () {
+        resizeFrame(frame);
+        tries++;
+        if (tries > 60) clearInterval(interval); // ~30s of polling
+      }, 500);
+    }
+  }
+
+  function init() {
+    var frames = document.querySelectorAll("iframe.exercise-frame");
+    frames.forEach(function (frame) {
+      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+        watchFrame(frame);
+      } else {
+        frame.addEventListener("load", function () {
+          watchFrame(frame);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

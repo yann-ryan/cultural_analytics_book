@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-1","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"library(rnaturalearth)"},{"id":2,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-2","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"worldmap = ne_countries(scale = 'medium', returnclass = 'sf')"},{"id":3,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-3","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":""},{"id":4,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-4","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"worldcoastlines = ne_coastline(scale = 'medium', returnclass = 'sf')"},{"id":5,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-5","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"populated_places = ne_download(scale = 'medium', type = 'populated_places', category = 'cultural', returnclass = 'sf')"},{"id":6,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-6","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":""},{"id":7,"options":{"out-width":"700px","out-height":"","editor-max-height":"","dpi":72,"fig-height":5,"fig-width":7,"autorun":"false","message":"true","classes":"","warning":"true","output":"true","context":"interactive","comment":"","results":"markup","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-7","fig-cap":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-1","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":1,"code":"library(rnaturalearth)"},{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-2","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":2,"code":"worldmap = ne_countries(scale = 'medium', returnclass = 'sf')"},{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-3","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":3,"code":""},{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-4","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":4,"code":"worldcoastlines = ne_coastline(scale = 'medium', returnclass = 'sf')"},{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-5","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":5,"code":"populated_places = ne_download(scale = 'medium', type = 'populated_places', category = 'cultural', returnclass = 'sf')"},{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-6","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":6,"code":""},{"options":{"fig-height":5,"results":"markup","editor-word-wrap":"true","context":"interactive","editor-max-height":"","editor-font-scale":"1","message":"true","label":"unnamed-chunk-7","comment":"","read-only":"false","dpi":72,"out-width":"700px","editor-quick-suggestions":"false","fig-cap":"","autorun":"false","warning":"true","fig-width":7,"output":"true","out-height":"","classes":""},"id":7,"code":""}];
 
 </script>
 <script type="module">
@@ -2555,6 +2555,76 @@ Coordinate Reference System
 </section>
 
 </main> <!-- /main -->
+<script>
+// Auto-resize exercise iframes to match their content height, so the
+// iframe never shows its own inner scrollbar - only the book page scrolls.
+// Works because the book and the exercises site are same-origin
+// (both under yann-ryan.github.io), so we can read the iframe's document.
+(function () {
+  function resizeFrame(frame) {
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var height = Math.max(
+        doc.documentElement.scrollHeight,
+        doc.body ? doc.body.scrollHeight : 0
+      );
+      if (height && height > 0) {
+        frame.style.height = height + "px";
+      }
+    } catch (e) {
+      // Cross-origin or not-yet-ready: leave the fallback height in place.
+    }
+  }
+
+  function watchFrame(frame) {
+    resizeFrame(frame);
+
+    var doc = null;
+    try {
+      doc = frame.contentDocument || frame.contentWindow.document;
+    } catch (e) {
+      return;
+    }
+    if (!doc) return;
+
+    // Exercise content (webR loading, gradethis feedback appearing/collapsing)
+    // changes height after load, so keep watching rather than resizing once.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () {
+        resizeFrame(frame);
+      });
+      ro.observe(doc.documentElement);
+      if (doc.body) ro.observe(doc.body);
+    } else {
+      var tries = 0;
+      var interval = setInterval(function () {
+        resizeFrame(frame);
+        tries++;
+        if (tries > 60) clearInterval(interval); // ~30s of polling
+      }, 500);
+    }
+  }
+
+  function init() {
+    var frames = document.querySelectorAll("iframe.exercise-frame");
+    frames.forEach(function (frame) {
+      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+        watchFrame(frame);
+      } else {
+        frame.addEventListener("load", function () {
+          watchFrame(frame);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
