@@ -14,6 +14,45 @@ These scales are communicated to the viewer by means of an **axis** or a **legen
 
 We won't go into the [theory of how ggplot2 works with scales](https://ggplot2-book.org/scales-guides) in too much detail, but concentrate on some practical code, examples and tips which I think have the most impact on controlling the aspects of your plots you would expect to be able to do.
 
+## Why scales matter
+
+It's worth pausing on why this is worth learning properly, rather than just accepting ggplot's defaults. The same data, drawn with different scale choices, can tell quite different stories - not because the numbers have changed, but because of where the axis starts, or which colours suggest which categories are related.
+
+Take this chart of life expectancy in the Netherlands. On the left, the y axis runs from 0; on the right, it's limited to the actual range of the data:
+
+```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
+#| fig.height: 3.5
+
+library(tidyverse)
+library(patchwork)
+
+gapminder_df <- read_tsv('gapminder_df.csv') |> filter(continent != 'FSU')
+netherlands_df <- gapminder_df |> filter(country == 'Netherlands')
+
+p1 <- netherlands_df |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line() +
+  scale_y_continuous(limits = c(0, 85)) +
+  labs(title = "Starting at 0", y = "Life expectancy") +
+  theme_bw()
+
+p2 <- netherlands_df |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line() +
+  scale_y_continuous(limits = c(70, 80)) +
+  labs(title = "Zoomed in", y = "Life expectancy") +
+  theme_bw()
+
+p1 + p2
+```
+
+Both charts are technically accurate - nothing has been faked. But the one on the right makes a fairly gentle upward trend look dramatic, simply by choosing different limits. Neither version is automatically 'the' correct one to use (sometimes zooming in is exactly the right choice, if the small changes are genuinely the point), but you should always make that choice deliberately, and be able to justify it, rather than leaving it to chance or - worse - picking whichever version tells the story you wanted to tell.
+
+The same logic applies to colour, size, and the other scales we'll cover in this part: they're not just decoration, they're doing real interpretive work.
+
 ## Aesthetics
 
 Recall from last week that we learned about different aesthetics: **position**, **colour**, **size**, **shape**, **linetype**, linewidth, and **transparency**. This chapter on scales will mostly cover **position** and **colour**, and to a lesser extent, **size**. The scales for the other aesthetics are less interesting (you're less likely to want to change the defaults), so we won't look at these. But be aware they also have scales which can be overwritten or adjusted.

@@ -32,7 +32,7 @@ Sign up to Posit cloud with an email address here: <https://posit.cloud/plans>
 
 Click on 'Learn more' under the Free plan, and then 'Sign up'.
 
-Click on the invite link posted on Brightspace. Once you have signed up, click on the 'burger' icon to the left of 'Your Workspace' to open a sidebar, which will allow you to switch to the correct workspace 'Information Visualisation and the Humanities':
+Click on the invite link posted on Brightspace. Once you have signed up, click on the 'burger' icon to the left of 'Your Workspace' to open a sidebar, which will allow you to switch to the correct workspace 'Cultural Analytics':
 
 ![](images/04_rmarkdown/02.png)
 
@@ -60,7 +60,7 @@ You can play around with the R-Studio interface. Don't worry about breaking anyt
 
 ## Your Derived Workspace
 
-You can return to the workspace overview by clicking on the sidebar and on the 'Information Visualisation\[...\]' menu item again.
+You can return to the workspace overview by clicking on the sidebar and on the 'Cultural Analytics\[...\]' menu item again.
 
 If you do this, you'll see that there are now *two* workspace items. This is because when you started the workspace, it created a 'derived' version - meaning it has created a unique copy for you to work with, without changing the original one.
 

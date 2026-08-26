@@ -392,7 +392,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(tidyverse)\nlibrary(rnaturalearth)\nlibrary(sf)\n\nsf_use_s2(FALSE)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')","id":1,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-1","dpi":72,"comment":"","autorun":"true","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"setup","editor-word-wrap":"true"}},{"code":"glimpse(worldmap)","id":2,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-2","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"","id":3,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-3","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"","id":4,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-4","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap) \n","id":5,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-5","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) \n","id":6,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-6","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  theme_void()\n","id":7,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-7","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"","id":8,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-8","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","id":9,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-9","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"","id":10,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-10","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","id":11,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-11","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"small_map = worldmap |> \n  filter(name %in% c('United Kingdom', 'Netherlands', 'Ireland', 'France', 'Belgium', 'Luxembourg', 'Denmark', 'Germany'))\n\nggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est))","id":12,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-12","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","id":13,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-13","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"worldmap_moll <- worldmap |>\n  st_transform(crs = \"+proj=wink\")","id":14,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-14","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"ggplot(data = worldmap_moll, aes(fill = pop_est)) +\n  geom_sf()","id":15,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-15","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"worldmap |>\n  st_transform(crs = \"+proj=robin\") |>\n  ggplot() + \n  geom_sf()","id":16,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-16","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"worldmap |>\n  st_transform(crs = \"+proj=merc\") |>\n  ggplot() + \n  geom_sf()","id":17,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-17","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"worldmap |>\n  st_transform(crs = \"+proj=eqc\") |>\n  ggplot() + \n  geom_sf()","id":18,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-18","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}},{"code":"","id":19,"options":{"fig-height":5,"out-height":"","results":"markup","classes":"","editor-max-height":"","fig-width":7,"fig-cap":"","warning":"true","output":"true","label":"unnamed-chunk-19","dpi":72,"comment":"","autorun":"false","read-only":"false","editor-font-scale":"1","out-width":"700px","message":"true","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"library(tidyverse)\nlibrary(rnaturalearth)\nlibrary(sf)\n\nsf_use_s2(FALSE)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"setup","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"true","comment":"","label":"unnamed-chunk-1","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":1},{"code":"glimpse(worldmap)","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-2","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":2},{"code":"","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-3","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":3},{"code":"","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-4","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":4},{"code":"ggplot() +\n  geom_sf(data = worldmap) \n","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-5","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":5},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) \n","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-6","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":6},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  theme_void()\n","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-7","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":7},{"code":"","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-8","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":8},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-9","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":9},{"code":"","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-10","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":10},{"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-11","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":11},{"code":"small_map = worldmap |> \n  filter(name %in% c('United Kingdom', 'Netherlands', 'Ireland', 'France', 'Belgium', 'Luxembourg', 'Denmark', 'Germany'))\n\nggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est))","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-12","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":12},{"code":"ggplot() +\n  geom_sf(data = small_map, aes(fill = pop_est)) + \n  coord_sf(xlim = c(-10, 10), ylim= c(48, 60)) ","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-13","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":13},{"code":"worldmap_moll <- worldmap |>\n  st_transform(crs = \"+proj=wink\")","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-14","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":14},{"code":"ggplot(data = worldmap_moll, aes(fill = pop_est)) +\n  geom_sf()","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-15","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":15},{"code":"worldmap |>\n  st_transform(crs = \"+proj=robin\") |>\n  ggplot() +\n  geom_sf()","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-16","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":16},{"code":"worldmap |>\n  st_transform(crs = \"+proj=merc\") |>\n  ggplot() +\n  geom_sf()","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-17","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":17},{"code":"worldmap |>\n  st_transform(crs = \"+proj=eqc\") |>\n  ggplot() +\n  geom_sf()","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-18","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":18},{"code":"","options":{"results":"markup","editor-word-wrap":"true","fig-cap":"","message":"true","classes":"","editor-font-scale":"1","dpi":72,"context":"interactive","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"autorun":"false","comment":"","label":"unnamed-chunk-19","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","read-only":"false"},"id":19}];
 
 </script>
 <script type="module">
@@ -2067,12 +2067,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2087,19 +2081,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2116,13 +2110,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>
@@ -2552,27 +2546,18 @@ Good to know
 </section>
 <section id="coordinate-reference-system-and-projections" class="level2">
 <h2 class="anchored" data-anchor-id="coordinate-reference-system-and-projections">Coordinate Reference System and Projections</h2>
-<ul>
-<li><p><strong>Map projections</strong> try to portray the surface of the earth, or a portion of the earth, on a flat piece of paper or computer screen. In layman’s term, map projections try to transform the earth from its spherical shape (3D) to a planar shape (2D).</p></li>
-<li><p>A <strong>coordinate reference system (CRS)</strong> then defines how the two-dimensional, projected map in your GIS relates to real places on the earth. The decision of which map projection and CRS to use depends on the regional extent of the area you want to work in, on the analysis you want to do, and often on the availability of data.</p></li>
-</ul>
+<p><strong>Map projections</strong> try to portray the surface of the earth, or a portion of the earth, on a flat piece of paper or computer screen. In layman’s terms, a map projection transforms the earth from its spherical shape (3D) to a planar shape (2D).</p>
+<p>A <strong>coordinate reference system (CRS)</strong> then defines how the two-dimensional, projected map in your GIS relates to real places on the earth. The decision of which map projection and CRS to use depends on the regional extent of the area you want to work in, on the analysis you want to do, and often on the availability of data.</p>
 <p><img src="images/44_visualising-map-data/01.png" class="img-fluid" width="500"></p>
 <section id="accuracy" class="level3">
 <h3 class="anchored" data-anchor-id="accuracy">Accuracy</h3>
-<ul>
-<li>Map projections are never absolutely accurate representations of the spherical earth.</li>
-<li>As a result of the map projection process, every map shows distortions of angular conformity, distance and area.</li>
-</ul>
+<p>Map projections are never absolutely accurate representations of the spherical earth. As a result of the map projection process, every map shows some distortion of angular conformity, distance, or area - you can never preserve all three at once, so every projection is really a choice about which kind of distortion you’re willing to accept.</p>
 </section>
 </section>
 <section id="changing-projection" class="level2">
 <h2 class="anchored" data-anchor-id="changing-projection">Changing projection</h2>
-<ul>
-<li>Done using <code>st_transform()</code></li>
-<li>Over 170 projections available in sf package</li>
-<li>You can view them using <code>sf_proj_info()</code> in the console</li>
-</ul>
-<p>Add the correct string with <code>+proj=</code> to the <code>crs =</code> argument in <code>st_transform()</code>:</p>
+<p>You can change the projection of a map object using <code>st_transform()</code>. The <code>sf</code> package supports over 170 different projections, which you can browse by running <code>sf_proj_info()</code> in the console.</p>
+<p>To use one, add the correct string with <code>+proj=</code> to the <code>crs =</code> argument in <code>st_transform()</code>:</p>
 <div id="qwebr-insertion-location-14"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Now plot the transformed map - notice the shape of the world has changed to this new (Winkel Tripel) projection:</p>
@@ -2580,35 +2565,25 @@ Good to know
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <section id="compromise" class="level4">
 <h4 class="anchored" data-anchor-id="compromise">Compromise</h4>
-<ul>
-<li>A compromise projection doesn’t try to be perfectly accurate on any one property (area, angle, or distance) - instead it aims for a reasonable, visually-pleasing balance across all of them. The Winkel Tripel projection above is one example; another is the Robinson projection:</li>
-<li>Used to draw a visual map of the world</li>
-<li>E.g. Robinson projection</li>
-</ul>
+<p>A compromise projection doesn’t try to be perfectly accurate on any one property (area, angle, or distance) - instead it aims for a reasonable, visually-pleasing balance across all of them, which makes this type of projection well-suited to drawing a general-purpose visual map of the world. The Winkel Tripel projection above is one example; another is the Robinson projection:</p>
 <div id="qwebr-insertion-location-16"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="angular-conformity" class="level4">
 <h4 class="anchored" data-anchor-id="angular-conformity">Angular conformity</h4>
-<ul>
-<li>Used for navigation and meterology</li>
-</ul>
+<p>A conformal projection preserves angles and shapes locally, which makes it useful for navigation and meteorology:</p>
 <div id="qwebr-insertion-location-17"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="equal-distance" class="level4">
 <h4 class="anchored" data-anchor-id="equal-distance">Equal distance</h4>
-<ul>
-<li>Used for navigation, seismic mapping</li>
-</ul>
+<p>An equidistant projection preserves distances from one or two specific points to all other points, which is useful for navigation and for seismic mapping (for example, plotting distance from an earthquake’s epicentre):</p>
 <div id="qwebr-insertion-location-18"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="equal-area" class="level4">
 <h4 class="anchored" data-anchor-id="equal-area">Equal area</h4>
-<ul>
-<li>Useful for data mapping</li>
-</ul>
+<p>An equal-area projection preserves the relative size of areas, at the expense of distorting their shape. This matters a lot for data mapping specifically: if you’re colouring countries or regions by some statistic (a choropleth map, as covered in the Digital Mapping overview), an equal-area projection avoids visually over- or under-stating the importance of a place purely because of the projection you happened to choose.</p>
 <p><img src="images/44_visualising-map-data/02.png" class="img-fluid" width="400"></p>
 </section>
 <section id="coordinate-reference-systems" class="level3">
@@ -2621,18 +2596,13 @@ Good to know
 </section>
 <section id="projected-crs" class="level4">
 <h4 class="anchored" data-anchor-id="projected-crs">Projected CRS</h4>
-<ul>
-<li>Way of finding points based on a projected map rather than a globe</li>
-<li>Universal Transverse Mercator (UTM) most popular</li>
-<li>Globe is divided into zones - you need to know the zone along with the values</li>
-<li>Values are northing and easting</li>
-</ul>
+<p>A projected CRS instead finds points based on a flat, projected map rather than the globe itself. The most popular is the Universal Transverse Mercator (UTM) system, which divides the globe into a series of zones - to specify a point, you need to know which zone it falls in, as well as its position within that zone, given as two values called northing and easting.</p>
 <p><img src="images/44_visualising-map-data/04.png" class="img-fluid" width="400"></p>
 </section>
-<section id="what-does-it-mean-for-mapping" class="level4">
-<h4 class="anchored" data-anchor-id="what-does-it-mean-for-mapping">What does it mean for mapping</h4>
-<p>Merging or mapping multiple datasets must all be in the same CRS. Sometimes this means setting or transforming the existing CRS.</p>
-<p>You can transform a map from one CRS to another using st_transform(). The following will change the CRS to British National Grid:</p>
+<section id="what-does-this-mean-for-mapping" class="level4">
+<h4 class="anchored" data-anchor-id="what-does-this-mean-for-mapping">What does this mean for mapping?</h4>
+<p>Merging or mapping multiple datasets requires them all to be in the same CRS. Sometimes this means setting or transforming the existing CRS.</p>
+<p>You can transform a map from one CRS to another using <code>st_transform()</code>. The following will change the CRS to British National Grid:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="ot">&lt;-</span> worldmap <span class="sc">|&gt;</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">27700</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

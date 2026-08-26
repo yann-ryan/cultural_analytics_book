@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"context":"setup","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-1","message":"true","out-width":"700px","fig-height":5,"autorun":"true","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"titanic_df |>\n  summarise(count = n())","id":2,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-2","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","id":3,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-3","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"","id":4,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-4","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"","id":5,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-5","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"output":"true","out-width":"700px","dpi":72,"editor-font-scale":"1","fig-width":7,"out-height":"","results":"markup","fig-cap":"","classes":"","context":"setup","editor-word-wrap":"true","autorun":"true","fig-height":5,"editor-quick-suggestions":"false","editor-max-height":"","warning":"true","read-only":"false","label":"unnamed-chunk-1","comment":"","message":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"output":"true","out-width":"700px","dpi":72,"editor-font-scale":"1","fig-width":7,"out-height":"","results":"markup","fig-cap":"","classes":"","context":"interactive","editor-word-wrap":"true","autorun":"false","fig-height":5,"editor-quick-suggestions":"false","editor-max-height":"","warning":"true","read-only":"false","label":"unnamed-chunk-2","comment":"","message":"true"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"output":"true","out-width":"700px","dpi":72,"editor-font-scale":"1","fig-width":7,"out-height":"","results":"markup","fig-cap":"","classes":"","context":"interactive","editor-word-wrap":"true","autorun":"false","fig-height":5,"editor-quick-suggestions":"false","editor-max-height":"","warning":"true","read-only":"false","label":"unnamed-chunk-3","comment":"","message":"true"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"output":"true","out-width":"700px","dpi":72,"editor-font-scale":"1","fig-width":7,"out-height":"","results":"markup","fig-cap":"","classes":"","context":"interactive","editor-word-wrap":"true","autorun":"false","fig-height":5,"editor-quick-suggestions":"false","editor-max-height":"","warning":"true","read-only":"false","label":"unnamed-chunk-4","comment":"","message":"true"},"code":""},{"id":5,"options":{"output":"true","out-width":"700px","dpi":72,"editor-font-scale":"1","fig-width":7,"out-height":"","results":"markup","fig-cap":"","classes":"","context":"interactive","editor-word-wrap":"true","autorun":"false","fig-height":5,"editor-quick-suggestions":"false","editor-max-height":"","warning":"true","read-only":"false","label":"unnamed-chunk-5","comment":"","message":"true"},"code":""}];
 
 </script>
 <script type="module">
@@ -2033,12 +2033,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2053,19 +2047,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2082,13 +2076,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>

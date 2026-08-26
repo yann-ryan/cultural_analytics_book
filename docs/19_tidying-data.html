@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","options":{"context":"setup","read-only":"false","editor-word-wrap":"true","out-width":"700px","fig-height":5,"autorun":"true","fig-cap":"","fig-width":7,"message":"true","editor-quick-suggestions":"false","dpi":72,"classes":"","results":"markup","label":"unnamed-chunk-1","editor-font-scale":"1","output":"true","editor-max-height":"","warning":"true","out-height":"","comment":""},"id":1},{"code":"gapminder_population","options":{"context":"interactive","read-only":"false","editor-word-wrap":"true","out-width":"700px","fig-height":5,"autorun":"false","fig-cap":"","fig-width":7,"message":"true","editor-quick-suggestions":"false","dpi":72,"classes":"","results":"markup","label":"unnamed-chunk-2","editor-font-scale":"1","output":"true","editor-max-height":"","warning":"true","out-height":"","comment":""},"id":2},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","options":{"context":"interactive","read-only":"false","editor-word-wrap":"true","out-width":"700px","fig-height":5,"autorun":"false","fig-cap":"","fig-width":7,"message":"true","editor-quick-suggestions":"false","dpi":72,"classes":"","results":"markup","label":"unnamed-chunk-3","editor-font-scale":"1","output":"true","editor-max-height":"","warning":"true","out-height":"","comment":""},"id":3}];
+globalThis.qwebrCellDetails = [{"options":{"editor-font-scale":"1","warning":"true","read-only":"false","classes":"","fig-width":7,"output":"true","results":"markup","comment":"","label":"unnamed-chunk-1","dpi":72,"out-height":"","out-width":"700px","fig-cap":"","autorun":"true","context":"setup","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","fig-height":5,"message":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1},{"options":{"editor-font-scale":"1","warning":"true","read-only":"false","classes":"","fig-width":7,"output":"true","results":"markup","comment":"","label":"unnamed-chunk-2","dpi":72,"out-height":"","out-width":"700px","fig-cap":"","autorun":"false","context":"interactive","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","fig-height":5,"message":"true"},"code":"gapminder_population","id":2},{"options":{"editor-font-scale":"1","warning":"true","read-only":"false","classes":"","fig-width":7,"output":"true","results":"markup","comment":"","label":"unnamed-chunk-3","dpi":72,"out-height":"","out-width":"700px","fig-cap":"","autorun":"false","context":"interactive","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","fig-height":5,"message":"true"},"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3}];
 
 </script>
 <script type="module">
@@ -2033,12 +2033,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2053,19 +2047,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2082,13 +2076,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>

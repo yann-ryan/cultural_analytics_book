@@ -546,12 +546,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -566,19 +560,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -595,13 +589,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>
@@ -636,7 +630,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this chapter we will look at the next ‘layer’ in a ggplot object: scales. We’ll also take a look at one framework by which we can explain how visualisations work to convey information, gestalt principles.</p>
+<p>Last week we covered the basics of <code>ggplot2</code>: mapping data to aesthetics, drawing it with a geometry, and the main chart types you’ll use most often (bars, points, lines, histograms, and boxplots).</p>
+<p>This week builds on that in two directions.</p>
+<p>First, we’ll look at <strong>gestalt principles</strong> and <strong>pre-attentive attributes</strong> - two frameworks from psychology which help explain <em>why</em> data visualisation works as a way of communicating information, and which give us some vocabulary for talking critically about our own and others’ charts (useful for the in-class critique exercise at the end of that page).</p>
+<p>Second, we’ll go a layer deeper into <code>ggplot2</code> itself, and look at <strong>scales</strong>. Scales control how the values in your data get mapped onto a chart - where a point sits on the x axis, which colour a bar is filled with, how big a symbol is drawn. Choosing sensible scales (or occasionally choosing misleading ones) has a big effect on what a viewer takes away from a chart, so it’s worth understanding how to control them deliberately rather than always accepting ggplot’s defaults.</p>
+<p>Over the rest of this part, we’ll cover:</p>
+<ul>
+<li><strong>Position scales</strong>: setting axis limits, breaks, and labels, and reordering categories on a chart.</li>
+<li><strong>Date scales</strong>: the same idea, applied to dates - very common in humanities data.</li>
+<li><strong>Colour and size scales</strong>: choosing sequential, diverging, and categorical palettes, including ones which are safe for colour vision deficiency.</li>
+</ul>
 
 
 

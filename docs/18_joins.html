@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-1","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"true","context":"setup","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}},{"id":2,"code":"locations_df","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-2","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"false","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-3","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"false","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}},{"id":4,"code":"","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-4","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"false","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"read-only":"false","context":"setup","out-width":"700px","fig-height":5,"results":"markup","message":"true","label":"unnamed-chunk-1","autorun":"true","fig-cap":"","dpi":72,"warning":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-width":7,"comment":"","output":"true","classes":"","editor-font-scale":"1","editor-word-wrap":"true"}},{"id":2,"code":"locations_df","options":{"read-only":"false","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","message":"true","label":"unnamed-chunk-2","autorun":"false","fig-cap":"","dpi":72,"warning":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-width":7,"comment":"","output":"true","classes":"","editor-font-scale":"1","editor-word-wrap":"true"}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"read-only":"false","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","message":"true","label":"unnamed-chunk-3","autorun":"false","fig-cap":"","dpi":72,"warning":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-width":7,"comment":"","output":"true","classes":"","editor-font-scale":"1","editor-word-wrap":"true"}},{"id":4,"code":"","options":{"read-only":"false","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","message":"true","label":"unnamed-chunk-4","autorun":"false","fig-cap":"","dpi":72,"warning":"true","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","fig-width":7,"comment":"","output":"true","classes":"","editor-font-scale":"1","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -2033,12 +2033,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2053,19 +2047,19 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
       </ul>
@@ -2082,13 +2076,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
   </div>
 </li>
       </ul>

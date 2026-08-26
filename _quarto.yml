@@ -88,7 +88,6 @@ book:
     - part: "Digital Mapping 2"
       chapters:
         - 46_full-map.qmd
-        - 47_points-map.qmd
     - part: "Digital Mapping 3"
       chapters:
         - 48_digital-mapping-3.qmd

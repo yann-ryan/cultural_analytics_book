@@ -176,24 +176,21 @@ ggplot() +
 
 ## Coordinate Reference System and Projections
 
--   **Map projections** try to portray the surface of the earth, or a portion of the earth, on a flat piece of paper or computer screen. In layman's term, map projections try to transform the earth from its spherical shape (3D) to a planar shape (2D).
+**Map projections** try to portray the surface of the earth, or a portion of the earth, on a flat piece of paper or computer screen. In layman's terms, a map projection transforms the earth from its spherical shape (3D) to a planar shape (2D).
 
--   A **coordinate reference system (CRS)** then defines how the two-dimensional, projected map in your GIS relates to real places on the earth. The decision of which map projection and CRS to use depends on the regional extent of the area you want to work in, on the analysis you want to do, and often on the availability of data.
+A **coordinate reference system (CRS)** then defines how the two-dimensional, projected map in your GIS relates to real places on the earth. The decision of which map projection and CRS to use depends on the regional extent of the area you want to work in, on the analysis you want to do, and often on the availability of data.
 
 ![](images/44_visualising-map-data/01.png){width="500"}
 
 ### Accuracy
 
--   Map projections are never absolutely accurate representations of the spherical earth.
--   As a result of the map projection process, every map shows distortions of angular conformity, distance and area.
+Map projections are never absolutely accurate representations of the spherical earth. As a result of the map projection process, every map shows some distortion of angular conformity, distance, or area - you can never preserve all three at once, so every projection is really a choice about which kind of distortion you're willing to accept.
 
 ## Changing projection
 
--   Done using `st_transform()`
--   Over 170 projections available in sf package
--   You can view them using `sf_proj_info()` in the console
+You can change the projection of a map object using `st_transform()`. The `sf` package supports over 170 different projections, which you can browse by running `sf_proj_info()` in the console.
 
-Add the correct string with `+proj=` to the `crs =` argument in `st_transform()`:
+To use one, add the correct string with `+proj=` to the `crs =` argument in `st_transform()`:
 
 ```{webr-r}
 
@@ -213,44 +210,42 @@ ggplot(data = worldmap_moll, aes(fill = pop_est)) +
 
 #### Compromise
 
--   A compromise projection doesn't try to be perfectly accurate on any one property (area, angle, or distance) - instead it aims for a reasonable, visually-pleasing balance across all of them. The Winkel Tripel projection above is one example; another is the Robinson projection:
--   Used to draw a visual map of the world
--   E.g. Robinson projection
+A compromise projection doesn't try to be perfectly accurate on any one property (area, angle, or distance) - instead it aims for a reasonable, visually-pleasing balance across all of them, which makes this type of projection well-suited to drawing a general-purpose visual map of the world. The Winkel Tripel projection above is one example; another is the Robinson projection:
 
 ```{webr-r}
 
 worldmap |>
   st_transform(crs = "+proj=robin") |>
-  ggplot() + 
+  ggplot() +
   geom_sf()
 
 ```
 
 #### Angular conformity
 
--   Used for navigation and meterology
+A conformal projection preserves angles and shapes locally, which makes it useful for navigation and meteorology:
 
 ```{webr-r}
 worldmap |>
   st_transform(crs = "+proj=merc") |>
-  ggplot() + 
+  ggplot() +
   geom_sf()
 ```
 
 #### Equal distance
 
--   Used for navigation, seismic mapping
+An equidistant projection preserves distances from one or two specific points to all other points, which is useful for navigation and for seismic mapping (for example, plotting distance from an earthquake's epicentre):
 
 ```{webr-r}
 worldmap |>
   st_transform(crs = "+proj=eqc") |>
-  ggplot() + 
+  ggplot() +
   geom_sf()
 ```
 
 #### Equal area
 
--   Useful for data mapping
+An equal-area projection preserves the relative size of areas, at the expense of distorting their shape. This matters a lot for data mapping specifically: if you're colouring countries or regions by some statistic (a choropleth map, as covered in the Digital Mapping overview), an equal-area projection avoids visually over- or under-stating the importance of a place purely because of the projection you happened to choose.
 
 ![](images/44_visualising-map-data/02.png){width="400"}
 
@@ -266,18 +261,15 @@ A geographic CRS uses longitude and latitude to describe a location on earth's s
 
 #### Projected CRS
 
--   Way of finding points based on a projected map rather than a globe
--   Universal Transverse Mercator (UTM) most popular
--   Globe is divided into zones - you need to know the zone along with the values
--   Values are northing and easting
+A projected CRS instead finds points based on a flat, projected map rather than the globe itself. The most popular is the Universal Transverse Mercator (UTM) system, which divides the globe into a series of zones - to specify a point, you need to know which zone it falls in, as well as its position within that zone, given as two values called northing and easting.
 
 ![](images/44_visualising-map-data/04.png){width="400"}
 
-#### What does it mean for mapping
+#### What does this mean for mapping?
 
-Merging or mapping multiple datasets must all be in the same CRS. Sometimes this means setting or transforming the existing CRS.
+Merging or mapping multiple datasets requires them all to be in the same CRS. Sometimes this means setting or transforming the existing CRS.
 
-You can transform a map from one CRS to another using st_transform(). The following will change the CRS to British National Grid:
+You can transform a map from one CRS to another using `st_transform()`. The following will change the CRS to British National Grid:
 
 ```{r, eval=FALSE}
 

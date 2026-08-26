@@ -2,6 +2,10 @@
 title: "Creating your own geographic objects"
 ---
 
+::: callout-note
+As in the last chapter, the code cells here are static rather than 'live' - follow along by running the equivalent project in Posit Cloud.
+:::
+
 ## Making points maps in R
 
 Last week we made maps of shaded polygons called thematic maps or choropleth maps. Another common visual data map are points maps: that is, a map where geographic data is visualised as individual points, often sized and coloured according to further variables. These are useful when your data are at the level of individual addresses or cities, rather than countries.

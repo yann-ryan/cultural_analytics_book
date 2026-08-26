@@ -2,6 +2,10 @@
 title: "Full map workflow"
 ---
 
+::: callout-note
+From this page on, the code cells are no longer 'live' - you can read them but not edit or run them in the book. This is because the shapefiles and datasets used from here on are too large, or need R packages that aren't available, to run in the browser. Follow along instead by opening the corresponding project in Posit Cloud, where all of this will run normally.
+:::
+
 ## 9 Steps to Making a Map
 
 1.  Import your geographic data

@@ -2,4 +2,16 @@
 title: "More Data Visualisation"
 ---
 
-In this chapter we will look at the next 'layer' in a ggplot object: scales. We'll also take a look at one framework by which we can explain how visualisations work to convey information, gestalt principles.
+Last week we covered the basics of `ggplot2`: mapping data to aesthetics, drawing it with a geometry, and the main chart types you'll use most often (bars, points, lines, histograms, and boxplots).
+
+This week builds on that in two directions.
+
+First, we'll look at **gestalt principles** and **pre-attentive attributes** - two frameworks from psychology which help explain *why* data visualisation works as a way of communicating information, and which give us some vocabulary for talking critically about our own and others' charts (useful for the in-class critique exercise at the end of that page).
+
+Second, we'll go a layer deeper into `ggplot2` itself, and look at **scales**. Scales control how the values in your data get mapped onto a chart - where a point sits on the x axis, which colour a bar is filled with, how big a symbol is drawn. Choosing sensible scales (or occasionally choosing misleading ones) has a big effect on what a viewer takes away from a chart, so it's worth understanding how to control them deliberately rather than always accepting ggplot's defaults.
+
+Over the rest of this part, we'll cover:
+
+-   **Position scales**: setting axis limits, breaks, and labels, and reordering categories on a chart.
+-   **Date scales**: the same idea, applied to dates - very common in humanities data.
+-   **Colour and size scales**: choosing sequential, diverging, and categorical palettes, including ones which are safe for colour vision deficiency.

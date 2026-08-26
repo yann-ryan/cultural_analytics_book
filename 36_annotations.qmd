@@ -114,7 +114,7 @@ Now add the text, curve, and arrow to the chart:
 
 ### other geoms with annotate()
 
-annotate() allows us to specify any of the geoms available, but besides `text`, the most useful ones are those which we didn't use for data visualisation directly: `segment`, `rectangle`, and `curve`. You can then specify the usual aesthetics of those geoms such as color, linetype, alpha and so forth.
+annotate() allows us to specify any of the geoms available, but besides `text`, the most useful ones are those which we didn't use for data visualisation directly: `segment`, `rectangle`, and `curve`. You can then specify the usual aesthetics of those geoms such as colour, linetype, alpha and so forth.
 
 #### Lines
 

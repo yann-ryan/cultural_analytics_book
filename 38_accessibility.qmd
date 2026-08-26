@@ -16,7 +16,7 @@ penguins = palmerpenguins::penguins
 
 ### **What does it mean to make our content accessible?**
 
-When making visualizations it is important to take into account accessibility. In this context, **accessibility means making the content more readable and understandable by everyone.**
+When making visualisations it is important to take into account accessibility. In this context, **accessibility means making the content more readable and understandable by everyone.**
 
 We should remember that those viewing our content, particularly if it is placed online may have issues with:
 
@@ -68,6 +68,10 @@ In both these cases, we should be mindful of using problematic colour pairs. Red
 ![](images/38_accessibility/03.png){width="450"}
 
 **Try it yourself:** How can you make this chart of the US election results in 2020 more accessible?
+
+::: callout-note
+This example is a map, made with `geom_sf()` - a geometry we haven't covered yet (you'll meet it properly in the Digital Mapping part of the course). Don't worry about understanding that part of the code for now; just focus on the `scale_fill_gradient2()` line at the end, which is the part relevant to this exercise.
+:::
 
 ```{webr-r}
 #| warning: false

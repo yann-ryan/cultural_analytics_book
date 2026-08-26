@@ -151,9 +151,9 @@ This is directly useful for data visualisation: if you want a viewer to notice s
 
 ## Exercise
 
-Take the chart you did in the critique.
+Pick a data visualisation you've encountered recently and thought was interesting - from the news, social media, a museum, or one you've made yourself for this course.
 
-Prepare to explain it to the group for 2 minutes (you can just use what you wrote in the essay) Mention one of each of the following, and point out whether you think they are effective or appropriate:
+Prepare to explain it to the group for 2 minutes. Mention one of each of the following, and point out whether you think they are effective or appropriate:
 
 -   A geometry
 -   An aesthetic
