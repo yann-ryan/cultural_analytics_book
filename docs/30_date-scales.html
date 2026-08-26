@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())","options":{"fig-height":5,"warning":"true","editor-quick-suggestions":"false","out-width":"700px","autorun":"true","label":"unnamed-chunk-1","comment":"","read-only":"false","fig-width":7,"out-height":"","context":"setup","editor-font-scale":"1","message":"true","editor-word-wrap":"true","output":"true","results":"markup","fig-cap":"","dpi":72,"classes":"","editor-max-height":""},"id":1},{"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))","options":{"fig-height":5,"warning":"true","editor-quick-suggestions":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-2","comment":"","read-only":"false","fig-width":7,"out-height":"","context":"interactive","editor-font-scale":"1","message":"true","editor-word-wrap":"true","output":"true","results":"markup","fig-cap":"","dpi":72,"classes":"","editor-max-height":""},"id":2},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")","options":{"fig-height":5,"warning":"true","editor-quick-suggestions":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-3","comment":"","read-only":"false","fig-width":7,"out-height":"","context":"interactive","editor-font-scale":"1","message":"true","editor-word-wrap":"true","output":"true","results":"markup","fig-cap":"","dpi":72,"classes":"","editor-max-height":""},"id":3},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')","options":{"fig-height":5,"warning":"true","editor-quick-suggestions":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-4","comment":"","read-only":"false","fig-width":7,"out-height":"","context":"interactive","editor-font-scale":"1","message":"true","editor-word-wrap":"true","output":"true","results":"markup","fig-cap":"","dpi":72,"classes":"","editor-max-height":""},"id":4},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")","options":{"fig-height":5,"warning":"true","editor-quick-suggestions":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-5","comment":"","read-only":"false","fig-width":7,"out-height":"","context":"interactive","editor-font-scale":"1","message":"true","editor-word-wrap":"true","output":"true","results":"markup","fig-cap":"","dpi":72,"classes":"","editor-max-height":""},"id":5}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())","options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","fig-width":7,"editor-word-wrap":"true","comment":"","autorun":"true","fig-height":5,"message":"true","classes":"","warning":"true","output":"true","label":"unnamed-chunk-1","editor-font-scale":"1","context":"setup","out-width":"700px","editor-max-height":"","results":"markup","dpi":72}},{"id":2,"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))","options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","fig-width":7,"editor-word-wrap":"true","comment":"","autorun":"false","fig-height":5,"message":"true","classes":"","warning":"true","output":"true","label":"unnamed-chunk-2","editor-font-scale":"1","context":"interactive","out-width":"700px","editor-max-height":"","results":"markup","dpi":72}},{"id":3,"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")","options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","fig-width":7,"editor-word-wrap":"true","comment":"","autorun":"false","fig-height":5,"message":"true","classes":"","warning":"true","output":"true","label":"unnamed-chunk-3","editor-font-scale":"1","context":"interactive","out-width":"700px","editor-max-height":"","results":"markup","dpi":72}},{"id":4,"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')","options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","fig-width":7,"editor-word-wrap":"true","comment":"","autorun":"false","fig-height":5,"message":"true","classes":"","warning":"true","output":"true","label":"unnamed-chunk-4","editor-font-scale":"1","context":"interactive","out-width":"700px","editor-max-height":"","results":"markup","dpi":72}},{"id":5,"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")","options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","fig-width":7,"editor-word-wrap":"true","comment":"","autorun":"false","fig-height":5,"message":"true","classes":"","warning":"true","output":"true","label":"unnamed-chunk-5","editor-font-scale":"1","context":"interactive","out-width":"700px","editor-max-height":"","results":"markup","dpi":72}}];
 
 </script>
 <script type="module">
@@ -2501,13 +2501,19 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 

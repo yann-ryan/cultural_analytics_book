@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"comment":"","context":"setup","autorun":"true","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-1","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-2","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-3","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-4","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":""},{"id":5,"options":{"comment":"","context":"interactive","autorun":"false","warning":"true","out-height":"","editor-font-scale":"1","label":"unnamed-chunk-5","output":"true","fig-height":5,"read-only":"false","classes":"","out-width":"700px","editor-max-height":"","fig-cap":"","fig-width":7,"editor-word-wrap":"true","results":"markup","message":"true","dpi":72,"editor-quick-suggestions":"false"},"code":""}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"context":"setup","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-1","message":"true","out-width":"700px","fig-height":5,"autorun":"true","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"titanic_df |>\n  summarise(count = n())","id":2,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-2","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","id":3,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-3","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"","id":4,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-4","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}},{"code":"","id":5,"options":{"context":"interactive","editor-font-scale":"1","fig-width":7,"classes":"","output":"true","results":"markup","label":"unnamed-chunk-5","message":"true","out-width":"700px","fig-height":5,"autorun":"false","dpi":72,"comment":"","editor-word-wrap":"true","out-height":"","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","warning":"true","read-only":"false"}}];
 
 </script>
 <script type="module">
@@ -2530,13 +2530,19 @@ Save some typing by using tally()
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 

@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"true","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-1","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"setup"}},{"id":2,"code":"locations_df","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"false","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-2","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"interactive"}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"false","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-3","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"interactive"}},{"id":4,"code":"","options":{"message":"true","classes":"","editor-max-height":"","dpi":72,"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","autorun":"false","out-width":"700px","fig-width":7,"read-only":"false","output":"true","comment":"","out-height":"","fig-cap":"","label":"unnamed-chunk-4","results":"markup","fig-height":5,"editor-quick-suggestions":"false","context":"interactive"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-1","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"true","context":"setup","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}},{"id":2,"code":"locations_df","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-2","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"false","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-3","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"false","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}},{"id":4,"code":"","options":{"classes":"","results":"markup","comment":"","out-height":"","fig-cap":"","output":"true","label":"unnamed-chunk-4","fig-width":7,"fig-height":5,"editor-max-height":"","warning":"true","editor-word-wrap":"true","read-only":"false","editor-font-scale":"1","autorun":"false","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","message":"true","dpi":72}}];
 
 </script>
 <script type="module">
@@ -2511,13 +2511,19 @@ Tip
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 

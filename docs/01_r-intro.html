@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"1 + 1","options":{"warning":"true","results":"markup","classes":"","out-width":"700px","context":"interactive","fig-height":5,"comment":"","output":"true","autorun":"false","read-only":"false","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","dpi":72,"fig-width":7,"editor-word-wrap":"true","editor-font-scale":"1","fig-cap":"","message":"true","label":"unnamed-chunk-1"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"message":"true","autorun":"false","output":"true","classes":"","editor-font-scale":"1","fig-height":5,"comment":"","editor-quick-suggestions":"false","context":"interactive","editor-word-wrap":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-1","read-only":"false","out-width":"700px","dpi":72,"editor-max-height":"","fig-width":7,"warning":"true","results":"markup"},"code":"1 + 1"}];
 
 </script>
 <script type="module">
@@ -2558,13 +2558,19 @@ Warning
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 

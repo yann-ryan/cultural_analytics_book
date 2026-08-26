@@ -854,13 +854,19 @@ Tip
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 

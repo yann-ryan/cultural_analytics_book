@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"context":"setup","dpi":72,"message":"true","comment":"","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","warning":"true","editor-word-wrap":"true","out-height":"","fig-width":7,"results":"markup","classes":"","label":"unnamed-chunk-1","fig-cap":"","autorun":"true","fig-height":5,"out-width":"700px","editor-quick-suggestions":"false"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"options":{"context":"interactive","dpi":72,"message":"true","comment":"","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","warning":"true","editor-word-wrap":"true","out-height":"","fig-width":7,"results":"markup","classes":"","label":"unnamed-chunk-2","fig-cap":"","autorun":"false","fig-height":5,"out-width":"700px","editor-quick-suggestions":"false"},"id":2,"code":"gapminder_population"},{"options":{"context":"interactive","dpi":72,"message":"true","comment":"","read-only":"false","editor-font-scale":"1","editor-max-height":"","output":"true","warning":"true","editor-word-wrap":"true","out-height":"","fig-width":7,"results":"markup","classes":"","label":"unnamed-chunk-3","fig-cap":"","autorun":"false","fig-height":5,"out-width":"700px","editor-quick-suggestions":"false"},"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","options":{"context":"setup","read-only":"false","editor-word-wrap":"true","out-width":"700px","fig-height":5,"autorun":"true","fig-cap":"","fig-width":7,"message":"true","editor-quick-suggestions":"false","dpi":72,"classes":"","results":"markup","label":"unnamed-chunk-1","editor-font-scale":"1","output":"true","editor-max-height":"","warning":"true","out-height":"","comment":""},"id":1},{"code":"gapminder_population","options":{"context":"interactive","read-only":"false","editor-word-wrap":"true","out-width":"700px","fig-height":5,"autorun":"false","fig-cap":"","fig-width":7,"message":"true","editor-quick-suggestions":"false","dpi":72,"classes":"","results":"markup","label":"unnamed-chunk-2","editor-font-scale":"1","output":"true","editor-max-height":"","warning":"true","out-height":"","comment":""},"id":2},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","options":{"context":"interactive","read-only":"false","editor-word-wrap":"true","out-width":"700px","fig-height":5,"autorun":"false","fig-cap":"","fig-width":7,"message":"true","editor-quick-suggestions":"false","dpi":72,"classes":"","results":"markup","label":"unnamed-chunk-3","editor-font-scale":"1","output":"true","editor-max-height":"","warning":"true","out-height":"","comment":""},"id":3}];
 
 </script>
 <script type="module">
@@ -2532,13 +2532,19 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 

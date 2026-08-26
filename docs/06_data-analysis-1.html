@@ -378,7 +378,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(DT)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-1","fig-width":7,"context":"setup","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"true","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}},{"id":2,"code":"titanic_df","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-2","fig-width":7,"context":"interactive","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"false","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}},{"id":3,"code":"","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-3","fig-width":7,"context":"interactive","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"false","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}},{"id":4,"code":"","options":{"editor-quick-suggestions":"false","label":"unnamed-chunk-4","fig-width":7,"context":"interactive","editor-max-height":"","comment":"","results":"markup","read-only":"false","fig-cap":"","message":"true","classes":"","dpi":72,"output":"true","fig-height":5,"out-height":"","out-width":"700px","autorun":"false","editor-word-wrap":"true","warning":"true","editor-font-scale":"1"}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(DT)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"read-only":"false","fig-width":7,"output":"true","label":"unnamed-chunk-1","autorun":"true","warning":"true","dpi":72,"fig-cap":"","out-height":"","fig-height":5,"editor-quick-suggestions":"false","message":"true","context":"setup","editor-font-scale":"1","classes":"","out-width":"700px","results":"markup","editor-max-height":"","comment":"","editor-word-wrap":"true"}},{"code":"titanic_df","id":2,"options":{"read-only":"false","fig-width":7,"output":"true","label":"unnamed-chunk-2","autorun":"false","warning":"true","dpi":72,"fig-cap":"","out-height":"","fig-height":5,"editor-quick-suggestions":"false","message":"true","context":"interactive","editor-font-scale":"1","classes":"","out-width":"700px","results":"markup","editor-max-height":"","comment":"","editor-word-wrap":"true"}},{"code":"","id":3,"options":{"read-only":"false","fig-width":7,"output":"true","label":"unnamed-chunk-3","autorun":"false","warning":"true","dpi":72,"fig-cap":"","out-height":"","fig-height":5,"editor-quick-suggestions":"false","message":"true","context":"interactive","editor-font-scale":"1","classes":"","out-width":"700px","results":"markup","editor-max-height":"","comment":"","editor-word-wrap":"true"}},{"code":"","id":4,"options":{"read-only":"false","fig-width":7,"output":"true","label":"unnamed-chunk-4","autorun":"false","warning":"true","dpi":72,"fig-cap":"","out-height":"","fig-height":5,"editor-quick-suggestions":"false","message":"true","context":"interactive","editor-font-scale":"1","classes":"","out-width":"700px","results":"markup","editor-max-height":"","comment":"","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -2642,13 +2642,19 @@ Warning
   function init() {
     var frames = document.querySelectorAll("iframe.exercise-frame");
     frames.forEach(function (frame) {
-      if (frame.contentDocument && frame.contentDocument.readyState === "complete") {
+      // Always wait for a real "load" event rather than trusting an
+      // already-"complete" contentDocument: with loading="lazy" the iframe
+      // starts out pointed at about:blank, which reports readyState
+      // "complete" immediately even though the real content hasn't loaded
+      // yet - trusting that would bind the observer to the blank document
+      // and miss the actual page entirely.
+      frame.addEventListener("load", function () {
         watchFrame(frame);
-      } else {
-        frame.addEventListener("load", function () {
-          watchFrame(frame);
-        });
-      }
+      });
+      // Belt-and-braces: if the load event already fired before this
+      // listener was attached (e.g. a cached, non-lazy frame), resize once
+      // immediately too.
+      resizeFrame(frame);
     });
   }
 
