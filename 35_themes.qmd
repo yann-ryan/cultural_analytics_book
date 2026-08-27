@@ -1,7 +1,7 @@
 ---
 title: "Chart Themes"
 webr:
-  packages: ['dplyr', 'readr', 'ggplot2', 'tidyr']
+  packages: ['dplyr', 'readr', 'ggplot2', 'tidyr', 'stringr']
 ---
 
 ```{webr-r}
@@ -10,15 +10,26 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(stringr)
 
-url <- "https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv"
-download.file(url, "gapminder_df.csv")
+url1 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv"
+download.file(url1, "laureates_df.csv")
+laureates_df <- read_csv('laureates_df.csv')
 
-gapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')
+url2 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv"
+download.file(url2, "prize_df.csv")
+prize_df <- read_csv('prize_df.csv')
 
-df <- gapminder_df |>
-  filter(year == 2007) |>
-  mutate(pop_millions = pop/1000000)
+nobel_df <- laureates_df |>
+  left_join(prize_df, by = 'prize_id') |>
+  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),
+         age_at_award = award_year - birth_year)
+
+df <- nobel_df |>
+  group_by(category) |>
+  summarise(n = n(),
+            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,
+            avg_age = mean(age_at_award, na.rm = TRUE))
 
 ```
 
@@ -40,9 +51,9 @@ The full list of themes are [here](https://ggplot2.tidyverse.org/reference/ggthe
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + 
-  geom_point()+ 
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point()+
   theme_light()
 
 ```
@@ -59,7 +70,7 @@ Using the default settings will make an accurate representation of your data but
 
 Each visual part of a chart is known as an **element**, and we can make changes to each part separately. This is done by adding `+ theme()` layer to your chart, followed by the element you want to change, then an element type, and finally, the aesthetics of that element you want to change. The full list of elements and types can be found in the figure below - it's very useful to save a copy as a reference.
 
-It seems like a lot, so let's see how this works with an example. Let's change the **size** of the **x axis title** in the chart we made above (this is the axis label itself, e.g. "lifeExp" - not to be confused with `axis.text`, which controls the tick labels/numbers along the axis).
+It seems like a lot, so let's see how this works with an example. Let's change the **size** of the **x axis title** in the chart we made above (this is the axis label itself, e.g. "avg_age" - not to be confused with `axis.text`, which controls the tick labels/numbers along the axis).
 
 To do this, I first add a new layer with `+ theme()` to my existing plot.
 
@@ -77,8 +88,8 @@ To change the size of the text to 16, use the following full line of code:
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + 
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
   geom_point() +
   theme(axis.title.x = element_text(size = 16))
 
@@ -104,14 +115,13 @@ Copy and paste the chart above into a new cell. Make the following changes:
 
 ### Some useful things to change:
 
-Changing the angle of text in a bar chart. We change the angle, but because it rotates around the middle and we would like the end of the text to line up with the appropriate bar, we also need to use hjust and vjust:
+Changing the angle of text in a bar chart. We change the angle, but because it rotates around the middle and we would like the end of the text to line up with the appropriate bar, we also need to use hjust and vjust. This is particularly useful here, since some of the category names ("Physiology or Medicine", "Economic Sciences") are too long to sit comfortably horizontally:
 
 ```{webr-r}
 
-gapminder_df |> 
-  filter(continent == 'Americas' & year == 2007) |>
-  ggplot(aes(x = country, y = gdpPercap)) + 
-  geom_col() + 
+df |>
+  ggplot(aes(x = category, y = n)) +
+  geom_col() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
 
 ```
@@ -120,12 +130,11 @@ The text format of the title and subtitle:
 
 ```{webr-r}
 
-gapminder_df |> 
-  filter(continent == 'Americas' & year == 2007) |>
-  ggplot(aes(x = country, y = gdpPercap)) + 
-  geom_col() + 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) + 
-  labs(title = "GDP Per Capita", subtitle = "Americas, 2007") + 
+df |>
+  ggplot(aes(x = category, y = n)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  labs(title = "Nobel Prizes by Category", subtitle = "1901 - 2024") +
   theme(plot.title = element_text(family = "Times New Roman", size = 22),
         plot.subtitle = element_text(family = "Times New Roman", face = "bold"))
 
@@ -134,11 +143,10 @@ gapminder_df |>
 You can also change all the text at once:
 
 ```{webr-r}
-gapminder_df |> 
-  filter(continent == 'Americas' & year == 2007) |>
-  ggplot(aes(x = country, y = gdpPercap)) + 
-  geom_col() + 
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) + 
-  labs(title = "GDP Per Capita", subtitle = "Americas, 2007") + 
+df |>
+  ggplot(aes(x = category, y = n)) +
+  geom_col() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  labs(title = "Nobel Prizes by Category", subtitle = "1901 - 2024") +
   theme(text = element_text(family = 'Times New Roman'))
 ```

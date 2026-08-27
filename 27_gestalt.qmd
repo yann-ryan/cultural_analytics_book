@@ -87,13 +87,21 @@ Closure is the principle that we tend to 'close' unfinished objects to make them
 #| message: false
 #| warning: false
 
-gapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')
+laureates_df <- read_csv('laureates_df.csv', show_col_types = FALSE)
+prize_df <- read_csv('prize_df.csv', show_col_types = FALSE)
 
-gapminder_df |>
-  filter(country == 'Netherlands') |>
+nobel_df <- laureates_df |>
+  left_join(prize_df, by = 'prize_id')
+
+physics_by_decade <- nobel_df |>
+  filter(category == 'Physics') |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  count(decade)
+
+physics_by_decade |>
   ggplot() +
-  geom_line(aes(x = year, y = gdpPercap), linetype = 'dashed') +
-  labs(title = "GDP Per Capita", subtitle = "Netherlands, 1952 - 2007") + theme_bw()
+  geom_line(aes(x = decade, y = n), linetype = 'dashed') +
+  labs(title = "Physics Prizes Awarded", subtitle = "By decade, 1900s - 2020s") + theme_bw()
 
 
 ```
@@ -105,11 +113,13 @@ gapminder_df |>
 #| message: false
 #| warning: false
 
-gapminder_df |>
-  filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
+nobel_df |>
+  filter(category %in% c('Physics', 'Chemistry', 'Peace')) |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  count(decade, category) |>
   ggplot() +
-  geom_line(aes(x = year, y = lifeExp, color = country)) +
-  labs(title = "Life Expectancy", subtitle = "Select Countries, 1952 - 2007") + theme_bw()
+  geom_line(aes(x = decade, y = n, color = category)) +
+  labs(title = "Nobel Prizes Awarded", subtitle = "Physics, Chemistry, and Peace, by decade") + theme_bw()
 
 ```
 
@@ -124,20 +134,21 @@ This principle states that if objects are connected, we perceive them as a unifi
 #| message: false
 #| warning: false
 
-
-gapminder_df |> filter(year %in% c(2002, 2007)) |>
-  filter(country %in% c('Netherlands', 'France', "Germany", "Italy", "Belgium")) |>
-  select(year, country, gdpPercap) %>% pivot_wider(names_from = year, values_from = gdpPercap)  %>%
-  ggplot(aes(x = country, xend = country, y = `2002`, yend = `2007`)) +
+nobel_df |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  filter(decade %in% c(1950, 2010)) |>
+  count(decade, category) |>
+  pivot_wider(names_from = decade, values_from = n, values_fill = 0) |>
+  ggplot(aes(x = category, xend = category, y = `1950`, yend = `2010`)) +
   geom_segment( color="grey", linetype = 'dashed') +
   geom_point(color=rgb(0.2,0.7,0.1,0.5), size=3 ) +
-  geom_point(aes(y = `2007`), color=rgb(0.7,0.2,0.1,0.5), size=3 )+
+  geom_point(aes(y = `2010`), color=rgb(0.7,0.2,0.1,0.5), size=3 )+
   coord_flip()+
   theme_bw() +
   theme(
     legend.position = "none",
-  ) + 
-  labs(title = "Change in GDP per Capita", subtitle = "2002 to 2007")
+  ) +
+  labs(title = "Growth in Nobel Laureates", subtitle = "1950s to 2010s, by category")
 
 ```
 

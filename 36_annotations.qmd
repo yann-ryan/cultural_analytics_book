@@ -1,7 +1,7 @@
 ---
 title: "Annotations and Highlights"
 webr:
-  packages: ['dplyr', 'readr', 'ggplot2', 'tidyr']
+  packages: ['dplyr', 'readr', 'ggplot2', 'tidyr', 'stringr']
 ---
 
 ```{webr-r}
@@ -10,16 +10,30 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(stringr)
 
-url <- "https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv"
-download.file(url, "gapminder_df.csv")
+url1 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv"
+download.file(url1, "laureates_df.csv")
+laureates_df <- read_csv('laureates_df.csv')
 
-gapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')
+url2 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv"
+download.file(url2, "prize_df.csv")
+prize_df <- read_csv('prize_df.csv')
 
-df <- gapminder_df |>
-  filter(year == 2007) |>
-  mutate(pop_millions = pop/1000000)|>
-  filter(continent == 'Europe')
+nobel_df <- laureates_df |>
+  left_join(prize_df, by = 'prize_id') |>
+  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),
+         age_at_award = award_year - birth_year)
+
+df <- nobel_df |>
+  group_by(category) |>
+  summarise(n = n(),
+            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,
+            avg_age = mean(age_at_award, na.rm = TRUE))
+
+nobel_by_year <- tibble(award_year = 1901:2024) |>
+  left_join(nobel_df |> count(award_year), by = 'award_year') |>
+  mutate(n = replace_na(n, 0))
 
 ```
 
@@ -39,42 +53,42 @@ For annotate, you specify the name of the geom (a short version, so geom_rect be
 
 You can use annotate() to manually add informative labels to your charts.
 
-It's usually useful to have an arrow along with text, pointing to something in the visualisation. Let's walk through doing this using the following chart, which charts life expectancy and GDP per capita, limited to the continent of Europe:
+It's usually useful to have an arrow along with text, pointing to something in the visualisation. Let's walk through doing this using the following chart, which charts the average age at award and the percentage of female laureates, for each prize category:
 
 ```{webr-r}
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy") + scale_size_area()
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize") + scale_size_area()
 ```
 
 #### Adding a text annotation
 
-We want to add the text Netherlands and an arrow pointing to the relevant point.
+We want to add the text Peace and an arrow pointing to the relevant point.
 
-First we'll put a text annotation somewhere in the large empty space of the chart. The Netherlands is towards the top right of the plot so the line intersecting about 73 on the x axis and 45000 on the y axis would be a good place to put the text.
+First we'll put a text annotation somewhere in the large empty space of the chart. Peace is towards the top-left of the plot (the highest share of women, at a fairly average age), so a spot up and to the left of it would be a good place to put the text.
 
 ```{webr-r}
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = NULL) + 
-  annotate(geom = 'text', x = 76, y = 45000, label = "Netherlands")
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize",
+       x = NULL) +
+  annotate(geom = 'text', x = 56, y = 19, label = "Peace")
 ```
 
 #### Add a line
 
-Next we want a curved line with an arrow running from just underneath the text to the middle of the point. To do this, look at the data and find the relevant variables to use as a starting point. The lifeExp (our x axis) for Netherlands is 79.762 and gdpPercap (y axis) is 36797.
+Next we want a curved line with an arrow running from just underneath the text to the middle of the point. To do this, look at the data and find the relevant variables to use as a starting point. The avg_age (our x axis) for Peace is 60.8 and pct_female (y axis) is 17.1.
 
 ```{webr-r}
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = NULL) + 
-  annotate(geom = 'text', x = 76, y = 45000, label = "Netherlands") +  
-  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, 
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize",
+       x = NULL) +
+  annotate(geom = 'text', x = 56, y = 19, label = "Peace") +
+  annotate(geom = 'curve', x = 56, y = 18.3, xend = 60.8, yend = 17.1,
            arrow = arrow(type = 'closed', length = unit(2, 'mm')))
 
 ```
@@ -85,31 +99,31 @@ Finally we can specify an arrow with a special arrow() function. Pay attention h
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = NULL) + 
-  annotate(geom = 'text', x = 76, y = 45000, label = "Netherlands") +  
-  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, 
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize",
+       x = NULL) +
+  annotate(geom = 'text', x = 56, y = 19, label = "Peace") +
+  annotate(geom = 'curve', x = 56, y = 18.3, xend = 60.8, yend = 17.1,
            arrow = arrow(type = 'closed', length = unit(2, 'mm')))
 
 ```
 
-**Try it yourself:** Add a label, line, and arrow pointing to the United States. Run the first cell to get the relevant values as a starting point.
+**Try it yourself:** Add a label, line, and arrow pointing to Physics. Run the first cell to get the relevant values as a starting point.
 
 ```{webr-r}
 
- df |> filter(country == "United States")
+ df |> filter(category == "Physics")
 
 ```
 
 Now add the text, curve, and arrow to the chart:
 
 ```{webr-r}
- df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() 
+ df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point()
 ```
 
 ### other geoms with annotate()
@@ -118,46 +132,45 @@ annotate() allows us to specify any of the geoms available, but besides `text`, 
 
 #### Lines
 
-Add a line to your plot using 'segment'. For a vertical line set the x and xend to the desired value. To draw the line the whole way across the plot set y to 0 and yend to Inf (infinite).
+Add a line to your plot using 'segment'. For a vertical line set the x and xend to the desired value. To draw the line the whole way across the plot set y to 0 and yend to Inf (infinite). Let's use it to mark 1969, the year the Economic Sciences prize was introduced (all the other five categories date back to 1901):
 
 ```{webr-r}
 
-gapminder_df |> 
-  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>
-  ggplot(aes(x = year, y =gdpPercap, color = country))  + 
-  geom_line() + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = NULL) + 
-  annotate(geom = 'segment', x = 1982, xend = 1982, y = 0, yend = Inf, linetype = 'dashed')
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n))  +
+  geom_line() +
+  labs(title = "Nobel Laureates Awarded per Year",
+       x = NULL) +
+  annotate(geom = 'segment', x = 1969, xend = 1969, y = 0, yend = Inf, linetype = 'dashed')
 ```
 
 ::: callout-tip
 There's actually a separate layer, geom_vline(), which you can use instead.
 
 ```{webr-r}
-gapminder_df |> 
-  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>
-  ggplot(aes(x = year, y =gdpPercap, color = country))  + 
-  geom_line() + 
-  labs(title = "GDP and Life\nExpectancy",
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n))  +
+  geom_line() +
+  labs(title = "Nobel Laureates Awarded per Year",
        x = NULL) +
-  geom_vline(xintercept = 1982)
+  geom_vline(xintercept = 1969)
 ```
 :::
 
 #### Rectangles
 
 ```{webr-r}
-gapminder_df |> 
-  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>
-  ggplot(aes(x = year, y =gdpPercap, color = country))  + 
-  geom_line() + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = NULL) + 
-  annotate(geom = 'rect', xmin = 1960, xmax = 1980, ymin = 0, ymax = Inf, alpha = .5, linetype = 'dashed', color = 'black')
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n))  +
+  geom_line() +
+  labs(title = "Nobel Laureates Awarded per Year",
+       x = NULL) +
+  annotate(geom = 'rect', xmin = 1939, xmax = 1946, ymin = 0, ymax = Inf, alpha = .5, linetype = 'dashed', color = 'black')
 ```
 
-**Try it yourself:** Create an annotated area which highlights the early nineties recession between 1990 and 1993. Draw a label and an arrow for it. Set a colour, alpha and one other aesthetic value.
+Notice the dip to zero in the early 1940s? No prizes at all were awarded in 1940, 1941, or 1942, because of the Second World War.
+
+**Try it yourself:** Create an annotated area which highlights the years from 1969 onwards, when the Economic Sciences prize has existed. Draw a label and an arrow for it. Set a colour, alpha and one other aesthetic value.
 
 ### Highlighting using colour
 
@@ -173,16 +186,16 @@ One effective method to draw attention to certain elements is to highlight using
 
 ```{webr-r}
 
-df_highlight = df %>% filter(country %in% c('Ireland', "Netherlands", "France"))
+df_highlight = df %>% filter(category %in% c('Peace', "Literature", "Economic Sciences"))
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions))  + 
-  geom_point(color = 'gray50', alpha = .8) + 
-  geom_point(data = df_highlight, color = 'red') + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = NULL) + 
-  annotate(geom = 'text', x = 76, y = 45000, label = "Netherlands") +  
-  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, 
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n))  +
+  geom_point(color = 'gray50', alpha = .8) +
+  geom_point(data = df_highlight, color = 'red') +
+  labs(title = "Age and Gender\nat the Nobel Prize",
+       x = NULL) +
+  annotate(geom = 'text', x = 56, y = 19, label = "Peace") +
+  annotate(geom = 'curve', x = 56, y = 18.3, xend = 60.8, yend = 17.1,
            arrow = arrow(type = 'closed', length = unit(2, 'mm')))
 
 ```

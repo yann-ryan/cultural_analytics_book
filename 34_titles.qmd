@@ -1,7 +1,7 @@
 ---
 title: "Titles and Labels"
 webr:
-  packages: ['dplyr', 'readr', 'ggplot2', 'tidyr']
+  packages: ['dplyr', 'readr', 'ggplot2', 'tidyr', 'stringr']
 ---
 
 ## Communicating better with visualisations
@@ -38,11 +38,20 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(stringr)
 
-url <- "https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv"
-download.file(url, "gapminder_df.csv")
+url1 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv"
+download.file(url1, "laureates_df.csv")
+laureates_df <- read_csv('laureates_df.csv')
 
-gapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')
+url2 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv"
+download.file(url2, "prize_df.csv")
+prize_df <- read_csv('prize_df.csv')
+
+nobel_df <- laureates_df |>
+  left_join(prize_df, by = 'prize_id') |>
+  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),
+         age_at_award = award_year - birth_year)
 
 ```
 
@@ -50,16 +59,18 @@ As an example, let's reuse a dataset from the colour chapter. What aesthetics ar
 
 ```{webr-r}
 
-df <- gapminder_df |>
-  filter(year == 2007) |>
-  mutate(pop_millions = pop/1000000)
+df <- nobel_df |>
+  group_by(category) |>
+  summarise(n = n(),
+            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,
+            avg_age = mean(age_at_award, na.rm = TRUE))
 
 ```
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + 
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
   geom_point()
 
 ```
@@ -70,21 +81,21 @@ To add a `title`, `subtitle`, or `caption`, add within the `labs()` parenthesis,
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap,size = pop_millions, color = continent))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy")
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize")
 
 ```
 
-**Try it yourself:** add a subtitle with the year (2007) and a caption specifying the source of the data: https://www.gapminder.org/data/.
+**Try it yourself:** add a subtitle noting the time period covered (1901-2024) and a caption citing the source of the data: the Nobel Prize API, https://www.nobelprize.org/organization/developer-zone-2/.
 
 ```{webr-r}
 
 ```
 
 ::: callout-tip
-You can force ggplot to create a new line by adding `\n` to your text, for example `"GDP and Life\nExpectancy"`. This is useful if you have longer titles which would otherwise overrun the width of the plot, because ggplot does not resize the text automatically.
+You can force ggplot to create a new line by adding `\n` to your text, for example `"Age and Gender\nat the Nobel Prize"`. This is useful if you have longer titles which would otherwise overrun the width of the plot, because ggplot does not resize the text automatically.
 :::
 
 ### Labelling aesthetics
@@ -93,11 +104,11 @@ To recap the last chapter, when you specify an aesthetic, such as `x`/`y`, `colo
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy",
-       x = "Life Expectancy")
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize",
+       x = "Average Age at Award")
 
 ```
 
@@ -105,7 +116,7 @@ df |>
 If you are likely to have a lot of arguments within a function, like here, it can make it more readable to put each on a new line, after the comma.
 :::
 
-**Try it yourself:** Copy the plot above and change the y axis to "GDP per Capita", and the size legend to "Population in Millions". Put part of the size legend label on a new line.
+**Try it yourself:** Copy the plot above and change the y axis to "% of Laureates Who Were Women", and the size legend to "Number of Laureates". Put part of the size legend label on a new line.
 
 ```{webr-r}
 
@@ -115,10 +126,10 @@ You can change the label for any aesthetic you specify in your chart. You can al
 
 ```{webr-r}
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  labs(title = "GDP and Life\nExpectancy",
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  labs(title = "Age and Gender\nat the Nobel Prize",
        x = NULL)
 
 ```
@@ -133,24 +144,24 @@ Starting with the first, using geom_text. Geom_text will add text to your chart 
 
 ```{webr-r}
 df |>
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  +
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
   geom_point() +
-  geom_text(aes(label = country), size = 3) +
-  labs(title = "GDP and Life\nExpectancy",
+  geom_text(aes(label = category), size = 3) +
+  labs(title = "Age and Gender\nat the Nobel Prize",
        x = NULL)
 ```
 
-In cases like this, plotting all the names will result in an unreadable chart. One way to plot a small number of chosen labels is to create a new filtered dataset, and add this as the `data =` argument to `geom_text()`.
+With only six categories this is still fairly readable, but in cases with more categories, plotting all the names will result in an unreadable chart. One way to plot a small number of chosen labels is to create a new filtered dataset, and add this as the `data =` argument to `geom_text()`.
 
 ```{webr-r}
 
-df_text = df %>% filter(country %in% c('Ireland', 'Netherlands'))
+df_text = df %>% filter(category %in% c('Peace', 'Physics'))
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  geom_text(data = df_text, aes(label = country), size = 4) + 
-  labs(title = "GDP and Life\nExpectancy",
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  geom_text(data = df_text, aes(label = category), size = 4) +
+  labs(title = "Age and Gender\nat the Nobel Prize",
        x = NULL)
 
 ```
@@ -159,19 +170,19 @@ df |>
 
 Sometimes, we'll want to make changes to the labels using the data. We can do this using stringr and paste functions. Within the paste function, enter each column separated by a comma. You can add text within quotation marks, also separated by commas.
 
-The function `paste()` allows us to paste together text from several columns. For example, we could make a new column containing the country and GDP:
+The function `paste()` allows us to paste together text from several columns. For example, we could make a new column containing the category and the percentage of women:
 
 ```{webr-r}
 
 df_text = df |>
-  filter(country %in% c('Ireland', 'Iceland')) |> 
-  mutate(country_gdp = paste(country, " (", round(gdpPercap), ")", sep = ''))
+  filter(category %in% c('Peace', 'Literature')) |>
+  mutate(category_pct = paste(category, " (", round(pct_female), "%)", sep = ''))
 
-df |> 
-  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + 
-  geom_point() + 
-  geom_text(data = df_text, aes(label = country_gdp), size = 4, color = 'black') + 
-  labs(title = "GDP and Life\nExpectancy",
+df |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +
+  geom_point() +
+  geom_text(data = df_text, aes(label = category_pct), size = 4, color = 'black') +
+  labs(title = "Age and Gender\nat the Nobel Prize",
        x = NULL)
 
 ```
@@ -190,10 +201,9 @@ It can also be useful to make changes to the text in other ways. the `stringr` p
 -   `str_extract` and `str_remove` allow you to extract or remove parts of a text column based on regular expressions.
 :::
 
-**Try it yourself:** copy the code for the previous chart. Choose 5 countries to label, make them all upper case, and truncate the text to at most 10 letters. Paste together the country and continent names, with a comma in between.
+**Try it yourself:** copy the code for the previous chart. Label all six categories, make them all upper case, and truncate the text to at most 12 letters (some category names, like "Physiology or Medicine", are quite long!). Paste together the category name and the average age (rounded), with a comma in between.
 
 ```{webr-r}
-
 
 
 ```

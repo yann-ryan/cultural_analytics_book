@@ -18,7 +18,7 @@ We won't go into the [theory of how ggplot2 works with scales](https://ggplot2-b
 
 It's worth pausing on why this is worth learning properly, rather than just accepting ggplot's defaults. The same data, drawn with different scale choices, can tell quite different stories - not because the numbers have changed, but because of where the axis starts, or which colours suggest which categories are related.
 
-Take this chart of life expectancy in the Netherlands. On the left, the y axis runs from 0; on the right, it's limited to the actual range of the data:
+Take this chart of the number of Nobel laureates awarded per decade. On the left, the y axis runs from 0; on the right, it's limited to close to the actual range of the data:
 
 ```{r}
 #| code-fold: true
@@ -29,27 +29,33 @@ Take this chart of life expectancy in the Netherlands. On the left, the y axis r
 library(tidyverse)
 library(patchwork)
 
-gapminder_df <- read_tsv('gapminder_df.csv') |> filter(continent != 'FSU')
-netherlands_df <- gapminder_df |> filter(country == 'Netherlands')
+laureates_df <- read_csv('laureates_df.csv', show_col_types = FALSE)
+prize_df <- read_csv('prize_df.csv', show_col_types = FALSE)
 
-p1 <- netherlands_df |>
-  ggplot(aes(x = year, y = lifeExp)) +
+nobel_by_decade <- laureates_df |>
+  left_join(prize_df, by = 'prize_id') |>
+  filter(award_year < 2020) |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  count(decade)
+
+p1 <- nobel_by_decade |>
+  ggplot(aes(x = decade, y = n)) +
   geom_line() +
-  scale_y_continuous(limits = c(0, 85)) +
-  labs(title = "Starting at 0", y = "Life expectancy") +
+  scale_y_continuous(limits = c(0, 125)) +
+  labs(title = "Starting at 0", y = "Laureates per decade") +
   theme_bw()
 
-p2 <- netherlands_df |>
-  ggplot(aes(x = year, y = lifeExp)) +
+p2 <- nobel_by_decade |>
+  ggplot(aes(x = decade, y = n)) +
   geom_line() +
-  scale_y_continuous(limits = c(70, 80)) +
-  labs(title = "Zoomed in", y = "Life expectancy") +
+  scale_y_continuous(limits = c(35, 120)) +
+  labs(title = "Zoomed in", y = "Laureates per decade") +
   theme_bw()
 
 p1 + p2
 ```
 
-Both charts are technically accurate - nothing has been faked. But the one on the right makes a fairly gentle upward trend look dramatic, simply by choosing different limits. Neither version is automatically 'the' correct one to use (sometimes zooming in is exactly the right choice, if the small changes are genuinely the point), but you should always make that choice deliberately, and be able to justify it, rather than leaving it to chance or - worse - picking whichever version tells the story you wanted to tell.
+Both charts are technically accurate - nothing has been faked. But the one on the right makes the growth (and the dips around the two World Wars) look far more dramatic, simply by choosing different limits. Neither version is automatically 'the' correct one to use (sometimes zooming in is exactly the right choice, if the small changes are genuinely the point), but you should always make that choice deliberately, and be able to justify it, rather than leaving it to chance or - worse - picking whichever version tells the story you wanted to tell.
 
 The same logic applies to colour, size, and the other scales we'll cover in this part: they're not just decoration, they're doing real interpretive work.
 
