@@ -105,7 +105,7 @@ ggplot(data = df, aes(x = sex, y = n)) +
 Adding each layer (anything after a + sign) on a new line makes the code easier to read, though it's not strictly necessary.
 :::
 
-**We'll learn about the rest of the layers next week.**
+**We'll learn about the rest of the layers in upcoming sessions.**
 
 ### Adding other aesthetics to the chart
 
@@ -184,4 +184,4 @@ ggplot(data = df3, aes(x = embarked, y =n, fill = avg_paid)) +
 
 ```
 
-We learn a bit more about scales next week. Turn to the next page to find out about more chart types and their most common attributes.
+We learn a bit more about scales later this week. Turn to the next page to find out about more chart types and their most common attributes.

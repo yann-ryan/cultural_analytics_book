@@ -12,7 +12,7 @@ Adjust it using scales etc. for colour and boundaries.
 
 Bonus - make an interactive map
 
-This week we are going to make a slightly different type of map: a points or dot map. We saw some examples of these [two weeks ago](42_digital-mapping-1.qmd#points-map).
+This week we are going to make a slightly different type of map: a points or dot map. We saw some examples of these [last week](42_digital-mapping-1.qmd#points-map).
 
 The main difference is that instead of matching place names up to shapes, this time, we will map individual points based on sets of coordinates.
 

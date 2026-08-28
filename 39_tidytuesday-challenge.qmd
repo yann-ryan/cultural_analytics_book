@@ -4,6 +4,8 @@ title: "TidyTuesday visualisation challenge"
 
 ## Challenge instructions
 
+This challenge is where we put the FAIR data and accessibility principles from earlier this session into practice: as you work, keep asking whether your dataset is well-documented and reusable, and whether your finished chart is genuinely accessible to someone using assistive technology.
+
 Download, explore, analyse, and visualise a cultural or humanities dataset from the TidyTuesday repository.
 
 TidyTuesday is a weekly project where a dataset is posted and participants create an analysis and/or visualisation using it. 
@@ -46,8 +48,9 @@ Add a figure caption and alt-text, using the code chunk options.
 
 Questions:
 
--   What is the source of the dataset? Is it easy to find information on it? 
--   What kinds of questions could be asked with this dataset? 
+-   What is the source of the dataset? Is it easy to find information on it?
+-   How well does this dataset hold up against the FAIR principles - is it Findable, Accessible, Interoperable, and Reusable?
+-   What kinds of questions could be asked with this dataset?
 -   What ethical considerations are there with this dataset?
 
 

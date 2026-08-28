@@ -24,7 +24,7 @@ By the end of this section of the book, you should:
 
 ## Working with this book.
 
-Each week we'll demonstrate and practise some basics by running code directly in your browser, in this book. You can see the content and structure of the book in the sidebar on the left-hand side. Each week has a 'part' (this week is 'Introduction to R'), and each part has a number of chapters, which you can identify because they are numbered. You can switch to a new part of the book by clicking in the sidebar, or you can use the link at the bottom of each page to go to the next chapter.
+In each session we'll demonstrate and practise some basics by running code directly in your browser, in this book. You can see the content and structure of the book in the sidebar on the left-hand side. Each week of the course has a 'part' (this week is 'Introduction to R & Data Analysis 1'), and each part has a number of chapters, which you can identify because they are numbered. You can switch to a new part of the book by clicking in the sidebar, or you can use the link at the bottom of each page to go to the next chapter.
 
 For the first few weeks, we'll learn the basics through live code cells which are embedded in the book itself, and running in your browser. Later, we'll switch to an IDE (Integrated Development Environment) which will give us a 'real world' system to practise in.
 

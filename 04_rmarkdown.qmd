@@ -76,7 +76,7 @@ However, in this course, we'll exclusively use one method: R Markdown notebooks.
 
 These are special documents which can include code and text. Text is written using a simple format called Markdown, and code goes into special 'cells' within the document. Once you're finished, you'll tell R studio to execute all the code in the document and render it as an html file. This process is called 'knitting'.
 
-We'll worry more about code next week, but for now, let's just get used to creating R Markdown files, knitting them, and downloading them to your local machine so they can be sent as assignments.
+We'll worry more about code in the next session, but for now, let's just get used to creating R Markdown files, knitting them, and downloading them to your local machine so they can be sent as assignments.
 
 ### Create a new markdown file
 

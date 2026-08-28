@@ -38,7 +38,7 @@ You'll need to do the following which we haven't covered:
 -   Second, when you do the merge, you will have some rows with an NA for number of words. If you use filter, these lines will be dropped instead of treated as the movie containing no (zero) words of dialogue for that gender. To have these work correctly, you can replace these NAs with 0s. You can do that with the following `mutate()` command: `mutate(name_of_column_with_count_of_lines = replace_na(name_of_column_with_count_of_lines, 0))`. Don't worry if you can't get this to work!
 :::
 
--   Make a new column in this dataframe. This column should contain the value 'more male' if there is more male than female dialogue, and 'more female' if there is more female dialogue. If it has the exact same, it should read 'equal'. (HINT: look for the function `case_when()` from a previous week)
+-   Make a new column in this dataframe. This column should contain the value 'more male' if there is more male than female dialogue, and 'more female' if there is more female dialogue. If it has the exact same, it should read 'equal'. (HINT: look for the function `case_when()`, covered earlier this week)
 
 -   Make another new dataframe. This should have a row for each movie, and a column counting the total number of words for each gender.
 

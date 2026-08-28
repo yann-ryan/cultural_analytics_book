@@ -239,5 +239,5 @@ nobel_summary |>
 ```
 
 ::: callout-note
-Changing the position and other visual aspects of the legend is done within *themes*, which we'll cover next week.
+Changing the position and other visual aspects of the legend is done within *themes*, which we'll cover later this week.
 :::

@@ -10,15 +10,13 @@ book:
     logo: images/logo.jpeg
   chapters:
     - index.qmd
-    - part: "Introduction to R"
+    - part: "Week 1: Introduction to R & Data Analysis 1"
       chapters:
         - 01_r-intro.qmd
         - 02_r-basics.qmd
         - 03_r-practice.qmd
         - 04_rmarkdown.qmd
         - 05_at-home-1.qmd
-    - part: "Data Analysis 1"
-      chapters:
         - 06_data-analysis-1.qmd
         - 07_select.qmd
         - 08_slice.qmd
@@ -26,7 +24,7 @@ book:
         - 10_pipes.qmd
         - 10a_data-analysis-1-exercises.qmd
         - 11_at-home-2.qmd
-    - part: "Data Analysis 2"
+    - part: "Week 2: Data Analysis 2 & 3"
       chapters:
         - 12_filter.qmd
         - 13_regex.qmd
@@ -35,48 +33,39 @@ book:
         - 16_grouping.qmd
         - 16a_data-analysis-2-exercises.qmd
         - 17_at-home-3.qmd
-    - part: "Data Analysis 3"
-      chapters:
         - 18_joins.qmd
         - 19_tidying-data.qmd
         - 20_data-challenge.qmd
         - 20a_data-analysis-3-exercises.qmd
         - 21_at-home-4.qmd
-    - part: "Data Visualisation 1"
+    - part: "Week 3: Data Visualisation 1 & 2 (part 1)"
       chapters:
         - 22_data-visualisation-1.qmd
         - 23_ggplot2.qmd
         - 24_chart-types.qmd
         - 24a_data-visualisation-1-exercises.qmd
         - 25_at-home-5.qmd
-    - part: "Data Visualisation 2"
-      chapters:
         - 26_data-visualisation-2.qmd
         - 27_gestalt.qmd
         - 28_scales.qmd
         - 29_position-scales.qmd
+    - part: "Week 4: Data Visualisation 2 (part 2) & 3"
+      chapters:
         - 30_date-scales.qmd
         - 31_colour.qmd
         - 31a_data-visualisation-2-exercises.qmd
         - 32_at-home-6.qmd
-    - part: "Data Visualisation 3"
-      chapters:
         - 33_data-visualisation-3.qmd
         - 34_titles.qmd
         - 35_themes.qmd
         - 36_annotations.qmd
         - 36a_data-visualisation-3-exercises.qmd
-    - part: "Data Visualisation 4"
+    - part: "Week 5: Ethics, FAIR Data & Digital Mapping 1"
       chapters:
         - 37_fair-data.qmd
         - 38_accessibility.qmd
         - 39_tidytuesday-challenge.qmd
         - 40_at-home-7.qmd
-    - part: "Useful information"
-      chapters:
-        - 41_data-sources.qmd
-    - part: "Digital Mapping 1"
-      chapters:
         - 42_digital-mapping-1.qmd
    #     - digital_mapping.qmd
     #    - maps_in_r.qmd
@@ -85,24 +74,23 @@ book:
       #  - map_scales.qmd
       #  - features.qmd
         - 45_at-home-8.qmd
-    - part: "Digital Mapping 2"
+    - part: "Useful information"
+      chapters:
+        - 41_data-sources.qmd
+    - part: "Week 6: Digital Mapping 2 & 3, Publication"
       chapters:
         - 46_full-map.qmd
-    - part: "Digital Mapping 3"
-      chapters:
         - 48_digital-mapping-3.qmd
         - 47_points-map.qmd
         - 49_interactive-maps.qmd
+        - 50_plotly.qmd
+        - 51_tmap.qmd
  #    # - part: "Advanced Chart Design and markdown reports"
- #    #   chapters: 
+ #    #   chapters:
  #    #     - 13_design.qmd
  #    #     - 34_titles.qmd
  #    #     - 35_themes.qmd
  #    #     - 36_annotations.qmd
-    - part: "Bonus: Interactivity"
-      chapters:
-        - 50_plotly.qmd
-        - 51_tmap.qmd
   #  appendices:
  #    - extra_exercises.qmd
 

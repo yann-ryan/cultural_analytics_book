@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id') |>\n  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),\n         age_at_award = award_year - birth_year)","options":{"context":"setup","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-1","autorun":"true","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":2,"code":"nobel_summary <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n(),\n            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,\n            avg_age = mean(age_at_award, na.rm = TRUE))","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-2","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":3,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col()","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-3","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":4,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col()","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-4","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":5,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_viridis_c()","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-5","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":6,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_distiller(palette = \"RdPu\")","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-6","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":7,"code":"","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-7","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":8,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_gradient(low = 'firebrick', high ='gold')","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-8","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":9,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_gradient2(low = 'firebrick', mid = 'white', high ='gold', midpoint = 10)","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-9","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":10,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col() +\n  scale_fill_viridis_d()","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-10","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":11,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col() +\n  scale_fill_brewer(palette = 'Set2')","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-11","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":12,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col() +\n  scale_fill_manual(values = c('firebrick', 'forestgreen', 'orange', 'steelblue', 'goldenrod', 'orchid'))","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-12","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":13,"code":"nobel_summary |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n)) +\n  geom_point()","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-13","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":14,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, size = pct_female)) +\n  geom_point() +\n  scale_size_area(max_size = 10)","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-14","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":15,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_continuous(limits = c(0,20))","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-15","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":16,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_continuous(breaks = seq(0, 20, by = 5))","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-16","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":17,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col()  +\n  guides(fill = guide_colorbar(reverse = TRUE))\n","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-17","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":18,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  guides(fill = guide_colourbar(barheight = unit(8, \"cm\")))\n","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-18","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}},{"id":19,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  guides(fill = guide_colourbar(direction = \"horizontal\"))","options":{"context":"interactive","results":"markup","dpi":72,"out-height":"","editor-font-scale":"1","editor-max-height":"","read-only":"false","out-width":"700px","fig-cap":"","label":"unnamed-chunk-19","autorun":"false","message":"true","comment":"","classes":"","warning":"true","editor-quick-suggestions":"false","fig-height":5,"editor-word-wrap":"true","fig-width":7,"output":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"setup","editor-quick-suggestions":"false","autorun":"true","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-1","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id') |>\n  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),\n         age_at_award = award_year - birth_year)"},{"id":2,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-2","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n(),\n            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,\n            avg_age = mean(age_at_award, na.rm = TRUE))"},{"id":3,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-3","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col()"},{"id":4,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-4","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col()"},{"id":5,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-5","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_viridis_c()"},{"id":6,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-6","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_distiller(palette = \"RdPu\")"},{"id":7,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-7","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":""},{"id":8,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-8","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_gradient(low = 'firebrick', high ='gold')"},{"id":9,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-9","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_gradient2(low = 'firebrick', mid = 'white', high ='gold', midpoint = 10)"},{"id":10,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-10","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col() +\n  scale_fill_viridis_d()"},{"id":11,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-11","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col() +\n  scale_fill_brewer(palette = 'Set2')"},{"id":12,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-12","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = category)) +\n  geom_col() +\n  scale_fill_manual(values = c('firebrick', 'forestgreen', 'orange', 'steelblue', 'goldenrod', 'orchid'))"},{"id":13,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-13","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n)) +\n  geom_point()"},{"id":14,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-14","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, size = pct_female)) +\n  geom_point() +\n  scale_size_area(max_size = 10)"},{"id":15,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-15","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_continuous(limits = c(0,20))"},{"id":16,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-16","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  scale_fill_continuous(breaks = seq(0, 20, by = 5))"},{"id":17,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-17","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col()  +\n  guides(fill = guide_colorbar(reverse = TRUE))\n"},{"id":18,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-18","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  guides(fill = guide_colourbar(barheight = unit(8, \"cm\")))\n"},{"id":19,"options":{"warning":"true","output":"true","dpi":72,"message":"true","out-width":"700px","fig-height":5,"context":"interactive","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"comment":"","classes":"","label":"unnamed-chunk-19","results":"markup","editor-max-height":"","out-height":"","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false"},"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n, fill = pct_female)) +\n  geom_col() +\n  guides(fill = guide_colourbar(direction = \"horizontal\"))"}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./31_colour.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30_date-scales.html">Week 4: Data Visualisation 2 (part 2) &amp; 3</a></li><li class="breadcrumb-item"><a href="./31_colour.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1605,7 +1605,7 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Introduction to R</span></a>
+ <span class="menu-text">Week 1: Introduction to R &amp; Data Analysis 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1641,17 +1641,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Analysis 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_data-analysis-1.html" class="sidebar-item-text sidebar-link">
@@ -1698,13 +1687,13 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Analysis 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2: Data Analysis 2 &amp; 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_filter.html" class="sidebar-item-text sidebar-link">
@@ -1747,17 +1736,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Analysis 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./18_joins.html" class="sidebar-item-text sidebar-link">
@@ -1792,13 +1770,13 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3: Data Visualisation 1 &amp; 2 (part 1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
@@ -1829,17 +1807,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
@@ -1864,6 +1831,17 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4: Data Visualisation 2 (part 2) &amp; 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
@@ -1888,17 +1866,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
@@ -1933,13 +1900,13 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 4</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 5: Ethics, FAIR Data &amp; Digital Mapping 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
@@ -1964,86 +1931,64 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Useful information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Digital Mapping 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Digital Mapping 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Useful information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 6: Digital Mapping 2 &amp; 3, Publication</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Digital Mapping 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
@@ -2062,17 +2007,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Bonus: Interactivity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
@@ -2394,7 +2328,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./31_colour.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30_date-scales.html">Week 4: Data Visualisation 2 (part 2) &amp; 3</a></li><li class="breadcrumb-item"><a href="./31_colour.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></h1>
 </div>
@@ -2532,7 +2466,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Changing the position and other visual aspects of the legend is done within <em>themes</em>, which we’ll cover next week.</p>
+<p>Changing the position and other visual aspects of the legend is done within <em>themes</em>, which we’ll cover later this week.</p>
 </div>
 </div>
 

@@ -61,4 +61,4 @@ The same logic applies to colour, size, and the other scales we'll cover in this
 
 ## Aesthetics
 
-Recall from last week that we learned about different aesthetics: **position**, **colour**, **size**, **shape**, **linetype**, linewidth, and **transparency**. This chapter on scales will mostly cover **position** and **colour**, and to a lesser extent, **size**. The scales for the other aesthetics are less interesting (you're less likely to want to change the defaults), so we won't look at these. But be aware they also have scales which can be overwritten or adjusted.
+Recall from earlier this week that we learned about different aesthetics: **position**, **colour**, **size**, **shape**, **linetype**, linewidth, and **transparency**. This chapter on scales will mostly cover **position** and **colour**, and to a lesser extent, **size**. The scales for the other aesthetics are less interesting (you're less likely to want to change the defaults), so we won't look at these. But be aware they also have scales which can be overwritten or adjusted.

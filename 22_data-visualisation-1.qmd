@@ -62,7 +62,7 @@ So how can we use each of these?
 
 ### Discrete vs continuous aesthetics
 
-Most aesthetics work on either discrete or continuous scales. We'll learn more about scales next week, but for now, you can think of scales as either representing sequential numbers (continuous) or distinct numbers or categories (discrete or categorical).
+Most aesthetics work on either discrete or continuous scales. We'll learn more about scales in an upcoming session, but for now, you can think of scales as either representing sequential numbers (continuous) or distinct numbers or categories (discrete or categorical).
 
 Which scale is suitable depends on the kind of data. Continuous data are things like age, height, or population, where the data might be any number from across a range. Discrete data are numbers where the value can only be one number or another, and not any value in between. Categorical data are data with a limited number of unordered categories, like gender, country, and so forth. A fourth type, ordinal, are categories where there is some inherent order, for example months of the year.
 

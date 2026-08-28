@@ -78,4 +78,4 @@ One fix for this is to create a cartogram map. This attempts to distort a map so
 
 ![](images/42_digital-mapping-1/05.png){width="490"}
 
-Over the next few weeks, we'll learn how to make maps from scratch using R. Starting with mapping some simple data, and moving on to importing our own separate data sources.
+Over the next couple of sessions, we'll learn how to make maps from scratch using R. Starting with mapping some simple data, and moving on to importing our own separate data sources.

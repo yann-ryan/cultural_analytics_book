@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id')\n\nnobel_summary <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n())\n\nnobel_by_year <- nobel_df |>\n  count(award_year)","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"true","fig-width":7,"context":"setup","results":"markup","label":"unnamed-chunk-1","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":1},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line()\n","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-2","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":2},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000))","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-3","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":3},{"code":"","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-4","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":4},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000))","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-5","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":5},{"code":"","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-6","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":6},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = seq(from = 1980, to = 2000, by = 2))","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-7","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":7},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000),\n                     minor_breaks = 1980:2000)","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-8","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":8},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000),\n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3'))","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-9","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":9},{"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n )) +\n  geom_col()","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-10","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":10},{"code":"nobel_summary |>\n  ggplot(aes(x = reorder(category,desc(n)), y = n )) +\n  geom_col()","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-11","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":11},{"code":"nobel_summary |>\n  ggplot(aes(x = reorder(category,n), y = n )) +\n  geom_col() + coord_flip()","options":{"out-height":"","message":"true","fig-height":5,"warning":"true","comment":"","out-width":"700px","dpi":72,"editor-font-scale":"1","output":"true","read-only":"false","editor-quick-suggestions":"false","autorun":"false","fig-width":7,"context":"interactive","results":"markup","label":"unnamed-chunk-12","editor-max-height":"","fig-cap":"","classes":"","editor-word-wrap":"true"},"id":12}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id')\n\nnobel_summary <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n())\n\nnobel_by_year <- nobel_df |>\n  count(award_year)","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"setup","label":"unnamed-chunk-1","out-height":"","autorun":"true","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":2,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line()\n","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-2","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":3,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000))","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-3","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":4,"code":"","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-4","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":5,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000))","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-5","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":6,"code":"","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-6","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":7,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = seq(from = 1980, to = 2000, by = 2))","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-7","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":8,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000),\n                     minor_breaks = 1980:2000)","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-8","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":9,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n )) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000),\n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3'))","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-9","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":10,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n )) +\n  geom_col()","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-10","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":11,"code":"nobel_summary |>\n  ggplot(aes(x = reorder(category,desc(n)), y = n )) +\n  geom_col()","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-11","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}},{"id":12,"code":"nobel_summary |>\n  ggplot(aes(x = reorder(category,n), y = n )) +\n  geom_col() + coord_flip()","options":{"fig-width":7,"editor-quick-suggestions":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","label":"unnamed-chunk-12","out-height":"","autorun":"false","warning":"true","message":"true","classes":"","read-only":"false","editor-font-scale":"1","out-width":"700px","comment":"","editor-max-height":"","fig-cap":"","results":"markup","fig-height":5,"output":"true"}}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_data-visualisation-1.html">Week 3: Data Visualisation 1 &amp; 2 (part 1)</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1605,7 +1605,7 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Introduction to R</span></a>
+ <span class="menu-text">Week 1: Introduction to R &amp; Data Analysis 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1641,17 +1641,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Analysis 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_data-analysis-1.html" class="sidebar-item-text sidebar-link">
@@ -1698,13 +1687,13 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Analysis 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2: Data Analysis 2 &amp; 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_filter.html" class="sidebar-item-text sidebar-link">
@@ -1747,17 +1736,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Analysis 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./18_joins.html" class="sidebar-item-text sidebar-link">
@@ -1792,13 +1770,13 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3: Data Visualisation 1 &amp; 2 (part 1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
@@ -1829,17 +1807,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
@@ -1864,6 +1831,17 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4: Data Visualisation 2 (part 2) &amp; 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
@@ -1888,17 +1866,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
@@ -1933,13 +1900,13 @@ globalThis.qwebrExecuteCode = async function (
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Data Visualisation 4</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 5: Ethics, FAIR Data &amp; Digital Mapping 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
@@ -1964,86 +1931,64 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Useful information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Digital Mapping 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Digital Mapping 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Useful information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 6: Digital Mapping 2 &amp; 3, Publication</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Digital Mapping 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
@@ -2062,17 +2007,6 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Bonus: Interactivity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
@@ -2394,7 +2328,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./26_data-visualisation-2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_data-visualisation-1.html">Week 3: Data Visualisation 1 &amp; 2 (part 1)</a></li><li class="breadcrumb-item"><a href="./29_position-scales.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></h1>
 </div>

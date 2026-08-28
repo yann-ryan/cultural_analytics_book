@@ -23,7 +23,7 @@ One of the data types that we can work with in R is a **dataframe**. This is an 
 
 Almost all structured data comes in this form, and for the rest of the course the datasets we'll work with will all be dataframes. Later, you'll learn how to import dataframes from your computer or online sources. For now, we'll work with a dataframe which has been loaded into the memory of the programming language in this book.
 
-Remember in the previous week we could create variables, such as `x = 5` or `y = 10`? We could also call these objects (in our code's memory x is an *object* with the value 5). A dataframe can also be stored with a name and manipulated as an object.
+Remember earlier this week we could create variables, such as `x = 5` or `y = 10`? We could also call these objects (in our code's memory x is an *object* with the value 5). A dataframe can also be stored with a name and manipulated as an object.
 
 Usually, you need to load dataframes from external sources, such as a spreadsheet file, or from a file online, or by web scraping, and so forth. In this book environment, there is already a dataframe with the name `titanic_df`. The object `titanic_df` is a spreadsheet-like object containing one row for each passenger on the Titanic. The columns in this object contain information about the passengers, such as their name, age, passenger class and so forth.
 
@@ -101,7 +101,7 @@ Most of the work in this course will use a set of packages developed for R calle
 
 ## Functions
 
-The way we'll do operations on dataframes is to use *functions* on them. A function is a pre-made piece of code which does a particular task on a piece of data. The task might be an algorithm or mathematical process, and the data might be something as simple as a number, or it could be a dataframe, which we will be mostly working with here. You have already used the `print()` and `nchar()` functions, in the previous week.
+The way we'll do operations on dataframes is to use *functions* on them. A function is a pre-made piece of code which does a particular task on a piece of data. The task might be an algorithm or mathematical process, and the data might be something as simple as a number, or it could be a dataframe, which we will be mostly working with here. You have already used the `print()` and `nchar()` functions, earlier this week.
 
 When we manipulate dataframes, or create visualisations, we will almost always use one or more of these functions (you can also write your own, but we won't cover that on this course). It's important to understand how to use a function in R for this course.
 
