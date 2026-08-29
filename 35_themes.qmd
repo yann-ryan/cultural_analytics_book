@@ -150,3 +150,14 @@ df |>
   labs(title = "Nobel Prizes by Category", subtitle = "1901 - 2024") +
   theme(text = element_text(family = 'Times New Roman'))
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Apply a preset theme (e.g. `theme_light()`) to a chart
+-   [ ] Change an individual theme element with `theme()` and the right `element_` function
+-   [ ] Rotate and align axis text so long labels are readable
+-   [ ] Change text formatting across an entire chart at once

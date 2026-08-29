@@ -185,3 +185,14 @@ ggplot(data = df3, aes(x = embarked, y =n, fill = avg_paid)) +
 ```
 
 We learn a bit more about scales later this week. Turn to the next page to find out about more chart types and their most common attributes.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know the essential layers of a ggplot chart: data, aesthetics, and geometry
+-   [ ] Build a bar chart from scratch with `ggplot()` + `aes()` + `geom_col()`
+-   [ ] Know the difference between setting an aesthetic inside `aes()` versus outside it
+-   [ ] Know the difference between mapping a categorical vs a continuous variable to colour/fill

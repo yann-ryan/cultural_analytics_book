@@ -78,16 +78,12 @@ Use `select()`, `slice()` and `arrange()` (and the pipe operator) to do the foll
 
 ```
 
-### Learning objectives
+## Learning Objectives
 
-Look through these and tick off the ones you think you understand. Be honest with yourself, and make a note of anything which is not clear and we can go over it again in the next class.
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
 
--   [ ] Know what a dataframe is and how to preview one using code.
--   [ ] How to explore and adjust rows and columns in a dataframe:
-    -   [ ] select
-    -   [ ] slice
-    -   [ ] rename
--   [ ] Arrange columns
-    -   [ ] ascending and descending
-    -   [ ] multiple columns
--   [ ] Write more readable code using the pipe
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Understand why nesting functions inside each other gets hard to read
+-   [ ] Know what the pipe operator (`|>`) does and how it chains functions together
+-   [ ] Write a short multi-step data-wrangling chain using the pipe

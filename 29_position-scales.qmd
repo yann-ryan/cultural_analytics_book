@@ -178,3 +178,13 @@ Note that we have removed the desc() so that the highest value is at the top rat
 :::
 
 This is particularly useful for a chart with lots of values, because the labels are much easier to read when they are placed along the y-axis - especially if it is going to be viewed online. It's also handy here for another reason: some of these category names ("Physiology or Medicine", "Economic Sciences") are quite long, and read much more comfortably running horizontally than squeezed onto a vertical x axis.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Set axis limits, breaks, minor breaks, and labels with a position scale
+-   [ ] Know what happens to values which fall outside a scale's limits
+-   [ ] Reorder a categorical axis with `reorder()`, and use `coord_flip()`

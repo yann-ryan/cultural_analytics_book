@@ -214,3 +214,14 @@ See how far you can get with the following:
 -   The map looks a little strange with missing regions and countries (i.e the UK). How could we solve this, so they are at least present, but perhaps greyed out?
 
 -   **Try this extra challenge:** make a version which creates a series of mini-maps, one for each year in the data. To do this you'll need to `pivot` your data so that it is in a 'long' format, with each data point for each year in a single row, and use a function called `facet_wrap()`.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Turn a set of coordinates into a simple features object with `st_as_sf()`
+-   [ ] Aggregate points data before mapping it, so points don't disappear on top of each other
+-   [ ] Add a basemap layer underneath a points map, and zoom in with `coord_sf()`
+-   [ ] Use `facet_wrap()` to draw a separate map for each category

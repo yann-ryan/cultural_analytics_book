@@ -120,6 +120,17 @@ tmap_mode("view")
 
 tm_shape(worldmap) +
   tm_polygons(c("income_grp", 'pop_est'), id = 'name') +
-  tm_view(set.view = c(0, 50, 4)) + 
+  tm_view(set.view = c(0, 50, 4)) +
   tm_facets(sync = TRUE, ncol = 2)
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Build an interactive point map with tmap's `tm_shape()` and `tm_symbols()`
+-   [ ] Set the size, fill, id, and popup.vars options for map symbols
+-   [ ] Build an interactive choropleth map with `tm_polygons()`
+-   [ ] Use `tm_facets()` to build synced, interactive small multiples

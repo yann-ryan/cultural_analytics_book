@@ -378,7 +378,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(DT)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"output":"true","context":"setup","comment":"","label":"unnamed-chunk-1","out-width":"700px","message":"true","dpi":72,"read-only":"false","fig-cap":"","classes":"","editor-font-scale":"1","warning":"true","editor-word-wrap":"true","autorun":"true","fig-width":7,"fig-height":5,"out-height":"","results":"markup","editor-quick-suggestions":"false","editor-max-height":""}},{"id":2,"code":"titanic_df","options":{"output":"true","context":"interactive","comment":"","label":"unnamed-chunk-2","out-width":"700px","message":"true","dpi":72,"read-only":"false","fig-cap":"","classes":"","editor-font-scale":"1","warning":"true","editor-word-wrap":"true","autorun":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup","editor-quick-suggestions":"false","editor-max-height":""}},{"id":3,"code":"","options":{"output":"true","context":"interactive","comment":"","label":"unnamed-chunk-3","out-width":"700px","message":"true","dpi":72,"read-only":"false","fig-cap":"","classes":"","editor-font-scale":"1","warning":"true","editor-word-wrap":"true","autorun":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup","editor-quick-suggestions":"false","editor-max-height":""}},{"id":4,"code":"","options":{"output":"true","context":"interactive","comment":"","label":"unnamed-chunk-4","out-width":"700px","message":"true","dpi":72,"read-only":"false","fig-cap":"","classes":"","editor-font-scale":"1","warning":"true","editor-word-wrap":"true","autorun":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup","editor-quick-suggestions":"false","editor-max-height":""}}];
+globalThis.qwebrCellDetails = [{"options":{"fig-height":5,"out-height":"","dpi":72,"read-only":"false","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","warning":"true","label":"unnamed-chunk-1","fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","comment":"","results":"markup","autorun":"true","context":"setup","fig-width":7,"message":"true","output":"true"},"code":"library(dplyr)\nlibrary(readr)\nlibrary(DT)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1},{"options":{"fig-height":5,"out-height":"","dpi":72,"read-only":"false","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","warning":"true","label":"unnamed-chunk-2","fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","comment":"","results":"markup","autorun":"false","context":"interactive","fig-width":7,"message":"true","output":"true"},"code":"titanic_df","id":2},{"options":{"fig-height":5,"out-height":"","dpi":72,"read-only":"false","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","warning":"true","label":"unnamed-chunk-3","fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","comment":"","results":"markup","autorun":"false","context":"interactive","fig-width":7,"message":"true","output":"true"},"code":"","id":3},{"options":{"fig-height":5,"out-height":"","dpi":72,"read-only":"false","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","warning":"true","label":"unnamed-chunk-4","fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","comment":"","results":"markup","autorun":"false","context":"interactive","fig-width":7,"message":"true","output":"true"},"code":"","id":4}];
 
 </script>
 <script type="module">
@@ -2051,8 +2051,7 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-objectives-for-this-section" id="toc-learning-objectives-for-this-section" class="nav-link active" data-scroll-target="#learning-objectives-for-this-section">Learning objectives for this section:</a></li>
-  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes">Dataframes</a>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link active" data-scroll-target="#dataframes">Dataframes</a>
   <ul class="collapse">
   <li><a href="#the-titanic-dataset" id="toc-the-titanic-dataset" class="nav-link" data-scroll-target="#the-titanic-dataset">The Titanic Dataset</a></li>
   </ul></li>
@@ -2063,6 +2062,7 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#function-arguments" id="toc-function-arguments" class="nav-link" data-scroll-target="#function-arguments">Function arguments</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises:</a></li>
   </ul></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -2372,25 +2372,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="learning-objectives-for-this-section" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives-for-this-section">Learning objectives for this section:</h3>
-<ul>
-<li>Know what a dataframe is and how one looks in this book</li>
-<li>Know how to run a function on a dataframe</li>
-<li>How to explore and adjust rows and columns in a dataframe:
-<ul>
-<li>select</li>
-<li>slice</li>
-<li>rename</li>
-</ul></li>
-<li>Arrange columns
-<ul>
-<li>ascending and descending</li>
-<li>multiple columns</li>
-</ul></li>
-<li>Write better code using the pipe</li>
-</ul>
-</section>
 <section id="dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="dataframes">Dataframes</h2>
 <p>One of the data types that we can work with in R is a <strong>dataframe</strong>. This is an object with rows and columns, like a spreadsheet in Microsoft Excel or Google Sheets.</p>
@@ -2506,6 +2487,17 @@ Warning
 <p>Use summary again, but this time set the argument or parameter <code>digits</code> to equal <code>3</code>. This optional parameter specifies the number of digits after the decimal point which should be shown.</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Know what a dataframe is, and how one looks in this book</label></li>
+<li><label><input type="checkbox">Know what the Tidyverse is</label></li>
+<li><label><input type="checkbox">Know how to run a function on a dataframe, and what arguments and parameters are</label></li>
+</ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -2513,7 +2505,6 @@ Warning
 <span>“Machine Learning: The DL on ML.”</span> 2018. In, 87–120. The MIT Press. <a href="https://doi.org/10.7551/mitpress/11022.003.0010">https://doi.org/10.7551/mitpress/11022.003.0010</a>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->

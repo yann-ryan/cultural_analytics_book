@@ -174,3 +174,14 @@ Now, you can make a map! Remember to use aes() and fill = to specify how ggplot 
 Now, make edits to your map to make it more readable and looking better aesthetically. You'll probably want to adjust the limits and projection of the map using `coord_sf`, and experiment with the scale using `scale_fill_`. You could also think about binning the colors (often it's easier to interpret specific colors on maps rather than a continuous scale). This is the point where you will need to use `facet_wrap()` to draw maps separately, if you went down this route.
 
 You could also add a map scale bar and a compass using the package ggsn (you'll need to install it separately using `install.packages()`).
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] List the steps of a full map-making workflow, from raw data to finished map
+-   [ ] Know the difference between shapefiles, geoJSON, and geopackage formats
+-   [ ] Find a common key column to join a dataset to a shapefile
+-   [ ] Join a dataset to a shapefile with `left_join()`, and map the result

@@ -78,3 +78,13 @@ Another useful `slice_` function is `slice_sample()`, which picks a random sampl
 slice_max(titanic_df, order_by = age, n = 10)
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `slice()` to subset rows by position, including ranges
+-   [ ] Use `slice_min()` and `slice_max()` to select rows based on a numeric column
+-   [ ] Know the difference between subsetting rows by position (`slice()`) and by condition (`filter()`, covered later)

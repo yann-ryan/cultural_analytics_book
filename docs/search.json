@@ -111,22 +111,22 @@
     ]
   },
   {
-    "objectID": "01_r-intro.html#class-objectives",
-    "href": "01_r-intro.html#class-objectives",
+    "objectID": "01_r-intro.html#working-with-this-book.",
+    "href": "01_r-intro.html#working-with-this-book.",
     "title": "1  Introduction to R",
-    "section": "",
-    "text": "Learning Objectives\nBy the end of this section of the book, you should:\n\nKnow what a variable is\nKnow what data types are\nKnow what a dataframe and a vector is\nPractise making vectors\nKnow how to do basic arithmetic with R\nKnow how to check conditions:\n\nEquals (numbers and text), greater than, less than, greater than or equal to\nDo the same but with vectors",
+    "section": "Working with this book.",
+    "text": "Working with this book.\nIn each session we’ll demonstrate and practise some basics by running code directly in your browser, in this book. You can see the content and structure of the book in the sidebar on the left-hand side. Each week of the course has a ‘part’ (this week is ‘Introduction to R & Data Analysis 1’), and each part has a number of chapters, which you can identify because they are numbered. You can switch to a new part of the book by clicking in the sidebar, or you can use the link at the bottom of each page to go to the next chapter.\nFor the first few weeks, we’ll learn the basics through live code cells which are embedded in the book itself, and running in your browser. Later, we’ll switch to an IDE (Integrated Development Environment) which will give us a ‘real world’ system to practise in.\n\n\n\n\n\n\nWarning\n\n\n\nCode written in a browser like this will not be saved if you close or refresh the page. Only use it for practising the basics!\n\n\nYou can identify these ‘live’ code cells as they look like this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you see the ‘Installing package…’ or ‘Loading package…’ message, this means that the programming language is doing some work behind the scenes to get everything working. When it’s finished, it will be replaced by a ‘Run Code’ button.\n\nFeatures of the code cell\nThe code cell itself has a few features:\n\n\n\n\n\n\n\n\nFeature\nImage\nDescription\n\n\n\n\nRun Code button\n\nPressing this will run, or execute, the code in the cell.\n\n\nThe code input box\n\nThe main part of the code cell is where you will find (and type) code. The number 1 here is a line identifier and is not part of the code. Important to note is that you are free to edit the code cell to change or delete the code.\n\n\nCode option button\n\nThese two icons on the right-hand side will reset the code (if you changed it), or allow you to copy the contents to the clipboard.\n\n\n\nLastly, a part you can’t see here: the output. If there is any output from the code cell (such as the result of a calculation), it will be displayed directly below the code cell. If the code produces an error or a warning, these will also be displayed here. This output will look different depending on what the code in the cell is set to produce - it could be a number, a dataframe, or a full visualisation.\n\n\nRunning code\nSee what happens if you run the code cell above. This code cell contains the code 1 + 1, which simply adds together these two numbers and displays the answer as the output.\nTry it yourself: Change the code in the cell above and run it again - try to guess what other basic operations a coding language can do. If you get an error, you can always reset or refresh the page.\nWhen you’re finished, you can click the link underneath here and to the right to go to the next chapter, or you can use the sidebar on the left.",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R</span>"
     ]
   },
   {
-    "objectID": "01_r-intro.html#working-with-this-book.",
-    "href": "01_r-intro.html#working-with-this-book.",
+    "objectID": "01_r-intro.html#learning-objectives",
+    "href": "01_r-intro.html#learning-objectives",
     "title": "1  Introduction to R",
-    "section": "Working with this book.",
-    "text": "Working with this book.\nIn each session we’ll demonstrate and practise some basics by running code directly in your browser, in this book. You can see the content and structure of the book in the sidebar on the left-hand side. Each week of the course has a ‘part’ (this week is ‘Introduction to R & Data Analysis 1’), and each part has a number of chapters, which you can identify because they are numbered. You can switch to a new part of the book by clicking in the sidebar, or you can use the link at the bottom of each page to go to the next chapter.\nFor the first few weeks, we’ll learn the basics through live code cells which are embedded in the book itself, and running in your browser. Later, we’ll switch to an IDE (Integrated Development Environment) which will give us a ‘real world’ system to practise in.\n\n\n\n\n\n\nWarning\n\n\n\nCode written in a browser like this will not be saved if you close or refresh the page. Only use it for practising the basics!\n\n\nYou can identify these ‘live’ code cells as they look like this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you see the ‘Installing package…’ or ‘Loading package…’ message, this means that the programming language is doing some work behind the scenes to get everything working. When it’s finished, it will be replaced by a ‘Run Code’ button.\n\nFeatures of the code cell\nThe code cell itself has a few features:\n\n\n\n\n\n\n\n\nFeature\nImage\nDescription\n\n\n\n\nRun Code button\n\nPressing this will run, or execute, the code in the cell.\n\n\nThe code input box\n\nThe main part of the code cell is where you will find (and type) code. The number 1 here is a line identifier and is not part of the code. Important to note is that you are free to edit the code cell to change or delete the code.\n\n\nCode option button\n\nThese two icons on the right-hand side will reset the code (if you changed it), or allow you to copy the contents to the clipboard.\n\n\n\nLastly, a part you can’t see here: the output. If there is any output from the code cell (such as the result of a calculation), it will be displayed directly below the code cell. If the code produces an error or a warning, these will also be displayed here. This output will look different depending on what the code in the cell is set to produce - it could be a number, a dataframe, or a full visualisation.\n\n\nRunning code\nSee what happens if you run the code cell above. This code cell contains the code 1 + 1, which simply adds together these two numbers and displays the answer as the output.\nTry it yourself: Change the code in the cell above and run it again - try to guess what other basic operations a coding language can do. If you get an error, you can always reset or refresh the page.\nWhen you’re finished, you can click the link underneath here and to the right to go to the next chapter, or you can use the sidebar on the left.",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow how to find your way around this book (parts, chapters, sidebar, search)\nRecognise a live code cell, and know how to run it\nUnderstand that code in the book’s live cells is not saved between sessions\nPractise editing and running a simple line of code",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to R</span>"
@@ -236,18 +236,18 @@
     "href": "04_rmarkdown.html",
     "title": "4  R-Studio and using R Markdown",
     "section": "",
-    "text": "R and R-Studio\nUp until now, we have been using R in a very simplified manner, directly in this book. For the at home exercises, and later on in the course, we’ll use something called R-Studio: an interface designed to make R easier to work with (known as an IDE).\nFor this course, the data, files, and interface are all already set up for you in a workspace on a service called ‘Posit cloud’. Later on, you may want to install R and R-Studio on your local machine. See here for instructions on how to do this. The software is completely free and open-source.",
+    "text": "R and R-Studio\nUp until now, we have been using R in a very simplified manner, directly in this book. For the at home exercises, and later on in the course, we’ll use something called R-Studio: an interface designed to make R easier to work with (known as an IDE).\nFor this course, the data, files, and interface are all already set up for you in a workspace on a service called ‘Posit cloud’. Later on, you may want to install R and R-Studio on your local machine. See here for instructions on how to do this. The software is completely free and open-source.\nBy the end of today, you should understand what an IDE is, know how to set up a notebook, and be able to write and knit a simple R Markdown document.",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>R-Studio and using R Markdown</span>"
     ]
   },
   {
-    "objectID": "04_rmarkdown.html#learning-objectives",
-    "href": "04_rmarkdown.html#learning-objectives",
+    "objectID": "04_rmarkdown.html#r-and-r-studio",
+    "href": "04_rmarkdown.html#r-and-r-studio",
     "title": "4  R-Studio and using R Markdown",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nHere is what you should understand by the end of today:\nOpen a Posit account and create a new notebook\nUnderstand what an IDE is and how to code in it\nKnow how to create a code cell and how to write plain text in your notebook\nWrite some basic markdown\nExport (knit) a file and download it to your local machine.\n\n\nLogging into Posit Cloud and opening a notebook.\nThe first step is to create an account with Posit cloud. This is a service which will allow you to load R remotely, so you can complete this practical sessions for this course (you can also use R and R studio on your local machine if you use it already).\n\nSign up to Posit cloud with an email address here: https://posit.cloud/plans\nClick on ‘Learn more’ under the Free plan, and then ‘Sign up’.\nClick on the invite link posted on Brightspace. Once you have signed up, click on the ‘burger’ icon to the left of ‘Your Workspace’ to open a sidebar, which will allow you to switch to the correct workspace ‘Cultural Analytics’:\n\nOnce you have switched, you’ll see a list of assignments and projects. At the moment, there is just one for this week. Click the start button for ‘Week 2: Introduction’.\n\nThis will load, and you should shortly be greeted with the Rstudio interface – this is an environment for creating and editing R code.\n\nR-Studio is divided into four different sections, or panes. Each of these also has multiple tabs. Starting from the top-left (numbered 1):\n\nThe source editor. Here is where you can edit R files such as RMarkdown or scripts.\nThe environment pane will display any objects you create or import here, along with basic information on their type and size.\nThis pane has a number of tabs. The default is files, which will show all the files in the current folder. You can use this to import or export additional files to R-Studio from your local machine.\nThe console allows you to type and execute R commands directly: do this by typing here and pressing return.\n\nAll four of these panes are important, and it’s worth exploring more of the buttons and menu items. Throughout this course, you’ll complete exercises by using the source editor to edit notebooks. As you execute code in these notebooks, you’ll see objects pop into the environment pane. The console can be useful to test code that you don’t want to keep in a document. Lastly, getting to know how to use and navigate the directory structure using the files pane is essential.\nYou can play around with the R-Studio interface. Don’t worry about breaking anything, but you should regularly save your work.",
+    "section": "",
+    "text": "Logging into Posit Cloud and opening a notebook.\nThe first step is to create an account with Posit cloud. This is a service which will allow you to load R remotely, so you can complete this practical sessions for this course (you can also use R and R studio on your local machine if you use it already).\n\nSign up to Posit cloud with an email address here: https://posit.cloud/plans\nClick on ‘Learn more’ under the Free plan, and then ‘Sign up’.\nClick on the invite link posted on Brightspace. Once you have signed up, click on the ‘burger’ icon to the left of ‘Your Workspace’ to open a sidebar, which will allow you to switch to the correct workspace ‘Cultural Analytics’:\n\nOnce you have switched, you’ll see a list of assignments and projects. At the moment, there is just one for this week. Click the start button for ‘Week 2: Introduction’.\n\nThis will load, and you should shortly be greeted with the Rstudio interface – this is an environment for creating and editing R code.\n\nR-Studio is divided into four different sections, or panes. Each of these also has multiple tabs. Starting from the top-left (numbered 1):\n\nThe source editor. Here is where you can edit R files such as RMarkdown or scripts.\nThe environment pane will display any objects you create or import here, along with basic information on their type and size.\nThis pane has a number of tabs. The default is files, which will show all the files in the current folder. You can use this to import or export additional files to R-Studio from your local machine.\nThe console allows you to type and execute R commands directly: do this by typing here and pressing return.\n\nAll four of these panes are important, and it’s worth exploring more of the buttons and menu items. Throughout this course, you’ll complete exercises by using the source editor to edit notebooks. As you execute code in these notebooks, you’ll see objects pop into the environment pane. The console can be useful to test code that you don’t want to keep in a document. Lastly, getting to know how to use and navigate the directory structure using the files pane is essential.\nYou can play around with the R-Studio interface. Don’t worry about breaking anything, but you should regularly save your work.",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>R-Studio and using R Markdown</span>"
@@ -320,8 +320,8 @@
     ]
   },
   {
-    "objectID": "04_rmarkdown.html#learning-objectives-1",
-    "href": "04_rmarkdown.html#learning-objectives-1",
+    "objectID": "04_rmarkdown.html#learning-objectives",
+    "href": "04_rmarkdown.html#learning-objectives",
     "title": "4  R-Studio and using R Markdown",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives.\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nOpen a Posit account and create a new notebook\nUnderstand what an IDE is and how to code in it\nKnow how to create a code cell and how to write plain text in your notebook\nWrite some basic markdown\nExport (knit) a file and download it to your local machine.",
@@ -357,7 +357,7 @@
     "href": "06_data-analysis-1.html",
     "title": "6  Data Analysis 1",
     "section": "",
-    "text": "Learning objectives for this section:",
+    "text": "Dataframes\nOne of the data types that we can work with in R is a dataframe. This is an object with rows and columns, like a spreadsheet in Microsoft Excel or Google Sheets.\nAlmost all structured data comes in this form, and for the rest of the course the datasets we’ll work with will all be dataframes. Later, you’ll learn how to import dataframes from your computer or online sources. For now, we’ll work with a dataframe which has been loaded into the memory of the programming language in this book.\nRemember earlier this week we could create variables, such as x = 5 or y = 10? We could also call these objects (in our code’s memory x is an object with the value 5). A dataframe can also be stored with a name and manipulated as an object.\nUsually, you need to load dataframes from external sources, such as a spreadsheet file, or from a file online, or by web scraping, and so forth. In this book environment, there is already a dataframe with the name titanic_df. The object titanic_df is a spreadsheet-like object containing one row for each passenger on the Titanic. The columns in this object contain information about the passengers, such as their name, age, passenger class and so forth.\nThe simplest way to look at a dataframe or any other object is to enter it in a code cell and run the code, just as we did with simper variables like numbers or vectors. Try it by running the code below:\nIt’s worth familiarising yourself with how a dataframe looks when you print it in the book like this, because it will help to understand the results of your actions. When you work with Posit cloud and RStudio, the interface is specially set up for viewing dataframes, where they will be easier to read, like in spreadsheet software such as Excel.",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Analysis 1</span>"
@@ -367,8 +367,8 @@
     "objectID": "06_data-analysis-1.html#dataframes",
     "href": "06_data-analysis-1.html#dataframes",
     "title": "6  Data Analysis 1",
-    "section": "Dataframes",
-    "text": "Dataframes\nOne of the data types that we can work with in R is a dataframe. This is an object with rows and columns, like a spreadsheet in Microsoft Excel or Google Sheets.\nAlmost all structured data comes in this form, and for the rest of the course the datasets we’ll work with will all be dataframes. Later, you’ll learn how to import dataframes from your computer or online sources. For now, we’ll work with a dataframe which has been loaded into the memory of the programming language in this book.\nRemember earlier this week we could create variables, such as x = 5 or y = 10? We could also call these objects (in our code’s memory x is an object with the value 5). A dataframe can also be stored with a name and manipulated as an object.\nUsually, you need to load dataframes from external sources, such as a spreadsheet file, or from a file online, or by web scraping, and so forth. In this book environment, there is already a dataframe with the name titanic_df. The object titanic_df is a spreadsheet-like object containing one row for each passenger on the Titanic. The columns in this object contain information about the passengers, such as their name, age, passenger class and so forth.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe simplest way to look at a dataframe or any other object is to enter it in a code cell and run the code, just as we did with simper variables like numbers or vectors. Try it by running the code below:\n\n\n\n\n\n\nTip\n\n\n\nRefreshing the page will reset everything and get rid of the output, if you want to start again.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIt’s worth familiarising yourself with how a dataframe looks when you print it in the book like this, because it will help to understand the results of your actions. When you work with Posit cloud and RStudio, the interface is specially set up for viewing dataframes, where they will be easier to read, like in spreadsheet software such as Excel.\n\nThe first line is # A tibble: 1,309 x 11 describes the dataset. A ‘tibble’ is just another name for a dataframe. This dataframe has 1,309 rows and 11 columns\nNext is survived pclass name     sex      age sibsp parch ticket  fare cabin embarked. These are the names of each of the columns in the dataset - which are also known as variables.\nThe next row &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; contains the ‘types’ of each of the columns. We’ll talk more about that later.\nThe next 10 rows are a preview of the first 10 rows of the dataframe. You can see that the text in each column is often truncated so that most columns can be displayed at once.\nThe final line # ℹ 1,299 more rows is pretty self-explanatory: there are a further 1,299 rows not shown.\n\n\nThe Titanic Dataset\nIt’s good to understand a bit more about the dataset which we’ll use quite a lot for examples, exercises and visualisations over the next few weeks. You can find out more about the dataset here. It contains information on 1,309 passengers who sailed on the titanic, such as their age, sex, and the fare paid. The column names are the following:\n\nsurvived: either 1 or 0, indicating whether the passenger survived or not.\npclass: either 1, 2, or 3, listing the passenger class\nname: the full name of the passenger\nsex: the sex of the passenger, either male or female\nage: the age of the passenger, sometimes given with decimals\nsibsp: the number of siblings or spouses on the same ticket\nparch: the number of parents or children on the same ticket\nticket: the unique ticket number (like an order number)\nfare: the fare paid (for the entire ticket)\ncabin: the cabin number\nembarked: where the passenger got on the ship, either Southampton (S), Cherbourg (C), or Queenstown (Q). Queenstown is in Ireland and is now known as Cobh.\n\nEach individual is a separate row in the dataset, but the ticket numbers are often repeated. This is because one ticket could cover multiple people, for example a family. The fare given is for the ticket as a whole.\n\n\n\n\n\n\nTip\n\n\n\nThis Titanic dataset is famously used for many data science lessons and challenges. We will use it extensively the next few weeks because it has some attributes which make it very useful for teaching data analysis. You should also think critically about it: as with all datasets, the information and insights derived from it should be taken with a grain of salt. For an interesting analysis of the problems around using a dataset like this for data science/machine learning, see “Machine Learning: The DL on ML” (2018).",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\n\nTip\n\n\n\nRefreshing the page will reset everything and get rid of the output, if you want to start again.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nThe first line is # A tibble: 1,309 x 11 describes the dataset. A ‘tibble’ is just another name for a dataframe. This dataframe has 1,309 rows and 11 columns\nNext is survived pclass name     sex      age sibsp parch ticket  fare cabin embarked. These are the names of each of the columns in the dataset - which are also known as variables.\nThe next row &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; contains the ‘types’ of each of the columns. We’ll talk more about that later.\nThe next 10 rows are a preview of the first 10 rows of the dataframe. You can see that the text in each column is often truncated so that most columns can be displayed at once.\nThe final line # ℹ 1,299 more rows is pretty self-explanatory: there are a further 1,299 rows not shown.\n\n\nThe Titanic Dataset\nIt’s good to understand a bit more about the dataset which we’ll use quite a lot for examples, exercises and visualisations over the next few weeks. You can find out more about the dataset here. It contains information on 1,309 passengers who sailed on the titanic, such as their age, sex, and the fare paid. The column names are the following:\n\nsurvived: either 1 or 0, indicating whether the passenger survived or not.\npclass: either 1, 2, or 3, listing the passenger class\nname: the full name of the passenger\nsex: the sex of the passenger, either male or female\nage: the age of the passenger, sometimes given with decimals\nsibsp: the number of siblings or spouses on the same ticket\nparch: the number of parents or children on the same ticket\nticket: the unique ticket number (like an order number)\nfare: the fare paid (for the entire ticket)\ncabin: the cabin number\nembarked: where the passenger got on the ship, either Southampton (S), Cherbourg (C), or Queenstown (Q). Queenstown is in Ireland and is now known as Cobh.\n\nEach individual is a separate row in the dataset, but the ticket numbers are often repeated. This is because one ticket could cover multiple people, for example a family. The fare given is for the ticket as a whole.\n\n\n\n\n\n\nTip\n\n\n\nThis Titanic dataset is famously used for many data science lessons and challenges. We will use it extensively the next few weeks because it has some attributes which make it very useful for teaching data analysis. You should also think critically about it: as with all datasets, the information and insights derived from it should be taken with a grain of salt. For an interesting analysis of the problems around using a dataset like this for data science/machine learning, see “Machine Learning: The DL on ML” (2018).",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Analysis 1</span>"
@@ -390,7 +390,18 @@
     "href": "06_data-analysis-1.html#functions",
     "title": "6  Data Analysis 1",
     "section": "Functions",
-    "text": "Functions\nThe way we’ll do operations on dataframes is to use functions on them. A function is a pre-made piece of code which does a particular task on a piece of data. The task might be an algorithm or mathematical process, and the data might be something as simple as a number, or it could be a dataframe, which we will be mostly working with here. You have already used the print() and nchar() functions, earlier this week.\nWhen we manipulate dataframes, or create visualisations, we will almost always use one or more of these functions (you can also write your own, but we won’t cover that on this course). It’s important to understand how to use a function in R for this course.\n\nFunction names\nA function in R is stored as a single ‘string’ (a sequence of characters with no spaces) followed by an open and closed set of brackets. A function called ‘function’ will look like this in R: function().\nMost of the functions we work with will have logical-sounding names, usually verbs. For example, the function to filter a dataset is called filter(), and the function to select certain columns is called select().\n\n\nFunction arguments\nSome functions work entirely within themselves and don’t need any further information, but usually, we’ll need to supply at least a few things to make a function work. The elements that we supply to the function are called ‘arguments’. Each argument in a function is placed within the brackets of the function, and each one must be separated by a comma.\nTypically, the functions we use will make a change to a dataframe (such as filter or select). For these kinds of functions, we usually need to supply at least two things:\n\nThe dataframe to be worked on\nThe further instructions on what the function should do specifically to the dataframe.\n\nSometimes, we will also need to set parameters (basically options), which are more specific instructions on how the function should act.\nIt’s good to familiarise yourself with how a function looks and how you can use them. This is a typical example:\n\nDifferent functions will need different instructions, depending on what they do. The code above runs the filter() function on the dataset titanic_df, with the instruction that the data in the age column should equal 50.\nHere is another example:\n\nHere, we use the function slice_max on the dataframe titanic_df (we’ll learn what this does later). This time we have to set two parameters. Parameters have specific names and we set their values using an single equal sign. Here, we have to set the order_by parameter, which we have set to the column age, and we have to set the n parameter, which we set to 10.\n\n\n\n\n\n\nWarning\n\n\n\nNotice in the first function we used Age == 50, and in the second function we used order_by = Age? This is because they mean different things. In R, a double equal sign (==) means ‘check if this is equal to’. A single equal sign (=) means ‘set this to the value of’.\nWhen setting the value of a parameter, we always use a single equal sign. Using the wrong one is an easy mistake to make and can be good to check when troubleshooting!\n\n\n\n\nExercises:\nRun the summary() function on the titanic_df dataset. summary() prints summary statistics on each column of the dataframe.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nUse summary again, but this time set the argument or parameter digits to equal 3. This optional parameter specifies the number of digits after the decimal point which should be shown.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n“Machine Learning: The DL on ML.” 2018. In, 87–120. The MIT Press. https://doi.org/10.7551/mitpress/11022.003.0010.",
+    "text": "Functions\nThe way we’ll do operations on dataframes is to use functions on them. A function is a pre-made piece of code which does a particular task on a piece of data. The task might be an algorithm or mathematical process, and the data might be something as simple as a number, or it could be a dataframe, which we will be mostly working with here. You have already used the print() and nchar() functions, earlier this week.\nWhen we manipulate dataframes, or create visualisations, we will almost always use one or more of these functions (you can also write your own, but we won’t cover that on this course). It’s important to understand how to use a function in R for this course.\n\nFunction names\nA function in R is stored as a single ‘string’ (a sequence of characters with no spaces) followed by an open and closed set of brackets. A function called ‘function’ will look like this in R: function().\nMost of the functions we work with will have logical-sounding names, usually verbs. For example, the function to filter a dataset is called filter(), and the function to select certain columns is called select().\n\n\nFunction arguments\nSome functions work entirely within themselves and don’t need any further information, but usually, we’ll need to supply at least a few things to make a function work. The elements that we supply to the function are called ‘arguments’. Each argument in a function is placed within the brackets of the function, and each one must be separated by a comma.\nTypically, the functions we use will make a change to a dataframe (such as filter or select). For these kinds of functions, we usually need to supply at least two things:\n\nThe dataframe to be worked on\nThe further instructions on what the function should do specifically to the dataframe.\n\nSometimes, we will also need to set parameters (basically options), which are more specific instructions on how the function should act.\nIt’s good to familiarise yourself with how a function looks and how you can use them. This is a typical example:\n\nDifferent functions will need different instructions, depending on what they do. The code above runs the filter() function on the dataset titanic_df, with the instruction that the data in the age column should equal 50.\nHere is another example:\n\nHere, we use the function slice_max on the dataframe titanic_df (we’ll learn what this does later). This time we have to set two parameters. Parameters have specific names and we set their values using an single equal sign. Here, we have to set the order_by parameter, which we have set to the column age, and we have to set the n parameter, which we set to 10.\n\n\n\n\n\n\nWarning\n\n\n\nNotice in the first function we used Age == 50, and in the second function we used order_by = Age? This is because they mean different things. In R, a double equal sign (==) means ‘check if this is equal to’. A single equal sign (=) means ‘set this to the value of’.\nWhen setting the value of a parameter, we always use a single equal sign. Using the wrong one is an easy mistake to make and can be good to check when troubleshooting!\n\n\n\n\nExercises:\nRun the summary() function on the titanic_df dataset. summary() prints summary statistics on each column of the dataframe.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nUse summary again, but this time set the argument or parameter digits to equal 3. This optional parameter specifies the number of digits after the decimal point which should be shown.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 1: Introduction to R & Data Analysis 1",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Analysis 1</span>"
+    ]
+  },
+  {
+    "objectID": "06_data-analysis-1.html#learning-objectives",
+    "href": "06_data-analysis-1.html#learning-objectives",
+    "title": "6  Data Analysis 1",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow what a dataframe is, and how one looks in this book\nKnow what the Tidyverse is\nKnow how to run a function on a dataframe, and what arguments and parameters are\n\n\n\n\n\n“Machine Learning: The DL on ML.” 2018. In, 87–120. The MIT Press. https://doi.org/10.7551/mitpress/11022.003.0010.",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Analysis 1</span>"
@@ -401,7 +412,18 @@
     "href": "07_select.html",
     "title": "7  Subsetting columns",
     "section": "",
-    "text": "Using select() to subset columns\nA very common task when working with dataframes is to remove or keep only desired columns. In R, we can do this with the verb select(). Within the select() function, we first enter the dataframe name, and then the instructions on what to select.\nThere are lots of different instructions we can give to the select() function to select our desired columns.\n\nSelecting by name\nOne simple way to select columns is by the column names. After specifying the dataset, simply enter each column you want to keep, separated by a comma. To select the age and sex columns from the titanic_df dataset, use the below code.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Select the pclass and name columns from the titanic_df dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nDeselecting\nWe can also remove (deselect) columns, using a minus (-) sign:\nTo select everything except the age column, do the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: below, select everything except the pclass column.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nSelecting by position\nYou can also select columns by their position. Enter the positions as numbers, separated by a comma. This selects column 1 and 5:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nExercises:\nEdit this code cell to select the name, age, and sex columns in the titanic_df dataframe, by position.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDeselect the fifth column in the titanic_df dataframe.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nSelect a range\nYou can also select a range of columns using a colon (:). The below command selects columns 1 through to 5:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCombine select instructions\nYou can also combine multiple select instructions. This will select the first to the third columns, and also the eighth column:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nDifferences between R and Python\n\n\n\nIf you have programmed with Python before, this method of selecting using two colon-separated numbers is similar to something called list slicing. There are two important differences. First, Python starts counting from zero, not 1, and second, using a range like this in Python results in everything up to but excluding the end number. So in Python, this range would be the second, third, fourth, and fifth numbers in the sequence.\n\n\n\n\nTidyselect functions\nYou can also select columns using more complicated methods. There are a group of ‘tidyselect’ helpers to select columns based on more complicated criteria. The most useful are:\n\nstarts_with()\nends_with()\ncontains()\n\nFirst, starts_with() will look for any columns which start with some chosen text. It works as the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: In the cell below write a select function using starts_with() which selects the parch column, but not the pclass column.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nends_with() works in a similar way, selecting columns which end with chosen characters:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: In the cell below, write a select function that selects the age, fare, and name columns.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLastly, contains() will select any columns which contain a given pattern of letters:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpand to learn how to rename columns\n\n\n\n\n\nTo rename columns, we can use the rename() function with the syntax rename(dataset, new_name = old_name). For example, to rename the name column to passenger_name in the Titanic dataframe, we can use:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you want to, you can rename and select columns in one go. To do this use the same syntax as rename, except use the function select(). The following will select the name and pclass columns, and rename them:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHowever, note that nothing will actually change in the original dataset until you save it as an object in your environment, which will look at when we move to Posit cloud.",
+    "text": "Using select() to subset columns\nA very common task when working with dataframes is to remove or keep only desired columns. In R, we can do this with the verb select(). Within the select() function, we first enter the dataframe name, and then the instructions on what to select.\nThere are lots of different instructions we can give to the select() function to select our desired columns.",
+    "crumbs": [
+      "Week 1: Introduction to R & Data Analysis 1",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Subsetting columns</span>"
+    ]
+  },
+  {
+    "objectID": "07_select.html#learning-objectives",
+    "href": "07_select.html#learning-objectives",
+    "title": "7  Subsetting columns",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse select() to keep or drop columns by name or position\nSelect a range of columns, and combine multiple select instructions\nUse tidyselect helpers: starts_with(), ends_with(), contains()\nRename columns with rename() (or while selecting)",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Subsetting columns</span>"
@@ -412,7 +434,18 @@
     "href": "08_slice.html",
     "title": "8  Subsetting rows",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nSelecting (subsetting) data by rows\nThis is another very common function we need to do on datasets, for example to remove incorrect data, or to work with only a portion of a dataset. If we want to subset rows by some variable in the data, we use another method, filter, which we’ll learn later.\nSelecting rows of a dataset can be done with the verb slice(). Unlike columns, rows generally do not have names, so we mostly select them numerically, by position. Similarly to select(), slice() first expects the dataframe, and after that the specific instructions on what to keep or remove. For example, to select the first and fifth rows of the titanic_df dataframe:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: below, select the 20th and 50th rows of the dataframe.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAs with select(), we can choose a range using a colon (using glimpse here allows us to see the new size of the dataframe):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself:\nSelect the first 50 rows, and everything except the 100th row. Functions often work in similar ways, especially if they are from the same suite (the Tidyverse), so you should be able to figure out how this works from our work on select().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nslice_min and slice_max\nThere are also some helpful variations of slice(). The two most common are slice_min() and slice_max(). These select a chosen number of rows based on some numerical variable (a column) in your data.\nIn this function, we use what are called ‘arguments’. These are further instructions, or parameters, which we pass to a function in order to specify what it should do. For slice_max(), we have to tell it which column to use to get the maximum values with the argument order_by, and how many rows to give with the argument n.\nFor example, to select the ten youngest passengers in the dataset, we could use the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nAnother useful slice_ function is slice_sample(), which picks a random sample of your data.\n\n\nTry it yourself: Use a slice_ function to find the five oldest passengers (look at how we used slice_min() above to figure out how to do this).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nslice_max() works in the same way, but in reverse:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Selecting (subsetting) data by rows\nThis is another very common function we need to do on datasets, for example to remove incorrect data, or to work with only a portion of a dataset. If we want to subset rows by some variable in the data, we use another method, filter, which we’ll learn later.\nSelecting rows of a dataset can be done with the verb slice(). Unlike columns, rows generally do not have names, so we mostly select them numerically, by position. Similarly to select(), slice() first expects the dataframe, and after that the specific instructions on what to keep or remove. For example, to select the first and fifth rows of the titanic_df dataframe:\nTry it yourself: below, select the 20th and 50th rows of the dataframe.\nAs with select(), we can choose a range using a colon (using glimpse here allows us to see the new size of the dataframe):\nTry it yourself:\nSelect the first 50 rows, and everything except the 100th row. Functions often work in similar ways, especially if they are from the same suite (the Tidyverse), so you should be able to figure out how this works from our work on select().",
+    "crumbs": [
+      "Week 1: Introduction to R & Data Analysis 1",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Subsetting rows</span>"
+    ]
+  },
+  {
+    "objectID": "08_slice.html#learning-objectives",
+    "href": "08_slice.html#learning-objectives",
+    "title": "8  Subsetting rows",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse slice() to subset rows by position, including ranges\nUse slice_min() and slice_max() to select rows based on a numeric column\nKnow the difference between subsetting rows by position (slice()) and by condition (filter(), covered later)",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Subsetting rows</span>"
@@ -423,7 +456,18 @@
     "href": "09_arrange.html",
     "title": "9  Ordering and sorting dataframes",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nOrdering data\nAnother typical task or manipulation we might want to do with our data is to put it in some kind of chosen order. This is particularly useful when doing exploratory data analysis, where we want to find out how the data looks and what interesting properties it might have that we can use for analysis.\n\n\nThe arrange() function\nWe can sort data using the verb arrange(). As with select() and slice(), the first element in the function will be the dataset, then followed by the column or columns we want to sort the data by. For example, this will sort the titanic_df dataframe by the column age:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSorting is ascending by default, but you can specify descending by using a minus sign before the column you want to sort by:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat happens if you sort by a character column instead of a numeric column?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf we want to use reverse order in a character column, we need to wrap the column in another verb, desc().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLook at the result of the name column now. I’ve included 20 rows rather than the usual 5. Do you notice anything strange? Why is van Melkebeke or del Carlo put before Zimmerman?\nThe sorting method used by arrange() thinks that lowercase letters should be considered before uppercase ones. This is something which we would need to fix if we were working properly with the data, for instance by converting everything to lowercase before sorting.\nYou can sort by multiple things. Before you run the code, what do you think the following does?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nExercise\nSort by the fare column. What is unusual about this and why? How do you think you could fix it? (Hint: use glimpse() to look at the data types)\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nUse arrange() to find the 5 oldest male passengers.\nUse a slice_ function to find the 20 youngest passengers, and put them in alphabetical order.",
+    "text": "Ordering data\nAnother typical task or manipulation we might want to do with our data is to put it in some kind of chosen order. This is particularly useful when doing exploratory data analysis, where we want to find out how the data looks and what interesting properties it might have that we can use for analysis.",
+    "crumbs": [
+      "Week 1: Introduction to R & Data Analysis 1",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ordering and sorting dataframes</span>"
+    ]
+  },
+  {
+    "objectID": "09_arrange.html#learning-objectives",
+    "href": "09_arrange.html#learning-objectives",
+    "title": "9  Ordering and sorting dataframes",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse arrange() to sort a dataframe by one or more columns\nSort in descending order, including for text columns (with desc())\nKnow how arrange() sorts text columns, and why this can look unexpected",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Ordering and sorting dataframes</span>"
@@ -434,7 +478,18 @@
     "href": "10_pipes.html",
     "title": "10  The pipe operator",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nPiping\nYou can see that in many cases, we might want to do multiple operations to a dataset, one after another. In the previous example we wanted to look at the oldest passengers for each sex. In that case, it would have been nice to use select after arrange to keep only the columns we were interested in looking at.\nOne way to do this is to wrap the arrange() verb in a select() verb, like this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis can get confusing pretty quickly, because it looks messy and it’s difficult to tell which order things happen in. This is important in some circumstances - for instance you might get different results if you summarise some data before or after you filter it.\nR has a special command, called a pipe, which can be used to make much more readable code. The pipe will take a dataframe and pass it along to another function. This can be done multiple times: the code will do one operation, then the resulting dataframe will be passed on to the next function, and so forth. The pipe command is the following two characters: |&gt;.\nFor example, if we wanted to first arrange the dataset, and then select only certain columns from that arranged dataset, we could do the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nSee that we put each verb/function on a new line? This is not actually necessary as R ignores lines in most cases, but it makes the code much easier to read afterwards. There is a whole style guide available here if you want to learn more about writing nice code in R!\n\n\nNotice that we don’t need to repeat the name of the dataset after the first function - it is ‘passed along’ by the pipe operator from one function to the next.\nFor the rest of this course, the code will be written using the pipe command. I strongly encourage you to do the same - it will make it much easier for you and others to understand your code later.\n\n\nExercises\nUse select(), slice() and arrange() (and the pipe operator) to do the following:\n\nIn one operation, slice the titanic_df dataframe to keep only the hundred oldest passengers, put them in order of the fare they paid (in descending order), and select only the name, age, and fare columns.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhat are the names of the oldest and youngest passengers on the Titanic?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nHow many first-class female passengers survived? What were their names?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhich passenger paid the highest fare? What class were they in?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nLearning objectives\nLook through these and tick off the ones you think you understand. Be honest with yourself, and make a note of anything which is not clear and we can go over it again in the next class.\n\nKnow what a dataframe is and how to preview one using code.\nHow to explore and adjust rows and columns in a dataframe:\n\nselect\nslice\nrename\n\nArrange columns\n\nascending and descending\nmultiple columns\n\nWrite more readable code using the pipe",
+    "text": "Piping\nYou can see that in many cases, we might want to do multiple operations to a dataset, one after another. In the previous example we wanted to look at the oldest passengers for each sex. In that case, it would have been nice to use select after arrange to keep only the columns we were interested in looking at.\nOne way to do this is to wrap the arrange() verb in a select() verb, like this:\nThis can get confusing pretty quickly, because it looks messy and it’s difficult to tell which order things happen in. This is important in some circumstances - for instance you might get different results if you summarise some data before or after you filter it.\nR has a special command, called a pipe, which can be used to make much more readable code. The pipe will take a dataframe and pass it along to another function. This can be done multiple times: the code will do one operation, then the resulting dataframe will be passed on to the next function, and so forth. The pipe command is the following two characters: |&gt;.\nFor example, if we wanted to first arrange the dataset, and then select only certain columns from that arranged dataset, we could do the following:\nNotice that we don’t need to repeat the name of the dataset after the first function - it is ‘passed along’ by the pipe operator from one function to the next.\nFor the rest of this course, the code will be written using the pipe command. I strongly encourage you to do the same - it will make it much easier for you and others to understand your code later.",
+    "crumbs": [
+      "Week 1: Introduction to R & Data Analysis 1",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>The pipe operator</span>"
+    ]
+  },
+  {
+    "objectID": "10_pipes.html#learning-objectives",
+    "href": "10_pipes.html#learning-objectives",
+    "title": "10  The pipe operator",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand why nesting functions inside each other gets hard to read\nKnow what the pipe operator (|&gt;) does and how it chains functions together\nWrite a short multi-step data-wrangling chain using the pipe",
     "crumbs": [
       "Week 1: Introduction to R & Data Analysis 1",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>The pipe operator</span>"
@@ -478,7 +533,18 @@
     "href": "12_filter.html",
     "title": "13  Filtering data",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nFiltering data with filter()\nOne of the most useful things you will do in data analysis is to filter to only look at certain parts of your data. This is done with a verb called filter(). Filter is very powerful because you can set it to filter for any number of conditions or patterns.\n\n\n\nSource: https://allisonhorst.com/r-packages-functions\n\n\nThe filter() function keeps only certain rows in a dataframe, based on a condition which you set within the function. This is very useful when working with data visualisations, because often you will want to focus on a small amount of the data, or perhaps a single category.\nIn the filter function, the first argument is the data to be filtered. The second is the column you want to look at, and finally, a condition (or multiple conditions). The function will return every row where that condition is true.\nRemember in the first week when we looked at comparisons, such as ==, &lt;,&gt; and %in%? One important way these are used are to set the conditions for a filter.\nWith filter, need the dataset followed by the column you want to look at, followed by the comparison. The left side of the comparison will generally be a column from your dataframe, followed by a comparison symbol, followed by a value. You can use multiple comparisons using &.\n\n\n\n\n\n\nNote\n\n\n\nThis time, we’ll use the pipe (|&gt;) from the beginning to make the code easier to follow.\n\n\nWe can use filter to return rows where the text in a column matches a given string:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: in the code cell below, write code to filter the titanic_df dataset to contain only rows where the embarked column is equal to the character Q.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nOr do the same with a numeric column:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: With numeric columns, we can also use greater than or less than. Write code to filter the fare column to be greater than 5.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nMultiple filter conditions\nTo add two filter conditions, we can separate them with an & sign:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: below, write code to filter the dataset to include only passengers from first class who are also over 70.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can also use | to make an OR condition. The following will filter to return rows where either the passenger is in first class or they paid over 50 pounds:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nFiltering a range using %in%\nLast week we used the %in% operator to check if any of the elements in one vector were present in another vector. This is very useful when filtering data, because it allows us to filter to a range or list of values.\nFor example, this will filter the data to return rows where the age is between 20 and 30:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSee that we have created a vector containing the numbers we want to include in the filter condition, and then used the %in% operator?\nThere are quicker ways to create number vectors like this. In R, the code 20:30 will create a numeric vector containing all the numbers between and including the values 20 and 30. You don’t even need to use c() in this case. So, another way to do the above is to write:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can do the same with strings: just pass a vector of strings as a filter condition, using %in%. To return all the passengers which embarked in the locations C or Q, we could do:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nA negative filter with !.\nTo negate a filter, that is, to return everything which doesn’t match a given condition, put the ! before it. For example, to return any row where the embarked column does not equal C or Q, use:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Filtering data with filter()\nOne of the most useful things you will do in data analysis is to filter to only look at certain parts of your data. This is done with a verb called filter(). Filter is very powerful because you can set it to filter for any number of conditions or patterns.\nThe filter() function keeps only certain rows in a dataframe, based on a condition which you set within the function. This is very useful when working with data visualisations, because often you will want to focus on a small amount of the data, or perhaps a single category.\nIn the filter function, the first argument is the data to be filtered. The second is the column you want to look at, and finally, a condition (or multiple conditions). The function will return every row where that condition is true.\nRemember in the first week when we looked at comparisons, such as ==, &lt;,&gt; and %in%? One important way these are used are to set the conditions for a filter.\nWith filter, need the dataset followed by the column you want to look at, followed by the comparison. The left side of the comparison will generally be a column from your dataframe, followed by a comparison symbol, followed by a value. You can use multiple comparisons using &.\nWe can use filter to return rows where the text in a column matches a given string:\nTry it yourself: in the code cell below, write code to filter the titanic_df dataset to contain only rows where the embarked column is equal to the character Q.\nOr do the same with a numeric column:\nTry it yourself: With numeric columns, we can also use greater than or less than. Write code to filter the fare column to be greater than 5.",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Filtering data</span>"
+    ]
+  },
+  {
+    "objectID": "12_filter.html#learning-objectives",
+    "href": "12_filter.html#learning-objectives",
+    "title": "13  Filtering data",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse filter() to keep rows matching a condition\nCombine multiple conditions with & (AND) and | (OR)\nUse %in% to filter against a list or range of values\nNegate a filter condition with !",
     "crumbs": [
       "Week 2: Data Analysis 2 & 3",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Filtering data</span>"
@@ -507,11 +573,33 @@
     ]
   },
   {
+    "objectID": "13_regex.html#learning-objectives",
+    "href": "13_regex.html#learning-objectives",
+    "title": "14  Pattern matching with str_detect",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse str_detect() to filter rows by a text pattern\nKnow a few basic regular expression building blocks: ., character classes ([ ]), and {n}\nUse anchors (^, $) to match the start or end of a string\nUse alternation (|) to match more than one pattern\nKnow when and how to ‘escape’ a special character",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Pattern matching with str_detect</span>"
+    ]
+  },
+  {
     "objectID": "14_mutate.html",
     "href": "14_mutate.html",
     "title": "15  Changing columns with mutate",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nSource: https://allisonhorst.com/r-packages-functions\n\n\nThere are many situations when we might want to add new columns to a dataframe by doing a calculation on existing columns.\nAs a simple example in our Titanic dataset, imagine you wanted to calculate (and visualise) the ticket fares in today’s value. Assuming the fare is in British pounds, we could look up the value of single pound in (around) 1912, and use this to calculate how much it would cost in today’s currency.\nAccording to the National Archives Currency Converter, 1 pound in 1910 is worth 78.17 today. Therefore, we can calculate the value by multiplying a value in the fare column by 78.17.\nWe can do this on the entire Fare column using another verb, called mutate. This verb will create a new column in the dataset, based on our instructions. This could be anything from a simple formula (multiply the value by 78.17) to very complex formulas or algorithms.\nSimilar to filter(), we use mutate() by first providing the dataset, followed by the pipe, then the verb mutate and within the brackets, we enter the new column name and an equal sign, followed by the instructions. In this case, the instructions are to take the Fare column and multiply it by 78.17, using *.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you look at the output of the code above, you’ll see a new column, called ‘price_today’, containing the new price.\n\nUsing existing functions\nYou can also use existing functions with mutate. In our dataset, the age is given in decimal, but you want to round to the nearest whole number. There is a simple function in R called round() which will do this.\nWrite code to create a new column called age_in_years with mutate(). Use the round() function on the age column, like this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nif_else and case_when\nA useful way of using mutate() is to create a new column which is different depending on some conditions. Lets say you want to create a bar chart counting the adult and child passengers on the titanic separately. Currently, there is no column containing this information. However, we could make one using the age column and a function called if_else. Using if_else within mutate() will create a new column containing different information depending on your condition.\nIn this case, we want to create a new column, called ‘status’. In this column, we want to enter ‘child’ if the number in the age column is less than 18, and otherwise we want to enter ‘adult’. This is done like this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can use case_when() where you have more complicated scenarios. An example is this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nExercises:\n\nYou’ve just been told that the age in the dataset was calculated incorrectly - it was underestimated by five years. Create a new column in the dataset called corrected_age, with the new value.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nUse the age (or age_in_years) column to calculate the approximate year of birth for passengers (the Titanic sank in 1912). You can use round() on your new column, or you can leave it as a decimal.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWho paid the highest fare, and what was it in today’s money? Use the methods you learned in the previous pages to select the name and fare in today’s money of the highest-paying passenger.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Using existing functions\nYou can also use existing functions with mutate. In our dataset, the age is given in decimal, but you want to round to the nearest whole number. There is a simple function in R called round() which will do this.\nWrite code to create a new column called age_in_years with mutate(). Use the round() function on the age column, like this:",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Changing columns with mutate</span>"
+    ]
+  },
+  {
+    "objectID": "14_mutate.html#learning-objectives",
+    "href": "14_mutate.html#learning-objectives",
+    "title": "15  Changing columns with mutate",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse mutate() to create a new column from existing ones\nUse an existing function (e.g. round()) inside mutate()\nUse if_else() for a two-way condition, and case_when() for more than two",
     "crumbs": [
       "Week 2: Data Analysis 2 & 3",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Changing columns with mutate</span>"
@@ -534,6 +622,17 @@
     "title": "16  Summarising",
     "section": "Exercises:",
     "text": "Exercises:\nWhat is the average age of all the passengers? Average can be calculated using a function called mean().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat is the maximum fare paid? You can use the function max() for this.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Summarising</span>"
+    ]
+  },
+  {
+    "objectID": "15_summarise.html#learning-objectives",
+    "href": "15_summarise.html#learning-objectives",
+    "title": "16  Summarising",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse summarise() to calculate a single summary value from a dataframe\nKnow the difference between counting rows (n()) and summing a value (sum())\nKnow some other common summary functions (mean(), median(), min(), max())\nUse tally() as a shortcut for a simple count or sum",
     "crumbs": [
       "Week 2: Data Analysis 2 & 3",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Summarising</span>"
@@ -578,6 +677,17 @@
     "title": "17  Grouping",
     "section": "Ungroup",
     "text": "Ungroup\nSometimes you’ll want to do something in groups and then remove them afterwards because they give unwanted effects. You can do this using the verb ungroup().\n\nExercises:\n\nCalculate the total number of passengers by both sex and pclass\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nThe embarked column indicates where the passengers got onto the ship. The code is C = Cherbourg, Q = Queenstown (Cobh in Ireland today), S = Southampton.\nHow many passengers got on at each location?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhat was the average fare paid for each location?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nCreate a new column, containing the total number which embarked from that person’s location.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWho are the five youngest male and female passengers who embarked at each location?\n\n\n\n\n\n\nSave some typing by using count()\n\n\n\ncount(embarked) is the same as using group_by(embarked) |&gt; summarise(n = n()).\ncount(embarked, wt = fare) is the same as using group_by(embarked) |&gt; summarise(n = sum(fare, na.rm = TRUE))",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
+    "objectID": "16_grouping.html#learning-objectives",
+    "href": "16_grouping.html#learning-objectives",
+    "title": "17  Grouping",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse group_by() to split a dataframe into groups before summarising\nGroup by more than one column at once\nUse group_by() together with a slice_ function and with mutate(), not just summarise()\nKnow when and why to ungroup() a dataframe\nUse count() as a shortcut for group_by() + summarise(n = n())",
     "crumbs": [
       "Week 2: Data Analysis 2 & 3",
       "<span class='chapter-number'>17</span>  <span class='chapter-title'>Grouping</span>"
@@ -639,6 +749,17 @@
     ]
   },
   {
+    "objectID": "18_joins.html#learning-objectives",
+    "href": "18_joins.html#learning-objectives",
+    "title": "20  Joins",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand what a join is, and why it needs a common ‘key’ column\nUse left_join() to merge two dataframes together\nJoin on columns which have different names in each dataframe",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
     "objectID": "19_tidying-data.html",
     "href": "19_tidying-data.html",
     "title": "21  Tidying data with pivot_longer()",
@@ -683,11 +804,33 @@
     ]
   },
   {
+    "objectID": "19_tidying-data.html#learning-objectives",
+    "href": "19_tidying-data.html#learning-objectives",
+    "title": "21  Tidying data with pivot_longer()",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the difference between a variable, an observation, and a value\nKnow the difference between wide and long data\nUnderstand what makes data ‘tidy’\nUse pivot_longer() to reshape a wide dataset into a long one",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
     "objectID": "20_data-challenge.html",
     "href": "20_data-challenge.html",
     "title": "22  Data challenge",
     "section": "",
-    "text": "For this data challenge, I’ll ask you to work with a real-world cultural dataset, which is in need of some data cleaning.\nYou’re asked to carry out the whole process, from start to finish, including importing the raw data file and exporting the result.\nThe dataset is a record of performances and attendances at performing arts venues in the Netherlands, from 1999 to 2023. It’s a good example of the kinds of things you’ll often need to do to datasets in order to make them useable for visualisation and analysis. You can find the dataset here. Click on Original Dataset on the left hand side, and then click on Download CSV.\nDo the following in the Posit cloud workspace.\nUpload the dataset from your computer to Posit cloud.\nImport the dataset to your environment with a suitable name.\nTake a look at the dataset.\n\nIt has a large number of columns, and one row per year and per region. The other columns contain various information about performance numbers and attendance numbers. The attendance numbers are in units of 1000s of people.\nThe Periods column has some extra text after the year.\nThe regions contain all the various regional divisions, meaning it has rows for the Netherlands as a whole, one for larger regions, and one for provinces.\n\nThe basic cleaning steps are to:\n\nFilter the dataset to include only the PV level regional codes (PV = provincie, i.e. rows at the province level).\nAdjust the Periods column so it contains only the year, as a number. This should be recognised as a number by R.\nRemove the column NumberOfOrganisation_1 and TotalAttendance_13 columns, as these are not needed.\n\nTo make this dataset tidy, we need to do a number of things:\n\nMake two separate tables, one for attendance and one for performance, because these are two separate things. You’ll need to assign them names so they are saved in the environment.\nUse pivot_longer with each dataset so that you have a performance_type or attendance_type column, containing the type, with the value in a separate column.\n\nSome final steps before exporting:\n\nMultiply the attendance values by 1000 to get the correct numbers.\nFinally, join the region_codes dataset (available in the workspace) to your datasets, so that the full region name is added.\nExport the data as a csv using the function write_csv().\n\nFinally, use the data…\n\nGet the average attendance for each performance type for each region.\nCalculate the total number of performances per region.",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)",
+    "crumbs": [
+      "Week 2: Data Analysis 2 & 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Data challenge</span>"
+    ]
+  },
+  {
+    "objectID": "20_data-challenge.html#learning-objectives",
+    "href": "20_data-challenge.html#learning-objectives",
+    "title": "22  Data challenge",
+    "section": "",
+    "text": "Import and inspect a real, messy dataset\nClean and filter a dataset to keep only the rows and columns you need\nReshape a dataset into a tidy, long format\nJoin in extra information from a second dataset, and export the result",
     "crumbs": [
       "Week 2: Data Analysis 2 & 3",
       "<span class='chapter-number'>22</span>  <span class='chapter-title'>Data challenge</span>"
@@ -731,18 +874,7 @@
     "href": "22_data-visualisation-1.html",
     "title": "25  Data Visualisation Basics",
     "section": "",
-    "text": "Learning objectives:",
-    "crumbs": [
-      "Week 3: Data Visualisation 1 & 2 (part 1)",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
-    ]
-  },
-  {
-    "objectID": "22_data-visualisation-1.html#learning-objectives",
-    "href": "22_data-visualisation-1.html#learning-objectives",
-    "title": "25  Data Visualisation Basics",
-    "section": "",
-    "text": "Understand basic principles of data visualisation\nKnow how ggplot2 works and the ‘grammar of graphics’.\nBe able to define and list the key geometries and aesthetics and how they are used to make visualisations.\nBe familiar with the basic chart types and how they are implemented in ggplot2",
+    "text": "Data Visualisation Principles\nThis week, we’ll begin working with data visualisations. We’ll introduce in a very general sense the different ways we can draw things with data visualisation software. We won’t think too much about the specifics of making charts for different purposes - just get used to the general syntax and most common chart types.",
     "crumbs": [
       "Week 3: Data Visualisation 1 & 2 (part 1)",
       "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
@@ -752,8 +884,8 @@
     "objectID": "22_data-visualisation-1.html#data-visualisation-principles",
     "href": "22_data-visualisation-1.html#data-visualisation-principles",
     "title": "25  Data Visualisation Basics",
-    "section": "Data Visualisation Principles",
-    "text": "Data Visualisation Principles\nThis week, we’ll begin working with data visualisations. We’ll introduce in a very general sense the different ways we can draw things with data visualisation software. We won’t think too much about the specifics of making charts for different purposes - just get used to the general syntax and most common chart types.\n\nAims of Information Design\nTo begin with, we should think about the purpose of data visualisation. Essentially, the purpose is to aid cognition, usually of large-scale or complex data which otherwise is difficult to grasp. Some examples of how it aids cognition include using infovis to:\n\nUnderstand, explore and remember information\nTake in large amounts of data at once\nMake comparisons\nRead millions of data points or understand complex structures (e.g. hierarchies or networks)\nUnderstand temporal information, e.g. logic of going from earlier to later time\n\nThe reason data visualisation works is because our brains tend to make judgements about values based on visual elements. For example, if given two circles, one small and one big, and are asked which we think represents the larger value, you would likely pick the bigger one.\nSimilarly, we associate ‘hotter’ colours with larger values than colder ones.\nWe associate transparency or opacity with strength. And so forth..\nWe can use these principles in data visualisations. By mapping data to these visual elements, we can aid in the understanding of a given dataset by viewers.\nNext week, we’ll take a closer look at some of the psychological principles behind why these work. For today, we’ll focus on the pratical aspects.",
+    "section": "",
+    "text": "Aims of Information Design\nTo begin with, we should think about the purpose of data visualisation. Essentially, the purpose is to aid cognition, usually of large-scale or complex data which otherwise is difficult to grasp. Some examples of how it aids cognition include using infovis to:\n\nUnderstand, explore and remember information\nTake in large amounts of data at once\nMake comparisons\nRead millions of data points or understand complex structures (e.g. hierarchies or networks)\nUnderstand temporal information, e.g. logic of going from earlier to later time\n\nThe reason data visualisation works is because our brains tend to make judgements about values based on visual elements. For example, if given two circles, one small and one big, and are asked which we think represents the larger value, you would likely pick the bigger one.\nSimilarly, we associate ‘hotter’ colours with larger values than colder ones.\nWe associate transparency or opacity with strength. And so forth..\nWe can use these principles in data visualisations. By mapping data to these visual elements, we can aid in the understanding of a given dataset by viewers.\nNext week, we’ll take a closer look at some of the psychological principles behind why these work. For today, we’ll focus on the pratical aspects.",
     "crumbs": [
       "Week 3: Data Visualisation 1 & 2 (part 1)",
       "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
@@ -765,6 +897,17 @@
     "title": "25  Data Visualisation Basics",
     "section": "Mapping Data to Geometries and Aesthetics",
     "text": "Mapping Data to Geometries and Aesthetics\nThese visual elements can be broken down into geometries and aesthetics. Geometries are the basic geometric shapes, like circles, points, lines, and so forth. Aesthetics are the features of those shapes, like size, colour, and position.\nIn the next two parts of the chapter, we’ll look at the typical geometries available to us.\nOn this page we concentrate on the aesthetics.\n\nAesthetics\nThere are many possible aesthetics, but some of the most commonly-found in infovis are:\n\nAnother important one not pictured here is transparency.\nWe can use these aesthetics to tell lots of different stories within our data. For example, we can use them to indicate the magnitude of a value, to draw attention to different categories, or simply to highlight information we wish the viewer to pay attention to.\nSo how can we use each of these?\n\n\nDiscrete vs continuous aesthetics\nMost aesthetics work on either discrete or continuous scales. We’ll learn more about scales in an upcoming session, but for now, you can think of scales as either representing sequential numbers (continuous) or distinct numbers or categories (discrete or categorical).\nWhich scale is suitable depends on the kind of data. Continuous data are things like age, height, or population, where the data might be any number from across a range. Discrete data are numbers where the value can only be one number or another, and not any value in between. Categorical data are data with a limited number of unordered categories, like gender, country, and so forth. A fourth type, ordinal, are categories where there is some inherent order, for example months of the year.\n\n\n\nThe four main data types\n\n\n\n\n\n\n\n\nNote\n\n\n\nWe have come across most of these data types in R already: values such as age in the passenger list are continuous (age could also be discrete if it was stored in full years); gender and place of embarking are both categorical. Categorical data are usually stored in columns with the string type (&lt;str&gt;), whereas continuous are stored as double (&lt;dbl&gt;). Discrete values may be stored as integers (&lt;int&gt;). Ordinal data in R is stored in a special data type, called a factor. Factors are variables that have a fixed and known set of possible values, and can be inherently ordered. We won’t really delve into factors on this course, but there are some situations where they are useful, for example if you want to reorder elements of a data visualisation.\n\n\nSome aesthetics only work on one or the other (shapes can only represent categories, for instance). In other cases, the scale will work differently depending on whether it is applied to a discrete or continuous set of data. In the example of colour, below, a categorical scale is usually represented by distinct, unrelated colours, whereas a continuous scale is sequential range, running from yellow to green.\nThe difference between continuous and discrete scales on the colour aesthetic\n\n\nKey aesthetics\nBelow are the aesthetics you’ll use most often in data visualisation, with some examples. The visualisations are made using the Nobel Prize dataset, containing information on every laureate and prize awarded since 1901. We’ve summarised it here to one row per prize category (Chemistry, Economic Sciences, Literature, Peace, Physics, and Physiology or Medicine), giving the number of laureates, the percentage who were women, and the average age at the time of the award.\n\n\n\n\n\n\nNote\n\n\n\nWorth bearing in mind while we use this dataset: it isn’t a neutral record of scientific or literary merit. Who gets nominated, who gets recognised, and whose contributions get overlooked (particularly women, and researchers outside a handful of countries) are all shaped by the historical biases of the institutions doing the nominating. A dataset like this rewards exactly the kind of critical, contextual reading that a humanities background gives you - the numbers alone don’t tell the whole story.\n\n\nYou can view the code I’ve used to make the plots, which might be useful later, as a reference.\n\nPosition\nAll data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the average age at the time of the award on the x axis and the percentage of laureates who were women on the y axis, for each prize category.\nThe resulting scatterplot shows a relationship between the two variables: categories which tend to honour older laureates (Economic Sciences, Physics) also tend to have a much lower share of women than categories such as Peace and Literature.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nSize\nSize is often mapped to amounts or magnitude (we naturally understand that these two things map together). If we take our chart above and map the size variable to the number of laureates in each category, the viewer will grasp intuitively that larger sizes equal a larger number of prizes given out. To make this relationship even clearer, we should include a legend.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n)) +\n  geom_point() +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")\n\n\n\n\n\n\n\n\n\n\n\nColour\nColour is a very useful aesthetic and can have many uses. One key one is to group data together, for example mapping the colour to the prize category. This helps a user to quickly see differences in the data between the categories.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category)) +\n  geom_point() +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")\n\n\n\n\n\n\n\n\n\n\n\nShape\nShape can be used similarly to colour to show different groups or categories.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n, shape = category)) +\n  geom_point() +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")\n\n\n\n\n\n\n\n\n\n\n\nLinetype/width\nLinetype isn’t so widely used in scatterplots, but can be used in other types to distinguish between groups or categories. Here, we count the number of laureates awarded per decade, for a few of the prize categories:\n\n\nCode\nnobel_df |&gt;\n  filter(category %in% c('Physics', 'Chemistry', 'Peace')) |&gt;\n  mutate(decade = floor(award_year / 10) * 10) |&gt;\n  group_by(decade, category) |&gt;\n  summarise(n = n(), .groups = 'drop') |&gt;\n  ggplot() +\n  geom_line(aes(x = decade, y = n, linetype = category)) +\n  labs(title = \"Laureates per Decade\", subtitle = \"Selected categories, 1900s-2020s\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\nTransparency\nTransparency can be mapped to data, but it is more useful used as a way to help with ‘overplotting’: when shapes are drawn on top of each other and difficult to distinguish. Here, we set the opacity to 50% (and add an outline), to make it possible to see the points which overlap with each other.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n, fill = category)) +\n  geom_point(alpha = .5, pch = 21, color = 'black') +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")",
+    "crumbs": [
+      "Week 3: Data Visualisation 1 & 2 (part 1)",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
+    ]
+  },
+  {
+    "objectID": "22_data-visualisation-1.html#learning-objectives",
+    "href": "22_data-visualisation-1.html#learning-objectives",
+    "title": "25  Data Visualisation Basics",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand the basic aim of data visualisation: mapping data to aesthetics\nDefine geometries and aesthetics, and how they relate to each other\nKnow the difference between discrete and continuous aesthetics\nRecognise the key aesthetics: position, size, colour, shape, linetype, and transparency",
     "crumbs": [
       "Week 3: Data Visualisation 1 & 2 (part 1)",
       "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
@@ -798,6 +941,17 @@
     "title": "26  Using ggplot2",
     "section": "Demonstration - making a bar chart",
     "text": "Demonstration - making a bar chart\nIt’s easier to demonstrate how it works. Before you use the package, you’ll need to load it, along with the other packages we use to wrangle the data:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAs an example, let’s draw a simple bar chart using ggplot2. We want to make a simple bar chart from the Titanic dataset we have been using. The workflow looks like this: first we clean and filter the data (if necessary), then we summarise it along the lines which we want, and finally visualise it using ggplot.\n\nSummarising the data\nThe first step is to produce the summary of the data we would like to visualise. Let’s try something very simple: the total number of male and female passengers. We’ll use group_by() and summarise(), as in the previous lesson:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow we have a dataset with two columns: sex, listing either male or female, and n, containing a count of the total number of each of those passengers. We save this as a new object called df, though if you want you can simply use the ‘pipe’ and pass it along to ggplot.\n\n\nMaking a plot\nWe can make a plot by building up at least four layers:\n\n1. ggplot()\nFirst, create a new ggplot object with the code ggplot().\n\n\n2. Data\nNext, give it our new summary dataframe to work with, using the argument data = df.\n\n\n\n\n\n\nTip\n\n\n\nYou can also use the pipe operator and pass your summarised data to ggplot, without saving it as a new object. In that case, you don’t need to use the data = argument. It’s up to you what to do in your own code - I prefer to create a new object if I am using it repeatedly, as here. A good principle in coding is that if you find yourself copying and pasting the same piece of code, there’s probably a better way of doing it!\n\n\n\n\n3. Aesthetics\nNext we tell ggplot which columns it should use, and which aesthetics it should map these colums to. This is also done by passing the names as parameters to x and y. First, type a comma after the data = df code. Then, insert the code aes(). This tells ggplot it should interpret anything within these parentheses as aesthetic mappings. Finally, within the aes(), we’ll add the columns and aesthetics: x = sex, y = n.\nThe code for this looks like the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n4. Geometry\nAt this point, we have an empty visualisation which specifies the aesthetics which should be mapped. In order to draw the correct geom, or visualisation shape, we need to add it as a layer on top of the ggplot() function.\nIn ggplot, a bar chart is created using the geom geom_col(). geom_col(), like all geoms, has a set of aesthetics which must be specified. In this case, we must at least specific the x and y aesthetics. These correspond to the horizontal and vertical position of the bars. When we give these aesthetics to geom_col, it will automatically figure out what to do with them.\nTo do this, we add a plus sign (+) followed by the geometry geom_col(), resulting in a simple bar chart:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nAdding each layer (anything after a + sign) on a new line makes the code easier to read, though it’s not strictly necessary.\n\n\nWe’ll learn about the rest of the layers in upcoming sessions.\n\n\n\nAdding other aesthetics to the chart\nEach chart type will allow you to manipulate different aesthetics, depending on what makes sense for that particular shape. If you are working in Posit/RStudio, you can check all of the options for a function by typing ? before it, e.g. ?geom_col, in to the console (the bottom left pane).\nFor geom_col, we have to set x and y and we can optionally set alpha (the transparency), colour (the colour of the outline of the bars), fill (the colour of the inside of the bars), and linetype and linewidth (allowing you to customise the look of the outline further).\n\nWithin aes() or outside aes()?\nThese attributes do different things depending on whether you put them inside the aes() function or outside. When outside the aes() function, they allow you to set an attribute to an absolute value. For example, to set the fill of the bars in our previous example to the colour red, you can do the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Set the outline of this bar chart to black (first copy and paste the existing code), and the linewidth to 2:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you set an attribute within the aes(), you will set that aesthetic to a value from your dataframe.\nTo demonstrate this, we need to make a new summary of the titanic dataset. Let’s make a new dataframe, which will now count the number of passengers who embarked at each location, for each sex, and call it df2.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow we have three columns in the summary dataset instead of two: sex, embarked, and n.\nIf we make the same chart as before with the df2 dataset, except now set the fill attribute to the embarked column, within the aes(), it will assign fill colours to each category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nTry it yourself:\nRecreate the chart above, and set the linetype aesthetic to the embarked category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCategorical vs continuous variables\nLet’s calculate another summary of the dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn the last example, we provided a column containing a string (either a Q, a C, or an S) to the fill aesthetic. ggplot interprets these as categorical variables, and automatically assigns colours to them, with the aim of making them as distinctive as possible.\nIf we pass a numerical column, this will be interpreted as a continuous variable. Now, ggplot will automatically map a colour scale, running from the darkest (lower number) to the highest (highest number), with a smooth gradient in between. As in this example:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe learn a bit more about scales later this week. Turn to the next page to find out about more chart types and their most common attributes.",
+    "crumbs": [
+      "Week 3: Data Visualisation 1 & 2 (part 1)",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Using ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "23_ggplot2.html#learning-objectives",
+    "href": "23_ggplot2.html#learning-objectives",
+    "title": "26  Using ggplot2",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the essential layers of a ggplot chart: data, aesthetics, and geometry\nBuild a bar chart from scratch with ggplot() + aes() + geom_col()\nKnow the difference between setting an aesthetic inside aes() versus outside it\nKnow the difference between mapping a categorical vs a continuous variable to colour/fill",
     "crumbs": [
       "Week 3: Data Visualisation 1 & 2 (part 1)",
       "<span class='chapter-number'>26</span>  <span class='chapter-title'>Using ggplot2</span>"
@@ -914,6 +1068,17 @@
     ]
   },
   {
+    "objectID": "24_chart-types.html#learning-objectives",
+    "href": "24_chart-types.html#learning-objectives",
+    "title": "27  More chart types",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nDraw a scatterplot with geom_point(), and control size, colour, alpha, and shape\nDraw a line chart with geom_line(), and control colour and linetype\nDraw a histogram, density plot, and boxplot to show a distribution\nUse geom_text() to label a chart with values\nCombine more than one geom on the same chart",
+    "crumbs": [
+      "Week 3: Data Visualisation 1 & 2 (part 1)",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
     "objectID": "24a_data-visualisation-1-exercises.html",
     "href": "24a_data-visualisation-1-exercises.html",
     "title": "28  Practice exercises: ggplot2 basics and chart types",
@@ -1002,6 +1167,17 @@
     ]
   },
   {
+    "objectID": "27_gestalt.html#learning-objectives",
+    "href": "27_gestalt.html#learning-objectives",
+    "title": "31  Gestalt Principles",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the main Gestalt principles: proximity, similarity, enclosure, closure, continuity, and connection\nExplain why these principles matter for how a chart is read\nKnow what ‘pre-attentive attributes’ are, and give an example\nUse these principles to critique a data visualisation",
+    "crumbs": [
+      "Week 3: Data Visualisation 1 & 2 (part 1)",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Gestalt Principles</span>"
+    ]
+  },
+  {
     "objectID": "28_scales.html",
     "href": "28_scales.html",
     "title": "32  Chart scales",
@@ -1046,6 +1222,17 @@
     ]
   },
   {
+    "objectID": "28_scales.html#learning-objectives",
+    "href": "28_scales.html#learning-objectives",
+    "title": "32  Chart scales",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand what a scale controls, and why choosing one deliberately matters\nExplain how a truncated (non-zero) axis can mislead a viewer\nKnow which aesthetics (position, colour, size) have scales worth adjusting",
+    "crumbs": [
+      "Week 3: Data Visualisation 1 & 2 (part 1)",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>Chart scales</span>"
+    ]
+  },
+  {
     "objectID": "29_position-scales.html",
     "href": "29_position-scales.html",
     "title": "33  Position scales",
@@ -1079,6 +1266,17 @@
     ]
   },
   {
+    "objectID": "29_position-scales.html#learning-objectives",
+    "href": "29_position-scales.html#learning-objectives",
+    "title": "33  Position scales",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nSet axis limits, breaks, minor breaks, and labels with a position scale\nKnow what happens to values which fall outside a scale’s limits\nReorder a categorical axis with reorder(), and use coord_flip()",
+    "crumbs": [
+      "Week 3: Data Visualisation 1 & 2 (part 1)",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Position scales</span>"
+    ]
+  },
+  {
     "objectID": "30_date-scales.html",
     "href": "30_date-scales.html",
     "title": "34  Date scales",
@@ -1095,6 +1293,17 @@
     "title": "34  Date scales",
     "section": "",
     "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nDate minor breaks\nSimilarly, we can set the minor breaks to any date unit, using the argument date_minor_breaks.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nLabels\nFinally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument date_labels. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe full list of labels is available here.",
+    "crumbs": [
+      "Week 4: Data Visualisation 2 (part 2) & 3",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Date scales</span>"
+    ]
+  },
+  {
+    "objectID": "30_date-scales.html#learning-objectives",
+    "href": "30_date-scales.html#learning-objectives",
+    "title": "34  Date scales",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse a date scale to control breaks and labels on a date axis\nSet minor breaks on a date scale\nKnow why dates need their own scale, rather than a plain numeric one",
     "crumbs": [
       "Week 4: Data Visualisation 2 (part 2) & 3",
       "<span class='chapter-number'>34</span>  <span class='chapter-title'>Date scales</span>"
@@ -1139,6 +1348,17 @@
     "title": "35  Colour and size scales",
     "section": "Adjusting the legend",
     "text": "Adjusting the legend\nAs with position scales, we can set limits and breaks. In this case, we’ll see the change in the legend primarily.\nTo set the limit, specify within the scale_x_ or scale_y function you are using. In this, any values outside the limits will be coloured by a default NA value, in this case grey.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSet the breaks using the below:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can make changes to the legend in other ways, using the guides() function. Here are some examples:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nUse barheight to set the height of the legend (you can use barwidth to set the width):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nChange from vertical to horizontal:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nChanging the position and other visual aspects of the legend is done within themes, which we’ll cover later this week.",
+    "crumbs": [
+      "Week 4: Data Visualisation 2 (part 2) & 3",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Colour and size scales</span>"
+    ]
+  },
+  {
+    "objectID": "31_colour.html#learning-objectives",
+    "href": "31_colour.html#learning-objectives",
+    "title": "35  Colour and size scales",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow when ggplot picks a continuous vs a discrete colour/fill scale\nApply a built-in scale (e.g. viridis) to a chart\nBuild a scale from an existing palette (scale_fill_distiller()/scale_fill_brewer())\nBuild a custom scale with specific colours (gradient/manual)\nAdjust a size scale, and a legend’s limits, breaks, and orientation",
     "crumbs": [
       "Week 4: Data Visualisation 2 (part 2) & 3",
       "<span class='chapter-number'>35</span>  <span class='chapter-title'>Colour and size scales</span>"
@@ -1233,6 +1453,17 @@
     ]
   },
   {
+    "objectID": "34_titles.html#learning-objectives",
+    "href": "34_titles.html#learning-objectives",
+    "title": "39  Titles and Labels",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nAdd a title, subtitle, caption, and axis labels with labs()\nRelabel an aesthetic (e.g. a legend title) via labs()\nUse geom_text() to label individual data points on a chart\nBuild a dynamic label with paste()",
+    "crumbs": [
+      "Week 4: Data Visualisation 2 (part 2) & 3",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>Titles and Labels</span>"
+    ]
+  },
+  {
     "objectID": "35_themes.html",
     "href": "35_themes.html",
     "title": "40  Chart Themes",
@@ -1277,6 +1508,17 @@
     ]
   },
   {
+    "objectID": "35_themes.html#learning-objectives",
+    "href": "35_themes.html#learning-objectives",
+    "title": "40  Chart Themes",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nApply a preset theme (e.g. theme_light()) to a chart\nChange an individual theme element with theme() and the right element_ function\nRotate and align axis text so long labels are readable\nChange text formatting across an entire chart at once",
+    "crumbs": [
+      "Week 4: Data Visualisation 2 (part 2) & 3",
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>Chart Themes</span>"
+    ]
+  },
+  {
     "objectID": "36_annotations.html",
     "href": "36_annotations.html",
     "title": "41  Annotations and Highlights",
@@ -1293,6 +1535,17 @@
     "title": "41  Annotations and Highlights",
     "section": "Adding annotations using annotate()",
     "text": "Adding annotations using annotate()\nAnother way to add annotations to your text is using the layer annotate(). annotate allows you to add geoms directly to your plot, but instead of taking positions from your data, you specify them directly.\nFor annotate, you specify the name of the geom (a short version, so geom_rect becomes simply rect). Then you will directly specify the position coordinates and any other aesthetics. The most useful geom types here are the graphical ‘primitives’, such as rect, polygon, and segment, as well as text.\n\nText\nYou can use annotate() to manually add informative labels to your charts.\nIt’s usually useful to have an arrow along with text, pointing to something in the visualisation. Let’s walk through doing this using the following chart, which charts the average age at award and the percentage of female laureates, for each prize category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nAdding a text annotation\nWe want to add the text Peace and an arrow pointing to the relevant point.\nFirst we’ll put a text annotation somewhere in the large empty space of the chart. Peace is towards the top-left of the plot (the highest share of women, at a fairly average age), so a spot up and to the left of it would be a good place to put the text.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAdd a line\nNext we want a curved line with an arrow running from just underneath the text to the middle of the point. To do this, look at the data and find the relevant variables to use as a starting point. The avg_age (our x axis) for Peace is 60.8 and pct_female (y axis) is 17.1.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nDrawing an arrow()\nFinally we can specify an arrow with a special arrow() function. Pay attention here because the arrow syntax is a little unintuitive. We can specify an arrow type, for instance ‘closed’ and a length. However the length is not a simple number but a ‘unit’ object, where we need to put the value within the function unit() and specify a unit, such as ‘mm’. You can also specify the arrow angle as a number between 0 and 90.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Add a label, line, and arrow pointing to Physics. Run the first cell to get the relevant values as a starting point.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow add the text, curve, and arrow to the chart:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nother geoms with annotate()\nannotate() allows us to specify any of the geoms available, but besides text, the most useful ones are those which we didn’t use for data visualisation directly: segment, rectangle, and curve. You can then specify the usual aesthetics of those geoms such as colour, linetype, alpha and so forth.\n\nLines\nAdd a line to your plot using ‘segment’. For a vertical line set the x and xend to the desired value. To draw the line the whole way across the plot set y to 0 and yend to Inf (infinite). Let’s use it to mark 1969, the year the Economic Sciences prize was introduced (all the other five categories date back to 1901):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nThere’s actually a separate layer, geom_vline(), which you can use instead.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\nRectangles\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice the dip to zero in the early 1940s? No prizes at all were awarded in 1940, 1941, or 1942, because of the Second World War.\nTry it yourself: Create an annotated area which highlights the years from 1969 onwards, when the Economic Sciences prize has existed. Draw a label and an arrow for it. Set a colour, alpha and one other aesthetic value.\n\n\n\nHighlighting using colour\nOne effective method to draw attention to certain elements is to highlight using colours. This can be done fairly easily using our existing toolset. The set of steps are as follows:\n\nStart with your basic chart. Perhaps change colours or transparency to make the majority of the data ‘fade’ into the background.\nNext create new datasets containing only the data you wish to highlight.\nAdd these as layers to your existing chart\nChange the colours of these new elements\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 4: Data Visualisation 2 (part 2) & 3",
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>Annotations and Highlights</span>"
+    ]
+  },
+  {
+    "objectID": "36_annotations.html#learning-objectives",
+    "href": "36_annotations.html#learning-objectives",
+    "title": "41  Annotations and Highlights",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nAdd a text label to a chart with annotate()\nDraw a curve or arrow pointing to a specific data point\nAdd a reference line with annotate('segment') or geom_vline()\nHighlight a region of a chart with annotate('rect')\nHighlight specific data points by colour, fading the rest into the background",
     "crumbs": [
       "Week 4: Data Visualisation 2 (part 2) & 3",
       "<span class='chapter-number'>41</span>  <span class='chapter-title'>Annotations and Highlights</span>"
@@ -1343,6 +1596,17 @@
     ]
   },
   {
+    "objectID": "37_fair-data.html#learning-objectives",
+    "href": "37_fair-data.html#learning-objectives",
+    "title": "43  Reproducibility and FAIR data",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nExplain why reproducibility matters, and how R Markdown supports it\nKnow what the FAIR principles stand for (Findable, Accessible, Interoperable, Reusable)\nKnow what you can do, as an ‘end user’ of data, to keep your own work FAIR",
+    "crumbs": [
+      "Week 5: Ethics, FAIR Data & Digital Mapping 1",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Reproducibility and FAIR data</span>"
+    ]
+  },
+  {
     "objectID": "38_accessibility.html",
     "href": "38_accessibility.html",
     "title": "44  Data Visualisation and Accessibility Considerations",
@@ -1370,6 +1634,17 @@
     "title": "44  Data Visualisation and Accessibility Considerations",
     "section": "Alt-text",
     "text": "Alt-text\nA final consideration, particularly when making charts which are to be viewed online, is to take into account readers who use screen-reading software. We should aim to provide alt-text for images, which will be read out loud by screen readers. In doing so, you should aim to summarise the visual elements and key points of the chart.\n\nAlt Text defined from Webaim:\n\nIt is read by screen readers in place of images allowing the content and function of the image to be accessible to those with visual or certain cognitive disabilities.\nIt is displayed in place of the image in browsers if the image file is not loaded or when the user has chosen not to view images.\nIt provides a semantic meaning and description to images which can be read by search engines or be used to later determine the content of the image from page context alone.\n\nThe following is a good template to use for writing alt-text:\n\n\nChart type\nIt’s helpful for people with partial sight to know what chart type it is and gives context for understanding the rest of the visual.\nExample: Line graph\n\n\nType of data\nWhat data is included in the chart? The x and y axis labels may help you figure this out.\nExample: number of bananas sold per day in the last year\n\n\nReason for including the chart\nThink about why you’re including this visual. What does it show that’s meaningful. There should be a point to every visual and you should tell people what to look for.\nExample: the winter months have more banana sales\n\n\nLink to data or source\nDon’t include this in your alt text, but it should be included somewhere in the surrounding text. People should be able to click on a link to view the source data or dig further into the visual. This provides transparency about your source and lets people explore the data.\nExample: Data from the USDA\n\n\n\nAdding alt-text in R Markdown.\nYou can add alt-text to static images or to generated plots made in code cells.\nTo add alt-text to R Markdown files, switch to the Source editor in Posit Cloud/RStudio.\n\nCode cell options\nWe can add what are known as ‘cell options’, which allow us to edit how the result of a code cell is displayed in the knitted markdown file. In R Markdown, enter your code cell options between the first set of curly brackets, after the r. Leave a space, then each option, an equal sign, and the required value. Leave a comma in between each option.\nYou can use this to change the figure width and height in the output (fig.width and fig.height), whether or not the code is displayed in the finished file (echo=false), and many more.\nAlt-text can be added to a generated figure from a code cell using the cell option fig.alt. The screenshot below shows how it should be added to a code cell:",
+    "crumbs": [
+      "Week 5: Ethics, FAIR Data & Digital Mapping 1",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Data Visualisation and Accessibility Considerations</span>"
+    ]
+  },
+  {
+    "objectID": "38_accessibility.html#learning-objectives",
+    "href": "38_accessibility.html#learning-objectives",
+    "title": "44  Data Visualisation and Accessibility Considerations",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nExplain what makes a data visualisation more (or less) accessible\nChoose a colour-vision-deficiency-safe scale for sequential, diverging, and categorical data\nKnow why colour contrast matters, and how to improve it\nWrite good alt-text for a chart, and add it to a code cell",
     "crumbs": [
       "Week 5: Ethics, FAIR Data & Digital Mapping 1",
       "<span class='chapter-number'>44</span>  <span class='chapter-title'>Data Visualisation and Accessibility Considerations</span>"
@@ -1414,6 +1689,17 @@
     "title": "45  TidyTuesday visualisation challenge",
     "section": "Do the challenge",
     "text": "Do the challenge\nUsing the markdown document, load in your chosen dataset. Read the associated information about it through the link above, as well as looking at the actual data in Posit. Look at the column names and types.\nIn the markdown document, do your data exploration and visualisation.\nNeed help choosing a suitable chart type? Try https://www.data-to-viz.com/\nConsider accessibility: choose a suitable colour scheme and adjust theme elements so they are readable.\nAdd a figure caption and alt-text, using the code chunk options.\nQuestions:\n\nWhat is the source of the dataset? Is it easy to find information on it?\nHow well does this dataset hold up against the FAIR principles - is it Findable, Accessible, Interoperable, and Reusable?\nWhat kinds of questions could be asked with this dataset?\nWhat ethical considerations are there with this dataset?",
+    "crumbs": [
+      "Week 5: Ethics, FAIR Data & Digital Mapping 1",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
+    ]
+  },
+  {
+    "objectID": "39_tidytuesday-challenge.html#learning-objectives",
+    "href": "39_tidytuesday-challenge.html#learning-objectives",
+    "title": "45  TidyTuesday visualisation challenge",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nFind and download a TidyTuesday dataset with a humanities or cultural focus\nExplore and visualise a new, unfamiliar dataset independently\nApply FAIR data and accessibility principles to your own chart\nReflect critically on a dataset’s source and its ethical considerations",
     "crumbs": [
       "Week 5: Ethics, FAIR Data & Digital Mapping 1",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
@@ -1480,6 +1766,17 @@
     "title": "47  Digital mapping overview",
     "section": "Using aesthetics to map data",
     "text": "Using aesthetics to map data\nJust like the earlier data visualisations we made on this course, we can also map further aesthetics as well as position to the data. In this next example from the New York Times, data on weather records was mapped. The authors drew points using both colour (a categorical colour scale, either red for heat or blue for cold records) and size (the amount by which the previous record was broken) to communicate the areas where temperature records had been most extreme in that year.\n\n\nChoropleth maps\nA classic use of mapping data to polygons are election maps. This is because election results are usually counted by region, municipality, or other political border. In this example from the 2011 election in the Netherlands, each municipality is represented by a polygon. Each polygon is then coloured by the winning party. A discrete colour scale is used, because this is categorical data (each region has exactly one winning party).\n\nA map where colour is used to present statistical data through polygon shapes is known as a choropleth map. These maps tend to be useful when we have data which is not related to a single point (such as a town or city), but is connected to regions, such as countries, municipalities and so forth.\nHowever, there are some issues we should be aware of making choropleth maps. In the example of the election map above, about half of the map is coloured blue. This might lead us to think that the VVD party received over half of the total votes. But while they were the largest party, in fact they won 112 seats out of a total of 566 - about one-fifth of the votes.\nThis is of course because this map hides the fact that elections are related to population rather than land area. The VVD party are bigger in rural areas which tend to be sparsely populated. Generally, when creating data visualisations, it is best practice that each pixel or piece of ‘ink’ on the page represents the same amount of numerical value. This is not the case if we use geographic data like this. In this case, the numerical unit is a vote, and some votes are represented by less area than others, because of population density.\nOne fix for this is to create a cartogram map. This attempts to distort a map so that the area better reflects the data. This example distorts the shapes of the countries of the European Union so that the area of each is related to the amount of the budget they either contribute or receive (between 2007 and 2013, and per capita).\n\nOver the next couple of sessions, we’ll learn how to make maps from scratch using R. Starting with mapping some simple data, and moving on to importing our own separate data sources.",
+    "crumbs": [
+      "Week 5: Ethics, FAIR Data & Digital Mapping 1",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Digital mapping overview</span>"
+    ]
+  },
+  {
+    "objectID": "42_digital-mapping-1.html#learning-objectives",
+    "href": "42_digital-mapping-1.html#learning-objectives",
+    "title": "47  Digital mapping overview",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the difference between raster and vector maps\nKnow the difference between mapping data to points vs to polygons\nExplain what a choropleth map is, and one common pitfall of making one\nRecognise what makes a map a useful (or misleading) data visualisation",
     "crumbs": [
       "Week 5: Ethics, FAIR Data & Digital Mapping 1",
       "<span class='chapter-number'>47</span>  <span class='chapter-title'>Digital mapping overview</span>"
@@ -1557,6 +1854,17 @@
     "title": "48  Working with Shapefiles",
     "section": "Downloading other data",
     "text": "Downloading other data\nR Natural Earth has a huge amount of other data you can download. The functions ne_countries() and ne_coastline() are there to give easy access to some of the most common shapefiles. For other data, you can use the more complex ne_download().\nThis function works similarly, but allows you to download other data. This ranges from physical features like lakes and rivers, to cities, ports, and airports. Note however that the package is reliant on the Natural Earth database remaining the same, so occasionally you will find it does not correctly download a dataset.\nIn order to work with this function, you need to know how the Natural Earth database stores data. Each file is one of three categories:\n\ncultural: meaning ‘human-created’ geographic objects such as country borders, cities, and so forth.\nphysical: physical features such as rivers, lakes, mountains.\nraster: geographic data made from pixels instead of shapes. We won’t work with this on this course.\n\nNext, the data is at one of three scales:\n\nsmall\nmedium\nlarge\n\nOn the Natural Earth data download page, you’ll see that there are links to each of these categories at each different scale.\n\nFind a file on the database website.\nTo download a specific file, first find it on the Natural Earth site. You’ll see the data is divided into categories and sizes:\n\nUse the website to choose the data you’re interested in. Note the size and category you’ve chosen, for example large and cultural.\nClicking on a category button will bring you to a page with download links. Right click and use ‘copy link address’ and save it somewhere. It will look something like https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_populated_places.zip.\n\n\nConstruct a query\nNow we can construct our query. Within the ne_download() function, specify the correct scale from small, medium large. Next choose the category, from cultural, physical or raster.\nFinally, specify the type. For this, take the saved download link, and take everything after the ne_ and the scale (in this case ne_50m_), and before the .zip. In this example this is simply populated_places.\nFinally, set the returnclass argument to \"sf\" as before.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself:\nDownload a medium-scale set of rivers - browse to the right section here and find the relevant filename.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDownload a large-scale set of Admin 1, states and provinces.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 5: Ethics, FAIR Data & Digital Mapping 1",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Working with Shapefiles</span>"
+    ]
+  },
+  {
+    "objectID": "43_basemaps.html#learning-objectives",
+    "href": "43_basemaps.html#learning-objectives",
+    "title": "48  Working with Shapefiles",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow what a shapefile is, and what a simple features (sf) object looks like\nKnow what a Coordinate Reference System (CRS) is, at a basic level\nDownload a shapefile of countries or coastlines using rnaturalearth\nUse ne_download() to find and download other Natural Earth data",
     "crumbs": [
       "Week 5: Ethics, FAIR Data & Digital Mapping 1",
       "<span class='chapter-number'>48</span>  <span class='chapter-title'>Working with Shapefiles</span>"
@@ -1673,6 +1981,17 @@
     ]
   },
   {
+    "objectID": "44_visualising-map-data.html#learning-objectives",
+    "href": "44_visualising-map-data.html#learning-objectives",
+    "title": "49  Wrangling and visualising map data",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse regular tidyverse verbs (filter(), mutate(), summarise()) on an sf object\nDraw a map with geom_sf(), and map a variable to its fill colour\nZoom in on part of a map with coord_sf(), and know why filtering and zooming aren’t the same thing\nKnow what a map projection is, and change one with st_transform()\nKnow the difference between a geographic and a projected CRS",
+    "crumbs": [
+      "Week 5: Ethics, FAIR Data & Digital Mapping 1",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Wrangling and visualising map data</span>"
+    ]
+  },
+  {
     "objectID": "45_at-home-8.html",
     "href": "45_at-home-8.html",
     "title": "50  Home Exercise",
@@ -1772,11 +2091,22 @@
     ]
   },
   {
+    "objectID": "46_full-map.html#learning-objectives",
+    "href": "46_full-map.html#learning-objectives",
+    "title": "52  Full map workflow",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nList the steps of a full map-making workflow, from raw data to finished map\nKnow the difference between shapefiles, geoJSON, and geopackage formats\nFind a common key column to join a dataset to a shapefile\nJoin a dataset to a shapefile with left_join(), and map the result",
+    "crumbs": [
+      "Week 6: Digital Mapping 2 & 3, Publication",
+      "<span class='chapter-number'>52</span>  <span class='chapter-title'>Full map workflow</span>"
+    ]
+  },
+  {
     "objectID": "48_digital-mapping-3.html",
     "href": "48_digital-mapping-3.html",
     "title": "53  Digital Mapping 3",
     "section": "",
-    "text": "Learning objectives\nMake a map from a dataset\nMake a points map\nAdjust it using scales etc. for colour and boundaries.\nBonus - make an interactive map\nThis week we are going to make a slightly different type of map: a points or dot map. We saw some examples of these last week.\nThe main difference is that instead of matching place names up to shapes, this time, we will map individual points based on sets of coordinates.\nIn some ways, this is easier than the choropleth map we made earlier.\nTo recall, to make a choropleth map, we needed to find a base map of relevant shapes (such as the municipalities of the Netherlands, or countries of the world), as well as a dataset with some data about those named places, and use left_join to merge the two together, before drawing the map.\nA points map has a slightly different process. Rather than having names of regions, to make a points map, we will need coordinates, pointing to a specific point on the earth’s surface.",
+    "text": "Latitude and Longitude\nThese take the form of two numbers, specifying latitude and longitude. Latitude measures the north-south position of a point on the surface of the earth, ranging from +90°(North Pole) to -90°(South Pole), with the equator at 0°. Longitude measures the east-west position. 0°is found in a line running through Greenwich, in London, known as the prime meridian.\nCoordinates can be expressed either in decimal (the latitude for Leiden is 52.160114 and the longitude is 4.497010) or degrees/minutes/seconds (DMS notation). In DMS notation, the latitude for Leiden is 52° 9' 36.4104'' N and the longitude is 4° 29' 49.2360'' E.\nIn decimal, points to the south of the equator and to the west of the prime meridian are given negative numbers (the coordinates for Buenos Aires are -34.603722, -58.381592 in decimal).\nIn DMS, points are specified whether they are East/West/North/South of the prime meridian and equator, making Buenos Aires 34° 36' 13.3992'' S and 58° 22' 53.7312'' W. In all of our cases, we’ll use decimal notation.",
     "crumbs": [
       "Week 6: Digital Mapping 2 & 3, Publication",
       "<span class='chapter-number'>53</span>  <span class='chapter-title'>Digital Mapping 3</span>"
@@ -1788,6 +2118,17 @@
     "title": "53  Digital Mapping 3",
     "section": "Getting Points for Maps",
     "text": "Getting Points for Maps\nThere are many ways to get sets of points to map. In some cases, you might be given the coordinates alongside the data itself. In many other cases, you might just have a city, village, or address name with no coordinates. In this case, you’ll have to find coordinates for these places.\n\nManual Method\nIf you have a small number of well-known, modern places (a list of capital cities, for example), you might just want to look them up on Wikipedia. Each place should have a hyperlink with a set of coordinates, given in degrees/minutes/seconds. If you click on this link you’ll land on a page which also contains the decimal notation, which can be copied into a spreadsheet, for example.\n\n\nGazetteers\nIf you have a large number of places, maybe including some which are more obscure, are historical, or in several languages, you could use a gazetteer. A gazetteer is like a geographical dictionary: it contains names of places, and usually some kind of reference to their position on earth.\nPerhaps the most well-known gazetteer is Geonames, which contains coordinates and other information for about 12 million place names. Gazetteers are often made with specialist subjects in mind, for example the Pleiades gazetteer of ancient places, or the World Historical Gazetteer.\nMost gazetteers allow you to download the entire underlying dataset, which can be useful to link your dataset of place names to the relevant coordinates.\nGazetteers can be quite complex, because of the huge variety in the way places are given names, particularly over time, and because there are often multiple places with the same name. Places can also be named differently in different cultures and languages. Particularly if you want to automatically link places to coordinates, you’ll need to proceed with caution, and check your results manually afterwards.\n\n\nGeocoding service\nAnother way to find coordinates for a list of places is to use a geocoding service. These are resources which allow you to enter or upload a list of place names or addresses, which are then looked up using a geocoding API, and the coordinates are returned. This is particularly useful if you have a fairly large dataset of places, and if they are modern addresses. An advantage of a geocoding service is that they will usually take a full address into account, which is not always the case with a gazetteer. In this way, they can distinguish between Dublin, Ireland, and Dublin, Ohio.\nThese tools are usually commercial services which allow you to use them for free with some restrictions. One example of a web service is Geoapify. You can also use services in certain versions of QGIS and ArcGIS.",
+    "crumbs": [
+      "Week 6: Digital Mapping 2 & 3, Publication",
+      "<span class='chapter-number'>53</span>  <span class='chapter-title'>Digital Mapping 3</span>"
+    ]
+  },
+  {
+    "objectID": "48_digital-mapping-3.html#learning-objectives",
+    "href": "48_digital-mapping-3.html#learning-objectives",
+    "title": "53  Digital Mapping 3",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nRead latitude and longitude in both decimal and DMS notation\nKnow the three main ways to find coordinates for a set of places: manual lookup, gazetteers, and geocoding services\nKnow when each of those methods is the right one to use",
     "crumbs": [
       "Week 6: Digital Mapping 2 & 3, Publication",
       "<span class='chapter-number'>53</span>  <span class='chapter-title'>Digital Mapping 3</span>"
@@ -1871,6 +2212,17 @@
     ]
   },
   {
+    "objectID": "47_points-map.html#learning-objectives",
+    "href": "47_points-map.html#learning-objectives",
+    "title": "54  Creating your own geographic objects",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nTurn a set of coordinates into a simple features object with st_as_sf()\nAggregate points data before mapping it, so points don’t disappear on top of each other\nAdd a basemap layer underneath a points map, and zoom in with coord_sf()\nUse facet_wrap() to draw a separate map for each category",
+    "crumbs": [
+      "Week 6: Digital Mapping 2 & 3, Publication",
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>Creating your own geographic objects</span>"
+    ]
+  },
+  {
     "objectID": "49_interactive-maps.html",
     "href": "49_interactive-maps.html",
     "title": "55  Making Plots Interactive",
@@ -1926,11 +2278,33 @@
     ]
   },
   {
+    "objectID": "49_interactive-maps.html#learning-objectives",
+    "href": "49_interactive-maps.html#learning-objectives",
+    "title": "55  Making Plots Interactive",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nConvert a ggplot chart into an interactive plotly chart with ggplotly()\nCustomise a plotly tooltip, including with HTML formatting\nKnow the basic building blocks of tmap (tm_shape(), tm_polygons(), tm_symbols())\nSwitch tmap into interactive ‘view’ mode",
+    "crumbs": [
+      "Week 6: Digital Mapping 2 & 3, Publication",
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>Making Plots Interactive</span>"
+    ]
+  },
+  {
     "objectID": "50_plotly.html",
     "href": "50_plotly.html",
     "title": "56  Plotly",
     "section": "",
     "text": "If time: interactive charts\nAnother way to make more readable charts is to include interactive elements. This can help viewers to find interesting points in the data by hovering and clicking, or by zooming in. This negates the need for annotations and labels in many cases, meaning we can make less cluttered visualisations.\nThese interactive charts will display in the same .html documents we have used for the weekly exercises and assignments.\nIn R, we can use a library called plotly to easily turn our visualisations interactive.\nFirst, create a regular ggplot plot. Importantly, you should name this plot in your environment by setting a name followed by =.\nWe’ll highlight a single country against the rest, and keep the titles and labels, but leave off any extra annotations - plotly’s own hover tooltips will do that job for us.\nlibrary(tidyverse)\n\ngapminder_df = read_tsv('gapminder_df.csv') |&gt; filter(continent != 'FSU')\n\neurope_df = gapminder_df |&gt; filter(continent == 'Europe')\nnetherlands_df = gapminder_df |&gt; filter(country == 'Netherlands')\n\np = ggplot() +\n  geom_line(data = europe_df, aes(x = year, y = gdpPercap, group = country), alpha = .5) +\n  geom_line(data = netherlands_df, aes(x = year, y = gdpPercap), linewidth = 1.5, color = 'forestgreen') +\n  labs(title = \"GDP per Capita in Europe\",\n       subtitle = \"1952-2007, Netherlands highlighted\",\n       caption = \"Data from the Gapminder Foundation\",\n       x = NULL,\n       y = \"GDP per capita\") +\n  theme(axis.title = element_text(size = 16))\nNow, load the library plotly. If it’s not installed, install using install.packages('plotly').\nYou can make plots directly in plotly using this syntax, or you can use a function called ggplotly() to automatically convert your static chart. Simply pass your chart name to the function:\nlibrary(plotly)\n\nggplotly(p)",
+    "crumbs": [
+      "Week 6: Digital Mapping 2 & 3, Publication",
+      "<span class='chapter-number'>56</span>  <span class='chapter-title'>Plotly</span>"
+    ]
+  },
+  {
+    "objectID": "50_plotly.html#learning-objectives",
+    "href": "50_plotly.html#learning-objectives",
+    "title": "56  Plotly",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nConvert an existing ggplot chart into an interactive one with ggplotly()\nKnow what plotly’s interactive features (hover, zoom, legend toggle) add for a viewer",
     "crumbs": [
       "Week 6: Digital Mapping 2 & 3, Publication",
       "<span class='chapter-number'>56</span>  <span class='chapter-title'>Plotly</span>"
@@ -1952,7 +2326,18 @@
     "href": "51_tmap.html#interactive-choropleth-maps",
     "title": "57  Tmap",
     "section": "Interactive choropleth maps",
-    "text": "Interactive choropleth maps\nTo make nice interactive maps we’ll use another package called tmap. tmap is a very nice package specifically for making maps. Unfortunately it doesn’t use exactly the same syntax we have learned with ggplot, but it is by far the easiest way to make interactive maps.\nThe following code only works in RStudio so it is static in the book:\n\nLoad the tmap library.\nDownload a map from R Natural Earth\nSwitch to the ‘view’ mode using tmap_mode(\"view\") to make the output an interactive map.\ntm_shape() is more or less the equivalent of ggplot(): it’s the ‘base’ of the map, where we specify which shapefile should be used. On top of this we add layers, such as polygons or points, and also additional map elements such as a legend, scale, projection, and so forth. We can also add additional tm_shape() layers.\nAdd the tm_polygons() layer which will draw polygon shapes on the map based on the shapefile. Set the fill to the income_grp column, in quotation marks (just as with ggplot, fill is the argument for the shaded area of a polygon; col is reserved for the border colour). Set the id which will determine which column is used to display text with a mouse hover.\nAdd a tm_view() layer, which allows us to set options for the interactive viewer. Add a vector of three numbers: the starting latitude and longitude, and the zoom level.\n\n\nlibrary(tmap)\nlibrary(tidyverse)\nlibrary(rnaturalearth)\nlibrary(sf)\n\nsf_use_s2(FALSE)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf') \n\ntmap_mode(\"view\")\n\ntm_shape(worldmap) +\n  tm_polygons(fill\n              =\"income_grp\", id = 'name' ) +\n  tm_view(set.view = c(0, 50, 3))\n\n\n\n\n\n\nTmap can do cool things like interactive facets, using the layer tm_facets():\n\ntmap_mode(\"view\")\n\nℹ tmap mode set to \"view\".\n\ntm_shape(worldmap) +\n  tm_polygons(c(\"income_grp\", 'pop_est'), id = 'name') +\n  tm_view(set.view = c(0, 50, 4)) + \n  tm_facets(sync = TRUE, ncol = 2)",
+    "text": "Interactive choropleth maps\nTo make nice interactive maps we’ll use another package called tmap. tmap is a very nice package specifically for making maps. Unfortunately it doesn’t use exactly the same syntax we have learned with ggplot, but it is by far the easiest way to make interactive maps.\nThe following code only works in RStudio so it is static in the book:\n\nLoad the tmap library.\nDownload a map from R Natural Earth\nSwitch to the ‘view’ mode using tmap_mode(\"view\") to make the output an interactive map.\ntm_shape() is more or less the equivalent of ggplot(): it’s the ‘base’ of the map, where we specify which shapefile should be used. On top of this we add layers, such as polygons or points, and also additional map elements such as a legend, scale, projection, and so forth. We can also add additional tm_shape() layers.\nAdd the tm_polygons() layer which will draw polygon shapes on the map based on the shapefile. Set the fill to the income_grp column, in quotation marks (just as with ggplot, fill is the argument for the shaded area of a polygon; col is reserved for the border colour). Set the id which will determine which column is used to display text with a mouse hover.\nAdd a tm_view() layer, which allows us to set options for the interactive viewer. Add a vector of three numbers: the starting latitude and longitude, and the zoom level.\n\n\nlibrary(tmap)\nlibrary(tidyverse)\nlibrary(rnaturalearth)\nlibrary(sf)\n\nsf_use_s2(FALSE)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf') \n\ntmap_mode(\"view\")\n\ntm_shape(worldmap) +\n  tm_polygons(fill\n              =\"income_grp\", id = 'name' ) +\n  tm_view(set.view = c(0, 50, 3))\n\n\n\n\n\n\nTmap can do cool things like interactive facets, using the layer tm_facets():\n\ntmap_mode(\"view\")\n\nℹ tmap mode set to \"view\".\n\ntm_shape(worldmap) +\n  tm_polygons(c(\"income_grp\", 'pop_est'), id = 'name') +\n  tm_view(set.view = c(0, 50, 4)) +\n  tm_facets(sync = TRUE, ncol = 2)",
+    "crumbs": [
+      "Week 6: Digital Mapping 2 & 3, Publication",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Tmap</span>"
+    ]
+  },
+  {
+    "objectID": "51_tmap.html#learning-objectives",
+    "href": "51_tmap.html#learning-objectives",
+    "title": "57  Tmap",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nBuild an interactive point map with tmap’s tm_shape() and tm_symbols()\nSet the size, fill, id, and popup.vars options for map symbols\nBuild an interactive choropleth map with tm_polygons()\nUse tm_facets() to build synced, interactive small multiples",
     "crumbs": [
       "Week 6: Digital Mapping 2 & 3, Publication",
       "<span class='chapter-number'>57</span>  <span class='chapter-title'>Tmap</span>"

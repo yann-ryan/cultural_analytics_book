@@ -590,6 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting">Faceting</a></li>
   <li><a href="#in-class-exercise-1" id="toc-in-class-exercise-1" class="nav-link" data-scroll-target="#in-class-exercise-1">In-class exercise 1:</a></li>
   <li><a href="#in-class-exercise-2" id="toc-in-class-exercise-2" class="nav-link" data-scroll-target="#in-class-exercise-2">In class exercise 2:</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -797,6 +798,17 @@ Note
 <li><p>Adjust the coordinate limits to focus on the main region of Europe, ignoring the Atlantic islands.</p></li>
 <li><p>The map looks a little strange with missing regions and countries (i.e the UK). How could we solve this, so they are at least present, but perhaps greyed out?</p></li>
 <li><p><strong>Try this extra challenge:</strong> make a version which creates a series of mini-maps, one for each year in the data. To do this you’ll need to <code>pivot</code> your data so that it is in a ‘long’ format, with each data point for each year in a single row, and use a function called <code>facet_wrap()</code>.</p></li>
+</ul>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Turn a set of coordinates into a simple features object with <code>st_as_sf()</code></label></li>
+<li><label><input type="checkbox">Aggregate points data before mapping it, so points don’t disappear on top of each other</label></li>
+<li><label><input type="checkbox">Add a basemap layer underneath a points map, and zoom in with <code>coord_sf()</code></label></li>
+<li><label><input type="checkbox">Use <code>facet_wrap()</code> to draw a separate map for each category</label></li>
 </ul>
 
 

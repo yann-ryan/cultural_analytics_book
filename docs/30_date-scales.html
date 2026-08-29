@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"out-width":"700px","fig-height":5,"label":"unnamed-chunk-1","results":"markup","autorun":"true","message":"true","editor-word-wrap":"true","out-height":"","warning":"true","output":"true","context":"setup","dpi":72,"fig-cap":"","comment":"","editor-quick-suggestions":"false","classes":"","fig-width":7,"editor-font-scale":"1","editor-max-height":"","read-only":"false"},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())"},{"id":2,"options":{"out-width":"700px","fig-height":5,"label":"unnamed-chunk-2","results":"markup","autorun":"false","message":"true","editor-word-wrap":"true","out-height":"","warning":"true","output":"true","context":"interactive","dpi":72,"fig-cap":"","comment":"","editor-quick-suggestions":"false","classes":"","fig-width":7,"editor-font-scale":"1","editor-max-height":"","read-only":"false"},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))"},{"id":3,"options":{"out-width":"700px","fig-height":5,"label":"unnamed-chunk-3","results":"markup","autorun":"false","message":"true","editor-word-wrap":"true","out-height":"","warning":"true","output":"true","context":"interactive","dpi":72,"fig-cap":"","comment":"","editor-quick-suggestions":"false","classes":"","fig-width":7,"editor-font-scale":"1","editor-max-height":"","read-only":"false"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")"},{"id":4,"options":{"out-width":"700px","fig-height":5,"label":"unnamed-chunk-4","results":"markup","autorun":"false","message":"true","editor-word-wrap":"true","out-height":"","warning":"true","output":"true","context":"interactive","dpi":72,"fig-cap":"","comment":"","editor-quick-suggestions":"false","classes":"","fig-width":7,"editor-font-scale":"1","editor-max-height":"","read-only":"false"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')"},{"id":5,"options":{"out-width":"700px","fig-height":5,"label":"unnamed-chunk-5","results":"markup","autorun":"false","message":"true","editor-word-wrap":"true","out-height":"","warning":"true","output":"true","context":"interactive","dpi":72,"fig-cap":"","comment":"","editor-quick-suggestions":"false","classes":"","fig-width":7,"editor-font-scale":"1","editor-max-height":"","read-only":"false"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")"}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","classes":"","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"out-width":"700px","label":"unnamed-chunk-1","warning":"true","autorun":"true","read-only":"false","comment":"","dpi":72,"context":"setup","message":"true","results":"markup"},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())"},{"id":2,"options":{"fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","classes":"","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"out-width":"700px","label":"unnamed-chunk-2","warning":"true","autorun":"false","read-only":"false","comment":"","dpi":72,"context":"interactive","message":"true","results":"markup"},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))"},{"id":3,"options":{"fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","classes":"","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"out-width":"700px","label":"unnamed-chunk-3","warning":"true","autorun":"false","read-only":"false","comment":"","dpi":72,"context":"interactive","message":"true","results":"markup"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")"},{"id":4,"options":{"fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","classes":"","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"out-width":"700px","label":"unnamed-chunk-4","warning":"true","autorun":"false","read-only":"false","comment":"","dpi":72,"context":"interactive","message":"true","results":"markup"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')"},{"id":5,"options":{"fig-cap":"","fig-width":7,"editor-max-height":"","output":"true","classes":"","editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"out-width":"700px","label":"unnamed-chunk-5","warning":"true","autorun":"false","read-only":"false","comment":"","dpi":72,"context":"interactive","message":"true","results":"markup"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")"}];
 
 </script>
 <script type="module">
@@ -2035,6 +2035,7 @@ globalThis.qwebrExecuteCode = async function (
   <ul class="collapse">
   <li><a href="#date-minor-breaks" id="toc-date-minor-breaks" class="nav-link" data-scroll-target="#date-minor-breaks">Date minor breaks</a></li>
   </ul></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -2369,10 +2370,20 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>The full list of labels is available <a href="https://ggplot2-book.org/scales-position#sec-date-labels">here</a>.</p>
-
-
 </section>
 </section>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Use a date scale to control breaks and labels on a date axis</label></li>
+<li><label><input type="checkbox">Set minor breaks on a date scale</label></li>
+<li><label><input type="checkbox">Know why dates need their own scale, rather than a plain numeric one</label></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

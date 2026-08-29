@@ -72,3 +72,13 @@ Sort by the `fare` column. What is unusual about this and why? How do you think 
 -   Use `arrange()` to find the 5 oldest male passengers.
 
 -   Use a `slice_` function to find the 20 youngest passengers, and put them in alphabetical order.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `arrange()` to sort a dataframe by one or more columns
+-   [ ] Sort in descending order, including for text columns (with `desc()`)
+-   [ ] Know how `arrange()` sorts text columns, and why this can look unexpected

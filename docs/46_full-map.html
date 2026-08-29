@@ -590,6 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#map-with-ggplot-and-geom_sf" id="toc-map-with-ggplot-and-geom_sf" class="nav-link" data-scroll-target="#map-with-ggplot-and-geom_sf">8: Map with ggplot and geom_sf</a></li>
   <li><a href="#finishing-touches" id="toc-finishing-touches" class="nav-link" data-scroll-target="#finishing-touches">9: Finishing Touches</a></li>
   </ul></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -804,9 +805,20 @@ Note
 <h3 class="anchored" data-anchor-id="finishing-touches">9: Finishing Touches</h3>
 <p>Now, make edits to your map to make it more readable and looking better aesthetically. You’ll probably want to adjust the limits and projection of the map using <code>coord_sf</code>, and experiment with the scale using <code>scale_fill_</code>. You could also think about binning the colors (often it’s easier to interpret specific colors on maps rather than a continuous scale). This is the point where you will need to use <code>facet_wrap()</code> to draw maps separately, if you went down this route.</p>
 <p>You could also add a map scale bar and a compass using the package ggsn (you’ll need to install it separately using <code>install.packages()</code>).</p>
-
-
 </section>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">List the steps of a full map-making workflow, from raw data to finished map</label></li>
+<li><label><input type="checkbox">Know the difference between shapefiles, geoJSON, and geopackage formats</label></li>
+<li><label><input type="checkbox">Find a common key column to join a dataset to a shapefile</label></li>
+<li><label><input type="checkbox">Join a dataset to a shapefile with <code>left_join()</code>, and map the result</label></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

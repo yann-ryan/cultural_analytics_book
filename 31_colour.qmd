@@ -241,3 +241,15 @@ nobel_summary |>
 ::: callout-note
 Changing the position and other visual aspects of the legend is done within *themes*, which we'll cover later this week.
 :::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know when ggplot picks a continuous vs a discrete colour/fill scale
+-   [ ] Apply a built-in scale (e.g. viridis) to a chart
+-   [ ] Build a scale from an existing palette (`scale_fill_distiller()`/`scale_fill_brewer()`)
+-   [ ] Build a custom scale with specific colours (gradient/manual)
+-   [ ] Adjust a size scale, and a legend's limits, breaks, and orientation

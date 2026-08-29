@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"output":"true","fig-height":5,"read-only":"false","fig-cap":"","out-width":"700px","context":"setup","editor-font-scale":"1","editor-word-wrap":"true","fig-width":7,"dpi":72,"message":"true","label":"unnamed-chunk-1","editor-quick-suggestions":"false","classes":"","autorun":"true","warning":"true","results":"markup","editor-max-height":"","out-height":"","comment":""}},{"code":"titanic_df |>\n  summarise(count = n())","id":2,"options":{"output":"true","fig-height":5,"read-only":"false","fig-cap":"","out-width":"700px","context":"interactive","editor-font-scale":"1","editor-word-wrap":"true","fig-width":7,"dpi":72,"message":"true","label":"unnamed-chunk-2","editor-quick-suggestions":"false","classes":"","autorun":"false","warning":"true","results":"markup","editor-max-height":"","out-height":"","comment":""}},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","id":3,"options":{"output":"true","fig-height":5,"read-only":"false","fig-cap":"","out-width":"700px","context":"interactive","editor-font-scale":"1","editor-word-wrap":"true","fig-width":7,"dpi":72,"message":"true","label":"unnamed-chunk-3","editor-quick-suggestions":"false","classes":"","autorun":"false","warning":"true","results":"markup","editor-max-height":"","out-height":"","comment":""}},{"code":"","id":4,"options":{"output":"true","fig-height":5,"read-only":"false","fig-cap":"","out-width":"700px","context":"interactive","editor-font-scale":"1","editor-word-wrap":"true","fig-width":7,"dpi":72,"message":"true","label":"unnamed-chunk-4","editor-quick-suggestions":"false","classes":"","autorun":"false","warning":"true","results":"markup","editor-max-height":"","out-height":"","comment":""}},{"code":"","id":5,"options":{"output":"true","fig-height":5,"read-only":"false","fig-cap":"","out-width":"700px","context":"interactive","editor-font-scale":"1","editor-word-wrap":"true","fig-width":7,"dpi":72,"message":"true","label":"unnamed-chunk-5","editor-quick-suggestions":"false","classes":"","autorun":"false","warning":"true","results":"markup","editor-max-height":"","out-height":"","comment":""}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"out-width":"700px","message":"true","output":"true","dpi":72,"fig-cap":"","fig-width":7,"classes":"","results":"markup","fig-height":5,"label":"unnamed-chunk-1","editor-word-wrap":"true","out-height":"","comment":"","context":"setup","editor-max-height":"","editor-font-scale":"1","read-only":"false","editor-quick-suggestions":"false","autorun":"true","warning":"true"},"id":1},{"code":"titanic_df |>\n  summarise(count = n())","options":{"out-width":"700px","message":"true","output":"true","dpi":72,"fig-cap":"","fig-width":7,"classes":"","results":"markup","fig-height":5,"label":"unnamed-chunk-2","editor-word-wrap":"true","out-height":"","comment":"","context":"interactive","editor-max-height":"","editor-font-scale":"1","read-only":"false","editor-quick-suggestions":"false","autorun":"false","warning":"true"},"id":2},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","options":{"out-width":"700px","message":"true","output":"true","dpi":72,"fig-cap":"","fig-width":7,"classes":"","results":"markup","fig-height":5,"label":"unnamed-chunk-3","editor-word-wrap":"true","out-height":"","comment":"","context":"interactive","editor-max-height":"","editor-font-scale":"1","read-only":"false","editor-quick-suggestions":"false","autorun":"false","warning":"true"},"id":3},{"code":"","options":{"out-width":"700px","message":"true","output":"true","dpi":72,"fig-cap":"","fig-width":7,"classes":"","results":"markup","fig-height":5,"label":"unnamed-chunk-4","editor-word-wrap":"true","out-height":"","comment":"","context":"interactive","editor-max-height":"","editor-font-scale":"1","read-only":"false","editor-quick-suggestions":"false","autorun":"false","warning":"true"},"id":4},{"code":"","options":{"out-width":"700px","message":"true","output":"true","dpi":72,"fig-cap":"","fig-width":7,"classes":"","results":"markup","fig-height":5,"label":"unnamed-chunk-5","editor-word-wrap":"true","out-height":"","comment":"","context":"interactive","editor-max-height":"","editor-font-scale":"1","read-only":"false","editor-quick-suggestions":"false","autorun":"false","warning":"true"},"id":5}];
 
 </script>
 <script type="module">
@@ -2033,6 +2033,7 @@ globalThis.qwebrExecuteCode = async function (
   <ul>
   <li><a href="#counting-with-summarise" id="toc-counting-with-summarise" class="nav-link active" data-scroll-target="#counting-with-summarise">Counting with summarise()</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises:</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -2400,6 +2401,17 @@ Save some typing by using tally()
 <p>What is the maximum fare paid? You can use the function max() for this.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Use <code>summarise()</code> to calculate a single summary value from a dataframe</label></li>
+<li><label><input type="checkbox">Know the difference between counting rows (<code>n()</code>) and summing a value (<code>sum()</code>)</label></li>
+<li><label><input type="checkbox">Know some other common summary functions (<code>mean()</code>, <code>median()</code>, <code>min()</code>, <code>max()</code>)</label></li>
+<li><label><input type="checkbox">Use <code>tally()</code> as a shortcut for a simple count or sum</label></li>
+</ul>
 
 
 </section>

@@ -48,3 +48,14 @@ Finally, use the data...
 
 -   Get the average attendance for each performance type for each region.
 -   Calculate the total number of performances per region.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Import and inspect a real, messy dataset
+-   [ ] Clean and filter a dataset to keep only the rows and columns you need
+-   [ ] Reshape a dataset into a tidy, long format
+-   [ ] Join in extra information from a second dataset, and export the result

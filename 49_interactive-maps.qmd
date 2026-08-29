@@ -150,3 +150,14 @@ A full worked example of this - including interactive facets with `tm_facets()` 
 ## In class exercise:
 
 The following is a good example of the kind of real-world workflow in making a map from external data, including the kinds of problems with matching and cleaning you'll often encounter. You'll find it in the previous chapter, [Creating your own geographic objects](47_points-map.qmd#in-class-exercise-2).
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Convert a ggplot chart into an interactive plotly chart with `ggplotly()`
+-   [ ] Customise a plotly tooltip, including with HTML formatting
+-   [ ] Know the basic building blocks of tmap (`tm_shape()`, `tm_polygons()`, `tm_symbols()`)
+-   [ ] Switch tmap into interactive 'view' mode

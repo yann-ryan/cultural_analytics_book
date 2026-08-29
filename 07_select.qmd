@@ -156,3 +156,14 @@ select(titanic_df, passenger_name = name, passenger_class = pclass)
 
 However, note that nothing will actually change in the original dataset until you save it as an object in your environment, which will look at when we move to Posit cloud.
 :::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `select()` to keep or drop columns by name or position
+-   [ ] Select a range of columns, and combine multiple select instructions
+-   [ ] Use tidyselect helpers: `starts_with()`, `ends_with()`, `contains()`
+-   [ ] Rename columns with `rename()` (or while selecting)

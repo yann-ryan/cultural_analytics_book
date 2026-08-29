@@ -199,3 +199,14 @@ You can use this to change the figure width and height in the output (`fig.width
 Alt-text can be added to a generated figure from a code cell using the cell option `fig.alt`. The screenshot below shows how it should be added to a code cell:
 
 ![](images/38_accessibility/05.png)
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Explain what makes a data visualisation more (or less) accessible
+-   [ ] Choose a colour-vision-deficiency-safe scale for sequential, diverging, and categorical data
+-   [ ] Know why colour contrast matters, and how to improve it
+-   [ ] Write good alt-text for a chart, and add it to a code cell

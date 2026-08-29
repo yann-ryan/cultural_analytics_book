@@ -8,19 +8,7 @@ Up until now, we have been using R in a very simplified manner, directly in this
 
 For this course, the data, files, and interface are all already set up for you in a workspace on a service called 'Posit cloud'. Later on, you may want to install R and R-Studio on your local machine. See [here](https://posit.co/download/rstudio-desktop/) for instructions on how to do this. The software is completely free and open-source.
 
-## Learning Objectives
-
--   Here is what you should understand by the end of today:
-
--   Open a Posit account and create a new notebook
-
--   Understand what an IDE is and how to code in it
-
--   Know how to create a code cell and how to write plain text in your notebook
-
--   Write some basic markdown
-
--   Export (knit) a file and download it to your local machine.
+By the end of today, you should understand what an IDE is, know how to set up a notebook, and be able to write and knit a simple R Markdown document.
 
 ### Logging into Posit Cloud and opening a notebook.
 

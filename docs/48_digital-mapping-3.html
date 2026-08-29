@@ -544,14 +544,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#latitude-and-longitude" id="toc-latitude-and-longitude" class="nav-link" data-scroll-target="#latitude-and-longitude">Latitude and Longitude</a></li>
+  <li><a href="#latitude-and-longitude" id="toc-latitude-and-longitude" class="nav-link active" data-scroll-target="#latitude-and-longitude">Latitude and Longitude</a></li>
   <li><a href="#getting-points-for-maps" id="toc-getting-points-for-maps" class="nav-link" data-scroll-target="#getting-points-for-maps">Getting Points for Maps</a>
   <ul class="collapse">
   <li><a href="#manual-method" id="toc-manual-method" class="nav-link" data-scroll-target="#manual-method">Manual Method</a></li>
   <li><a href="#gazetteers" id="toc-gazetteers" class="nav-link" data-scroll-target="#gazetteers">Gazetteers</a></li>
   <li><a href="#geocoding-service" id="toc-geocoding-service" class="nav-link" data-scroll-target="#geocoding-service">Geocoding service</a></li>
   </ul></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -577,18 +577,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="learning-objectives" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
-<p>Make a map from a dataset</p>
-<p>Make a points map</p>
-<p>Adjust it using scales etc. for colour and boundaries.</p>
-<p>Bonus - make an interactive map</p>
 <p>This week we are going to make a slightly different type of map: a points or dot map. We saw some examples of these <a href="./42_digital-mapping-1.html#points-map">last week</a>.</p>
 <p>The main difference is that instead of matching place names up to shapes, this time, we will map individual points based on sets of coordinates.</p>
 <p>In some ways, this is easier than the choropleth map we made earlier.</p>
 <p>To recall, to make a choropleth map, we needed to find a base map of relevant shapes (such as the municipalities of the Netherlands, or countries of the world), as well as a dataset with some data about those named places, and use left_join to merge the two together, before drawing the map.</p>
 <p>A points map has a slightly different process. Rather than having names of regions, to make a points map, we will need coordinates, pointing to a specific point on the earth’s surface.</p>
-</section>
 <section id="latitude-and-longitude" class="level3">
 <h3 class="anchored" data-anchor-id="latitude-and-longitude">Latitude and Longitude</h3>
 <p>These take the form of two numbers, specifying latitude and longitude. Latitude measures the north-south position of a point on the surface of the earth, ranging from +90°(North Pole) to -90°(South Pole), with the equator at 0°. Longitude measures the east-west position. 0°is found in a line running through Greenwich, in London, known as the prime meridian.</p>
@@ -620,9 +613,19 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="geocoding-service">Geocoding service</h3>
 <p>Another way to find coordinates for a list of places is to use a geocoding service. These are resources which allow you to enter or upload a list of place names or addresses, which are then looked up using a geocoding API, and the coordinates are returned. This is particularly useful if you have a fairly large dataset of places, and if they are modern addresses. An advantage of a geocoding service is that they will usually take a full address into account, which is not always the case with a gazetteer. In this way, they can distinguish between Dublin, Ireland, and Dublin, Ohio.</p>
 <p>These tools are usually commercial services which allow you to use them for free with some restrictions. One example of a web service is <a href="https://www.geoapify.com/tools/geocoding-online">Geoapify</a>. You can also use services in certain versions of QGIS and ArcGIS.</p>
-
-
 </section>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Read latitude and longitude in both decimal and DMS notation</label></li>
+<li><label><input type="checkbox">Know the three main ways to find coordinates for a set of places: manual lookup, gazetteers, and geocoding services</label></li>
+<li><label><input type="checkbox">Know when each of those methods is the right one to use</label></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

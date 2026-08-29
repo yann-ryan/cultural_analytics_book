@@ -9,19 +9,6 @@ execute:
 
 This week, we're going to get used to the environment we'll use for creating the visualisations for this course. By the end of today, you should be comfortable with the interface, and able to use R, load packages, and do some basic manipulations of dataframes.
 
-### Learning Objectives
-
-By the end of this section of the book, you should:
-
--   Know what a variable is
--   Know what data types are
--   Know what a dataframe and a vector is
--   Practise making vectors
--   Know how to do basic arithmetic with R
--   Know how to check conditions:
-    -   Equals (numbers and text), greater than, less than, greater than or equal to
-    -   Do the same but with vectors
-
 ## Working with this book.
 
 In each session we'll demonstrate and practise some basics by running code directly in your browser, in this book. You can see the content and structure of the book in the sidebar on the left-hand side. Each week of the course has a 'part' (this week is 'Introduction to R & Data Analysis 1'), and each part has a number of chapters, which you can identify because they are numbered. You can switch to a new part of the book by clicking in the sidebar, or you can use the link at the bottom of each page to go to the next chapter.
@@ -59,3 +46,14 @@ See what happens if you run the code cell above. This code cell contains the cod
 **Try it yourself:** Change the code in the cell above and run it again - try to guess what other basic operations a coding language can do. If you get an error, you can always reset or refresh the page.
 
 When you're finished, you can click the link underneath here and to the right to go to the next chapter, or you can use the sidebar on the left.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know how to find your way around this book (parts, chapters, sidebar, search)
+-   [ ] Recognise a live code cell, and know how to run it
+-   [ ] Understand that code in the book's live cells is not saved between sessions
+-   [ ] Practise editing and running a simple line of code

@@ -2,16 +2,6 @@
 title: "Data Visualisation Basics"
 ---
 
-## Learning objectives:
-
--   Understand basic principles of data visualisation
-
--   Know how ggplot2 works and the 'grammar of graphics'.
-
--   Be able to define and list the key **geometries** and **aesthetics** and how they are used to make visualisations.
-
--   Be familiar with the basic chart types and how they are implemented in ggplot2
-
 ## Data Visualisation Principles
 
 This week, we'll begin working with data visualisations. We'll introduce in a very general sense the different ways we can draw things with data visualisation software. We won't think too much about the specifics of making charts for different purposes - just get used to the general syntax and most common chart types.
@@ -207,3 +197,14 @@ nobel_summary |>
   scale_size_area(max_size = 10) +
   labs(size = "Number of laureates")
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Understand the basic aim of data visualisation: mapping data to aesthetics
+-   [ ] Define geometries and aesthetics, and how they relate to each other
+-   [ ] Know the difference between discrete and continuous aesthetics
+-   [ ] Recognise the key aesthetics: position, size, colour, shape, linetype, and transparency

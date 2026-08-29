@@ -69,3 +69,13 @@ The join function is a bit complex, so it's worth looking at what it is doing.
 ```{webr-r}
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Understand what a join is, and why it needs a common 'key' column
+-   [ ] Use `left_join()` to merge two dataframes together
+-   [ ] Join on columns which have different names in each dataframe

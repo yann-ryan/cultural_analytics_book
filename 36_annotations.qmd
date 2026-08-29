@@ -199,3 +199,15 @@ df |>
            arrow = arrow(type = 'closed', length = unit(2, 'mm')))
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Add a text label to a chart with `annotate()`
+-   [ ] Draw a curve or arrow pointing to a specific data point
+-   [ ] Add a reference line with `annotate('segment')` or `geom_vline()`
+-   [ ] Highlight a region of a chart with `annotate('rect')`
+-   [ ] Highlight specific data points by colour, fading the rest into the background

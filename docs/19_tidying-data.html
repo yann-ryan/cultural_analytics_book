@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1,"options":{"read-only":"false","output":"true","out-width":"700px","editor-font-scale":"1","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"context":"setup","results":"markup","warning":"true","label":"unnamed-chunk-1","fig-height":5,"autorun":"true","classes":"","comment":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","fig-cap":""}},{"code":"gapminder_population","id":2,"options":{"read-only":"false","output":"true","out-width":"700px","editor-font-scale":"1","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"context":"interactive","results":"markup","warning":"true","label":"unnamed-chunk-2","fig-height":5,"autorun":"false","classes":"","comment":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","fig-cap":""}},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3,"options":{"read-only":"false","output":"true","out-width":"700px","editor-font-scale":"1","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"context":"interactive","results":"markup","warning":"true","label":"unnamed-chunk-3","fig-height":5,"autorun":"false","classes":"","comment":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","fig-cap":""}}];
+globalThis.qwebrCellDetails = [{"options":{"message":"true","output":"true","editor-max-height":"","comment":"","fig-height":5,"warning":"true","results":"markup","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","autorun":"true","read-only":"false","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-1","classes":"","out-width":"700px","context":"setup","editor-word-wrap":"true","out-height":""},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"options":{"message":"true","output":"true","editor-max-height":"","comment":"","fig-height":5,"warning":"true","results":"markup","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","autorun":"false","read-only":"false","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-2","classes":"","out-width":"700px","context":"interactive","editor-word-wrap":"true","out-height":""},"id":2,"code":"gapminder_population"},{"options":{"message":"true","output":"true","editor-max-height":"","comment":"","fig-height":5,"warning":"true","results":"markup","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","autorun":"false","read-only":"false","fig-width":7,"editor-font-scale":"1","label":"unnamed-chunk-3","classes":"","out-width":"700px","context":"interactive","editor-word-wrap":"true","out-height":""},"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"}];
 
 </script>
 <script type="module">
@@ -2038,6 +2038,7 @@ globalThis.qwebrExecuteCode = async function (
   </ul></li>
   <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy data</a></li>
   <li><a href="#pivot_longer" id="toc-pivot_longer" class="nav-link" data-scroll-target="#pivot_longer">pivot_longer()</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -2402,6 +2403,17 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>See the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year).</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Know the difference between a variable, an observation, and a value</label></li>
+<li><label><input type="checkbox">Know the difference between wide and long data</label></li>
+<li><label><input type="checkbox">Understand what makes data ‘tidy’</label></li>
+<li><label><input type="checkbox">Use <code>pivot_longer()</code> to reshape a wide dataset into a long one</label></li>
+</ul>
 
 
 </section>

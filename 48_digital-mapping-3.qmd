@@ -2,16 +2,6 @@
 title: "Digital Mapping 3"
 ---
 
-### Learning objectives
-
-Make a map from a dataset
-
-Make a points map
-
-Adjust it using scales etc. for colour and boundaries.
-
-Bonus - make an interactive map
-
 This week we are going to make a slightly different type of map: a points or dot map. We saw some examples of these [last week](42_digital-mapping-1.qmd#points-map).
 
 The main difference is that instead of matching place names up to shapes, this time, we will map individual points based on sets of coordinates.
@@ -57,3 +47,13 @@ Gazetteers can be quite complex, because of the huge variety in the way places a
 Another way to find coordinates for a list of places is to use a geocoding service. These are resources which allow you to enter or upload a list of place names or addresses, which are then looked up using a geocoding API, and the coordinates are returned. This is particularly useful if you have a fairly large dataset of places, and if they are modern addresses. An advantage of a geocoding service is that they will usually take a full address into account, which is not always the case with a gazetteer. In this way, they can distinguish between Dublin, Ireland, and Dublin, Ohio.
 
 These tools are usually commercial services which allow you to use them for free with some restrictions. One example of a web service is [Geoapify](https://www.geoapify.com/tools/geocoding-online). You can also use services in certain versions of QGIS and ArcGIS.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Read latitude and longitude in both decimal and DMS notation
+-   [ ] Know the three main ways to find coordinates for a set of places: manual lookup, gazetteers, and geocoding services
+-   [ ] Know when each of those methods is the right one to use

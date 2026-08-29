@@ -150,3 +150,15 @@ count(embarked) is the same as using group_by(embarked) \|\> summarise(n = n()).
 
 count(embarked, wt = fare) is the same as using group_by(embarked) \|\> summarise(n = sum(fare, na.rm = TRUE))
 :::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `group_by()` to split a dataframe into groups before summarising
+-   [ ] Group by more than one column at once
+-   [ ] Use `group_by()` together with a `slice_` function and with `mutate()`, not just `summarise()`
+-   [ ] Know when and why to `ungroup()` a dataframe
+-   [ ] Use `count()` as a shortcut for `group_by()` + `summarise(n = n())`

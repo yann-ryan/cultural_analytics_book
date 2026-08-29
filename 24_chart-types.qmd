@@ -380,3 +380,15 @@ Note that geom_segment needs `xend` and `yend`, as well as `x` and `y`. These sh
 ## Add-ons
 
 Another way to get the chart type you want is to install additional packages which use the same 'grammar of graphics' to extend ggplot. You can make animated plots using `gganimate`, networks using `ggraph`. Later in the course we will create maps with a geom called `geom_sf`. There are hundreds of these add-ons, which you can browse [here](https://exts.ggplot2.tidyverse.org/gallery/).
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Draw a scatterplot with `geom_point()`, and control size, colour, alpha, and shape
+-   [ ] Draw a line chart with `geom_line()`, and control colour and linetype
+-   [ ] Draw a histogram, density plot, and boxplot to show a distribution
+-   [ ] Use `geom_text()` to label a chart with values
+-   [ ] Combine more than one geom on the same chart

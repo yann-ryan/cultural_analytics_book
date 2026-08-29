@@ -79,3 +79,14 @@ One fix for this is to create a cartogram map. This attempts to distort a map so
 ![](images/42_digital-mapping-1/05.png){width="490"}
 
 Over the next couple of sessions, we'll learn how to make maps from scratch using R. Starting with mapping some simple data, and moving on to importing our own separate data sources.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know the difference between raster and vector maps
+-   [ ] Know the difference between mapping data to points vs to polygons
+-   [ ] Explain what a choropleth map is, and one common pitfall of making one
+-   [ ] Recognise what makes a map a useful (or misleading) data visualisation

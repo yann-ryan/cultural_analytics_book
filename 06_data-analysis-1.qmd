@@ -4,19 +4,6 @@ webr:
   packages: ['dplyr', 'readr', 'DT']
 ---
 
-### Learning objectives for this section:
-
--   Know what a dataframe is and how one looks in this book
--   Know how to run a function on a dataframe
--   How to explore and adjust rows and columns in a dataframe:
-    -   select
-    -   slice
-    -   rename
--   Arrange columns
-    -   ascending and descending
-    -   multiple columns
--   Write better code using the pipe
-
 ## Dataframes
 
 One of the data types that we can work with in R is a **dataframe**. This is an object with rows and columns, like a spreadsheet in Microsoft Excel or Google Sheets.
@@ -154,3 +141,13 @@ Use summary again, but this time set the argument or parameter `digits` to equal
 ```{webr-r}
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know what a dataframe is, and how one looks in this book
+-   [ ] Know what the Tidyverse is
+-   [ ] Know how to run a function on a dataframe, and what arguments and parameters are

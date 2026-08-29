@@ -85,7 +85,18 @@ gapminder_population |>
   pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')
 
 ```
-See the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year). 
+See the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year).
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know the difference between a variable, an observation, and a value
+-   [ ] Know the difference between wide and long data
+-   [ ] Understand what makes data 'tidy'
+-   [ ] Use `pivot_longer()` to reshape a wide dataset into a long one
 
 
 

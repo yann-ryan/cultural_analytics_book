@@ -95,3 +95,13 @@ titanic_df |>
 ```{webr-r}
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `mutate()` to create a new column from existing ones
+-   [ ] Use an existing function (e.g. `round()`) inside `mutate()`
+-   [ ] Use `if_else()` for a two-way condition, and `case_when()` for more than two

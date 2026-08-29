@@ -596,6 +596,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#interactive-maps-with-tmap" id="toc-interactive-maps-with-tmap" class="nav-link active" data-scroll-target="#interactive-maps-with-tmap">Interactive maps with tmap</a></li>
   <li><a href="#interactive-choropleth-maps" id="toc-interactive-choropleth-maps" class="nav-link" data-scroll-target="#interactive-choropleth-maps">Interactive choropleth maps</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -786,7 +787,7 @@ Caused by warning:
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(worldmap) <span class="sc">+</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="fu">c</span>(<span class="st">"income_grp"</span>, <span class="st">'pop_est'</span>), <span class="at">id =</span> <span class="st">'name'</span>) <span class="sc">+</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_view</span>(<span class="at">set.view =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">4</span>)) <span class="sc">+</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_view</span>(<span class="at">set.view =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">sync =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div style="display:inline;width:99%;float:left;border-style:solid;border-color:#BEBEBE;border-width:1px 1px 1px 1px;">
@@ -819,6 +820,17 @@ leaf_widgets['htmlwidget-2238'].sync(leaf_widgets['htmlwidget-6251'],{syncCursor
 </script>
 </div>
 </div>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Build an interactive point map with tmap’s <code>tm_shape()</code> and <code>tm_symbols()</code></label></li>
+<li><label><input type="checkbox">Set the size, fill, id, and popup.vars options for map symbols</label></li>
+<li><label><input type="checkbox">Build an interactive choropleth map with <code>tm_polygons()</code></label></li>
+<li><label><input type="checkbox">Use <code>tm_facets()</code> to build synced, interactive small multiples</label></li>
+</ul>
 
 
 </section>

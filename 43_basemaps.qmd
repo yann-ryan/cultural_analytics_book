@@ -151,3 +151,14 @@ Download a large-scale set of Admin 1, states and provinces.
 ```{webr-r}
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know what a shapefile is, and what a simple features (sf) object looks like
+-   [ ] Know what a Coordinate Reference System (CRS) is, at a basic level
+-   [ ] Download a shapefile of countries or coastlines using `rnaturalearth`
+-   [ ] Use `ne_download()` to find and download other Natural Earth data

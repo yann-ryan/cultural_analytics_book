@@ -169,3 +169,14 @@ Prepare to explain it to the group for 2 minutes. Mention one of each of the fol
 -   A geometry
 -   An aesthetic
 -   A gestalt principle
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know the main Gestalt principles: proximity, similarity, enclosure, closure, continuity, and connection
+-   [ ] Explain why these principles matter for how a chart is read
+-   [ ] Know what 'pre-attentive attributes' are, and give an example
+-   [ ] Use these principles to critique a data visualisation

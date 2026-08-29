@@ -78,3 +78,14 @@ What is the maximum fare paid? You can use the function max() for this.
 ```{webr-r}
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `summarise()` to calculate a single summary value from a dataframe
+-   [ ] Know the difference between counting rows (`n()`) and summing a value (`sum()`)
+-   [ ] Know some other common summary functions (`mean()`, `median()`, `min()`, `max()`)
+-   [ ] Use `tally()` as a shortcut for a simple count or sum

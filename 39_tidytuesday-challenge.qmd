@@ -53,5 +53,16 @@ Questions:
 -   What kinds of questions could be asked with this dataset?
 -   What ethical considerations are there with this dataset?
 
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Find and download a TidyTuesday dataset with a humanities or cultural focus
+-   [ ] Explore and visualise a new, unfamiliar dataset independently
+-   [ ] Apply FAIR data and accessibility principles to your own chart
+-   [ ] Reflect critically on a dataset's source and its ethical considerations
+
 
 

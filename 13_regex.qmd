@@ -119,3 +119,15 @@ titanic_df |>
 This is just the beginning! You can find out more about how stringr works with regular expressions [here](https://stringr.tidyverse.org/articles/regular-expressions.html). A more comprehensive tutorial is [here](https://r4ds.had.co.nz/strings.html).
 
 There are also many interactive tutorials available online, although note that there will be small differences in the ways they use regular expressions, even though the main principles remain the same.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `str_detect()` to filter rows by a text pattern
+-   [ ] Know a few basic regular expression building blocks: `.`, character classes (`[ ]`), and `{n}`
+-   [ ] Use anchors (`^`, `$`) to match the start or end of a string
+-   [ ] Use alternation (`|`) to match more than one pattern
+-   [ ] Know when and how to 'escape' a special character

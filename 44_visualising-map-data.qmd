@@ -286,3 +286,15 @@ Use the worldmap data to map the economic category (`income_grp`) of the South A
 
 
 ```
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use regular tidyverse verbs (`filter()`, `mutate()`, `summarise()`) on an sf object
+-   [ ] Draw a map with `geom_sf()`, and map a variable to its fill colour
+-   [ ] Zoom in on part of a map with `coord_sf()`, and know why filtering and zooming aren't the same thing
+-   [ ] Know what a map projection is, and change one with `st_transform()`
+-   [ ] Know the difference between a geographic and a projected CRS

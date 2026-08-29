@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"warning":"true","read-only":"false","fig-height":5,"autorun":"true","results":"markup","comment":"","classes":"","editor-font-scale":"1","editor-max-height":"","out-width":"700px","dpi":72,"label":"unnamed-chunk-1","out-height":"","fig-width":7,"context":"setup","fig-cap":"","message":"true","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"options":{"warning":"true","read-only":"false","fig-height":5,"autorun":"false","results":"markup","comment":"","classes":"","editor-font-scale":"1","editor-max-height":"","out-width":"700px","dpi":72,"label":"unnamed-chunk-2","out-height":"","fig-width":7,"context":"interactive","fig-cap":"","message":"true","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false"},"id":2,"code":"locations_df"},{"options":{"warning":"true","read-only":"false","fig-height":5,"autorun":"false","results":"markup","comment":"","classes":"","editor-font-scale":"1","editor-max-height":"","out-width":"700px","dpi":72,"label":"unnamed-chunk-3","out-height":"","fig-width":7,"context":"interactive","fig-cap":"","message":"true","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false"},"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"options":{"warning":"true","read-only":"false","fig-height":5,"autorun":"false","results":"markup","comment":"","classes":"","editor-font-scale":"1","editor-max-height":"","out-width":"700px","dpi":72,"label":"unnamed-chunk-4","out-height":"","fig-width":7,"context":"interactive","fig-cap":"","message":"true","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false"},"id":4,"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"out-height":"","comment":"","read-only":"false","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-font-scale":"1","dpi":72,"label":"unnamed-chunk-1","fig-height":5,"editor-word-wrap":"true","classes":"","message":"true","warning":"true","context":"setup","autorun":"true","fig-width":7,"editor-max-height":"","editor-quick-suggestions":"false"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"out-height":"","comment":"","read-only":"false","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-font-scale":"1","dpi":72,"label":"unnamed-chunk-2","fig-height":5,"editor-word-wrap":"true","classes":"","message":"true","warning":"true","context":"interactive","autorun":"false","fig-width":7,"editor-max-height":"","editor-quick-suggestions":"false"},"code":"locations_df"},{"id":3,"options":{"out-height":"","comment":"","read-only":"false","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-font-scale":"1","dpi":72,"label":"unnamed-chunk-3","fig-height":5,"editor-word-wrap":"true","classes":"","message":"true","warning":"true","context":"interactive","autorun":"false","fig-width":7,"editor-max-height":"","editor-quick-suggestions":"false"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"out-height":"","comment":"","read-only":"false","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-font-scale":"1","dpi":72,"label":"unnamed-chunk-4","fig-height":5,"editor-word-wrap":"true","classes":"","message":"true","warning":"true","context":"interactive","autorun":"false","fig-width":7,"editor-max-height":"","editor-quick-suggestions":"false"},"code":""}];
 
 </script>
 <script type="module">
@@ -2033,6 +2033,7 @@ globalThis.qwebrExecuteCode = async function (
   <ul>
   <li><a href="#left_join-right_join-inner_join" id="toc-left_join-right_join-inner_join" class="nav-link active" data-scroll-target="#left_join-right_join-inner_join">left_join(), right_join(), inner_join()</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -2381,6 +2382,16 @@ Tip
 </ul>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Understand what a join is, and why it needs a common ‘key’ column</label></li>
+<li><label><input type="checkbox">Use <code>left_join()</code> to merge two dataframes together</label></li>
+<li><label><input type="checkbox">Join on columns which have different names in each dataframe</label></li>
+</ul>
 
 
 </section>

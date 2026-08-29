@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"1 + 1","options":{"context":"interactive","out-width":"700px","editor-font-scale":"1","dpi":72,"message":"true","fig-width":7,"fig-cap":"","editor-word-wrap":"true","read-only":"false","autorun":"false","output":"true","out-height":"","label":"unnamed-chunk-1","warning":"true","classes":"","editor-quick-suggestions":"false","fig-height":5,"results":"markup","comment":"","editor-max-height":""},"id":1}];
+globalThis.qwebrCellDetails = [{"code":"1 + 1","id":1,"options":{"read-only":"false","comment":"","editor-max-height":"","results":"markup","message":"true","fig-height":5,"label":"unnamed-chunk-1","editor-quick-suggestions":"false","out-width":"700px","warning":"true","classes":"","output":"true","fig-cap":"","context":"interactive","fig-width":7,"autorun":"false","editor-font-scale":"1","editor-word-wrap":"true","out-height":"","dpi":72}}];
 
 </script>
 <script type="module">
@@ -2031,11 +2031,9 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#class-objectives" id="toc-class-objectives" class="nav-link active" data-scroll-target="#class-objectives">Class Objectives</a>
-  <ul class="collapse">
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  </ul></li>
+  <li><a href="#class-objectives" id="toc-class-objectives" class="nav-link active" data-scroll-target="#class-objectives">Class Objectives</a></li>
   <li><a href="#working-with-this-book." id="toc-working-with-this-book." class="nav-link" data-scroll-target="#working-with-this-book.">Working with this book.</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -2348,22 +2346,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="class-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="class-objectives">Class Objectives</h2>
 <p>This week, we’re going to get used to the environment we’ll use for creating the visualisations for this course. By the end of today, you should be comfortable with the interface, and able to use R, load packages, and do some basic manipulations of dataframes.</p>
-<section id="learning-objectives" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
-<p>By the end of this section of the book, you should:</p>
-<ul>
-<li>Know what a variable is</li>
-<li>Know what data types are</li>
-<li>Know what a dataframe and a vector is</li>
-<li>Practise making vectors</li>
-<li>Know how to do basic arithmetic with R</li>
-<li>Know how to check conditions:
-<ul>
-<li>Equals (numbers and text), greater than, less than, greater than or equal to</li>
-<li>Do the same but with vectors</li>
-</ul></li>
-</ul>
-</section>
 </section>
 <section id="working-with-this-book." class="level2">
 <h2 class="anchored" data-anchor-id="working-with-this-book.">Working with this book.</h2>
@@ -2427,9 +2409,20 @@ Warning
 <p>See what happens if you run the code cell above. This code cell contains the code <code>1 + 1</code>, which simply adds together these two numbers and displays the answer as the output.</p>
 <p><strong>Try it yourself:</strong> Change the code in the cell above and run it again - try to guess what other basic operations a coding language can do. If you get an error, you can always reset or refresh the page.</p>
 <p>When you’re finished, you can click the link underneath here and to the right to go to the next chapter, or you can use the sidebar on the left.</p>
-
-
 </section>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!</p>
+<p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Know how to find your way around this book (parts, chapters, sidebar, search)</label></li>
+<li><label><input type="checkbox">Recognise a live code cell, and know how to run it</label></li>
+<li><label><input type="checkbox">Understand that code in the book’s live cells is not saved between sessions</label></li>
+<li><label><input type="checkbox">Practise editing and running a simple line of code</label></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -62,3 +62,13 @@ The same logic applies to colour, size, and the other scales we'll cover in this
 ## Aesthetics
 
 Recall from earlier this week that we learned about different aesthetics: **position**, **colour**, **size**, **shape**, **linetype**, linewidth, and **transparency**. This chapter on scales will mostly cover **position** and **colour**, and to a lesser extent, **size**. The scales for the other aesthetics are less interesting (you're less likely to want to change the defaults), so we won't look at these. But be aware they also have scales which can be overwritten or adjusted.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Understand what a scale controls, and why choosing one deliberately matters
+-   [ ] Explain how a truncated (non-zero) axis can mislead a viewer
+-   [ ] Know which aesthetics (position, colour, size) have scales worth adjusting

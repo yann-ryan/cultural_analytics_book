@@ -35,3 +35,13 @@ When working with data, you will often hear about how to make it FAIR. FAIR is a
 How does this affect your own work? Primarily, you will be working on existing datasets when making visualisations on this course, but in many cases (on your own research project, for example), you might be responsible for creating datasets.
 
 However, it's worth bearing in mind the FAIR principles because they can be relevant in how you make your own work reusable. In most cases, you are the 'end user' of FAIR data, rather than creating it yourself. However you can ensure that the work you do also results in FAIR data, for example by describing and documenting your own work, and how you analysed or cleaned data.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Explain why reproducibility matters, and how R Markdown supports it
+-   [ ] Know what the FAIR principles stand for (Findable, Accessible, Interoperable, Reusable)
+-   [ ] Know what you can do, as an 'end user' of data, to keep your own work FAIR
