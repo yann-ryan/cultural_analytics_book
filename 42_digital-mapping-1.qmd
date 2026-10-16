@@ -1,84 +1,89 @@
 ---
-title: "Digital mapping overview"
+title: "Maps as data visualisation"
 ---
-
-### What exactly is digital mapping?
 
 [![https://xkcd.com/1472/](https://imgs.xkcd.com/comics/geography.png){fig-align="center"}](https://xkcd.com/1472/)
 
-In this part of the course, we'll learn how to create digital maps. More specifically, we'll create maps which visualise data, meaning maps in which geographic elements, such as points, lines, and polygons, are mapped to external data, for instance cultural or political data. These kinds of maps have become very familiar and widely used in digital history, data journalism and infographics in recent years.
+In this last part of the course, we'll learn how to make maps. More specifically, we'll make maps which visualise data: maps in which geographic elements, such as points and shapes, are drawn according to some cultural, historical or political data. These kinds of maps have become very familiar in digital history, data journalism and infographics.
 
-Maps are useful because some data or information has inherently spatial aspects - *where* the data is from is as important as *what.* We might want to understand geographic patterns of a phenomenon, for instance how language is used in different regions, or the demographic and economic patterns of particular places, and so forth.
+The good news is that you already know almost everything you need. A map is just another kind of data visualisation, and we'll make them with the same tool we've been using all along: **ggplot2**. The main new thing is a special kind of data, which knows about geography.
 
-One benefit of a map is that it can be a useful cognitive shortcut. Because we all have models of maps in our head already (think about how you know certain pieces of information about the borders of the provinces or positions of towns in your home country), we can often grasp very quickly lots of information. If you know the rough positions of the towns and provinces of the Netherlands, for instance, you will probably be able to understand some data about them more quickly than if the same information was presented to you in the form of a list or table.
+Over the next three classes, we'll work through three stages:
 
-Data maps also help us to see patterns which are specifically geographic in nature - we might see, for example, that a certain data point is more common on coasts, or in particular regions, or notice differences between the centre and periphery.
+1.  **Your first map** (this class): drawing a map with ggplot2, colouring it by some data, zooming in, and choosing a map projection.
+2.  **Choropleth maps** (next class): joining your own dataset to a map, and colouring regions by it.
+3.  **Points maps** (the class after that): turning coordinates into points on a map.
 
-## Creating digital maps
+Throughout, we'll use one running example: the **UNESCO World Heritage List**, a list of around 1,200 places judged to be of 'outstanding universal value' to humanity, from the pyramids of Giza to the canal ring of Amsterdam. As we'll see, *where* these sites are is just as interesting as *what* they are.
 
-Digital mapping has its own set of techniques, as there are different methods by which we can represent geographic and physical features of the 'real' world as computer code.
+## Why make a map?
 
-### Types of maps
+Maps are useful because some information has inherently spatial aspects - *where* the data is from is as important as *what*. We might want to understand geographic patterns of a phenomenon, for instance how language is used in different regions, or where cultural institutions are concentrated.
 
-The two most common formats for doing this are called **raster maps** and **vector maps**. On this course we will work only with vector maps but it is useful to know the difference between the two.
+A map can also be a useful cognitive shortcut. Because we all have models of maps in our heads already (think about how you know roughly where the provinces of the Netherlands or the major cities of Europe are), we can often grasp a lot of information very quickly. If you know the rough positions of the provinces of the Netherlands, you will probably understand some data about them more quickly as a map than as a table.
 
-#### Raster maps
+Data maps also help us see patterns which are specifically geographic: that something is more common on coasts, in cities, or in particular regions, or that there are differences between the centre and the periphery.
 
-A raster map represents the physical elements as individual pixels. This is commonly used when we digitise a physical map - each pixel on a map will be shaded and coloured differently, and this shade will mean something. Another example of a raster map is an elevation map. Each pixel is colored by the elevation of that point, i.e.
+But a map is not always the best choice. If the question you're asking isn't really about geography, a simple bar chart is often clearer. Ask yourself: *does location actually matter here?*
 
-![](images/42_digital-mapping-1/01.png){width="360"}
+## How computers store maps
 
-This kind of map can be read by a computer, to calculate things like travel times, or to understand ecological differences, and so forth.
+There are two common ways of representing the real world as data: **raster** and **vector** maps. On this course we'll work only with vector maps, but it's useful to know the difference.
 
-#### Vector maps
+### Raster maps
 
-The other kind of map is called a vector map. A vector map represents geographic elements as a series of numerical values. These geographic elements are generally points, lines, or polygons. For instance, a point is represented by a set of two coordinates, giving the latitude and longitude on earth. A line would be represented by a series of numbers, which when joined together make up a line on a map.
+A raster map represents the world as a grid of pixels, like a digital photograph. Each pixel is coloured, and the colour means something. A scan of a historical map is a raster map; so is an elevation map, in which each pixel is coloured by the height of the land at that point:
 
-![A vector map containing rivers, cities, and country borders](images/42_digital-mapping-1/06.svg){width="472"}
+![](images/42_digital-mapping-1/01.png){width="360" fig-alt="An elevation map in which each pixel is shaded according to the height of the land."}
 
-The main difference between the two is that vector maps contain shapes which can be specifically read by computer code. Unlike a raster map, with vector data, we can outline the shape of a river or road, or the outline of a province or other political border. This makes vector data particularly useful for creating data visualisations.
+### Vector maps
 
-## Mapping also involves mapping aesthetics to values
+A vector map instead represents geographic things as **points**, **lines**, and **polygons** (shapes), each stored as a set of coordinates. A city might be a point, a river a line, and a country a polygon. Unlike a raster map, a vector map knows that a certain shape is 'the Netherlands', so we can attach data to it - its population, its number of World Heritage sites, and so on. This is what makes vector data so useful for data visualisation.
 
-As with all data visualisation, the process involves mapping aesthetics to values. The key difference between maps and other data visualisations is that position is usually based on geographic position, i.e. a real physical location on earth. The most common kinds of data maps you'll find will use **position**, **size**, **colour**, and **shape** to draw **points** on a map, or will use position and colour (and perhaps patterns) to fill in **polygons**.
+![A vector map containing rivers, cities, and country borders](images/42_digital-mapping-1/06.svg){width="472" fig-alt="A vector map drawn with lines for rivers, points for cities, and polygons for country borders."}
 
-Which is used is usually dependent on the specific kind of geographic data you have. Points 'point' to specific, precise places on a map, for instance a town, village, or even an exact address. Polygons are widely used when the data we have relates to political or cultural regions and borders.
+## Maps map data to aesthetics, too
 
-### Points Map
+Just as with every other chart on this course, making a data map means mapping data to **aesthetics**. The difference is that *position* is now a real place on the earth, rather than an x and y axis. On top of position, data maps mostly use **colour**, **size**, and **shape**. There are two main kinds:
 
-This first graphic is an example of simply using position to create a data visualisation. Each covid death has been drawn as a single tiny black point, and through the placement of millions of these points, we can see precisely where the death toll from Covid was highest.
+### Points maps
 
-![](images/42_digital-mapping-1/02.jpg){width="555"}
+A points map draws a point at a specific location, such as a town, a building, or an address. This first example simply uses position: each Covid death in the US has been drawn as a single tiny point, and through millions of these points we can see where the death toll was highest.
+
+![](images/42_digital-mapping-1/02.jpg){width="555" fig-alt="A map of the United States made of millions of tiny black dots, one for each Covid death, densest in the big cities."}
 
 ::: callout-note
-This map of covid deaths demonstrates one weakness of mapping data: often, a map simply duplicates population distribution rather than revealing any useful patterns.
-:::
+This map also shows one weakness of points maps: often, a map like this simply shows where people live, rather than revealing anything new. Always ask whether your map is just a population map in disguise!
 
 [![https://xkcd.com/1138/](https://imgs.xkcd.com/comics/heatmap.png){width="400"}](https://xkcd.com/1138/)
+:::
 
-## Using aesthetics to map data
+We can also map further aesthetics to the points. In this example from the New York Times, each point is a weather station where a temperature record was broken. The colour shows whether it was a heat (red) or cold (blue) record, and the size shows by how much the previous record was broken:
 
-Just like the earlier data visualisations we made on this course, we can also map further aesthetics as well as position to the data. In this next example from the New York Times, data on weather records was mapped. The authors drew points using both colour (a categorical colour scale, either red for heat or blue for cold records) and size (the amount by which the previous record was broken) to communicate the areas where temperature records had been most extreme in that year.
-
-![](images/42_digital-mapping-1/03.png){width="748"}
+![](images/42_digital-mapping-1/03.png){width="748" fig-alt="A map of the United States with red and blue circles of different sizes, showing where heat and cold records were broken."}
 
 ### Choropleth maps
 
-A classic use of mapping data to polygons are election maps. This is because election results are usually counted by region, municipality, or other political border. In this example from the 2011 election in the Netherlands, each municipality is represented by a polygon. Each polygon is then coloured by the winning party. A discrete colour scale is used, because this is categorical data (each region has exactly one winning party).
+The other main kind of data map colours in **regions** - countries, provinces, municipalities - according to some data. This is called a **choropleth map**. Choropleths are useful when your data isn't about a single point, but about an area. Election maps are a classic example, because votes are counted by region. In this map of the 2011 Dutch provincial elections, each municipality is coloured by the party which won the most votes there:
 
-![](images/42_digital-mapping-1/04.png){width="420"}
+![](images/42_digital-mapping-1/04.png){width="420" fig-alt="A map of Dutch municipalities, each coloured by the party with the most votes. Much of the map is dark blue, the colour of the VVD."}
 
-A map where colour is used to present statistical data through polygon shapes is known as a **choropleth** **map**. These maps tend to be useful when we have data which is not related to a single point (such as a town or city), but is connected to regions, such as countries, municipalities and so forth.
+### The trouble with choropleths
 
-However, there are some issues we should be aware of making choropleth maps. In the example of the election map above, about half of the map is coloured blue. This might lead us to think that the VVD party received over half of the total votes. But while they were the largest party, in fact they won 112 seats out of a total of 566 - about one-fifth of the votes.
+Choropleths are very common, but they can easily mislead. In the election map above, about half of the map is blue. You might think that the VVD received around half of the votes. In fact, they won about one-fifth.
 
-This is of course because this map hides the fact that elections are related to population rather than land area. The VVD party are bigger in rural areas which tend to be sparsely populated. Generally, when creating data visualisations, it is best practice that each pixel or piece of 'ink' on the page represents the same amount of numerical value. This is not the case if we use geographic data like this. In this case, the numerical unit is a vote, and some votes are represented by less area than others, because of population density.
+This is because the map gives every square kilometre the same visual weight, but votes are cast by *people*, not land. The VVD did well in rural areas, which are large but sparsely populated. A good rule in data visualisation is that the same amount of 'ink' should represent the same amount of data - and a choropleth often breaks this rule.
 
-One fix for this is to create a cartogram map. This attempts to distort a map so that the area better reflects the data. This example distorts the shapes of the countries of the European Union so that the area of each is related to the amount of the budget they either contribute or receive (between 2007 and 2013, and per capita).
+There are two common ways to deal with this:
 
-![](images/42_digital-mapping-1/05.png){width="490"}
+-   **Normalise the data.** Instead of mapping raw counts (the number of World Heritage sites in a country, say), map a rate: sites per million people, or per square kilometre. Otherwise, big countries will tend to look 'more' of everything. Choosing what to divide by is itself an important decision - we'll come back to this next class.
+-   **Distort the map.** A *cartogram* resizes regions according to the data. This example resizes the countries of the EU according to how much they contributed to, or received from, the EU budget per person between 2007 and 2013:
 
-Over the next couple of sessions, we'll learn how to make maps from scratch using R. Starting with mapping some simple data, and moving on to importing our own separate data sources.
+![](images/42_digital-mapping-1/05.png){width="490" fig-alt="A cartogram of the European Union in which countries are stretched or shrunk according to their contribution to the EU budget."}
+
+### Every map is a choice
+
+Maps feel objective - they look like a picture of the world as it is. But every map involves choices: which places to include, which borders to draw (and from which year), which projection to use, which data to show, and what to leave out. Borders themselves are often contested. Keep the *Data Feminism* readings in mind: it's always worth asking who made a map, for what purpose, and whose view of the world it represents.
 
 ## Learning Objectives
 
@@ -87,6 +92,6 @@ Before moving on, take a look and see if you are confident with all of the follo
 (the checkboxes are just for your own use, they won't save if you leave or refresh the page)
 
 -   [ ] Know the difference between raster and vector maps
--   [ ] Know the difference between mapping data to points vs to polygons
--   [ ] Explain what a choropleth map is, and one common pitfall of making one
--   [ ] Recognise what makes a map a useful (or misleading) data visualisation
+-   [ ] Know the difference between a points map and a choropleth map, and when to use each
+-   [ ] Explain why choropleth maps can mislead, and how normalising the data helps
+-   [ ] Recognise that every map involves choices, and ask whose perspective a map represents

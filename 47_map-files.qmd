@@ -1,0 +1,252 @@
+---
+title: "Finding and reading map files"
+webr:
+  packages: ['dplyr', 'stringr', 'readr', 'ggplot2', 'sf']
+---
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(stringr)
+library(readr)
+library(ggplot2)
+library(sf)
+
+base <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/"
+download.file(paste0(base, "nl_provinces_2023.geojson"), "nl_provinces_2023.geojson")
+download.file(paste0(base, "nl_municipalities_2025.geojson"), "nl_municipalities_2025.geojson")
+download.file(paste0(base, "nl_monuments_2024.csv"), "nl_monuments_2024.csv")
+
+provinces <- st_read("nl_provinces_2023.geojson")
+municipalities <- st_read("nl_municipalities_2025.geojson")
+monuments <- read_csv("nl_monuments_2024.csv")
+```
+
+The Natural Earth world map is great for data about countries. But much cultural data is about smaller places: provinces, municipalities, neighbourhoods, or historical regions which no longer exist. For these, you'll need to find a map file, and read it into R yourself.
+
+In this chapter, we'll make a map of the **national monuments** (*rijksmonumenten*) of the Netherlands: around 63,000 buildings and sites protected by the Dutch state, from windmills and farmhouses to churches and canal houses. We'll map them by province, and then by municipality.
+
+## Where to find map files
+
+Map files with official boundaries are usually published by government agencies, often for free. Some good places to look:
+
+-   **The Netherlands:** [PDOK](https://www.pdok.nl/) and [CBS](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data) publish boundaries of provinces, municipalities, neighbourhoods and more. The [cartomap](https://cartomap.github.io/nl/) project makes simplified versions of the CBS boundaries for every year, which are ideal for data maps (the maps in this chapter come from there).
+-   **Europe:** Eurostat publishes the boundaries of the EU's statistical regions, called [NUTS regions](https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics), at three levels: NUTS 1 (large regions) to NUTS 3 (small regions). A lot of EU data is published by NUTS region, so these are very useful.
+-   **The whole world:** [geoBoundaries](https://www.geoboundaries.org/) has open boundaries of regions and provinces for almost every country.
+
+::: callout-tip
+## Historical maps
+
+Boundaries change over time, and a map of modern borders often isn't suitable for historical data. There are also many projects which publish historical boundaries, such as the [Historical GIS of the Low Countries](https://datasets.iisg.amsterdam/dataset.xhtml?persistentId=hdl:10622/PGFYTM) and [A Vision of Britain Through Time](https://www.visionofbritain.org.uk/data/).
+:::
+
+## Map file formats
+
+You'll come across map files in several formats. The three most common are:
+
+-   **GeoJSON** (`.geojson` or `.json`): a single text file. Very common for maps published online.
+-   **Shapefile** (`.shp`): an older but still very common format. A shapefile is actually a *set* of files with the same name and different endings, such as `.shp` (the shapes), `.dbf` (the data about each shape), and `.prj` (the projection). You read in the `.shp` file, but **all the other files must be in the same folder**. Shapefiles are usually downloaded as a `.zip` file: unzip it (or upload the zip to Posit Cloud, which unzips it), and keep the files together.
+-   **GeoPackage** (`.gpkg`): a newer format, which can contain several maps (called **layers**) in a single file.
+
+The good news is that the sf package reads all of them with the same function: `st_read()`.
+
+## Reading a map file with `st_read()`
+
+Let's load the packages, and download the map of the Dutch provinces, which is a GeoJSON file:
+
+```{webr-r}
+library(dplyr)
+library(stringr)
+library(readr)
+library(ggplot2)
+library(sf)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_provinces_2023.geojson"
+download.file(url, "nl_provinces_2023.geojson")
+```
+
+Now read it in with `st_read()`, giving it the name of the file:
+
+```{webr-r}
+provinces <- st_read("nl_provinces_2023.geojson")
+```
+
+`st_read()` prints a short summary: there are 12 features (the provinces), they're multipolygons, and the CRS is WGS 84, i.e. ordinary longitude and latitude. Let's look at the data, and draw it:
+
+```{webr-r}
+provinces
+
+ggplot() +
+  geom_sf(data = provinces) +
+  theme_void()
+```
+
+As well as the names of the provinces (`statnaam`), there's a column called `statcode`, with a code for each province: `PV20` for Groningen, `PV28` for Zuid-Holland, and so on. These are the codes CBS uses in its statistics, which will be very useful for joining.
+
+::: callout-note
+## Reading shapefiles and GeoPackages
+
+Shapefiles are read in exactly the same way, giving the path to the `.shp` file:
+
+``` r
+regions <- st_read("NUTS_RG_60M_2024_4326/NUTS_RG_60M_2024_4326.shp")
+```
+
+A GeoPackage may contain several layers. Use `st_layers()` to list them, and then pick one with `layer =`:
+
+``` r
+st_layers("wijkenbuurten_2024.gpkg")
+municipalities <- st_read("wijkenbuurten_2024.gpkg", layer = "gemeenten")
+```
+:::
+
+## Joining data to the provinces
+
+The number of national monuments in each province and municipality is published by [CBS](https://opendata.cbs.nl/statline/#/CBS/en/dataset/86109ENG/table), the Dutch statistics office. I've downloaded the figures for 2024:
+
+```{webr-r}
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_monuments_2024.csv"
+download.file(url, "nl_monuments_2024.csv")
+monuments <- read_csv("nl_monuments_2024.csv")
+
+monuments
+```
+
+The data is in a 'long' format: for each region, there's one row for each type of monument (archaeology, religious buildings, farms and mills, and so on), plus a row for the total. The regions include both provinces (with codes starting `PV`) and municipalities (`GM`).
+
+Following the [six steps](46_choropleth.qmd#the-six-steps-of-a-choropleth-map), our geographic unit is the province, our map is `provinces`, and the common field is the CBS code. Next, we need one row per province, so let's filter to the provinces and the total number of monuments:
+
+```{webr-r}
+monuments_provinces <- monuments |>
+  filter(str_detect(region_code, 'PV'), type_of_monument == 'Listed monuments total')
+
+monuments_provinces
+```
+
+The obvious way to join the two is by the names of the provinces. Let's try it, with the map on the left:
+
+```{webr-r}
+provinces |>
+  left_join(monuments_provinces, by = c('statnaam' = 'region')) |>
+  select(statnaam, monuments)
+```
+
+Every value is `NA` - nothing has matched! Let's compare the names in the two datasets:
+
+```{webr-r}
+provinces$statnaam
+monuments_provinces$region
+```
+
+In the CBS data, every province name has ' (PV)' added at the end (for *provincie*), so 'Groningen' in the map doesn't match 'Groningen (PV)' in the data. We could fix this by removing the extra text with `str_remove()`. But as we saw in the last chapter, it's more reliable to join on a **code**, if one is available - and here, both datasets have the CBS code:
+
+```{webr-r}
+monuments_map <- provinces |>
+  left_join(monuments_provinces, by = c('statcode' = 'region_code'))
+
+monuments_map |>
+  select(statnaam, statcode, monuments)
+```
+
+Now the join works. Let's draw the map:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = monuments_map, aes(fill = monuments), colour = 'white') +
+  scale_fill_viridis_c(direction = -1) +
+  labs(title = 'National monuments in the Netherlands',
+       subtitle = 'Number of rijksmonumenten in each province, 2024',
+       fill = 'Monuments',
+       caption = 'Data: CBS (CC BY 4.0). Boundaries: CBS, via cartomap') +
+  theme_void()
+```
+
+Noord-Holland, which includes Amsterdam, has by far the most.
+
+## Going further: municipalities
+
+Provinces are large, and hide a lot of variation. Let's do the same at the level of the municipality (*gemeente*), of which there were 342 in 2025:
+
+```{webr-r}
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_municipalities_2025.geojson"
+download.file(url, "nl_municipalities_2025.geojson")
+municipalities <- st_read("nl_municipalities_2025.geojson")
+
+monuments_municipalities <- monuments |>
+  filter(str_detect(region_code, 'GM'), type_of_monument == 'Listed monuments total')
+
+monuments_municipalities_map <- municipalities |>
+  left_join(monuments_municipalities, by = c('statcode' = 'region_code'))
+```
+
+A few municipalities, such as Amsterdam, have thousands of monuments, while most have a few hundred at most. With a continuous colour scale, almost every municipality would get the same colour. A **binned** scale, with bins that get wider as the numbers get bigger, shows the variation much better:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = monuments_municipalities_map, aes(fill = monuments), colour = 'white', linewidth = 0.1) +
+  scale_fill_viridis_b(breaks = c(50, 100, 250, 500, 1000, 2500), direction = -1) +
+  labs(title = 'National monuments in the Netherlands',
+       subtitle = 'Number of rijksmonumenten in each municipality, 2024',
+       fill = 'Monuments',
+       caption = 'Data: CBS (CC BY 4.0). Boundaries: CBS, via cartomap') +
+  theme_void()
+```
+
+The big cities stand out, as you'd expect - but what do you notice about the north of the country? The first exercise below will help you find out what's going on.
+
+::: callout-warning
+## Match the year of your data and your map
+
+Boundaries change. Dutch municipalities merge with each other almost every year, so the list of municipalities in 2025 is different to the list in 2020. Always use a map of the boundaries from the **same year** as your data. CBS makes this easier by saying which year's boundaries it used: this data uses the 2025 boundaries ('*indeling 2025*'), so we use the 2025 map. If your data and map come from different years, some places won't match.
+:::
+
+## Exercises
+
+1.  Make a map of the number of **religious buildings** that are national monuments in each municipality (`type_of_monument == 'Religious buildings'`). Look at the data to find the names of the other types of monument, and make a second map of another type. Do they show different patterns?
+
+```{webr-r}
+
+```
+
+2.  Larger municipalities have more room for monuments. Normalise the data by calculating the number of monuments per square kilometre. You can calculate the area of each municipality with the sf function `st_area()`, which gives the area in square metres. Areas are most reliable when measured on a flat map, so first convert the shapes to the official Dutch projection (EPSG 28992, see the [projections chapter](44_projections.qmd#projections-for-smaller-areas)) with `st_transform()`:
+
+``` r
+mutate(area_km2 = as.numeric(st_area(st_transform(geometry, 28992))) / 1000000)
+```
+
+How does the map change?
+
+```{webr-r}
+
+```
+
+## Check your understanding
+
+**1.** A student downloads a shapefile as a zip, unzips it, and uploads only the `.shp` file to Posit Cloud. When they run `st_read()`, they get an error. Why?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+A shapefile is a set of files (`.shp`, `.dbf`, `.prj`, and others), and `st_read()` needs all of them, in the same folder. They need to upload all the files, not just the `.shp`.
+:::
+
+**2.** A student joins a dataset of library loans by municipality in 2015 to a map of the municipalities in 2025. Some municipalities don't match. What's the most likely reason?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+Municipal boundaries have changed between 2015 and 2025: many municipalities have merged, so some 2015 municipalities no longer exist, and some 2025 municipalities didn't exist yet. They should use a map of the 2015 boundaries.
+:::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know where to look for map files of regions, provinces and municipalities
+-   [ ] Know the difference between GeoJSON, shapefile and GeoPackage files
+-   [ ] Read a map file into R with `st_read()`
+-   [ ] Diagnose a join that doesn't match, and explain why joining on codes is more reliable than on names
+-   [ ] Explain why the year of your map should match the year of your data

@@ -4,6 +4,11 @@ title: "Home exercises"
 
 ## Instructions
 
+::: callout-important
+## Checkpoint: submit by Tuesday 3 November
+This exercise is one of the two graded **checkpoints** (pass/fail). You pass by making a genuine attempt at all of the exercises - they don't have to be perfect.
+:::
+
 The at-home exercises should be completed using Posit cloud, in the workspace project 'Home exercise 2'. Create a new .Rmd file (use File -\> New File -\> R Markdown). Delete the existing boilerplate text in the markdown file, underneath the title part.
 
 It's best to save the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_2_lastname_firstname. Regularly re-save the file.

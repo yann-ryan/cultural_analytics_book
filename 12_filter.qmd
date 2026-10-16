@@ -128,6 +128,52 @@ titanic_df |>
 
 ```
 
+## Check your understanding
+
+These questions are in the same style as the [exam](52_exam-prep.qmd). Try to answer each one *before* running any code - then use the code cell to check your answer.
+
+**1.** Which of these two will return more rows, and why?
+
+``` r
+titanic_df |> filter(pclass == 1, sex == 'female')
+
+titanic_df |> filter(pclass == 1 | sex == 'female')
+```
+
+```{webr-r}
+
+```
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+The second. A comma (like `&`) means *and*: a row is kept only if the passenger was in first class **and** female. `|` means *or*: a row is kept if the passenger was in first class, **or** female, or both - so it includes all first-class men and all women in second and third class as well.
+:::
+
+**2.** This code gives the error `object 'C' not found`. What's wrong?
+
+``` r
+titanic_df |> filter(embarked == C)
+```
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+`C` needs quotation marks: `filter(embarked == 'C')`. Without them, R thinks `C` is the name of an object (or a column), rather than a piece of text to compare against.
+:::
+
+**3.** You want to keep only passengers who were younger than 10 *or* older than 60. Which of these is correct?
+
+a)  `titanic_df |> filter(age < 10, age > 60)`
+b)  `titanic_df |> filter(age < 10 | age > 60)`
+c)  `titanic_df |> filter(age %in% c(10, 60))`
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+**b**. (a) asks for passengers younger than 10 *and* older than 60 at the same time, which is impossible, so it returns no rows. (c) only returns passengers aged exactly 10 or exactly 60.
+:::
+
 ## Learning Objectives
 
 Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!

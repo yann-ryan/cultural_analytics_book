@@ -1,0 +1,53 @@
+---
+title: "Finding coordinates"
+---
+
+The World Heritage data came with coordinates for (almost) every site. Often, you won't be so lucky: your data might just contain the names of places - towns, addresses, or historical regions - and you'll need to find the coordinates yourself. This process is called **geocoding**. There are three main ways to do it.
+
+## Looking them up by hand
+
+If you have a small number of well-known, modern places (say, a list of capital cities), the simplest method is to look them up. Each place on Wikipedia has its coordinates at the top right of the page: click on them to find the decimal version. Google Maps also shows the coordinates of any point if you right-click on it (latitude first, then longitude). Add them to two new columns in your spreadsheet, called `latitude` and `longitude`.
+
+This is slow, but it's accurate, and you can be sure you have the right place.
+
+## Gazetteers
+
+If you have many places, or historical places, or places in several languages, you could use a **gazetteer**. A gazetteer is a geographical dictionary: a list of place names, with information about each one, including coordinates.
+
+-   [GeoNames](https://www.geonames.org/) is the best-known general gazetteer, with around 12 million place names.
+-   [Pleiades](https://pleiades.stoa.org/) is a gazetteer of places in the ancient world.
+-   The [World Historical Gazetteer](https://whgazetteer.org/) collects historical place names from many sources and periods.
+
+Most gazetteers let you download their whole dataset. You can then match your place names to the gazetteer with a `left_join()`, exactly as we joined data to maps - the place name (or, better, an identifier) is the common field.
+
+Be careful, though. Place names are messy, especially historical ones. The same place can have many names, in different languages and periods (Leiden, *Lugdunum Batavorum*, Leyde), and many different places share the same name (there are dozens of places called Springfield). If you match place names automatically, always check the results by hand, and plot them on a map to spot points in obviously wrong places.
+
+## Geocoding services
+
+A **geocoding service** takes a list of place names or addresses, looks each one up in a large database, and returns the coordinates. This is the quickest way to geocode a large number of *modern* places or addresses. Because they use the full address, they can usually tell the difference between Dublin in Ireland and Dublin in Ohio, if you include the country.
+
+Most are commercial services with a free allowance, such as [Geoapify](https://www.geoapify.com/tools/geocoding-online), where you can upload a spreadsheet of addresses and download it again with coordinates added. In R, the package [tidygeocoder](https://jessecambon.github.io/tidygeocoder/) can geocode a column of addresses using several services, including the free OpenStreetMap service, Nominatim.
+
+Geocoding services are built for modern addresses, and often give poor results for historical places. As with gazetteers, check the results.
+
+## Which method should I use?
+
+| Your data | Best method |
+|----|----|
+| A few well-known, modern places | Look them up by hand |
+| Many historical or ancient places | A specialist gazetteer (e.g. Pleiades, World Historical Gazetteer) |
+| Many modern places or addresses | A geocoding service |
+
+: Choosing a method {.striped}
+
+Whatever method you use, record what you did in your report, so that others can reproduce it - and be honest about places you couldn't find, or weren't sure about. Every point on a map is a claim that something happened *there*.
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Know the three main ways to find coordinates for a set of places: by hand, gazetteers, and geocoding services
+-   [ ] Know which method suits which kind of data
+-   [ ] Explain the problems of matching historical place names, and why results must be checked

@@ -1,0 +1,316 @@
+---
+title: "Choropleth maps: joining your data to a map"
+webr:
+  packages: ['dplyr', 'tidyr', 'readr', 'ggplot2', 'sf', 'rnaturalearth', 'rnaturalearthdata']
+---
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv"
+download.file(url, "whc_sites.csv")
+whc_sites <- read_csv("whc_sites.csv", na = "")
+
+worldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>
+  filter(continent != 'Antarctica')
+```
+
+In the last class, we coloured in a map using data which came with it, such as population. But in a real project, your data will almost always come from somewhere else: a spreadsheet of museum visitors, election results, or library loans. To map it, you need to **join** your data to a map.
+
+In this chapter, we'll make a choropleth map of the **UNESCO World Heritage List**, to answer a simple question: *where in the world are the World Heritage sites?*
+
+## The six steps of a choropleth map
+
+Making a choropleth map from your own data always involves the same steps. We'll go through each one in turn:
+
+1.  **Get to know your data**, and work out its *geographic unit* (countries? provinces? municipalities?).
+2.  **Find a map** with features (shapes) for that same geographic unit.
+3.  **Find a common field**: a column in your data and a column in the map which identify the places in the same way.
+4.  **Summarise your data**, so there's one row for each place on the map.
+5.  **Join** the summarised data to the map, with `left_join()`.
+6.  **Draw the map**, and think carefully about what you're showing.
+
+## Step 1: Get to know your data
+
+The World Heritage List is published by UNESCO as [open data](https://data.unesco.org/explore/dataset/whc001/). I've made a slightly simplified version for this course. Let's load the packages we need and read it in:
+
+```{webr-r}
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv"
+download.file(url, "whc_sites.csv")
+whc_sites <- read_csv("whc_sites.csv", na = "")
+```
+
+::: callout-warning
+## Why `na = ""`?
+
+By default, `read_csv()` treats any cell containing the text `NA` as a missing value. Usually that's helpful - but in this dataset, `NA` is also the country code for **Namibia**! Setting `na = ""` tells R that only empty cells are missing. This is a good example of why you should always check your data after reading it in.
+:::
+
+```{webr-r}
+glimpse(whc_sites)
+```
+
+Each row is one World Heritage site, with its name, its category (`Cultural`, `Natural` or `Mixed`), the year it was added to the list (`date_inscribed`), whether it's on the list of sites 'in danger', and the country or countries it's in, both as names (`states`) and as two-letter codes (`iso_codes`). There are also coordinates, which we'll use for a points map in the next class.
+
+Before mapping anything, it's always worth exploring the data with the tools we already know. For example, UNESCO divides the world into five regions:
+
+```{webr-r}
+whc_sites |>
+  count(region, sort = TRUE)
+```
+
+Almost half of all World Heritage sites are in the region 'Europe and North America'. Keep this in mind as we go.
+
+### What's the geographic unit?
+
+The geographic unit of this data is the **country** - or, in UNESCO's terms, the 'State Party' which nominated the site. So we need a map of the world's countries.
+
+But there's a complication. Some sites cross borders, and are listed under more than one country:
+
+```{webr-r}
+whc_sites |>
+  filter(transboundary == TRUE) |>
+  select(name, iso_codes)
+```
+
+The forest of Białowieża, for example, is in both Poland (`PL`) and Belarus (`BY`). We'll deal with this in step 4.
+
+## Step 2: Find a map
+
+For countries, the Natural Earth world map we used last class is ideal:
+
+```{webr-r}
+worldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>
+  filter(continent != 'Antarctica')
+```
+
+For other geographic units - provinces, municipalities, historical borders - you'll need to find and load a different map. That's covered in the [next chapter](47_map-files.qmd).
+
+## Step 3: Find a common field
+
+To join two datasets, we need a column in each which identifies the same thing in the same way. We could try country names, but names are risky. UNESCO calls the UK 'United Kingdom of Great Britain and Northern Ireland', while Natural Earth calls it 'United Kingdom', so they wouldn't match. Names can also be spelled differently, or written in different languages.
+
+It's much better to use a **standard code**, where one is available. For countries, the most common are the ISO codes: two letters (`NL`) or three letters (`NLD`). Our data has two-letter codes in the `iso_codes` column. The world map has a lot of columns with codes in them, but the one we want is called `iso_a2_eh`:
+
+```{webr-r}
+worldmap |>
+  filter(name %in% c('Netherlands', 'France', 'Norway')) |>
+  select(name, iso_a2, iso_a2_eh)
+```
+
+::: callout-note
+Notice that the column `iso_a2` gives France and Norway the code `-99`, meaning 'missing'. That's for complicated technical reasons to do with their overseas territories. The column `iso_a2_eh` fixes this, which is why we use it instead. Little traps like this are very common when joining data, so always check your join (see step 5).
+:::
+
+## Step 4: Summarise your data
+
+The map has one row per country, so our data needs one row per country too. Right now, it has one row per *site*. We need to count the sites in each country.
+
+First, though, we need to deal with the cross-border sites. The function `separate_rows()` (from tidyr) splits a column containing several values into separate rows. Here, it splits `iso_codes` at each comma:
+
+```{webr-r}
+whc_sites |>
+  filter(transboundary == TRUE) |>
+  select(name, iso_codes) |>
+  separate_rows(iso_codes, sep = ', ')
+```
+
+Now Białowieża Forest has two rows: one for Poland, and one for Belarus. This means a cross-border site will count once for *each* country it's in, which seems fair.
+
+Now we can count the number of sites for each country code, using `count()`. The argument `name =` sets the name of the new column:
+
+```{webr-r}
+site_counts <- whc_sites |>
+  separate_rows(iso_codes, sep = ', ') |>
+  count(iso_codes, name = 'sites')
+
+site_counts |>
+  arrange(desc(sites))
+```
+
+## Step 5: Join the data to the map
+
+Now we can join the two together, with `left_join()`. **The map must be on the left**, so that the result is still a map (an sf object), and so that every country is kept, even if it has no sites. Because the common columns have different names, we tell `left_join()` which column in the map matches which column in our data with `by = c('map column' = 'data column')`:
+
+```{webr-r}
+whc_map <- worldmap |>
+  left_join(site_counts, by = c('iso_a2_eh' = 'iso_codes'))
+```
+
+### Check the join
+
+Always check that a join has done what you expected. A good start is to look for rows that *didn't* match, which will have `NA` in the new column:
+
+```{webr-r}
+whc_map |>
+  filter(is.na(sites)) |>
+  select(name, type)
+```
+
+Most of these are countries which really have no World Heritage sites. Some are places which aren't independent countries, like Jersey or Aruba, and some, like Taiwan, aren't members of UNESCO at all. Greenland is here too: UNESCO lists its sites under Denmark. We'll treat them all as having zero sites - but note that, for Taiwan, 'zero' means 'can't have any', not 'has none'.
+
+Next, check whether any places on the map share the same code. If they do, they'll both be given the same number of sites. We can find them by grouping by the code, and keeping only the groups with more than one row:
+
+```{webr-r}
+whc_map |>
+  group_by(iso_a2_eh) |>
+  filter(n() > 1) |>
+  select(name, iso_a2_eh, type, sites)
+```
+
+Somaliland, Northern Cyprus and the Siachen Glacier share the 'missing' code `-99`, which doesn't matter, as none of them has any sites. But two Australian territories - the Indian Ocean Territories and the uninhabited **Ashmore and Cartier Islands** - have each been given Australia's 21 sites! Natural Earth draws some territories separately from their country, but gives them the country's code. These territories have the `type` 'Dependency'. Let's remove them, and replace the remaining `NA` values with zero using `replace_na()`:
+
+```{webr-r}
+whc_map <- worldmap |>
+  filter(type != 'Dependency') |>
+  left_join(site_counts, by = c('iso_a2_eh' = 'iso_codes')) |>
+  mutate(sites = replace_na(sites, 0))
+```
+
+## Step 6: Draw the map
+
+Now we can draw the map, filling each country by its number of sites. Following the [chapter on projections](44_projections.qmd), we'll use an equal-area projection:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = whc_map, aes(fill = sites), colour = 'white', linewidth = 0.1) +
+  coord_sf(crs = '+proj=eqearth') +
+  scale_fill_viridis_c() +
+  theme_void()
+```
+
+### Binning the colour scale
+
+With a continuous colour scale, it's hard for readers to tell exactly which value a colour stands for. On maps, it's often clearer to **bin** the scale into a few groups, each with its own colour. The `_b` version of the viridis scale does this. We can set where the bins start and end with `breaks =`:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = whc_map, aes(fill = sites), colour = 'white', linewidth = 0.1) +
+  coord_sf(crs = '+proj=eqearth') +
+  scale_fill_viridis_b(breaks = c(1, 5, 10, 20, 40), direction = -1) +
+  labs(title = 'Where are the World Heritage sites?',
+       subtitle = 'Number of UNESCO World Heritage sites in each country, 2026',
+       fill = 'Sites',
+       caption = 'Sites which cross borders are counted for each country. Data: UNESCO (CC BY-SA 4.0)') +
+  theme_void()
+```
+
+`direction = -1` reverses the colours, so that the countries with the most sites are the darkest, which most readers expect.
+
+### Normalising the data
+
+This map shows that Italy, China, France, Germany and Spain have the most sites. But as we saw in the [first mapping chapter](42_digital-mapping-1.qmd#the-trouble-with-choropleths), maps of raw counts are often dominated by big countries. Bigger countries have more room for more sites.
+
+To compare countries of different sizes, we can **normalise** the data: divide it by something that accounts for size. Let's try the number of sites per million people:
+
+```{webr-r}
+whc_map <- whc_map |>
+  mutate(sites_per_million = sites / pop_est * 1000000)
+
+whc_map |>
+  select(name, sites, pop_est, sites_per_million) |>
+  arrange(desc(sites_per_million))
+```
+
+The Vatican has two World Heritage sites and only around 800 inhabitants, so it has well over 2,000 sites per million people. Tiny countries like this would dominate any scale. One option is to leave them out, and say so on the map. Here, we'll only include countries with at least one million people, and draw the others in grey (by setting their value to `NA`, and choosing a colour for `NA` with `na.value =`):
+
+```{webr-r}
+whc_map <- whc_map |>
+  mutate(sites_per_million = if_else(pop_est >= 1000000, sites_per_million, NA))
+
+ggplot() +
+  geom_sf(data = whc_map, aes(fill = sites_per_million), colour = 'white', linewidth = 0.1) +
+  coord_sf(crs = '+proj=eqearth') +
+  scale_fill_viridis_b(breaks = c(0.1, 0.25, 0.5, 1, 2), direction = -1, na.value = 'grey80') +
+  labs(title = 'World Heritage sites per person',
+       subtitle = 'UNESCO World Heritage sites per million inhabitants, 2026',
+       fill = 'Sites per\nmillion people',
+       caption = 'Countries with under one million people shown in grey. Data: UNESCO (CC BY-SA 4.0), Natural Earth') +
+  theme_void()
+```
+
+The two maps tell quite different stories. In the first, China and India stand out. In the second, Europe stands out even more strongly, as do countries with small populations, such as Mongolia, while China and India fall to the lowest group.
+
+### What are we actually measuring?
+
+Which map is 'right'? Neither, on its own. Dividing by population answers a different question to dividing by area, and neither tells us how much heritage a country *has*. That's because the list doesn't measure heritage. It records which places have been **nominated** by governments and **accepted** by a UNESCO committee.
+
+Making a nomination takes money, expertise, and political will. For decades, the criteria favoured the kinds of heritage valued in Europe, such as cathedrals, palaces, and historic town centres, over, for example, living traditions or sacred landscapes. UNESCO itself recognised this imbalance in 1994, when it launched a 'Global Strategy' to make the list more representative.
+
+This is exactly the kind of question the *Data Feminism* readings ask us to think about: who made this data, for what purpose, and whose idea of value does it represent? A good map - and a good report - should make this clear to the reader, for example in the title, the caption, or the text around it.
+
+## Exercises
+
+1.  Make a map of the number of **cultural** sites (only `category == 'Cultural'`) in each country of Europe. Use the projection with the EPSG code 3035 and zoom in on Europe, as in the [projections chapter](44_projections.qmd#projections-for-smaller-areas).
+
+```{webr-r}
+
+```
+
+2.  Make a world map of the number of sites **in danger** (`danger == TRUE`) in each country. Do you need to normalise this data? Why, or why not?
+
+```{webr-r}
+
+```
+
+3.  The Nobel Prize dataset we used earlier in the course contains the country of birth of each laureate, as a *three-letter* ISO code, in the column `iso_birth_country_now`. Make a map of the number of Nobel laureates born in each country. The matching column in the world map is `iso_a3_eh`. Would it make sense to normalise this data? What would you divide by?
+
+```{webr-r}
+url <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv"
+download.file(url, "laureates_df.csv")
+laureates <- read_csv("laureates_df.csv")
+```
+
+## Check your understanding
+
+**1.** Why should the map be on the *left* side of `left_join()`?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+`left_join()` keeps every row of the left-hand dataset, so with the map on the left, every country stays on the map, even those with no data. The result also keeps the class of the left-hand object, so it's still an sf object which `geom_sf()` can draw. With the data on the left, countries with no data would disappear, and the result would be an ordinary dataframe.
+:::
+
+**2.** After a join, a country that you know has data shows up in grey (`NA`). Give two possible reasons.
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+The codes or names don't match: for example, a spelling difference ('Czechia' vs 'Czech Republic'), a different kind of code (two-letter vs three-letter ISO codes), or a missing-value code such as `-99` in the map. Or the data itself has a problem, such as a code read in as `NA` (like Namibia's `NA` code), or the country being recorded under a different name or historical state.
+:::
+
+**3.** A student maps the total number of museums in each country of Europe, and concludes that Germany and France are the most 'museum-rich' countries. What's the problem, and how could they fix it?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+Raw counts mostly reflect the size of the countries: big countries with many people will usually have more museums. To compare countries fairly, they should **normalise** the data, e.g. museums per 100,000 people. They should also be clear about what the data actually measures - for instance, how 'museum' was defined, and by whom.
+:::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] List the six steps of making a choropleth map from your own data
+-   [ ] Find a common field to join data and map, and explain why codes are better than names
+-   [ ] Use `separate_rows()` to split a column containing several values
+-   [ ] Join data to a map with `left_join()`, with the map on the left
+-   [ ] Check a join for missing and unexpected matches
+-   [ ] Use a binned colour scale, and choose a colour for missing values
+-   [ ] Normalise data, and explain what difference it makes to a map

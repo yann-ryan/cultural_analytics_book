@@ -4,37 +4,46 @@ title: "Home Exercise"
 
 ## Instructions
 
+::: callout-note
+This exercise is ungraded practice - you don't need to submit it. But it's the best preparation for the reports and the exam, so do try to complete it.
+:::
+
 The at-home exercises should be completed using Posit cloud, Home Exercise 8. Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
-I advise saving the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_8_lastname_firstname. Regularly re-save the file.
+I advise saving the new file straight away, and regularly re-save it.
 
-When you have finished the exercise (or part of it), 'knit' the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.
+When you have finished the exercise (or part of it), 'knit' the file to check that it works.
 
-Before you begin, load the following packages at the top of your markdown document:\
+Before you begin, load the following packages at the top of your markdown document, and download the world map:
 
 ```{r}
 #| eval: false
 
-
 library(tidyverse)
-library(rnaturalearth)
 library(sf)
+library(rnaturalearth)
+
+worldmap <- ne_countries(scale = 'medium', returnclass = 'sf')
 ```
 
-## Task
+## Tasks
 
--   Using the Nobel Prize dataset (laureates_df.csv) in the Posit files tab, map the country of birth for each Nobel laureate.
+These tasks practise everything from [Your first map](43_first-map.qmd) and [Map projections](44_projections.qmd). For each one, write a sentence explaining what you're doing, followed by the code.
 
--   Start with a basemap of countries downloaded using R Natural Earth.
+1.  Make a map of the countries of Asia. Use `coord_sf()` to zoom in so there's no unnecessary empty space.
 
--   This exercise will require you to use your knowledge of techniques you've used earlier on the course. The basic steps with all maps of this kind are to merge your summarised external data with the geographic map object from Natural Earth.
+2.  The world map has a column `gdp_md`, containing each country's GDP (the total value of its economy) in millions of US dollars. Use `mutate()` to make a new column containing the **GDP per person** (remember that `gdp_md` is in *millions* of dollars, and population is in `pop_est`). Watch out: missing values in this dataset are recorded as `-99`, so filter out any negative GDP values first.
 
-    -   First, you'll need to **summarise** the data to get a count of the Nobel laureates for each country, and then **join** this to the worldmap object.
+3.  Make a map of the whole world (without Antarctica), with each country filled by GDP per person. Then:
 
-    -   As with all joins, you need a column with information common to both, which the join function will use to do the merge. In these two datasets, the relevant column names are **iso_a3** (in the map object) and **iso_birth_country_now** in the Nobel dataset. You'll also need to use this latter column when you're summarising your Nobel data.
+    -   Use an equal-area projection.
+    -   Choose a suitable colour scale, and give the legend a clear title.
+    -   Give the borders a colour and width that make the map easy to read.
+    -   Add a title, subtitle, and a caption giving the source of the data.
+    -   Use `theme_void()`.
 
--   Improve the basic map with a suitable title, subtitle, legend title, and appropriate themes or theme items.
+4.  Make a second version of the same map, this time filling the countries by **total GDP** instead of GDP per person. Write a few sentences comparing the two maps: what does each one show, and which would you use to compare how wealthy people are in different countries? Why?
 
--   Can you figure out how to change the country border **colour** to black?
+5.  In a few sentences, reflect on the data: where does it come from (look at the [Natural Earth](https://www.naturalearthdata.com/) website), and what can't a map of GDP tell you?
 
--   Optional: look in the course book at the section on map projections, and choose another one for this map.
+6.  **Optional challenge:** make a map of Europe in the projection with the EPSG code 3035, with each country filled by its `income_grp`, and the countries outside Europe drawn in light grey.

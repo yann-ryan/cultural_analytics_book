@@ -1,0 +1,301 @@
+---
+title: "Points maps"
+webr:
+  packages: ['dplyr', 'stringr', 'readr', 'ggplot2', 'sf', 'rnaturalearth', 'rnaturalearthdata']
+---
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(stringr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv"
+download.file(url, "whc_sites.csv")
+whc_sites <- read_csv("whc_sites.csv", na = "")
+
+worldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>
+  filter(continent != 'Antarctica')
+
+whc_points <- whc_sites |>
+  filter(!is.na(latitude), !is.na(longitude)) |>
+  st_as_sf(coords = c('longitude', 'latitude'), crs = 4326)
+```
+
+So far, we've coloured in regions. In this chapter, we'll make the other main kind of data map: a **points map**, in which each item in our data is drawn as a point at a precise location. Points maps are the right choice when your data is about specific places - a building, a town, an address - rather than about regions.
+
+We'll go back to the UNESCO World Heritage List, but this time, instead of counting the sites in each country, we'll put each site on the map.
+
+## Latitude and longitude
+
+To draw a point, we need its **coordinates**: two numbers which give its position on the earth.
+
+-   **Latitude** measures the north-south position, from +90° at the North Pole to -90° at the South Pole, with the equator at 0°.
+-   **Longitude** measures the east-west position, from -180° to +180°. 0° is a line running through Greenwich, in London, known as the prime meridian.
+
+![Latitude (left) and longitude (right). Source: Wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/2f/Latitude_and_Longitude_of_the_Earth_nl.svg){fig-alt="Diagram of the globe showing lines of latitude running east-west and lines of longitude running between the poles."}
+
+Coordinates can be written in **decimal** form (Leiden is at latitude `52.16`, longitude `4.49`) or in degrees, minutes and seconds (`52° 9' 36" N, 4° 29' 49" E`). In decimal form, places south of the equator and west of Greenwich have negative numbers: Buenos Aires is at `-34.60, -58.38`. We'll always use decimal coordinates.
+
+::: callout-note
+Latitude is like the y axis of a chart, and longitude like the x axis. But people usually write coordinates with latitude *first* - so it's easy to mix them up. If your points end up in the sea, or the map looks mirrored, check that you haven't swapped them!
+:::
+
+## Turning coordinates into an sf object
+
+Let's load the packages and the data:
+
+```{webr-r}
+library(dplyr)
+library(stringr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(rnaturalearth)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv"
+download.file(url, "whc_sites.csv")
+whc_sites <- read_csv("whc_sites.csv", na = "")
+
+whc_sites |>
+  select(name, latitude, longitude)
+```
+
+The `latitude` and `longitude` columns are just numbers in a regular dataframe. To draw them with `geom_sf()`, we need to turn the dataframe into an sf object, with a geometry column. The function `st_as_sf()` does this. It needs:
+
+-   The dataframe.
+-   `coords =`: the names of the columns with the coordinates, as a vector, with the **longitude (x) first**, then the latitude (y).
+-   `crs =`: the coordinate reference system the coordinates use. Ordinary longitude and latitude, as used by GPS and most datasets, is EPSG code **4326** (see the [chapter on projections](44_projections.qmd#coordinate-reference-systems)).
+
+A few sites are missing coordinates (mostly sites only added to the list in 2026), and `st_as_sf()` will give an error if there are missing values, so we filter them out first:
+
+```{webr-r}
+whc_points <- whc_sites |>
+  filter(!is.na(latitude), !is.na(longitude)) |>
+  st_as_sf(coords = c('longitude', 'latitude'), crs = 4326)
+
+whc_points |>
+  select(name, category)
+```
+
+The latitude and longitude columns have gone, and there's now a geometry column, where each feature is a `POINT`.
+
+::: callout-note
+Sites which cross borders only have a single point. The Wadden Sea, for instance, is shared by the Netherlands, Germany and Denmark, but its point is in Germany. When you put data on a map, you'll often have to simplify like this - and you should say so in your report.
+:::
+
+## Drawing points with `geom_sf()`
+
+We draw points in exactly the same way as polygons, with `geom_sf()`:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = whc_points)
+```
+
+You can almost see the shape of the continents. But to read a points map, people need to know where the points are, so we usually need a **basemap** underneath: a map of countries or coastlines which gives the reader context.
+
+## Adding a basemap
+
+A basemap is just another `geom_sf()` layer, drawn *before* the points so that it sits underneath them. Let's use the Natural Earth world map, in a light grey with white borders, so that it doesn't distract from the data:
+
+```{webr-r}
+worldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>
+  filter(continent != 'Antarctica')
+
+ggplot() +
+  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +
+  geom_sf(data = whc_points, size = 0.5) +
+  theme_void()
+```
+
+## Mapping data to points
+
+With points, we can use the aesthetics `colour`, `size`, `shape` and `alpha` (transparency). Let's colour the points by the category of the site. With over a thousand points, many will overlap, so we'll also make them small, and partly transparent with `alpha`, so that we can see where they're stacked on top of each other. We'll also use an equal-area projection:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +
+  geom_sf(data = whc_points, aes(colour = category), size = 0.8, alpha = 0.6) +
+  scale_colour_manual(values = c(Cultural = '#C0392B', Mixed = '#8E44AD', Natural = '#27AE60')) +
+  coord_sf(crs = '+proj=eqearth') +
+  labs(title = 'The UNESCO World Heritage List',
+       colour = 'Category',
+       caption = 'Data: UNESCO (CC BY-SA 4.0)') +
+  theme_void()
+```
+
+Notice that we only needed to set the projection once, in `coord_sf()`: ggplot projects every layer, so the points and the basemap still line up.
+
+::: callout-tip
+Colour is set outside `aes()` for the basemap (`fill = 'grey90'`), because it's a fixed value, and inside `aes()` for the points (`colour = category`), because it depends on the data. Points use `colour`, not `fill`.
+:::
+
+**Try it yourself:** make a map of only the **Natural** sites, with the size of each point mapped to the area of the site (`area_hectares`). Does this work well? Why, or why not?
+
+```{webr-r}
+
+```
+
+## Zooming in, and overlapping points
+
+The world map makes it look like Europe is one big blob of points. Let's zoom in, using `coord_sf()` with the European projection (EPSG 3035) we used in the projections chapter:
+
+```{webr-r}
+ggplot() +
+  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.2) +
+  geom_sf(data = whc_points, aes(colour = category), size = 1.5, alpha = 0.6) +
+  scale_colour_manual(values = c(Cultural = '#C0392B', Mixed = '#8E44AD', Natural = '#27AE60')) +
+  coord_sf(crs = 3035, xlim = c(-15, 50), ylim = c(35, 72), default_crs = 4326) +
+  labs(title = 'World Heritage sites in Europe',
+       colour = 'Category',
+       caption = 'Data: UNESCO (CC BY-SA 4.0)') +
+  theme_void()
+```
+
+Even zoomed in, some areas, such as Italy, are crowded. **Overplotting** - points hiding other points - is the most common problem with points maps. Some ways to deal with it:
+
+-   Make the points smaller, or more transparent (`alpha`).
+-   Zoom in on a smaller area.
+-   Split the map into several small maps with facets (see below).
+-   Summarise the points by region, and make a choropleth instead. If what matters is *how many* sites there are in each country, the choropleth in the [last class](46_choropleth.qmd) is the better map. A points map is better for showing *exactly where* things are.
+
+## Highlighting some points
+
+Sometimes, we want to draw attention to a subset of the data. Here, let's highlight the 58 sites which are on UNESCO's list of World Heritage **in danger**: sites threatened by war, natural disasters, uncontrolled development, or other dangers. We draw all the sites in grey first, and then the sites in danger on top, in red:
+
+```{webr-r}
+in_danger <- whc_points |>
+  filter(danger == TRUE)
+
+ggplot() +
+  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +
+  geom_sf(data = whc_points, colour = 'grey60', size = 0.5, alpha = 0.5) +
+  geom_sf(data = in_danger, colour = '#C0392B', size = 2) +
+  coord_sf(crs = '+proj=eqearth') +
+  labs(title = 'World Heritage in danger',
+       subtitle = 'The 58 World Heritage sites on UNESCO\'s \'in danger\' list (red), out of all sites (grey)',
+       caption = 'Data: UNESCO (CC BY-SA 4.0)') +
+  theme_void()
+```
+
+The pattern is very different to the list as a whole: many of the sites in danger are in the Middle East and Africa, including areas affected by war.
+
+## Small multiples with facets
+
+Has the geography of the list changed over time? We can use `facet_wrap()` to make a separate small map for each period, just as with any other ggplot chart. First, we make a new column with `case_when()`, putting each site into a period depending on the year it was added to the list:
+
+```{webr-r}
+whc_points <- whc_points |>
+  mutate(period = case_when(date_inscribed < 1990 ~ '1978-1989',
+                            date_inscribed < 2000 ~ '1990s',
+                            date_inscribed < 2010 ~ '2000s',
+                            date_inscribed < 2020 ~ '2010s',
+                            TRUE ~ '2020s'))
+
+ggplot() +
+  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +
+  geom_sf(data = whc_points, colour = '#C0392B', size = 0.4, alpha = 0.6) +
+  coord_sf(crs = '+proj=eqearth') +
+  facet_wrap(~ period) +
+  labs(title = 'World Heritage sites, by the decade they were added to the list',
+       caption = 'Data: UNESCO (CC BY-SA 4.0)') +
+  theme_void()
+```
+
+It's hard to see a big change by eye. This is where it helps to combine a map with a simple summary of the data. Let's count the share of sites from each period in the region 'Europe and North America':
+
+```{webr-r}
+whc_points |>
+  st_drop_geometry() |>
+  group_by(period) |>
+  summarise(sites = n(),
+            share_europe_north_america = mean(region == 'Europe and North America'))
+```
+
+(`st_drop_geometry()` turns an sf object back into a regular dataframe, which makes summaries quicker and tidier.)
+
+Europe and North America's share of new sites peaked at 55% in the 1990s, and has since fallen to around 40% - still far more than its share of the world's population. A map can show *where*, but it's often the combination of a map, a chart, and a few numbers that tells the full story.
+
+## Exercises
+
+1.  Make a map of the World Heritage sites in the Netherlands (hint: use `str_detect()` on the `iso_codes` column), drawn on top of a map of the Dutch provinces. You can load the provinces with the code below. What happens to the map, and why? Fix it with `coord_sf()`.
+
+```{webr-r}
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_provinces_2023.geojson"
+download.file(url, "nl_provinces_2023.geojson")
+provinces <- st_read("nl_provinces_2023.geojson")
+
+```
+
+2.  The [World Atlas of Language Structures](https://wals.info/) contains information on over 2,500 of the world's languages, including where each one is spoken. Make a points map of the languages, coloured by `Macroarea` (a large world region). Use a basemap and a suitable projection. Then choose a single language family (`Family`), and make a map of just its languages, zoomed in.
+
+```{webr-r}
+url <- "https://raw.githubusercontent.com/cldf-datasets/wals/master/cldf/languages.csv"
+download.file(url, "languages.csv")
+languages <- read_csv("languages.csv")
+
+```
+
+## Checklist: finishing a map
+
+When you make a map for your report, go through this checklist:
+
+-   [ ] Is a map the best way to show this data? Does location actually matter?
+-   [ ] Is the data normalised, if it's a choropleth? Or have you explained why not?
+-   [ ] Have you chosen a suitable projection (equal-area for choropleths of large areas)?
+-   [ ] Have you zoomed in on the area that matters, and filtered out data you don't need?
+-   [ ] Is the colour scale suitable for the data (categorical, sequential, binned?), and readable by colour-blind readers?
+-   [ ] Does the basemap help the reader, without distracting from the data?
+-   [ ] Have you removed unnecessary elements (e.g. with `theme_void()`)?
+-   [ ] Does it have a clear title, a legend title, and a caption with the source of the data and the map?
+-   [ ] Have you explained the choices and simplifications you made, and their limitations?
+
+## Check your understanding
+
+**1.** A student makes an sf object with `st_as_sf(df, coords = c('latitude', 'longitude'), crs = 4326)`. What will go wrong?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+The coordinates are in the wrong order: `coords` needs the **longitude** (x) first, then the latitude (y). With them swapped, every point will be drawn in the wrong place (Leiden, at latitude 52 and longitude 4, would end up at longitude 52 and latitude 4 - in the Indian Ocean).
+:::
+
+**2.** A points map shows the basemap, but no points, although the code gives no error. The code is below. What's wrong?
+
+``` r
+ggplot() +
+  geom_sf(data = whc_points, colour = 'red') +
+  geom_sf(data = worldmap, fill = 'grey90')
+```
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+The layers are in the wrong order. ggplot draws layers in the order they're added, so the basemap is drawn *on top* of the points, hiding them. The basemap should come first.
+:::
+
+**3.** You have a dataset of 5,000 historical letters, each with the town it was sent from. Would you make a points map or a choropleth? What problems might you run into?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+A points map, because the data is about specific towns, not regions. But you'd need to find coordinates for each town (see the [next chapter](49_coordinates.qmd)), and many letters will come from the same towns, so the points would be drawn on top of each other. It would be better to first count the letters from each town with `group_by()` and `summarise()`, and then map the counts to the **size** of the points.
+:::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Read latitude and longitude, and know which is x and which is y
+-   [ ] Turn a dataframe with coordinates into an sf object with `st_as_sf()`
+-   [ ] Draw points on top of a basemap, with the layers in the right order
+-   [ ] Map data to the colour, size and transparency of points
+-   [ ] Recognise overplotting, and know some ways to deal with it
+-   [ ] Highlight a subset of points, and use facets to make small multiple maps

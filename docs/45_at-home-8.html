@@ -64,8 +64,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./41_data-sources.html" rel="next">
-<link href="./44_visualising-map-data.html" rel="prev">
+<link href="./46_choropleth.html" rel="next">
+<link href="./44_projections.html" rel="prev">
+<link href="./images/logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37_fair-data.html">Week 5: Ethics, FAIR Data &amp; Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./45_at-home-8.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Week 5 · Thu 26 Nov: Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./45_at-home-8.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.jpeg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="./images/logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cultural Analytics: Course Book</a> 
@@ -152,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 1: Introduction to R &amp; Data Analysis 1</span></a>
+ <span class="menu-text">Week 1 · Tue 27 Oct: Introduction to R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -188,6 +189,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 1 · Thu 29 Oct: Data Analysis 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_data-analysis-1.html" class="sidebar-item-text sidebar-link">
@@ -234,13 +246,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 2: Data Analysis 2 &amp; 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2 · Tue 3 Nov: Data Analysis 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12_filter.html" class="sidebar-item-text sidebar-link">
@@ -283,6 +295,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 2 · Thu 5 Nov: Data Analysis 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./18_joins.html" class="sidebar-item-text sidebar-link">
@@ -317,13 +340,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 3: Data Visualisation 1 &amp; 2 (part 1)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3 · Tue 10 Nov: Data Visualisation 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
@@ -354,6 +377,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
@@ -382,13 +416,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 4: Data Visualisation 2 (part 2) &amp; 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
@@ -413,6 +447,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 4 · Thu 19 Nov: Data Visualisation 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
@@ -447,13 +492,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 5: Ethics, FAIR Data &amp; Digital Mapping 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
@@ -478,22 +523,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 5 · Thu 26 Nov: Digital Mapping 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_basemaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+  <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./44_visualising-map-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+  <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -506,64 +562,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Useful information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 6 · Tue 1 Dec: Digital Mapping 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
+  <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 6: Digital Mapping 2 &amp; 3, Publication</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">Week 6 · Thu 3 Dec: Digital Mapping 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./46_full-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+  <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./48_digital-mapping-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+  <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Useful information</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./47_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Creating your own geographic objects</span></span></a>
+  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exam</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./49_interactive-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./50_plotly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Plotly</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./51_tmap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Tmap</span></span></a>
+  <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>
@@ -579,14 +651,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37_fair-data.html">Week 5: Ethics, FAIR Data &amp; Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./45_at-home-8.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Week 5 · Thu 26 Nov: Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./45_at-home-8.html"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></h1>
 </div>
@@ -607,31 +679,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This exercise is ungraded practice - you don’t need to submit it. But it’s the best preparation for the reports and the exam, so do try to complete it.</p>
+</div>
+</div>
 <p>The at-home exercises should be completed using Posit cloud, Home Exercise 8. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).</p>
-<p>I advise saving the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: exercise_8_lastname_firstname. Regularly re-save the file.</p>
-<p>When you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.</p>
-<p>Before you begin, load the following packages at the top of your markdown document:<br>
-</p>
+<p>I advise saving the new file straight away, and regularly re-save it.</p>
+<p>When you have finished the exercise (or part of it), ‘knit’ the file to check that it works.</p>
+<p>Before you begin, load the following packages at the top of your markdown document, and download the world map:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>worldmap <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">'medium'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="task" class="level2">
-<h2 class="anchored" data-anchor-id="task">Task</h2>
+<section id="tasks" class="level2">
+<h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
+<p>These tasks practise everything from <a href="./43_first-map.html">Your first map</a> and <a href="./44_projections.html">Map projections</a>. For each one, write a sentence explaining what you’re doing, followed by the code.</p>
+<ol type="1">
+<li><p>Make a map of the countries of Asia. Use <code>coord_sf()</code> to zoom in so there’s no unnecessary empty space.</p></li>
+<li><p>The world map has a column <code>gdp_md</code>, containing each country’s GDP (the total value of its economy) in millions of US dollars. Use <code>mutate()</code> to make a new column containing the <strong>GDP per person</strong> (remember that <code>gdp_md</code> is in <em>millions</em> of dollars, and population is in <code>pop_est</code>). Watch out: missing values in this dataset are recorded as <code>-99</code>, so filter out any negative GDP values first.</p></li>
+<li><p>Make a map of the whole world (without Antarctica), with each country filled by GDP per person. Then:</p>
 <ul>
-<li><p>Using the Nobel Prize dataset (laureates_df.csv) in the Posit files tab, map the country of birth for each Nobel laureate.</p></li>
-<li><p>Start with a basemap of countries downloaded using R Natural Earth.</p></li>
-<li><p>This exercise will require you to use your knowledge of techniques you’ve used earlier on the course. The basic steps with all maps of this kind are to merge your summarised external data with the geographic map object from Natural Earth.</p>
-<ul>
-<li><p>First, you’ll need to <strong>summarise</strong> the data to get a count of the Nobel laureates for each country, and then <strong>join</strong> this to the worldmap object.</p></li>
-<li><p>As with all joins, you need a column with information common to both, which the join function will use to do the merge. In these two datasets, the relevant column names are <strong>iso_a3</strong> (in the map object) and <strong>iso_birth_country_now</strong> in the Nobel dataset. You’ll also need to use this latter column when you’re summarising your Nobel data.</p></li>
+<li>Use an equal-area projection.</li>
+<li>Choose a suitable colour scale, and give the legend a clear title.</li>
+<li>Give the borders a colour and width that make the map easy to read.</li>
+<li>Add a title, subtitle, and a caption giving the source of the data.</li>
+<li>Use <code>theme_void()</code>.</li>
 </ul></li>
-<li><p>Improve the basic map with a suitable title, subtitle, legend title, and appropriate themes or theme items.</p></li>
-<li><p>Can you figure out how to change the country border <strong>colour</strong> to black?</p></li>
-<li><p>Optional: look in the course book at the section on map projections, and choose another one for this map.</p></li>
-</ul>
+<li><p>Make a second version of the same map, this time filling the countries by <strong>total GDP</strong> instead of GDP per person. Write a few sentences comparing the two maps: what does each one show, and which would you use to compare how wealthy people are in different countries? Why?</p></li>
+<li><p>In a few sentences, reflect on the data: where does it come from (look at the <a href="https://www.naturalearthdata.com/">Natural Earth</a> website), and what can’t a map of GDP tell you?</p></li>
+<li><p><strong>Optional challenge:</strong> make a map of Europe in the projection with the EPSG code 3035, with each country filled by its <code>income_grp</code>, and the countries outside Europe drawn in light grey.</p></li>
+</ol>
 
 
 </section>
@@ -640,8 +730,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>
 // Auto-resize exercise iframes to match their content height, so the
 // iframe never shows its own inner scrollbar - only the book page scrolls.
-// Works because the book and the exercises site are same-origin
-// (both under yann-ryan.github.io), so we can read the iframe's document.
+// Same-origin (live site, both under yann-ryan.github.io): read the iframe
+// document directly. Otherwise, the exercises page posts its own height.
 (function () {
   function resizeFrame(frame) {
     try {
@@ -654,7 +744,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         frame.style.height = height + "px";
       }
     } catch (e) {
-      // Cross-origin or not-yet-ready: leave the fallback height in place.
+      // Cross-origin or not-yet-ready: the postMessage route below handles it.
     }
   }
 
@@ -705,6 +795,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       resizeFrame(frame);
     });
   }
+
+  // Cross-origin route (e.g. a local preview of the book, where reading the
+  // iframe's document is blocked): the exercises site posts its own height.
+  window.addEventListener("message", function (event) {
+    var data = event.data;
+    if (!data || data.type !== "exercise-height") return;
+    var height = Number(data.height);
+    if (!(height > 0 && height < 100000)) return;
+    document.querySelectorAll("iframe.exercise-frame").forEach(function (frame) {
+      if (frame.contentWindow === event.source) {
+        frame.style.height = height + "px";
+      }
+    });
+  });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
@@ -1135,13 +1239,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./44_visualising-map-data.html" class="pagination-link" aria-label="Wrangling and visualising map data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span>
+      <a href="./44_projections.html" class="pagination-link" aria-label="Map projections">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./41_data-sources.html" class="pagination-link" aria-label="Data and Inspiration for the Final Project">
-        <span class="nav-page-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./46_choropleth.html" class="pagination-link" aria-label="Choropleth maps: joining your data to a map">
+        <span class="nav-page-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

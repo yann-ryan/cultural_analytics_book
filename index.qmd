@@ -2,15 +2,9 @@
 
 Welcome! You're probably here because you are taking the course *Cultural Analytics*, at Leiden University. It's part of the minor Digital Humanities and Cultural Analytics.
 
-::: callout-warning
-## TODO: confirm block dates for 2025-2026
-
-This edition of the book has been restructured to run as an intensive **6-week block, meeting twice a week (12 sessions total)**, rather than the previous 13-week, once-a-week format. The exact calendar dates for the block still need to be confirmed and filled in throughout this page (Schedule, Reading Schedule) - they're currently left as placeholders.
-:::
-
 The course instructor is Dr. Yann Ryan.
 
-This e-book will serve as the course website. The menu on the left side lists the chapters, grouped into one 'part' per week of the course - each week's part contains the chapters for both of that week's sessions. More will appear as the course progresses. The menu on the right contains the table of contents for this particular chapter, so you can skip to different sections. There's a search function just below the title on the left, which students have found very useful when they want to find some code we've discussed and use it later on in an assignment.
+This e-book will serve as the course website. The menu on the left side lists the chapters, grouped into one section for each class - two per week. Each section ends with any home exercises to do before the next class. At the bottom of the menu you'll find useful information, including suggested datasets for your reports, and how to prepare for the exam. The menu on the right contains the table of contents for this particular chapter, so you can skip to different sections. There's a search function just below the title on the left, which students have found very useful when they want to find some code we've discussed and use it later on in an assignment.
 
 You'll also need to familiarise yourself with the course [Brightspace area](https://brightspace.universiteitleiden.nl/d2l/home/402636), where I'll put further information and you'll submit assignments.
 
@@ -52,25 +46,27 @@ In terms of concrete skills, by the end of this course, you should be able to us
 library(tidyverse)
 library(ggthemes)
 
-options(scipen = 999999)
-
-df = data.table::fread('box_office.csv')
+# Summarised from the MoMA collection data: https://github.com/MuseumofModernArt/collection
+df = read_csv('moma_acquisitions_gender.csv')
 
 df = df %>% 
-  mutate(billions =total_inflation_adjusted_box_office/1000000000 )
+  filter(works >= 50) %>% 
+  mutate(share_women = works_by_women / works * 100)
 
-ggplot() + 
-  geom_point(data = df, aes(year, as.numeric(billions)), size= 1, alpha = .5) +
-  geom_smooth(data = df, aes(year, as.numeric(billions)), method = "lm",
-              formula = y ~ poly(x, 23), se = FALSE, color = 'black', alpha = .75) + 
-  scale_y_continuous(limits = c(0, 15)) + 
-  labs(title = 'Domestic Yearly Box Office, 1995 to 2023', 
-       subtitle = "In billion US dollars, adjusted for inflation", 
+p1 = ggplot() + 
+  geom_point(data = df, aes(year, share_women), size = 1, alpha = .5) +
+  geom_smooth(data = df, aes(year, share_women), method = "loess", span = .5,
+              se = FALSE, color = 'black', alpha = .75) + 
+  scale_y_continuous(limits = c(0, 60)) + 
+  labs(title = 'Who Gets Collected? Women Artists at MoMA', 
+       subtitle = "Share of works acquired each year which were made by women, 1930 to 2025", 
        x = NULL, 
-       y = "Box office in billions US (inflation adjusted)")  +
-  geom_vline(xintercept=2020, color = 'red', alpha = .6, size = 2) +
-  annotate("text", x=2019, y=5, label="First Pandemic Year", angle=90) + 
+       y = "Works by women (% of acquisitions)")  +
+  geom_vline(xintercept = 1985, color = 'red', alpha = .6, linewidth = 2) +
+  annotate("text", x = 1982, y = 45, label = "Guerrilla Girls protest", angle = 90) + 
   theme_economist()
+
+p1
 
 ```
 
@@ -85,52 +81,61 @@ or this:
 
 library(ggrepel)
 
-df2 = data.table::fread("top_movie.csv")
+# Post45 Data Collective, via TidyTuesday: https://data.post45.org/
+df2 = read_csv("nyt_bestsellers.csv")
 
-df2 = df2 %>%
-  mutate(billions =total_in_2022_dollars/1000)
+df2 = df2 %>% 
+  group_by(author) %>% 
+  summarise(first_year = min(year), 
+            titles = n(), 
+            weeks = sum(total_weeks)) %>% 
+  filter(weeks >= 100) %>% 
+  mutate(output = case_when(titles <= 2 ~ "1 or 2", 
+                            titles < 10 ~ "3 to 9", 
+                            TRUE ~ "10 or more"),
+         output = fct_relevel(output, "1 or 2", "3 to 9"))
 
 top_data = df2 %>% 
-  slice_max(order_by = total_in_2022_dollars, n = 5)
+  group_by(output) %>% 
+  slice_max(order_by = weeks, n = 3)
 
-   p =  ggplot() + 
-      geom_point(data = df2,(aes(x = year, 
-                                 y = billions, 
-                                 size = billions, 
-                                 fill = distributor)), 
-                 pch = 21, color = 'black', alpha = .6, stroke= .5) + 
-      geom_label_repel(data = top_data, aes(x = year, 
-                                            y = billions, 
-                                            label = movie, 
-                                            fill = distributor), 
-                       alpha = .6,show.legend=FALSE) + 
-      scale_size_area(max_size = 6) + 
-      labs(title = "The Rise and Rise of Disney", 
-           subtitle = "Nearly 1/3 of the highest-grossing movies (in the US) of the last 30 years\nhave been made by the Disney Company") + 
-      theme_fivethirtyeight() + 
-      labs(y = "Box office in billions US (inflation adjusted)", 
-           size = "Takings (Billions): ", fill = 'Distributor: ') + 
-      theme(legend.position = 'bottom', 
-            legend.box="vertical", 
-            legend.margin=margin())
+p =  ggplot() + 
+  geom_point(data = df2, aes(x = first_year, 
+                             y = weeks, 
+                             size = weeks, 
+                             fill = output), 
+             pch = 21, color = 'black', alpha = .6, stroke = .5) + 
+  geom_label_repel(data = top_data, aes(x = first_year, 
+                                        y = weeks, 
+                                        label = author, 
+                                        fill = output), 
+                   alpha = .6, show.legend = FALSE) + 
+  scale_size_area(max_size = 6) + 
+  labs(title = "Two Ways to Top the Bestseller List", 
+       subtitle = "Authors with 100+ weeks on the NYT fiction bestseller list, 1931-2020.\nThe top three wrote dozens of hits; Harper Lee needed only two.") + 
+  theme_fivethirtyeight() + 
+  labs(y = "Total weeks on the bestseller list", 
+       size = "Weeks on list: ", fill = 'Number of bestsellers: ') + 
+  theme(legend.position = 'bottom', 
+        legend.box = "vertical", 
+        legend.margin = margin())
 
-                
 p
 ```
 
 Perhaps most importantly, you will have total control over every aspect of the visualisation, from the colours, to the titles, labels, and scales. Use the 'show the code' button above the visualisation to see the code it was made from.
 
-Your final and most important piece of work will be a *Markdown report:* a publishable document containing code, text, and data visualisations. This report will show off all the skills you have learned during the course.
+Your most important pieces of work will be two *Markdown reports:* publishable documents containing code, text, and data visualisations, which show off the skills you have learned during the course.
 
 ### Data, Visualised...
 
 Most importantly, you'll learn the basic principles of data visualisation, and put them into practice using a platform called R (more on that below). R is widely used by, for example, data journalists at the BBC, and in publications like *The Economist* and the *Financial Times.*
 
-Using a language like R or python instead of Excel or a simple application for visualising data has many advantages. For one, it's much easier to work with large datasets. You want to analyse huge datasets of movies like [these ones](https://datasets.imdbws.com/), with 11 millions rows of data? It'll take a split second in R. A second advantage is that everything you make can be reproducible, meaning your visualisations and analyses can be scientifically checked and verified.
+Using a language like R or python instead of Excel or a simple application for visualising data has many advantages. For one, it's much easier to work with large datasets. You want to analyse a museum's entire collection, like the [160,000 works](https://github.com/MuseumofModernArt/collection) behind the first chart above, or huge datasets of movies like [these ones](https://datasets.imdbws.com/), with millions of rows of data? It'll take a split second in R. A second advantage is that everything you make can be reproducible, meaning your visualisations and analyses can be scientifically checked and verified.
 
-The visualisations above were made with a few lines of the R language. If you click the 'Show the code' button above them, you'll see the code I used to create them. It might look a little complicated now, but if you follow the course, you should be able to make similar (and hopefully much nicer) ones by the end of the six-week block.
+The visualisations above were made with a few lines of the R language. If you click the 'Show the code' button above them, you'll see the code I used to create them. It might look a little complicated now, but if you follow the course, you should be able to make similar (and hopefully much nicer) ones by the end of the seven-week block.
 
-In your final project, you'll combine text, data and visual outputs to make a *report* on a topic you're interested in. You'll make a document like this. For this course, it's more than enough to stick to the basic charts like the above. But if you're interested, you can explore fancier things such as interactive maps and charts, 3D-rendered visualisations, and more.
+In your assignments, you'll combine text, data and visual outputs to make a *report* on a topic you're interested in. You'll make a document like this. For this course, it's more than enough to stick to the basic charts like the above. But if you're interested, you can explore fancier things such as interactive maps and charts, 3D-rendered visualisations, and more.
 
 ### ...and the Humanities
 
@@ -150,25 +155,32 @@ There will also be some weekly recommended reading if you would like to dig deep
 
 ## Schedule
 
-This course now runs as an intensive **six-week block, meeting twice a week** (12 sessions in total), rather than spread over a full semester. Because of this, the pace within each week is faster than it used to be: the two sessions in a week build directly on each other, and any exercises set between them are meant to be done overnight rather than over a full week.
+This course runs as an intensive **seven-week block, meeting twice a week**: a lecture on Tuesdays and a seminar on Thursdays. Because of this, the pace within each week is fast: the two sessions in a week build directly on each other, and any exercises set between them are meant to be done in the following day or two rather than over a full week.
 
-In the first week, you'll learn the very basics using the coding language R and start working with dataframes. Weeks 2 covers the rest of data analysis. Weeks 3 and 4 are a two-week block on data visualisation, wrapping up with Assignment 1. Week 5 covers ethics, FAIR data and accessibility (taught through a hands-on TidyTuesday challenge) before moving into digital mapping, which continues into week 6 alongside a session on R Markdown publication and interactivity, wrapping up with Assignment 2. The **final project** keeps its own longer runway after the taught block ends, rather than being compressed into the six weeks.
+-   **Lectures** (Hoorcollege): Tuesdays, 13:15-15:00, Johan Huizinga 0.06.
+-   **Seminars** (Werkgroep): Thursdays. Group 1: 13:15-15:00, Lipsius 2.01. Group 2: 15:15-17:00, Lipsius 2.05.
+
+Always check [MyTimetable](https://mytimetable.leidenuniv.nl/) for last-minute room changes.
+
+In the first week, you'll learn the very basics using the coding language R and start working with dataframes. Week 2 covers the rest of data analysis. Weeks 3 and 4 are a two-week block on data visualisation, wrapping up with Report 1. Week 5 covers ethics, FAIR data and accessibility (taught through a hands-on TidyTuesday challenge), before moving into digital mapping, which runs over the last three classes and wraps up with Report 2. There are no classes in week 7, which is reserved for a hackathon (a separate event, not part of this course). The exam is in January - see [Preparing for the Exam](52_exam-prep.qmd).
 
 | **Week** | **Session** | **Date** | **Topic** | **Assignment** |
 |----|----|----|----|----|
-| 1 | 1 | TODO | Introductions, tour of the course book, Introduction to R |  |
-| 1 | 2 | TODO | R practice, R Markdown, Data Analysis 1: dataframes, selecting and subsetting data |  |
-| 2 | 1 | TODO | Data Analysis 2: filtering and changing data |  |
-| 2 | 2 | TODO | Data Analysis 3: joins, tidying, summarising and grouping data | Discussion of reading 1. |
-| 3 | 1 | TODO | Data Visualisation 1: getting started with R and ggplot2 |  |
-| 3 | 2 | TODO | Data Visualisation 2 (part 1): Gestalt principles and scales |  |
-| 4 | 1 | TODO | Data Visualisation 2 (part 2): position, date, and colour scales |  |
-| 4 | 2 | TODO | Data Visualisation 3: titles, themes, and annotations | **Assignment 1 (create a datavis) due.** |
-| 5 | 1 | TODO | Ethics, FAIR data, and accessibility, via the TidyTuesday challenge | Discussion of reading 2. |
-| 5 | 2 | TODO | Digital Mapping 1: working with R as a GIS, creating base maps |  |
-| 6 | 1 | TODO | Digital Mapping 2 & 3: importing shapefiles, mapping external data, the tmap package |  |
-| 6 | 2 | TODO | Publication: R Markdown and interactivity | **Assignment 2 (create a map visualisation) due.** |
-|  |  | TODO | Final project due, several weeks after the block ends |  |
+| 1 | Lecture | Tue 27 Oct | Introductions, tour of the course book, Introduction to R, R Markdown |  |
+| 1 | Seminar | Thu 29 Oct | Data Analysis 1: dataframes, selecting and subsetting data |  |
+| 2 | Lecture | Tue 3 Nov | Data Analysis 2: filtering, changing, summarising and grouping data | **Checkpoint: Home exercise 2 due.** |
+| 2 | Seminar | Thu 5 Nov | Data Analysis 3: joins and tidying data, data challenge | Discussion of reading 1. |
+| 3 | Lecture | Tue 10 Nov | Data Visualisation 1: getting started with R and ggplot2 | **Checkpoint: Home exercise 4 due.** |
+| 3 | Seminar | Thu 12 Nov | Data Visualisation 2 (part 1): Gestalt principles and scales |  |
+| 4 | Lecture | Tue 17 Nov | Data Visualisation 2 (part 2): position, date, and colour scales |  |
+| 4 | Seminar | Thu 19 Nov | Data Visualisation 3: titles, themes, and annotations | **Report 1 (data visualisation) due.** |
+| 5 | Lecture | Tue 24 Nov | Ethics, FAIR data, and accessibility, via the TidyTuesday challenge | Discussion of reading 2. |
+| 5 | Seminar | Thu 26 Nov | Digital Mapping 1: maps as data visualisation, your first map, projections |  |
+| 6 | Lecture | Tue 1 Dec | Digital Mapping 2: choropleth maps, joining data to maps, reading map files |  |
+| 6 | Seminar | Thu 3 Dec | Digital Mapping 3: points maps, finding coordinates | **Report 2 (map) due.** |
+| 7 |  | 8-10 Dec | No classes: hackathon week (a separate event, not part of this course) |  |
+|  | Exam | Tue 5 Jan 2027 | 13:00-15:00, Universitair Sportcentrum, Hall 2 | **Examination** |
+|  | Resit | Tue 26 Jan 2027 | 15:00-17:00, Lipsius 1.27 |  |
 
 : Course Schedule {tbl-colwidths="\[8,8,14,55,15\]" .striped}
 
@@ -200,60 +212,74 @@ The key is to ***stick strictly to the number of hours given to each assignment*
 
 Total course load 5 EC x 28 hours = 140 hours:
 
--   Seminar: 12 x 2 (24 hours)
+-   Lectures and seminars: 12 x 2 (24 hours)
 
--   Course readings and coding practice (36 hours)
+-   Course readings and home exercises (36 hours)
 
--   Assignment(s): (40 hours)
+-   Reports: 2 x 25 (50 hours)
 
--   Final project/paper: (40 hours)
+-   Exam preparation and exam (30 hours)
+
+## Assessment
+
+### Reports
+
+The main assignments on this course are two **reports**: short visual essays, written in R Markdown, which use a dataset to explore a question you're interested in. Each report combines explanatory text, code, and visualisations - like the [examples on the data page](41_data-sources.qmd#inspiration-for-your-reports), on a smaller scale.
+
+-   **Report 1: data visualisation** (due Thursday 19 November). Around 1,200-1,500 words, with three or four visualisations made with ggplot2.
+-   **Report 2: map** (due Thursday 3 December). Around 1,200-1,500 words, with at least two maps, plus other visualisations if you wish. You can use the same dataset as Report 1, or a new one.
+
+In both reports, you should explain your question, where your data comes from and how it was made, what you did to it, and what your visualisations show - and reflect on the limitations of the data and your choices. See the [data page](41_data-sources.qmd) for suggested datasets. Submit both the .Rmd file and the knitted html as a .zip file on Brightspace.
+
+### Home exercises and checkpoints
+
+Each week has home exercises. Most are ungraded practice, but they're the best way to prepare for the reports and the exam, so do them all. Two of them are **checkpoints**, which are submitted on Brightspace and graded pass/fail, to make sure everyone is comfortable with the basics of data analysis before starting Report 1:
+
+-   [Home exercise 2](11_at-home-2.qmd) (due Tuesday 3 November)
+-   [Home exercise 4](21_at-home-4.qmd) (due Tuesday 10 November)
+
+You pass a checkpoint by making a genuine attempt at all of the exercises - they don't have to be perfect.
+
+### Exam
+
+The exam (Tuesday 5 January 2027, two hours) tests your understanding of the ideas behind the course: reading and reasoning about code, critiquing visualisations, and planning an analysis. You won't need to use R. See [Preparing for the Exam](52_exam-prep.qmd) for full details and a practice exam.
 
 ## Grading
 
-::: callout-warning
-## TODO: update for 2025-2026
-
-The official course catalog now lists this course's grading as Participation 10% / Examination 40% / Assignments 50%, with a resit possible for the Final Exam. The percentages below have been updated to match, but the breakdown of the Assignments category, and what the Examination actually covers/consists of, still need to be defined and written up - there's currently no exam-prep material anywhere in this book.
-:::
-
 -   Assignments: 50 percent
 
-    -   Assignment 1 (data visualisation): 20%
+    -   Report 1 (data visualisation): 20%
 
-    -   Assignment 2 (digital map): 20%
+    -   Report 2 (map): 25%
 
-    -   Weekly home exercises: 10%
+    -   Checkpoints (home exercises 2 and 4, pass/fail): 5%
 
 -   Participation: 10 percent
 
 -   Examination: 40 percent
 
+There is a resit for the exam (Tuesday 26 January 2027). There is no resit for the reports or checkpoints.
+
 ## (Mostly recommended) Reading
 
 This course will be very practical and your self-study time will be mostly spent completing exercises or assignments. As such, most of the reading is recommended rather than required. Some of the below will relate directly to the class and others I just think are interesting if you'd like to know more about the topic. Compulsory reading is marked in bold.
 
-::: callout-warning
-## TODO: confirm dates for 2025-2026
-
-This reading schedule has been rebuilt to match the new six-week block Course Schedule above, with the two compulsory readings placed alongside the weeks where they're now discussed in-session. The actual calendar dates still need to be filled in once the block dates are confirmed.
-:::
-
 +------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week | **Date** | **Reading**                                                                                                                                                                                                                                                                                                                                                                                                              |
 +======+==========+==========================================================================================================================================================================================================================================================================================================================================================================================================================+
-| 1    | TODO     | Isabel Mereilles, *Design for Information,* 'Introduction' ([ebook available through Library catalogue](https://catalogue.leidenuniv.nl/permalink/f/n95gpj/UBL_ALMA51257896950002711))                                                                                                                                                                                                                                   |
+| 1    | 27 Oct   | Isabel Mereilles, *Design for Information,* 'Introduction' ([ebook available through Library catalogue](https://catalogue.leidenuniv.nl/permalink/f/n95gpj/UBL_ALMA51257896950002711))                                                                                                                                                                                                                                   |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | Day, Shawn. (2023) 'Visualising humanities data', in O'Sullivan, J. (ed.) The Bloomsbury Handbook to the Digital Humanities. London: Bloomsbury Publishing, pp. 211-219. (ebook available [through the Library](https://catalogue.leidenuniv.nl/permalink/31UKB_LEU/18s393l/alma9940180698402711) or open access version available [here](https://cora.ucc.ie/bitstreams/1cf13aee-b962-416f-88b5-b8edc0786e7f/download)) |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | Jeffrey Heer, Michael Bostock, and Vadim Ogievetsky: [A Tour Through the Visualization Zoo](https://queue.acm.org/detail.cfm?id=1805128)                                                                                                                                                                                                                                                                                 |
 +------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 2    | TODO     | [Edward Tufte, *The Visual Display of Quantitative Information* (Cheshire: 2001)](http://faculty.salisbury.edu/~jtanderson/teaching/cosc311/fa21/files/tufte.pdf): Chapter 1                                                                                                                                                                                                                                             |
+| 2    | 3 Nov    | [Edward Tufte, *The Visual Display of Quantitative Information* (Cheshire: 2001)](http://faculty.salisbury.edu/~jtanderson/teaching/cosc311/fa21/files/tufte.pdf): Chapter 1                                                                                                                                                                                                                                             |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | **Reading 1 (compulsory): D'Ignazio, C., & Klein, L. (2020). '2. Collect, Analyze, Imagine, Teach', in *Data Feminism*. Available at: https://data-feminism.mitpress.mit.edu/pub/ei7cogfn** - discussed in session 2 this week.                                                                                                                                                                                        |
 +------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 3    | TODO     | Claus Wilke, *Fundamentals of Data Visualization* (available online). Chapters [2](https://clauswilke.com/dataviz/aesthetic-mapping.html), [3](https://clauswilke.com/dataviz/coordinate-systems-axes.html), and [4](https://clauswilke.com/dataviz/color-basics.html).                                                                                                                                                  |
+| 3    | 10 Nov   | Claus Wilke, *Fundamentals of Data Visualization* (available online). Chapters [2](https://clauswilke.com/dataviz/aesthetic-mapping.html), [3](https://clauswilke.com/dataviz/coordinate-systems-axes.html), and [4](https://clauswilke.com/dataviz/color-basics.html).                                                                                                                                                  |
 +------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 4    | TODO     | [Olivia Vane and Rosamund Pearce, 'How to Visualise Sensitive Topics'](https://view.e.economist.com/?qs=f4d0eecea29f1f91774da16cecf280cb31af5fbc06a5916a37f22c049437192916c8af311beed6f52e3ef7e985b7d44f421f783c3fa3272cc08649f97dca80cc14f33497c6a1b1f485f718837a4f7f5a)                                                                                                                                                |
+| 4    | 17 Nov   | [Olivia Vane and Rosamund Pearce, 'How to Visualise Sensitive Topics'](https://view.e.economist.com/?qs=f4d0eecea29f1f91774da16cecf280cb31af5fbc06a5916a37f22c049437192916c8af311beed6f52e3ef7e985b7d44f421f783c3fa3272cc08649f97dca80cc14f33497c6a1b1f485f718837a4f7f5a)                                                                                                                                                |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | [Alex Selby-Boothroyd, 'Mapping Refugee Flows'](https://view.e.economist.com/?qs=857a751c0e864d3ba45ac0e90aa6ef007db79f778e542dbf21c28f42244b8a3ffee2e8aae4c8a260eb93e716a66edfb0f42e240a6e188df9c5e1ac38c75fce8f91e421db50aa777e57e48fdab6644bed&utm_campaign=r.data-newsletter&utm_medium=email.internal-newsletter.np&utm_source=salesforce-marketing-cloud&utm_term=6/21/2022&utm_id=1209740)                        |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -261,13 +287,13 @@ This reading schedule has been rebuilt to match the new six-week block Course Sc
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | Read some style guides, e.g. [the Economist](https://design-system.economist.com/documents/CHARTstyleguide_20170505.pdf), [Urban Institute](http://urbaninstitute.github.io/graphics-styleguide/), and https://blog.datawrapper.de/text-in-data-visualizations/                                                                                                                                                          |
 +------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 5    | TODO     | **Reading 2 (compulsory): D'Ignazio, C., & Klein, L. (2020). '3. On Rational, Scientific, Objective Viewpoints from Mythical, Imaginary, Impossible Standpoints', in *Data Feminism* (open access, available [here](https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/5))** - discussed in session 1 this week.                                                                                            |
+| 5    | 24 Nov   | **Reading 2 (compulsory): D'Ignazio, C., & Klein, L. (2020). '3. On Rational, Scientific, Objective Viewpoints from Mythical, Imaginary, Impossible Standpoints', in *Data Feminism* (open access, available [here](https://data-feminism.mitpress.mit.edu/pub/5evfe9yd/release/5))** - discussed in session 1 this week.                                                                                            |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | Isabel Mereilles, *Design for Information,* 'Chapter 4 (Spatial Structures: Maps)' ([ebook available through Library catalogue](https://catalogue.leidenuniv.nl/permalink/f/n95gpj/UBL_ALMA51257896950002711))                                                                                                                                                                                                           |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | Jeppesen and Sartoretto, [Cartographies of Resistance: Counter-Data Mapping as the New Frontier of Digital Media Activism](https://www.cogitatiopress.com/mediaandcommunication/article/view/6043)                                                                                                                                                                                                                       |
 +------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 6    | TODO     | Claus Wilke, *Fundamentals of Data Visualization* (available online). Chapter [15](https://clauswilke.com/dataviz/geospatial-data.html).                                                                                                                                                                                                                                                                                 |
+| 6    | 1 Dec    | Claus Wilke, *Fundamentals of Data Visualization* (available online). Chapter [15](https://clauswilke.com/dataviz/geospatial-data.html).                                                                                                                                                                                                                                                                                 |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |      |          | Venturini, T., Jacomy, M., & Jensen, P. (2021). What do we see when we look at networks: Visual network analysis, relational ambiguity, and force-directed layouts. *Big Data & Society*, *8*(1). <https://doi.org/10.1177/20539517211018488>                                                                                                                                                                            |
 |      |          |                                                                                                                                                                                                                                                                                                                                                                                                                          |
