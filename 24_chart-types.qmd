@@ -335,7 +335,7 @@ nobel_df |>
   geom_boxplot()
 ```
 
-A boxplot visualises the distribution of numbers (in this case, the age at which laureates in each category received their prize). The middle line is the average (the mean). The upper and lower ends of the box are the 25th and 75 percentiles, and the dots (if any), show outliers.
+A boxplot visualises the distribution of numbers (in this case, the age at which laureates in each category received their prize). The middle line is the median (the middle value, if you lined all the values up in order). The upper and lower ends of the box are the 25th and 75th percentiles, so the box contains the middle half of the values, and the dots (if any) show outliers.
 
 This particular plot shows that Economic Sciences laureates tend to be the oldest on average and Physics laureates the youngest, while Peace laureates have by far the widest spread of ages (befitting a prize given to activists, politicians, and organisations alike, rather than for a single, slow-to-mature body of scientific work).
 
@@ -377,6 +377,135 @@ nobel_df |>
 
 Note that geom_segment needs `xend` and `yend`, as well as `x` and `y`. These shapes often have different required aesthetics.
 
+## Small multiples with facet_wrap()
+
+Earlier, we drew the number of laureates per decade for all six prize categories on one chart, with a different colour for each line. Here it is again:
+
+```{webr-r}
+nobel_df |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  group_by(decade, category) |>
+  summarise(n = n(), .groups = 'drop') |>
+  ggplot(aes(x = decade, y = n, color = category)) +
+  geom_line()
+```
+
+Six lines is already quite hard to read: they cross over each other, and you have to keep looking back and forth to the legend to work out which is which.
+
+An alternative is to draw **small multiples**: a series of small charts, one for each category, side by side. ggplot2 does this with `facet_wrap()`. Add it to the end of the chart, with a `~` (a tilde) followed by the name of the column you want to split the chart by:
+
+```{webr-r}
+nobel_df |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  group_by(decade, category) |>
+  summarise(n = n(), .groups = 'drop') |>
+  ggplot(aes(x = decade, y = n)) +
+  geom_line() +
+  facet_wrap(~ category)
+```
+
+Small multiples work well for two reasons:
+
+-   **The viewer only needs to learn to read one chart.** Once they've understood the first panel, they can read all the others in the same way.
+-   **Every panel uses the same scales.** Because the axes are the same, you can compare the panels directly: it's easy to see that Physics, Chemistry and Medicine have grown much more than Literature or Peace, which have stayed at about one laureate a year.
+
+Notice too that every line drops sharply at the end. That isn't a real decline: the 2020s aren't over yet, so the last decade only has a few years of data. It's a good example of why you should always check what a chart is actually showing before you interpret it.
+
+Notice that we no longer need colour or a legend: each panel is labelled with its category instead. That leaves colour free to show something else.
+
+`facet_wrap()` works with any chart type. Here's a histogram of the age at which laureates won their prize, split by category, so that we can compare the distributions:
+
+```{webr-r}
+nobel_df |>
+  ggplot(aes(x = age_at_award)) +
+  geom_histogram(binwidth = 5) +
+  facet_wrap(~ category)
+```
+
+You can choose the number of columns (or rows) with `ncol =` (or `nrow =`). For example, `facet_wrap(~ category, ncol = 1)` puts all the panels in a single column, one above the other, which makes the distributions easier to compare along the age axis:
+
+```{webr-r}
+nobel_df |>
+  ggplot(aes(x = age_at_award)) +
+  geom_histogram(binwidth = 5) +
+  facet_wrap(~ category, ncol = 1)
+```
+
+::: callout-warning
+## Free scales
+
+By default, every panel has the same axes. You can let each panel have its own y axis with `facet_wrap(~ category, scales = 'free_y')`. This can be useful if some groups are much smaller than others, and you're interested in the *shape* of each line rather than its size. But be careful: with free scales, panels which look similar might represent very different numbers, and the viewer can no longer compare them directly. If you use them, make sure the reader can tell.
+:::
+
+**Try it yourself:** make a scatterplot of the age at award (`age_at_award`) against the year of the award (`award_year`), with a separate panel for each `gender`. Are women laureates getting older or younger over time?
+
+```{webr-r}
+
+```
+
+## Choosing a chart: what am I trying to show?
+
+You've now seen most of the basic chart types. But how do you choose between them?
+
+The answer depends on two things. The first is the **type of data** you have: whether your variables are continuous, discrete, categorical, or ordinal (see [Data Visualisation Basics](22_data-visualisation-1.qmd#discrete-vs-continuous-aesthetics)). Some aesthetics and chart types only work with one or the other.
+
+The second, and more important, is **what you are trying to show**: what is the story in the data, or the question you want to answer? Most charts are trying to show one of a small number of things. The table below lists the most common, with an example question from the Nobel data and the chart types (and geoms) you could use:
+
+| I want to show... | Example question | Chart types | ggplot2 |
+|----|----|----|----|
+| **Amounts** | How many laureates are there in each category? | Bar chart | `geom_col()`, `geom_bar()` |
+| **Ranking** | Which category has the oldest laureates? | Ordered bar chart, lollipop chart | `geom_col()`, `geom_segment()` + `geom_point()` |
+| **Distribution** | How old are laureates when they win? | Histogram, density plot, boxplot | `geom_histogram()`, `geom_density()`, `geom_boxplot()` |
+| **Relationship** (correlation) | Do the categories with older laureates have fewer women? | Scatterplot | `geom_point()` |
+| **Change over time** | How has the number of laureates changed by decade? | Line chart, bar chart | `geom_line()`, `geom_col()` |
+| **Part-to-whole** (proportions) | What share of each category's laureates are women? | Stacked bar chart | `geom_col(position = 'fill')` |
+| **Comparison across groups** | Is the age distribution the same in each category? | Small multiples | `facet_wrap()` |
+| **Spatial** | Where were laureates born? | Map | `geom_sf()` (weeks 5-6) |
+
+: Choosing a chart type {tbl-colwidths="[18,37,20,25]" .striped}
+
+The *Financial Times* has a very useful poster, the [Visual Vocabulary](https://ft-interactive.github.io/visual-vocabulary/), which does the same thing in much more detail, with dozens of chart types arranged by what they show. It's worth keeping open while you plan your reports.
+
+One chart type in the table is new: the **stacked bar chart**, used to show proportions. Map a category to the `fill` aesthetic, and add `position = 'fill'` to `geom_col()`. Each bar is then stretched to the same height, so that the y axis shows the proportion (from 0 to 1) rather than the count:
+
+```{webr-r}
+nobel_df |>
+  count(category, gender) |>
+  ggplot(aes(x = category, y = n, fill = gender)) +
+  geom_col(position = 'fill')
+```
+
+Try removing `position = 'fill'` and running the code again. What's the difference, and which chart better answers the question 'what share of each category's laureates are women'?
+
+::: callout-tip
+## Before you make a chart, ask...
+
+1.  What is my question, or the story I want to tell?
+2.  Which of the things in the table above am I trying to show?
+3.  What type of data are the variables involved?
+4.  Which chart type, and which aesthetics, fit both?
+
+If you can't answer the first question, no chart type will help!
+:::
+
+## Check your understanding
+
+**1.** A student wants to show how the number of pages in published novels is spread out: are most novels about the same length, or are there lots of very short and very long ones? Which chart types would be suitable, and which geoms would they use?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+This is a question about a **distribution** of a continuous variable. A histogram (`geom_histogram()`) or density plot (`geom_density()`) would show the shape of the distribution. A boxplot (`geom_boxplot()`) would also work, and would be particularly useful for comparing the distribution between groups, for example novels from different decades.
+:::
+
+**2.** A chart shows the number of books published each year from 1800 to 1900, for eight different countries, as eight coloured lines on one chart. The lines overlap and are hard to tell apart. What one line of code could you add to make it clearer, and what else would you change?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+Add `facet_wrap(~ country)` to make small multiples: one small line chart per country. You could then remove `color = country` from the `aes()`, because each panel is already labelled with its country, so the colour and the legend are no longer needed.
+:::
+
 ## Add-ons
 
 Another way to get the chart type you want is to install additional packages which use the same 'grammar of graphics' to extend ggplot. You can make animated plots using `gganimate`, networks using `ggraph`. Later in the course we will create maps with a geom called `geom_sf`. There are hundreds of these add-ons, which you can browse [here](https://exts.ggplot2.tidyverse.org/gallery/).
@@ -392,3 +521,6 @@ Before moving on, take a look and see if you are confident with all of the follo
 -   [ ] Draw a histogram, density plot, and boxplot to show a distribution
 -   [ ] Use `geom_text()` to label a chart with values
 -   [ ] Combine more than one geom on the same chart
+-   [ ] Use `facet_wrap()` to make small multiples, and explain when they are clearer than one chart
+-   [ ] Choose a chart type based on what you want to show (amounts, ranking, distribution, relationship, change over time, part-to-whole, comparison, spatial)
+-   [ ] Make a stacked bar chart of proportions with `position = 'fill'`
