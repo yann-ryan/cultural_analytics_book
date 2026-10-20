@@ -86,7 +86,7 @@ When choosing, keep to something broadly humanities-related (so not primarily na
 
 These are bigger, messier, or need more care, but reward the effort if you're feeling confident.
 
--   **[SlaveVoyages](https://www.slavevoyages.org/)**. The Trans-Atlantic and Intra-American slave trade databases: records of around 36,000 voyages, with ports, dates, and numbers of enslaved people embarked and disembarked. One of the most important datasets in digital history, and one which demands careful thought about how to visualise human suffering - read the [Vane and Pearce](index.qmd#mostly-recommended-reading) reading on sensitive topics before using it.
+-   **[SlaveVoyages](https://www.slavevoyages.org/)**. The Trans-Atlantic and Intra-American slave trade databases: records of around 36,000 voyages, with ports, dates, and numbers of enslaved people embarked and disembarked. One of the most important datasets in digital history, and one which demands careful thought about how to visualise human suffering.
 
 -   **[The Metropolitan Museum of Art Open Access](https://github.com/metmuseum/openaccess)** **(large)**. Around half a million objects from the Met's collection in one CSV, covering everything from ancient Egypt to modern design. Lots of missing values and inconsistencies, which is realistic and makes for good discussion in a report.
 

@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-width":7,"label":"unnamed-chunk-1","dpi":72,"results":"markup","comment":"","context":"setup","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"true","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"fig-width":7,"label":"unnamed-chunk-2","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":2,"code":"titanic_df |> \n  group_by(sex) "},{"options":{"fig-width":7,"label":"unnamed-chunk-3","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":3,"code":"titanic_df |>\n  group_by(sex, pclass) "},{"options":{"fig-width":7,"label":"unnamed-chunk-4","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":4,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n())"},{"options":{"fig-width":7,"label":"unnamed-chunk-5","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":5,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n(), maximum = max(age, na.rm = TRUE)) # calculate the total number and the maximum age for each category."},{"options":{"fig-width":7,"label":"unnamed-chunk-6","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":6,"code":""},{"options":{"fig-width":7,"label":"unnamed-chunk-7","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":7,"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)"},{"options":{"fig-width":7,"label":"unnamed-chunk-8","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":8,"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())"},{"options":{"fig-width":7,"label":"unnamed-chunk-9","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":9,"code":""},{"options":{"fig-width":7,"label":"unnamed-chunk-10","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":10,"code":""},{"options":{"fig-width":7,"label":"unnamed-chunk-11","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":11,"code":""},{"options":{"fig-width":7,"label":"unnamed-chunk-12","dpi":72,"results":"markup","comment":"","context":"interactive","out-height":"","classes":"","message":"true","out-width":"700px","editor-font-scale":"1","output":"true","editor-max-height":"","editor-quick-suggestions":"false","read-only":"false","autorun":"false","fig-cap":"","fig-height":5,"editor-word-wrap":"true","warning":"true"},"id":12,"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"true","label":"unnamed-chunk-1","results":"markup","fig-cap":"","out-width":"700px","context":"setup","fig-width":7},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-2","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":2,"code":"titanic_df |> \n  group_by(sex) "},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-3","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":3,"code":"titanic_df |>\n  group_by(sex, pclass) "},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-4","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":4,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n())"},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-5","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":5,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n(), maximum = max(age, na.rm = TRUE)) # calculate the total number and the maximum age for each category."},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-6","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":6,"code":""},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-7","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":7,"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)"},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-8","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":8,"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())"},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-9","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":9,"code":""},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-10","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":10,"code":""},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-11","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":11,"code":""},{"options":{"fig-height":5,"read-only":"false","classes":"","dpi":72,"message":"true","warning":"true","editor-max-height":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","output":"true","out-height":"","comment":"","autorun":"false","label":"unnamed-chunk-12","results":"markup","fig-cap":"","out-width":"700px","context":"interactive","fig-width":7},"id":12,"code":""}];
 
 </script>
 <script type="module">
@@ -1954,26 +1954,32 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1990,25 +1996,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2025,13 +2031,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2048,13 +2054,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2071,7 +2077,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
       </ul>
@@ -2088,7 +2094,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>

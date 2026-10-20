@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>53&nbsp; Points maps – Cultural Analytics: Course Book</title>
+<title>54&nbsp; Points maps – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -393,7 +393,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv\"\ndownload.file(url, \"whc_sites.csv\")\nwhc_sites <- read_csv(\"whc_sites.csv\", na = \"\")\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')\n\nwhc_points <- whc_sites |>\n  filter(!is.na(latitude), !is.na(longitude)) |>\n  st_as_sf(coords = c('longitude', 'latitude'), crs = 4326)","id":1,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"setup","label":"unnamed-chunk-1","autorun":"true","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv\"\ndownload.file(url, \"whc_sites.csv\")\nwhc_sites <- read_csv(\"whc_sites.csv\", na = \"\")\n\nwhc_sites |>\n  select(name, latitude, longitude)","id":2,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-2","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"whc_points <- whc_sites |>\n  filter(!is.na(latitude), !is.na(longitude)) |>\n  st_as_sf(coords = c('longitude', 'latitude'), crs = 4326)\n\nwhc_points |>\n  select(name, category)","id":3,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-3","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"ggplot() +\n  geom_sf(data = whc_points)","id":4,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-4","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"worldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')\n\nggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, size = 0.5) +\n  theme_void()","id":5,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-5","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"ggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, aes(colour = category), size = 0.8, alpha = 0.6) +\n  scale_colour_manual(values = c(Cultural = '#C0392B', Mixed = '#8E44AD', Natural = '#27AE60')) +\n  coord_sf(crs = '+proj=eqearth') +\n  labs(title = 'The UNESCO World Heritage List',\n       colour = 'Category',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":6,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-6","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"","id":7,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-7","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"ggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.2) +\n  geom_sf(data = whc_points, aes(colour = category), size = 1.5, alpha = 0.6) +\n  scale_colour_manual(values = c(Cultural = '#C0392B', Mixed = '#8E44AD', Natural = '#27AE60')) +\n  coord_sf(crs = 3035, xlim = c(-15, 50), ylim = c(35, 72), default_crs = 4326) +\n  labs(title = 'World Heritage sites in Europe',\n       colour = 'Category',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":8,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-8","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"in_danger <- whc_points |>\n  filter(danger == TRUE)\n\nggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, colour = 'grey60', size = 0.5, alpha = 0.5) +\n  geom_sf(data = in_danger, colour = '#C0392B', size = 2) +\n  coord_sf(crs = '+proj=eqearth') +\n  labs(title = 'World Heritage in danger',\n       subtitle = 'The 58 World Heritage sites on UNESCO\\'s \\'in danger\\' list (red), out of all sites (grey)',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":9,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-9","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"whc_points <- whc_points |>\n  mutate(period = case_when(date_inscribed < 1990 ~ '1978-1989',\n                            date_inscribed < 2000 ~ '1990s',\n                            date_inscribed < 2010 ~ '2000s',\n                            date_inscribed < 2020 ~ '2010s',\n                            TRUE ~ '2020s'))\n\nggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, colour = '#C0392B', size = 0.4, alpha = 0.6) +\n  coord_sf(crs = '+proj=eqearth') +\n  facet_wrap(~ period) +\n  labs(title = 'World Heritage sites, by the decade they were added to the list',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":10,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-10","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"whc_points |>\n  st_drop_geometry() |>\n  group_by(period) |>\n  summarise(sites = n(),\n            share_europe_north_america = mean(region == 'Europe and North America'))","id":11,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-11","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"url <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_provinces_2023.geojson\"\ndownload.file(url, \"nl_provinces_2023.geojson\")\nprovinces <- st_read(\"nl_provinces_2023.geojson\")","id":12,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-12","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}},{"code":"url <- \"https://raw.githubusercontent.com/cldf-datasets/wals/master/cldf/languages.csv\"\ndownload.file(url, \"languages.csv\")\nlanguages <- read_csv(\"languages.csv\")","id":13,"options":{"classes":"","editor-word-wrap":"true","results":"markup","read-only":"false","warning":"true","fig-width":7,"out-height":"","output":"true","context":"interactive","label":"unnamed-chunk-13","autorun":"false","dpi":72,"comment":"","editor-max-height":"","editor-font-scale":"1","fig-cap":"","editor-quick-suggestions":"false","message":"true","out-width":"700px","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","context":"setup","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"true","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-1","editor-quick-suggestions":"false"},"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv\"\ndownload.file(url, \"whc_sites.csv\")\nwhc_sites <- read_csv(\"whc_sites.csv\", na = \"\")\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')\n\nwhc_points <- whc_sites |>\n  filter(!is.na(latitude), !is.na(longitude)) |>\n  st_as_sf(coords = c('longitude', 'latitude'), crs = 4326)","id":1},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-2","editor-quick-suggestions":"false"},"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/whc_sites.csv\"\ndownload.file(url, \"whc_sites.csv\")\nwhc_sites <- read_csv(\"whc_sites.csv\", na = \"\")\n\nwhc_sites |>\n  select(name, latitude, longitude)","id":2},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-3","editor-quick-suggestions":"false"},"code":"whc_points <- whc_sites |>\n  filter(!is.na(latitude), !is.na(longitude)) |>\n  st_as_sf(coords = c('longitude', 'latitude'), crs = 4326)\n\nwhc_points |>\n  select(name, category)","id":3},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-4","editor-quick-suggestions":"false"},"code":"ggplot() +\n  geom_sf(data = whc_points)","id":4},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-5","editor-quick-suggestions":"false"},"code":"worldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')\n\nggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, size = 0.5) +\n  theme_void()","id":5},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-6","editor-quick-suggestions":"false"},"code":"ggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, aes(colour = category), size = 0.8, alpha = 0.6) +\n  scale_colour_manual(values = c(Cultural = '#C0392B', Mixed = '#8E44AD', Natural = '#27AE60')) +\n  coord_sf(crs = '+proj=eqearth') +\n  labs(title = 'The UNESCO World Heritage List',\n       colour = 'Category',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":6},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-7","editor-quick-suggestions":"false"},"code":"","id":7},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-8","editor-quick-suggestions":"false"},"code":"ggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.2) +\n  geom_sf(data = whc_points, aes(colour = category), size = 1.5, alpha = 0.6) +\n  scale_colour_manual(values = c(Cultural = '#C0392B', Mixed = '#8E44AD', Natural = '#27AE60')) +\n  coord_sf(crs = 3035, xlim = c(-15, 50), ylim = c(35, 72), default_crs = 4326) +\n  labs(title = 'World Heritage sites in Europe',\n       colour = 'Category',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":8},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-9","editor-quick-suggestions":"false"},"code":"in_danger <- whc_points |>\n  filter(danger == TRUE)\n\nggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, colour = 'grey60', size = 0.5, alpha = 0.5) +\n  geom_sf(data = in_danger, colour = '#C0392B', size = 2) +\n  coord_sf(crs = '+proj=eqearth') +\n  labs(title = 'World Heritage in danger',\n       subtitle = 'The 58 World Heritage sites on UNESCO\\'s \\'in danger\\' list (red), out of all sites (grey)',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":9},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-10","editor-quick-suggestions":"false"},"code":"whc_points <- whc_points |>\n  mutate(period = case_when(date_inscribed < 1990 ~ '1978-1989',\n                            date_inscribed < 2000 ~ '1990s',\n                            date_inscribed < 2010 ~ '2000s',\n                            date_inscribed < 2020 ~ '2010s',\n                            TRUE ~ '2020s'))\n\nggplot() +\n  geom_sf(data = worldmap, fill = 'grey90', colour = 'white', linewidth = 0.1) +\n  geom_sf(data = whc_points, colour = '#C0392B', size = 0.4, alpha = 0.6) +\n  coord_sf(crs = '+proj=eqearth') +\n  facet_wrap(~ period) +\n  labs(title = 'World Heritage sites, by the decade they were added to the list',\n       caption = 'Data: UNESCO (CC BY-SA 4.0)') +\n  theme_void()","id":10},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-11","editor-quick-suggestions":"false"},"code":"whc_points |>\n  st_drop_geometry() |>\n  group_by(period) |>\n  summarise(sites = n(),\n            share_europe_north_america = mean(region == 'Europe and North America'))","id":11},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-12","editor-quick-suggestions":"false"},"code":"url <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_provinces_2023.geojson\"\ndownload.file(url, \"nl_provinces_2023.geojson\")\nprovinces <- st_read(\"nl_provinces_2023.geojson\")","id":12},{"options":{"results":"markup","context":"interactive","dpi":72,"output":"true","editor-word-wrap":"true","out-width":"700px","editor-font-scale":"1","autorun":"false","editor-max-height":"","comment":"","out-height":"","classes":"","warning":"true","message":"true","read-only":"false","fig-cap":"","fig-width":7,"fig-height":5,"label":"unnamed-chunk-13","editor-quick-suggestions":"false"},"code":"url <- \"https://raw.githubusercontent.com/cldf-datasets/wals/master/cldf/languages.csv\"\ndownload.file(url, \"languages.csv\")\nlanguages <- read_csv(\"languages.csv\")","id":13}];
 
 </script>
 <script type="module">
@@ -1603,7 +1603,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./48_points-map.html">Week 6 · Thu 3 Dec: Digital Mapping 3</a></li><li class="breadcrumb-item"><a href="./48_points-map.html"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./48_points-map.html">Week 6 · Thu 3 Dec: Digital Mapping 3</a></li><li class="breadcrumb-item"><a href="./48_points-map.html"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1988,26 +1988,32 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2024,25 +2030,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2059,13 +2065,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2082,13 +2088,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2105,7 +2111,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
       </ul>
@@ -2122,7 +2128,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>
@@ -2439,9 +2445,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./48_points-map.html">Week 6 · Thu 3 Dec: Digital Mapping 3</a></li><li class="breadcrumb-item"><a href="./48_points-map.html"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./48_points-map.html">Week 6 · Thu 3 Dec: Digital Mapping 3</a></li><li class="breadcrumb-item"><a href="./48_points-map.html"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></h1>
+<h1 class="title"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></h1>
 </div>
 
 
@@ -3201,12 +3207,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./47_map-files.html" class="pagination-link" aria-label="Finding and reading map files">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./49_coordinates.html" class="pagination-link" aria-label="Finding coordinates">
-        <span class="nav-page-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

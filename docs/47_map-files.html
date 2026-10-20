@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>52&nbsp; Finding and reading map files – Cultural Analytics: Course Book</title>
+<title>53&nbsp; Finding and reading map files – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -393,7 +393,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\n\nbase <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/\"\ndownload.file(paste0(base, \"nl_provinces_2023.geojson\"), \"nl_provinces_2023.geojson\")\ndownload.file(paste0(base, \"nl_municipalities_2025.geojson\"), \"nl_municipalities_2025.geojson\")\ndownload.file(paste0(base, \"nl_monuments_2024.csv\"), \"nl_monuments_2024.csv\")\n\nprovinces <- st_read(\"nl_provinces_2023.geojson\")\nmunicipalities <- st_read(\"nl_municipalities_2025.geojson\")\nmonuments <- read_csv(\"nl_monuments_2024.csv\")","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"true","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"setup","fig-width":7,"label":"unnamed-chunk-1","out-height":""}},{"id":2,"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_provinces_2023.geojson\"\ndownload.file(url, \"nl_provinces_2023.geojson\")","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-2","out-height":""}},{"id":3,"code":"provinces <- st_read(\"nl_provinces_2023.geojson\")","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-3","out-height":""}},{"id":4,"code":"provinces\n\nggplot() +\n  geom_sf(data = provinces) +\n  theme_void()","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-4","out-height":""}},{"id":5,"code":"url <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_monuments_2024.csv\"\ndownload.file(url, \"nl_monuments_2024.csv\")\nmonuments <- read_csv(\"nl_monuments_2024.csv\")\n\nmonuments","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-5","out-height":""}},{"id":6,"code":"monuments_provinces <- monuments |>\n  filter(str_detect(region_code, 'PV'), type_of_monument == 'Listed monuments total')\n\nmonuments_provinces","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-6","out-height":""}},{"id":7,"code":"provinces |>\n  left_join(monuments_provinces, by = c('statnaam' = 'region')) |>\n  select(statnaam, monuments)","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-7","out-height":""}},{"id":8,"code":"provinces$statnaam\nmonuments_provinces$region","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-8","out-height":""}},{"id":9,"code":"monuments_map <- provinces |>\n  left_join(monuments_provinces, by = c('statcode' = 'region_code'))\n\nmonuments_map |>\n  select(statnaam, statcode, monuments)","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-9","out-height":""}},{"id":10,"code":"ggplot() +\n  geom_sf(data = monuments_map, aes(fill = monuments), colour = 'white') +\n  scale_fill_viridis_c(direction = -1) +\n  labs(title = 'National monuments in the Netherlands',\n       subtitle = 'Number of rijksmonumenten in each province, 2024',\n       fill = 'Monuments',\n       caption = 'Data: CBS (CC BY 4.0). Boundaries: CBS, via cartomap') +\n  theme_void()","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-10","out-height":""}},{"id":11,"code":"url <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_municipalities_2025.geojson\"\ndownload.file(url, \"nl_municipalities_2025.geojson\")\nmunicipalities <- st_read(\"nl_municipalities_2025.geojson\")\n\nmonuments_municipalities <- monuments |>\n  filter(str_detect(region_code, 'GM'), type_of_monument == 'Listed monuments total')\n\nmonuments_municipalities_map <- municipalities |>\n  left_join(monuments_municipalities, by = c('statcode' = 'region_code'))","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-11","out-height":""}},{"id":12,"code":"ggplot() +\n  geom_sf(data = monuments_municipalities_map, aes(fill = monuments), colour = 'white', linewidth = 0.1) +\n  scale_fill_viridis_b(breaks = c(50, 100, 250, 500, 1000, 2500), direction = -1) +\n  labs(title = 'National monuments in the Netherlands',\n       subtitle = 'Number of rijksmonumenten in each municipality, 2024',\n       fill = 'Monuments',\n       caption = 'Data: CBS (CC BY 4.0). Boundaries: CBS, via cartomap') +\n  theme_void()","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-12","out-height":""}},{"id":13,"code":"","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-13","out-height":""}},{"id":14,"code":"","options":{"dpi":72,"output":"true","fig-cap":"","warning":"true","editor-word-wrap":"true","comment":"","autorun":"false","editor-quick-suggestions":"false","results":"markup","message":"true","out-width":"700px","editor-max-height":"","classes":"","editor-font-scale":"1","read-only":"false","fig-height":5,"context":"interactive","fig-width":7,"label":"unnamed-chunk-14","out-height":""}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"context":"setup","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"true","label":"unnamed-chunk-1","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\n\nbase <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/\"\ndownload.file(paste0(base, \"nl_provinces_2023.geojson\"), \"nl_provinces_2023.geojson\")\ndownload.file(paste0(base, \"nl_municipalities_2025.geojson\"), \"nl_municipalities_2025.geojson\")\ndownload.file(paste0(base, \"nl_monuments_2024.csv\"), \"nl_monuments_2024.csv\")\n\nprovinces <- st_read(\"nl_provinces_2023.geojson\")\nmunicipalities <- st_read(\"nl_municipalities_2025.geojson\")\nmonuments <- read_csv(\"nl_monuments_2024.csv\")"},{"id":2,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-2","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"library(dplyr)\nlibrary(stringr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(sf)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_provinces_2023.geojson\"\ndownload.file(url, \"nl_provinces_2023.geojson\")"},{"id":3,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-3","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"provinces <- st_read(\"nl_provinces_2023.geojson\")"},{"id":4,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-4","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"provinces\n\nggplot() +\n  geom_sf(data = provinces) +\n  theme_void()"},{"id":5,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-5","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"url <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_monuments_2024.csv\"\ndownload.file(url, \"nl_monuments_2024.csv\")\nmonuments <- read_csv(\"nl_monuments_2024.csv\")\n\nmonuments"},{"id":6,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-6","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"monuments_provinces <- monuments |>\n  filter(str_detect(region_code, 'PV'), type_of_monument == 'Listed monuments total')\n\nmonuments_provinces"},{"id":7,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-7","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"provinces |>\n  left_join(monuments_provinces, by = c('statnaam' = 'region')) |>\n  select(statnaam, monuments)"},{"id":8,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-8","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"provinces$statnaam\nmonuments_provinces$region"},{"id":9,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-9","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"monuments_map <- provinces |>\n  left_join(monuments_provinces, by = c('statcode' = 'region_code'))\n\nmonuments_map |>\n  select(statnaam, statcode, monuments)"},{"id":10,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-10","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"ggplot() +\n  geom_sf(data = monuments_map, aes(fill = monuments), colour = 'white') +\n  scale_fill_viridis_c(direction = -1) +\n  labs(title = 'National monuments in the Netherlands',\n       subtitle = 'Number of rijksmonumenten in each province, 2024',\n       fill = 'Monuments',\n       caption = 'Data: CBS (CC BY 4.0). Boundaries: CBS, via cartomap') +\n  theme_void()"},{"id":11,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-11","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"url <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nl_municipalities_2025.geojson\"\ndownload.file(url, \"nl_municipalities_2025.geojson\")\nmunicipalities <- st_read(\"nl_municipalities_2025.geojson\")\n\nmonuments_municipalities <- monuments |>\n  filter(str_detect(region_code, 'GM'), type_of_monument == 'Listed monuments total')\n\nmonuments_municipalities_map <- municipalities |>\n  left_join(monuments_municipalities, by = c('statcode' = 'region_code'))"},{"id":12,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-12","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":"ggplot() +\n  geom_sf(data = monuments_municipalities_map, aes(fill = monuments), colour = 'white', linewidth = 0.1) +\n  scale_fill_viridis_b(breaks = c(50, 100, 250, 500, 1000, 2500), direction = -1) +\n  labs(title = 'National monuments in the Netherlands',\n       subtitle = 'Number of rijksmonumenten in each municipality, 2024',\n       fill = 'Monuments',\n       caption = 'Data: CBS (CC BY 4.0). Boundaries: CBS, via cartomap') +\n  theme_void()"},{"id":13,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-13","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":""},{"id":14,"options":{"context":"interactive","editor-word-wrap":"true","out-height":"","warning":"true","fig-cap":"","read-only":"false","editor-quick-suggestions":"false","message":"true","classes":"","results":"markup","autorun":"false","label":"unnamed-chunk-14","editor-font-scale":"1","fig-height":5,"out-width":"700px","editor-max-height":"","dpi":72,"output":"true","fig-width":7,"comment":""},"code":""}];
 
 </script>
 <script type="module">
@@ -1603,7 +1603,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./46_choropleth.html">Week 6 · Tue 1 Dec: Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./47_map-files.html"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./46_choropleth.html">Week 6 · Tue 1 Dec: Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./47_map-files.html"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1988,26 +1988,32 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2024,25 +2030,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2059,13 +2065,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2082,13 +2088,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2105,7 +2111,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
       </ul>
@@ -2122,7 +2128,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>
@@ -2435,9 +2441,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./46_choropleth.html">Week 6 · Tue 1 Dec: Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./47_map-files.html"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./46_choropleth.html">Week 6 · Tue 1 Dec: Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./47_map-files.html"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></h1>
+<h1 class="title"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></h1>
 </div>
 
 
@@ -3147,12 +3153,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./46_choropleth.html" class="pagination-link" aria-label="Choropleth maps: joining your data to a map">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./48_points-map.html" class="pagination-link" aria-label="Points maps">
-        <span class="nav-page-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

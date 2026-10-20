@@ -18,7 +18,7 @@ The exam has four parts. Each one relates to a different set of skills from the 
 | A | **Read the code.** Given a small table and some dplyr code, work out what the output will be, choose the code which produces a given result, or find the bug. | 30% | Weeks 1-2: data analysis |
 | B | **Code and charts.** Work out what chart some ggplot code produces, or what you'd change to get a particular effect. | 20% | Weeks 3-4: data visualisation |
 | C | **Critique a visualisation.** You're shown a chart or map: identify its problems and explain how you would fix them. | 25% | Weeks 3-6: design principles, colour, accessibility, mapping |
-| D | **Plan an analysis.** You're given a description of a dataset you haven't seen before and a research question. Explain how you would use the data to answer it, and what you'd need to watch out for. | 25% | The whole course, including the readings |
+| D | **Plan an analysis.** You're given a description of a dataset you haven't seen before and a research question. Explain how you would use the data to answer it, and what you'd need to watch out for. | 25% | The whole course |
 
 : Exam structure {tbl-colwidths="\[8,52,10,30\]" .striped}
 
@@ -30,8 +30,7 @@ Parts A and B have one correct answer. Parts C and D are open questions: there a
 2.  **Use the 'Check your understanding' boxes** at the end of chapters. They are written in the same style as Part A and B questions. Where there's a code cell, *predict the answer first*, and then run the code to check.
 3.  **Go through the Learning Objectives** at the end of each chapter. If you can't tick one off, go back over that chapter.
 4.  **Practise critiquing.** Whenever you see a chart in the news or on social media, ask yourself what it does well and what you'd change. The chapters on [Gestalt principles](27_gestalt.qmd), [colour](31_colour.qmd), and [accessibility](38_accessibility.qmd) give you the vocabulary.
-5.  **Re-read the two compulsory readings** from *Data Feminism*. Part D will often give you a chance to use them.
-6.  **Do the practice exam** below, under time pressure, before looking at the answers.
+5.  **Do the practice exam** below, under time pressure, before looking at the answers.
 
 ## What you should be able to do
 
@@ -57,7 +56,9 @@ Parts A and B have one correct answer. Parts C and D are open questions: there a
 
 -   [ ] Explain the FAIR principles and evaluate a dataset against them
 -   [ ] Identify accessibility problems in a visualisation (e.g. colour-blindness, contrast, missing alt text) and suggest fixes
--   [ ] Use ideas from the *Data Feminism* readings to discuss how a dataset or visualisation was made, and whose perspective it represents
+-   [ ] Discuss how a dataset or visualisation was made, and whose perspective it represents
+-   [ ] Explain how choices such as filtering, scales, titles and the handling of missing values can make a visualisation misleading
+-   [ ] Suggest more respectful ways to visualise sensitive topics
 
 ### Digital mapping (weeks 5-6)
 
@@ -330,5 +331,5 @@ A strong answer would include something like the following. You don't need to wr
 -   **Missing data:** ships which were wrecked or captured never arrived, so they have no arrival crew number. If you filter them out, you leave out the *most* deadly voyages, and underestimate mortality. You could count these separately, or make a second chart of the share of ships that never arrived.
 -   **The numbers don't only reflect deaths:** people could also leave or join the ship at stops along the way (e.g. at the Cape), so a lower number on arrival isn't only deaths.
 -   **Sources and FAIR:** you'd need to find out where the numbers come from (VOC records), how they were transcribed, and how complete they are for different periods - the early decades may be less well recorded.
--   **Ethics and perspective:** this data was produced by a colonial trading company, and records people as numbers of 'crew'. It says nothing about who they were, and nothing about the people in Asia affected by the VOC. Following *Data Feminism*, you could reflect on whose perspective the data represents, and on how to present deaths respectfully (e.g. avoiding sensationalist titles).
+-   **Ethics and perspective:** this data was produced by a colonial trading company, and records people as numbers of 'crew'. It says nothing about who they were, and nothing about the people in Asia affected by the VOC. You could reflect on whose perspective the data represents, and on how to present deaths respectfully (e.g. avoiding sensationalist titles).
 :::

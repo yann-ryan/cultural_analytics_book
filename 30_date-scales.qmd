@@ -21,6 +21,8 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
+url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv"
+download.file(url, "bellevue_almshouse_modified.csv")
 bellevue_dataset = read_csv('bellevue_almshouse_modified.csv')
 
 df <- bellevue_dataset |>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>44&nbsp; Data Visualisation and Accessibility Considerations – Cultural Analytics: Course Book</title>
+<title>45&nbsp; Data Visualisation and Accessibility Considerations – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-width":"700px","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","autorun":"true","comment":"","context":"setup","editor-word-wrap":"true","classes":"","fig-cap":"","warning":"true","results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-1","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","fig-width":7},"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","id":1},{"options":{"out-width":"700px","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","autorun":"false","comment":"","context":"interactive","editor-word-wrap":"true","classes":"","fig-cap":"","warning":"true","results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-2","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","fig-width":7},"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","id":2},{"options":{"out-width":"700px","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","autorun":"false","comment":"","error":"false","context":"interactive","editor-word-wrap":"true","classes":"","fig-cap":"","warning":"false","results":"markup","dpi":72,"message":"false","label":"unnamed-chunk-3","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","fig-width":7},"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","id":3},{"options":{"out-width":"700px","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","autorun":"false","comment":"","context":"interactive","editor-word-wrap":"true","classes":"","fig-cap":"","warning":"true","results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-4","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","fig-width":7},"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","id":4},{"options":{"out-width":"700px","output":"true","read-only":"false","fig-height":5,"editor-font-scale":"1","autorun":"false","comment":"","context":"interactive","editor-word-wrap":"true","classes":"","fig-cap":"","warning":"true","results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-5","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","fig-width":7},"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","id":5}];
+globalThis.qwebrCellDetails = [{"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","id":1,"options":{"dpi":72,"context":"setup","autorun":"true","comment":"","label":"unnamed-chunk-1","fig-width":7,"editor-font-scale":"1","fig-cap":"","message":"true","out-height":"","output":"true","warning":"true","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"classes":"","results":"markup","editor-max-height":""}},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","id":2,"options":{"dpi":72,"context":"interactive","autorun":"false","comment":"","label":"unnamed-chunk-2","fig-width":7,"editor-font-scale":"1","fig-cap":"","message":"true","out-height":"","output":"true","warning":"true","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"classes":"","results":"markup","editor-max-height":""}},{"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","id":3,"options":{"dpi":72,"context":"interactive","autorun":"false","comment":"","label":"unnamed-chunk-3","fig-width":7,"editor-font-scale":"1","error":"false","fig-cap":"","message":"false","out-height":"","output":"true","warning":"false","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"classes":"","results":"markup","editor-max-height":""}},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","id":4,"options":{"dpi":72,"context":"interactive","autorun":"false","comment":"","label":"unnamed-chunk-4","fig-width":7,"editor-font-scale":"1","fig-cap":"","message":"true","out-height":"","output":"true","warning":"true","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"classes":"","results":"markup","editor-max-height":""}},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","id":5,"options":{"dpi":72,"context":"interactive","autorun":"false","comment":"","label":"unnamed-chunk-5","fig-width":7,"editor-font-scale":"1","fig-cap":"","message":"true","out-height":"","output":"true","warning":"true","out-width":"700px","editor-word-wrap":"true","editor-quick-suggestions":"false","read-only":"false","fig-height":5,"classes":"","results":"markup","editor-max-height":""}}];
 
 </script>
 <script type="module">
@@ -1569,7 +1569,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37_fair-data.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1954,26 +1954,32 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1990,25 +1996,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2025,13 +2031,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2048,13 +2054,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2071,7 +2077,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
       </ul>
@@ -2088,7 +2094,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>
@@ -2403,9 +2409,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37_fair-data.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></h1>
+<h1 class="title"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></h1>
 </div>
 
 
@@ -3088,12 +3094,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./37_fair-data.html" class="pagination-link" aria-label="Reproducibility and FAIR data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./39_tidytuesday-challenge.html" class="pagination-link" aria-label="TidyTuesday visualisation challenge">
-        <span class="nav-page-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

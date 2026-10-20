@@ -1,7 +1,7 @@
 ---
 title: "Tidying data with pivot_longer()"
 webr:
-  packages: ['dplyr', 'readr']
+  packages: ['dplyr', 'readr', 'tidyr']
 ---
 
 ```{webr-r}
@@ -9,6 +9,7 @@ webr:
 
 library(dplyr)
 library(readr)
+library(tidyr)
 
 url <- "https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv"
 download.file(url, "gapminder.csv")

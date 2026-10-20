@@ -251,7 +251,7 @@ Which map is 'right'? Neither, on its own. Dividing by population answers a diff
 
 Making a nomination takes money, expertise, and political will. For decades, the criteria favoured the kinds of heritage valued in Europe, such as cathedrals, palaces, and historic town centres, over, for example, living traditions or sacred landscapes. UNESCO itself recognised this imbalance in 1994, when it launched a 'Global Strategy' to make the list more representative.
 
-This is exactly the kind of question the *Data Feminism* readings ask us to think about: who made this data, for what purpose, and whose idea of value does it represent? A good map - and a good report - should make this clear to the reader, for example in the title, the caption, or the text around it.
+It's always worth asking: who made this data, for what purpose, and whose idea of value does it represent? A good map - and a good report - should make this clear to the reader, for example in the title, the caption, or the text around it.
 
 ## Exercises
 

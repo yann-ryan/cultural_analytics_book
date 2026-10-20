@@ -71,6 +71,7 @@ book:
         - 36a_data-visualisation-3-exercises.qmd
     - part: "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility"
       chapters:
+        - 37a_ethics.qmd
         - 37_fair-data.qmd
         - 38_accessibility.qmd
         - 39_tidytuesday-challenge.qmd

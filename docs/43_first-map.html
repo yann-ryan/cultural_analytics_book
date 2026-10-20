@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>48&nbsp; Your first map – Cultural Analytics: Course Book</title>
+<title>49&nbsp; Your first map – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -393,7 +393,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"true","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-1","warning":"true","read-only":"false","context":"setup","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":1,"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf')"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-2","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":2,"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-3","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":3,"code":"worldmap <- ne_countries(scale = 'medium', returnclass = 'sf')"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-4","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":4,"code":"worldmap |>\n  select(name, continent, pop_est)"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-5","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":5,"code":"ggplot() +\n  geom_sf(data = worldmap)"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-6","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":6,"code":"worldmap <- worldmap |>\n  filter(continent != 'Antarctica')\n\nggplot() +\n  geom_sf(data = worldmap)"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-7","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":7,"code":""},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-8","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":8,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = continent))"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-9","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":9,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est))"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-10","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":10,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est), colour = 'white', linewidth = 0.1) +\n  scale_fill_viridis_c(labels = scales::label_number(scale = 1e-6, suffix = 'm', big.mark = ',')) +\n  labs(title = 'Population of the world\\'s countries',\n       fill = 'Population',\n       caption = 'Data: Natural Earth') +\n  theme_void()"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-11","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":11,"code":""},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-12","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":12,"code":"europe <- worldmap |>\n  filter(continent == 'Europe')\n\nggplot() +\n  geom_sf(data = europe)"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-13","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":13,"code":"ggplot() +\n  geom_sf(data = europe) +\n  coord_sf(xlim = c(-25, 45), ylim = c(34, 72))"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-14","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":14,"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  geom_sf(data = europe, fill = 'steelblue') +\n  coord_sf(xlim = c(-25, 45), ylim = c(34, 72))"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-15","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":15,"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(xlim = c(-25, 45), ylim = c(34, 72))"},{"options":{"editor-font-scale":"1","dpi":72,"output":"true","classes":"","autorun":"false","editor-word-wrap":"true","editor-max-height":"","comment":"","label":"unnamed-chunk-16","warning":"true","read-only":"false","context":"interactive","message":"true","fig-height":5,"fig-cap":"","fig-width":7,"editor-quick-suggestions":"false","out-height":"","out-width":"700px","results":"markup"},"id":16,"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf')","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-1","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"setup","autorun":"true","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":2,"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-2","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":3,"code":"worldmap <- ne_countries(scale = 'medium', returnclass = 'sf')","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-3","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":4,"code":"worldmap |>\n  select(name, continent, pop_est)","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-4","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":5,"code":"ggplot() +\n  geom_sf(data = worldmap)","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-5","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":6,"code":"worldmap <- worldmap |>\n  filter(continent != 'Antarctica')\n\nggplot() +\n  geom_sf(data = worldmap)","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-6","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":7,"code":"","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-7","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":8,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = continent))","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-8","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":9,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est))","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-9","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":10,"code":"ggplot() +\n  geom_sf(data = worldmap, aes(fill = pop_est), colour = 'white', linewidth = 0.1) +\n  scale_fill_viridis_c(labels = scales::label_number(scale = 1e-6, suffix = 'm', big.mark = ',')) +\n  labs(title = 'Population of the world\\'s countries',\n       fill = 'Population',\n       caption = 'Data: Natural Earth') +\n  theme_void()","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-10","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":11,"code":"","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-11","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":12,"code":"europe <- worldmap |>\n  filter(continent == 'Europe')\n\nggplot() +\n  geom_sf(data = europe)","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-12","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":13,"code":"ggplot() +\n  geom_sf(data = europe) +\n  coord_sf(xlim = c(-25, 45), ylim = c(34, 72))","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-13","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":14,"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  geom_sf(data = europe, fill = 'steelblue') +\n  coord_sf(xlim = c(-25, 45), ylim = c(34, 72))","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-14","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":15,"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(xlim = c(-25, 45), ylim = c(34, 72))","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-15","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}},{"id":16,"code":"","options":{"message":"true","editor-word-wrap":"true","label":"unnamed-chunk-16","classes":"","editor-font-scale":"1","comment":"","fig-width":7,"output":"true","read-only":"false","results":"markup","out-width":"700px","context":"interactive","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","dpi":72,"out-height":"","editor-max-height":"","editor-quick-suggestions":"false"}}];
 
 </script>
 <script type="module">
@@ -1603,7 +1603,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Week 5 · Thu 26 Nov: Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./43_first-map.html"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Week 5 · Thu 26 Nov: Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./43_first-map.html"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1988,26 +1988,32 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2024,25 +2030,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_first-map.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2059,13 +2065,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2082,13 +2088,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2105,7 +2111,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
       </ul>
@@ -2122,7 +2128,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>
@@ -2443,9 +2449,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Week 5 · Thu 26 Nov: Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./43_first-map.html"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42_digital-mapping-1.html">Week 5 · Thu 26 Nov: Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./43_first-map.html"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></h1>
+<h1 class="title"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></h1>
 </div>
 
 
@@ -3222,12 +3228,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./42_digital-mapping-1.html" class="pagination-link" aria-label="Maps as data visualisation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./44_projections.html" class="pagination-link" aria-label="Map projections">
-        <span class="nav-page-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

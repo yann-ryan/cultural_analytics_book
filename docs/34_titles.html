@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id') |>\n  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),\n         age_at_award = award_year - birth_year)","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-1","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"true","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"setup","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":1},{"code":"df <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n(),\n            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,\n            avg_age = mean(age_at_award, na.rm = TRUE))","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-2","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":2},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point()","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-3","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":3},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\")","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-4","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":4},{"code":"","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-5","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":5},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = \"Average Age at Award\")","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-6","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":6},{"code":"","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-7","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":7},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-8","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":8},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  geom_text(aes(label = category), size = 3) +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-9","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":9},{"code":"df_text = df %>% filter(category %in% c('Peace', 'Physics'))\n\ndf |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  geom_text(data = df_text, aes(label = category), size = 4) +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-10","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":10},{"code":"df_text = df |>\n  filter(category %in% c('Peace', 'Literature')) |>\n  mutate(category_pct = paste(category, \" (\", round(pct_female), \"%)\", sep = ''))\n\ndf |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  geom_text(data = df_text, aes(label = category_pct), size = 4, color = 'black') +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-11","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":11},{"code":"","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-12","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":12},{"code":"","options":{"out-width":"700px","dpi":72,"label":"unnamed-chunk-13","message":"true","warning":"true","editor-quick-suggestions":"false","autorun":"false","comment":"","read-only":"false","output":"true","out-height":"","classes":"","context":"interactive","fig-cap":"","fig-height":5,"fig-width":7,"editor-font-scale":"1","editor-max-height":"","editor-word-wrap":"true","results":"markup"},"id":13}];
+globalThis.qwebrCellDetails = [{"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id') |>\n  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),\n         age_at_award = award_year - birth_year)","options":{"autorun":"true","context":"setup","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-1","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":1},{"code":"df <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n(),\n            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,\n            avg_age = mean(age_at_award, na.rm = TRUE))","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-2","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":2},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point()","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-3","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":3},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\")","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-4","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":4},{"code":"","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-5","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":5},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = \"Average Age at Award\")","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-6","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":6},{"code":"","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-7","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":7},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-8","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":8},{"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  geom_text(aes(label = category), size = 3) +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-9","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":9},{"code":"df_text = df %>% filter(category %in% c('Peace', 'Physics'))\n\ndf |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  geom_text(data = df_text, aes(label = category), size = 4) +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-10","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":10},{"code":"df_text = df |>\n  filter(category %in% c('Peace', 'Literature')) |>\n  mutate(category_pct = paste(category, \" (\", round(pct_female), \"%)\", sep = ''))\n\ndf |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  geom_text(data = df_text, aes(label = category_pct), size = 4, color = 'black') +\n  labs(title = \"Age and Gender\\nat the Nobel Prize\",\n       x = NULL)","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-11","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":11},{"code":"","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-12","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":12},{"code":"","options":{"autorun":"false","context":"interactive","results":"markup","editor-max-height":"","editor-font-scale":"1","out-height":"","classes":"","out-width":"700px","comment":"","fig-height":5,"warning":"true","fig-cap":"","label":"unnamed-chunk-13","output":"true","message":"true","editor-quick-suggestions":"false","fig-width":7,"dpi":72,"read-only":"false","editor-word-wrap":"true"},"id":13}];
 
 </script>
 <script type="module">
@@ -1954,26 +1954,32 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -1990,25 +1996,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2025,13 +2031,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2048,13 +2054,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2071,7 +2077,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
   </div>
 </li>
       </ul>
@@ -2088,7 +2094,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
   </div>
 </li>
       </ul>

@@ -83,7 +83,7 @@ There are two common ways to deal with this:
 
 ### Every map is a choice
 
-Maps feel objective - they look like a picture of the world as it is. But every map involves choices: which places to include, which borders to draw (and from which year), which projection to use, which data to show, and what to leave out. Borders themselves are often contested. Keep the *Data Feminism* readings in mind: it's always worth asking who made a map, for what purpose, and whose view of the world it represents.
+Maps feel objective - they look like a picture of the world as it is. But every map involves choices: which places to include, which borders to draw (and from which year), which projection to use, which data to show, and what to leave out. Borders themselves are often contested. It's always worth asking who made a map, for what purpose, and whose view of the world it represents.
 
 ## Learning Objectives
 

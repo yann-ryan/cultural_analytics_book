@@ -51,7 +51,7 @@ Questions:
 -   What is the source of the dataset? Is it easy to find information on it?
 -   How well does this dataset hold up against the FAIR principles - is it Findable, Accessible, Interoperable, and Reusable?
 -   What kinds of questions could be asked with this dataset?
--   What ethical considerations are there with this dataset?
+-   What ethical considerations are there with this dataset? (See the [checklist in the ethics chapter](37a_ethics.qmd#a-checklist-for-your-own-visualisations).)
 
 ## Learning Objectives
 

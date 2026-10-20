@@ -10,3 +10,4 @@
 # The actual published assets live inside docs/, which is tracked.
 /*_cache/
 /*_files/
+*.pptx

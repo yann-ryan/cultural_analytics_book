@@ -1,0 +1,207 @@
+---
+title: "Ethics and data visualisation"
+webr:
+  packages: ['dplyr', 'readr', 'ggplot2']
+---
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(readr)
+library(ggplot2)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv"
+download.file(url, "titanic_df.csv")
+
+titanic_df = read_csv('titanic_df.csv')
+
+```
+
+So far, most of this course has been about *how* to make a chart. This chapter is about some of the questions you should ask *before* and *after* you make one: where did the data come from, what does the chart claim, and who might be helped or harmed by it?
+
+These aren't separate from the practical work. Every choice you've learned to make in R - which rows to filter, what to do with missing values, which colours to use, what to put in the title - is also a choice about how to represent the world. Both of your reports ask you to reflect on the limitations of your data and your choices, and this chapter gives you some ways to do that.
+
+In this context, we can think of ethics in data visualisation as **representing fairly, through both data and design**: representing the data correctly (not being misleading), and avoiding making hidden judgements through the way we design a chart.
+
+## Data is not neutral
+
+It's tempting to think of data as raw facts which exist before anyone looks at them. But all data was collected by someone, for some purpose, and someone decided what was worth counting - and what wasn't.
+
+Collecting data has always been a source of power. When Thomas Paine published *Common Sense* in 1776, arguing for American independence, he included a table estimating the cost of building a navy, ship by ship. The table was there to persuade: it made independence look not only right, but affordable. Governments count their populations to tax them, conscript them, and decide who belongs. Many of the historical datasets you might use for your reports were collected by states, companies, or colonial administrations, for their own purposes - not for yours.
+
+This means that you should always ask:
+
+-   Who collected this data, and why?
+-   What did they choose to record, and what did they leave out?
+-   Who is in the data, and who is missing?
+
+## Visualisations are not neutral either
+
+Charts can feel even more objective than tables. A clean chart with a straight axis and a source line at the bottom looks like a simple picture of 'what is'. The humanities scholar Johanna Drucker has argued that this is exactly the problem: visualisations are so persuasive that they're often taken to be simply a presentation of "what is", and we forget that someone made them.
+
+Every chart is an argument. Think about the choices you've made in the earlier chapters:
+
+-   **What to include.** Filtering to one country, one period, or one category tells a different story to the full dataset.
+-   **Scales.** Starting the y axis at zero, or not, can make a change look dramatic or trivial (see [Chart scales](28_scales.qmd)).
+-   **Titles and annotations.** A title which states a conclusion ('Unemployment is falling') tells the viewer what to see. An arrow drawn on a line chart tells them where to look (see [Titles and labels](34_titles.qmd) and [Annotations](36_annotations.qmd)).
+
+In 2012, the New York Times showed how the same monthly US jobs report could be presented in two ways: one framed as a Democrat might see it (unemployment falling steadily) and the other as a Republican might see it (unemployment still stubbornly high). The data was identical. Only the framing changed - the period shown, the annotations, and the headline.
+
+None of this means you should avoid titles, annotations, or a clear message. A good chart *should* tell a story. But you should make those choices deliberately, be honest about them, and make sure the story is one the data actually supports.
+
+::: callout-note
+## Rhetoric you might not notice
+
+Even design elements which don't seem to say anything are persuasive. A source line ('Source: World Bank') lends a chart authority - sometimes called *provenance rhetoric*. A clean, minimal design signals that the chart is scientific and trustworthy, whether it is or not. Neither of these is bad in itself, but it's worth noticing when a chart is borrowing authority it hasn't earned.
+:::
+
+## Objectivity, perspective and emotion
+
+If every chart involves choices, can a chart ever be objective? Feminist scholars have offered some useful ways of thinking about this, which are summarised by Catherine D'Ignazio and Lauren Klein in their book *Data Feminism*.
+
+-   **The 'god trick'.** Donna Haraway described the kind of knowledge which claims to see everything from nowhere in particular - a view from above, by nobody - as a 'god trick'. A chart which presents itself as a neutral view of the world is a good example. In fact, all knowledge is **situated**: it is made by particular people, in particular circumstances.
+-   **Positionality.** Linda Alcoff and others use the term *positionality* to describe how each of us comes to knowledge from a particular position, shaped by things like gender, ethnicity, class, ability, education, and nationality. This affects both how a visualisation is made, and how it is read - including by you.
+-   **Strong objectivity.** This doesn't mean that anything goes. The philosopher Sandra Harding argued that being open about your perspective, and actively including perspectives which are usually left out, actually makes research *more* objective, not less. She called this 'strong objectivity'.
+
+This also raises the question of **emotion**. Data visualisation is often seen as the opposite of emotion: reason, numbers, and clean lines. But there's no reason a chart can't be both accurate and moving. Periscopic's [U.S. Gun Deaths](https://guns.periscopic.com/) (2013) shows each person killed by a gun in the US in one year as a single arc: the arc starts at their age when they died, and fades out at the age they might have lived to. The total at the top is not just the number of people killed, but the number of 'stolen years'. The data is the same as you'd find in a table of statistics, but the design asks the viewer to see each death as a life.
+
+For your own work, the practical lesson is: **be transparent about your choices and your perspective**. In your reports, say where your data came from, what you did to it, and what it can't tell you.
+
+## When the data goes wrong: missing values
+
+Some of the most important ethical decisions in data analysis look like small technical ones. One of the most common is what to do with missing data.
+
+In 2019, a team of researchers published a high-profile paper in *Nature* using a large historical database of past societies. It argued that complex societies developed *before* 'moralising gods' (gods who punish bad behaviour), rather than the other way around. Other researchers soon found a problem: in many cases where the database had *no information* about whether a society had moralising gods, the analysis had treated this as meaning the society *didn't* have them. In other words, missing data (`NA`) had been treated as a zero. The paper was retracted in 2021.
+
+This is a mistake which is very easy to make in R, and it's worth seeing how much difference it makes. The Titanic dataset is missing the age of 263 of its 1,309 passengers. Here's the average age of passengers in each class, leaving the missing ages out (as you learned in the [summarise chapter](15_summarise.qmd), using `na.rm = TRUE`):
+
+```{webr-r}
+
+titanic_df |>
+  group_by(pclass) |>
+  summarise(average_age = mean(age, na.rm = TRUE))
+
+```
+
+Now let's make the mistake on purpose. The code below uses `mutate()` and `if_else()` to replace every missing age with a zero, and then calculates the averages again:
+
+```{webr-r}
+
+titanic_df |>
+  mutate(age = if_else(is.na(age), 0, age)) |>
+  group_by(pclass) |>
+  summarise(average_age = mean(age))
+
+```
+
+The average age of third-class passengers has dropped by more than seven years - but first and second class have changed much less. Why? Let's count how many passengers in each class have a missing age:
+
+```{webr-r}
+
+titanic_df |>
+  group_by(pclass) |>
+  summarise(total = n(), missing_age = sum(is.na(age))) |>
+  mutate(percent_missing = round(missing_age / total * 100))
+
+```
+
+Almost a third of third-class passengers have no recorded age, compared to around one in twenty in second class. The data is not missing at random: the people the records know least about are the poorest passengers. Treating their missing ages as zero doesn't just make the numbers wrong - it makes them wrong *in a way which falls on one group in particular*.
+
+A chart makes this kind of mistake easy to spot, if you look. Here's a histogram of ages, with the missing values replaced by zero:
+
+```{webr-r}
+
+titanic_df |>
+  mutate(age = if_else(is.na(age), 0, age)) |>
+  ggplot() +
+  geom_histogram(aes(x = age), binwidth = 2)
+
+```
+
+That spike at zero isn't hundreds of babies - it's hundreds of people whose ages nobody wrote down.
+
+::: callout-tip
+## Missing data in your own work
+
+-   Before you do anything else with a dataset, check where the `NA` values are, for example with `summarise()` and `sum(is.na(column))`.
+-   Never replace `NA` with zero unless you're sure that 'no data' really does mean 'none'.
+-   Ask *whose* data is missing. Missing data often tells you something about who collected the data and who they thought was important.
+-   Say in your report how much data was missing, and what you did about it.
+:::
+
+## Visualising people and sensitive topics
+
+Many humanities datasets are about people, and some are about suffering: war, migration, slavery, disease. Design choices which are fine for a chart of book sales can be inappropriate here.
+
+-   **Think about what your shapes suggest.** Arrows on a migration map are a common choice, but large, bold arrows also look like the arrows on maps of military invasions - and have been used in exactly that way in propaganda maps. Maps of refugees fleeing Ukraine in 2022 published by *The Economist*, for example, avoided large arrows and used circles sized by the number of people arriving in each country. Same data, very different message.
+-   **Remember that each data point is a person.** A count of deaths is not like a count of books. Avoid sensationalist titles, jokey colours, or decorative design.
+-   **Consider showing individuals.** Like the gun deaths example above, showing people as individual marks rather than one total can help viewers remember that the data is about lives.
+-   **Protect privacy.** Be careful about publishing data, or maps, which could identify living individuals.
+
+## Data that challenges power
+
+Data visualisation has often been used to reinforce injustice. In the 1930s, the US government's 'redlining' maps graded neighbourhoods by their supposed mortgage risk, largely on the basis of the race of the people who lived there - and those grades shaped who could get a loan for decades (you can explore these maps with the [Mapping Inequality](https://dsl.richmond.edu/panorama/redlining/) project, listed on the [data page](41_data-sources.qmd)).
+
+But it has also been used to challenge it.
+
+-   For the 1900 Paris Exposition, **W.E.B. Du Bois** and his students at Atlanta University made a series of strikingly modern hand-drawn charts showing the progress of Black Americans since the end of slavery - a direct challenge to the racist ideas of the time.
+-   In 1971, the **Detroit Geographic Expedition and Institute**, a collaboration between a Black youth activist, Gwendolyn Warren, and geographers, made a map called *Where Commuters Run Over Black Children on the Pointes-Downtown Track*. No official data showed the problem, so the community collected its own. The map made visible something which the people in charge had not wanted to see.
+-   In 2016, journalists at **ProPublica** investigated a computer system used by US courts to predict whether a defendant would reoffend. They collected their own dataset on thousands of real defendants, and found the predictions were only somewhat more accurate than a coin flip - and that Black defendants were much more likely to be wrongly labelled as high risk.
+
+In each case, the people making the visualisation had to ask the questions from the start of this chapter: who collected the data, who is missing, and who benefits?
+
+## A checklist for your own visualisations
+
+The visualisation researcher Michael Correll has suggested some ethical goals for people who make visualisations. Adapted for this course, they make a useful checklist for your reports:
+
+-   **Make the invisible visible.** Is there something important in your data (or missing from it) which your chart hides?
+-   **Show uncertainty.** Be honest about what the data can't tell you, and how reliable it is.
+-   **Remember the people in the data.** Can your design help viewers remember that the data is about people?
+-   **Protect privacy.** Could your chart, or the data you publish with it, identify anyone?
+-   **Question power.** Whose perspective does the data represent? Who collected it, and why?
+
+And here are some questions to ask of *any* visualisation, whether it's yours or someone else's:
+
+1.  Does it have a political or persuasive purpose? Is that purpose open, or hidden?
+2.  How was the data collected, and is this explained?
+3.  What role does emotion play? How does the chart present itself - as neutral and objective, or as a particular point of view?
+4.  Who is the chart about, and who is it for? Could it marginalise, or promote, particular groups?
+5.  What do you imagine is the position of the person who made it? What about your own position - how does it affect the way you read the chart?
+
+## Check your understanding
+
+**1.** A student is analysing a dataset of letters in an archive. The `sender_gender` column is `NA` for 40% of letters. To make a bar chart of letters by gender, they replace every `NA` with `"male"`, because 'most letter-writers in this period were men'. What's the problem, and what would be a better approach?
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+They've turned an assumption into data. The chart will now show many more letters by men than the archive can actually support - and it will hide the fact that 40% of the senders are unknown, which is itself an important finding. A better approach would be to keep the unknown senders as their own category (e.g. 'Unknown') in the chart, or to leave them out and say clearly in the text how many letters were excluded. They might also ask *why* so many senders are unknown: are letters by women more likely to be unattributed?
+:::
+
+**2.** A chart of the transatlantic slave trade uses bright red arrows of different thicknesses, and the title 'The Great Migration Machine'. Give two ethical problems with this design.
+
+::: {.callout-tip collapse="true"}
+## Answer
+
+Some possible answers:
+
+-   The title is flippant and sensationalist, and 'migration' hides the fact that this was forced: it treats a history of enormous suffering as a curiosity.
+-   Bold arrows suggest movement as a kind of force or flow, and turn people into an abstract stream. A more respectful design might show numbers of people more soberly, or show individual voyages or people.
+-   Bright red is likely to come across as alarming or decorative rather than respectful (and may also be a problem for colour-blind viewers).
+-   The chart should also say where the data comes from, and that the records were made by the people who carried out the trade.
+:::
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Explain why neither data nor data visualisations are neutral
+-   [ ] Identify how the choices in a chart (filtering, scales, titles, annotations) can persuade
+-   [ ] Explain what is meant by situated knowledge and positionality, and why being open about your perspective matters
+-   [ ] Check a dataset for missing values, and explain why replacing `NA` with zero can mislead
+-   [ ] Ask whose data is missing, and what this tells you about the data
+-   [ ] Suggest more respectful ways to visualise sensitive topics
+-   [ ] Use a checklist of ethical questions to critique a visualisation, including your own
