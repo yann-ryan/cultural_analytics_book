@@ -1,0 +1,34 @@
+/*-- scss:defaults --*/
+$presentation-font-size-root: 34px;
+$link-color: #2780e3;
+$presentation-heading-font-weight: 600;
+$presentation-heading-text-transform: none;
+$code-block-font-size: 0.8em;
+
+/*-- scss:rules --*/
+.reveal .slide-number, .reveal .footer { font-size: 0.5em; }
+
+/* section divider slides */
+.reveal .slides section.section-break h2 { font-size: 2em; }
+.reveal .slides section.section-break p { color: #666; }
+
+/* 'your turn' slides */
+.reveal .slides section.your-turn h2 { color: #2780e3; }
+
+.reveal .predict {
+  border-left: 6px solid #f0ad4e;
+  background: #fdf6ec;
+  padding: 0.3em 0.7em;
+  margin: 0.4em 0;
+  font-size: 0.85em;
+}
+
+.reveal .small { font-size: 0.7em; color: #555; }
+
+/* keep long R output inside the slide; it scrolls */
+.reveal div.qwebr-output-code-area pre {
+  max-height: 320px;
+  /* webR sets the output to the editor's font size; keep R's printed
+     tables small enough not to wrap */
+  font-size: 22px !important;
+}

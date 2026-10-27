@@ -156,7 +156,22 @@ This course runs as an intensive **seven-week block, meeting twice a week**: a l
 
 Always check [MyTimetable](https://mytimetable.leidenuniv.nl/) for last-minute room changes.
 
-In the first week, you'll learn the very basics using the coding language R and start working with dataframes. Week 2 covers the rest of data analysis. Weeks 3 and 4 are a two-week block on data visualisation, wrapping up with Report 1. Week 5 covers ethics, FAIR data and accessibility (taught through a hands-on TidyTuesday challenge), before moving into digital mapping, which runs over the last three classes and wraps up with Report 2. There are no classes in week 7, which is reserved for a hackathon (a separate event, not part of this course). The exam is in January - see [Preparing for the Exam](52_exam-prep.qmd).
+In the first week, you'll learn the very basics using the coding language R and start working with dataframes. Week 2 covers the rest of data analysis. Weeks 3 and 4 are a two-week block on data visualisation, followed by Report 1. Week 5 covers ethics, FAIR data and accessibility (taught through a hands-on TidyTuesday challenge), before moving into digital mapping, which runs over the last three classes and is followed by Report 2. There are no classes in week 7, which is reserved for a hackathon (a separate event, not part of this course). The exam is in January - see [Preparing for the Exam](52_exam-prep.qmd).
+
+::: callout-important
+## Before the first class
+
+Install R and RStudio on your laptop, and the packages we'll use, by following [Installing R and RStudio](00_install.qmd). It takes about 30 minutes. Bring your laptop to every class. If you get stuck, bring it to the first class anyway and we'll fix it there.
+:::
+
+A few sessions start from a short chapter with no code, which explains the ideas we'll use in class. Read it beforehand if you can - it takes about 10-15 minutes, and leaves more of the class for doing:
+
+-   Tue 10 Nov: [Data Visualisation Basics](22_data-visualisation-1.qmd)
+-   Thu 12 Nov: [Gestalt Principles](27_gestalt.qmd)
+-   Tue 24 Nov: [Ethics and data visualisation](37a_ethics.qmd)
+-   Thu 26 Nov: [Maps as data visualisation](42_digital-mapping-1.qmd)
+
+In four of these sessions (Tue 10 Nov, Thu 12 Nov, Tue 24 Nov and Thu 26 Nov), part of the class is a group critique of one visualisation, which your group keeps all the way through. See the [Critique gallery](critique-gallery.qmd).
 
 | **Week** | **Session** | **Date** | **Topic** | **Assignment** |
 |----|----|----|----|----|
@@ -164,15 +179,17 @@ In the first week, you'll learn the very basics using the coding language R and 
 | 1 | Seminar | Thu 29 Oct | Data Analysis 1: dataframes, selecting and subsetting data |  |
 | 2 | Lecture | Tue 3 Nov | Data Analysis 2: filtering, changing, summarising and grouping data | **Checkpoint: Home exercise 2 due.** |
 | 2 | Seminar | Thu 5 Nov | Data Analysis 3: joins and tidying data, data challenge |  |
-| 3 | Lecture | Tue 10 Nov | Data Visualisation 1: getting started with R and ggplot2 | **Checkpoint: Home exercise 4 due.** |
-| 3 | Seminar | Thu 12 Nov | Data Visualisation 2 (part 1): Gestalt principles and scales |  |
-| 4 | Lecture | Tue 17 Nov | Data Visualisation 2 (part 2): position, date, and colour scales |  |
-| 4 | Seminar | Thu 19 Nov | Data Visualisation 3: titles, themes, and annotations | **Report 1 (data visualisation) due.** |
+| 3 | Lecture | Tue 10 Nov | Data Visualisation 1: getting started with R and ggplot2, choosing a chart | **Checkpoint: Home exercise 4 due.** Report 1 introduced. |
+| 3 | Seminar | Thu 12 Nov | Data Visualisation 2 (part 1): Gestalt principles, scales, and position scales | Pitch your Report 1 dataset and question. |
+| 4 | Lecture | Tue 17 Nov | Data Visualisation 2 (part 2): date and colour scales |  |
+| 4 | Seminar | Thu 19 Nov | Data Visualisation 3: titles, themes, and annotations (bring a draft chart from your report) |  |
+| 5 |  | Mon 23 Nov |  | **Report 1 (data visualisation) due.** |
 | 5 | Lecture | Tue 24 Nov | Ethics, FAIR data, and accessibility, via the TidyTuesday challenge |  |
-| 5 | Seminar | Thu 26 Nov | Digital Mapping 1: maps as data visualisation, your first map, projections |  |
+| 5 | Seminar | Thu 26 Nov | Digital Mapping 1: maps as data visualisation, your first map, projections | Report 2 introduced. |
 | 6 | Lecture | Tue 1 Dec | Digital Mapping 2: choropleth maps, joining data to maps, reading map files |  |
-| 6 | Seminar | Thu 3 Dec | Digital Mapping 3: points maps, finding coordinates | **Report 2 (map) due.** |
+| 6 | Seminar | Thu 3 Dec | Digital Mapping 3: points maps, finding coordinates; exam briefing |  |
 | 7 |  | 8-10 Dec | No classes: hackathon week (a separate event, not part of this course) |  |
+| 8 |  | Mon 14 Dec |  | **Report 2 (map) due.** |
 |  | Exam | Tue 5 Jan 2027 | 13:00-15:00, Universitair Sportcentrum, Hall 2 | **Examination** |
 |  | Resit | Tue 26 Jan 2027 | 15:00-17:00, Lipsius 1.27 |  |
 
@@ -186,7 +203,7 @@ Data visualisation is the main technique we'll use to work with structured cultu
 
 You'll put these skills into practice using a tool called R. R is a coding language often used for data science - it's particularly good at working with what are called 'dataframes': structured data in the form of rows and columns which we'll mostly be using on this course.
 
-To begin with, you'll practise the basics using interactive code snippets embedded directly in this book. Later, we have set up a learning environment called 'Posit cloud', where you can import data, export visualisations, and code in a 'real world' way.
+To begin with, you'll practise the basics using interactive code snippets embedded directly in this book. Later, you'll work in RStudio on your own computer, where you can import data, export visualisations, and code in a 'real world' way.
 
 Using a coding language like this allows us to have direct control over every aspect of a visualisation - we can choose from many different geometries depending on our data and what we want to show, adjust the colours in precise ways, and pick the scale we want to use. We can also use R to summarise data, or limit it to just the parts we want to work with. This will complement the learning of Python you're doing in your other course.
 
@@ -220,8 +237,8 @@ Total course load 5 EC x 28 hours = 140 hours:
 
 The main assignments on this course are two **reports**: short visual essays, written in R Markdown, which use a dataset to explore a question you're interested in. Each report combines explanatory text, code, and visualisations - like the [examples on the data page](41_data-sources.qmd#inspiration-for-your-reports), on a smaller scale.
 
--   **Report 1: data visualisation** (due Thursday 19 November). Around 1,200-1,500 words, with three or four visualisations made with ggplot2.
--   **Report 2: map** (due Thursday 3 December). Around 1,200-1,500 words, with at least two maps, plus other visualisations if you wish. You can use the same dataset as Report 1, or a new one.
+-   **Report 1: data visualisation** (due Monday 23 November). Around 1,200-1,500 words, with three or four visualisations made with ggplot2.
+-   **Report 2: map** (due Monday 14 December). Around 1,200-1,500 words, with at least two maps, plus other visualisations if you wish. You can use the same dataset as Report 1, or a new one.
 
 In both reports, you should explain your question, where your data comes from and how it was made, what you did to it, and what your visualisations show - and reflect on the limitations of the data and your choices. See the [data page](41_data-sources.qmd) for suggested datasets. Submit both the .Rmd file and the knitted html as a .zip file on Brightspace.
 

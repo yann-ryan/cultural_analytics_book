@@ -1,0 +1,4 @@
+/.quarto/
+# rendered output; the book render copies it into docs/slides
+*.html
+*_files/

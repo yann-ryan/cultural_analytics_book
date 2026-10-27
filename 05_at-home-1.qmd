@@ -8,7 +8,7 @@ title: "Home exercises"
 This exercise is ungraded practice - you don't need to submit it. But it's the best preparation for the reports and the exam, so do try to complete it.
 :::
 
-The at-home exercises should be completed using Posit cloud. Log in to your Posit account and open the project `Home Exercise 1`. Create a new .Rmd file (use File -\> New File -\> R Markdown).
+Do the at-home exercises in R-Studio, in your `cultural_analytics` project (see [Installing R and RStudio](00_install.qmd)). Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
 I advise saving the new file straight away, and regularly re-save it.
 

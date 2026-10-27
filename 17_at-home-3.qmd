@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Home exercises"
 ---
 
@@ -8,7 +9,7 @@ title: "Home exercises"
 This exercise is ungraded practice - you don't need to submit it. But it's the best preparation for the reports and the exam, so do try to complete it.
 :::
 
-The at-home exercises should be completed using Posit cloud. Open the new assignment 'Home Exercise 3'. Create a new .Rmd file (use File -\> New File -\> R Markdown).
+Do the at-home exercises in R-Studio, in your `cultural_analytics` project (see [Installing R and RStudio](00_install.qmd)). Download the files for this exercise from Brightspace and save them in your project folder. Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
 I advise saving the new file straight away, and regularly re-save it.
 
@@ -18,7 +19,7 @@ If you can't knit the file because of an error, comment out the code which doesn
 
 ## At home exercises
 
-You can find the Goodreads dataset as a csv in the project folder. This is a dataset of the 11,000 most popular books taken from the review site Goodreads.com, and includes author information, plus the amount and average rating for each.
+The Goodreads dataset is a csv file, which you should have saved in your project folder. This is a dataset of the 11,000 most popular books taken from the review site Goodreads.com, and includes author information, plus the amount and average rating for each.
 
 There is also a genre column which comes from the tags users have added. Note that originally, the dataset had multiple genres for each book. To simplify things for this class, I have only kept the first one.
 

@@ -38,7 +38,7 @@ Refreshing the page will reset everything and get rid of the output, if you want
 titanic_df
 ```
 
-It's worth familiarising yourself with how a dataframe looks when you print it in the book like this, because it will help to understand the results of your actions. When you work with Posit cloud and RStudio, the interface is specially set up for viewing dataframes, where they will be easier to read, like in spreadsheet software such as Excel.
+It's worth familiarising yourself with how a dataframe looks when you print it in the book like this, because it will help to understand the results of your actions. When you work in RStudio, the interface is specially set up for viewing dataframes, where they will be easier to read, like in spreadsheet software such as Excel.
 
 -   The first line is `# A tibble: 1,309 x 11` describes the dataset. A 'tibble' is just another name for a dataframe. This dataframe has 1,309 rows and 11 columns
 

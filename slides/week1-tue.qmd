@@ -1,0 +1,273 @@
+---
+title: "Introduction to R"
+subtitle: "Week 1 · Tue 27 Oct"
+---
+
+## Today
+
+1.  A tour of the course book
+2.  R basics: numbers, variables, text, vectors, comparisons
+3.  Your turn: practise in the book
+4.  RStudio and R Markdown: writing and knitting a document
+
+::: notes
+Press S for this speaker view. The live cells take a few seconds to load the first time: open the deck a minute before class.
+:::
+
+# The course book {.section-break}
+
+[yann-ryan.github.io/cultural_analytics_book](https://yann-ryan.github.io/cultural_analytics_book/)
+
+## A live code cell
+
+Code runs in your browser: nothing to install yet.
+
+```{webr-r}
+1 + 1
+```
+
+-   **Run Code** runs it; the output appears underneath
+-   You can edit the code and run it again
+-   Nothing is saved: refresh the page and it's gone
+
+::: notes
+Change 1 + 1 to something else, run it again. Show the reset button.
+:::
+
+# R basics {.section-break}
+
+Numbers, variables, text, vectors, comparisons
+
+## R as a calculator
+
+`+` `-` `*` `/`
+
+```{webr-r}
+28 + 32
+11 * 9
+100 / 8
+```
+
+::: predict
+**Predict:** what will `100 + 5 * 10` give? And `(100 + 5) * 10`?
+:::
+
+```{webr-r}
+100 + 5 * 10
+```
+
+::: notes
+Each line in a cell gives its own output. Then type the brackets version into the second cell.
+:::
+
+## Red text: errors
+
+Two instructions on one line:
+
+```{webr-r}
+100 * 5 50 * 4
+```
+
+. . .
+
+-   **Error**: the code didn't run at all
+-   **Warning**: something went wrong, but R carried on
+-   **Message**: just for information
+
+Red text isn't always an error. Read it!
+
+::: notes
+Fix it live: put the second instruction on a new line.
+:::
+
+## Variables
+
+`<-` stores a value under a name
+
+```{webr-r}
+x <- 10
+y <- 5
+```
+
+. . .
+
+Nothing printed? That's normal. Now use the names:
+
+```{webr-r}
+x * y
+```
+
+. . .
+
+::: predict
+**Predict:** if we run `x <- 3`, what will `x * y` give now?
+:::
+
+::: notes
+Assigning prints nothing. You have to run the cell, or x doesn't exist. Then x <- 3 in the second cell, x * y again.
+:::
+
+## Text: strings
+
+Text goes in quotation marks
+
+```{webr-r}
+album_title <- "Dangerously in Love"
+
+print(album_title)
+nchar(album_title)
+```
+
+. . .
+
+Two common mistakes:
+
+```{webr-r}
+nchar(Album_title)
+```
+
+```{webr-r}
+song_title <- Crazy in Love
+```
+
+::: notes
+`nchar()` and `print()` are functions: a name followed by brackets, and the thing to work on goes inside. First: "object not found", because of the capital A. R is case-sensitive. Second: without quotation marks, R thinks the words are names of objects. Fix both live.
+:::
+
+## Vectors
+
+`c()` combines several values into one object
+
+```{webr-r}
+song_vector <- c("Crazy in Love", "Naughty Girl", "Baby Boy")
+
+song_vector
+length(song_vector)
+nchar(song_vector)
+```
+
+. . .
+
+A function on a vector works on **every element**. This is how we'll work with whole columns of data.
+
+## Mixing types: coercion
+
+```{webr-r}
+mixed_vector <- c("element one", 50, "element three", 99)
+
+mixed_vector
+```
+
+. . .
+
+Every element is now text (note the quotation marks). One typo in a column of numbers, and R treats the whole column as text.
+
+## Comparisons
+
+`==` `!=` `>` `<` `>=` `<=` give `TRUE` or `FALSE`
+
+```{webr-r}
+5 == 5
+10 > 5
+5 * 10 == 25 * 2
+```
+
+. . .
+
+::: predict
+**Predict:** `TRUE` or `FALSE`?
+:::
+
+```{webr-r}
+"Crazy in Love" == "Crazy In Love"
+```
+
+## Comparisons with vectors
+
+One answer for each element:
+
+```{webr-r}
+v <- c(1, 5, 4, 6, 7)
+
+v > 3
+
+song_vector == "Naughty Girl"
+```
+
+. . .
+
+This is the idea behind **filtering** data, which we'll do next week: keep the rows where the answer is `TRUE`.
+
+## `=` or `==`?
+
+|        |                       | example           |
+|--------|-----------------------|-------------------|
+| `<-`   | store a value         | `x <- 10`         |
+| `=`    | set an option in a function | `round(3.14159, digits = 2)` |
+| `==`   | check if equal        | `x == 10`         |
+
+The wrong one is one of the most common errors on this course.
+
+## Your turn {.your-turn}
+
+In the course book:
+
+-   **3 R Basics**: read it, and run every cell
+-   **4 Practise the basics**: 13 short exercises
+
+Work with the person next to you. Stuck? Read the red text first, then ask.
+
+# RStudio and R Markdown {.section-break}
+
+Where you'll do the home exercises and the reports
+
+## RStudio
+
+![](../images/04_rmarkdown/desktop-04-interface.png){fig-align="center" height="620"}
+
+::: notes
+1 editor, 2 environment, 3 files/plots/help, 4 console.
+Open the cultural_analytics project first (top-right corner). Run 1 + 1 in the console. Then x <- 10 and show it appear in the Environment pane.
+:::
+
+## R Markdown: text and code in one document
+
+Demo in RStudio:
+
+1.  **File → New File → R Markdown...**, give it a title, OK
+2.  Save it straight away, in the project folder: `test_document.Rmd`
+3.  Write some text; add a code chunk with `1 + 1` and run it (green triangle)
+4.  **Knit**: you get an `.html` file with the text, the code, and its output
+5.  Change something and knit again
+
+::: notes
+Show the Files pane after knitting: the .Rmd and the .html. Open the html in the browser. Point out the default template text and delete most of it.
+:::
+
+## Reading in data
+
+Save the data file into your project folder first, then:
+
+``` r
+library(tidyverse)
+
+box_office <- read_tsv("box_office.csv")
+
+box_office
+```
+
+-   `box_office.csv` is on Brightspace, under Files
+-   Despite its name, it's separated by tabs, not commas: so `read_tsv()`, not `read_csv()`
+-   If R can't find the file, check the Files pane: is it in the project folder?
+
+::: notes
+Download box_office from Brightspace, move it into the project folder, show it appear in the Files pane. Then click it in the Environment pane to view it. Optionally show read_csv() first: everything ends up in one column.
+:::
+
+## Before Thursday
+
+-   **5 R-Studio and using R Markdown**: today's demo, step by step
+-   **6 Home exercises**: ungraded, but do them, in RStudio
+-   Problems installing R or RStudio? See the install page, or come and find me
+
+Thursday: dataframes, and our first real dataset

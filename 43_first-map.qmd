@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Your first map"
 webr:
   packages: ['dplyr', 'ggplot2', 'sf', 'rnaturalearth', 'rnaturalearthdata']

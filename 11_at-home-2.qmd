@@ -9,7 +9,7 @@ title: "Home exercises"
 This exercise is one of the two graded **checkpoints** (pass/fail). You pass by making a genuine attempt at all of the exercises - they don't have to be perfect.
 :::
 
-The at-home exercises should be completed using Posit cloud, in the workspace project 'Home exercise 2'. Create a new .Rmd file (use File -\> New File -\> R Markdown). Delete the existing boilerplate text in the markdown file, underneath the title part.
+Do the at-home exercises in R-Studio, in your `cultural_analytics` project (see [Installing R and RStudio](00_install.qmd)). Download the files for this exercise from Brightspace and save them in your project folder. Create a new .Rmd file (use File -\> New File -\> R Markdown). Delete the existing boilerplate text in the markdown file, underneath the title part.
 
 It's best to save the new file straight away. Because you'll submit this file as an assignment, use a standardised name: exercise_2_lastname_firstname. Regularly re-save the file.
 
@@ -17,7 +17,7 @@ When you have finished the exercise (or part of it), 'knit' the file. Export the
 
 ## Exercises
 
-For this exercise, you'll be working with the file `bellevue_almshouse_modified.csv`, which you can find in the folder. This dataset contains information on Irish-born immigrants admitted to the Bellevue Almshouse in the 1840s. This dataset was transcribed from the almshouse's own admissions records by Anelise Shrout. For more information about this dataset, see [The Digital Almshouse Project](https://newyorkscapes.org/project/digital-almshouse-project/). The copy here is taken from the version used by Melanie Walsh as part of the course [Introduction to Cultural Analytics & Python](https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html#irish-immigrants-admitted-to-nycs-bellevue-almshouse).
+For this exercise, you'll be working with the file `bellevue_almshouse_modified.csv`, which you should have saved in your project folder. This dataset contains information on Irish-born immigrants admitted to the Bellevue Almshouse in the 1840s. This dataset was transcribed from the almshouse's own admissions records by Anelise Shrout. For more information about this dataset, see [The Digital Almshouse Project](https://newyorkscapes.org/project/digital-almshouse-project/). The copy here is taken from the version used by Melanie Walsh as part of the course [Introduction to Cultural Analytics & Python](https://melaniewalsh.github.io/Intro-Cultural-Analytics/00-Datasets/00-Datasets.html#irish-immigrants-admitted-to-nycs-bellevue-almshouse).
 
 The first step is to load the necessary packages and read the dataset into the RStudio environment, which we didn't cover in class.
 
@@ -36,7 +36,7 @@ The first line `library(tidyverse)` loads all the necessary packages we'll use t
 
 ### Problems with Knitting?
 
-When you knit the HTML file, unlike using 'run code' in the .Rmd file, it will try to print all the rows of the dataframe to the document, which will likely freeze your workspace. To get around this you have a number of different options:
+When you knit the HTML file, unlike using 'run code' in the .Rmd file, it will try to print all the rows of the dataframe to the document, which will likely freeze R-Studio. To get around this you have a number of different options:
 
 -   Save the result as a new dataframe, e.g. sorted_df or oldest_women_df.
 

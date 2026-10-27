@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Choropleth maps: joining your data to a map"
 webr:
   packages: ['dplyr', 'tidyr', 'readr', 'ggplot2', 'sf', 'rnaturalearth', 'rnaturalearthdata']

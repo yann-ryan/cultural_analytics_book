@@ -1,6 +1,11 @@
 project:
   type: book
   output-dir: docs
+  # The class demo slides (a separate project in slides/) are rendered
+  # there first, then copied into the site: cd slides && quarto render
+  resources:
+    - "slides/*.html"
+    - "slides/*_files/**"
 
 book:
   title: "Cultural Analytics: Course Book"
@@ -11,6 +16,9 @@ book:
     logo: images/logo.svg
   chapters:
     - index.qmd
+    - part: "Before you start"
+      chapters:
+        - 00_install.qmd
     - part: "Week 1 · Tue 27 Oct: Introduction to R"
       chapters:
         - 01_r-intro.qmd
@@ -93,15 +101,22 @@ book:
     - part: "Useful information"
       chapters:
         - 41_data-sources.qmd
+        - critique-gallery.qmd
     - part: "Exam"
       chapters:
         - 52_exam-prep.qmd
+
+# Chapters for classes more than a week away are marked as drafts by
+# _scripts/release.R; 'gone' leaves them out of the published site.
+website:
+  draft-mode: gone
 
 bibliography: references.bib
 
 format:
   html:
     theme: cosmo
+    css: styles.css
     number-sections: true
     number-depth: 1
     include-after-body: _includes/iframe-resize.html

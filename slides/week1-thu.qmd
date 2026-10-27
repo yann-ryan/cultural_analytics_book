@@ -1,0 +1,269 @@
+---
+title: "Data Analysis 1"
+subtitle: "Week 1 · Thu 29 Oct"
+webr:
+  packages: ['dplyr', 'readr']
+  cell-options:
+    editor-font-scale: 0.8
+---
+
+
+## Today
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(readr)
+options(width = 80, pillar.print_min = 5, pillar.print_max = 5)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv"
+download.file(url, "titanic_df.csv")
+
+titanic_df <- read_csv("titanic_df.csv", show_col_types = FALSE)
+```
+
+1.  Dataframes, and the Titanic dataset
+2.  Functions and arguments
+3.  Choosing columns: `select()`
+4.  Choosing rows: `slice()`
+5.  Sorting: `arrange()`
+6.  Chaining it all together: the pipe `|>`
+7.  Your turn: practise in the book
+
+::: notes
+Open the deck a minute before class: the setup downloads the Titanic data and loads dplyr, which takes a few seconds.
+:::
+
+# Dataframes {.section-break}
+
+## A dataframe
+
+Rows and columns, like a spreadsheet. One row for each passenger on the Titanic:
+
+```{webr-r}
+titanic_df
+```
+
+::: notes
+Walk through the printout: "A tibble: 1,309 x 11" = rows x columns; the column names; the types under them (<dbl> numbers, <chr> text); the first 10 rows; "1,299 more rows".
+:::
+
+## The columns
+
+::: columns
+::: {.column width="50%"}
+-   `survived`: 1 or 0
+-   `pclass`: class, 1, 2 or 3
+-   `name`, `sex`, `age`
+-   `sibsp`: siblings or spouses on the ticket
+-   `parch`: parents or children on the ticket
+:::
+
+::: {.column width="50%"}
+-   `ticket`: ticket number (one ticket can cover a family)
+-   `fare`: for the whole ticket
+-   `cabin`
+-   `embarked`: Southampton (S), Cherbourg (C), Queenstown (Q)
+:::
+:::
+
+. . .
+
+::: predict
+Who made this dataset, and from what sources? What might be missing, or wrong?
+:::
+
+# Functions {.section-break}
+
+## Functions and arguments
+
+A function does a task on some data: `name(data, instructions)`
+
+```{webr-r}
+glimpse(titanic_df)
+```
+
+## Arguments
+
+Arguments with names are set with **one** `=`:
+
+```{webr-r}
+summary(titanic_df, digits = 3)
+```
+
+::: notes
+summary() gives statistics for each column. Point out the NAs in age: missing data. Try digits = 1.
+:::
+
+::: notes
+glimpse() shows every column on its side: good for a wide dataframe.
+:::
+
+# `select()`: columns {.section-break}
+
+## Choosing columns
+
+By name, or leave some out with `-`:
+
+```{webr-r}
+select(titanic_df, name, age, sex)
+```
+
+```{webr-r}
+select(titanic_df, -name)
+```
+
+## Choosing columns by position
+
+```{webr-r}
+select(titanic_df, 1:3, 8)
+```
+
+`1:3` is a range: columns 1, 2 and 3.
+
+::: notes
+The first argument is always the dataframe, then the instructions.
+:::
+
+## Choosing columns by pattern
+
+`starts_with()`, `ends_with()`, `contains()`
+
+```{webr-r}
+select(titanic_df, starts_with("s"))
+```
+
+::: predict
+**Predict:** which columns will `contains("ar")` select?
+:::
+
+## Renaming
+
+Rename while you select: `new_name = old_name`
+
+```{webr-r}
+select(titanic_df, passenger_name = name, passenger_class = pclass)
+```
+
+## Nothing has changed!
+
+```{webr-r}
+ncol(titanic_df)
+```
+
+. . .
+
+Still 11 columns. The functions *show* you a new dataframe, but the original isn't changed unless you save the result:
+
+```{webr-r}
+passengers <- select(titanic_df, name, age)
+
+passengers
+```
+
+# `slice()`: rows {.section-break}
+
+## Choosing rows by position
+
+```{webr-r}
+slice(titanic_df, 1:5)
+```
+
+. . .
+
+Or by the highest or lowest value of a column:
+
+```{webr-r}
+slice_max(titanic_df, order_by = age, n = 5)
+```
+
+::: notes
+Rows don't have names, so slice() works by position. Ask: how would you get the five youngest? (slice_min). slice_sample(titanic_df, n = 5) gives a random five: run it twice.
+:::
+
+# `arrange()`: sorting {.section-break}
+
+## Sorting
+
+```{webr-r}
+arrange(titanic_df, age)
+```
+
+. . .
+
+Descending: `-` for numbers, `desc()` for text
+
+```{webr-r}
+arrange(titanic_df, -fare)
+```
+
+::: notes
+Point out the ties for the highest fare: one ticket shared by several people. Then sort by two columns: arrange(titanic_df, sex, -age).
+:::
+
+## Sorting text
+
+```{webr-r}
+arrange(titanic_df, desc(name)) |> select(name)
+```
+
+. . .
+
+`van Melkebeke` and `del Carlo` come before `Zimmerman`? Lowercase letters are sorted before capitals. Always look at your results!
+
+::: notes
+Ignore the |> for now: it's coming in a minute. It just keeps the name column so the result fits on the slide.
+:::
+
+# The pipe `|>` {.section-break}
+
+## Doing several things in a row
+
+```{webr-r}
+select(arrange(titanic_df, sex, -age), name, sex, age)
+```
+
+Hard to read: you have to start in the middle, and work outwards.
+
+::: notes
+The task: the oldest passengers of each sex, showing only three columns. Read it from the inside out: arrange first, then select.
+:::
+
+## The same, with the pipe
+
+```{webr-r}
+titanic_df |>
+  arrange(sex, -age) |>
+  select(name, sex, age)
+```
+
+Read `|>` as **"and then"**.
+
+::: notes
+The dataframe isn't repeated after the first line: the pipe passes it along. One function per line.
+:::
+
+## Building a chain step by step
+
+::: predict
+The 100 oldest passengers, sorted by fare (highest first), showing only name, age and fare.
+:::
+
+```{webr-r}
+titanic_df |>
+  slice_max(order_by = age, n = 100)
+```
+
+::: notes
+Add one line at a time and run after each: |> arrange(-fare), then |> select(name, age, fare). If it breaks, you know which line did it. Ask: would the result be different if you sorted first and then sliced?
+:::
+
+## Your turn {.your-turn}
+
+In the course book:
+
+-   **Chapters 7–11**: dataframes and functions, `select()`, `slice()`, `arrange()`, the pipe. Run the examples, and do the 'Try it yourself' cells
+-   **12 Practice exercises**: these check your code automatically
+
+Then, at home: **13 Home exercises**, in RStudio. Due **Tue 3 Nov**.

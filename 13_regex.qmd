@@ -1,11 +1,12 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Pattern matching with str_detect"
 webr:
   packages: ['dplyr', 'readr', 'stringr']
 ---
 
 ::: callout-warning
-This section is a little more advanced. If you get stuck, feel free to skip and we can go over it in class later. For the most part the methods will not be necessary for this course, though they are nice to know.
+This chapter is **optional**, and a little more advanced. We won't cover it in class, and the methods aren't necessary for the rest of the course, though they are nice to know (one of the home exercises has an optional task which uses them). If you get stuck, feel free to skip it.
 :::
 
 ```{webr-r}

@@ -1,0 +1,26 @@
+/* Hide sidebar parts whose chapters are all unreleased drafts
+   (see _scripts/release.R), so they don't show as empty headings. */
+#quarto-sidebar .sidebar-item-section:not(:has(> ul.sidebar-section > li)) {
+  display: none;
+}
+
+/* Card grids: 'What am I trying to show?' (24_chart-types) and the
+   critique gallery (critique-gallery). */
+.chart-chooser { margin: 1rem 0 1.5rem; }
+.chart-card { border: 1px solid #dee2e6; border-radius: 6px; padding: 0.6rem 0.75rem; font-size: 0.85rem; }
+.chart-card p { margin-bottom: 0.4rem; }
+.chart-card img { width: 100%; height: auto; margin-bottom: 0.25rem; }
+.chart-card figure, .chart-card .quarto-figure { margin: 0; }
+.chart-card-title { display: block; font-weight: 600; font-size: 1rem; }
+
+.gallery-card { font-size: 0.9rem; }
+.gallery-card img { aspect-ratio: 4 / 3; object-fit: contain; background: #f3f5f7; }
+.gallery-card .gallery-interactive {
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 4 / 3; margin-bottom: 0.25rem;
+  background: #f3f5f7; color: #5a6570; border-radius: 4px; text-align: center; padding: 1rem;
+}
+.gallery-number {
+  display: inline-block; min-width: 1.6rem; padding: 0 0.4rem; margin-right: 0.35rem;
+  border-radius: 1rem; background: #2780e3; color: white; text-align: center; font-weight: 600;
+}

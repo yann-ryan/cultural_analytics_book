@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Points maps"
 webr:
   packages: ['dplyr', 'stringr', 'readr', 'ggplot2', 'sf', 'rnaturalearth', 'rnaturalearthdata']

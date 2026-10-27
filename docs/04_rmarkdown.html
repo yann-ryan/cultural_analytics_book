@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; R-Studio and using R Markdown – Cultural Analytics: Course Book</title>
+<title>5&nbsp; R-Studio and using R Markdown – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,6 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_r-intro.html">Week 1 · Tue 27 Oct: Introduction to R</a></li><li class="breadcrumb-item"><a href="./04_rmarkdown.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_r-intro.html">Week 1 · Tue 27 Oct: Introduction to R</a></li><li class="breadcrumb-item"><a href="./04_rmarkdown.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 1 · Tue 27 Oct: Introduction to R</span></a>
+ <span class="menu-text">Before you start</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -161,32 +162,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_r-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./02_r-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_rmarkdown.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_at-home-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+  <a href="./00_install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installing R and RStudio</span></span></a>
   </div>
 </li>
       </ul>
@@ -194,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 1 · Thu 29 Oct: Data Analysis 1</span></a>
+ <span class="menu-text">Week 1 · Tue 27 Oct: Introduction to R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -202,44 +179,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_data-analysis-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Analysis 1</span></span></a>
+  <a href="./01_r-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_select.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Subsetting columns</span></span></a>
+  <a href="./02_r-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_slice.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Subsetting rows</span></span></a>
+  <a href="./03_r-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practise the basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_arrange.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ordering and sorting dataframes</span></span></a>
+  <a href="./04_rmarkdown.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_pipes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The pipe operator</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10a_data-analysis-1-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11_at-home-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+  <a href="./05_at-home-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 2 · Tue 3 Nov: Data Analysis 2</span></a>
+ <span class="menu-text">Week 1 · Thu 29 Oct: Data Analysis 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -255,44 +220,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_filter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Filtering data</span></span></a>
+  <a href="./06_data-analysis-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Analysis 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_regex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Pattern matching with str_detect</span></span></a>
+  <a href="./07_select.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Subsetting columns</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_mutate.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Changing columns with mutate</span></span></a>
+  <a href="./08_slice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Subsetting rows</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_summarise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Summarising</span></span></a>
+  <a href="./09_arrange.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Ordering and sorting dataframes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16_grouping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Grouping</span></span></a>
+  <a href="./10_pipes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The pipe operator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16a_data-analysis-2-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Practice exercises: filter, mutate, summarise, grouping</span></span></a>
+  <a href="./10a_data-analysis-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Practice exercises: select, slice, arrange, pipes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./17_at-home-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+  <a href="./11_at-home-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -300,339 +265,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 2 · Thu 5 Nov: Data Analysis 3</span></a>
+ <span class="menu-text">Week 2 · Tue 3 Nov: Data Analysis 2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./18_joins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./19_tidying-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tidying data with pivot_longer()</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20_data-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Data challenge</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./20a_data-analysis-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Practice exercises: joins and tidying data</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./21_at-home-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 3 · Tue 10 Nov: Data Visualisation 1</span></a>
+ <span class="menu-text">Week 2 · Thu 5 Nov: Data Analysis 3</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Visualisation Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./23_ggplot2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Using ggplot2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./24_chart-types.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">More chart types</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./24a_data-visualisation-1-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Practice exercises: ggplot2 basics and chart types</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)</span></a>
+ <span class="menu-text">Week 3 · Tue 10 Nov: Data Visualisation 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./27_gestalt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./28_scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./29_position-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</span></a>
+ <span class="menu-text">Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./31a_data-visualisation-2-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 4 · Thu 19 Nov: Data Visualisation 3</span></a>
+ <span class="menu-text">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./34_titles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</span></a>
+ <span class="menu-text">Week 4 · Thu 19 Nov: Data Visualisation 3</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 5 · Thu 26 Nov: Digital Mapping 1</span></a>
+ <span class="menu-text">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 6 · Tue 1 Dec: Digital Mapping 2</span></a>
+ <span class="menu-text">Week 5 · Thu 26 Nov: Digital Mapping 1</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Week 6 · Thu 3 Dec: Digital Mapping 3</span></a>
+ <span class="menu-text">Week 6 · Tue 1 Dec: Digital Mapping 2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Useful information</span></a>
+ <span class="menu-text">Week 6 · Thu 3 Dec: Digital Mapping 3</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Data and Inspiration</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">Exam</span></a>
+ <span class="menu-text">Useful information</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -640,10 +383,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Preparing for the Exam</span></span></a>
+  <a href="./critique-gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Critique gallery</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exam</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
       </ul>
   </li>
     </ul>
@@ -658,16 +412,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#r-and-r-studio" id="toc-r-and-r-studio" class="nav-link active" data-scroll-target="#r-and-r-studio">R and R-Studio</a>
   <ul class="collapse">
-  <li><a href="#logging-into-posit-cloud-and-opening-a-notebook." id="toc-logging-into-posit-cloud-and-opening-a-notebook." class="nav-link" data-scroll-target="#logging-into-posit-cloud-and-opening-a-notebook.">Logging into Posit Cloud and opening a notebook.</a></li>
+  <li><a href="#opening-r-studio-and-your-course-project" id="toc-opening-r-studio-and-your-course-project" class="nav-link" data-scroll-target="#opening-r-studio-and-your-course-project">Opening R-Studio and your course project</a></li>
   </ul></li>
-  <li><a href="#your-derived-workspace" id="toc-your-derived-workspace" class="nav-link" data-scroll-target="#your-derived-workspace">Your Derived Workspace</a></li>
+  <li><a href="#where-your-work-is-saved" id="toc-where-your-work-is-saved" class="nav-link" data-scroll-target="#where-your-work-is-saved">Where your work is saved</a></li>
   <li><a href="#r-markdown-and-knitting-a-document" id="toc-r-markdown-and-knitting-a-document" class="nav-link" data-scroll-target="#r-markdown-and-knitting-a-document">R Markdown and ‘Knitting’ a Document</a>
   <ul class="collapse">
   <li><a href="#create-a-new-markdown-file" id="toc-create-a-new-markdown-file" class="nav-link" data-scroll-target="#create-a-new-markdown-file">Create a new markdown file</a></li>
   <li><a href="#type-some-text" id="toc-type-some-text" class="nav-link" data-scroll-target="#type-some-text">Type some text</a></li>
   <li><a href="#save-the-file" id="toc-save-the-file" class="nav-link" data-scroll-target="#save-the-file">Save the file</a></li>
   <li><a href="#knit-the-document" id="toc-knit-the-document" class="nav-link" data-scroll-target="#knit-the-document">Knit the document</a></li>
-  <li><a href="#download-and-save-the-file" id="toc-download-and-save-the-file" class="nav-link" data-scroll-target="#download-and-save-the-file">Download and save the file</a></li>
+  <li><a href="#zip-the-files" id="toc-zip-the-files" class="nav-link" data-scroll-target="#zip-the-files">Zip the files</a></li>
   <li><a href="#upload-to-brightspace" id="toc-upload-to-brightspace" class="nav-link" data-scroll-target="#upload-to-brightspace">Upload to Brightspace</a></li>
   </ul></li>
   <li><a href="#adding-code" id="toc-adding-code" class="nav-link" data-scroll-target="#adding-code">Adding Code</a></li>
@@ -682,9 +436,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_r-intro.html">Week 1 · Tue 27 Oct: Introduction to R</a></li><li class="breadcrumb-item"><a href="./04_rmarkdown.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_r-intro.html">Week 1 · Tue 27 Oct: Introduction to R</a></li><li class="breadcrumb-item"><a href="./04_rmarkdown.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-Studio and using R Markdown</span></h1>
 </div>
 
 
@@ -704,20 +458,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="r-and-r-studio" class="level2">
 <h2 class="anchored" data-anchor-id="r-and-r-studio">R and R-Studio</h2>
 <p>Up until now, we have been using R in a very simplified manner, directly in this book. For the at home exercises, and later on in the course, we’ll use something called R-Studio: an interface designed to make R easier to work with (known as an IDE).</p>
-<p>For this course, the data, files, and interface are all already set up for you in a workspace on a service called ‘Posit cloud’. Later on, you may want to install R and R-Studio on your local machine. See <a href="https://posit.co/download/rstudio-desktop/">here</a> for instructions on how to do this. The software is completely free and open-source.</p>
+<p>You should already have installed R and R-Studio on your own computer, and made a project folder for the course. If you haven’t, follow <a href="./00_install.html">Installing R and RStudio</a> first.</p>
 <p>By the end of today, you should understand what an IDE is, know how to set up a notebook, and be able to write and knit a simple R Markdown document.</p>
-<section id="logging-into-posit-cloud-and-opening-a-notebook." class="level3">
-<h3 class="anchored" data-anchor-id="logging-into-posit-cloud-and-opening-a-notebook.">Logging into Posit Cloud and opening a notebook.</h3>
-<p>The first step is to create an account with Posit cloud. This is a service which will allow you to load R remotely, so you can complete this practical sessions for this course (you can also use R and R studio on your local machine if you use it already).</p>
-<p><img src="images/04_rmarkdown/01.png" class="img-fluid"></p>
-<p>Sign up to Posit cloud with an email address here: <a href="https://posit.cloud/plans" class="uri">https://posit.cloud/plans</a></p>
-<p>Click on ‘Learn more’ under the Free plan, and then ‘Sign up’.</p>
-<p>Click on the invite link posted on Brightspace. Once you have signed up, click on the ‘burger’ icon to the left of ‘Your Workspace’ to open a sidebar, which will allow you to switch to the correct workspace ‘Cultural Analytics’:</p>
-<p><img src="images/04_rmarkdown/02.png" class="img-fluid"></p>
-<p>Once you have switched, you’ll see a list of assignments and projects. At the moment, there is just one for this week. Click the start button for ‘Week 2: Introduction’.</p>
-<p><img src="images/04_rmarkdown/03.png" class="img-fluid"></p>
-<p>This will load, and you should shortly be greeted with the Rstudio interface – this is an environment for creating and editing R code.</p>
-<p><img src="images/04_rmarkdown/04.png" class="img-fluid"></p>
+<section id="opening-r-studio-and-your-course-project" class="level3">
+<h3 class="anchored" data-anchor-id="opening-r-studio-and-your-course-project">Opening R-Studio and your course project</h3>
+<p>Open R-Studio, and open your <code>cultural_analytics</code> project: click <strong>File → Open Project…</strong> and choose the <code>cultural_analytics.Rproj</code> file, or pick the project from the menu in the top-right corner of the window. Check that the project name now appears in the top-right corner. Do this every time you start working on the course.</p>
+<p>Once you’ve created a file (we’ll do this below), R-Studio looks like this:</p>
+<p><img src="images/04_rmarkdown/desktop-04-interface.png" class="img-fluid"></p>
 <p>R-Studio is divided into four different sections, or <em>panes</em>. Each of these also has multiple tabs. Starting from the top-left (numbered 1):</p>
 <ol type="1">
 <li><p>The source editor. Here is where you can edit R files such as RMarkdown or scripts.</p></li>
@@ -729,12 +476,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can play around with the R-Studio interface. Don’t worry about breaking anything, but you should regularly save your work.</p>
 </section>
 </section>
-<section id="your-derived-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="your-derived-workspace">Your Derived Workspace</h2>
-<p>You can return to the workspace overview by clicking on the sidebar and on the ‘Cultural Analytics[…]’ menu item again.</p>
-<p>If you do this, you’ll see that there are now <em>two</em> workspace items. This is because when you started the workspace, it created a ‘derived’ version - meaning it has created a unique copy for you to work with, without changing the original one.</p>
-<p>You can delete this version, copy it, or export a copy to your local machine. When you want to resume your work, you should open this copy. <strong>Please note that as the instructor, I can see and edit all the derived workspaces.</strong></p>
-<p><img src="images/04_rmarkdown/05.png" class="img-fluid"></p>
+<section id="where-your-work-is-saved" class="level2">
+<h2 class="anchored" data-anchor-id="where-your-work-is-saved">Where your work is saved</h2>
+<p>Everything you make in this course is saved as ordinary files in your project folder, on your own computer. That means it’s your responsibility to keep it safe: make a backup copy of the folder regularly, for example on a USB stick or in your university cloud storage.</p>
 </section>
 <section id="r-markdown-and-knitting-a-document" class="level2">
 <h2 class="anchored" data-anchor-id="r-markdown-and-knitting-a-document">R Markdown and ‘Knitting’ a Document</h2>
@@ -752,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>At the moment, there is some sample text and code in the document.</p>
 <p>At the top of the document is some formatted text which looks like this:</p>
 <p><img src="images/04_rmarkdown/08.png" class="img-fluid"></p>
-<p>This is called a yaml header. It contains information about your document, and it needs to remain here for the notebook to work. You can use this yaml header to edit the title of your report: just edit the text within the quotation marks which now reads ‘R Notebook’.</p>
+<p>This is called a yaml header. It contains information about your document, and it needs to remain here for the notebook to work. You can use this yaml header to edit the title of your report: just edit the text within the quotation marks which now reads ‘Untitled’.</p>
 <p>You should delete the rest of the text in the document: highlight and delete the rest of the contents of the notebook, using delete/backspace.</p>
 </section>
 <section id="type-some-text" class="level3">
@@ -786,30 +530,33 @@ Warning
 <h4 class="anchored" data-anchor-id="naming-conventions.">Naming conventions.</h4>
 <p>In this course, you will be required to use good naming conventions. Save the file with an appropriate name which communicates the most important information about the file: who created it, and what it contains.</p>
 <p>Once you have done this, you’ll see a new .Rmd file appear in the file browser, in the bottom-right pane:</p>
-<p><img src="images/04_rmarkdown/13.png" class="img-fluid"></p>
+<p><img src="images/04_rmarkdown/desktop-13-files-rmd.png" class="img-fluid" width="600"></p>
 </section>
 </section>
 <section id="knit-the-document" class="level3">
 <h3 class="anchored" data-anchor-id="knit-the-document">Knit the document</h3>
 <p>Now, we’ll render the document. When a document is rendered, it restarts the R engine, runs through the code, and outputs the document. In this case, it will be very quick, as we haven’t written any code.</p>
-<p>Click the drop-down where it currently says ‘Preview’, and then ‘render HTML’. This will create a new file in your folder.</p>
-<p><img src="images/04_rmarkdown/14.png" class="img-fluid"></p>
+<p>Click the <strong>Knit</strong> button (with the ball of wool icon) at the top of the editor. You can also click the small arrow next to it, and choose <strong>Knit to HTML</strong>. This will create a new file in your folder.</p>
+<p><img src="images/04_rmarkdown/desktop-14-knit.png" class="img-fluid"></p>
 <p>The knitted html file will preview in a new window. You can close this.</p>
-<p>More importantly, there are now a total of three additional files in the file browser:</p>
-<p><img src="images/04_rmarkdown/15.png" class="img-fluid" width="600"></p>
+<p>More importantly, there is now a new file in the file browser:</p>
+<p><img src="images/04_rmarkdown/desktop-15-files-knitted.png" class="img-fluid" width="600"></p>
 <ul>
 <li><p>The file ending in .html is the knitted output of the markdown.</p></li>
 <li><p>The file ending in .Rmd is the ‘source code’ of the final file.</p></li>
-<li><p>The file ending in nb.html is created for making a quick preview, and can be ignored.</p></li>
 </ul>
 </section>
-<section id="download-and-save-the-file" class="level3">
-<h3 class="anchored" data-anchor-id="download-and-save-the-file">Download and save the file</h3>
-<p>To submit R Markdown files as assignments in Brightspace, you’ll need to download both the html output and the ‘raw’ markdown file to your local machine, and turn them both into a .zip file first.</p>
-<p>Click on the checkbox for both the html and the .Rmd file.</p>
-<p>Click on the ‘More’ dropdown menu, and then ‘Export’</p>
-<p><img src="images/04_rmarkdown/16.png" class="img-fluid" width="600"></p>
-<p>If you have correctly selected more than one file, Posit cloud will automatically create a .zip file and download it. Save it with a sensible name, and then you can upload this zip directly to Brightspace.</p>
+<section id="zip-the-files" class="level3">
+<h3 class="anchored" data-anchor-id="zip-the-files">Zip the files</h3>
+<p>To submit R Markdown files as assignments in Brightspace, you’ll need to put both the html output and the ‘raw’ markdown file into a single .zip file.</p>
+<p>First, open your project folder on your computer: in the Files pane, click the <strong>More</strong> menu (the gear icon), and then <strong>Show Folder in New Window</strong>.</p>
+<p><img src="images/04_rmarkdown/desktop-16-show-folder.png" class="img-fluid" width="600"></p>
+<p>Select both the .Rmd file and the .html file (hold down Ctrl on Windows, or Cmd on a Mac, and click each one). Then:</p>
+<ul>
+<li><strong>Windows:</strong> right-click one of the selected files, and choose <strong>Compress to ZIP file</strong> (on older versions of Windows: <strong>Send to → Compressed (zipped) folder</strong>).</li>
+<li><strong>macOS:</strong> right-click one of the selected files, and choose <strong>Compress 2 Items</strong>. This makes a file called <code>Archive.zip</code>.</li>
+</ul>
+<p>Rename the .zip file with a sensible name, and then you can upload it directly to Brightspace.</p>
 <p><strong>This is the format we will use for every assignment, so it’s worth getting the hang of it!</strong></p>
 </section>
 <section id="upload-to-brightspace" class="level3">
@@ -831,11 +578,11 @@ Warning
 </section>
 <section id="adding-files" class="level2">
 <h2 class="anchored" data-anchor-id="adding-files">Adding files</h2>
-<p>The last thing we’ll do is practise adding files to the Rstudio area. Most times, you’ll need to upload files to your workspace in order to work with them. First, you’ll upload them to the workspace, and second, you’ll read them into R.</p>
+<p>The last thing we’ll do is practise adding files to your project. Most times, you’ll need to add data files to your project folder in order to work with them. First, you’ll put them in the folder, and second, you’ll read them into R.</p>
 <p>You could also upload other files, for example if your final project markdown includes some images not generated by code.</p>
-<p>We’ll practise this by downloading a file from Brightspace, and uploading it to Posit Cloud. This file can be found under the ‘Files’ area on the course site. Download the file ‘box_office’ to your local machine first.</p>
-<p>To upload a file to Posit cloud, look at the file manager in the bottom-right pane. Click on ‘Upload’, and then browse to the file on your computer, and click OK. You’ll see the file appear in the file browser in a moment.</p>
-<p><img src="images/04_rmarkdown/20.png" class="img-fluid"></p>
+<p>We’ll practise this by downloading a file from Brightspace. This file can be found under the ‘Files’ area on the course site. Download the file ‘box_office’ and save it in your <code>cultural_analytics</code> project folder. (If your browser saves downloads to your Downloads folder automatically, move the file from there into the project folder.)</p>
+<p>Look at the file manager in the bottom-right pane. You should see the file there; if not, click the refresh icon (the circular arrow) at the top-right of the pane.</p>
+<p><img src="images/04_rmarkdown/desktop-20-files-data.png" class="img-fluid" width="600"></p>
 </section>
 <section id="environment" class="level2">
 <h2 class="anchored" data-anchor-id="environment">Environment</h2>
@@ -863,7 +610,7 @@ Warning
 <p>Before moving on, take a look and see if you are confident with all of the following learning objectives.</p>
 <p>(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)</p>
 <ul class="task-list">
-<li><p><label><input type="checkbox">Open a Posit account and create a new notebook</label></p></li>
+<li><p><label><input type="checkbox">Open your course project in R-Studio and create a new notebook</label></p></li>
 <li><p><label><input type="checkbox">Understand what an IDE is and how to code in it</label></p></li>
 <li><p><label><input type="checkbox">Know how to create a code cell and how to write plain text in your notebook</label></p></li>
 <li><p><label><input type="checkbox">Write some basic markdown</label></p></li>
@@ -1390,12 +1137,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./03_r-practice.html" class="pagination-link" aria-label="Practise the basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practise the basics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practise the basics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05_at-home-1.html" class="pagination-link" aria-label="Home exercises">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Home exercises</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Home exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

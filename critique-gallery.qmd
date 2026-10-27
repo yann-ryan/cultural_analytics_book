@@ -1,0 +1,147 @@
+# Critique gallery {.unnumbered}
+
+Learning to make good data visualisations goes hand in hand with learning to *read* them critically. In four sessions of the course, you'll spend part of the class critiquing a visualisation in a small group. Each group is given one of the six visualisations below, and keeps the same one all the way through. Each time, you come back to it with a new set of questions, based on what we've covered that week.
+
+How it works:
+
+-   In the first round, each group is given a number from 1 to 6. That's your visualisation for the rest of the course.
+-   Spend a few minutes looking at it properly before you start talking. Open it full screen, zoom in, and read the small print.
+-   Discuss the questions for that round. Not every question will apply to every visualisation. Where one doesn't, say why.
+-   Choose one person to sum up your group's discussion for the rest of the class, in two or three minutes.
+
+This is also good practice for the exam, which includes a question asking you to critique a chart (see [Preparing for the Exam](52_exam-prep.qmd)).
+
+## The visualisations
+
+::: {.grid .chart-chooser}
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Nightingale-mortality.jpg/960px-Nightingale-mortality.jpg){fig-alt="Two circular diagrams made of coloured wedges, one for each month, showing the causes of death of British soldiers in the Crimean War"}
+
+[[1]{.gallery-number} Diagram of the causes of mortality in the army in the East]{.chart-card-title}
+
+Florence Nightingale, 1858
+
+Deaths of British soldiers in the Crimean War, month by month, divided by cause. Nightingale used it to argue for better sanitation in army hospitals.
+
+[Open full size](https://commons.wikimedia.org/wiki/File:Nightingale-mortality.jpg)
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/960px-Minard.png){fig-alt="A thick band, shrinking from left to right and back again, showing the size of Napoleon's army on its way to Moscow and back, with a temperature chart below"}
+
+[[2]{.gallery-number} Napoleon's Russian campaign of 1812]{.chart-card-title}
+
+Charles Joseph Minard, 1869
+
+The size of Napoleon's army as it marched to Moscow and retreated, with the temperature on the way back. Often called one of the best charts ever made: is it?
+
+[Open full size](https://commons.wikimedia.org/wiki/File:Minard.png)
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/The_Georgia_Negro_LCCN2013650445.jpg/960px-The_Georgia_Negro_LCCN2013650445.jpg){fig-alt="A hand-drawn spiral chart in red, blue, yellow and green showing the assessed value of furniture owned by Black Georgians in different years"}
+
+[[3]{.gallery-number} Assessed value of household and kitchen furniture owned by Georgia Negroes]{.chart-card-title}
+
+W.E.B. Du Bois and students at Atlanta University, 1900
+
+One of a series of hand-drawn charts made for the 1900 Paris Exposition, showing the progress of Black Americans since the end of slavery.
+
+[Open full size](https://commons.wikimedia.org/wiki/File:The_Georgia_Negro_LCCN2013650445.jpg)
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
+::: gallery-interactive
+Interactive map: open it in a new tab
+:::
+
+[[4]{.gallery-number} Mapping Inequality: Redlining in New Deal America]{.chart-card-title}
+
+University of Richmond Digital Scholarship Lab and partners, from maps made in the 1930s
+
+Digitised versions of the maps a US government agency used to grade neighbourhoods by mortgage 'risk'. Pick one city to focus on.
+
+[Open the map](https://dsl.richmond.edu/panorama/redlining/)
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
+::: gallery-interactive
+Interactive article: open it in a new tab
+:::
+
+[[5]{.gallery-number} Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age]{.chart-card-title}
+
+Hanah Anderson and Matt Daniels, The Pudding
+
+How many of the lines in Hollywood films are spoken by men, and by women, and how this changes with age. You'll know the data from home exercise 4. Look at the whole article, not just one chart.
+
+[Open the article](https://pudding.cool/2017/03/film-dialogue/)
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
+::: gallery-interactive
+Interactive map: open it in a new tab
+:::
+
+[[6]{.gallery-number} Literacy rate]{.chart-card-title}
+
+Our World in Data
+
+The share of adults who can read and write, in each country. Use the time slider, and look at the Chart, Table and Sources tabs as well as the map.
+
+[Open the map](https://ourworldindata.org/grapher/cross-country-literacy-rates?tab=map)
+:::
+:::
+
+## Round 1: data and aesthetics
+
+**Tue 10 Nov**, with [Data Visualisation Basics](22_data-visualisation-1.qmd) and [More chart types](24_chart-types.qmd).
+
+1.  What is one *observation* in this visualisation: a person, a month, a country, a film? What are the *variables*?
+2.  What type is each variable: categorical, ordinal, discrete, or continuous?
+3.  Which *aesthetic* is each variable mapped to (position, size, colour, shape, ...)? Is anything mapped to more than one aesthetic?
+4.  What kind of chart is it? Using the cards in [Choosing a chart](24_chart-types.qmd#choosing-a-chart-what-am-i-trying-to-show), what is it trying to show: amounts, a ranking, a distribution, a relationship, change over time, part-to-whole, a comparison, or something spatial?
+5.  Are the scales used consistently? Could you read off an actual value if you wanted to?
+6.  What is the main message, in one sentence? Is the chart effective at getting it across?
+
+## Round 2: perception and design
+
+**Thu 12 Nov**, with [Gestalt Principles](27_gestalt.qmd).
+
+1.  Where does your eye go first? Is that the most important thing?
+2.  Think about the 'user journey' through the visualisation. Is it obvious what you're meant to look at, and in what order? How long did it take you to understand how to read it?
+3.  Which Gestalt principles are being used (proximity, similarity, connection, closure, enclosure, continuity)? How do they help, or get in the way?
+4.  Does the design group together things that shouldn't be grouped, or split up things that belong together?
+5.  What would you remove, and what would you add, to make it easier to read?
+
+## Round 3: accessibility and ethics
+
+**Tue 24 Nov**, with [Ethics and data visualisation](37a_ethics.qmd) and [Data Visualisation and Accessibility](38_accessibility.qmd).
+
+Accessibility:
+
+1.  Run a screenshot of the visualisation through a colour-vision-deficiency simulator (see the accessibility chapter). Can you still tell all the colours apart? Does the meaning depend on colour alone?
+2.  Is there enough contrast? Is the text big enough to read?
+3.  How would the visualisation work for someone with low vision, or who uses a screen reader? As a group, write a one- or two-sentence alt text for it.
+
+Ethics:
+
+4.  Who made it, when, for whom, and why? Is it trying to persuade? Is that purpose open, or hidden behind an appearance of neutrality?
+5.  Where does the data come from, and how was it collected? Who or what is counted, and who or what is missing? Is the creator open about this?
+6.  What role does emotion play? Does the design make you *feel* something about the data?
+7.  What do you imagine is the positionality of the person or people who made it? What is yours, and how does it affect how you read it?
+8.  Pick one item from the [ethics checklist](37a_ethics.qmd#a-checklist-for-your-own-visualisations) (for example, 'show uncertainty' or 'make the invisible visible'). How well does the visualisation do on it?
+
+## Round 4: maps as arguments, and a verdict
+
+**Thu 26 Nov**, with [Maps as data visualisation](42_digital-mapping-1.qmd).
+
+1.  How does location matter in your visualisation? If it's a map: what does each area or point stand for, and what has been left off? If it isn't: would a map show something it misses, or would it hide something it shows? (Minard's chart is a bit of both!)
+2.  For the maps (4 and 6): what is each area coloured by, and who decided the categories or the breaks? Do large areas get more visual weight than they deserve?
+3.  Look back at your notes from the other three rounds. As a group, write a short critique of the visualisation, in four sentences:
+    -   what it shows, and for whom
+    -   one thing it does well, and why
+    -   one weakness, and why
+    -   one concrete change you would make, and how you would do it with ggplot2 (name the geom, scale, or other function)
+
+This last step is exactly what the exam critique question asks you to do.

@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Home Exercises"
 format: 
    html:
@@ -11,7 +12,7 @@ format:
 This exercise is ungraded practice - you don't need to submit it. But it's the best preparation for the reports and the exam, so do try to complete it.
 :::
 
-The at-home exercises should be completed using Posit cloud, Home Exercise 5. Create a new .Rmd file (use File -\> New File -\> R Markdown).
+Do the at-home exercises in R-Studio, in your `cultural_analytics` project (see [Installing R and RStudio](00_install.qmd)). Create a new .Rmd file (use File -\> New File -\> R Markdown).
 
 I advise saving the new file straight away, and regularly re-save it.
 
@@ -19,7 +20,7 @@ When you have finished the exercise (or part of it), 'knit' the file to check th
 
 ### Task
 
-Load the Bellevue Almshouse dataset we used a few weeks ago, which can be found in this project files tab. Load the Tidyverse library.
+Load the Bellevue Almshouse dataset we used a few weeks ago, which should already be in your project folder (if not, download it from Brightspace again). Load the Tidyverse library.
 
 Create a series of charts using ggplot2, visualising the following aspects of the data. In most cases, you'll need to prepare the data by filtering and/or summarising. Create each one in a separate code cell.
 

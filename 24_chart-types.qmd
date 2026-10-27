@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "More chart types"
 webr:
   packages: ['dplyr', 'readr', 'ggplot2', 'tidyr', 'stringr']
@@ -449,24 +450,95 @@ You've now seen most of the basic chart types. But how do you choose between the
 
 The answer depends on two things. The first is the **type of data** you have: whether your variables are continuous, discrete, categorical, or ordinal (see [Data Visualisation Basics](22_data-visualisation-1.qmd#discrete-vs-continuous-aesthetics)). Some aesthetics and chart types only work with one or the other.
 
-The second, and more important, is **what you are trying to show**: what is the story in the data, or the question you want to answer? Most charts are trying to show one of a small number of things. The table below lists the most common, with an example question from the Nobel data and the chart types (and geoms) you could use:
+The second, and more important, is **what you are trying to show**: what is the story in the data, or the question you want to answer? Most charts are trying to show one of a small number of things. The cards below show the most common, with an example question from the Nobel data and the chart types (and geoms) you could use:
 
-| I want to show... | Example question | Chart types | ggplot2 |
-|----|----|----|----|
-| **Amounts** | How many laureates are there in each category? | Bar chart | `geom_col()`, `geom_bar()` |
-| **Ranking** | Which category has the oldest laureates? | Ordered bar chart, lollipop chart | `geom_col()`, `geom_segment()` + `geom_point()` |
-| **Distribution** | How old are laureates when they win? | Histogram, density plot, boxplot | `geom_histogram()`, `geom_density()`, `geom_boxplot()` |
-| **Relationship** (correlation) | Do the categories with older laureates have fewer women? | Scatterplot | `geom_point()` |
-| **Change over time** | How has the number of laureates changed by decade? | Line chart, bar chart | `geom_line()`, `geom_col()` |
-| **Part-to-whole** (proportions) | What share of each category's laureates are women? | Stacked bar chart | `geom_col(position = 'fill')` |
-| **Comparison across groups** | Is the age distribution the same in each category? | Small multiples | `facet_wrap()` |
-| **Spatial** | Where were laureates born? | Map | `geom_sf()` (weeks 5-6) |
+::: {.grid .chart-chooser}
 
-: Choosing a chart type {tbl-colwidths="[18,37,20,25]" .striped}
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-amounts.png){fig-alt="Bar chart of the number of laureates in each of six categories"}
+
+[Amounts]{.chart-card-title}
+
+*How many laureates are there in each category?*
+
+Bar chart: `geom_col()`, `geom_bar()`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-ranking.png){fig-alt="Lollipop chart with six categories ordered from highest to lowest value"}
+
+[Ranking]{.chart-card-title}
+
+*Which category has the oldest laureates?*
+
+Ordered bar or lollipop chart: `geom_col()`, `geom_segment()` + `geom_point()`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-distribution.png){fig-alt="Histogram of laureates' ages at the time of their award"}
+
+[Distribution]{.chart-card-title}
+
+*How old are laureates when they win?*
+
+Histogram, density plot, boxplot: `geom_histogram()`, `geom_density()`, `geom_boxplot()`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-relationship.png){fig-alt="Scatterplot of laureates' age at award against the year of the award"}
+
+[Relationship]{.chart-card-title}
+
+*Are laureates getting older over time?*
+
+Scatterplot: `geom_point()`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-time.png){fig-alt="Line chart of the number of laureates per decade, rising over time"}
+
+[Change over time]{.chart-card-title}
+
+*How has the number of laureates changed by decade?*
+
+Line chart, bar chart: `geom_line()`, `geom_col()`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-part-to-whole.png){fig-alt="Stacked bar chart showing the small share of women in each prize category"}
+
+[Part-to-whole]{.chart-card-title}
+
+*What share of each category's laureates are women?*
+
+Stacked bar chart: `geom_col(position = 'fill')`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-comparison.png){fig-alt="Six small line charts, one per prize category, on the same scales"}
+
+[Comparison across groups]{.chart-card-title}
+
+*Has each category grown in the same way?*
+
+Small multiples: `facet_wrap()`
+:::
+
+::: {.g-col-6 .g-col-lg-3 .chart-card}
+![](images/24_chart-types/thumb-spatial.png){fig-alt="World map shaded by the number of laureates born in each country"}
+
+[Spatial]{.chart-card-title}
+
+*Where were laureates born?*
+
+Map: `geom_sf()` (weeks 5-6)
+:::
+
+:::
 
 The *Financial Times* has a very useful poster, the [Visual Vocabulary](https://ft-interactive.github.io/visual-vocabulary/), which does the same thing in much more detail, with dozens of chart types arranged by what they show. It's worth keeping open while you plan your reports.
 
-One chart type in the table is new: the **stacked bar chart**, used to show proportions. Map a category to the `fill` aesthetic, and add `position = 'fill'` to `geom_col()`. Each bar is then stretched to the same height, so that the y axis shows the proportion (from 0 to 1) rather than the count:
+One chart type here is new: the **stacked bar chart**, used to show proportions. Map a category to the `fill` aesthetic, and add `position = 'fill'` to `geom_col()`. Each bar is then stretched to the same height, so that the y axis shows the proportion (from 0 to 1) rather than the count:
 
 ```{webr-r}
 nobel_df |>
@@ -481,7 +553,7 @@ Try removing `position = 'fill'` and running the code again. What's the differen
 ## Before you make a chart, ask...
 
 1.  What is my question, or the story I want to tell?
-2.  Which of the things in the table above am I trying to show?
+2.  Which of the things in the cards above am I trying to show?
 3.  What type of data are the variables involved?
 4.  Which chart type, and which aesthetics, fit both?
 

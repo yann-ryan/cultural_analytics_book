@@ -154,7 +154,7 @@ If you want to, you can rename *and* select columns in one go. To do this use th
 select(titanic_df, passenger_name = name, passenger_class = pclass)
 ```
 
-However, note that nothing will actually change in the original dataset until you save it as an object in your environment, which will look at when we move to Posit cloud.
+However, note that nothing will actually change in the original dataset until you save it as an object in your environment, which we will look at when we move to RStudio.
 :::
 
 ## Learning Objectives

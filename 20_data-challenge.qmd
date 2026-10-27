@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Data challenge"
 ---
 
@@ -8,9 +9,9 @@ You're asked to carry out the whole process, from start to finish, including imp
 
 The dataset is a record of performances and attendances at performing arts venues in the Netherlands, from 1999 to 2023. It's a good example of the kinds of things you'll often need to do to datasets in order to make them useable for visualisation and analysis. You can find the dataset [here](https://opendata.cbs.nl/statline/#/CBS/en/dataset/70077eng/table?ts=1759748419232). Click on Original Dataset on the left hand side, and then click on Download CSV.
 
-Do the following in the Posit cloud workspace.
+Do the following in R-Studio, in your `cultural_analytics` project.
 
-Upload the dataset from your computer to Posit cloud.
+Save the downloaded dataset in your project folder.
 
 Import the dataset to your environment with a suitable name.
 
@@ -40,7 +41,7 @@ Some final steps before exporting:
 
 -   Multiply the attendance values by 1000 to get the correct numbers.
 
--   Finally, join the region_codes dataset (available in the workspace) to your datasets, so that the full region name is added.
+-   Finally, join the region_codes dataset (download it from Brightspace into your project folder) to your datasets, so that the full region name is added.
 
 -   Export the data as a csv using the function `write_csv()`.
 

@@ -1,14 +1,16 @@
 ---
-title: "Data and Inspiration"
+draft: true # set by _scripts/release.R
 ---
+
+# Data and Inspiration {.unnumbered}
 
 On this page you can find links to humanities datasets, suggestions for datasets that would work well for each of the assignments, and examples of projects to get you thinking.
 
 ## Importing a dataset and dataset standards
 
-For these assignments, you'll need to begin by importing your dataset as an object into the RStudio/Posit environment. How you do this depends a little on the standard of your dataset. As we're working with **tabular data** on this course, your data should in most cases be in one of these formats:
+For these assignments, you'll need to begin by importing your dataset as an object into the RStudio environment. How you do this depends a little on the standard of your dataset. As we're working with **tabular data** on this course, your data should in most cases be in one of these formats:
 
--   Comma separated values (files ending in .csv). A very common tabular data format. Use `read_csv()` from the Tidyverse package `readr` (remember to load the package first) to read the file in to Posit.
+-   Comma separated values (files ending in .csv). A very common tabular data format. Use `read_csv()` from the Tidyverse package `readr` (remember to load the package first) to read the file in to R.
 
 -   Tab separated values (files ending in .tsv). Another common tabular format. Use `read_tsv()` from the Tidyverse package `readr` to read the file.
 
@@ -18,14 +20,14 @@ For these assignments, you'll need to begin by importing your dataset as an obje
 
 You can read data originating from either your local machine, or directly from the internet in some cases.
 
--   If you're loading from your local machine, remember to upload the file to Posit cloud first, if you're using it.
+-   If you're loading from your local machine, save the file in your project folder first.
 
 -   If you know the path online to a file in one of the formats above, you can simply add the full path as the filename within quotation marks, e.g. `read_csv('https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv')`. For files on GitHub, make sure you use the **raw** version of the file (click the 'Raw' button on the file's page and copy that address) - the normal GitHub page is a web page, not a csv file.
 
 Whatever dataset you use, a really important task is to read the documentation available, so you understand, as best as possible, how it was made and who was responsible for it. If you can't find out where a dataset came from, don't use it.
 
 ::: callout-warning
-If you do want to use your own dataset, be aware that your account on Posit Cloud has a limit of 1GB of RAM. This means that you will not be able to load larger datasets into memory, and you'll get an error. In this case, it's best to install R and RStudio on your own machine, which likely has more RAM. Datasets below which are likely to be too big for Posit Cloud are marked **(large)**.
+Some datasets are too big to work with comfortably on a laptop: R has to load the whole file into your computer's memory, which can make everything very slow, or stop with an error. Datasets below which are likely to be this big are marked **(large)**. If you use one, filter it down to the part you need as early as possible, and save that smaller version to work with.
 :::
 
 ## Datasets used on the course

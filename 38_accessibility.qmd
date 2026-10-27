@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "Data Visualisation and Accessibility Considerations"
 ---
 
@@ -188,7 +189,7 @@ Don't include this in your alt text, but it should be included somewhere in the 
 
 You can add alt-text to static images or to generated plots made in code cells.
 
-To add alt-text to R Markdown files, switch to the Source editor in Posit Cloud/RStudio.
+To add alt-text to R Markdown files, switch to the Source editor in RStudio.
 
 #### Code cell options
 

@@ -1,0 +1,24 @@
+# Demo slides for each class, with live R cells (webR).
+# A separate project, so the book render ignores it. Render with:
+#   cd slides && quarto render
+project:
+  type: default
+
+format:
+  revealjs:
+    theme: [default, slides.scss]
+    slide-number: true
+    width: 1280
+    height: 800
+    margin: 0.06
+    hash: true
+    logo: ../images/logo.svg
+    footer: "Cultural Analytics"
+
+filters:
+  - webr
+
+webr:
+  show-startup-message: true
+  cell-options:
+    editor-font-scale: 0.8

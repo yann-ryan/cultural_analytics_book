@@ -1,4 +1,5 @@
 ---
+draft: true # set by _scripts/release.R
 title: "TidyTuesday visualisation challenge"
 ---
 
@@ -32,11 +33,11 @@ You can also use any dataset on the site you like, as long as it has, broadly, a
 
 [Refugees data](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-08-22/readme.md)
 
-Open the 'TidyTuesday' workspace area on Posit cloud. 
+Open your `cultural_analytics` project in R-Studio, and create a new R Markdown file for this challenge.
 
 ## Do the challenge
 
-Using the markdown document, load in your chosen dataset. Read the associated information about it through the link above, as well as looking at the actual data in Posit. Look at the column names and types. 
+Using the markdown document, load in your chosen dataset. Read the associated information about it through the link above, as well as looking at the actual data in R-Studio. Look at the column names and types. 
 
 In the markdown document, do your data exploration and visualisation. 
 

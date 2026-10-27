@@ -1,6 +1,8 @@
 ---
-title: "Preparing for the Exam"
+draft: true # set by _scripts/release.R
 ---
+
+# Preparing for the Exam {.unnumbered}
 
 The exam is worth 40% of your final grade. This chapter explains what it looks like, what you need to know, and how to prepare - and it ends with a complete practice exam, with model answers.
 

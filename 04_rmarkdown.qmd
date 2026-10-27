@@ -6,31 +6,17 @@ title: "R-Studio and using R Markdown"
 
 Up until now, we have been using R in a very simplified manner, directly in this book. For the at home exercises, and later on in the course, we'll use something called R-Studio: an interface designed to make R easier to work with (known as an IDE).
 
-For this course, the data, files, and interface are all already set up for you in a workspace on a service called 'Posit cloud'. Later on, you may want to install R and R-Studio on your local machine. See [here](https://posit.co/download/rstudio-desktop/) for instructions on how to do this. The software is completely free and open-source.
+You should already have installed R and R-Studio on your own computer, and made a project folder for the course. If you haven't, follow [Installing R and RStudio](00_install.qmd) first.
 
 By the end of today, you should understand what an IDE is, know how to set up a notebook, and be able to write and knit a simple R Markdown document.
 
-### Logging into Posit Cloud and opening a notebook.
+### Opening R-Studio and your course project
 
-The first step is to create an account with Posit cloud. This is a service which will allow you to load R remotely, so you can complete this practical sessions for this course (you can also use R and R studio on your local machine if you use it already).
+Open R-Studio, and open your `cultural_analytics` project: click **File → Open Project...** and choose the `cultural_analytics.Rproj` file, or pick the project from the menu in the top-right corner of the window. Check that the project name now appears in the top-right corner. Do this every time you start working on the course.
 
-![](images/04_rmarkdown/01.png)
+Once you've created a file (we'll do this below), R-Studio looks like this:
 
-Sign up to Posit cloud with an email address here: <https://posit.cloud/plans>
-
-Click on 'Learn more' under the Free plan, and then 'Sign up'.
-
-Click on the invite link posted on Brightspace. Once you have signed up, click on the 'burger' icon to the left of 'Your Workspace' to open a sidebar, which will allow you to switch to the correct workspace 'Cultural Analytics':
-
-![](images/04_rmarkdown/02.png)
-
-Once you have switched, you'll see a list of assignments and projects. At the moment, there is just one for this week. Click the start button for 'Week 2: Introduction'.
-
-![](images/04_rmarkdown/03.png)
-
-This will load, and you should shortly be greeted with the Rstudio interface -- this is an environment for creating and editing R code.
-
-![](images/04_rmarkdown/04.png)
+![](images/04_rmarkdown/desktop-04-interface.png)
 
 R-Studio is divided into four different sections, or *panes*. Each of these also has multiple tabs. Starting from the top-left (numbered 1):
 
@@ -46,15 +32,9 @@ All four of these panes are important, and it's worth exploring more of the butt
 
 You can play around with the R-Studio interface. Don't worry about breaking anything, but you should regularly save your work.
 
-## Your Derived Workspace
+## Where your work is saved
 
-You can return to the workspace overview by clicking on the sidebar and on the 'Cultural Analytics\[...\]' menu item again.
-
-If you do this, you'll see that there are now *two* workspace items. This is because when you started the workspace, it created a 'derived' version - meaning it has created a unique copy for you to work with, without changing the original one.
-
-You can delete this version, copy it, or export a copy to your local machine. When you want to resume your work, you should open this copy. **Please note that as the instructor, I can see and edit all the derived workspaces.**
-
-![](images/04_rmarkdown/05.png)
+Everything you make in this course is saved as ordinary files in your project folder, on your own computer. That means it's your responsibility to keep it safe: make a backup copy of the folder regularly, for example on a USB stick or in your university cloud storage.
 
 ## R Markdown and 'Knitting' a Document
 
@@ -84,7 +64,7 @@ At the top of the document is some formatted text which looks like this:
 
 ![](images/04_rmarkdown/08.png)
 
-This is called a yaml header. It contains information about your document, and it needs to remain here for the notebook to work. You can use this yaml header to edit the title of your report: just edit the text within the quotation marks which now reads 'R Notebook'.
+This is called a yaml header. It contains information about your document, and it needs to remain here for the notebook to work. You can use this yaml header to edit the title of your report: just edit the text within the quotation marks which now reads 'Untitled'.
 
 You should delete the rest of the text in the document: highlight and delete the rest of the contents of the notebook, using delete/backspace.
 
@@ -120,39 +100,40 @@ In this course, you will be required to use good naming conventions. Save the fi
 
 Once you have done this, you'll see a new .Rmd file appear in the file browser, in the bottom-right pane:
 
-![](images/04_rmarkdown/13.png)
+![](images/04_rmarkdown/desktop-13-files-rmd.png){width="600"}
 
 ### Knit the document
 
 Now, we'll render the document. When a document is rendered, it restarts the R engine, runs through the code, and outputs the document. In this case, it will be very quick, as we haven't written any code.
 
-Click the drop-down where it currently says 'Preview', and then 'render HTML'. This will create a new file in your folder.
+Click the **Knit** button (with the ball of wool icon) at the top of the editor. You can also click the small arrow next to it, and choose **Knit to HTML**. This will create a new file in your folder.
 
-![](images/04_rmarkdown/14.png)
+![](images/04_rmarkdown/desktop-14-knit.png)
 
 The knitted html file will preview in a new window. You can close this.
 
-More importantly, there are now a total of three additional files in the file browser:
+More importantly, there is now a new file in the file browser:
 
-![](images/04_rmarkdown/15.png){width="600"}
+![](images/04_rmarkdown/desktop-15-files-knitted.png){width="600"}
 
 -   The file ending in .html is the knitted output of the markdown.
 
 -   The file ending in .Rmd is the 'source code' of the final file.
 
--   The file ending in nb.html is created for making a quick preview, and can be ignored.
+### Zip the files
 
-### Download and save the file
+To submit R Markdown files as assignments in Brightspace, you'll need to put both the html output and the 'raw' markdown file into a single .zip file.
 
-To submit R Markdown files as assignments in Brightspace, you'll need to download both the html output and the 'raw' markdown file to your local machine, and turn them both into a .zip file first.
+First, open your project folder on your computer: in the Files pane, click the **More** menu (the gear icon), and then **Show Folder in New Window**.
 
-Click on the checkbox for both the html and the .Rmd file.
+![](images/04_rmarkdown/desktop-16-show-folder.png){width="600"}
 
-Click on the 'More' dropdown menu, and then 'Export'
+Select both the .Rmd file and the .html file (hold down Ctrl on Windows, or Cmd on a Mac, and click each one). Then:
 
-![](images/04_rmarkdown/16.png){width="600"}
+-   **Windows:** right-click one of the selected files, and choose **Compress to ZIP file** (on older versions of Windows: **Send to → Compressed (zipped) folder**).
+-   **macOS:** right-click one of the selected files, and choose **Compress 2 Items**. This makes a file called `Archive.zip`.
 
-If you have correctly selected more than one file, Posit cloud will automatically create a .zip file and download it. Save it with a sensible name, and then you can upload this zip directly to Brightspace.
+Rename the .zip file with a sensible name, and then you can upload it directly to Brightspace.
 
 **This is the format we will use for every assignment, so it's worth getting the hang of it!**
 
@@ -182,15 +163,15 @@ Next, render/knit the document as in the last step. The document will knit again
 
 ## Adding files
 
-The last thing we'll do is practise adding files to the Rstudio area. Most times, you'll need to upload files to your workspace in order to work with them. First, you'll upload them to the workspace, and second, you'll read them into R.
+The last thing we'll do is practise adding files to your project. Most times, you'll need to add data files to your project folder in order to work with them. First, you'll put them in the folder, and second, you'll read them into R.
 
 You could also upload other files, for example if your final project markdown includes some images not generated by code.
 
-We'll practise this by downloading a file from Brightspace, and uploading it to Posit Cloud. This file can be found under the 'Files' area on the course site. Download the file 'box_office' to your local machine first.
+We'll practise this by downloading a file from Brightspace. This file can be found under the 'Files' area on the course site. Download the file 'box_office' and save it in your `cultural_analytics` project folder. (If your browser saves downloads to your Downloads folder automatically, move the file from there into the project folder.)
 
-To upload a file to Posit cloud, look at the file manager in the bottom-right pane. Click on 'Upload', and then browse to the file on your computer, and click OK. You'll see the file appear in the file browser in a moment.
+Look at the file manager in the bottom-right pane. You should see the file there; if not, click the refresh icon (the circular arrow) at the top-right of the pane.
 
-![](images/04_rmarkdown/20.png)
+![](images/04_rmarkdown/desktop-20-files-data.png){width="600"}
 
 ## Environment
 
@@ -230,7 +211,7 @@ Before moving on, take a look and see if you are confident with all of the follo
 
 (the checkboxes are just for your own use, they won't save if you leave or refresh the page)
 
--   [ ] Open a Posit account and create a new notebook
+-   [ ] Open your course project in R-Studio and create a new notebook
 
 -   [ ] Understand what an IDE is and how to code in it
 
