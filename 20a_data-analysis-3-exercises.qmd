@@ -1,5 +1,4 @@
 ---
-draft: true # set by _scripts/release.R
 title: "Practice exercises: joins and tidying data"
 ---
 

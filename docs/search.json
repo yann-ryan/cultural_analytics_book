@@ -650,6 +650,380 @@
     ]
   },
   {
+    "objectID": "12_filter.html",
+    "href": "12_filter.html",
+    "title": "14  Filtering data",
+    "section": "",
+    "text": "Filtering data with filter()\nOne of the most useful things you will do in data analysis is to filter to only look at certain parts of your data. This is done with a verb called filter(). Filter is very powerful because you can set it to filter for any number of conditions or patterns.\nThe filter() function keeps only certain rows in a dataframe, based on a condition which you set within the function. This is very useful when working with data visualisations, because often you will want to focus on a small amount of the data, or perhaps a single category.\nIn the filter function, the first argument is the data to be filtered. The second is the column you want to look at, and finally, a condition (or multiple conditions). The function will return every row where that condition is true.\nRemember in the first week when we looked at comparisons, such as ==, &lt;,&gt; and %in%? One important way these are used are to set the conditions for a filter.\nWith filter, need the dataset followed by the column you want to look at, followed by the comparison. The left side of the comparison will generally be a column from your dataframe, followed by a comparison symbol, followed by a value. You can use multiple comparisons using &.\nWe can use filter to return rows where the text in a column matches a given string:\nTry it yourself: in the code cell below, write code to filter the titanic_df dataset to contain only rows where the embarked column is equal to the character Q.\nOr do the same with a numeric column:\nTry it yourself: With numeric columns, we can also use greater than or less than. Write code to filter the fare column to be greater than 5.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Filtering data</span>"
+    ]
+  },
+  {
+    "objectID": "12_filter.html#check-your-understanding",
+    "href": "12_filter.html#check-your-understanding",
+    "title": "14  Filtering data",
+    "section": "Check your understanding",
+    "text": "Check your understanding\nThese questions are in the same style as the exam. Try to answer each one before running any code - then use the code cell to check your answer.\n1. Which of these two will return more rows, and why?\ntitanic_df |&gt; filter(pclass == 1, sex == 'female')\n\ntitanic_df |&gt; filter(pclass == 1 | sex == 'female')\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe second. A comma (like &) means and: a row is kept only if the passenger was in first class and female. | means or: a row is kept if the passenger was in first class, or female, or both - so it includes all first-class men and all women in second and third class as well.\n\n\n\n2. This code gives the error object 'C' not found. What’s wrong?\ntitanic_df |&gt; filter(embarked == C)\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nC needs quotation marks: filter(embarked == 'C'). Without them, R thinks C is the name of an object (or a column), rather than a piece of text to compare against.\n\n\n\n3. You want to keep only passengers who were younger than 10 or older than 60. Which of these is correct?\n\ntitanic_df |&gt; filter(age &lt; 10, age &gt; 60)\ntitanic_df |&gt; filter(age &lt; 10 | age &gt; 60)\ntitanic_df |&gt; filter(age %in% c(10, 60))\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nb. (a) asks for passengers younger than 10 and older than 60 at the same time, which is impossible, so it returns no rows. (c) only returns passengers aged exactly 10 or exactly 60.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Filtering data</span>"
+    ]
+  },
+  {
+    "objectID": "12_filter.html#learning-objectives",
+    "href": "12_filter.html#learning-objectives",
+    "title": "14  Filtering data",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse filter() to keep rows matching a condition\nCombine multiple conditions with & (AND) and | (OR)\nUse %in% to filter against a list or range of values\nNegate a filter condition with !",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Filtering data</span>"
+    ]
+  },
+  {
+    "objectID": "13_regex.html",
+    "href": "13_regex.html",
+    "title": "15  Pattern matching with str_detect",
+    "section": "",
+    "text": "More advanced filters with str_detect() functions.\nSo far when filtering strings, we have methods to filter when an entire cell is either equal to a single given string, or a list (vector) of given strings.\nIf we want to do more complex filtering on text, we can use a method within the filter called str_detect(). This will match any rows where the text in a cell matches a certain pattern. By default, it will look for this pattern anywhere in the text, meaning we can build filters which find partial matches, or a range of matches which fit a particular pattern.\nFiltering with str_detect() looks like this:\nThis will find the exact pattern “Ryan”, anywhere in the name column.\nYou can see that within the filter() function, we use the function str_detect(). The first argument to this is the column we want to look at, and the second argument is the pattern, within quotation marks.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pattern matching with str_detect</span>"
+    ]
+  },
+  {
+    "objectID": "13_regex.html#more-advanced-filters-with-str_detect-functions.",
+    "href": "13_regex.html#more-advanced-filters-with-str_detect-functions.",
+    "title": "15  Pattern matching with str_detect",
+    "section": "",
+    "text": "stringr library\n\n\n\nThe str_detect() function uses another library, called stringr. This is part of the ‘tidyverse’ package, so if you have loaded that, there is no need to do anything else. Otherwise, you can load it using library(stringr).\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nRegular expressions\nThis method actually uses a language for matching text patterns called ‘Regular expressions’. This language is very useful and we can’t cover it in full in this course. However some simple things are worth knowing:\n\nYou can match any character using a .. This will return ‘John’, ‘Johan’, but also ‘Mohamed’:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nClasses\nYou can create your own ‘classes’ of characters to match, by putting it within square brackets. This will match any digit between 0 and 9:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can specify how many of a character or class should be matched by putting it within curly brackets. This can be a single number {2}, a range, {2,5} or a minimum with no maximum {2,}. This last one, for example, matches ‘two or more’ uppercase alphabetic characters:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAnchors\nSometimes you want to specify that the pattern should come at the beginning or end of the string. You can do this using ^ and $. To find all names beginning with R, use:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat happens if you run the same code without the ^?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAlternation:\nTo match either one pattern or another, using |. This will match all rows containing either Ry or Da:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nEscaping\nRegular expressions use some special characters, such as ., as matching operators. If you want to match an actual . in the string, you need to ‘escape’ it: to tell R it should treat it as a regular character and not a command. In R, do this using \\\\:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis is just the beginning! You can find out more about how stringr works with regular expressions here. A more comprehensive tutorial is here.\nThere are also many interactive tutorials available online, although note that there will be small differences in the ways they use regular expressions, even though the main principles remain the same.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pattern matching with str_detect</span>"
+    ]
+  },
+  {
+    "objectID": "13_regex.html#learning-objectives",
+    "href": "13_regex.html#learning-objectives",
+    "title": "15  Pattern matching with str_detect",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse str_detect() to filter rows by a text pattern\nKnow a few basic regular expression building blocks: ., character classes ([ ]), and {n}\nUse anchors (^, $) to match the start or end of a string\nUse alternation (|) to match more than one pattern\nKnow when and how to ‘escape’ a special character",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pattern matching with str_detect</span>"
+    ]
+  },
+  {
+    "objectID": "14_mutate.html",
+    "href": "14_mutate.html",
+    "title": "16  Changing columns with mutate",
+    "section": "",
+    "text": "Using existing functions\nYou can also use existing functions with mutate. In our dataset, the age is given in decimal, but you want to round to the nearest whole number. There is a simple function in R called round() which will do this.\nWrite code to create a new column called age_in_years with mutate(). Use the round() function on the age column, like this:",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Changing columns with mutate</span>"
+    ]
+  },
+  {
+    "objectID": "14_mutate.html#learning-objectives",
+    "href": "14_mutate.html#learning-objectives",
+    "title": "16  Changing columns with mutate",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse mutate() to create a new column from existing ones\nUse an existing function (e.g. round()) inside mutate()\nUse if_else() for a two-way condition, and case_when() for more than two",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Changing columns with mutate</span>"
+    ]
+  },
+  {
+    "objectID": "15_summarise.html",
+    "href": "15_summarise.html",
+    "title": "17  Summarising",
+    "section": "",
+    "text": "Counting with summarise()\nNow we are moving into real data analysis - which often is a case of counting things in your data.\nThe verb summarise will take all the rows in your data and run some function on them to produce a desired summary. It looks a little like mutate(): first we provide the new column name for the summary, followed by the instruction.\nWe should consider two types of counting: we could count the number of rows, or we could count some kind of value.\nExamples should help. To calculate the total number of rows, we can use a function called n(), which does exactly that:\nWhat if we want to calculate the total amount of fare paid? In that case, we can use a function called sum():\nHere is a list of some of the most useful summarise functions:",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Summarising</span>"
+    ]
+  },
+  {
+    "objectID": "15_summarise.html#exercises",
+    "href": "15_summarise.html#exercises",
+    "title": "17  Summarising",
+    "section": "Exercises:",
+    "text": "Exercises:\nWhat is the average age of all the passengers? Average can be calculated using a function called mean().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat is the maximum fare paid? You can use the function max() for this.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Summarising</span>"
+    ]
+  },
+  {
+    "objectID": "15_summarise.html#learning-objectives",
+    "href": "15_summarise.html#learning-objectives",
+    "title": "17  Summarising",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse summarise() to calculate a single summary value from a dataframe\nKnow the difference between counting rows (n()) and summing a value (sum())\nKnow some other common summary functions (mean(), median(), min(), max())\nUse tally() as a shortcut for a simple count or sum",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Summarising</span>"
+    ]
+  },
+  {
+    "objectID": "16_grouping.html",
+    "href": "16_grouping.html",
+    "title": "18  Grouping",
+    "section": "",
+    "text": "Exercise:\nCreate a summary of the data containing the the average age of male and female passengers - call the new summary column ‘average_age’.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
+    "objectID": "16_grouping.html#grouping-with-other-functions",
+    "href": "16_grouping.html#grouping-with-other-functions",
+    "title": "18  Grouping",
+    "section": "Grouping with other functions",
+    "text": "Grouping with other functions\n\nGrouping and slice_\nOther functions we have come across also work with groups. For instance, we can find the five oldest passengers for each passenger class by first using group_by(), and then using slice_max():\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSee that the result is a dataframe containing 15 rows, 5 for each of the passenger classes?\nYou can also use slice_min() in much the same way.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
+    "objectID": "16_grouping.html#grouping-and-mutate",
+    "href": "16_grouping.html#grouping-and-mutate",
+    "title": "18  Grouping",
+    "section": "Grouping and mutate()",
+    "text": "Grouping and mutate()\nYou can also use group_by with mutate(). In this case, it will add the total for each group as a new column, and not remove anything else.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
+    "objectID": "16_grouping.html#ungroup",
+    "href": "16_grouping.html#ungroup",
+    "title": "18  Grouping",
+    "section": "Ungroup",
+    "text": "Ungroup\nSometimes you’ll want to do something in groups and then remove them afterwards because they give unwanted effects. You can do this using the verb ungroup().\n\nExercises:\n\nCalculate the total number of passengers by both sex and pclass\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nThe embarked column indicates where the passengers got onto the ship. The code is C = Cherbourg, Q = Queenstown (Cobh in Ireland today), S = Southampton.\nHow many passengers got on at each location?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhat was the average fare paid for each location?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nCreate a new column, containing the total number which embarked from that person’s location.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWho are the five youngest male and female passengers who embarked at each location?\n\n\n\n\n\n\nSave some typing by using count()\n\n\n\ncount(embarked) is the same as using group_by(embarked) |&gt; summarise(n = n()).\ncount(embarked, wt = fare) is the same as using group_by(embarked) |&gt; summarise(n = sum(fare, na.rm = TRUE))",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
+    "objectID": "16_grouping.html#learning-objectives",
+    "href": "16_grouping.html#learning-objectives",
+    "title": "18  Grouping",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUse group_by() to split a dataframe into groups before summarising\nGroup by more than one column at once\nUse group_by() together with a slice_ function and with mutate(), not just summarise()\nKnow when and why to ungroup() a dataframe\nUse count() as a shortcut for group_by() + summarise(n = n())",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
+    "objectID": "16a_data-analysis-2-exercises.html",
+    "href": "16a_data-analysis-2-exercises.html",
+    "title": "19  Practice exercises: filter, mutate, summarise, grouping",
+    "section": "",
+    "text": "The exercises below run in your browser and check your code automatically, giving you feedback as you go. They cover everything from this part of the course: filter(), mutate(), summarise(), and group_by(). The last two are a bit more of a challenge - don’t worry if you need a few tries.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Practice exercises: filter, mutate, summarise, grouping</span>"
+    ]
+  },
+  {
+    "objectID": "17_at-home-3.html",
+    "href": "17_at-home-3.html",
+    "title": "20  Home exercises",
+    "section": "",
+    "text": "Instructions\nDo the at-home exercises in R-Studio, in your cultural_analytics project (see Installing R and RStudio). Download the files for this exercise from Brightspace and save them in your project folder. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).\nI advise saving the new file straight away, and regularly re-save it.\nWhen you have finished the exercise (or part of it), ‘knit’ the file to check that it works.\nIf you can’t knit the file because of an error, comment out the code which doesn’t work using #, and make a note to ask about it in class.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Home exercises</span>"
+    ]
+  },
+  {
+    "objectID": "17_at-home-3.html#instructions",
+    "href": "17_at-home-3.html#instructions",
+    "title": "20  Home exercises",
+    "section": "",
+    "text": "Note\n\n\n\nThis exercise is ungraded practice - you don’t need to submit it. But it’s the best preparation for the reports and the exam, so do try to complete it.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Home exercises</span>"
+    ]
+  },
+  {
+    "objectID": "17_at-home-3.html#at-home-exercises",
+    "href": "17_at-home-3.html#at-home-exercises",
+    "title": "20  Home exercises",
+    "section": "At home exercises",
+    "text": "At home exercises\nThe Goodreads dataset is a csv file, which you should have saved in your project folder. This is a dataset of the 11,000 most popular books taken from the review site Goodreads.com, and includes author information, plus the amount and average rating for each.\nThere is also a genre column which comes from the tags users have added. Note that originally, the dataset had multiple genres for each book. To simplify things for this class, I have only kept the first one.\nUse summarise, group_by(), and all the previously-learned functions to do the following:\n\nLoad the tidyverse library\nRead the dataset Goodreads_books_with_genres.csv into your environment, and save it as an object with the name goodreads_df. (see the previous week’s home exercises to see how to do this and the previous step).\nFilter the dataset to include only books with the genre Science Fiction (note the capital letters) which received a rating of over 4.5.\nFilter the dataset so it includes either of these conditions: either not written in English, or over 500 pages.\nCreate a new column, and calculate the ratio of ratings to text reviews for each book. What kind of books have a large number of ratings but relatively few text reviews? Why do you think this is the case?\nFilter to include only books written in 2004. Arrange this list in order of publication date first, and then publisher. Keep only the title, author, and publication date. There are two ways of doing this:\n\n1, Use the str_detect() function described in the optional section in the book to filter to include entries in the publication_date column which end in the text 2004.\n2, Extract the year from the publication_date column. The cleanest way to do this is to first convert it to a date format the computer can read, using a function called mdy(). You can write over the existing publication column using mutate(publication_date = mdy(publication_date)). Next, you can extract the year from this date using a function called year(). Create a new column called year using mutate(), where you will apply the function year() to the publication date column. Now you can filter this new column to retain only rows where the value is 2004.\n\nMore of a challenge: Which author has the highest average rating? Before you calculate this, we need to make it a bit more meaningful by wrangling the dataset a bit, so our result isn’t skewed by authors with one book and a tiny number of 5 star ratings. First, keep only books with at least 100 ratings, and then authors with at least 3 of such books. Calculate the average (or mean) rating for each author. Arrange this list in descending order of the average rating.\n\n\nFilter combined with str_detect (optional)\n\nFind all the books written in English (as above but using str_detect)\nFind all the Swedish authors (names that end in sson).\nFind all the books where Isaac Asimov is listed as an author, even where other authors are listed at the same time.\nFind all books published by a Penguin imprint (classics, UK, etc. )\nFind all books with numbers in the title.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Home exercises</span>"
+    ]
+  },
+  {
+    "objectID": "18_joins.html",
+    "href": "18_joins.html",
+    "title": "21  Joins",
+    "section": "",
+    "text": "left_join(), right_join(), inner_join()\nAnother set of commands we’ll use quite often in this course are the join() ‘family’. Joins are a very powerful but simple way of selecting certain subsets of data, and adding information from multiple tables together.\nRemember the titanic dataset had a column ‘embarked’, which contained either Q, S or C, which told where the passenger got on?\nLet’s say we wanted to display the full name of the embarking location, plus some other information. We have another dataset, called locations_df, which contains the code and the equivalent full name, plus the country name and coordinates of the location. You can see what this looks like by running the cell below:\nWe can combine these two tables of information, so that they are merged, or joined together - the result will be that the correct extra information for each place code will be added to the titanic_df data.\nThis is done using a set of functions called joins.\nIn R, we can do these joins using the functions left_join(), right_join() and inner_join(). These are variations on the same thing, and they differ by the way that they merge the two datasets together.\nJoins need a common key, a column which allows the join to match the data tables up. It’s important that these are unique (a person’s name makes a bad key by itself, for example, because it’s likely more than one person will share the same name). Usually, we use codes as the join keys. If the columns containing the join keys have different names (as ours do), specify them using the syntax below:\nThe join function is a bit complex, so it’s worth looking at what it is doing.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
+    "objectID": "18_joins.html#exercises",
+    "href": "18_joins.html#exercises",
+    "title": "21  Joins",
+    "section": "Exercises",
+    "text": "Exercises\n\nCalculate the number of men and women which embarked from each country, first merging the new table with the existing one.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
+    "objectID": "18_joins.html#learning-objectives",
+    "href": "18_joins.html#learning-objectives",
+    "title": "21  Joins",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand what a join is, and why it needs a common ‘key’ column\nUse left_join() to merge two dataframes together\nJoin on columns which have different names in each dataframe",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
+    "objectID": "19_tidying-data.html",
+    "href": "19_tidying-data.html",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "",
+    "text": "Reshaping data\nThe final function we’ll learn in this section on data science is called pivot_longer(). The use of this might seem a bit abstract at first, but I hope it is something you will find very useful in the long run, because it will allow you to apply your data wrangling skills to a much wider pool of datasets.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
+    "objectID": "19_tidying-data.html#reshaping-data",
+    "href": "19_tidying-data.html#reshaping-data",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "",
+    "text": "Data terminology\nTo understand what it does, we need to back up a little bit. First of all, a bit of terminology about datasets:\n\nvariables can be thought of as the label of a fact, such as eye colour, hair colour, city of birth, and so forth.\nobservations are individual instances of that fact, usually a single thing recorded about something. For example, you could record my eye colour and the observation would be ‘The eye colour of Yann Ryan is…’\nValues are the actual measurements for that fact: in this case, the value for this observation would be blue.\n\n\n\nWide and long data\nTabular datasets can usually be described in one of two formats: wide or long.\n\nWide datasets are where observations can be in columns. For example, if you had a dataset of a group of employment rates and the value for 2017 is in one column, the value for 2018 in the next, and so forth.\n\n\n\nLong datasets are where each observation is in a separate row, like this:\n\n\nIn this case, each individual fact (for example, ‘the employment rate of Belgium in 2017’) has a separate row.\nRecording data in this second method is desirable for data analysis (the first is more useful when looking at a table in a spreadsheet programme), as it makes it much easier to work with. Data in this format is also known as tidy.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
+    "objectID": "19_tidying-data.html#tidy-data",
+    "href": "19_tidying-data.html#tidy-data",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "Tidy data",
+    "text": "Tidy data\nTidy data is data where:\n\nEach variable is in its own column.\nEach observation is in its own row\nEach value is in its own cell.\n\nAs an example of a ‘wide’ dataset, there is a dataset called gapminder_population loaded into memory. View it by running the cell below:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis dataset contains population records for countries in Europe. You can see that each country is a separate row, and each year is a separate column. This is not tidy data, because each year is actually a separate observation, and should in its own row.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
+    "objectID": "19_tidying-data.html#pivot_longer",
+    "href": "19_tidying-data.html#pivot_longer",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\nTo reshape this to the more useful format, we can use a new function called pivot_longer(). This takes a dataset and a specified set of columns, and reshapes them so that each of these columns now have their own row, repeating the information where needed.\nThe function has a number of important arguments:\n\nThe dataset to use (or one passed from the pipe)\ncols which lists the columns to reshape. The columns can be selected using the same methods as the select() function, meaning they can be selected by position, name, and so forth.\nnames_to: what you would like to call the column containing the new variable.\nvalues_to: what you would like to call the new values.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSee the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year).",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
+    "objectID": "19_tidying-data.html#learning-objectives",
+    "href": "19_tidying-data.html#learning-objectives",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the difference between a variable, an observation, and a value\nKnow the difference between wide and long data\nUnderstand what makes data ‘tidy’\nUse pivot_longer() to reshape a wide dataset into a long one",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
+    "objectID": "20_data-challenge.html",
+    "href": "20_data-challenge.html",
+    "title": "23  Data challenge",
+    "section": "",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Data challenge</span>"
+    ]
+  },
+  {
+    "objectID": "20_data-challenge.html#learning-objectives",
+    "href": "20_data-challenge.html#learning-objectives",
+    "title": "23  Data challenge",
+    "section": "",
+    "text": "Import and inspect a real, messy dataset\nClean and filter a dataset to keep only the rows and columns you need\nReshape a dataset into a tidy, long format\nJoin in extra information from a second dataset, and export the result",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Data challenge</span>"
+    ]
+  },
+  {
+    "objectID": "20a_data-analysis-3-exercises.html",
+    "href": "20a_data-analysis-3-exercises.html",
+    "title": "24  Practice exercises: joins and tidying data",
+    "section": "",
+    "text": "The exercises below run in your browser and check your code automatically, giving you feedback as you go. They cover left_join() and pivot_longer(), and give you a chance to combine these with everything else you’ve learned in Data Analysis 1-3. The last two are a bit more of a challenge - don’t worry if you need a few tries.\nThe data challenge exercise on the previous page isn’t included here, since it’s too open-ended for automatic checking - keep doing that one in R-Studio.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Practice exercises: joins and tidying data</span>"
+    ]
+  },
+  {
+    "objectID": "21_at-home-4.html",
+    "href": "21_at-home-4.html",
+    "title": "25  Home exercises",
+    "section": "",
+    "text": "Instructions\nDo the at-home exercises in R-Studio, in your cultural_analytics project (see Installing R and RStudio). Download the files for this exercise from Brightspace and save them in your project folder. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).\nI advise saving the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: exercise_4_lastname_firstname. Regularly re-save the file.\nWhen you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercises</span>"
+    ]
+  },
+  {
+    "objectID": "21_at-home-4.html#instructions",
+    "href": "21_at-home-4.html#instructions",
+    "title": "25  Home exercises",
+    "section": "",
+    "text": "Checkpoint: submit by Tuesday 10 November\n\n\n\nThis exercise is one of the two graded checkpoints (pass/fail). You pass by making a genuine attempt at all of the exercises - they don’t have to be perfect.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercises</span>"
+    ]
+  },
+  {
+    "objectID": "21_at-home-4.html#exercises",
+    "href": "21_at-home-4.html#exercises",
+    "title": "25  Home exercises",
+    "section": "Exercises",
+    "text": "Exercises\nThere are three data files for this week (character_list5.csv, imdb_genre.csv, meta_data7.csv), so import these first. You should also load the ‘tidyverse’ package using library().\nToday we will use a dataset from an article written for The Pudding: Hannah Anderson and Matt Daniels, “Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”.\nThis article used data from screenplays to understand patterns and changes in the gender balance of movies over time. The dataset contains 2000 movie scripts from 1925 to 2015, including names, genders, ages, how many words each character spoke, the release year, and revenue.\nThe difference with this dataset to our previous ones is that it has two separate files: one containing the information on the dialogue, and another containing the metadata. You first need to merge them together and then use this merged file to run some analyses.\nThis can be done using a join command. You’ll also need a key, in this case, the ‘script_id’ column is found in both datasets and can be used to merge them together.\n\nFirst, merge together the two files using a join, so that all the metadata information is found alongside the dialogue information. Save this as a new object.\nCreate a subset of this data, including only Star Wars movies.\nMake a new dataframe containing three columns: the year, the sum of female dialogue lines, and the sum of male dialogue lines.\n\n\n\n\n\n\n\nTip\n\n\n\nThis is a slightly trickier challenge and will need some techniques we haven’t covered in class. One way to do this is to make two separate datasets first (think about what these should contain), and merge them together.\nYou’ll need to do the following which we haven’t covered:\n\nFirst, use full_join() instead of left_join(), to make sure your merge includes all the movies, including ones with no male or no female lines.\nSecond, when you do the merge, you will have some rows with an NA for number of words. If you use filter, these lines will be dropped instead of treated as the movie containing no (zero) words of dialogue for that gender. To have these work correctly, you can replace these NAs with 0s. You can do that with the following mutate() command: mutate(name_of_column_with_count_of_lines = replace_na(name_of_column_with_count_of_lines, 0)). Don’t worry if you can’t get this to work!\n\n\n\n\nMake a new column in this dataframe. This column should contain the value ‘more male’ if there is more male than female dialogue, and ‘more female’ if there is more female dialogue. If it has the exact same, it should read ‘equal’. (HINT: look for the function case_when(), covered earlier this week)\nMake another new dataframe. This should have a row for each movie, and a column counting the total number of words for each gender.\nImport the third file in your folder, imdb_genre. Join this to your new processed dataset (HINT: the imdb genre dataset doesn’t have the script IDs, but has an IMDB ID instead. You’ll need to first join the metadata file to your dataset of male and female lines, and take a look to see which column of that will let you join to the IMDB IDs).\nCalculate which genre has the highest proportion* for each gender.\n\nYou can calculate the proportion with a fairly simple formula in mutate(), if you have the individual totals for male and female.\n\nReturn to your Star Wars subset. How do these movies compare to the dataset as a whole, in terms of proportion and male and female dialogue?\nExtra challenge: can you make the same dataframe (one row per movie, then a proportion of male and female in separate columns), without needing to make new dataframes and use joins? It can be done with a combination of group_by, ungroup, summarise, mutate and a new function, pivot_wider.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercises</span>"
+    ]
+  },
+  {
     "objectID": "critique-gallery.html",
     "href": "critique-gallery.html",
     "title": "Critique gallery",

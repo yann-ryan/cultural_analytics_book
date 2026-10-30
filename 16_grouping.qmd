@@ -1,5 +1,4 @@
 ---
-draft: true # set by _scripts/release.R
 title: "Grouping"
 webr:
   packages: ['dplyr', 'readr']

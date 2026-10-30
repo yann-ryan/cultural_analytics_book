@@ -1,5 +1,4 @@
 ---
-draft: true # set by _scripts/release.R
 title: "Tidying data with pivot_longer()"
 webr:
   packages: ['dplyr', 'readr', 'tidyr']

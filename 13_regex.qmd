@@ -1,5 +1,4 @@
 ---
-draft: true # set by _scripts/release.R
 title: "Pattern matching with str_detect"
 webr:
   packages: ['dplyr', 'readr', 'stringr']
