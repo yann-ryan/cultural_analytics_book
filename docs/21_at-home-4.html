@@ -483,8 +483,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#what-to-submit" id="toc-what-to-submit" class="nav-link" data-scroll-target="#what-to-submit">What to submit</a></li>
   <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-load-the-data" id="toc-exercise-1-load-the-data" class="nav-link" data-scroll-target="#exercise-1-load-the-data">Exercise 1: load the data</a></li>
+  <li><a href="#exercise-2-join-the-characters-to-the-films" id="toc-exercise-2-join-the-characters-to-the-films" class="nav-link" data-scroll-target="#exercise-2-join-the-characters-to-the-films">Exercise 2: join the characters to the films</a></li>
+  <li><a href="#exercise-3-how-is-gender-recorded" id="toc-exercise-3-how-is-gender-recorded" class="nav-link" data-scroll-target="#exercise-3-how-is-gender-recorded">Exercise 3: how is gender recorded?</a></li>
+  <li><a href="#exercise-4-the-overall-balance" id="toc-exercise-4-the-overall-balance" class="nav-link" data-scroll-target="#exercise-4-the-overall-balance">Exercise 4: the overall balance</a></li>
+  <li><a href="#exercise-5-one-row-per-film" id="toc-exercise-5-one-row-per-film" class="nav-link" data-scroll-target="#exercise-5-one-row-per-film">Exercise 5: one row per film</a></li>
+  <li><a href="#exercise-6-which-films-have-more-female-dialogue" id="toc-exercise-6-which-films-have-more-female-dialogue" class="nav-link" data-scroll-target="#exercise-6-which-films-have-more-female-dialogue">Exercise 6: which films have more female dialogue?</a></li>
+  <li><a href="#exercise-7-star-wars" id="toc-exercise-7-star-wars" class="nav-link" data-scroll-target="#exercise-7-star-wars">Exercise 7: Star Wars</a></li>
+  <li><a href="#exercise-8-change-over-time" id="toc-exercise-8-change-over-time" class="nav-link" data-scroll-target="#exercise-8-change-over-time">Exercise 8: change over time</a></li>
+  <li><a href="#exercise-9-genre-more-of-a-challenge" id="toc-exercise-9-genre-more-of-a-challenge" class="nav-link" data-scroll-target="#exercise-9-genre-more-of-a-challenge">Exercise 9: genre (more of a challenge)</a></li>
+  <li><a href="#exercise-10-extra-challenge" id="toc-exercise-10-extra-challenge" class="nav-link" data-scroll-target="#exercise-10-extra-challenge">Exercise 10: extra challenge</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -530,6 +543,26 @@ Checkpoint: submit by Tuesday 10 November
 <p>When you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.</p>
 <p>If you can’t knit the file because of an error, comment out the code which doesn’t work using #, and make a note of what went wrong.</p>
 </section>
+<section id="what-to-submit" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-submit">What to submit</h2>
+<p>Your .Rmd file should have a section for each of the ten exercises. Start each one with a heading, such as <code>## Exercise 1</code>. Each exercise asks for one or both of these:</p>
+<ul>
+<li><strong>Code</strong>: a code chunk that does what the exercise asks. When you knit the file, its result appears underneath, so you don’t need to copy any numbers out of it.</li>
+<li><strong>Write</strong>: an answer in your own words, in a sentence or two. Put it as normal text in the .Rmd, <em>below</em> the code chunk, not inside the chunk. Use the result of your code to answer it.</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise 2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">dialogue &lt;- characters |&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">  left_join(meta, by = 'script_id')</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">nrow(dialogue)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>The joined dataframe has 23,048 rows, the same as <span class="in">`characters`</span>, because each character belongs to exactly one film.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Each exercise also gives a number in brackets, so you can check that your code is right. You don’t need to write these numbers down in your answer.</p>
+</section>
 <section id="the-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-data">The data</h2>
 <p>Today we will use a dataset from an article written for The Pudding: Hannah Anderson and Matt Daniels, <a href="https://pudding.cool/2017/03/film-dialogue/">“Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”</a>. Have a look at the article first: it asks the same questions as these exercises.</p>
@@ -540,35 +573,60 @@ Checkpoint: submit by Tuesday 10 November
 <li><code>imdb_genre.csv</code>: one row per film, with its genres, taken from IMDb. It doesn’t have the <code>script_id</code>, but its <code>tconst</code> column holds the same IMDb ID as <code>imdb_id</code> in the metadata.</li>
 </ul>
 <p>Dialogue is measured in <strong>words</strong>, not lines.</p>
-<p>Each exercise below gives a number in brackets, so you can check your answer.</p>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<ol type="1">
-<li><p>Load the <code>tidyverse</code> package with <code>library()</code>, and read all three files into R. Save them as objects called <code>characters</code>, <code>meta</code> and <code>genres</code>.</p></li>
-<li><p><strong>Join the characters to the films.</strong> Use <code>left_join()</code> to join <code>meta</code> to <code>characters</code>, using <code>script_id</code> as the key, so that each character has the title and year of their film alongside them. Save the result as <code>dialogue</code>. How many rows does it have? <em>(23,048: the same as <code>characters</code>, because each character belongs to exactly one film.)</em></p></li>
-<li><p><strong>How is gender recorded?</strong> Use <code>count()</code> on the <code>gender</code> column of <code>dialogue</code>. What do the values mean, and how many characters have each? <em>(Three values: <code>f</code> 6,911, <code>m</code> 16,132, and <code>?</code> 5, for a handful of characters whose gender isn’t known.)</em></p></li>
-<li><p><strong>The overall balance.</strong> Using <code>group_by()</code> and <code>summarise()</code>, calculate the total number of words spoken by each gender, across all the films. Roughly what share of all the dialogue is spoken by women? You can work out the share with a calculator, or try it in R with <code>mutate()</code>. <em>(About 28%.)</em></p></li>
-<li><p><strong>One row per film.</strong> Make a new dataframe, called <code>films</code>, with one row for each film, and two columns counting the words spoken by women and by men in that film.</p>
-<p>This needs a trick. First, use <code>mutate()</code> and <code>if_else()</code> to make two new columns: <code>female_words</code>, which holds the character’s <code>words</code> if they are female and 0 if not, and <code>male_words</code>, which does the same for men. Then group by film and add up those two columns with <code>summarise()</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>films <span class="ot">&lt;-</span> dialogue <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">female_words =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">'f'</span>, words, <span class="dv">0</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">male_words =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">'m'</span>, words, <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(script_id, imdb_id, title, year) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">female =</span> <span class="fu">sum</span>(female_words),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">male =</span> <span class="fu">sum</span>(male_words))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Run this code and look at the result. <em>(2,000 rows.)</em> Then answer these questions in your own words:</p>
+<section id="exercise-1-load-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-load-the-data">Exercise 1: load the data</h3>
+<p><strong>Code:</strong> load the <code>tidyverse</code> package with <code>library()</code>, and read all three files into R. Save them as objects called <code>characters</code>, <code>meta</code> and <code>genres</code>.</p>
+</section>
+<section id="exercise-2-join-the-characters-to-the-films" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-join-the-characters-to-the-films">Exercise 2: join the characters to the films</h3>
+<p><strong>Code:</strong> use <code>left_join()</code> to join <code>meta</code> to <code>characters</code>, using <code>script_id</code> as the key, so that each character has the title and year of their film alongside them. Save the result as <code>dialogue</code>, and show how many rows it has with <code>nrow(dialogue)</code>. <em>(23,048)</em></p>
+<p><strong>Write:</strong> why does <code>dialogue</code> have the same number of rows as <code>characters</code>?</p>
+</section>
+<section id="exercise-3-how-is-gender-recorded" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-how-is-gender-recorded">Exercise 3: how is gender recorded?</h3>
+<p><strong>Code:</strong> use <code>count()</code> on the <code>gender</code> column of <code>dialogue</code>. <em>(Three values: <code>f</code> 6,911, <code>m</code> 16,132 and <code>?</code> 5)</em></p>
+<p><strong>Write:</strong> what do you think each of the three values means?</p>
+</section>
+<section id="exercise-4-the-overall-balance" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-the-overall-balance">Exercise 4: the overall balance</h3>
+<p><strong>Code:</strong> using <code>group_by()</code> and <code>summarise()</code>, calculate the total number of words spoken by each gender, across all the films. <em>(<code>f</code> 5,877,657 words)</em></p>
+<p><strong>Write:</strong> roughly what share of all the dialogue is spoken by women? You can work it out from your result with a calculator, or try it in R with <code>mutate()</code>. <em>(About 28%)</em></p>
+</section>
+<section id="exercise-5-one-row-per-film" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-one-row-per-film">Exercise 5: one row per film</h3>
+<p>Make a new dataframe, called <code>films</code>, with one row for each film, and two columns counting the words spoken by women and by men in that film.</p>
+<p>This needs a trick. First, use <code>mutate()</code> and <code>if_else()</code> to make two new columns: <code>female_words</code>, which holds the character’s <code>words</code> if they are female and 0 if not, and <code>male_words</code>, which does the same for men. Then group by film and add up those two columns with <code>summarise()</code>.</p>
+<p><strong>Code:</strong> copy this code into your file, run it and look at the result. <em>(2,000 rows)</em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>films <span class="ot">&lt;-</span> dialogue <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">female_words =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">'f'</span>, words, <span class="dv">0</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">male_words =</span> <span class="fu">if_else</span>(gender <span class="sc">==</span> <span class="st">'m'</span>, words, <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(script_id, imdb_id, title, year) <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">female =</span> <span class="fu">sum</span>(female_words),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">male =</span> <span class="fu">sum</span>(male_words))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Code:</strong> run <code>count(meta, title)</code>, and arrange the result so the largest counts are at the top.</p>
+<p><strong>Write:</strong> answer these two questions.</p>
 <ul>
-<li>Why do we group by <code>script_id</code>, and not just by <code>title</code>? (Hint: try <code>count(meta, title)</code> and arrange it so the largest counts are at the top.)</li>
+<li>Why do we group by <code>script_id</code>, and not just by <code>title</code>? Use the result of <code>count()</code> to explain.</li>
 <li>Why do we also put <code>imdb_id</code>, <code>title</code> and <code>year</code> in the <code>group_by()</code>, if <code>script_id</code> is already enough to make one row per film?</li>
-</ul></li>
-<li><p><strong>Which films have more female dialogue?</strong> Add two new columns to <code>films</code> with <code>mutate()</code>:</p>
+</ul>
+</section>
+<section id="exercise-6-which-films-have-more-female-dialogue" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6-which-films-have-more-female-dialogue">Exercise 6: which films have more female dialogue?</h3>
+<p><strong>Code:</strong> add two new columns to <code>films</code> with <code>mutate()</code>, and save the result:</p>
 <ul>
 <li><code>prop_female</code>: the share of the dialogue spoken by women. This is the female words divided by the female and male words added together.</li>
 <li><code>balance</code>: use <code>case_when()</code> to make this ‘more female’ if there are more female words than male words, ‘more male’ if there are more male words, and ‘equal’ if they are exactly the same.</li>
 </ul>
-<p>Then count the values in <code>balance</code>. <em>(304 films have more female dialogue, 1,695 more male, and just 1 is equal. Which one is it?)</em></p></li>
-<li><p><strong>Star Wars.</strong> Filter <code>films</code> to keep only the Star Wars films, and arrange them by <code>prop_female</code>. Which Star Wars film has the highest share of female dialogue, and which the lowest? How do they compare with the 28% for all films that you calculated in exercise 4? <em>(7 films. The highest is The Force Awakens, at about 28%.)</em></p>
+<p>Then count the values in <code>balance</code>. <em>(304 more female, 1,695 more male, 1 equal)</em></p>
+<p><strong>Code:</strong> filter <code>films</code> to find the one film where the dialogue is equal.</p>
+<p><strong>Write:</strong> which film is it?</p>
+</section>
+<section id="exercise-7-star-wars" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7-star-wars">Exercise 7: Star Wars</h3>
+<p><strong>Code:</strong> filter <code>films</code> to keep only the Star Wars films, and arrange them by <code>prop_female</code>. <em>(7 films)</em></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,18 +639,31 @@ Tip
 <div class="callout-body-container callout-body">
 <p>All the Star Wars titles start with ‘Star Wars’. You can find them with <code>str_detect()</code>, from the optional chapter on text patterns: <code>filter(str_detect(title, 'Star Wars'))</code>.</p>
 </div>
-</div></li>
-<li><p><strong>Change over time.</strong> Has the share of female dialogue changed? Use <code>mutate()</code> to make a <code>decade</code> column with <code>floor(year / 10) * 10</code> (this rounds 1977 down to 1970). Then group by decade, and for each decade calculate the number of films and the share of female dialogue: the total female words divided by the total of all the female and male words. What do you notice? Are there decades where you should be careful about drawing conclusions? <em>(It goes from about 21% in the 1970s to 31% in the 2010s. The 1920s have just one film.)</em></p></li>
-<li><p><strong>Genre (more of a challenge).</strong> Which genres have the most female dialogue?</p>
-<ul>
-<li>Join <code>genres</code> to <code>films</code>. The key columns have different names, so use <code>by = c('imdb_id' = 'tconst')</code>, as in the joins chapter.</li>
-<li>Look at the <code>genres</code> column. Most films have more than one genre, separated by commas, such as “Comedy,Romance,Thriller”. To count each genre separately, add this line to split them up: <code>separate_longer_delim(genres, ',')</code>. Run it and look at what it does to the number of rows. Why does it change?</li>
-<li>Now group by genre, and calculate the number of films and the share of female dialogue, as in exercise 8. Which genre has the highest share, and which the lowest? <em>(Romance is highest, at about 40%; War is lowest, at about 13%.)</em> Why might a genre with very few films give a misleading answer?</li>
-</ul></li>
-<li><p><strong>Extra challenge.</strong> Can you make the same one-row-per-film dataframe as in exercise 5 a different way, without the <code>if_else()</code> trick? Group by film <em>and</em> gender, and <code>summarise()</code> the words. Then use <code>pivot_wider()</code> (from the tidying data chapter) to turn the genders into columns. Hint: films with no women in them will get an <code>NA</code>. Look up the <code>values_fill</code> argument of <code>pivot_wider()</code> to fill these with 0 instead. And what should you do about the <code>?</code> gender first?</p></li>
-</ol>
+</div>
+<p><strong>Write:</strong> which Star Wars film has the highest share of female dialogue, and which the lowest? How do they compare with the share for all films that you found in exercise 4? <em>(The highest is The Force Awakens, at about 28%)</em></p>
+</section>
+<section id="exercise-8-change-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-8-change-over-time">Exercise 8: change over time</h3>
+<p><strong>Code:</strong> use <code>mutate()</code> to make a <code>decade</code> column with <code>floor(year / 10) * 10</code> (this rounds 1977 down to 1970). Then group by decade, and for each decade calculate the number of films, and the share of female dialogue: the total female words divided by the total of all the female and male words. <em>(About 21% in the 1970s, 31% in the 2010s)</em></p>
+<p><strong>Write:</strong> has the share of female dialogue changed over time? Are there decades where you should be careful about drawing conclusions, and why?</p>
+</section>
+<section id="exercise-9-genre-more-of-a-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-9-genre-more-of-a-challenge">Exercise 9: genre (more of a challenge)</h3>
+<p>Which genres have the most female dialogue?</p>
+<p><strong>Code:</strong> join <code>genres</code> to <code>films</code>. The key columns have different names, so use <code>by = c('imdb_id' = 'tconst')</code>, as in the joins chapter. Save the result.</p>
+<p>Look at the <code>genres</code> column. Most films have more than one genre, separated by commas, such as “Comedy,Romance,Thriller”. To count each genre separately, they need to be split up.</p>
+<p><strong>Code:</strong> add <code>separate_longer_delim(genres, ',')</code> to split them up, and show the number of rows before and after. <em>(2,000 before, 5,192 after)</em></p>
+<p><strong>Write:</strong> why does the number of rows go up?</p>
+<p><strong>Code:</strong> now group by genre, and calculate the number of films and the share of female dialogue, as in exercise 8. Arrange the result from highest to lowest share. <em>(The highest is Romance, at about 40%)</em></p>
+<p><strong>Write:</strong> which genre has the highest share of female dialogue, and which the lowest? Why might a genre with very few films give a misleading answer?</p>
+</section>
+<section id="exercise-10-extra-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-10-extra-challenge">Exercise 10: extra challenge</h3>
+<p><strong>Code:</strong> make the same one-row-per-film dataframe as in exercise 5 a different way, without the <code>if_else()</code> trick. Group by film <em>and</em> gender, and <code>summarise()</code> the words. Then use <code>pivot_wider()</code> (from the tidying data chapter) to turn the genders into columns. <em>(2,000 rows)</em></p>
+<p>Hints: films with no women in them will get an <code>NA</code>. Look up the <code>values_fill</code> argument of <code>pivot_wider()</code> to fill these with 0 instead. And what should you do about the <code>?</code> gender first?</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
