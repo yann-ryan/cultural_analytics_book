@@ -100,9 +100,11 @@ titanic_df |>
   filter(sex == 'female')
 ```
 
-. . .
+::: notes
+Two equals signs to compare. The text value is in quotes. Comparisons: == != < > <= >=, the same ones as week 1.
+:::
 
-The same with a number:
+## The same with a number
 
 ```{webr-r}
 titanic_df |>
@@ -110,7 +112,7 @@ titanic_df |>
 ```
 
 ::: notes
-Two equals signs to compare. The text value is in quotes; the number isn't. Comparisons: == != < > <= >=, the same ones as week 1.
+The number isn't in quotes.
 :::
 
 ## `filter()` on one column {.try-it}
@@ -122,7 +124,11 @@ titanic_df |>
   filter(___)
 ```
 
-. . .
+::: notes
+filter(embarked == 'Q'): 123 rows. Q needs quotes. Run the starter as it is first if you like: object '___' not found is the error they'll see for a name R doesn't know.
+:::
+
+## `filter()` on one column {.try-it}
 
 Keep only the rows where `fare` is greater than 5
 
@@ -132,11 +138,10 @@ titanic_df |>
 ```
 
 ::: notes
-1. filter(embarked == 'Q'): 123 rows. Q needs quotes.
-2. filter(fare > 5): 1,288 rows. Run the starter as it is first if you like: object '___' not found is the error they'll see for a name R doesn't know.
+filter(fare > 5): 1,288 rows.
 :::
 
-## Combining conditions
+## Combining conditions: and
 
 `&` means **and**: both must be true
 
@@ -145,7 +150,11 @@ titanic_df |>
   filter(age > 50 & sex == 'female')
 ```
 
-. . .
+::: notes
+32 women over 50. A comma inside filter() means the same as &.
+:::
+
+## Combining conditions: or
 
 `|` means **or**: either can be true
 
@@ -155,7 +164,7 @@ titanic_df |>
 ```
 
 ::: notes
-32 women over 50; 354 rows for the or. A comma inside filter() means the same as &.
+354 rows.
 :::
 
 ## Two conditions at once {.try-it}
@@ -182,9 +191,15 @@ titanic_df |>
   filter(embarked %in% c('C', 'Q'))
 ```
 
-. . .
+A range of numbers works too: `age %in% 20:30`
 
-A range of numbers: `20:30`. And `!` flips a condition:
+::: notes
+393 rows for C or Q. Try filter(age %in% 20:30).
+:::
+
+## Not: `!`
+
+`!` flips a condition:
 
 ```{webr-r}
 titanic_df |>
@@ -196,7 +211,7 @@ Optional: filter on text patterns with `str_detect()` in chapter 15. Not needed 
 :::
 
 ::: notes
-393 rows for C or Q. The ! version gives 916: all of Southampton plus the 2 passengers with no port, because NA isn't in the list. Try filter(age %in% 20:30).
+916 rows: all of Southampton plus the 2 passengers with no port, because NA isn't in the list.
 :::
 
 ## Spot the mistake
@@ -236,14 +251,18 @@ Before you trust a filter, check the number of rows it returns. Does it make sen
 
 Which returns more rows, and why?
 
-```{webr-r}
-titanic_df |> filter(pclass == 1, sex == 'female')
+a)  `filter(pclass == 1, sex == 'female')`
+b)  `filter(pclass == 1 | sex == 'female')`
 
-titanic_df |> filter(pclass == 1 | sex == 'female')
+Predict, then run each one here:
+
+```{webr-r}
+titanic_df |>
+  filter(pclass == 1, sex == 'female')
 ```
 
 ::: notes
-The second: 645 rows against 144. A comma means and, so the first keeps only first-class women; | keeps everyone in first class plus all women. These are in the style of the exam.
+The second: 645 rows against 144. A comma means and, so the first keeps only first-class women; | keeps everyone in first class plus all women. These are in the style of the exam. Students can edit the cell to run b.
 :::
 
 ## Predict first, then run it {.try-it}
@@ -277,7 +296,11 @@ titanic_df |>
   select(name, fare, price_today)
 ```
 
-. . .
+::: notes
+The new column goes at the end; select() just brings it into view.
+:::
+
+## Functions inside `mutate()`
 
 Functions work inside `mutate()` too:
 
@@ -288,7 +311,7 @@ titanic_df |>
 ```
 
 ::: notes
-The new column goes at the end; select() just brings it into view. Nothing is saved unless you use <-.
+Nothing is saved unless you use <-.
 :::
 
 ## New columns with `mutate()` {.try-it}
@@ -300,7 +323,11 @@ titanic_df |>
   mutate(corrected_age = ___)
 ```
 
-. . .
+::: notes
+mutate(corrected_age = age + 5). Add |> select(name, age, corrected_age) to see it.
+:::
+
+## New columns with `mutate()` {.try-it}
 
 Work out roughly the year each passenger was born. The Titanic sank in 1912
 
@@ -310,8 +337,7 @@ titanic_df |>
 ```
 
 ::: notes
-1. mutate(corrected_age = age + 5). Add |> select(name, age, corrected_age) to see it.
-2. mutate(birth_year = 1912 - age), or round(1912 - age). Elisabeth Allen, 29, born about 1883.
+mutate(birth_year = 1912 - age), or round(1912 - age). Elisabeth Allen, 29, born about 1883.
 :::
 
 ## The most expensive ticket {.try-it}
@@ -416,7 +442,11 @@ titanic_df |>
   summarise(average_age = ___)
 ```
 
-. . .
+::: notes
+summarise(average_age = mean(age, na.rm = TRUE)): 29.9. Without na.rm: NA, as 263 ages are missing.
+:::
+
+## `summarise()` the whole list {.try-it}
 
 What is the highest fare anyone paid? Use `max()`
 
@@ -426,11 +456,10 @@ titanic_df |>
 ```
 
 ::: notes
-1. summarise(average_age = mean(age, na.rm = TRUE)): 29.9. Without na.rm: NA, as 263 ages are missing.
-2. summarise(max_fare = max(fare, na.rm = TRUE)): 512.33, the shared ticket from earlier.
+summarise(max_fare = max(fare, na.rm = TRUE)): 512.33, the shared ticket from earlier.
 :::
 
-## One summary per group
+## `group_by()` on its own
 
 On its own, `group_by()` changes nothing you can see:
 
@@ -439,9 +468,13 @@ titanic_df |>
   group_by(sex)
 ```
 
-. . .
+::: notes
+Point out Groups: sex [2] in the printout.
+:::
 
-It changes what the next verb does:
+## One summary per group
+
+`group_by()` changes what the next verb does:
 
 ```{webr-r}
 titanic_df |>
@@ -454,7 +487,7 @@ titanic_df |>
 :::
 
 ::: notes
-Point out Groups: sex [2] in the printout. Split, summarise each group, combine: female 466, male 843.
+Split, summarise each group, combine: female 466, male 843.
 :::
 
 ## Group, then summarise {.try-it}
@@ -485,7 +518,11 @@ titanic_df |>
   slice_max(order_by = age, n = 5)
 ```
 
-. . .
+::: notes
+15 rows: 5 per class.
+:::
+
+## Groups change other verbs too
 
 A group total on every row:
 
@@ -500,7 +537,7 @@ titanic_df |>
 :::
 
 ::: notes
-15 rows: 5 per class. With mutate, all 1,309 rows are kept, with a new column.
+With mutate, all 1,309 rows are kept, with a new column: everyone in first class gets 323.
 :::
 
 ## Counting by group {.try-it}
@@ -513,7 +550,11 @@ titanic_df |>
   ___
 ```
 
-. . .
+::: notes
+group_by(sex, pclass) |> summarise(total = n()): female 144 / 106 / 216, male 179 / 171 / 493.
+:::
+
+## Counting by group {.try-it}
 
 `embarked`: C = Cherbourg, Q = Queenstown, S = Southampton. How many passengers got on at each location? And what was the average fare at each?
 
@@ -524,14 +565,13 @@ titanic_df |>
 ```
 
 ::: notes
-1. group_by(sex, pclass) |> summarise(total = n()): female 144 / 106 / 216, male 179 / 171 / 493.
-2. group_by(embarked) |> summarise(total = n(), avg_fare = mean(fare, na.rm = TRUE)): C 270 (62.3), Q 123 (12.4), S 914 (27.4), and 2 NA (80). Why is Cherbourg so high? More first-class passengers boarded there.
+group_by(embarked) |> summarise(total = n(), avg_fare = mean(fare, na.rm = TRUE)): C 270 (62.3), Q 123 (12.4), S 914 (27.4), and 2 NA (80). Why is Cherbourg so high? More first-class passengers boarded there.
 Shortcut: count(embarked) is group_by(embarked) |> summarise(n = n()).
 :::
 
-## Groups with `mutate()` and `slice_min()` {.try-it}
+## Groups with `mutate()` {.try-it}
 
-Make a new column with the total number who boarded at the same place as each passenger
+Add a column, `total_embarked`, that gives the number of passengers who boarded at the **same port** as that passenger. Every row stays
 
 ```{webr-r}
 titanic_df |>
@@ -539,7 +579,15 @@ titanic_df |>
   mutate(total_embarked = ___)
 ```
 
-. . .
+::: small
+Hint: like `total_class` a few slides back, but grouped by port
+:::
+
+::: notes
+group_by(embarked) |> mutate(total_embarked = n()). Every row kept; everyone from Southampton gets 914, Cherbourg 270, Queenstown 123.
+:::
+
+## Groups with `slice_min()` {.try-it}
 
 Who are the five youngest male and five youngest female passengers who boarded at each location?
 
@@ -550,22 +598,29 @@ titanic_df |>
 ```
 
 ::: notes
-1. group_by(embarked) |> mutate(total_embarked = n()). Every row kept; everyone from Southampton gets 914.
-2. group_by(embarked, sex) |> slice_min(order_by = age, n = 5): 34 rows, not 30. slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.
+group_by(embarked, sex) |> slice_min(order_by = age, n = 5): 34 rows, not 30. slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.
 :::
 
-## Back to "women and children first"
+## Back to "women and children first" {.try-it}
 
-`survived` is 1 or 0, so its mean is the share who survived: the survival rate
+Calculate the survival rate for each combination of sex and class
 
 ```{webr-r}
 titanic_df |>
-  group_by(sex, pclass) |>
+  group_by(___) |>
   summarise(passengers = n(),
-            survival = mean(survived))
+            survival = ___)
 ```
 
-. . .
+::: small
+Hint: `survived` is 1 or 0, so its mean is the share who survived
+:::
+
+::: notes
+group_by(sex, pclass) |> summarise(passengers = n(), survival = mean(survived)). Read the survival column together before moving on to the next slide, which gives the answer.
+:::
+
+## Class mattered as well as sex
 
 | Survived | 1st class | 2nd class | 3rd class |
 |---|---|---|---|

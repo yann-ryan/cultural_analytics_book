@@ -133,7 +133,7 @@ Sometimes you'll want to do something in groups and then remove them afterwards 
 
 ```
 
-Create a new column, containing the total number which embarked from that person's location.
+Add a new column, called `total_embarked`, that gives the number of passengers who boarded at the **same port** as that passenger. Every row stays: everyone who boarded at Southampton gets the same number. (Hint: this works like the `total_class` example above, but grouped by port.)
 
 ```{webr-r}
 

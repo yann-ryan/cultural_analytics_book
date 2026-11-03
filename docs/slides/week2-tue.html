@@ -609,7 +609,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"options":{"output":"true","autorun":"true","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","context":"setup","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":1,"code":"library(dplyr)\nlibrary(readr)\noptions(width = 80, pillar.print_min = 5, pillar.print_max = 5)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df <- read_csv(\"titanic_df.csv\", show_col_types = FALSE)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":2,"code":"titanic_df |>\n  slice_max(order_by = age, n = 100) |>\n  arrange(-fare) |>\n  select(name, age, fare)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":3,"code":"titanic_df |>\n  filter(sex == 'female')"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":4,"code":"titanic_df |>\n  filter(age == 50)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":5,"code":"titanic_df |>\n  filter(___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":6,"code":"titanic_df |>\n  filter(___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":7,"code":"titanic_df |>\n  filter(age > 50 & sex == 'female')"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-8","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":8,"code":"titanic_df |>\n  filter(fare > 50 | pclass == 1)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-9","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":9,"code":"titanic_df |>\n  filter(___ & ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-10","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":10,"code":"titanic_df |>\n  filter(embarked %in% c('C', 'Q'))"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-11","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":11,"code":"titanic_df |>\n  filter(!embarked %in% c('C', 'Q'))"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-12","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":12,"code":"titanic_df |>\n  filter(sex = 'female')"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-13","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":13,"code":"titanic_df |>\n  filter(sex == female)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-14","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":14,"code":"titanic_df |>\n  filter(sex == 'Female')"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-15","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":15,"code":"titanic_df |> filter(pclass == 1, sex == 'female')\n\ntitanic_df |> filter(pclass == 1 | sex == 'female')"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-16","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":16,"code":"titanic_df |>\n  filter(___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-17","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":17,"code":"titanic_df |>\n  mutate(price_today = fare * 78.17) |>\n  select(name, fare, price_today)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-18","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":18,"code":"titanic_df |>\n  mutate(age_in_years = round(age)) |>\n  select(name, age, age_in_years)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-19","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":19,"code":"titanic_df |>\n  mutate(corrected_age = ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-20","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":20,"code":"titanic_df |>\n  mutate(birth_year = ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-21","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":21,"code":"titanic_df |>\n  ___ |>\n  ___ |>\n  ___"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-22","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":22,"code":"titanic_df |>\n  mutate(status = if_else(age < 18, 'child', 'adult')) |>\n  count(status)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-23","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":23,"code":"titanic_df |>\n  mutate(status = case_when(\n    age < 13 ~ 'child',\n    age < 20 ~ 'teenager',\n    age >= 20 ~ 'adult'\n  )) |>\n  count(status)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-24","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":24,"code":"titanic_df |>\n  summarise(passengers = n(),\n            total_fare = sum(fare, na.rm = TRUE),\n            mean_fare = mean(fare, na.rm = TRUE))"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-25","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":25,"code":"titanic_df |>\n  summarise(average_age = ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-26","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":26,"code":"titanic_df |>\n  summarise(max_fare = ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-27","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":27,"code":"titanic_df |>\n  group_by(sex)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-28","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":28,"code":"titanic_df |>\n  group_by(sex) |>\n  summarise(total = n())"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-29","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":29,"code":"titanic_df |>\n  group_by(___) |>\n  summarise(average_age = ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-30","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":30,"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-31","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":31,"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-32","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":32,"code":"titanic_df |>\n  ___ |>\n  ___"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-33","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":33,"code":"titanic_df |>\n  ___ |>\n  ___"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-34","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":34,"code":"titanic_df |>\n  ___ |>\n  mutate(total_embarked = ___)"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-35","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":35,"code":"titanic_df |>\n  group_by(___, ___) |>\n  ___"},{"options":{"output":"true","autorun":"false","warning":"true","editor-max-height":"","out-height":"","editor-quick-suggestions":"false","fig-height":5,"fig-width":7,"label":"unnamed-chunk-36","message":"true","context":"interactive","classes":"","editor-font-scale":"0.8","comment":"","read-only":"false","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","editor-word-wrap":"true"},"id":36,"code":"titanic_df |>\n  group_by(sex, pclass) |>\n  summarise(passengers = n(),\n            survival = mean(survived))"}];
+  globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\noptions(width = 80, pillar.print_min = 5, pillar.print_max = 5)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df <- read_csv(\"titanic_df.csv\", show_col_types = FALSE)","options":{"message":"true","output":"true","context":"setup","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-1","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"true","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":1},{"code":"titanic_df |>\n  slice_max(order_by = age, n = 100) |>\n  arrange(-fare) |>\n  select(name, age, fare)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-2","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":2},{"code":"titanic_df |>\n  filter(sex == 'female')","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-3","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":3},{"code":"titanic_df |>\n  filter(age == 50)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-4","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":4},{"code":"titanic_df |>\n  filter(___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-5","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":5},{"code":"titanic_df |>\n  filter(___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-6","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":6},{"code":"titanic_df |>\n  filter(age > 50 & sex == 'female')","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-7","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":7},{"code":"titanic_df |>\n  filter(fare > 50 | pclass == 1)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-8","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":8},{"code":"titanic_df |>\n  filter(___ & ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-9","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":9},{"code":"titanic_df |>\n  filter(embarked %in% c('C', 'Q'))","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-10","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":10},{"code":"titanic_df |>\n  filter(!embarked %in% c('C', 'Q'))","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-11","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":11},{"code":"titanic_df |>\n  filter(sex = 'female')","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-12","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":12},{"code":"titanic_df |>\n  filter(sex == female)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-13","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":13},{"code":"titanic_df |>\n  filter(sex == 'Female')","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-14","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":14},{"code":"titanic_df |>\n  filter(pclass == 1, sex == 'female')","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-15","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":15},{"code":"titanic_df |>\n  filter(___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-16","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":16},{"code":"titanic_df |>\n  mutate(price_today = fare * 78.17) |>\n  select(name, fare, price_today)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-17","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":17},{"code":"titanic_df |>\n  mutate(age_in_years = round(age)) |>\n  select(name, age, age_in_years)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-18","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":18},{"code":"titanic_df |>\n  mutate(corrected_age = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-19","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":19},{"code":"titanic_df |>\n  mutate(birth_year = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-20","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":20},{"code":"titanic_df |>\n  ___ |>\n  ___ |>\n  ___","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-21","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":21},{"code":"titanic_df |>\n  mutate(status = if_else(age < 18, 'child', 'adult')) |>\n  count(status)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-22","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":22},{"code":"titanic_df |>\n  mutate(status = case_when(\n    age < 13 ~ 'child',\n    age < 20 ~ 'teenager',\n    age >= 20 ~ 'adult'\n  )) |>\n  count(status)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-23","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":23},{"code":"titanic_df |>\n  summarise(passengers = n(),\n            total_fare = sum(fare, na.rm = TRUE),\n            mean_fare = mean(fare, na.rm = TRUE))","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-24","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":24},{"code":"titanic_df |>\n  summarise(average_age = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-25","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":25},{"code":"titanic_df |>\n  summarise(max_fare = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-26","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":26},{"code":"titanic_df |>\n  group_by(sex)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-27","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":27},{"code":"titanic_df |>\n  group_by(sex) |>\n  summarise(total = n())","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-28","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":28},{"code":"titanic_df |>\n  group_by(___) |>\n  summarise(average_age = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-29","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":29},{"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-30","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":30},{"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-31","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":31},{"code":"titanic_df |>\n  ___ |>\n  ___","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-32","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":32},{"code":"titanic_df |>\n  ___ |>\n  ___","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-33","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":33},{"code":"titanic_df |>\n  ___ |>\n  mutate(total_embarked = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-34","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":34},{"code":"titanic_df |>\n  group_by(___, ___) |>\n  ___","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-35","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":35},{"code":"titanic_df |>\n  group_by(___) |>\n  summarise(passengers = n(),\n            survival = ___)","options":{"message":"true","output":"true","context":"interactive","editor-font-scale":"0.8","warning":"true","out-width":"700px","classes":"","comment":"","dpi":72,"label":"unnamed-chunk-36","out-height":"","editor-quick-suggestions":"false","results":"markup","autorun":"false","read-only":"false","fig-width":7,"editor-word-wrap":"true","fig-cap":"","editor-max-height":"","fig-height":5},"id":36}];
 
   </script>
   <script type="module">
@@ -2194,12 +2194,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
-<p>The same with a number:</p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>Two equals signs to compare. The text value is in quotes; the number isn’t. Comparisons: == != &lt; &gt; &lt;= &gt;=, the same ones as week 1.</p>
+<p>Two equals signs to compare. The text value is in quotes. Comparisons: == != &lt; &gt; &lt;= &gt;=, the same ones as week 1.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2211,22 +2207,51 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
+</section>
+<section id="the-same-with-a-number" class="slide level2">
+<h2>The same with a number</h2>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
+<p>The number isn’t in quotes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="filter-on-one-column" class="slide level2 try-it">
 <h2><code>filter()</code> on one column</h2>
 <p>Keep only the passengers who boarded at Queenstown: the rows where <code>embarked</code> is equal to <code>Q</code></p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
+<aside class="notes">
+<p>filter(embarked == ‘Q’): 123 rows. Q needs quotes. Run the starter as it is first if you like: object ’___’ not found is the error they’ll see for a name R doesn’t know.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="filter-on-one-column-1" class="slide level2 try-it">
+<h2><code>filter()</code> on one column</h2>
 <p>Keep only the rows where <code>fare</code> is greater than 5</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<ol type="1">
-<li>filter(embarked == ‘Q’): 123 rows. Q needs quotes.</li>
-<li>filter(fare &gt; 5): 1,288 rows. Run the starter as it is first if you like: object ’___’ not found is the error they’ll see for a name R doesn’t know.</li>
-</ol>
+<p>filter(fare &gt; 5): 1,288 rows.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2238,19 +2263,33 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
-<section id="combining-conditions" class="slide level2">
-<h2>Combining conditions</h2>
+<section id="combining-conditions-and" class="slide level2">
+<h2>Combining conditions: and</h2>
 <p><code>&amp;</code> means <strong>and</strong>: both must be true</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
+<aside class="notes">
+<p>32 women over 50. A comma inside filter() means the same as &amp;.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="combining-conditions-or" class="slide level2">
+<h2>Combining conditions: or</h2>
 <p><code>|</code> means <strong>or</strong>: either can be true</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>32 women over 50; 354 rows for the or. A comma inside filter() means the same as &amp;.</p>
+<p>354 rows.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2262,7 +2301,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="two-conditions-at-once" class="slide level2 try-it">
 <h2>Two conditions at once</h2>
@@ -2290,15 +2328,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <h2>A list of values: <code>%in%</code></h2>
 <div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
-<p>A range of numbers: <code>20:30</code>. And <code>!</code> flips a condition:</p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="small">
-<p>Optional: filter on text patterns with <code>str_detect()</code> in chapter 15. Not needed for the rest of the course.</p>
-</div>
+<p>A range of numbers works too: <code>age %in% 20:30</code></p>
 <aside class="notes">
-<p>393 rows for C or Q. The ! version gives 916: all of Southampton plus the 2 passengers with no port, because NA isn’t in the list. Try filter(age %in% 20:30).</p>
+<p>393 rows for C or Q. Try filter(age %in% 20:30).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2310,7 +2342,28 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="not" class="slide level2">
+<h2>Not: <code>!</code></h2>
+<p><code>!</code> flips a condition:</p>
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="small">
+<p>Optional: filter on text patterns with <code>str_detect()</code> in chapter 15. Not needed for the rest of the course.</p>
 </div>
+<aside class="notes">
+<p>916 rows: all of Southampton plus the 2 passengers with no port, because NA isn’t in the list.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="spot-the-mistake" class="slide level2">
 <h2>Spot the mistake</h2>
@@ -2349,10 +2402,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="predict-first-then-run-it" class="slide level2 try-it">
 <h2>Predict first, then run it</h2>
 <p>Which returns more rows, and why?</p>
+<ol type="a">
+<li><code>filter(pclass == 1, sex == 'female')</code></li>
+<li><code>filter(pclass == 1 | sex == 'female')</code></li>
+</ol>
+<p>Predict, then run each one here:</p>
 <div id="qwebr-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>The second: 645 rows against 144. A comma means and, so the first keeps only first-class women; | keeps everyone in first class plus all women. These are in the style of the exam.</p>
+<p>The second: 645 rows against 144. A comma means and, so the first keeps only first-class women; | keeps everyone in first class plus all women. These are in the style of the exam. Students can edit the cell to run b.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2399,12 +2457,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>£1 in 1910 is worth about £78.17 today (National Archives currency converter). A new column is added at the end. All the rows stay.</p>
 <div id="qwebr-insertion-location-17"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
-<p>Functions work inside <code>mutate()</code> too:</p>
-<div id="qwebr-insertion-location-18"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>The new column goes at the end; select() just brings it into view. Nothing is saved unless you use &lt;-.</p>
+<p>The new column goes at the end; select() just brings it into view.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2416,22 +2470,33 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
+</section>
+<section id="functions-inside-mutate" class="slide level2">
+<h2>Functions inside <code>mutate()</code></h2>
+<p>Functions work inside <code>mutate()</code> too:</p>
+<div id="qwebr-insertion-location-18"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
+<p>Nothing is saved unless you use &lt;-.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="new-columns-with-mutate" class="slide level2 try-it">
 <h2>New columns with <code>mutate()</code></h2>
 <p>The ages were recorded five years too low. Make a new column, <code>corrected_age</code>, with the right value</p>
 <div id="qwebr-insertion-location-19"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
-<p>Work out roughly the year each passenger was born. The Titanic sank in 1912</p>
-<div id="qwebr-insertion-location-20"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<ol type="1">
-<li>mutate(corrected_age = age + 5). Add |&gt; select(name, age, corrected_age) to see it.</li>
-<li>mutate(birth_year = 1912 - age), or round(1912 - age). Elisabeth Allen, 29, born about 1883.</li>
-</ol>
+<p>mutate(corrected_age = age + 5). Add |&gt; select(name, age, corrected_age) to see it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2443,7 +2508,25 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
+</section>
+<section id="new-columns-with-mutate-1" class="slide level2 try-it">
+<h2>New columns with <code>mutate()</code></h2>
+<p>Work out roughly the year each passenger was born. The Titanic sank in 1912</p>
+<div id="qwebr-insertion-location-20"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
+<p>mutate(birth_year = 1912 - age), or round(1912 - age). Elisabeth Allen, 29, born about 1883.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-most-expensive-ticket" class="slide level2 try-it">
 <h2>The most expensive ticket</h2>
@@ -2578,15 +2661,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>What is the average age of all the passengers? Use <code>mean()</code></p>
 <div id="qwebr-insertion-location-25"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
-<p>What is the highest fare anyone paid? Use <code>max()</code></p>
-<div id="qwebr-insertion-location-26"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<ol type="1">
-<li>summarise(average_age = mean(age, na.rm = TRUE)): 29.9. Without na.rm: NA, as 263 ages are missing.</li>
-<li>summarise(max_fare = max(fare, na.rm = TRUE)): 512.33, the shared ticket from earlier.</li>
-</ol>
+<p>summarise(average_age = mean(age, na.rm = TRUE)): 29.9. Without na.rm: NA, as 263 ages are missing.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2598,22 +2674,55 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
-<section id="one-summary-per-group" class="slide level2">
-<h2>One summary per group</h2>
+<section id="summarise-the-whole-list-1" class="slide level2 try-it">
+<h2><code>summarise()</code> the whole list</h2>
+<p>What is the highest fare anyone paid? Use <code>max()</code></p>
+<div id="qwebr-insertion-location-26"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
+<p>summarise(max_fare = max(fare, na.rm = TRUE)): 512.33, the shared ticket from earlier.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="group_by-on-its-own" class="slide level2">
+<h2><code>group_by()</code> on its own</h2>
 <p>On its own, <code>group_by()</code> changes nothing you can see:</p>
 <div id="qwebr-insertion-location-27"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
-<p>It changes what the next verb does:</p>
+<aside class="notes">
+<p>Point out Groups: sex [2] in the printout.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-summary-per-group" class="slide level2">
+<h2>One summary per group</h2>
+<p><code>group_by()</code> changes what the next verb does:</p>
 <div id="qwebr-insertion-location-28"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="small">
 <p><strong>Split</strong> into groups → <strong>summarise</strong> each → <strong>combine</strong> the results. Group by two columns, <code>group_by(sex, pclass)</code>, and you get one row for every combination: six groups.</p>
 </div>
 <aside class="notes">
-<p>Point out Groups: sex [2] in the printout. Split, summarise each group, combine: female 466, male 843.</p>
+<p>Split, summarise each group, combine: female 466, male 843.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2625,7 +2734,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="group-then-summarise" class="slide level2 try-it">
 <h2>Group, then summarise</h2>
@@ -2654,7 +2762,22 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>The five oldest in <strong>each</strong> class:</p>
 <div id="qwebr-insertion-location-30"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
+<aside class="notes">
+<p>15 rows: 5 per class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="groups-change-other-verbs-too-1" class="slide level2">
+<h2>Groups change other verbs too</h2>
 <p>A group total on every row:</p>
 <div id="qwebr-insertion-location-31"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -2662,7 +2785,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p><code>ungroup()</code> removes the groups again. Unexpected results after a <code>group_by()</code>? A leftover group is often why.</p>
 </div>
 <aside class="notes">
-<p>15 rows: 5 per class. With mutate, all 1,309 rows are kept, with a new column.</p>
+<p>With mutate, all 1,309 rows are kept, with a new column: everyone in first class gets 323.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2674,22 +2797,33 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="counting-by-group" class="slide level2 try-it">
 <h2>Counting by group</h2>
 <p>Count the passengers by both <code>sex</code> and <code>pclass</code></p>
 <div id="qwebr-insertion-location-32"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
+<aside class="notes">
+<p>group_by(sex, pclass) |&gt; summarise(total = n()): female 144 / 106 / 216, male 179 / 171 / 493.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="counting-by-group-1" class="slide level2 try-it">
+<h2>Counting by group</h2>
 <p><code>embarked</code>: C = Cherbourg, Q = Queenstown, S = Southampton. How many passengers got on at each location? And what was the average fare at each?</p>
 <div id="qwebr-insertion-location-33"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<ol type="1">
-<li>group_by(sex, pclass) |&gt; summarise(total = n()): female 144 / 106 / 216, male 179 / 171 / 493.</li>
-<li>group_by(embarked) |&gt; summarise(total = n(), avg_fare = mean(fare, na.rm = TRUE)): C 270 (62.3), Q 123 (12.4), S 914 (27.4), and 2 NA (80). Why is Cherbourg so high? More first-class passengers boarded there. Shortcut: count(embarked) is group_by(embarked) |&gt; summarise(n = n()).</li>
-</ol>
+<p>group_by(embarked) |&gt; summarise(total = n(), avg_fare = mean(fare, na.rm = TRUE)): C 270 (62.3), Q 123 (12.4), S 914 (27.4), and 2 NA (80). Why is Cherbourg so high? More first-class passengers boarded there. Shortcut: count(embarked) is group_by(embarked) |&gt; summarise(n = n()).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2701,22 +2835,36 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
-<section id="groups-with-mutate-and-slice_min" class="slide level2 try-it">
-<h2>Groups with <code>mutate()</code> and <code>slice_min()</code></h2>
-<p>Make a new column with the total number who boarded at the same place as each passenger</p>
+<section id="groups-with-mutate" class="slide level2 try-it">
+<h2>Groups with <code>mutate()</code></h2>
+<p>Add a column, <code>total_embarked</code>, that gives the number of passengers who boarded at the <strong>same port</strong> as that passenger. Every row stays</p>
 <div id="qwebr-insertion-location-34"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
+<div class="small">
+<p>Hint: like <code>total_class</code> a few slides back, but grouped by port</p>
+</div>
+<aside class="notes">
+<p>group_by(embarked) |&gt; mutate(total_embarked = n()). Every row kept; everyone from Southampton gets 914, Cherbourg 270, Queenstown 123.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="groups-with-slice_min" class="slide level2 try-it">
+<h2>Groups with <code>slice_min()</code></h2>
 <p>Who are the five youngest male and five youngest female passengers who boarded at each location?</p>
 <div id="qwebr-insertion-location-35"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<ol type="1">
-<li>group_by(embarked) |&gt; mutate(total_embarked = n()). Every row kept; everyone from Southampton gets 914.</li>
-<li>group_by(embarked, sex) |&gt; slice_min(order_by = age, n = 5): 34 rows, not 30. slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.</li>
-</ol>
+<p>group_by(embarked, sex) |&gt; slice_min(order_by = age, n = 5): 34 rows, not 30. slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2728,14 +2876,31 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
-<section id="back-to-women-and-children-first" class="slide level2">
+<section id="back-to-women-and-children-first" class="slide level2 try-it">
 <h2>Back to “women and children first”</h2>
-<p><code>survived</code> is 1 or 0, so its mean is the share who survived: the survival rate</p>
+<p>Calculate the survival rate for each combination of sex and class</p>
 <div id="qwebr-insertion-location-36"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="fragment">
+<div class="small">
+<p>Hint: <code>survived</code> is 1 or 0, so its mean is the share who survived</p>
+</div>
+<aside class="notes">
+<p>group_by(sex, pclass) |&gt; summarise(passengers = n(), survival = mean(survived)). Read the survival column together before moving on to the next slide, which gives the answer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="class-mattered-as-well-as-sex" class="slide level2">
+<h2>Class mattered as well as sex</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -2776,7 +2941,6 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</div>
 </section>
 <section id="your-turn" class="slide level2 your-turn">
 <h2>Your turn</h2>
