@@ -151,6 +151,27 @@ count(embarked) is the same as using group_by(embarked) \|\> summarise(n = n()).
 count(embarked, wt = fare) is the same as using group_by(embarked) \|\> summarise(n = sum(fare, na.rm = TRUE))
 :::
 
+## Putting it together: "women and children first"?
+
+The story goes that as the Titanic sank, the rule was "women and children first". Overall, 38% of the 1,309 passengers survived: 73% of the women, but only 19% of the men. But did class matter as well as sex? With `group_by()` and `summarise()` we can check this ourselves, from the raw passenger list.
+
+The `survived` column is 1 if the passenger survived and 0 if they didn't. That means the **mean** of `survived` is the share who survived: the mean of 1, 1, 0 and 0 is 0.5, or 50%. So we can calculate a survival rate for each group with `mean(survived)`:
+
+```{webr-r}
+titanic_df |>
+  group_by(sex, pclass) |>
+  summarise(passengers = n(),
+            survival = mean(survived))
+```
+
+Read down the `survival` column. 97% of women in first class survived, but only 49% of women in third class. For men, it was 34% in first class and 15% in second and third. A woman in third class had about the same chance as a man in first: class mattered as well as sex.
+
+What about the children? Try adding them yourself: make a new `status` column with `mutate()` and `if_else()` (child or adult), and then group by `status` instead of (or as well as) `sex`.
+
+```{webr-r}
+
+```
+
 ## Learning Objectives
 
 Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
@@ -162,3 +183,4 @@ Before moving on, take a look and see if you are confident with all of the follo
 -   [ ] Use `group_by()` together with a `slice_` function and with `mutate()`, not just `summarise()`
 -   [ ] Know when and why to `ungroup()` a dataframe
 -   [ ] Use `count()` as a shortcut for `group_by()` + `summarise(n = n())`
+-   [ ] Calculate a share, such as a survival rate, with `mean()` on a column of 1s and 0s

@@ -1,0 +1,607 @@
+---
+title: "Data Analysis 2"
+subtitle: "Week 2 · Tue 3 Nov"
+webr:
+  packages: ['dplyr', 'readr']
+  cell-options:
+    editor-font-scale: 0.8
+---
+
+
+## Today
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(readr)
+options(width = 80, pillar.print_min = 5, pillar.print_max = 5)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv"
+download.file(url, "titanic_df.csv")
+
+titanic_df <- read_csv("titanic_df.csv", show_col_types = FALSE)
+```
+
+1.  Keeping rows by condition: `filter()`
+2.  New columns: `mutate()`
+3.  Many rows into one: `summarise()`
+4.  One summary per group: `group_by()`
+5.  Your turn: practise in the book
+
+After each demo there's a **Try it yourself**: the same exercises as in the book.
+
+::: notes
+Open the deck a minute before class: the setup downloads the Titanic data and loads dplyr. Laptops out, course book open at Data Analysis 2. The answers to each Try it yourself are in these notes.
+:::
+
+## Where we left off on Thursday
+
+Three verbs, chained with the pipe:
+
+```{webr-r}
+titanic_df |>
+  slice_max(order_by = age, n = 100) |>
+  arrange(-fare) |>
+  select(name, age, fare)
+```
+
+`select()` columns · `slice()` rows by position · `arrange()` sort · `|>` "and then"
+
+::: predict
+**Due today:** Home exercise 2, the first checkpoint. Upload the .Rmd and knitted .html as a .zip on Brightspace. A genuine attempt at every exercise is a pass.
+:::
+
+::: notes
+Quick show of hands: who has submitted? Any problems knitting? Common fix: don't print whole dataframes; slice(1:10).
+:::
+
+## "Women and children first"?
+
+By the end of today, you'll be able to check numbers like these yourself, from the raw passenger list.
+
+::: columns
+::: {.column width="33%"}
+### 38%
+of all 1,309 passengers survived
+:::
+
+::: {.column width="33%"}
+### 73%
+of women survived
+:::
+
+::: {.column width="33%"}
+### 19%
+of men survived
+:::
+:::
+
+And children? And did class matter more than sex? Every one of these numbers is a filter, a new column, a summary or a group. We'll come back to them at the end.
+
+::: notes
+Ask the room to guess the numbers before revealing, if you like. The story of 'women and children first' is a cultural claim we can test with data.
+:::
+
+# `filter()`: rows by condition {.section-break}
+
+`slice()` picks rows by position. `filter()` picks them by what's in them.
+
+## Keep the rows where a condition is true
+
+Only the rows that pass the test are kept. All the columns stay.
+
+::: small
+`==` equals · `!=` does not equal · `<` `>` less, greater than · `<=` `>=` or equal to
+:::
+
+```{webr-r}
+titanic_df |>
+  filter(sex == 'female')
+```
+
+. . .
+
+The same with a number:
+
+```{webr-r}
+titanic_df |>
+  filter(age == 50)
+```
+
+::: notes
+Two equals signs to compare. The text value is in quotes; the number isn't. Comparisons: == != < > <= >=, the same ones as week 1.
+:::
+
+## `filter()` on one column {.try-it}
+
+Keep only the passengers who boarded at Queenstown: the rows where `embarked` is equal to `Q`
+
+```{webr-r}
+titanic_df |>
+  filter(___)
+```
+
+. . .
+
+Keep only the rows where `fare` is greater than 5
+
+```{webr-r}
+titanic_df |>
+  filter(___)
+```
+
+::: notes
+1. filter(embarked == 'Q'): 123 rows. Q needs quotes.
+2. filter(fare > 5): 1,288 rows. Run the starter as it is first if you like: object '___' not found is the error they'll see for a name R doesn't know.
+:::
+
+## Combining conditions
+
+`&` means **and**: both must be true
+
+```{webr-r}
+titanic_df |>
+  filter(age > 50 & sex == 'female')
+```
+
+. . .
+
+`|` means **or**: either can be true
+
+```{webr-r}
+titanic_df |>
+  filter(fare > 50 | pclass == 1)
+```
+
+::: notes
+32 women over 50; 354 rows for the or. A comma inside filter() means the same as &.
+:::
+
+## Two conditions at once {.try-it}
+
+Keep only the passengers from first class who are also over 70
+
+```{webr-r}
+titanic_df |>
+  filter(___ & ___)
+```
+
+::: small
+Hint: `pclass` is a number, so no quotes. Write each condition in full: `age > 70`
+:::
+
+::: notes
+filter(pclass == 1 & age > 70): 4 passengers. Artagaveytia (71), Barkworth (80), Cavendish (76), Goldschmidt (71).
+:::
+
+## A list of values: `%in%`
+
+```{webr-r}
+titanic_df |>
+  filter(embarked %in% c('C', 'Q'))
+```
+
+. . .
+
+A range of numbers: `20:30`. And `!` flips a condition:
+
+```{webr-r}
+titanic_df |>
+  filter(!embarked %in% c('C', 'Q'))
+```
+
+::: small
+Optional: filter on text patterns with `str_detect()` in chapter 15. Not needed for the rest of the course.
+:::
+
+::: notes
+393 rows for C or Q. The ! version gives 916: all of Southampton plus the 2 passengers with no port, because NA isn't in the list. Try filter(age %in% 20:30).
+:::
+
+## Spot the mistake
+
+::: predict
+**Predict** what happens with each, then run it.
+:::
+
+```{webr-r}
+titanic_df |>
+  filter(sex = 'female')
+```
+
+```{webr-r}
+titanic_df |>
+  filter(sex == female)
+```
+
+```{webr-r}
+titanic_df |>
+  filter(sex == 'Female')
+```
+
+. . .
+
+::: small
+Before you trust a filter, check the number of rows it returns. Does it make sense? Not sure how a value is spelled? Look with `count()` or `distinct()`.
+:::
+
+::: notes
+1. One = sets an argument: an error that suggests ==.
+2. No quotes: object 'female' not found.
+3. No error, but 0 rows: R is case-sensitive. The quietest mistake is the worst one. Always check how many rows you got back.
+:::
+
+## Predict first, then run it {.try-it}
+
+Which returns more rows, and why?
+
+```{webr-r}
+titanic_df |> filter(pclass == 1, sex == 'female')
+
+titanic_df |> filter(pclass == 1 | sex == 'female')
+```
+
+::: notes
+The second: 645 rows against 144. A comma means and, so the first keeps only first-class women; | keeps everyone in first class plus all women. These are in the style of the exam.
+:::
+
+## Predict first, then run it {.try-it}
+
+Passengers younger than 10 **or** older than 60. Which is correct?
+
+a)  `filter(age < 10, age > 60)`
+b)  `filter(age < 10 | age > 60)`
+c)  `filter(age %in% c(10, 60))`
+
+```{webr-r}
+titanic_df |>
+  filter(___)
+```
+
+::: notes
+b, 115 rows. a asks for under 10 and over 60 at once: 0 rows, no error. c keeps only those aged exactly 10 or 60: 11 rows.
+:::
+
+# `mutate()`: new columns {.section-break}
+
+Calculate something new from the columns you already have
+
+## What would a Titanic ticket cost today?
+
+£1 in 1910 is worth about £78.17 today (National Archives currency converter). A new column is added at the end. All the rows stay.
+
+```{webr-r}
+titanic_df |>
+  mutate(price_today = fare * 78.17) |>
+  select(name, fare, price_today)
+```
+
+. . .
+
+Functions work inside `mutate()` too:
+
+```{webr-r}
+titanic_df |>
+  mutate(age_in_years = round(age)) |>
+  select(name, age, age_in_years)
+```
+
+::: notes
+The new column goes at the end; select() just brings it into view. Nothing is saved unless you use <-.
+:::
+
+## New columns with `mutate()` {.try-it}
+
+The ages were recorded five years too low. Make a new column, `corrected_age`, with the right value
+
+```{webr-r}
+titanic_df |>
+  mutate(corrected_age = ___)
+```
+
+. . .
+
+Work out roughly the year each passenger was born. The Titanic sank in 1912
+
+```{webr-r}
+titanic_df |>
+  mutate(birth_year = ___)
+```
+
+::: notes
+1. mutate(corrected_age = age + 5). Add |> select(name, age, corrected_age) to see it.
+2. mutate(birth_year = 1912 - age), or round(1912 - age). Elisabeth Allen, 29, born about 1883.
+:::
+
+## The most expensive ticket {.try-it}
+
+Who paid the highest fare, and what was it in today's money? Show only the name and the price today
+
+```{webr-r}
+titanic_df |>
+  ___ |>
+  ___ |>
+  ___
+```
+
+::: notes
+mutate(price_today = fare * 78.17) |> slice_max(order_by = price_today, n = 1) |> select(name, price_today). arrange(-price_today) also works.
+Four rows tie at £512.33, about £40,049: Mr and Mrs Cardeza, Gustave Lesurer and Anna Ward. They shared one ticket: the fare is per ticket, not per person. The shared-ticket problem from Thursday again.
+:::
+
+## New categories: `if_else()`
+
+`if_else(test, value if true, value if false)`
+
+```{webr-r}
+titanic_df |>
+  mutate(status = if_else(age < 18, 'child', 'adult')) |>
+  count(status)
+```
+
+. . .
+
+::: predict
+Passengers with no age get no status at all. Who are they, and does leaving them out change your story?
+:::
+
+::: notes
+892 adults, 154 children, 263 NA. Passengers with no age get no status. Who are they, and does leaving them out change your story? count() is coming later today: it counts the rows for each value.
+:::
+
+## More than two: `case_when()`
+
+`test ~ value`, checked in order: the first true one wins
+
+```{webr-r}
+titanic_df |>
+  mutate(status = case_when(
+    age < 13 ~ 'child',
+    age < 20 ~ 'teenager',
+    age >= 20 ~ 'adult'
+  )) |>
+  count(status)
+```
+
+::: notes
+Because they're checked in order, the second line doesn't need age >= 13 as well. Try adding a line: .default = 'unknown', to label the NAs.
+:::
+
+# `summarise()` and `group_by()` {.section-break}
+
+Where data analysis really starts: counting things
+
+## Many rows become one
+
+```{webr-r}
+titanic_df |>
+  summarise(passengers = n(),
+            total_fare = sum(fare, na.rm = TRUE),
+            mean_fare = mean(fare, na.rm = TRUE))
+```
+
+. . .
+
+::: predict
+**Predict:** what happens without `na.rm = TRUE`?
+:::
+
+::: notes
+1309 passengers, total 43,550, mean 33.3. Then delete na.rm = TRUE and run again: NA, because one fare is missing and R won't guess. tally() is a shortcut for summarise(n = n()).
+:::
+
+## Useful summary functions
+
+| Function | What it does |
+|---|---|
+| `n()` | count rows |
+| `sum()` | add up |
+| `mean()`, `median()` | the middle |
+| `min()`, `max()` | the extremes |
+| `n_distinct()` | count different values |
+
+. . .
+
+::: predict
+**Why `na.rm = TRUE`?** One fare is missing (and 263 ages). Ask for the mean of a column with any NA in it and the answer is NA: R won't guess. `na.rm = TRUE` means "remove the NAs first".
+:::
+
+## `summarise()` the whole list {.try-it}
+
+What is the average age of all the passengers? Use `mean()`
+
+```{webr-r}
+titanic_df |>
+  summarise(average_age = ___)
+```
+
+. . .
+
+What is the highest fare anyone paid? Use `max()`
+
+```{webr-r}
+titanic_df |>
+  summarise(max_fare = ___)
+```
+
+::: notes
+1. summarise(average_age = mean(age, na.rm = TRUE)): 29.9. Without na.rm: NA, as 263 ages are missing.
+2. summarise(max_fare = max(fare, na.rm = TRUE)): 512.33, the shared ticket from earlier.
+:::
+
+## One summary per group
+
+On its own, `group_by()` changes nothing you can see:
+
+```{webr-r}
+titanic_df |>
+  group_by(sex)
+```
+
+. . .
+
+It changes what the next verb does:
+
+```{webr-r}
+titanic_df |>
+  group_by(sex) |>
+  summarise(total = n())
+```
+
+::: small
+**Split** into groups → **summarise** each → **combine** the results. Group by two columns, `group_by(sex, pclass)`, and you get one row for every combination: six groups.
+:::
+
+::: notes
+Point out Groups: sex [2] in the printout. Split, summarise each group, combine: female 466, male 843.
+:::
+
+## Group, then summarise {.try-it}
+
+Make a summary with the average age of male and female passengers, in a column called `average_age`
+
+```{webr-r}
+titanic_df |>
+  group_by(___) |>
+  summarise(average_age = ___)
+```
+
+::: small
+Hint: which column makes the groups? And remember `na.rm = TRUE`
+:::
+
+::: notes
+group_by(sex) |> summarise(average_age = mean(age, na.rm = TRUE)): female 28.7, male 30.6.
+:::
+
+## Groups change other verbs too
+
+The five oldest in **each** class:
+
+```{webr-r}
+titanic_df |>
+  group_by(pclass) |>
+  slice_max(order_by = age, n = 5)
+```
+
+. . .
+
+A group total on every row:
+
+```{webr-r}
+titanic_df |>
+  group_by(pclass) |>
+  mutate(total_class = n())
+```
+
+::: small
+`ungroup()` removes the groups again. Unexpected results after a `group_by()`? A leftover group is often why.
+:::
+
+::: notes
+15 rows: 5 per class. With mutate, all 1,309 rows are kept, with a new column.
+:::
+
+## Counting by group {.try-it}
+
+Count the passengers by both `sex` and `pclass`
+
+```{webr-r}
+titanic_df |>
+  ___ |>
+  ___
+```
+
+. . .
+
+`embarked`: C = Cherbourg, Q = Queenstown, S = Southampton. How many passengers got on at each location? And what was the average fare at each?
+
+```{webr-r}
+titanic_df |>
+  ___ |>
+  ___
+```
+
+::: notes
+1. group_by(sex, pclass) |> summarise(total = n()): female 144 / 106 / 216, male 179 / 171 / 493.
+2. group_by(embarked) |> summarise(total = n(), avg_fare = mean(fare, na.rm = TRUE)): C 270 (62.3), Q 123 (12.4), S 914 (27.4), and 2 NA (80). Why is Cherbourg so high? More first-class passengers boarded there.
+Shortcut: count(embarked) is group_by(embarked) |> summarise(n = n()).
+:::
+
+## Groups with `mutate()` and `slice_min()` {.try-it}
+
+Make a new column with the total number who boarded at the same place as each passenger
+
+```{webr-r}
+titanic_df |>
+  ___ |>
+  mutate(total_embarked = ___)
+```
+
+. . .
+
+Who are the five youngest male and five youngest female passengers who boarded at each location?
+
+```{webr-r}
+titanic_df |>
+  group_by(___, ___) |>
+  ___
+```
+
+::: notes
+1. group_by(embarked) |> mutate(total_embarked = n()). Every row kept; everyone from Southampton gets 914.
+2. group_by(embarked, sex) |> slice_min(order_by = age, n = 5): 34 rows, not 30. slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.
+:::
+
+## Back to "women and children first"
+
+`survived` is 1 or 0, so its mean is the share who survived: the survival rate
+
+```{webr-r}
+titanic_df |>
+  group_by(sex, pclass) |>
+  summarise(passengers = n(),
+            survival = mean(survived))
+```
+
+. . .
+
+| Survived | 1st class | 2nd class | 3rd class |
+|---|---|---|---|
+| Women | 97% | 89% | 49% |
+| Men | 34% | 15% | 15% |
+
+::: predict
+Class mattered as well as sex. A woman in third class had about the same chance as a man in first.
+:::
+
+::: notes
+Female 1st 97% (144), 2nd 89% (106), 3rd 49% (216); male 1st 34% (179), 2nd 15% (171), 3rd 15% (493). Next week we'll make charts of this ourselves with ggplot2.
+Ask: what would 'children' add? mutate(status = if_else(age < 18, 'child', 'adult')) |> group_by(status) |> summarise(survival = mean(survived)): children 53%, adults 39%, and 28% for the 263 with no age. The same worked example is at the end of the Grouping chapter in the book.
+:::
+
+## Your turn {.your-turn}
+
+In the course book:
+
+-   **Chapters 14, 16, 17 and 18**: `filter()`, `mutate()`, `summarise()`, `group_by()`. Chapter 15 (text patterns) is optional
+-   **19 Practice exercises**: these check your code automatically. The last two are a stretch. New: your answers are kept in the browser each time you click Run Code, and you can copy or download them at the bottom
+
+::: predict
+**Stuck?** `==` to compare, `=` inside `mutate()` and `summarise()` · text values in quotes, spelled exactly as in the data · an NA answer? Try `na.rm = TRUE` · ask your neighbour, then put your hand up
+:::
+
+## Before Thursday
+
+**Home exercise 3** (chapter 20): ungraded practice, no need to submit
+
+-   11,000 popular books from Goodreads: ratings, reviews, pages, publishers and genres
+-   `filter()`, `mutate()`, `summarise()` and `group_by()` on a new dataset, in RStudio
+-   Which kinds of books get lots of ratings but few written reviews? Why might that be?
+
+The best preparation for Thursday's data challenge, the reports and the exam.
+
+**Thursday 5 Nov:** Data Analysis 3. Joining tables, tidying data, and a data challenge
+
+Next checkpoint: **Home exercise 4**, set on Thursday, due **Tue 10 Nov**.

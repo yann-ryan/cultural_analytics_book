@@ -32,3 +32,13 @@ $code-block-font-size: 0.8em;
      tables small enough not to wrap */
   font-size: 22px !important;
 }
+
+/* 'try it yourself' slides: the book's exercises, done live */
+.reveal .slides section.try-it h2 { color: #d9482b; }
+.reveal .slides section.try-it h2::before {
+  content: "TRY IT YOURSELF";
+  display: block;
+  font-size: 0.4em;
+  letter-spacing: 0.15em;
+  color: #888;
+}
