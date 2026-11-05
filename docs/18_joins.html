@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"true","read-only":"false","output":"true","out-height":"","context":"setup","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-1","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","output":"true","out-height":"","context":"interactive","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-2","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":"locations_df"},{"id":3,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","output":"true","out-height":"","context":"interactive","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-3","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","output":"true","out-height":"","context":"interactive","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-4","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-width":7,"comment":"","dpi":72,"context":"setup","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-1","out-width":"700px","results":"markup","autorun":"true","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)\n\n# the same table, but with Southampton listed twice\nlocations_twice = tribble(\n  ~code, ~location_name,      ~country,\n  \"Q\",   \"Queenstown\",        \"Ireland\",\n  \"S\",   \"Southampton\",       \"United Kingdom\",\n  \"S\",   \"Southampton Docks\", \"United Kingdom\",\n  \"C\",   \"Cherbourg\",         \"France\"\n)"},{"id":2,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-2","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"locations_df"},{"id":3,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-3","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-4","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"joined = titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))\n\nnrow(joined)"},{"id":5,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-5","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"no_queenstown = locations_df |> filter(code != 'Q')\n\ntitanic_df |> left_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()\ntitanic_df |> inner_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()"},{"id":6,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-6","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"titanic_df |>\n  left_join(locations_twice, by = c('embarked' = 'code')) |>\n  nrow()"},{"id":7,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-7","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":"locations_twice |>\n  count(code) |>\n  filter(n > 1)"},{"id":8,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-8","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":""},{"id":9,"options":{"fig-width":7,"comment":"","dpi":72,"context":"interactive","classes":"","warning":"true","fig-height":5,"message":"true","output":"true","out-height":"","fig-cap":"","label":"unnamed-chunk-9","out-width":"700px","results":"markup","autorun":"false","read-only":"false","editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true"},"code":""}];
 
 </script>
 <script type="module">
@@ -1942,6 +1942,9 @@ globalThis.qwebrExecuteCode = async function (
    
   <ul>
   <li><a href="#left_join-right_join-inner_join" id="toc-left_join-right_join-inner_join" class="nav-link active" data-scroll-target="#left_join-right_join-inner_join">left_join(), right_join(), inner_join()</a></li>
+  <li><a href="#check-the-number-of-rows" id="toc-check-the-number-of-rows" class="nav-link" data-scroll-target="#check-the-number-of-rows">Check the number of rows</a></li>
+  <li><a href="#left-right-and-inner-joins" id="toc-left-right-and-inner-joins" class="nav-link" data-scroll-target="#left-right-and-inner-joins">Left, right and inner joins</a></li>
+  <li><a href="#join-keys-must-be-unique" id="toc-join-keys-must-be-unique" class="nav-link" data-scroll-target="#join-keys-must-be-unique">Join keys must be unique</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
@@ -2285,12 +2288,44 @@ Tip
 <p>The join function is a bit complex, so it’s worth looking at what it is doing.</p>
 <p><img src="images/18_joins/02.png" class="img-fluid"></p>
 </section>
+<section id="check-the-number-of-rows" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-number-of-rows">Check the number of rows</h3>
+<p><code>titanic_df</code> has 1,309 rows. How many rows does the joined table have? Predict first, then check with <code>nrow()</code>:</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Still 1,309. A left join keeps every row of the left table, exactly once, as long as each key appears only once in the right table. The two passengers with no port are kept too: they just get <code>NA</code> in the new columns. Checking the number of rows before and after a join is the most important habit to get into.</p>
+</section>
+<section id="left-right-and-inner-joins" class="level3">
+<h3 class="anchored" data-anchor-id="left-right-and-inner-joins">Left, right and inner joins</h3>
+<p>What happens if the second table has no row for one of the codes? Here we remove Queenstown from <code>locations_df</code>, and then try a <code>left_join()</code> and an <code>inner_join()</code>:</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li><code>left_join()</code> keeps every row of the left (first) table. Passengers from Queenstown are still there, with <code>NA</code> in the new columns.</li>
+<li><code>inner_join()</code> keeps only the rows that have a match in both tables. The 123 passengers from Queenstown, and the 2 with no port, are gone: 1,184 rows. This means an inner join is also a way of filtering one table by another.</li>
+<li><code>right_join()</code> keeps every row of the right (second) table.</li>
+</ul>
+</section>
+<section id="join-keys-must-be-unique" class="level3">
+<h3 class="anchored" data-anchor-id="join-keys-must-be-unique">Join keys must be unique</h3>
+<p>What if the key appears more than once in the table you join in? In the table <code>locations_twice</code>, Southampton has been entered twice. Run the join and check the rows:</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Every Southampton passenger matched <strong>two</strong> rows, so they now appear twice: 1,309 + 914 = 2,223 rows. Any count or sum you calculated after this would be wrong, without an error. R does give a warning (“many-to-many relationship”), but only if you read it. This is why names make bad keys: two different people can share one. To check a key for duplicates before you join, count it and keep anything that appears more than once:</p>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <ul>
-<li>Calculate the number of men and women which embarked from each country, first merging the new table with the existing one.</li>
+<li>Join the two tables, then calculate the number of men and women who embarked from each <strong>country</strong>.</li>
 </ul>
-<div id="qwebr-insertion-location-4"></div>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>What share of the passengers from each country survived? (Remember from Data Analysis 2: <code>survived</code> is 1 or 0, so <code>mean(survived)</code> is the share who survived.) Why do you think the passengers who boarded in France did so much better? Think back to the average fare at each port.</li>
+</ul>
+<div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="learning-objectives" class="level2">
@@ -2301,6 +2336,9 @@ Tip
 <li><label><input type="checkbox">Understand what a join is, and why it needs a common ‘key’ column</label></li>
 <li><label><input type="checkbox">Use <code>left_join()</code> to merge two dataframes together</label></li>
 <li><label><input type="checkbox">Join on columns which have different names in each dataframe</label></li>
+<li><label><input type="checkbox">Check the number of rows before and after a join</label></li>
+<li><label><input type="checkbox">Know the difference between <code>left_join()</code>, <code>right_join()</code> and <code>inner_join()</code></label></li>
+<li><label><input type="checkbox">Check that a join key is unique, using <code>count()</code> and <code>filter()</code></label></li>
 </ul>
 
 

@@ -86,7 +86,25 @@ gapminder_population |>
   pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')
 
 ```
-See the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year).
+See the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year): 30 countries × 12 years = 360 rows.
+
+Notice that the new `year` column is text (`<chr>`), not a number. Column names are always text, so that's what `pivot_longer()` gives us. It means that when you filter on the year, you should put it in quotes: `year == '2007'`.
+
+Once the data is long, all the verbs you already know work on it, because the year is now a column you can filter, group and sort by.
+
+## Exercises
+
+-   Make `gapminder_population` long, and then keep only the rows for the Netherlands.
+
+```{webr-r}
+
+```
+
+-   Which three European countries had the largest population in 2007? Pivot the table, then use `filter()` and `slice_max()`.
+
+```{webr-r}
+
+```
 
 ## Learning Objectives
 

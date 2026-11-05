@@ -896,7 +896,7 @@
     "href": "18_joins.html#exercises",
     "title": "21  Joins",
     "section": "Exercises",
-    "text": "Exercises\n\nCalculate the number of men and women which embarked from each country, first merging the new table with the existing one.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Exercises\n\nJoin the two tables, then calculate the number of men and women who embarked from each country.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhat share of the passengers from each country survived? (Remember from Data Analysis 2: survived is 1 or 0, so mean(survived) is the share who survived.) Why do you think the passengers who boarded in France did so much better? Think back to the average fare at each port.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Joins</span>"
@@ -907,7 +907,7 @@
     "href": "18_joins.html#learning-objectives",
     "title": "21  Joins",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand what a join is, and why it needs a common ‘key’ column\nUse left_join() to merge two dataframes together\nJoin on columns which have different names in each dataframe",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand what a join is, and why it needs a common ‘key’ column\nUse left_join() to merge two dataframes together\nJoin on columns which have different names in each dataframe\nCheck the number of rows before and after a join\nKnow the difference between left_join(), right_join() and inner_join()\nCheck that a join key is unique, using count() and filter()",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Joins</span>"
@@ -951,7 +951,7 @@
     "href": "19_tidying-data.html#pivot_longer",
     "title": "22  Tidying data with pivot_longer()",
     "section": "pivot_longer()",
-    "text": "pivot_longer()\nTo reshape this to the more useful format, we can use a new function called pivot_longer(). This takes a dataset and a specified set of columns, and reshapes them so that each of these columns now have their own row, repeating the information where needed.\nThe function has a number of important arguments:\n\nThe dataset to use (or one passed from the pipe)\ncols which lists the columns to reshape. The columns can be selected using the same methods as the select() function, meaning they can be selected by position, name, and so forth.\nnames_to: what you would like to call the column containing the new variable.\nvalues_to: what you would like to call the new values.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSee the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year).",
+    "text": "pivot_longer()\nTo reshape this to the more useful format, we can use a new function called pivot_longer(). This takes a dataset and a specified set of columns, and reshapes them so that each of these columns now have their own row, repeating the information where needed.\nThe function has a number of important arguments:\n\nThe dataset to use (or one passed from the pipe)\ncols which lists the columns to reshape. The columns can be selected using the same methods as the select() function, meaning they can be selected by position, name, and so forth.\nnames_to: what you would like to call the column containing the new variable.\nvalues_to: what you would like to call the new values.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSee the shape of the data? It now contains far more rows, one for each observation (the population for a given country in a particular year): 30 countries × 12 years = 360 rows.\nNotice that the new year column is text (&lt;chr&gt;), not a number. Column names are always text, so that’s what pivot_longer() gives us. It means that when you filter on the year, you should put it in quotes: year == '2007'.\nOnce the data is long, all the verbs you already know work on it, because the year is now a column you can filter, group and sort by.",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
       "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
@@ -1208,6 +1208,17 @@
     "crumbs": [
       "Useful information",
       "Critique gallery"
+    ]
+  },
+  {
+    "objectID": "19_tidying-data.html#exercises",
+    "href": "19_tidying-data.html#exercises",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "Exercises",
+    "text": "Exercises\n\nMake gapminder_population long, and then keep only the rows for the Netherlands.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhich three European countries had the largest population in 2007? Pivot the table, then use filter() and slice_max().\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
     ]
   }
 ]
