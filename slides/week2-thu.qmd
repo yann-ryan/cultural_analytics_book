@@ -1,0 +1,352 @@
+---
+title: "Data Analysis 3"
+subtitle: "Week 2 · Thu 5 Nov"
+webr:
+  packages: ['dplyr', 'readr', 'tidyr']
+  cell-options:
+    editor-font-scale: 0.8
+---
+
+
+## Today
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(readr)
+library(tidyr)
+options(width = 80, pillar.print_min = 5, pillar.print_max = 5)
+
+url <- "https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv"
+download.file(url, "titanic_df.csv")
+titanic_df <- read_csv("titanic_df.csv", show_col_types = FALSE)
+
+locations_df <- tribble(
+  ~code, ~location_name, ~country,         ~lat,  ~lng,
+  "Q",   "Queenstown",   "Ireland",        51.85, -8.29,
+  "S",   "Southampton",  "United Kingdom", 50.9,  -1.4,
+  "C",   "Cherbourg",    "France",         49.63, -1.62
+)
+
+# the same table, but with Southampton listed twice
+locations_twice <- tribble(
+  ~code, ~location_name,      ~country,
+  "Q",   "Queenstown",        "Ireland",
+  "S",   "Southampton",       "United Kingdom",
+  "S",   "Southampton Docks", "United Kingdom",
+  "C",   "Cherbourg",         "France"
+)
+
+url <- "https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv"
+download.file(url, "gapminder.csv")
+gapminder_df <- read_csv("gapminder.csv", show_col_types = FALSE)
+
+gapminder_population <- gapminder_df |>
+  filter(continent == 'Europe') |>
+  select(country, year, pop) |>
+  pivot_wider(names_from = year, values_from = pop)
+```
+
+1.  Adding information from another table: joins
+2.  Wide and long data: `pivot_longer()`
+3.  Data challenges: real cultural data, start to finish
+4.  Your turn
+
+::: notes
+Open the deck a minute before class: the setup downloads the Titanic and gapminder data and loads dplyr and tidyr. Laptops out, course book open at Data Analysis 3. The answers to each Try it yourself are in these notes.
+:::
+
+## Where we left off on Tuesday
+
+```{webr-r}
+titanic_df |>
+  filter(age < 18) |>
+  group_by(pclass) |>
+  summarise(children = n(),
+            survival = mean(survived))
+```
+
+`filter()` rows by condition · `mutate()` new columns · `summarise()` many rows into one · `group_by()` one summary per group
+
+::: notes
+First class 15 children at 0.87 (13 survived), second 33 at 0.88, third 106 at 0.37. The same split we saw for women. Today's two new functions are less about calculating and more about getting data into the right shape to calculate with.
+:::
+
+# Joins {.section-break}
+
+Add information from a second table
+
+## One table isn't enough
+
+`embarked` tells us where each passenger got on, but only as a letter:
+
+```{webr-r}
+titanic_df |>
+  count(embarked)
+```
+
+A second, small table tells us what the letters mean:
+
+```{webr-r}
+locations_df
+```
+
+::: notes
+C 270, Q 123, S 914, NA 2. Cultural data is very often spread across tables like this: books and authors, films and screenplays, library members and the books they borrowed. Codes save space and avoid typos, but you need a join to read them.
+:::
+
+## `left_join()`
+
+Match the rows on a shared **key**, and add the columns from the second table:
+
+```{webr-r}
+titanic_df |>
+  left_join(locations_df, by = c('embarked' = 'code')) |>
+  select(name, embarked, location_name, country)
+```
+
+::: small
+`by = c('column in the first table' = 'column in the second table')`. If the key has the same name in both, just `by = 'code'`
+:::
+
+::: notes
+Every passenger from S gets Southampton, United Kingdom, and so on. The two passengers with no port get NA in the new columns: no match, but they are kept.
+:::
+
+## Predict: how many rows? {.try-it}
+
+`titanic_df` has 1,309 rows. How many rows does the joined table have? Predict, then check with `nrow()`
+
+```{webr-r}
+joined <- titanic_df |>
+  left_join(locations_df, by = c('embarked' = 'code'))
+
+nrow(___)
+```
+
+::: notes
+nrow(joined): 1,309. A left join keeps every row of the left table, exactly once, as long as each key appears only once in the right table. This is the most important habit for joins: check the number of rows before and after.
+:::
+
+## Left, right, inner
+
+What if the second table has no row for Queenstown?
+
+```{webr-r}
+no_queenstown <- locations_df |> filter(code != 'Q')
+
+titanic_df |> left_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()
+titanic_df |> inner_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()
+```
+
+::: small
+`left_join()` keeps every row on the left · `inner_join()` keeps only the rows that match in both · `right_join()` keeps every row on the right
+:::
+
+::: notes
+left 1,309 (Queenstown passengers get NA), inner 1,184: the 123 from Queenstown and the 2 with no port are gone. inner_join() is a way of filtering by another table. We'll use exactly that in the second data challenge.
+:::
+
+## Spot the problem
+
+Here Southampton has been entered twice. Run the join and check the rows:
+
+```{webr-r}
+titanic_df |>
+  left_join(locations_twice, by = c('embarked' = 'code')) |>
+  nrow()
+```
+
+. . .
+
+::: predict
+Every Southampton passenger matched **two** rows, so they now appear twice: 1,309 + 914 = 2,223. R warns you ("many-to-many relationship"), but only if you read the warning. A join key must be **unique** in the table you join in. Names make bad keys: two different people can share one.
+:::
+
+::: notes
+2,223 rows. Any count or sum after this would be wrong, with no error. Check for duplicates with count(code) |> filter(n > 1). Data challenge 2 has a real example of this: two different Henry Jameses.
+:::
+
+## Join, then summarise {.try-it}
+
+Join the two tables, then count the number of men and women who embarked from each **country**
+
+```{webr-r}
+titanic_df |>
+  left_join(___, by = ___) |>
+  ___
+```
+
+::: notes
+left_join(locations_df, by = c('embarked' = 'code')) |> count(country, sex). France 113 women / 157 men; Ireland 60 / 63; United Kingdom 291 / 623; NA 2 women. This is the exercise at the end of the Joins chapter.
+:::
+
+## Join, then summarise {.try-it}
+
+What share of the passengers from each country survived?
+
+```{webr-r}
+titanic_df |>
+  left_join(locations_df, by = c('embarked' = 'code')) |>
+  group_by(___) |>
+  summarise(___)
+```
+
+::: notes
+group_by(country) |> summarise(passengers = n(), survival = mean(survived)). France 270, 0.56; Ireland 123, 0.36; United Kingdom 914, 0.33. Why France? Ask: what did we find on Tuesday about who boarded at Cherbourg? (More first class: average fare 62 against 27 at Southampton.) A join only adds information; the explanation is still class.
+:::
+
+# `pivot_longer()`: tidy data {.section-break}
+
+Reshaping data so we can work with it
+
+## A wide table
+
+One row per country, one column per year:
+
+```{webr-r}
+gapminder_population
+```
+
+::: predict
+**Try:** with this layout, how would you find the year each country's population was highest? Or the average population per year? Every year is a separate column, so our verbs can't work across them.
+:::
+
+::: notes
+30 countries x 13 columns. Easy for people to read, as in a spreadsheet; awkward for analysis.
+:::
+
+## Tidy data
+
+-   Each **variable** is in its own column
+-   Each **observation** is in its own row
+-   Each **value** is in its own cell
+
+. . .
+
+Here, the year is a variable, but it's hiding in the column names. One observation is "the population of Belgium in 1952", which needs its own row.
+
+::: notes
+Wide: years across the top. Long: one row per country per year, with a year column and a population column. The book has the diagrams.
+:::
+
+## `pivot_longer()`
+
+```{webr-r}
+gapminder_population |>
+  pivot_longer(cols = 2:13,
+               names_to = 'year',
+               values_to = 'population')
+```
+
+::: small
+`cols`: the columns to reshape (choose them as in `select()`) · `names_to`: a new column for the old column names · `values_to`: a new column for the values
+:::
+
+::: notes
+30 rows become 360 (30 x 12). cols = -country does the same. Point out that year is now <chr>: column names are always text. Fine for filtering with quotes, as on the next slide.
+:::
+
+## Pivot, then analyse {.try-it}
+
+Make the table long, then keep only the Netherlands
+
+```{webr-r}
+gapminder_population |>
+  pivot_longer(___) |>
+  filter(___)
+```
+
+::: notes
+pivot_longer(cols = 2:13, names_to = 'year', values_to = 'population') |> filter(country == 'Netherlands'). 10.4 million in 1952, 16.6 million in 2007.
+:::
+
+## Pivot, then analyse {.try-it}
+
+Which three European countries had the largest population in 2007?
+
+```{webr-r}
+gapminder_population |>
+  pivot_longer(cols = 2:13, names_to = 'year', values_to = 'population') |>
+  ___ |>
+  ___
+```
+
+::: small
+Hint: `year` is now text, so `'2007'` needs quotes
+:::
+
+::: notes
+filter(year == '2007') |> slice_max(order_by = population, n = 3): Germany 82.4m, Turkey 71.2m, France 61.1m. Without the quotes, year == 2007 actually works too, because R converts; but it's good to know the column is text.
+:::
+
+# Data challenges {.section-break}
+
+Real cultural data, from raw file to answer
+
+## Challenge 1: the performing arts in the Netherlands
+
+Chapter 23 · CBS open data, 1999-2023
+
+-   Download the raw file from CBS StatLine, import it into RStudio
+-   Clean it: keep only the provinces, fix the year column, drop columns
+-   Tidy it: split into attendance and performances, `pivot_longer()` each
+-   Join in the province names, export with `write_csv()`
+-   Then use it: average attendance per type and region
+
+::: notes
+Mostly cleaning. This is what most of the time on a real project looks like. Students need the region_codes file from Brightspace.
+:::
+
+## Challenge 2: What did Hemingway read?
+
+Chapter 24 · Shakespeare and Company lending library, Paris, 1919-1941
+
+::: columns
+::: {.column width="33%"}
+### 18,475
+borrows after cleaning
+:::
+
+::: {.column width="33%"}
+### 89
+of them by Ernest Hemingway
+:::
+
+::: {.column width="33%"}
+### 12
+of his by one author. Who?
+:::
+:::
+
+Every step uses only functions you know: four tables, three joins, a `pivot_longer()`, and a real research question at the end. **Did women readers choose women writers?**
+
+::: notes
+Sylvia Beach's library cards, transcribed by the Shakespeare and Company Project at Princeton. Don't give away the answer: it's Turgenev, and one of the books leads to a surprise about Hemingway's own first novel (he borrowed Turgenev's The Torrents of Spring on 27 Oct 1925, and wrote his own The Torrents of Spring a month later). Women readers: 29% of their borrows were by women authors; men 15%. Students download four csv files from Princeton Data Commons or Brightspace.
+:::
+
+## Your turn {.your-turn}
+
+In the course book:
+
+-   **Chapters 21 and 22**: joins and `pivot_longer()`
+-   **Chapter 23, Data challenge 1**: start here, in RStudio
+-   **Chapter 24, Data challenge 2**: when you've finished the first, or at home. A bit harder
+-   **Chapter 25, Practice exercises**: these check your code automatically
+
+::: predict
+**Stuck?** Check the number of rows before and after every join · `by = c('left' = 'right')` with the column names in quotes · `names_to` and `values_to` are new names, in quotes · ask your neighbour, then put your hand up
+:::
+
+## Before Tuesday
+
+**Home exercise 4** (chapter 26): the second **checkpoint**, due **Tue 10 Nov**
+
+-   Dialogue from 2,000 film screenplays, broken down by gender (from The Pudding)
+-   Three tables to join: characters, films and genres
+-   How much of the dialogue do women speak, and has it changed over time?
+
+Upload the .Rmd and knitted .html as a .zip on Brightspace. A genuine attempt at every exercise is a pass.
+
+**Tuesday 10 Nov:** Data Visualisation 1. Getting started with ggplot2, and choosing a chart. Report 1 is introduced.
