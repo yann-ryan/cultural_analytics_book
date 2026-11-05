@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"read-only":"false","message":"true","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","output":"true","classes":"","comment":"","context":"setup","out-height":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"dpi":72,"out-width":"700px","label":"unnamed-chunk-1","warning":"true","fig-cap":"","fig-height":5,"autorun":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"read-only":"false","message":"true","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","output":"true","classes":"","comment":"","context":"interactive","out-height":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"dpi":72,"out-width":"700px","label":"unnamed-chunk-2","warning":"true","fig-cap":"","fig-height":5,"autorun":"false"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"read-only":"false","message":"true","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","output":"true","classes":"","comment":"","context":"interactive","out-height":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"dpi":72,"out-width":"700px","label":"unnamed-chunk-3","warning":"true","fig-cap":"","fig-height":5,"autorun":"false"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"read-only":"false","message":"true","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","output":"true","classes":"","comment":"","context":"interactive","out-height":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"dpi":72,"out-width":"700px","label":"unnamed-chunk-4","warning":"true","fig-cap":"","fig-height":5,"autorun":"false"},"code":""},{"id":5,"options":{"read-only":"false","message":"true","editor-quick-suggestions":"false","editor-word-wrap":"true","results":"markup","output":"true","classes":"","comment":"","context":"interactive","out-height":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"dpi":72,"out-width":"700px","label":"unnamed-chunk-5","warning":"true","fig-cap":"","fig-height":5,"autorun":"false"},"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"message":"true","editor-font-scale":"1","autorun":"true","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-1","context":"setup","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-2","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":2,"code":"titanic_df |>\n  summarise(count = n())"},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-3","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-4","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":4,"code":""},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-5","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":5,"code":""}];
 
 </script>
 <script type="module">
@@ -1797,14 +1797,20 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./20b_data-challenge-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Data challenge 2: What did Hemingway read?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./20a_data-analysis-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Practice exercises: joins and tidying data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Practice exercises: joins and tidying data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_at-home-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Home exercise 4</span></span></a>
   </div>
 </li>
       </ul>

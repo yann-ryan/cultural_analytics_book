@@ -1,0 +1,115 @@
+---
+title: "Data challenge 2: What did Hemingway read?"
+---
+
+The first data challenge was mostly about cleaning. This one uses everything you have learned so far (`filter()`, `select()`, `arrange()`, `slice()`, `mutate()`, `case_when()`, `summarise()`, `group_by()`, `count()`, joins and `pivot_longer()`) to answer real research questions about a famous cultural dataset. It's a bit harder than the first challenge, but you don't need any functions you haven't seen before. A few steps use `str_detect()` from the optional [pattern matching](13_regex.qmd) chapter, and the code for those is given to you.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Each step gives a number in brackets so you can check your code.
+
+## The data
+
+[Shakespeare and Company](https://shakespeareandco.princeton.edu/) was an English-language bookshop and lending library in Paris, run by Sylvia Beach from 1919 to 1941. It published James Joyce's *Ulysses* in 1922. Its members included Ernest Hemingway, Gertrude Stein, Simone de Beauvoir and Joyce himself, along with thousands of ordinary Parisian readers. Beach kept a card for each member, recording every book they borrowed. The [Shakespeare and Company Project](https://shakespeareandco.princeton.edu/) at Princeton has transcribed these cards. This means we know what Hemingway was reading, and when.
+
+The datasets are on [Princeton Data Commons](https://doi.org/10.34770/kf6c-b079). Download these four csv files (they're also on Brightspace) and save them in your project folder:
+
+-   `SCoData_events_v2.0_2025.csv`: one row per **event** at the library: a borrow, a subscription, a purchase and so on. Members are identified in `member_ids`, and books in `item_uri`. Authors appear in `item_authors`, written surname first.
+-   `SCoData_books_v2.0_2025.csv`: one row per **book**, identified by `uri`, with information such as `genre_category`.
+-   `SCoData_members_v2.0_2025.csv`: one row per **member**, identified by `id`, with information such as `gender` and `nationalities`.
+-   `SCoData_book_creators_v2.0_2025.csv`: one row per **author** (and editor or translator), with their `gender`. The `sort_name` column uses the same surname-first format as `item_authors`.
+
+You'll see a warning about "parsing issues" when you read in the books file. You can ignore it.
+
+## Part 1: get to know the events
+
+-   Load the tidyverse. Read the four files into R, and save them as `events`, `books`, `members` and `creators`. *(`events` has 35,551 rows)*
+
+-   Use `count()` to see the different kinds of event in the `event_type` column. Which is the most common? *(Borrow: 21,063)*
+
+-   Make a new dataframe called `borrows`. It should contain only the borrowing events, and only the columns `member_ids`, `member_names`, `start_date`, `item_uri`, `item_title` and `item_authors`.
+
+-   Some library cards were shared by more than one person, such as a married couple. These rows list several members in `member_ids`, separated by a semicolon (`;`). Some books also have several authors, separated in the same way. We'll remove both kinds of row, because they would get in the way of our joins later. Add these two lines to your code for `borrows`:
+
+``` r
+  filter(!str_detect(member_ids, ";")) |>
+  filter(!str_detect(item_authors, ";"))
+```
+
+`borrows` should now have 18,475 rows. The `!` means "not", so these lines keep only the rows *without* a semicolon. The second line also drops rows where `item_authors` is empty, such as magazines. Why do you think that happens? (Hint: what does `str_detect()` give for a missing value, and what does `filter()` do with it?)
+
+-   The `start_date` column is text, written as year-month-day (`1925-10-22`). Use `mutate()` and `case_when()` to add a `decade` column. Combine them with `str_detect()` and the `^` anchor to check how each date *begins*: `str_detect(start_date, "^192") ~ "1920s"`, and so on for the 1930s and 1940s. Then count the borrows in each decade. *(1930s: 10,520)*
+
+## Part 2: Hemingway's library card
+
+-   Filter `borrows` to the rows for `"Ernest Hemingway"`. How many books did he borrow? *(89)*
+
+-   Which author did he borrow most often? Use `count()` and `slice_max()`. *(Turgenev, Ivan: 12)*
+
+-   Arrange his borrows by `start_date`. What are the first five things on his card? (Hemingway joined in 1921, but his recorded borrowing only begins in October 1925.)
+
+-   Now keep only his Turgenev borrows. Look at the title and date of the third one. Then look up when Hemingway wrote his own short novel, and what he called it. 🤯
+
+-   Use `%in%` to filter `borrows` to four famous members: `"Ernest Hemingway"`, `"James Joyce"`, `"Gertrude Stein"` and `"Simone de Beauvoir"`. Count how many books each of them borrowed. *(Joyce: 77)*
+
+-   Joyce's own books were in the library too. Use `str_detect(item_authors, "^Joyce, James")` to find borrows of books written by Joyce, and count them by title. Which was borrowed most? *(A Portrait of the Artist as a Young Man: 55)*
+
+## Part 3: reading diets
+
+What kinds of books did each of these four writers borrow?
+
+-   Take your four famous members from Part 2. Use `left_join()` to add the `genre_category` column from `books`. Join `item_uri` in `borrows` to `uri` in `books`. (Tip: `select()` just the two columns you need from `books` inside the join.)
+
+-   Some books have more than one genre, such as `Fiction;Poetry`. So we can't just `count()` the genre column. Instead, use `group_by()` and `summarise()` to make four new columns, one for each genre, that count how many borrowed books mention it. Here is the line for fiction:
+
+``` r
+fiction = sum(str_detect(genre_category, "Fiction"), na.rm = TRUE)
+```
+
+Do the same for `"Nonfiction"`, `"Poetry"` and `"Drama"`. Save the result as `diets`. *(Hemingway: 46 fiction, 38 nonfiction)*
+
+-   Hold on, there's a trap here. `str_detect(genre_category, "Fiction")` also matches `"Nonfiction"`, doesn't it? Check whether that's true. (Hint: are capital letters treated the same as lower case?)
+
+-   `diets` is a **wide** table, with one column per genre. Use `pivot_longer()` to make it tidy, with columns called `genre` and `borrows`.
+
+-   Using `group_by()` and `mutate()`, work out what share (percentage) of each writer's borrowing went to each genre. Which writer was almost entirely a fiction reader, and which one read mostly nonfiction? *(Stein: 86% fiction; Joyce: 62% nonfiction)* Joyce was writing *Finnegans Wake* at the time. Why might he have been borrowing so much nonfiction?
+
+## Part 4: did women read women writers?
+
+Now the big question. In home exercise 4 we looked at how much dialogue women get in films. Here we can ask a similar question about readers: did women and men at Shakespeare and Company choose authors of their own gender?
+
+-   We need to join `creators` to `borrows`, matching `item_authors` to `sort_name`. But first, check the join key: use `count()` on `sort_name` and filter for any name that appears more than once. What do you find? Look the duplicate up in `creators`. Remember what the Joins chapter said about names being bad keys. *(one name, twice)*
+
+-   Make a cleaned version of `creators` without the duplicate. Keep the novelist born in 1843, and remove the row whose `id` is `"james-henry-2"`. Keep only `sort_name` and `gender`, and rename `gender` to `author_gender`. (You can rename inside `select()`, like this: `select(sort_name, author_gender = gender)`.)
+
+-   Do the same with `members`: keep `id`, and rename `gender` to `reader_gender`.
+
+-   Join both of these to `borrows` with `left_join()`, and save the result as `borrows_full`. Check that it still has the same number of rows as `borrows`. *(18,475)* If it has more, your duplicate isn't gone!
+
+-   Filter to rows where both `author_gender` and `reader_gender` are `"Female"` or `"Male"`. Count each combination of reader gender and author gender. Then use `group_by(reader_gender)` and `mutate()` to turn the counts into percentages. *(Women readers: 29.1% women authors; men: 14.6%)*
+
+-   Did this change over time? Repeat the calculation by `decade` instead of reader gender. *(1920s: 17.7% women authors; 1940s: 31.1%)* Note that the library closed in 1941, so "1940s" really means 1940 and 1941.
+
+-   Which women authors were borrowed most? Which were borrowed most by men? *(Virginia Woolf both times)*
+
+-   Export `borrows_full` with `write_csv()`. We'll come back to this file when we start making visualisations next week.
+
+**Write** a short paragraph (three or four sentences) answering the question in the heading of Part 4. Is there anything in how the data was made (whose cards survived, how gender was recorded, which books we removed) that should make us careful about the answer?
+
+## Bonus: Hemingway's reading twin
+
+-   Make a dataframe with one row for each different book Hemingway borrowed. (Hint: `count(item_uri)`, then `select(item_uri)`.)
+
+-   Use `inner_join()` to keep only the borrows of *other* members (not Hemingway) for those books. For each member, count how many different Hemingway books they also borrowed, using `n_distinct()`. Who comes first? *(Alice M. Killen: 22)*
+
+-   Now count the total borrows of every member in `borrows`. Why might Alice Killen not really be Hemingway's "reading twin"? How could you make a fairer comparison?
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Combine several dplyr functions in one pipeline to answer a research question
+-   [ ] Check that a join key is unique before joining, and fix it if it isn't
+-   [ ] Join more than two datasets together
+-   [ ] Use `pivot_longer()` to tidy a table you made yourself
+-   [ ] Think critically about what a result does and doesn't tell you about the past

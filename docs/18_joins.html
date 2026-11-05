@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","id":1,"options":{"fig-width":7,"warning":"true","fig-height":5,"results":"markup","editor-word-wrap":"true","out-width":"700px","read-only":"false","comment":"","context":"setup","dpi":72,"output":"true","autorun":"true","classes":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-height":"","fig-cap":"","message":"true","label":"unnamed-chunk-1","editor-max-height":""}},{"code":"locations_df","id":2,"options":{"fig-width":7,"warning":"true","fig-height":5,"results":"markup","editor-word-wrap":"true","out-width":"700px","read-only":"false","comment":"","context":"interactive","dpi":72,"output":"true","autorun":"false","classes":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-height":"","fig-cap":"","message":"true","label":"unnamed-chunk-2","editor-max-height":""}},{"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","id":3,"options":{"fig-width":7,"warning":"true","fig-height":5,"results":"markup","editor-word-wrap":"true","out-width":"700px","read-only":"false","comment":"","context":"interactive","dpi":72,"output":"true","autorun":"false","classes":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-height":"","fig-cap":"","message":"true","label":"unnamed-chunk-3","editor-max-height":""}},{"code":"","id":4,"options":{"fig-width":7,"warning":"true","fig-height":5,"results":"markup","editor-word-wrap":"true","out-width":"700px","read-only":"false","comment":"","context":"interactive","dpi":72,"output":"true","autorun":"false","classes":"","editor-quick-suggestions":"false","editor-font-scale":"1","out-height":"","fig-cap":"","message":"true","label":"unnamed-chunk-4","editor-max-height":""}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"true","read-only":"false","output":"true","out-height":"","context":"setup","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-1","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","output":"true","out-height":"","context":"interactive","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-2","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":"locations_df"},{"id":3,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","output":"true","out-height":"","context":"interactive","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-3","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"editor-max-height":"","fig-height":5,"editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","output":"true","out-height":"","context":"interactive","editor-font-scale":"1","comment":"","dpi":72,"label":"unnamed-chunk-4","results":"markup","out-width":"700px","fig-cap":"","message":"true","fig-width":7,"warning":"true"},"code":""}];
 
 </script>
 <script type="module">
@@ -1797,14 +1797,20 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./20b_data-challenge-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Data challenge 2: What did Hemingway read?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./20a_data-analysis-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Practice exercises: joins and tidying data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Practice exercises: joins and tidying data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_at-home-4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Home exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Home exercise 4</span></span></a>
   </div>
 </li>
       </ul>

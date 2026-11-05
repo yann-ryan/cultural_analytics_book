@@ -815,6 +815,17 @@
     ]
   },
   {
+    "objectID": "16_grouping.html#putting-it-together-women-and-children-first",
+    "href": "16_grouping.html#putting-it-together-women-and-children-first",
+    "title": "18  Grouping",
+    "section": "Putting it together: “women and children first”?",
+    "text": "Putting it together: “women and children first”?\nThe story goes that as the Titanic sank, the rule was “women and children first”. Overall, 38% of the 1,309 passengers survived: 73% of the women, but only 19% of the men. But did class matter as well as sex? With group_by() and summarise() we can check this ourselves, from the raw passenger list.\nThe survived column is 1 if the passenger survived and 0 if they didn’t. That means the mean of survived is the share who survived: the mean of 1, 1, 0 and 0 is 0.5, or 50%. So we can calculate a survival rate for each group with mean(survived):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nRead down the survival column. 97% of women in first class survived, but only 49% of women in third class. For men, it was 34% in first class and 15% in second and third. A woman in third class had about the same chance as a man in first: class mattered as well as sex.\nWhat about the children? Try adding them yourself: make a new status column with mutate() and if_else() (child or adult), and then group by status instead of (or as well as) sex.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2 · Tue 3 Nov: Data Analysis 2",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
+    ]
+  },
+  {
     "objectID": "16_grouping.html#learning-objectives",
     "href": "16_grouping.html#learning-objectives",
     "title": "18  Grouping",
@@ -980,47 +991,157 @@
     ]
   },
   {
+    "objectID": "20b_data-challenge-2.html",
+    "href": "20b_data-challenge-2.html",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "",
+    "text": "The data\nShakespeare and Company was an English-language bookshop and lending library in Paris, run by Sylvia Beach from 1919 to 1941. It published James Joyce’s Ulysses in 1922. Its members included Ernest Hemingway, Gertrude Stein, Simone de Beauvoir and Joyce himself, along with thousands of ordinary Parisian readers. Beach kept a card for each member, recording every book they borrowed. The Shakespeare and Company Project at Princeton has transcribed these cards. This means we know what Hemingway was reading, and when.\nThe datasets are on Princeton Data Commons. Download these four csv files (they’re also on Brightspace) and save them in your project folder:\nYou’ll see a warning about “parsing issues” when you read in the books file. You can ignore it.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#the-data",
+    "href": "20b_data-challenge-2.html#the-data",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "",
+    "text": "SCoData_events_v2.0_2025.csv: one row per event at the library: a borrow, a subscription, a purchase and so on. Members are identified in member_ids, and books in item_uri. Authors appear in item_authors, written surname first.\nSCoData_books_v2.0_2025.csv: one row per book, identified by uri, with information such as genre_category.\nSCoData_members_v2.0_2025.csv: one row per member, identified by id, with information such as gender and nationalities.\nSCoData_book_creators_v2.0_2025.csv: one row per author (and editor or translator), with their gender. The sort_name column uses the same surname-first format as item_authors.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#part-1-get-to-know-the-events",
+    "href": "20b_data-challenge-2.html#part-1-get-to-know-the-events",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "Part 1: get to know the events",
+    "text": "Part 1: get to know the events\n\nLoad the tidyverse. Read the four files into R, and save them as events, books, members and creators. (events has 35,551 rows)\nUse count() to see the different kinds of event in the event_type column. Which is the most common? (Borrow: 21,063)\nMake a new dataframe called borrows. It should contain only the borrowing events, and only the columns member_ids, member_names, start_date, item_uri, item_title and item_authors.\nSome library cards were shared by more than one person, such as a married couple. These rows list several members in member_ids, separated by a semicolon (;). Some books also have several authors, separated in the same way. We’ll remove both kinds of row, because they would get in the way of our joins later. Add these two lines to your code for borrows:\n\n  filter(!str_detect(member_ids, \";\")) |&gt;\n  filter(!str_detect(item_authors, \";\"))\nborrows should now have 18,475 rows. The ! means “not”, so these lines keep only the rows without a semicolon. The second line also drops rows where item_authors is empty, such as magazines. Why do you think that happens? (Hint: what does str_detect() give for a missing value, and what does filter() do with it?)\n\nThe start_date column is text, written as year-month-day (1925-10-22). Use mutate() and case_when() to add a decade column. Combine them with str_detect() and the ^ anchor to check how each date begins: str_detect(start_date, \"^192\") ~ \"1920s\", and so on for the 1930s and 1940s. Then count the borrows in each decade. (1930s: 10,520)",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#part-2-hemingways-library-card",
+    "href": "20b_data-challenge-2.html#part-2-hemingways-library-card",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "Part 2: Hemingway’s library card",
+    "text": "Part 2: Hemingway’s library card\n\nFilter borrows to the rows for \"Ernest Hemingway\". How many books did he borrow? (89)\nWhich author did he borrow most often? Use count() and slice_max(). (Turgenev, Ivan: 12)\nArrange his borrows by start_date. What are the first five things on his card? (Hemingway joined in 1921, but his recorded borrowing only begins in October 1925.)\nNow keep only his Turgenev borrows. Look at the title and date of the third one. Then look up when Hemingway wrote his own short novel, and what he called it. 🤯\nUse %in% to filter borrows to four famous members: \"Ernest Hemingway\", \"James Joyce\", \"Gertrude Stein\" and \"Simone de Beauvoir\". Count how many books each of them borrowed. (Joyce: 77)\nJoyce’s own books were in the library too. Use str_detect(item_authors, \"^Joyce, James\") to find borrows of books written by Joyce, and count them by title. Which was borrowed most? (A Portrait of the Artist as a Young Man: 55)",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#part-3-reading-diets",
+    "href": "20b_data-challenge-2.html#part-3-reading-diets",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "Part 3: reading diets",
+    "text": "Part 3: reading diets\nWhat kinds of books did each of these four writers borrow?\n\nTake your four famous members from Part 2. Use left_join() to add the genre_category column from books. Join item_uri in borrows to uri in books. (Tip: select() just the two columns you need from books inside the join.)\nSome books have more than one genre, such as Fiction;Poetry. So we can’t just count() the genre column. Instead, use group_by() and summarise() to make four new columns, one for each genre, that count how many borrowed books mention it. Here is the line for fiction:\n\nfiction = sum(str_detect(genre_category, \"Fiction\"), na.rm = TRUE)\nDo the same for \"Nonfiction\", \"Poetry\" and \"Drama\". Save the result as diets. (Hemingway: 46 fiction, 38 nonfiction)\n\nHold on, there’s a trap here. str_detect(genre_category, \"Fiction\") also matches \"Nonfiction\", doesn’t it? Check whether that’s true. (Hint: are capital letters treated the same as lower case?)\ndiets is a wide table, with one column per genre. Use pivot_longer() to make it tidy, with columns called genre and borrows.\nUsing group_by() and mutate(), work out what share (percentage) of each writer’s borrowing went to each genre. Which writer was almost entirely a fiction reader, and which one read mostly nonfiction? (Stein: 86% fiction; Joyce: 62% nonfiction) Joyce was writing Finnegans Wake at the time. Why might he have been borrowing so much nonfiction?",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#part-4-did-women-read-women-writers",
+    "href": "20b_data-challenge-2.html#part-4-did-women-read-women-writers",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "Part 4: did women read women writers?",
+    "text": "Part 4: did women read women writers?\nNow the big question. In home exercise 4 we looked at how much dialogue women get in films. Here we can ask a similar question about readers: did women and men at Shakespeare and Company choose authors of their own gender?\n\nWe need to join creators to borrows, matching item_authors to sort_name. But first, check the join key: use count() on sort_name and filter for any name that appears more than once. What do you find? Look the duplicate up in creators. Remember what the Joins chapter said about names being bad keys. (one name, twice)\nMake a cleaned version of creators without the duplicate. Keep the novelist born in 1843, and remove the row whose id is \"james-henry-2\". Keep only sort_name and gender, and rename gender to author_gender. (You can rename inside select(), like this: select(sort_name, author_gender = gender).)\nDo the same with members: keep id, and rename gender to reader_gender.\nJoin both of these to borrows with left_join(), and save the result as borrows_full. Check that it still has the same number of rows as borrows. (18,475) If it has more, your duplicate isn’t gone!\nFilter to rows where both author_gender and reader_gender are \"Female\" or \"Male\". Count each combination of reader gender and author gender. Then use group_by(reader_gender) and mutate() to turn the counts into percentages. (Women readers: 29.1% women authors; men: 14.6%)\nDid this change over time? Repeat the calculation by decade instead of reader gender. (1920s: 17.7% women authors; 1940s: 31.1%) Note that the library closed in 1941, so “1940s” really means 1940 and 1941.\nWhich women authors were borrowed most? Which were borrowed most by men? (Virginia Woolf both times)\nExport borrows_full with write_csv(). We’ll come back to this file when we start making visualisations next week.\n\nWrite a short paragraph (three or four sentences) answering the question in the heading of Part 4. Is there anything in how the data was made (whose cards survived, how gender was recorded, which books we removed) that should make us careful about the answer?",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#bonus-hemingways-reading-twin",
+    "href": "20b_data-challenge-2.html#bonus-hemingways-reading-twin",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "Bonus: Hemingway’s reading twin",
+    "text": "Bonus: Hemingway’s reading twin\n\nMake a dataframe with one row for each different book Hemingway borrowed. (Hint: count(item_uri), then select(item_uri).)\nUse inner_join() to keep only the borrows of other members (not Hemingway) for those books. For each member, count how many different Hemingway books they also borrowed, using n_distinct(). Who comes first? (Alice M. Killen: 22)\nNow count the total borrows of every member in borrows. Why might Alice Killen not really be Hemingway’s “reading twin”? How could you make a fairer comparison?",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
+    "objectID": "20b_data-challenge-2.html#learning-objectives",
+    "href": "20b_data-challenge-2.html#learning-objectives",
+    "title": "24  Data challenge 2: What did Hemingway read?",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nCombine several dplyr functions in one pipeline to answer a research question\nCheck that a join key is unique before joining, and fix it if it isn’t\nJoin more than two datasets together\nUse pivot_longer() to tidy a table you made yourself\nThink critically about what a result does and doesn’t tell you about the past",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Data challenge 2: What did Hemingway read?</span>"
+    ]
+  },
+  {
     "objectID": "20a_data-analysis-3-exercises.html",
     "href": "20a_data-analysis-3-exercises.html",
-    "title": "24  Practice exercises: joins and tidying data",
+    "title": "25  Practice exercises: joins and tidying data",
     "section": "",
     "text": "The exercises below run in your browser and check your code automatically, giving you feedback as you go. They cover left_join() and pivot_longer(), and give you a chance to combine these with everything else you’ve learned in Data Analysis 1-3. The last two are a bit more of a challenge - don’t worry if you need a few tries.\nThe data challenge exercise on the previous page isn’t included here, since it’s too open-ended for automatic checking - keep doing that one in R-Studio.",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Practice exercises: joins and tidying data</span>"
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Practice exercises: joins and tidying data</span>"
     ]
   },
   {
     "objectID": "21_at-home-4.html",
     "href": "21_at-home-4.html",
-    "title": "25  Home exercise 4",
+    "title": "26  Home exercise 4",
     "section": "",
     "text": "Instructions\nDo the at-home exercises in R-Studio, in your cultural_analytics project (see Installing R and RStudio). Download the files for this exercise from Brightspace and save them in your project folder. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).\nI advise saving the new file straight away. Because you’ll submit this file as an assignment, use a standardised name: exercise_4_lastname_firstname. Regularly re-save the file.\nWhen you have finished the exercise (or part of it), ‘knit’ the file. Export the .Rmd and the html as a .zip file, and upload this to the assignment area.\nIf you can’t knit the file because of an error, comment out the code which doesn’t work using #, and make a note of what went wrong.",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercise 4</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Home exercise 4</span>"
     ]
   },
   {
     "objectID": "21_at-home-4.html#instructions",
     "href": "21_at-home-4.html#instructions",
-    "title": "25  Home exercise 4",
+    "title": "26  Home exercise 4",
     "section": "",
     "text": "Checkpoint: submit by Tuesday 10 November\n\n\n\nThis exercise is one of the two graded checkpoints (pass/fail). You pass by making a genuine attempt at all of the exercises - they don’t have to be perfect.",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercise 4</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Home exercise 4</span>"
+    ]
+  },
+  {
+    "objectID": "21_at-home-4.html#what-to-submit",
+    "href": "21_at-home-4.html#what-to-submit",
+    "title": "26  Home exercise 4",
+    "section": "What to submit",
+    "text": "What to submit\nYour .Rmd file should have a section for each of the ten exercises. Start each one with a heading, such as ## Exercise 1. Each exercise asks for one or both of these:\n\nCode: a code chunk that does what the exercise asks. When you knit the file, its result appears underneath, so you don’t need to copy any numbers out of it.\nWrite: an answer in your own words, in a sentence or two. Put it as normal text in the .Rmd, below the code chunk, not inside the chunk. Use the result of your code to answer it.\n\nFor example:\n## Exercise 2\n\n```{r}\ndialogue &lt;- characters |&gt;\n  left_join(meta, by = 'script_id')\n\nnrow(dialogue)\n```\n\nThe joined dataframe has 23,048 rows, the same as `characters`, because each character belongs to exactly one film.\nEach exercise also gives a number in brackets, so you can check that your code is right. You don’t need to write these numbers down in your answer.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Home exercise 4</span>"
+    ]
+  },
+  {
+    "objectID": "21_at-home-4.html#the-data",
+    "href": "21_at-home-4.html#the-data",
+    "title": "26  Home exercise 4",
+    "section": "The data",
+    "text": "The data\nToday we will use a dataset from an article written for The Pudding: Hannah Anderson and Matt Daniels, “Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”. Have a look at the article first: it asks the same questions as these exercises.\nThe article used screenplays to understand the gender balance of films, and how it has changed over time. The data covers 2,000 films from 1929 to 2015. It comes in three files:\n\ncharacter_list5.csv: one row per character, with the script_id of the film, the character’s name, the number of words they speak, their gender and their age.\nmeta_data7.csv: one row per film, with the same script_id, plus the imdb_id, title, year and gross (box office takings). You can ignore the lines_data column.\nimdb_genre.csv: one row per film, with its genres, taken from IMDb. It doesn’t have the script_id, but its tconst column holds the same IMDb ID as imdb_id in the metadata.\n\nDialogue is measured in words, not lines.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Home exercise 4</span>"
     ]
   },
   {
     "objectID": "21_at-home-4.html#exercises",
     "href": "21_at-home-4.html#exercises",
-    "title": "25  Home exercise 4",
+    "title": "26  Home exercise 4",
     "section": "Exercises",
     "text": "Exercises\n\nExercise 1: load the data\nCode: load the tidyverse package with library(), and read all three files into R. Save them as objects called characters, meta and genres.\n\n\nExercise 2: join the characters to the films\nCode: use left_join() to join meta to characters, using script_id as the key, so that each character has the title and year of their film alongside them. Save the result as dialogue, and show how many rows it has with nrow(dialogue). (23,048)\nWrite: why does dialogue have the same number of rows as characters?\n\n\nExercise 3: how is gender recorded?\nCode: use count() on the gender column of dialogue. (Three values: f 6,911, m 16,132 and ? 5)\nWrite: what do you think each of the three values means?\n\n\nExercise 4: the overall balance\nCode: using group_by() and summarise(), calculate the total number of words spoken by each gender, across all the films. (f 5,877,657 words)\nWrite: roughly what share of all the dialogue is spoken by women? You can work it out from your result with a calculator, or try it in R with mutate(). (About 28%)\n\n\nExercise 5: one row per film\nMake a new dataframe, called films, with one row for each film, and two columns counting the words spoken by women and by men in that film.\nThis needs a trick. First, use mutate() and if_else() to make two new columns: female_words, which holds the character’s words if they are female and 0 if not, and male_words, which does the same for men. Then group by film and add up those two columns with summarise().\nCode: copy this code into your file, run it and look at the result. (2,000 rows)\nfilms &lt;- dialogue |&gt;\n  mutate(female_words = if_else(gender == 'f', words, 0),\n         male_words = if_else(gender == 'm', words, 0)) |&gt;\n  group_by(script_id, imdb_id, title, year) |&gt;\n  summarise(female = sum(female_words),\n            male = sum(male_words))\nCode: run count(meta, title), and arrange the result so the largest counts are at the top.\nWrite: answer these two questions.\n\nWhy do we group by script_id, and not just by title? Use the result of count() to explain.\nWhy do we also put imdb_id, title and year in the group_by(), if script_id is already enough to make one row per film?\n\n\n\nExercise 6: which films have more female dialogue?\nCode: add two new columns to films with mutate(), and save the result:\n\nprop_female: the share of the dialogue spoken by women. This is the female words divided by the female and male words added together.\nbalance: use case_when() to make this ‘more female’ if there are more female words than male words, ‘more male’ if there are more male words, and ‘equal’ if they are exactly the same.\n\nThen count the values in balance. (304 more female, 1,695 more male, 1 equal)\nCode: filter films to find the one film where the dialogue is equal.\nWrite: which film is it?\n\n\nExercise 7: Star Wars\nCode: filter films to keep only the Star Wars films, and arrange them by prop_female. (7 films)\n\n\n\n\n\n\nTip\n\n\n\nAll the Star Wars titles start with ‘Star Wars’. You can find them with str_detect(), from the optional chapter on text patterns: filter(str_detect(title, 'Star Wars')).\n\n\nWrite: which Star Wars film has the highest share of female dialogue, and which the lowest? How do they compare with the share for all films that you found in exercise 4? (The highest is The Force Awakens, at about 28%)\n\n\nExercise 8: change over time\nCode: use mutate() to make a decade column with floor(year / 10) * 10 (this rounds 1977 down to 1970). Then group by decade, and for each decade calculate the number of films, and the share of female dialogue: the total female words divided by the total of all the female and male words. (About 21% in the 1970s, 31% in the 2010s)\nWrite: has the share of female dialogue changed over time? Are there decades where you should be careful about drawing conclusions, and why?\n\n\nExercise 9: genre (more of a challenge)\nWhich genres have the most female dialogue?\nCode: join genres to films. The key columns have different names, so use by = c('imdb_id' = 'tconst'), as in the joins chapter. Save the result.\nLook at the genres column. Most films have more than one genre, separated by commas, such as “Comedy,Romance,Thriller”. To count each genre separately, they need to be split up.\nCode: add separate_longer_delim(genres, ',') to split them up, and show the number of rows before and after. (2,000 before, 5,192 after)\nWrite: why does the number of rows go up?\nCode: now group by genre, and calculate the number of films and the share of female dialogue, as in exercise 8. Arrange the result from highest to lowest share. (The highest is Romance, at about 40%)\nWrite: which genre has the highest share of female dialogue, and which the lowest? Why might a genre with very few films give a misleading answer?\n\n\nExercise 10: extra challenge\nCode: make the same one-row-per-film dataframe as in exercise 5 a different way, without the if_else() trick. Group by film and gender, and summarise() the words. Then use pivot_wider() (from the tidying data chapter) to turn the genders into columns. (2,000 rows)\nHints: films with no women in them will get an NA. Look up the values_fill argument of pivot_wider() to fill these with 0 instead. And what should you do about the ? gender first?",
     "crumbs": [
       "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercise 4</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Home exercise 4</span>"
     ]
   },
   {
@@ -1087,39 +1208,6 @@
     "crumbs": [
       "Useful information",
       "Critique gallery"
-    ]
-  },
-  {
-    "objectID": "16_grouping.html#putting-it-together-women-and-children-first",
-    "href": "16_grouping.html#putting-it-together-women-and-children-first",
-    "title": "18  Grouping",
-    "section": "Putting it together: “women and children first”?",
-    "text": "Putting it together: “women and children first”?\nThe story goes that as the Titanic sank, the rule was “women and children first”. Overall, 38% of the 1,309 passengers survived: 73% of the women, but only 19% of the men. But did class matter as well as sex? With group_by() and summarise() we can check this ourselves, from the raw passenger list.\nThe survived column is 1 if the passenger survived and 0 if they didn’t. That means the mean of survived is the share who survived: the mean of 1, 1, 0 and 0 is 0.5, or 50%. So we can calculate a survival rate for each group with mean(survived):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nRead down the survival column. 97% of women in first class survived, but only 49% of women in third class. For men, it was 34% in first class and 15% in second and third. A woman in third class had about the same chance as a man in first: class mattered as well as sex.\nWhat about the children? Try adding them yourself: make a new status column with mutate() and if_else() (child or adult), and then group by status instead of (or as well as) sex.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Week 2 · Tue 3 Nov: Data Analysis 2",
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Grouping</span>"
-    ]
-  },
-  {
-    "objectID": "21_at-home-4.html#the-data",
-    "href": "21_at-home-4.html#the-data",
-    "title": "25  Home exercise 4",
-    "section": "The data",
-    "text": "The data\nToday we will use a dataset from an article written for The Pudding: Hannah Anderson and Matt Daniels, “Film Dialogue from 2,000 screenplays, Broken Down by Gender and Age”. Have a look at the article first: it asks the same questions as these exercises.\nThe article used screenplays to understand the gender balance of films, and how it has changed over time. The data covers 2,000 films from 1929 to 2015. It comes in three files:\n\ncharacter_list5.csv: one row per character, with the script_id of the film, the character’s name, the number of words they speak, their gender and their age.\nmeta_data7.csv: one row per film, with the same script_id, plus the imdb_id, title, year and gross (box office takings). You can ignore the lines_data column.\nimdb_genre.csv: one row per film, with its genres, taken from IMDb. It doesn’t have the script_id, but its tconst column holds the same IMDb ID as imdb_id in the metadata.\n\nDialogue is measured in words, not lines.",
-    "crumbs": [
-      "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercise 4</span>"
-    ]
-  },
-  {
-    "objectID": "21_at-home-4.html#what-to-submit",
-    "href": "21_at-home-4.html#what-to-submit",
-    "title": "25  Home exercise 4",
-    "section": "What to submit",
-    "text": "What to submit\nYour .Rmd file should have a section for each of the ten exercises. Start each one with a heading, such as ## Exercise 1. Each exercise asks for one or both of these:\n\nCode: a code chunk that does what the exercise asks. When you knit the file, its result appears underneath, so you don’t need to copy any numbers out of it.\nWrite: an answer in your own words, in a sentence or two. Put it as normal text in the .Rmd, below the code chunk, not inside the chunk. Use the result of your code to answer it.\n\nFor example:\n## Exercise 2\n\n```{r}\ndialogue &lt;- characters |&gt;\n  left_join(meta, by = 'script_id')\n\nnrow(dialogue)\n```\n\nThe joined dataframe has 23,048 rows, the same as `characters`, because each character belongs to exactly one film.\nEach exercise also gives a number in brackets, so you can check that your code is right. You don’t need to write these numbers down in your answer.",
-    "crumbs": [
-      "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Home exercise 4</span>"
     ]
   }
 ]

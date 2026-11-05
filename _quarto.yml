@@ -49,6 +49,7 @@ book:
         - 18_joins.qmd
         - 19_tidying-data.qmd
         - 20_data-challenge.qmd
+        - 20b_data-challenge-2.qmd
         - 20a_data-analysis-3-exercises.qmd
         - 21_at-home-4.qmd
     - part: "Week 3 · Tue 10 Nov: Data Visualisation 1"
