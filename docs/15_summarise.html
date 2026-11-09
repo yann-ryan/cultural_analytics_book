@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"message":"true","editor-font-scale":"1","autorun":"true","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-1","context":"setup","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-2","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":2,"code":"titanic_df |>\n  summarise(count = n())"},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-3","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-4","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":4,"code":""},{"options":{"message":"true","editor-font-scale":"1","autorun":"false","comment":"","dpi":72,"editor-word-wrap":"true","editor-quick-suggestions":"false","out-width":"700px","warning":"true","fig-width":7,"output":"true","label":"unnamed-chunk-5","context":"interactive","results":"markup","fig-height":5,"editor-max-height":"","out-height":"","classes":"","fig-cap":"","read-only":"false"},"id":5,"code":""}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"autorun":"true","fig-height":5,"label":"unnamed-chunk-1","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"setup","comment":""}},{"code":"titanic_df |>\n  summarise(count = n())","id":2,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-2","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","id":3,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-3","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}},{"code":"","id":4,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-4","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}},{"code":"","id":5,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-5","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}}];
 
 </script>
 <script type="module">
@@ -1824,6 +1824,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Data Visualisation Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23_ggplot2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Using ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24_chart-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">More chart types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24a_data-visualisation-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Practice exercises: ggplot2 basics and chart types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1835,6 +1865,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27_gestalt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29_position-scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1912,6 +1966,12 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">—</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./critique-gallery.html" class="sidebar-item-text sidebar-link">

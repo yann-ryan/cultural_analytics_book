@@ -958,6 +958,17 @@
     ]
   },
   {
+    "objectID": "19_tidying-data.html#exercises",
+    "href": "19_tidying-data.html#exercises",
+    "title": "22  Tidying data with pivot_longer()",
+    "section": "Exercises",
+    "text": "Exercises\n\nMake gapminder_population long, and then keep only the rows for the Netherlands.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhich three European countries had the largest population in 2007? Pivot the table, then use filter() and slice_max().\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 2 · Thu 5 Nov: Data Analysis 3",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
+    ]
+  },
+  {
     "objectID": "19_tidying-data.html#learning-objectives",
     "href": "19_tidying-data.html#learning-objectives",
     "title": "22  Tidying data with pivot_longer()",
@@ -1145,6 +1156,534 @@
     ]
   },
   {
+    "objectID": "22_data-visualisation-1.html",
+    "href": "22_data-visualisation-1.html",
+    "title": "27  Data Visualisation Basics",
+    "section": "",
+    "text": "Data Visualisation Principles\nThis week, we’ll begin working with data visualisations. We’ll introduce in a very general sense the different ways we can draw things with data visualisation software. We won’t think too much about the specifics of making charts for different purposes - just get used to the general syntax and most common chart types.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
+    ]
+  },
+  {
+    "objectID": "22_data-visualisation-1.html#data-visualisation-principles",
+    "href": "22_data-visualisation-1.html#data-visualisation-principles",
+    "title": "27  Data Visualisation Basics",
+    "section": "",
+    "text": "Aims of Information Design\nTo begin with, we should think about the purpose of data visualisation. Essentially, the purpose is to aid cognition, usually of large-scale or complex data which otherwise is difficult to grasp. Some examples of how it aids cognition include using infovis to:\n\nUnderstand, explore and remember information\nTake in large amounts of data at once\nMake comparisons\nRead millions of data points or understand complex structures (e.g. hierarchies or networks)\nUnderstand temporal information, e.g. logic of going from earlier to later time\n\nThe reason data visualisation works is because our brains tend to make judgements about values based on visual elements. For example, if given two circles, one small and one big, and are asked which we think represents the larger value, you would likely pick the bigger one.\nSimilarly, we associate ‘hotter’ colours with larger values than colder ones.\nWe associate transparency or opacity with strength. And so forth..\nWe can use these principles in data visualisations. By mapping data to these visual elements, we can aid in the understanding of a given dataset by viewers.\nNext week, we’ll take a closer look at some of the psychological principles behind why these work. For today, we’ll focus on the pratical aspects.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
+    ]
+  },
+  {
+    "objectID": "22_data-visualisation-1.html#mapping-data-to-geometries-and-aesthetics",
+    "href": "22_data-visualisation-1.html#mapping-data-to-geometries-and-aesthetics",
+    "title": "27  Data Visualisation Basics",
+    "section": "Mapping Data to Geometries and Aesthetics",
+    "text": "Mapping Data to Geometries and Aesthetics\nThese visual elements can be broken down into geometries and aesthetics. Geometries are the basic geometric shapes, like circles, points, lines, and so forth. Aesthetics are the features of those shapes, like size, colour, and position.\nIn the next two parts of the chapter, we’ll look at the typical geometries available to us.\nOn this page we concentrate on the aesthetics.\n\nAesthetics\nThere are many possible aesthetics, but some of the most commonly-found in infovis are:\n\nAnother important one not pictured here is transparency.\nWe can use these aesthetics to tell lots of different stories within our data. For example, we can use them to indicate the magnitude of a value, to draw attention to different categories, or simply to highlight information we wish the viewer to pay attention to.\nSo how can we use each of these?\n\n\nDiscrete vs continuous aesthetics\nMost aesthetics work on either discrete or continuous scales. We’ll learn more about scales in an upcoming session, but for now, you can think of scales as either representing sequential numbers (continuous) or distinct numbers or categories (discrete or categorical).\nWhich scale is suitable depends on the kind of data. Continuous data are things like age, height, or population, where the data might be any number from across a range. Discrete data are numbers where the value can only be one number or another, and not any value in between. Categorical data are data with a limited number of unordered categories, like gender, country, and so forth. A fourth type, ordinal, are categories where there is some inherent order, for example months of the year.\n\n\n\nThe four main data types\n\n\n\n\n\n\n\n\nNote\n\n\n\nWe have come across most of these data types in R already: values such as age in the passenger list are continuous (age could also be discrete if it was stored in full years); gender and place of embarking are both categorical. Categorical data are usually stored in columns with the string type (&lt;str&gt;), whereas continuous are stored as double (&lt;dbl&gt;). Discrete values may be stored as integers (&lt;int&gt;). Ordinal data in R is stored in a special data type, called a factor. Factors are variables that have a fixed and known set of possible values, and can be inherently ordered. We won’t really delve into factors on this course, but there are some situations where they are useful, for example if you want to reorder elements of a data visualisation.\n\n\nSome aesthetics only work on one or the other (shapes can only represent categories, for instance). In other cases, the scale will work differently depending on whether it is applied to a discrete or continuous set of data. In the example of colour, below, a categorical scale is usually represented by distinct, unrelated colours, whereas a continuous scale is sequential range, running from yellow to green.\nThe difference between continuous and discrete scales on the colour aesthetic\n\n\nKey aesthetics\nBelow are the aesthetics you’ll use most often in data visualisation, with some examples. The visualisations are made using the Nobel Prize dataset, containing information on every laureate and prize awarded since 1901. We’ve summarised it here to one row per prize category (Chemistry, Economic Sciences, Literature, Peace, Physics, and Physiology or Medicine), giving the number of laureates, the percentage who were women, and the average age at the time of the award.\n\n\n\n\n\n\nNote\n\n\n\nWorth bearing in mind while we use this dataset: it isn’t a neutral record of scientific or literary merit. Who gets nominated, who gets recognised, and whose contributions get overlooked (particularly women, and researchers outside a handful of countries) are all shaped by the historical biases of the institutions doing the nominating. A dataset like this rewards exactly the kind of critical, contextual reading that a humanities background gives you - the numbers alone don’t tell the whole story.\n\n\nYou can view the code I’ve used to make the plots, which might be useful later, as a reference.\n\nPosition\nAll data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. These are generally given as x and y coordinates. In the example below, position is used to highlight a relationship between two variables. This dataset graphs the average age at the time of the award on the x axis and the percentage of laureates who were women on the y axis, for each prize category.\nThe resulting scatterplot shows a relationship between the two variables: categories which tend to honour older laureates (Economic Sciences, Physics) also tend to have a much lower share of women than categories such as Peace and Literature.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\nSize\nSize is often mapped to amounts or magnitude (we naturally understand that these two things map together). If we take our chart above and map the size variable to the number of laureates in each category, the viewer will grasp intuitively that larger sizes equal a larger number of prizes given out. To make this relationship even clearer, we should include a legend.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n)) +\n  geom_point() +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")\n\n\n\n\n\n\n\n\n\n\n\nColour\nColour is a very useful aesthetic and can have many uses. One key one is to group data together, for example mapping the colour to the prize category. This helps a user to quickly see differences in the data between the categories.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category)) +\n  geom_point() +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")\n\n\n\n\n\n\n\n\n\n\n\nShape\nShape can be used similarly to colour to show different groups or categories.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n, shape = category)) +\n  geom_point() +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")\n\n\n\n\n\n\n\n\n\n\n\nLinetype/width\nLinetype isn’t so widely used in scatterplots, but can be used in other types to distinguish between groups or categories. Here, we count the number of laureates awarded per decade, for a few of the prize categories:\n\n\nCode\nnobel_df |&gt;\n  filter(category %in% c('Physics', 'Chemistry', 'Peace')) |&gt;\n  mutate(decade = floor(award_year / 10) * 10) |&gt;\n  group_by(decade, category) |&gt;\n  summarise(n = n(), .groups = 'drop') |&gt;\n  ggplot() +\n  geom_line(aes(x = decade, y = n, linetype = category)) +\n  labs(title = \"Laureates per Decade\", subtitle = \"Selected categories, 1900s-2020s\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\nTransparency\nTransparency can be mapped to data, but it is more useful used as a way to help with ‘overplotting’: when shapes are drawn on top of each other and difficult to distinguish. Here, we set the opacity to 50% (and add an outline), to make it possible to see the points which overlap with each other.\n\n\nCode\nnobel_summary |&gt;\n  ggplot(aes(x = avg_age, y = pct_female, size = n, fill = category)) +\n  geom_point(alpha = .5, pch = 21, color = 'black') +\n  scale_size_area(max_size = 10) +\n  labs(size = \"Number of laureates\")",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
+    ]
+  },
+  {
+    "objectID": "22_data-visualisation-1.html#learning-objectives",
+    "href": "22_data-visualisation-1.html#learning-objectives",
+    "title": "27  Data Visualisation Basics",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand the basic aim of data visualisation: mapping data to aesthetics\nDefine geometries and aesthetics, and how they relate to each other\nKnow the difference between discrete and continuous aesthetics\nRecognise the key aesthetics: position, size, colour, shape, linetype, and transparency",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Data Visualisation Basics</span>"
+    ]
+  },
+  {
+    "objectID": "23_ggplot2.html",
+    "href": "23_ggplot2.html",
+    "title": "28  Using ggplot2",
+    "section": "",
+    "text": "The ggplot2 package\nR has a very widely-used plotting library called ggplot2, and this is what we will use to pass our data to various geometries and aesthetics to make plots. ggplot2 is very customiseable - it will let you create almost anything as long as you can feed it data and tell it what it should draw with it.\nThe basis of all ggplot2 visualisations is a function called ggplot(). Think of this as the foundation of your visualisation. You’ll tell the ggplot() function what data it should use and which attributes of that data it should map to specific aesthetics.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Using ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "23_ggplot2.html#the-ggplot2-package",
+    "href": "23_ggplot2.html#the-ggplot2-package",
+    "title": "28  Using ggplot2",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nThe Grammar of Graphics\nThis uses a philosophy of visualisation called the ‘grammar of graphics’ (hence the ‘gg’ in the name). Essentially, this encompasses a set of rules by which we can construct visualisations, using a standard set of terms and features. Every type of of visualisation in ggplot uses this same set of grammar rules, making it very easy to make many different chart types with very little extra code.\nIt’s best to think of this grammar of graphics in terms of layers. We start with the function ggplot, and then supply a dataset and map this data to aesthetics : you tell ggplot how to map your numeric data to different visual features like shapes, size, and colours. The next layer is one or more geometries: these are the basic visual shapes like bars, points, and lines which make up data visualisations. Optionally you can supply scales, and other elements like facets.\n\n\n\nBy Allison Horst, CC-BY-4.0",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Using ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "23_ggplot2.html#demonstration---making-a-bar-chart",
+    "href": "23_ggplot2.html#demonstration---making-a-bar-chart",
+    "title": "28  Using ggplot2",
+    "section": "Demonstration - making a bar chart",
+    "text": "Demonstration - making a bar chart\nIt’s easier to demonstrate how it works. Before you use the package, you’ll need to load it, along with the other packages we use to wrangle the data:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAs an example, let’s draw a simple bar chart using ggplot2. We want to make a simple bar chart from the Titanic dataset we have been using. The workflow looks like this: first we clean and filter the data (if necessary), then we summarise it along the lines which we want, and finally visualise it using ggplot.\n\nSummarising the data\nThe first step is to produce the summary of the data we would like to visualise. Let’s try something very simple: the total number of male and female passengers. We’ll use group_by() and summarise(), as in the previous lesson:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow we have a dataset with two columns: sex, listing either male or female, and n, containing a count of the total number of each of those passengers. We save this as a new object called df, though if you want you can simply use the ‘pipe’ and pass it along to ggplot.\n\n\nMaking a plot\nWe can make a plot by building up at least four layers:\n\n1. ggplot()\nFirst, create a new ggplot object with the code ggplot().\n\n\n2. Data\nNext, give it our new summary dataframe to work with, using the argument data = df.\n\n\n\n\n\n\nTip\n\n\n\nYou can also use the pipe operator and pass your summarised data to ggplot, without saving it as a new object. In that case, you don’t need to use the data = argument. It’s up to you what to do in your own code - I prefer to create a new object if I am using it repeatedly, as here. A good principle in coding is that if you find yourself copying and pasting the same piece of code, there’s probably a better way of doing it!\n\n\n\n\n3. Aesthetics\nNext we tell ggplot which columns it should use, and which aesthetics it should map these colums to. This is also done by passing the names as parameters to x and y. First, type a comma after the data = df code. Then, insert the code aes(). This tells ggplot it should interpret anything within these parentheses as aesthetic mappings. Finally, within the aes(), we’ll add the columns and aesthetics: x = sex, y = n.\nThe code for this looks like the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n4. Geometry\nAt this point, we have an empty visualisation which specifies the aesthetics which should be mapped. In order to draw the correct geom, or visualisation shape, we need to add it as a layer on top of the ggplot() function.\nIn ggplot, a bar chart is created using the geom geom_col(). geom_col(), like all geoms, has a set of aesthetics which must be specified. In this case, we must at least specific the x and y aesthetics. These correspond to the horizontal and vertical position of the bars. When we give these aesthetics to geom_col, it will automatically figure out what to do with them.\nTo do this, we add a plus sign (+) followed by the geometry geom_col(), resulting in a simple bar chart:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nAdding each layer (anything after a + sign) on a new line makes the code easier to read, though it’s not strictly necessary.\n\n\nWe’ll learn about the rest of the layers in upcoming sessions.\n\n\n\nAdding other aesthetics to the chart\nEach chart type will allow you to manipulate different aesthetics, depending on what makes sense for that particular shape. If you are working in RStudio, you can check all of the options for a function by typing ? before it, e.g. ?geom_col, in to the console (the bottom left pane).\nFor geom_col, we have to set x and y and we can optionally set alpha (the transparency), colour (the colour of the outline of the bars), fill (the colour of the inside of the bars), and linetype and linewidth (allowing you to customise the look of the outline further).\n\nWithin aes() or outside aes()?\nThese attributes do different things depending on whether you put them inside the aes() function or outside. When outside the aes() function, they allow you to set an attribute to an absolute value. For example, to set the fill of the bars in our previous example to the colour red, you can do the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Set the outline of this bar chart to black (first copy and paste the existing code), and the linewidth to 2:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you set an attribute within the aes(), you will set that aesthetic to a value from your dataframe.\nTo demonstrate this, we need to make a new summary of the titanic dataset. Let’s make a new dataframe, which will now count the number of passengers who embarked at each location, for each sex, and call it df2.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow we have three columns in the summary dataset instead of two: sex, embarked, and n.\nIf we make the same chart as before with the df2 dataset, except now set the fill attribute to the embarked column, within the aes(), it will assign fill colours to each category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nTry it yourself:\nRecreate the chart above, and set the linetype aesthetic to the embarked category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCategorical vs continuous variables\nLet’s calculate another summary of the dataset.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn the last example, we provided a column containing a string (either a Q, a C, or an S) to the fill aesthetic. ggplot interprets these as categorical variables, and automatically assigns colours to them, with the aim of making them as distinctive as possible.\nIf we pass a numerical column, this will be interpreted as a continuous variable. Now, ggplot will automatically map a colour scale, running from the darkest (lower number) to the highest (highest number), with a smooth gradient in between. As in this example:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe learn a bit more about scales later this week. Turn to the next page to find out about more chart types and their most common attributes.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Using ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "23_ggplot2.html#learning-objectives",
+    "href": "23_ggplot2.html#learning-objectives",
+    "title": "28  Using ggplot2",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the essential layers of a ggplot chart: data, aesthetics, and geometry\nBuild a bar chart from scratch with ggplot() + aes() + geom_col()\nKnow the difference between setting an aesthetic inside aes() versus outside it\nKnow the difference between mapping a categorical vs a continuous variable to colour/fill",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Using ggplot2</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html",
+    "href": "24_chart-types.html",
+    "title": "29  More chart types",
+    "section": "",
+    "text": "What other charts can we make?\nTo demonstrate the basic range of charts we can create, we’ll use the Nobel Prize dataset from the last page: nobel_df has one row per laureate, and nobel_summary has one row per prize category, with the count of laureates, the percentage who were women, and the average age at the time of the award.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#what-other-charts-can-we-make",
+    "href": "24_chart-types.html#what-other-charts-can-we-make",
+    "title": "29  More chart types",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#controlling-aesthetics",
+    "href": "24_chart-types.html#controlling-aesthetics",
+    "title": "29  More chart types",
+    "section": "Controlling aesthetics",
+    "text": "Controlling aesthetics\nTo draw other chart types, we replace the geometry geom_col with others. In some cases, we will also change or add aesthetics.\nEach chart type is followed by examples of the typical aesthetics which can be used with that geometry.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#where-should-this-code-be-placed",
+    "href": "24_chart-types.html#where-should-this-code-be-placed",
+    "title": "29  More chart types",
+    "section": "Where should this code be placed?",
+    "text": "Where should this code be placed?\nAs we learned in the previous section, we can place an aesthetic either within aes() or outside it:\n\nWhen we specify an aesthetic within aes(), we ask for variables from our dataset to be mapped to it. It is best to include the aes() within the ggplot() function, though it can also be placed within the geom_ function.\nWhen we specify an aesthetic not within an aes(), it is used to map to specific values, such as setting all the points in a chart to blue. When using aesthetics like this, they should always be placed within the geom_ function.\n\nFor each aesthetic, there is an example where the aesthetic is placed within the aes() and outside it, to show the difference.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#geom_point",
+    "href": "24_chart-types.html#geom_point",
+    "title": "29  More chart types",
+    "section": "Geom_point()",
+    "text": "Geom_point()\ngeom_point() places points on a 2D plane. It requires at least x and y coordinates within the aes(). The result is often called a ‘scatterplot’ or sometimes a ‘bubble chart’.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nKey aesthetics\n\nSize\nWe can optionally set the size variable.\nOutside the aes()\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: copy and paste the chart below, and set the size variable to 10.\nInside the aes()\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: make a new version of the plot. Set the number of laureates (n) to the x axis, the percentage of women (pct_female) to the y axis, and the average age (avg_age) to the size variable.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nColour\nand/or the colour variable:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: create a plot with the points all the same colour: forestgreen. You need to choose where the aesthetic should go, out of the two examples above!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAlpha\nAlpha sets the transparency, a number between 0 and 1:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nShape\nOr the shape. There is a set of numeric codes to select specific shapes. Here is the full set:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nMore on shapes\n\n\n\nNotice that shapes 21 through 25 are blue with a black outline? Using these allows you to set the outline and the fill of a shape separately. If you set the shape to one of these, you can now use colour = to set the outline and fill = to set the inside colour, resulting in a ‘bubble chart’.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\nUse\nScatterplots are often used to show relationships between variables, like the link between average age and gender balance shown here: the categories which tend to honour older laureates also tend to have the lowest share of women.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#geom_line",
+    "href": "24_chart-types.html#geom_line",
+    "title": "29  More chart types",
+    "section": "Geom_line",
+    "text": "Geom_line\ngeom_line will draw a line between points in numerical order.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself:\nDraw a similar plot, for a prize category in the dataset of your choice.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nKey aesthetics\n\nColour\nYou can set line colour:\n\n\n\n\n\n\nTip\n\n\n\nYou can choose from a huge number of colours in your charts. A lot of colours have specific names, which are all listed here. Alternatively, you can choose colours using HEX codes: put # before the code and add it as normal.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nTo set the colours for these categories individually we can use a custom colour scale, which we’ll cover next week.\n\n\nTry it yourself: choose a subset of the six categories. Chart the total prize money awarded (amount_adjusted, summed) per decade, with each category having a different colour.\n\n\nLinetype\nLinetype can be set using a set of codes. Here are the main ones:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nUse\nLine graphs are usually used to show something changing over time. Because a line is drawn connecting each data point to the next one, we assume that one follows another in a logical sequence.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#multiple-geoms",
+    "href": "24_chart-types.html#multiple-geoms",
+    "title": "29  More chart types",
+    "section": "Multiple geoms",
+    "text": "Multiple geoms\nYou can stack multiple geoms on top of each other, just add them using another +:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself:\nDraw a chart combining a bar and a line plot, using a prize category of your choice.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#other-geoms",
+    "href": "24_chart-types.html#other-geoms",
+    "title": "29  More chart types",
+    "section": "Other geoms",
+    "text": "Other geoms",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#statistical-chart-types",
+    "href": "24_chart-types.html#statistical-chart-types",
+    "title": "29  More chart types",
+    "section": "Statistical chart types",
+    "text": "Statistical chart types\n\ngeom_histogram\nA histogram is a chart which plots the distribution of a set of values as a series of bars. Each bar represents a ‘bin’ or range of values, with the height of the bar indicating how many of the values are within that bin.\nWe could use it to plot the distribution of the age at which laureates received their prize, for example:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe code for a histogram looks a little different than usual. We only set the x variable - the y position will be automatically calculated when it does the statistical transformation.\nSecond, you’ll notice a message underneath the plot: `stat_bin()` using `bins = 30`. Pick better value with `binwidth`. Ggplot automatically divides the data into 30 equal-sized bins by default, but this is often not the clearest way to represent the distribution. We can choose either another number of bins with the argument bins =, or choose how big each range should be with the code binwidth =.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ngeom_density\nAnother way to show distributions of values is using geom_density:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\ngeom_boxplot\ngeom_boxplot shows distributions:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nA boxplot visualises the distribution of numbers (in this case, the age at which laureates in each category received their prize). The middle line is the median (the middle value, if you lined all the values up in order). The upper and lower ends of the box are the 25th and 75th percentiles, so the box contains the middle half of the values, and the dots (if any) show outliers.\nThis particular plot shows that Economic Sciences laureates tend to be the oldest on average and Physics laureates the youngest, while Peace laureates have by far the widest spread of ages (befitting a prize given to activists, politicians, and organisations alike, rather than for a single, slow-to-mature body of scientific work).\ngeom_boxplot has many attributes which can be changed, determining how the statistics are visualised. You can see these by typing ?geom_boxplot in the console.\n\n\nSpecial case: geom_text\nGeom_text will actually add the text from a column to a visualisation. This is useful if we want to label the chart itself with some values (we’ll learn better ways to annotate later in the course).\ngeom_text() works like any other geometry, except we must supply it with a label aesthetic:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhy have I used + 2 and round() here?\n\n\nShapes: geom_polygon, geom_segment, geom_rect\nAs well as these geoms which create recognisable chart types, it’s also useful to know that you can essentially create almost anything by using ggplot to draw shapes either with data or with absolute values. For example, you can make a ‘lollipop chart’ with a combination of geom_segment and geom_point, such as here to show the growth in the number of laureates per category between the 1950s and the 2010s:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNote that geom_segment needs xend and yend, as well as x and y. These shapes often have different required aesthetics.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#small-multiples-with-facet_wrap",
+    "href": "24_chart-types.html#small-multiples-with-facet_wrap",
+    "title": "29  More chart types",
+    "section": "Small multiples with facet_wrap()",
+    "text": "Small multiples with facet_wrap()\nEarlier, we drew the number of laureates per decade for all six prize categories on one chart, with a different colour for each line. Here it is again:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSix lines is already quite hard to read: they cross over each other, and you have to keep looking back and forth to the legend to work out which is which.\nAn alternative is to draw small multiples: a series of small charts, one for each category, side by side. ggplot2 does this with facet_wrap(). Add it to the end of the chart, with a ~ (a tilde) followed by the name of the column you want to split the chart by:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSmall multiples work well for two reasons:\n\nThe viewer only needs to learn to read one chart. Once they’ve understood the first panel, they can read all the others in the same way.\nEvery panel uses the same scales. Because the axes are the same, you can compare the panels directly: it’s easy to see that Physics, Chemistry and Medicine have grown much more than Literature or Peace, which have stayed at about one laureate a year.\n\nNotice too that every line drops sharply at the end. That isn’t a real decline: the 2020s aren’t over yet, so the last decade only has a few years of data. It’s a good example of why you should always check what a chart is actually showing before you interpret it.\nNotice that we no longer need colour or a legend: each panel is labelled with its category instead. That leaves colour free to show something else.\nfacet_wrap() works with any chart type. Here’s a histogram of the age at which laureates won their prize, split by category, so that we can compare the distributions:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can choose the number of columns (or rows) with ncol = (or nrow =). For example, facet_wrap(~ category, ncol = 1) puts all the panels in a single column, one above the other, which makes the distributions easier to compare along the age axis:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nFree scales\n\n\n\nBy default, every panel has the same axes. You can let each panel have its own y axis with facet_wrap(~ category, scales = 'free_y'). This can be useful if some groups are much smaller than others, and you’re interested in the shape of each line rather than its size. But be careful: with free scales, panels which look similar might represent very different numbers, and the viewer can no longer compare them directly. If you use them, make sure the reader can tell.\n\n\nTry it yourself: make a scatterplot of the age at award (age_at_award) against the year of the award (award_year), with a separate panel for each gender. Are women laureates getting older or younger over time?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#choosing-a-chart-what-am-i-trying-to-show",
+    "href": "24_chart-types.html#choosing-a-chart-what-am-i-trying-to-show",
+    "title": "29  More chart types",
+    "section": "Choosing a chart: what am I trying to show?",
+    "text": "Choosing a chart: what am I trying to show?\nYou’ve now seen most of the basic chart types. But how do you choose between them?\nThe answer depends on two things. The first is the type of data you have: whether your variables are continuous, discrete, categorical, or ordinal (see Data Visualisation Basics). Some aesthetics and chart types only work with one or the other.\nThe second, and more important, is what you are trying to show: what is the story in the data, or the question you want to answer? Most charts are trying to show one of a small number of things. The cards below show the most common, with an example question from the Nobel data and the chart types (and geoms) you could use:\n\n\n\nAmounts\nHow many laureates are there in each category?\nBar chart: geom_col(), geom_bar()\n\n\n\nRanking\nWhich category has the oldest laureates?\nOrdered bar or lollipop chart: geom_col(), geom_segment() + geom_point()\n\n\n\nDistribution\nHow old are laureates when they win?\nHistogram, density plot, boxplot: geom_histogram(), geom_density(), geom_boxplot()\n\n\n\nRelationship\nAre laureates getting older over time?\nScatterplot: geom_point()\n\n\n\nChange over time\nHow has the number of laureates changed by decade?\nLine chart, bar chart: geom_line(), geom_col()\n\n\n\nPart-to-whole\nWhat share of each category’s laureates are women?\nStacked bar chart: geom_col(position = 'fill')\n\n\n\nComparison across groups\nHas each category grown in the same way?\nSmall multiples: facet_wrap()\n\n\n\nSpatial\nWhere were laureates born?\nMap: geom_sf() (weeks 5-6)\n\n\nThe Financial Times has a very useful poster, the Visual Vocabulary, which does the same thing in much more detail, with dozens of chart types arranged by what they show. It’s worth keeping open while you plan your reports.\nOne chart type here is new: the stacked bar chart, used to show proportions. Map a category to the fill aesthetic, and add position = 'fill' to geom_col(). Each bar is then stretched to the same height, so that the y axis shows the proportion (from 0 to 1) rather than the count:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry removing position = 'fill' and running the code again. What’s the difference, and which chart better answers the question ‘what share of each category’s laureates are women’?\n\n\n\n\n\n\nBefore you make a chart, ask…\n\n\n\n\nWhat is my question, or the story I want to tell?\nWhich of the things in the cards above am I trying to show?\nWhat type of data are the variables involved?\nWhich chart type, and which aesthetics, fit both?\n\nIf you can’t answer the first question, no chart type will help!",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#check-your-understanding",
+    "href": "24_chart-types.html#check-your-understanding",
+    "title": "29  More chart types",
+    "section": "Check your understanding",
+    "text": "Check your understanding\n1. A student wants to show how the number of pages in published novels is spread out: are most novels about the same length, or are there lots of very short and very long ones? Which chart types would be suitable, and which geoms would they use?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThis is a question about a distribution of a continuous variable. A histogram (geom_histogram()) or density plot (geom_density()) would show the shape of the distribution. A boxplot (geom_boxplot()) would also work, and would be particularly useful for comparing the distribution between groups, for example novels from different decades.\n\n\n\n2. A chart shows the number of books published each year from 1800 to 1900, for eight different countries, as eight coloured lines on one chart. The lines overlap and are hard to tell apart. What one line of code could you add to make it clearer, and what else would you change?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nAdd facet_wrap(~ country) to make small multiples: one small line chart per country. You could then remove color = country from the aes(), because each panel is already labelled with its country, so the colour and the legend are no longer needed.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#add-ons",
+    "href": "24_chart-types.html#add-ons",
+    "title": "29  More chart types",
+    "section": "Add-ons",
+    "text": "Add-ons\nAnother way to get the chart type you want is to install additional packages which use the same ‘grammar of graphics’ to extend ggplot. You can make animated plots using gganimate, networks using ggraph. Later in the course we will create maps with a geom called geom_sf. There are hundreds of these add-ons, which you can browse here.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24_chart-types.html#learning-objectives",
+    "href": "24_chart-types.html#learning-objectives",
+    "title": "29  More chart types",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nDraw a scatterplot with geom_point(), and control size, colour, alpha, and shape\nDraw a line chart with geom_line(), and control colour and linetype\nDraw a histogram, density plot, and boxplot to show a distribution\nUse geom_text() to label a chart with values\nCombine more than one geom on the same chart\nUse facet_wrap() to make small multiples, and explain when they are clearer than one chart\nChoose a chart type based on what you want to show (amounts, ranking, distribution, relationship, change over time, part-to-whole, comparison, spatial)\nMake a stacked bar chart of proportions with position = 'fill'",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>More chart types</span>"
+    ]
+  },
+  {
+    "objectID": "24a_data-visualisation-1-exercises.html",
+    "href": "24a_data-visualisation-1-exercises.html",
+    "title": "30  Practice exercises: ggplot2 basics and chart types",
+    "section": "",
+    "text": "The exercises below run in your browser and check your code automatically, giving you feedback as you go. Unlike the Data Analysis exercises, these are checked by comparing your code to a model solution rather than the result - so if the feedback doesn’t say “correct”, it’ll point you to the specific part of your aes() or geom_ call to fix. The last two are a bit more of a challenge - don’t worry if you need a few tries.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Practice exercises: ggplot2 basics and chart types</span>"
+    ]
+  },
+  {
+    "objectID": "25_at-home-5.html",
+    "href": "25_at-home-5.html",
+    "title": "31  Home Exercises",
+    "section": "",
+    "text": "Instructions\nDo the at-home exercises in R-Studio, in your cultural_analytics project (see Installing R and RStudio). Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).\nI advise saving the new file straight away, and regularly re-save it.\nWhen you have finished the exercise (or part of it), ‘knit’ the file to check that it works.",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Home Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "25_at-home-5.html#instructions",
+    "href": "25_at-home-5.html#instructions",
+    "title": "31  Home Exercises",
+    "section": "",
+    "text": "Note\n\n\n\nThis exercise is ungraded practice - you don’t need to submit it. But it’s the best preparation for the reports and the exam, so do try to complete it.\n\n\n\n\n\n\nTask\nLoad the Bellevue Almshouse dataset we used a few weeks ago, which should already be in your project folder (if not, download it from Brightspace again). Load the Tidyverse library.\nCreate a series of charts using ggplot2, visualising the following aspects of the data. In most cases, you’ll need to prepare the data by filtering and/or summarising. Create each one in a separate code cell.\n\nA bar chart of the number of male and female individuals. First filter out any missing or ambiguous data.\nA bar chart of the ten most frequent diseases on the x axis, and the count of each on the y axis (look back to previous weeks for this one). Filter out NA values first.\n\n\n\n\n\n\n\nTip\n\n\n\nTo filter out NA values, the function is.na checks if a value is NA or not. So, filter(!is.na(disease))will keep any rows where the value is not NA.\n\n\n\nA bar chart of the ten most frequent female first names on the y axis and the count of each on the x axis.\nUsing geom_histogram(), chart the distribution of the values for age, for male and female gender categories.\nCreate a line chart visualising the number of individuals admitted per week, with the week on the x axis and the count on the y axis.\n\n\n\n\n\n\n\nTip\n\n\n\nThe function floor_date(unit = 'week') will take a full date and round it down to the start of the week (starting on Sunday, because it’s American). So for example, running floor_date on today’s date and tomorrow’s date (2025-10-13 and 2025-10-14) would give 2025-10-12 for both.\nTry creating a new column with the ‘floored’ dates, and then summarise using these as groups.\n\n\n\nDo the same except using months instead of weeks, and visualise male and females separately.\n\nFinal challenge:\nYou’ve been asked to visualise the professions in the dataset, as a bar chart. Let’s take a look at a summary of this data first (this is not live code):\n\nlibrary(dplyr)\nlibrary(readr)\n\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\nbellevue_dataset |&gt;\n  group_by(profession) |&gt;\n  summarise(n = n()) |&gt;\n  arrange(desc(n))\n\n\n  \n\n\n\nAs you can see, there are far too many professions listed to visualise as individual bars. How would you solve this? Try to think of a solution to this - you could use another visualisation method, or re-organise/rename the data to have a pragmatic solution.\nIf you can’t code the solution, you can simply write a description of what you would like to do, and we can try to solve it in the class!",
+    "crumbs": [
+      "Week 3 · Tue 10 Nov: Data Visualisation 1",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Home Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "26_data-visualisation-2.html",
+    "href": "26_data-visualisation-2.html",
+    "title": "32  More Data Visualisation",
+    "section": "",
+    "text": "Last week we covered the basics of ggplot2: mapping data to aesthetics, drawing it with a geometry, and the main chart types you’ll use most often (bars, points, lines, histograms, and boxplots).\nThis week builds on that in two directions.\nFirst, we’ll look at gestalt principles and pre-attentive attributes - two frameworks from psychology which help explain why data visualisation works as a way of communicating information, and which give us some vocabulary for talking critically about our own and others’ charts (useful for the in-class critique exercise at the end of that page).\nSecond, we’ll go a layer deeper into ggplot2 itself, and look at scales. Scales control how the values in your data get mapped onto a chart - where a point sits on the x axis, which colour a bar is filled with, how big a symbol is drawn. Choosing sensible scales (or occasionally choosing misleading ones) has a big effect on what a viewer takes away from a chart, so it’s worth understanding how to control them deliberately rather than always accepting ggplot’s defaults.\nOver the rest of this part, we’ll cover:\n\nPosition scales: setting axis limits, breaks, and labels, and reordering categories on a chart.\nDate scales: the same idea, applied to dates - very common in humanities data.\nColour and size scales: choosing sequential, diverging, and categorical palettes, including ones which are safe for colour vision deficiency.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>More Data Visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "27_gestalt.html",
+    "href": "27_gestalt.html",
+    "title": "33  Gestalt Principles",
+    "section": "",
+    "text": "Gestalt Principles\nGestalt principles were developed from the late 1800s and could be considered part of the discipline of psychology and philosophy. Gestalt principles are related to perception: the basic theory is that we perceive visual forms as a whole, rather than each part separately.\nIn other words, we simplify our visual stimuli in order to make sense of what we are seeing, and the wider world.\nThe developers of Gestalt boiled this down to a series of principles, which they say govern how we do this simplification. The data visualisation types and default settings we use naturally use these principles - we don’t need to actively think about them most of the time. However, it’s worth understanding them to have some kind of theory as to why data visualisation works.\nThe principles which apply particularly to data visualisation are:",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Gestalt Principles</span>"
+    ]
+  },
+  {
+    "objectID": "27_gestalt.html#gestalt-principles",
+    "href": "27_gestalt.html#gestalt-principles",
+    "title": "33  Gestalt Principles",
+    "section": "",
+    "text": "Proximity\nSimilarity\nEnclosure\nClosure\nContinuity\nConnection\n\n\n\nProximity\nWhen objects are placed close together, our mind intuitively infers a connection between them.\nTake this scatterplot, which visualises the relationship between bill length and flipper size in a dataset of penguin observations.\nSomething we might notice is that there are roughly three clusters of points which are closer together than they are to the other clusters. We intuitively realise that there is some significance to these points being placed close together (in this case, each cluster represents a different species of penguin).\n\n\n\n\n\n\n\n\n\nIn more general terms of design, it can also be useful to think about proximity - different elements of charts should be close together, such as labels and legend.\n\n\nSimilarity\nThis principle states that objects which are a similar (or the same) size, shape or colour will be perceived as part of the same group. This is a very useful way to draw attention to significant groups in our data. If we add colour to the previous example, the distinctiveness of the species is even clearer:\n\n\n\n\n\n\n\n\n\n\n\nEnclosure\nThis principle says that objects within the same border will be perceived as a group. Again, this can be exploited in data visualisation to highlight groups within our data.\n\n\n\n\n\n\n\n\n\nWe’ll learn how to add these kinds of things in a future class.\n\n\nClosure\nClosure is the principle that we tend to ‘close’ unfinished objects to make them whole. This is perhaps not used as much as some of the others in data visualisation, but, for instance, we can think of the way in which we perceive dashed lines as a solid line:\n\n\n\n\n\n\n\n\n\n\n\nContinuity\n\n\n\n\n\n\n\n\n\nThis principle states that we naturally try to organise objects when they are placed one after another. The obvious use of this is in graphs showing change over time. When drawn as lines, we make the natural assumption that the objects (in this case, position on a graph) are in a sequence and are related to each other.\n\n\nConnection\nThis principle states that if objects are connected, we perceive them as a unified entity. This is clearly demonstrated in the chart below: the connection between the first and second points helps to guide us to consider the values together and make comparisons between them.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Gestalt Principles</span>"
+    ]
+  },
+  {
+    "objectID": "27_gestalt.html#pre-attentive-attributes",
+    "href": "27_gestalt.html#pre-attentive-attributes",
+    "title": "33  Gestalt Principles",
+    "section": "Pre-attentive attributes",
+    "text": "Pre-attentive attributes\nThe second framework mentioned at the start of this chapter is pre-attentive attributes. These are visual properties that our brains process automatically and almost instantly (in well under half a second), before we consciously focus our attention on them - long before we could read a label or count individual items.\nAttributes such as colour, size, orientation, and motion are all processed pre-attentively. This is why a single red point among a field of grey ones seems to ‘pop out’ immediately, without you needing to scan the image - our visual system detects this kind of difference automatically.\nThis is directly useful for data visualisation: if you want a viewer to notice something at a glance, map it to a pre-attentive attribute (like colour or size), rather than relying on something that requires careful, conscious reading (like a small text label).",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Gestalt Principles</span>"
+    ]
+  },
+  {
+    "objectID": "27_gestalt.html#exercise",
+    "href": "27_gestalt.html#exercise",
+    "title": "33  Gestalt Principles",
+    "section": "Exercise",
+    "text": "Exercise\nPick a data visualisation you’ve encountered recently and thought was interesting - from the news, social media, a museum, or one you’ve made yourself for this course.\nPrepare to explain it to the group for 2 minutes. Mention one of each of the following, and point out whether you think they are effective or appropriate:\n\nA geometry\nAn aesthetic\nA gestalt principle",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Gestalt Principles</span>"
+    ]
+  },
+  {
+    "objectID": "27_gestalt.html#learning-objectives",
+    "href": "27_gestalt.html#learning-objectives",
+    "title": "33  Gestalt Principles",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the main Gestalt principles: proximity, similarity, enclosure, closure, continuity, and connection\nExplain why these principles matter for how a chart is read\nKnow what ‘pre-attentive attributes’ are, and give an example\nUse these principles to critique a data visualisation",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>Gestalt Principles</span>"
+    ]
+  },
+  {
+    "objectID": "28_scales.html",
+    "href": "28_scales.html",
+    "title": "34  Chart scales",
+    "section": "",
+    "text": "Scales\nThe process by which this happens involves scales. Scales are the next ‘layer’ in our ggplot object. Scales control the mapping from data to aesthetics. Data visualisations cannot work without scales, so ggplot2 will automatically add them to your plots, but knowing how to control these and the various options they have available will allow you to have much more control over the look of your visualisations.\nWe won’t go into the theory of how ggplot2 works with scales in too much detail, but concentrate on some practical code, examples and tips which I think have the most impact on controlling the aspects of your plots you would expect to be able to do.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Chart scales</span>"
+    ]
+  },
+  {
+    "objectID": "28_scales.html#scales",
+    "href": "28_scales.html#scales",
+    "title": "34  Chart scales",
+    "section": "",
+    "text": "Note\n\n\n\nThese scales are communicated to the viewer by means of an axis or a legend, which we’ll cover afterwards.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Chart scales</span>"
+    ]
+  },
+  {
+    "objectID": "28_scales.html#why-scales-matter",
+    "href": "28_scales.html#why-scales-matter",
+    "title": "34  Chart scales",
+    "section": "Why scales matter",
+    "text": "Why scales matter\nIt’s worth pausing on why this is worth learning properly, rather than just accepting ggplot’s defaults. The same data, drawn with different scale choices, can tell quite different stories - not because the numbers have changed, but because of where the axis starts, or which colours suggest which categories are related.\nTake this chart of the number of Nobel laureates awarded per decade. On the left, the y axis runs from 0; on the right, it’s limited to close to the actual range of the data:\n\n\nCode\nlibrary(tidyverse)\nlibrary(patchwork)\n\nlaureates_df &lt;- read_csv('laureates_df.csv', show_col_types = FALSE)\nprize_df &lt;- read_csv('prize_df.csv', show_col_types = FALSE)\n\nnobel_by_decade &lt;- laureates_df |&gt;\n  left_join(prize_df, by = 'prize_id') |&gt;\n  filter(award_year &lt; 2020) |&gt;\n  mutate(decade = floor(award_year / 10) * 10) |&gt;\n  count(decade)\n\np1 &lt;- nobel_by_decade |&gt;\n  ggplot(aes(x = decade, y = n)) +\n  geom_line() +\n  scale_y_continuous(limits = c(0, 125)) +\n  labs(title = \"Starting at 0\", y = \"Laureates per decade\") +\n  theme_bw()\n\np2 &lt;- nobel_by_decade |&gt;\n  ggplot(aes(x = decade, y = n)) +\n  geom_line() +\n  scale_y_continuous(limits = c(35, 120)) +\n  labs(title = \"Zoomed in\", y = \"Laureates per decade\") +\n  theme_bw()\n\np1 + p2\n\n\n\n\n\n\n\n\n\nBoth charts are technically accurate - nothing has been faked. But the one on the right makes the growth (and the dips around the two World Wars) look far more dramatic, simply by choosing different limits. Neither version is automatically ‘the’ correct one to use (sometimes zooming in is exactly the right choice, if the small changes are genuinely the point), but you should always make that choice deliberately, and be able to justify it, rather than leaving it to chance or - worse - picking whichever version tells the story you wanted to tell.\nThe same logic applies to colour, size, and the other scales we’ll cover in this part: they’re not just decoration, they’re doing real interpretive work.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Chart scales</span>"
+    ]
+  },
+  {
+    "objectID": "28_scales.html#aesthetics",
+    "href": "28_scales.html#aesthetics",
+    "title": "34  Chart scales",
+    "section": "Aesthetics",
+    "text": "Aesthetics\nRecall from earlier this week that we learned about different aesthetics: position, colour, size, shape, linetype, linewidth, and transparency. This chapter on scales will mostly cover position and colour, and to a lesser extent, size. The scales for the other aesthetics are less interesting (you’re less likely to want to change the defaults), so we won’t look at these. But be aware they also have scales which can be overwritten or adjusted.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Chart scales</span>"
+    ]
+  },
+  {
+    "objectID": "28_scales.html#learning-objectives",
+    "href": "28_scales.html#learning-objectives",
+    "title": "34  Chart scales",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nUnderstand what a scale controls, and why choosing one deliberately matters\nExplain how a truncated (non-zero) axis can mislead a viewer\nKnow which aesthetics (position, colour, size) have scales worth adjusting",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>Chart scales</span>"
+    ]
+  },
+  {
+    "objectID": "29_position-scales.html",
+    "href": "29_position-scales.html",
+    "title": "35  Position scales",
+    "section": "",
+    "text": "Position scales\nScales are added to ggplot2 plots in much the same way as other layers. First a +, followed by the name of the scale. Options are specified within the parentheses of the scale name.\nScales are either continuous or discrete, depending on the data. A bar chart generally contains one continuous variable (a count) and one discrete variable (the different categories, generally one for each bar), whereas a line chart generally has two continuous variables.\nThe most common position scales are scale_x_continuous and scale_y_continuous, which simply map linearly from a data value to a location on the plot. If you plot continuous data on an axis, ggplot will automatically add these to your plot. You only need to specify them explicitly if you want to change any of the default options.\nIn this chart, which we have seen before, ggplot has automatically created continuous scales to represent the award_year and n (the number of laureates that year). Each point is placed in a position based on these scales. These are represented on the chart as the x and y axis, so we know what each position refers to.\nThere are two useful things we can change with the default continuous scale: limits and breaks.\nTo make changes to the default scale, we add scale_x_continuous or scale_y_continuous following a + sign to the plot.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Position scales</span>"
+    ]
+  },
+  {
+    "objectID": "29_position-scales.html#position-scales",
+    "href": "29_position-scales.html#position-scales",
+    "title": "35  Position scales",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nLimits specify the limits of the scale - the start and end points of the x and y axes.\nBreaks specify which points and ticks should be drawn on the x and y axes.\n\n\n\nLimits\nTo change the limits, add limits = followed by the start and end point of the limit you want, within a vector using c(), as in the example below:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can see that it has limited the years to 1980 at earliest and 2000 at the latest.\nTry it yourself: set the limits of the y axis to 0 and 20\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nBreaks\nBreaks control which axis ticks, lines and labels are shown. Ggplot picks defaults according to the data but you can override them.\nChange the breaks by adding breaks = to the plot, followed by a vector (a list) of the values you want to specify.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Set the breaks for the y axis to every 5 instead of every 10\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nIt would quickly get tedious if you wanted to specify a large number of axis ticks. R has a function called seq(), which allows you to create a sequence of numbers according to simple rules. seq() needs a from, to and by argument. For example we could specify that the plot show values every two years by adding the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nMinor breaks\nNote that changing the breaks also changes the vertical lines in the plot. By default, ggplot draws a line for each break, as well as a fainter line in between each break, called minor breaks. You can override the positions for these minor breaks, too.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can also add different labels for your axis, using the ‘labels’ argument:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: copy the chart above, but change the minor breaks to every 5 years, and the labels for the major breaks to ‘First Year’, ‘Second Year’, and so forth.\n\n\n\nScales with bar charts\nBar charts using geom_col generally have a discrete scale instead of a continuous scale on the x axis. Each bar represents a category rather than a numeric value. The name of this is scale_x_discrete, which is added automatically by ggplot.\n\n\n\n\n\n\nNote\n\n\n\nA bar chart can also have a numeric variable on the x axis, for example if we made the plot above, but with geom_col instead of geom_line. In this case, though it will contain individual discrete bars for each year, ggplot2 will still give it a continuous scale.\n\n\nBy default, this will be ordered alphabetically. Reordering these is a very common data visualisation task. Take the following example, which counts the number of laureates in each prize category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn many cases we would want to reorder the categories by the value on the y axis - so that the highest appear at the top. We can do this not within the scale but by using reorder in the code of the plot itself:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Position scales</span>"
+    ]
+  },
+  {
+    "objectID": "29_position-scales.html#coord_flip",
+    "href": "29_position-scales.html#coord_flip",
+    "title": "35  Position scales",
+    "section": "Coord_flip()",
+    "text": "Coord_flip()\nA final useful function is coord_flip. This flips the coordinates of a plot, and reverses the position of the x and y axes.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nNote that we have removed the desc() so that the highest value is at the top rather than the bottom.\n\n\nThis is particularly useful for a chart with lots of values, because the labels are much easier to read when they are placed along the y-axis - especially if it is going to be viewed online. It’s also handy here for another reason: some of these category names (“Physiology or Medicine”, “Economic Sciences”) are quite long, and read much more comfortably running horizontally than squeezed onto a vertical x axis.",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Position scales</span>"
+    ]
+  },
+  {
+    "objectID": "29_position-scales.html#learning-objectives",
+    "href": "29_position-scales.html#learning-objectives",
+    "title": "35  Position scales",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nSet axis limits, breaks, minor breaks, and labels with a position scale\nKnow what happens to values which fall outside a scale’s limits\nReorder a categorical axis with reorder(), and use coord_flip()",
+    "crumbs": [
+      "Week 3 · Thu 12 Nov: Data Visualisation 2 (part 1)",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>Position scales</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html",
+    "href": "41_data-sources.html",
+    "title": "58  —",
+    "section": "",
+    "text": "Data and Inspiration\nOn this page you can find links to humanities datasets, suggestions for datasets that would work well for each of the assignments, and examples of projects to get you thinking.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#importing-a-dataset-and-dataset-standards",
+    "href": "41_data-sources.html#importing-a-dataset-and-dataset-standards",
+    "title": "58  —",
+    "section": "Importing a dataset and dataset standards",
+    "text": "Importing a dataset and dataset standards\nFor these assignments, you’ll need to begin by importing your dataset as an object into the RStudio environment. How you do this depends a little on the standard of your dataset. As we’re working with tabular data on this course, your data should in most cases be in one of these formats:\n\nComma separated values (files ending in .csv). A very common tabular data format. Use read_csv() from the Tidyverse package readr (remember to load the package first) to read the file in to R.\nTab separated values (files ending in .tsv). Another common tabular format. Use read_tsv() from the Tidyverse package readr to read the file.\nExcel files: Microsoft proprietary format, which can contain multiple sheets. Use read_excel() from the Tidyverse package readxl to read the file.\nGoogle sheets. You can read Google sheets directly from the internet using the package googlesheets4.\n\nYou can read data originating from either your local machine, or directly from the internet in some cases.\n\nIf you’re loading from your local machine, save the file in your project folder first.\nIf you know the path online to a file in one of the formats above, you can simply add the full path as the filename within quotation marks, e.g. read_csv('https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv'). For files on GitHub, make sure you use the raw version of the file (click the ‘Raw’ button on the file’s page and copy that address) - the normal GitHub page is a web page, not a csv file.\n\nWhatever dataset you use, a really important task is to read the documentation available, so you understand, as best as possible, how it was made and who was responsible for it. If you can’t find out where a dataset came from, don’t use it.\n\n\n\n\n\n\nWarning\n\n\n\nSome datasets are too big to work with comfortably on a laptop: R has to load the whole file into your computer’s memory, which can make everything very slow, or stop with an error. Datasets below which are likely to be this big are marked (large). If you use one, filter it down to the part you need as early as possible, and save that smaller version to work with.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#datasets-used-on-the-course",
+    "href": "41_data-sources.html#datasets-used-on-the-course",
+    "title": "58  —",
+    "section": "Datasets used on the course",
+    "text": "Datasets used on the course\nThe datasets we’ve worked with in class are relatively clean and simple, by humanities data standards. For Assignment 1 especially, I highly recommend using one of these: data cleaning and figuring out formats can be very time consuming, so unless you are very comfortable with these things, think carefully before choosing a bespoke dataset.\n\nThe Titanic dataset. There are many versions of this on the internet, because it is widely used in machine learning problems. I created a version based on this dataset, because it contains the full list and hasn’t been divided into different parts for training and testing machine learning algorithms. There is a little information on how the dataset was constructed, but unfortunately the link to further information is no longer working. My version is available here.\nThe Bellevue Almshouse data. Records of immigrants who were admitted to the Bellevue Almshouse (house for the poor) in New York in the 1840s. You can find more information and links to the data here.\nThe Movie Dialogue dataset. You can find more information about this dataset here. I created the third file, imdb_genre, from a larger IMDB dataset. You can find that file here.\nThe Nobel Prize Winners dataset. Two tables, with information on the Nobel Prizes and the Nobel Prize winners. I created this using the official Nobel API. You can find the files here.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#suggested-datasets",
+    "href": "41_data-sources.html#suggested-datasets",
+    "title": "58  —",
+    "section": "Suggested datasets",
+    "text": "Suggested datasets\nIf you’d like to try something different, the datasets below are similar in spirit to the ones we’ve used in class: tabular, reasonably clean, documented, and about culture or history. Each comes with an idea of the kind of question you could ask of it, but these are just starting points.\nWhen choosing, keep to something broadly humanities-related (so not primarily natural sciences or economics), and check before you commit that there is documentation telling you where the data came from and how it was made - you’ll need it to write a good report.\n\nGood for a first visualisation (Assignment 1)\n\nArt history textbooks (TidyTuesday). Every artist who appears in the two most widely used art history survey textbooks (Janson’s and Gardner’s) across all their editions, with the artists’ gender, ethnicity, nationality, and how much page space each one received. A very direct way into questions about the canon: who gets included, and how has that changed over time? Comes from the R package arthistory.\nEurovision (TidyTuesday). Results of every Eurovision Song Contest, plus the votes cast between countries. Good for rankings over time, and the voting table invites questions about ‘bloc voting’ and which countries favour which (there’s even a mapping project hiding in there).\nBob Ross paintings (TidyTuesday). Every painting from the TV show The Joy of Painting, with the colours used in each one, by season and episode. Small, friendly, and nice for experimenting with colour scales - you can use the actual hex codes of the paints.\nBillboard Hot 100 (TidyTuesday). Weekly positions of every song on the US Billboard chart since 1958, joined to Spotify’s audio features (danceability, tempo, and so on). Has songs got shorter, sadder, or faster? A good chance to practise dates and joins.\nThe Tate collection. Metadata for around 70,000 artworks and 3,500 artists in the Tate’s collection: titles, dates, media, dimensions, acquisition year, and artists’ birth and death places. It’s a 2014 snapshot and no longer updated (which is worth mentioning in your report!), but it is clean and well structured.\nThe Museum of Modern Art collection. Similar to the Tate data but bigger and regularly updated: artworks with dates, departments, dimensions and acquisition dates, plus artists’ nationality, gender and birth/death years. FiveThirtyEight’s guide to MoMA’s paintings gives a sense of what’s possible.\nPost45 Data Collective. Peer-reviewed datasets about twentieth- and twenty-first-century literature, each with a short essay explaining how it was made. Good choices are the New York Times hardcover fiction bestsellers (1931-2020), the index of major literary prizes in the US, and the British literary prizes dataset. Questions about gender, genre and prestige come out of these very naturally.\nProject Gutenberg metadata, via the R package gutenbergr. Metadata (not text) for the tens of thousands of books on Project Gutenberg: title, author, authors’ birth and death years, language and subject headings, loaded with gutenberg_metadata, gutenberg_authors and gutenberg_subjects. What does the ‘public domain canon’ look like?\n\n\n\nGood for a map (Assignment 2)\n\nShakespeare and Company Project. Records from Sylvia Beach’s lending library in interwar Paris, with geocoded addresses for its members. An article describes the data, which is divided into members, books, and events (mostly library loans). Map where readers lived, or join the tables to see who borrowed what.\nRijksmonumentenregister. The Dutch register of national monuments - around 60,000 protected buildings and sites, with their type, building period and location. A good local option: map monuments by type or era in Leiden or your home town. Bulk downloads are available via data.overheid.nl (search for ‘rijksmonumenten’).\nDutch-Asiatic Shipping (Huygens Institute). Around 8,000 voyages made by VOC ships between the Netherlands and Asia, 1595-1795, with ships, dates, ports of departure and arrival, and crew numbers. Good for maps of routes and for time series.\nPantheon. Tens of thousands of ‘famous’ historical people, with birthplaces (including coordinates), occupations and a measure of how much their Wikipedia pages are viewed. Fun to map, but also an excellent dataset to be critical about: what does ‘famous’ mean, and whose fame does Wikipedia record?\nA cross-verified database of notable people (Laouenan et al., 2022) (large). Around 2.3 million notable people from 3500 BC to 2018, assembled from Wikipedia and Wikidata, with birth and death dates and places, gender and occupation. Much bigger and more systematic than Pantheon; filter it down to a period or region that interests you.\nPleiades. A gazetteer of tens of thousands of places in the ancient world, with coordinates, place types and the periods in which they were in use. Download the CSV ‘dumps’. Good for anyone interested in classics or archaeology.\nMapping Inequality. Digitised versions of the 1930s US government ‘redlining’ maps, which graded neighbourhoods by supposed mortgage risk, largely along racial lines. Downloadable as GeoJSON, so you can practise with polygons rather than points.\nThe World Atlas of Language Structures, based on WALS. Linguistic features of the world’s languages, with coordinates. It’s a little difficult to find what you need, but the languages table is the most important. Pair it with this dataset of endangered and extinct languages.\n\n\n\nMore ambitious\nThese are bigger, messier, or need more care, but reward the effort if you’re feeling confident.\n\nSlaveVoyages. The Trans-Atlantic and Intra-American slave trade databases: records of around 36,000 voyages, with ports, dates, and numbers of enslaved people embarked and disembarked. One of the most important datasets in digital history, and one which demands careful thought about how to visualise human suffering.\nThe Metropolitan Museum of Art Open Access (large). Around half a million objects from the Met’s collection in one CSV, covering everything from ancient Egypt to modern design. Lots of missing values and inconsistencies, which is realistic and makes for good discussion in a report.\nOld Bailey Online and the Digital Panopticon. Nearly 200,000 criminal trials at London’s central criminal court, 1674-1913, and the later lives of convicts. Getting tabular data out takes some work; Sharon Howard’s blog posts show how, with R and tidyverse code.\nBritish Library newspapers title list. Every newspaper title held by the British Library, with places and dates of publication. Good for mapping the growth of the press.\nlitRiddle. Data from a large Dutch reader survey about contemporary novels, combined with information about the books and authors. There’s also an R package: install.packages(\"litRiddle\").\nIMDb non-commercial datasets (large). Every film and TV title on IMDb, with genres, runtimes, ratings and cast and crew.\nHathiTrust Hathifiles (large). Catalogue metadata (not content) for the millions of volumes digitised by HathiTrust. Look for the most recent file starting with hathi_full.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#data-repositories-and-lists",
+    "href": "41_data-sources.html#data-repositories-and-lists",
+    "title": "58  —",
+    "section": "Data repositories and lists",
+    "text": "Data repositories and lists\nThere are many, many sources of datasets available online. Look for relatively simple csv and tsv files or sets of files, and avoid those that mention APIs or Linked Open Data unless you are comfortable working with these things.\n\nNational and international statistics\n\nCBS Statline: Dutch statistics. Also an R package, cbsodataR.\nEurostat: official EU statistics, at different regional levels - including cultural statistics such as cultural employment and participation.\ne-Stat: official statistics repository of Japan. The statistics dashboard is particularly useful.\n\n\n\nHumanities repositories\n\nJournal of Open Humanities Data. Short articles describing humanities datasets, with the data attached and possible use cases. A great place to find well-documented data.\nPost45 Data Collective (see above).\nTidyTuesday. A weekly data challenge with a large archive of datasets, organised by year and week. Many aren’t relevant to the humanities, but those that are tend to be clean and documented.\nDANS Social Sciences and Humanities: the Dutch national repository. Lots of datasets, but they can be very specific and not always easy to use.\nKB Labs datasets from the Dutch national library (many are text-based but some are structured).\nThe Pudding has some nice and often fun datasets, though they have a very American focus.\nMelanie Walsh’s Introduction to Cultural Analytics has a page of datasets. Not all are tabular - some are primarily text, which is outside the scope of this course.\nThe Google dataset search. However, make sure you can trace back the provenance!\nThe ‘DH toychest’ datasets and this list of museum APIs. Both are old, so expect some broken links, but there are still useful things there.\n\n\n\n\n\n\n\nTip\n\n\n\nFor very large datasets, it may also be helpful to use an R package such as data.table which is more efficient than Tidyverse for working with very large data. data.table has a very different syntax to the Tidyverse, but there is a package, tidytable, which converts between the two.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#r-packages",
+    "href": "41_data-sources.html#r-packages",
+    "title": "58  —",
+    "section": "R packages",
+    "text": "R packages\nThere are many R ‘dataset packages’. These can be very useful, because accessing the data is simple - you just need to install a package and then follow some instructions to load the dataset, rather than find and upload a spreadsheet file. They are also generally formatted so they are easy to use in R.\n\nHistData: classic datasets from the history of data visualisation - including Florence Nightingale’s data on causes of death in the Crimean War, John Snow’s cholera map, and Minard’s data on Napoleon’s march on Moscow. You could recreate (and improve on?) a famous chart.\narthistory: the art history textbook data described above.\ngutenbergr: Project Gutenberg metadata (see above).\ntaylor: the complete discography of Taylor Swift, with Spotify audio features and lyrics. See the package website.\nrefugees: UNHCR data on refugees and displaced people, from 1951 onwards.\nA huge list of datasets in R packages here - but again, try to only use those with good documentation.\n\n\nR packages which connect to an API\n\nThe osmdata package. Download geographic data from OpenStreetMap through R. Very fun to work with, though takes some understanding of the queries. Try a tutorial here if you’re interested.\nspotifyr allows you to download data from Spotify. You need to register for an API key. Be aware that since late 2024 Spotify no longer gives new apps access to its ‘audio features’ (danceability, energy and so on), so much of what you’ll see in older tutorials won’t work. Datasets which already include these features, such as the Billboard data above, are a better bet.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#social-media-data",
+    "href": "41_data-sources.html#social-media-data",
+    "title": "58  —",
+    "section": "Social media data",
+    "text": "Social media data\nUnfortunately, doing analysis on social media data has become very difficult in the last few years as companies have locked down their services. Twitter/X ended free and academic access to its API in 2023, which means older collections of tweet IDs can no longer be ‘hydrated’ into actual tweets, and Reddit has also heavily restricted access. Unless you have a ready-made, documented dataset (and permission to use it), I’d avoid social media data for this course.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
+    "objectID": "41_data-sources.html#inspiration-for-your-reports",
+    "href": "41_data-sources.html#inspiration-for-your-reports",
+    "title": "58  —",
+    "section": "Inspiration for your reports",
+    "text": "Inspiration for your reports\n\nCurrent Research in Digital History (short historical essays with graphics).\nJournal of Digital History (digital history articles with a code layer).\nJournal of Cultural Analytics (computational articles on culture, often with visual elements).\nThe Pudding (data journalism visual essays with interactive elements).\nVisualizing Emancipation (a nice example of a visual essay aimed at an academic readership).\nThe Killing Times (example of an interactive visual essay, for those interested in using Shiny).\nShort visual essays by FiveThirtyEight such as this one, and their guide to MoMA’s paintings, which is a nice example of the kind of project you could make with collections data.\nSharon Howard’s data blogs. Some use other tech, but many are straightforward R/tidyverse visualisations with historical data, such as here.\nThe Programming Historian (peer-reviewed tutorials, several of which use R and historical data).\nCool stuff made with cultural heritage APIs.",
+    "crumbs": [
+      "Useful information",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>---</span>"
+    ]
+  },
+  {
     "objectID": "critique-gallery.html",
     "href": "critique-gallery.html",
     "title": "Critique gallery",
@@ -1208,17 +1747,6 @@
     "crumbs": [
       "Useful information",
       "Critique gallery"
-    ]
-  },
-  {
-    "objectID": "19_tidying-data.html#exercises",
-    "href": "19_tidying-data.html#exercises",
-    "title": "22  Tidying data with pivot_longer()",
-    "section": "Exercises",
-    "text": "Exercises\n\nMake gapminder_population long, and then keep only the rows for the Netherlands.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhich three European countries had the largest population in 2007? Pivot the table, then use filter() and slice_max().\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Week 2 · Thu 5 Nov: Data Analysis 3",
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Tidying data with pivot_longer()</span>"
     ]
   }
 ]

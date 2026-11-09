@@ -1,5 +1,4 @@
 ---
-draft: true # set by _scripts/release.R
 title: "Position scales"
 webr:
   packages: ['dplyr', 'readr', 'ggplot2', 'tidyr']

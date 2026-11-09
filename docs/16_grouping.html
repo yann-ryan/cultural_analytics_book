@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-1","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"true","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"setup","out-width":"700px"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-2","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":2,"code":"titanic_df |> \n  group_by(sex) "},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-3","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":3,"code":"titanic_df |>\n  group_by(sex, pclass) "},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-4","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":4,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n())"},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-5","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":5,"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n(), maximum = max(age, na.rm = TRUE)) # calculate the total number and the maximum age for each category."},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-6","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":6,"code":""},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-7","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":7,"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)"},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-8","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":8,"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())"},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-9","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":9,"code":""},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-10","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":10,"code":""},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-11","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":11,"code":""},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-12","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":12,"code":""},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-13","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":13,"code":"titanic_df |>\n  group_by(sex, pclass) |>\n  summarise(passengers = n(),\n            survival = mean(survived))"},{"options":{"warning":"true","message":"true","editor-max-height":"","label":"unnamed-chunk-14","classes":"","editor-quick-suggestions":"false","fig-height":5,"autorun":"false","editor-word-wrap":"true","editor-font-scale":"1","dpi":72,"comment":"","fig-cap":"","out-height":"","results":"markup","output":"true","read-only":"false","fig-width":7,"context":"interactive","out-width":"700px"},"id":14,"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"read-only":"false","label":"unnamed-chunk-1","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"setup","autorun":"true","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"read-only":"false","label":"unnamed-chunk-2","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |> \n  group_by(sex) "},{"id":3,"options":{"read-only":"false","label":"unnamed-chunk-3","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |>\n  group_by(sex, pclass) "},{"id":4,"options":{"read-only":"false","label":"unnamed-chunk-4","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n())"},{"id":5,"options":{"read-only":"false","label":"unnamed-chunk-5","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |> \n  group_by(sex) |> \n  summarise(total = n(), maximum = max(age, na.rm = TRUE)) # calculate the total number and the maximum age for each category."},{"id":6,"options":{"read-only":"false","label":"unnamed-chunk-6","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":""},{"id":7,"options":{"read-only":"false","label":"unnamed-chunk-7","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |>\n  group_by(pclass) |>\n  slice_max(order_by = age, n = 5)"},{"id":8,"options":{"read-only":"false","label":"unnamed-chunk-8","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |>\n  group_by(pclass) |>\n  mutate(total_class = n())"},{"id":9,"options":{"read-only":"false","label":"unnamed-chunk-9","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":""},{"id":10,"options":{"read-only":"false","label":"unnamed-chunk-10","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":""},{"id":11,"options":{"read-only":"false","label":"unnamed-chunk-11","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":""},{"id":12,"options":{"read-only":"false","label":"unnamed-chunk-12","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":""},{"id":13,"options":{"read-only":"false","label":"unnamed-chunk-13","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":"titanic_df |>\n  group_by(sex, pclass) |>\n  summarise(passengers = n(),\n            survival = mean(survived))"},{"id":14,"options":{"read-only":"false","label":"unnamed-chunk-14","out-height":"","fig-height":5,"message":"true","fig-width":7,"editor-quick-suggestions":"false","warning":"true","editor-font-scale":"1","results":"markup","classes":"","output":"true","fig-cap":"","context":"interactive","autorun":"false","editor-word-wrap":"true","dpi":72,"editor-max-height":"","out-width":"700px","comment":""},"code":""}];
 
 </script>
 <script type="module">
@@ -1824,6 +1824,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_data-visualisation-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Data Visualisation Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23_ggplot2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Using ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24_chart-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">More chart types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24a_data-visualisation-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Practice exercises: ggplot2 basics and chart types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25_at-home-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1835,6 +1865,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26_data-visualisation-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">More Data Visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27_gestalt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29_position-scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1912,6 +1966,12 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">—</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./critique-gallery.html" class="sidebar-item-text sidebar-link">
