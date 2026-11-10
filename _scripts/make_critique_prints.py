@@ -24,7 +24,8 @@ DOWNLOADS = {
     "fran%C3%A7aise_dans_la_Campagne_de_Russie_1812-13.jpg",
     # Library of Congress master TIFF
     "dubois.tif": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/33800/33887u.tif",
-    "literacy.svg": "https://ourworldindata.org/grapher/cross-country-literacy-rates.svg?tab=map",
+    # UCLA enhanced scan of Map 1, via Wikimedia Commons (20124 x 18877 px)
+    "snow-full.jpg": "https://upload.wikimedia.org/wikipedia/commons/2/27/Snow-cholera-map-1.jpg",
 }
 
 
@@ -41,10 +42,29 @@ def fetch():
     if not (SRC / "minard-1812.jpg").exists():
         run("sips", "-c", "3830", "8140", "--cropOffset", "3560", "330",
             str(SRC / "minard-sheet.jpg"), "--out", str(SRC / "minard-1812.jpg"))
+    if not (SRC / "snow.jpg").exists():  # far more than A3 needs
+        run("sips", "-Z", "8000", str(SRC / "snow-full.jpg"), "--out", str(SRC / "snow.jpg"))
     if not (SRC / "dubois.png").exists():
         run("sips", "-s", "format", "png", str(SRC / "dubois.tif"),
             "--out", str(SRC / "dubois.png"))
 
+
+SNOW_KEY = """
+<p><b>How to read it.</b> The map has no legend: Snow explained it in the text
+of his book.</p>
+<p>Each small black bar is <b>one death from cholera</b>, drawn at the house
+where it happened, or where the person caught the disease. Where several
+people died in the same house, the bars are stacked.</p>
+<p>The <b>dotted line</b> surrounds the registration districts around Golden
+Square and Berwick Street, and part of Soho. Inside it, every death from
+cholera registered between 19 August and 30 September 1854 is shown. Outside
+it, only deaths whose address Snow could find.</p>
+<p><b>PUMP</b> marks the public water pumps. The pump in Broad Street is near
+the centre.</p>
+<p>Snow on his data: &ldquo;There are necessarily some deficiencies&rdquo; &hellip;
+&ldquo;Indeed, the full extent of the calamity will probably never be known.&rdquo;</p>
+<p>Scale: 30 inches to a mile.</p>
+"""
 
 MINARD_KEY = """
 <p><b>English translation.</b> <i>Figurative map of the successive losses in men
@@ -88,12 +108,14 @@ SHEETS = [
          credit="Made for the Exhibit of American Negroes, Paris Exposition 1900. "
          "Library of Congress, Prints and Photographs Division, LC-DIG-ppmsca-33887. "
          "No known restrictions on publication."),
-    dict(n=4, slug="literacy", orient="landscape", img="literacy.svg",
-         title="Literacy rate",
-         by="Our World in Data",
-         credit="Our World in Data, &lsquo;Literacy rate&rsquo;, map view, "
-         "ourworldindata.org/grapher/cross-country-literacy-rates (downloaded 10 Nov 2026). "
-         "Data: UNESCO and other sources. CC BY 4.0."),
+    dict(n=4, slug="snow", orient="landscape", img="snow.jpg", key_side=True,
+         title="Deaths from cholera in Soho, London, 1854",
+         by="John Snow, published 1855",
+         key=SNOW_KEY,
+         credit="John Snow, <i>On the Mode of Communication of Cholera</i>, 2nd edition "
+         "(London: John Churchill, 1855), Map 1, lithograph by C.F. Cheffins. Public domain. "
+         "Digitally enhanced scan: UCLA Department of Epidemiology, via Wikimedia Commons "
+         "(Snow-cholera-map-1.jpg)."),
 ]
 
 CSS = """
@@ -115,6 +137,11 @@ h1 { font-size: 10mm; line-height: 1.1; margin: 0; font-weight: 700; }
            object-fit: contain; }
 .fig img.svg { width: 100%%; height: 100%%; }
 .main.with-key { flex-direction: column; gap: 5mm; }
+.main.key-side { flex-direction: row; gap: 8mm; }
+.main.key-side .key { column-count: 1; width: 105mm; border-top: none;
+       border-left: 0.8mm solid #ddd; padding: 0 0 0 6mm; align-self: center;
+       font-size: 4.6mm; line-height: 1.4; }
+.main.key-side .key p { margin: 0 0 3.5mm; }
 .key { flex: none; font-size: 3.7mm; line-height: 1.35; color: #333;
        column-count: 3; column-gap: 8mm; border-top: 0.8mm solid #ddd;
        padding-top: 3.5mm; }
@@ -140,7 +167,7 @@ def build():
         page = PAGE % dict(css=css, n=s["n"], title=s["title"], by=s["by"],
                            img=s["img"], key=key, credit=s["credit"],
                            cls="svg" if s["img"].endswith(".svg") else "",
-                           main_cls=" with-key" if key else "",
+                           main_cls=(" key-side" if s.get("key_side") else " with-key") if key else "",
                            title_plain=html.unescape(s["title"]))
         name = "%02d-%s" % (s["n"], s["slug"])
         (OUT / (name + ".html")).write_text(page, encoding="utf-8")

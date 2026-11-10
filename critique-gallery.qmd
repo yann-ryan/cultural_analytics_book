@@ -51,15 +51,15 @@ One of a series of hand-drawn charts made for the 1900 Paris Exposition, showing
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-lg-4 .chart-card .gallery-card}
-![](images/critique-gallery/literacy.svg){fig-alt="A world map with countries shaded from light to dark blue by the share of adults who can read and write; much of Europe, North America and Australia is hatched as no data"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/960px-Snow-cholera-map-1.jpg){fig-alt="A black-and-white street map of Soho, London, with small black bars stacked along the streets marking deaths from cholera, clustered around a water pump in Broad Street"}
 
-[[4]{.gallery-number} Literacy rate]{.chart-card-title}
+[[4]{.gallery-number} Deaths from cholera in Soho, London, 1854]{.chart-card-title}
 
-Our World in Data, 2024 data
+John Snow, published 1855
 
-The share of adults who can read and write, in each country, as a static map. The printed version is the map view of an interactive chart (CC BY 4.0).
+Each death in the cholera outbreak of 1854, drawn at the house where it happened, with the public water pumps. Snow used it to argue that cholera spread through drinking water, not bad air.
 
-[Open the interactive version](https://ourworldindata.org/grapher/cross-country-literacy-rates?tab=map)
+[Open full size](https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg)
 :::
 :::
 
@@ -107,7 +107,7 @@ Ethics:
 **Thu 26 Nov**, with [Maps as data visualisation](42_digital-mapping-1.qmd).
 
 1.  How does location matter in your visualisation? If it's a map: what does each area or point stand for, and what has been left off? If it isn't: would a map show something it misses, or would it hide something it shows? (Minard's chart is a bit of both!)
-2.  For the map (4): what is each country coloured by, and who decided the categories or the breaks? Do large countries get more visual weight than they deserve? For the others: does Minard's or Nightingale's use of space work like a map, even though neither is one?
+2.  For the map (4): what does each mark stand for, and what else has Snow chosen to draw, or leave off? How does the map make an argument, and what would a reader in 1855 have needed to believe it? For the others: does Minard's or Nightingale's use of space work like a map, even though only one of them is?
 3.  Look back at your notes from the other three rounds. As a group, write a short critique of the visualisation, in four sentences:
     -   what it shows, and for whom
     -   one thing it does well, and why
