@@ -122,9 +122,11 @@ From the Data Visualisation Basics chapter, which they were asked to read before
 
 ## Mapping: a column becomes an aesthetic
 
-![](../images/22_data-visualisation-1/mapping.png)
+![](../images/22_data-visualisation-1/mapping.png){.r-stretch}
 
-`aes(x = pclass, y = survival, fill = sex)`: each **column** is assigned to one **aesthetic**, and each **row** becomes one bar
+::: small
+`aes(x = pclass, y = survival, fill = sex)` · each **column** → one **aesthetic** · each **row** → one bar
+:::
 
 ::: notes
 The opening chart, taken apart. Six rows in the table, six bars in the chart. pclass decides where a bar sits left to right, survival decides how tall it is, sex decides its colour. The orange square next to "female" in the table is the same orange as the bars: ggplot chooses that colour for each value and writes the key in the legend. aes() is just this list of assignments; we'll write it ourselves in a few minutes.
@@ -144,7 +146,7 @@ All three use exactly the same six numbers; only the mapping changes. Most peopl
 
 ## What kind of data is it?
 
-![](../images/22_data-visualisation-1/data-types.png){height="500"}
+![](../images/22_data-visualisation-1/data-types.png){width="100%"}
 
 ::: notes
 The type of a column decides which aesthetics make sense. Numbers have a size, so they suit position, length, size and a gradient of lightness. Categories have no size, so they suit distinct hues and shapes: shape can only show categories. Ordinal sits in between: the groups have an order, so a light-to-dark scale works, but the gaps between them aren't measured. Ask: which type is pclass? It's stored as a number <dbl>, but it's really ordinal: there's no second-and-a-half class. sibsp (siblings and spouses on board) is discrete: most passengers had none, one dot per ~120 passengers. If we mapped pclass to colour, ggplot would treat it as continuous and give us a gradient; the "Categorical or continuous?" slide later shows that happening with fare.

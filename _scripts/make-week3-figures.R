@@ -78,24 +78,24 @@ ord_steps <- tibble(lab = c("1st", "2nd", "3rd"),
 p_types <- ggplot() +
   # group headers
   annotate("text", x = mean(col_x[1:2]), y = 8.55, label = "Numbers",
-           family = fam, fontface = "bold", size = 9, colour = oi[["blue"]]) +
+           family = fam, fontface = "bold", size = 10.5, colour = oi[["blue"]]) +
   annotate("text", x = mean(col_x[1:2]), y = 8.0, label = "quantitative",
-           family = fam, size = 5.5, colour = muted) +
+           family = fam, size = 6.5, colour = muted) +
   annotate("text", x = mean(col_x[3:4]), y = 8.55, label = "Categories",
-           family = fam, fontface = "bold", size = 9, colour = oi[["red"]]) +
+           family = fam, fontface = "bold", size = 10.5, colour = oi[["red"]]) +
   annotate("text", x = mean(col_x[3:4]), y = 8.0, label = "qualitative",
-           family = fam, size = 5.5, colour = muted) +
+           family = fam, size = 6.5, colour = muted) +
   annotate("segment", x = col_x[1] - 1.6, xend = col_x[2] + 1.6,
            y = 7.65, yend = 7.65, colour = oi[["blue"]], linewidth = 1.2) +
   annotate("segment", x = col_x[3] - 1.6, xend = col_x[4] + 1.6,
            y = 7.65, yend = 7.65, colour = oi[["red"]], linewidth = 1.2) +
   # type names and definitions
   geom_text(data = text_df, aes(x, 7.05, label = name), family = fam,
-            fontface = "bold", size = 7.5, colour = type_col) +
-  geom_text(data = text_df, aes(x, 6.6, label = alt), family = fam,
-            size = 5, colour = muted) +
+            fontface = "bold", size = 9, colour = type_col) +
+  geom_text(data = text_df, aes(x, 6.55, label = alt), family = fam,
+            size = 6, colour = muted) +
   geom_text(data = text_df, aes(x, 5.9, label = def), family = fam,
-            size = 5, colour = ink, lineheight = 0.95) +
+            size = 6.3, colour = ink, lineheight = 0.95) +
   # continuous glyph
   annotate("segment", x = col_x[1] - 1.6, xend = col_x[1] + 1.6,
            y = line_y, yend = line_y, colour = ink, linewidth = 0.8) +
@@ -103,10 +103,10 @@ p_types <- ggplot() +
            xend = col_x[1] - 1.6 + 0:4 * 0.8,
            y = line_y - 0.08, yend = line_y + 0.08, colour = ink) +
   annotate("text", x = col_x[1] - 1.6 + 0:4 * 0.8, y = line_y - 0.32,
-           label = c(0, 20, 40, 60, 80), family = fam, size = 4,
+           label = c(0, 20, 40, 60, 80), family = fam, size = 5,
            colour = muted) +
   annotate("point", x = age_x, y = line_y + 0.3 + runif(22, 0, 0.5),
-           shape = 21, size = 3.2, fill = oi[["blue"]], colour = "white",
+           shape = 21, size = 4, fill = oi[["blue"]], colour = "white",
            stroke = 0.4) +
   # discrete glyph
   annotate("segment", x = col_x[2] - 1.6, xend = col_x[2] + 1.6,
@@ -115,33 +115,33 @@ p_types <- ggplot() +
            xend = col_x[2] - 1.6 + 0:8 * 0.4,
            y = line_y - 0.08, yend = line_y + 0.08, colour = ink) +
   annotate("text", x = col_x[2] - 1.6 + 0:8 * 0.4, y = line_y - 0.32,
-           label = 0:8, family = fam, size = 4, colour = muted) +
-  geom_point(data = sib_pts, aes(x, y + 0.05), shape = 21, size = 3.2,
+           label = 0:8, family = fam, size = 5, colour = muted) +
+  geom_point(data = sib_pts, aes(x, y + 0.05), shape = 21, size = 4,
              fill = oi[["blue"]], colour = "white", stroke = 0.4) +
   # categorical glyph
   geom_label(data = cat_tiles, aes(x, y + 0.25, label = lab, fill = fill),
-             family = fam, fontface = "bold", size = 7, colour = "white",
+             family = fam, fontface = "bold", size = 8.5, colour = "white",
              linewidth = 0, label.padding = unit(0.45, "lines")) +
   # ordinal glyph
   geom_rect(data = ord_steps, aes(xmin = x - 0.48, xmax = x + 0.48,
                                   ymin = line_y - 0.05, ymax = line_y - 0.05 + h),
             fill = oi[["red"]], alpha = c(0.45, 0.7, 1)) +
   geom_text(data = ord_steps, aes(x, line_y - 0.32, label = lab),
-            family = fam, size = 4.5, colour = ink) +
+            family = fam, size = 5.6, colour = ink) +
   # Titanic example and R type
   geom_text(data = text_df, aes(x, 3.25, label = "in the Titanic data"),
-            family = fam, size = 4, colour = muted) +
-  geom_text(data = text_df, aes(x, 2.85, label = ex), family = mono,
-            size = 5, colour = ink) +
+            family = fam, size = 5, colour = muted) +
+  geom_text(data = text_df, aes(x, 2.8, label = ex), family = mono,
+            size = 6.3, colour = ink) +
   geom_text(data = text_df, aes(x, 2.25, label = rtype), family = mono,
-            size = 5, colour = type_col, vjust = 1, lineheight = 0.95) +
+            size = 6, colour = type_col, vjust = 1, lineheight = 0.95) +
   # what it suits
-  annotate("rect", xmin = 0, xmax = 16.4, ymin = -0.05, ymax = 1.05,
+  annotate("rect", xmin = 0, xmax = 16.4, ymin = -0.05, ymax = 1.2,
            fill = "#F3F3F3") +
-  annotate("text", x = 0.15, y = 0.78, label = "good aesthetics:", hjust = 0,
-           family = fam, size = 4, colour = muted) +
-  geom_text(data = text_df, aes(x, 0.42, label = suits), family = fam,
-            size = 4.4, colour = ink, lineheight = 0.95) +
+  annotate("text", x = 0.15, y = 1.0, label = "good aesthetics:", hjust = 0,
+           family = fam, size = 4.8, colour = muted) +
+  geom_text(data = text_df, aes(x, 0.45, label = suits), family = fam,
+            size = 5.6, colour = ink, lineheight = 0.95) +
   scale_fill_identity() +
   coord_cartesian(xlim = c(0, 16.4), ylim = c(-0.05, 8.9), expand = FALSE) +
   theme_void()
@@ -162,36 +162,36 @@ map_col <- c(x = oi[["blue"]], y = oi[["red"]], fill = oi[["green"]])
 tab <- surv |>
   mutate(row = row_number(), yy = 7.1 - row * 0.95,
          surv_lab = sprintf("%.2f", survival))
-cx <- c(pclass = 1, sex = 2.6, survival = 4.3)
+cx <- c(pclass = 1, sex = 2.8, survival = 4.75)
 
 p_table <- ggplot() +
   # header
   annotate("text", x = cx, y = 7.15, label = names(cx), family = mono,
-           fontface = "bold", size = 6, colour = ink) +
-  annotate("segment", x = 0.3, xend = 5.0, y = 6.65, yend = 6.65,
+           fontface = "bold", size = 7.6, colour = ink) +
+  annotate("segment", x = 0.2, xend = 5.6, y = 6.65, yend = 6.65,
            colour = ink, linewidth = 0.5) +
   # rows
   geom_text(data = tab, aes(cx[["pclass"]], yy, label = pclass),
-            family = mono, size = 6, colour = ink) +
+            family = mono, size = 7.6, colour = ink) +
   geom_point(data = tab, aes(cx[["sex"]] - 0.75, yy, fill = sex), shape = 22,
-             size = 5, colour = "white") +
+             size = 6.5, colour = "white") +
   geom_text(data = tab, aes(cx[["sex"]] - 0.45, yy, label = sex), hjust = 0,
-            family = mono, size = 6, colour = ink) +
+            family = mono, size = 7.6, colour = ink) +
   geom_text(data = tab, aes(cx[["survival"]], yy, label = surv_lab),
-            family = mono, size = 6, colour = ink) +
+            family = mono, size = 7.6, colour = ink) +
   # mapping row
   annotate("label", x = cx, y = -0.15,
            label = c("x", "fill", "y"), family = mono, fontface = "bold",
-           size = 7, colour = "white", fill = map_col[c("x", "fill", "y")],
+           size = 8.8, colour = "white", fill = map_col[c("x", "fill", "y")],
            linewidth = 0, label.padding = unit(0.4, "lines")) +
   annotate("segment", x = cx, xend = cx, y = 0.95, yend = 0.3,
            colour = map_col[c("x", "fill", "y")], linewidth = 1,
            arrow = arrow(length = unit(8, "pt"), type = "closed")) +
   annotate("text", x = cx, y = -0.95,
            label = c("left to right", "colour", "height"),
-           family = fam, size = 4.6, colour = muted) +
+           family = fam, size = 6, colour = muted) +
   scale_fill_manual(values = sex_fill, guide = "none") +
-  coord_cartesian(xlim = c(0.2, 5.1), ylim = c(-1.3, 7.6), expand = FALSE) +
+  coord_cartesian(xlim = c(0.1, 5.7), ylim = c(-1.3, 7.6), expand = FALSE) +
   theme_void()
 
 p_chart <- ggplot(surv, aes(x = factor(pclass), y = survival, fill = sex)) +
@@ -199,7 +199,7 @@ p_chart <- ggplot(surv, aes(x = factor(pclass), y = survival, fill = sex)) +
   scale_fill_manual(values = sex_fill) +
   scale_y_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0.02))) +
   labs(x = "pclass", y = "survival", fill = "sex") +
-  theme_minimal(base_size = 17, base_family = fam) +
+  theme_minimal(base_size = 22, base_family = fam) +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(colour = map_col[["x"]], face = "bold",
@@ -220,7 +220,7 @@ p_arrow <- ggplot() +
 p_map <- p_table + p_arrow + p_chart +
   plot_layout(widths = c(1.15, 0.22, 1.4))
 
-save_png(p_map, "mapping.png", 2000, 820)
+save_png(p_map, "mapping.png", 2000, 960)
 
 # ---------------------------------------------------------------------------
 # 3. Same six numbers, three mappings

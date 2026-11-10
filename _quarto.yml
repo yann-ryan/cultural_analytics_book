@@ -6,6 +6,8 @@ project:
   resources:
     - "slides/*.html"
     - "slides/*_files/**"
+    # images used only by the slide decks (../images/...)
+    - "images/22_data-visualisation-1/*.png"
 
 book:
   title: "Cultural Analytics: Course Book"

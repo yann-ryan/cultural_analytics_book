@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"autorun":"true","fig-height":5,"label":"unnamed-chunk-1","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"setup","comment":""}},{"code":"titanic_df |>\n  summarise(count = n())","id":2,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-2","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","id":3,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-3","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}},{"code":"","id":4,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-4","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}},{"code":"","id":5,"options":{"autorun":"false","fig-height":5,"label":"unnamed-chunk-5","classes":"","out-width":"700px","out-height":"","output":"true","editor-max-height":"","results":"markup","fig-width":7,"fig-cap":"","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","warning":"true","message":"true","dpi":72,"read-only":"false","context":"interactive","comment":""}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"setup","fig-height":5,"classes":"","autorun":"true","fig-width":7,"label":"unnamed-chunk-1"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-2"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-3"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-4"},"code":""},{"id":5,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-5"},"code":""}];
 
 </script>
 <script type="module">
@@ -1900,6 +1900,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31a_data-visualisation-2-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
