@@ -59,123 +59,136 @@ For each aesthetic, there is an example where the aesthetic is placed within the
 
 ## Geom_point()
 
-`geom_point()` places points on a 2D plane. It requires at least `x` and `y` coordinates within the `aes()`. The result is often called a 'scatterplot' or sometimes a 'bubble chart'.
+`geom_point()` places points on a 2D plane. It requires at least `x` and `y` coordinates within the `aes()`. The result is called a 'scatterplot'.
+
+Scatterplots are used to look for a *relationship* between two variables. For example: are Nobel laureates getting older? Each point is one laureate, with the year of their award on the x axis and their age at the time on the y axis:
 
 ```{webr-r}
 
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female)) +
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
   geom_point()
 
 ```
+
+That's 961 points, one for each laureate with a known birth date. The warning about 20 removed rows refers to the organisations (such as the Red Cross) that have won the Peace Prize: they have no age, so they can't be placed on the y axis.
+
+The cloud of points drifts upwards: in the first 25 years of the prize, the median age of a laureate was 55, and since 2000 it has been 68. A relationship is a pattern across many points, not a line through a handful.
 
 ### Key aesthetics
 
-#### Size
-
-We can optionally set the `size` variable.
-
-Outside the aes()
-
-```{webr-r}
-
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female)) +
-  geom_point(size = 5)
-
-```
-
-**Try it yourself:** copy and paste the chart below, and set the size variable to 10.
-
-Inside the aes()
-
-```{webr-r}
-
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n)) +
-  geom_point()
-
-```
-
-**Try it yourself:** make a new version of the plot. Set the number of laureates (`n`) to the x axis, the percentage of women (`pct_female`) to the y axis, and the average age (`avg_age`) to the size variable.
-
-```{webr-r}
-
-```
-
 #### Colour
 
-and/or the `colour` variable:
+We can set the `colour` of every point to a fixed value, outside the `aes()`:
 
 ```{webr-r}
 
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n)) +
-  geom_point(color = 'red')
-
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
+  geom_point(colour = 'forestgreen')
 
 ```
 
+Or map it to a column, inside the `aes()`:
+
 ```{webr-r}
 
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n,color = category)) +
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award, colour = gender)) +
   geom_point()
 
-
 ```
 
-**Try it yourself:** create a plot with the points all the same colour: `forestgreen`. You need to choose where the aesthetic should go, out of the two examples above!
+**Try it yourself:** does every prize follow the overall trend? Use `filter()` to keep only the `'Physics'` laureates, and map `colour` to `gender`. Then do the same for `'Peace'`. What's different?
 
 ```{webr-r}
+
+nobel_df |>
+  filter(___) |>
+  ggplot(aes(___)) +
+  geom_point()
 
 ```
 
 #### Alpha
 
-Alpha sets the transparency, a number between 0 and 1:
+With hundreds of points, many sit on top of each other, so we can't see how many there are in the busiest parts of the chart. This is called *overplotting*. One fix is `alpha`, which sets the transparency, a number between 0 (invisible) and 1 (solid). Where points overlap, the colour builds up:
 
 ```{webr-r}
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n,color = category)) +
-  geom_point(alpha = .5)
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
+  geom_point(alpha = 0.3)
 ```
 
 #### Shape
 
-Or the shape. There is a set of numeric codes to select specific shapes. Here is the full set:
+We can also change the shape. There is a set of numeric codes to select specific shapes. Here is the full set:
 
 ![](images/24_chart-types/01.png){width="300"}
 
-```{webr-r}
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n)) +
-  geom_point(shape = 2)
-```
+Shape 1, an open circle, is another way to deal with overplotting:
 
 ```{webr-r}
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n,shape = category)) +
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
+  geom_point(shape = 1)
+```
+
+Like colour, shape can also be mapped to a categorical column inside the `aes()`:
+
+```{webr-r}
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award, shape = gender)) +
   geom_point()
 ```
 
 ::: {.callout-tip}
 ## More on shapes
 
-Notice that shapes 21 through 25 are blue with a black outline? Using these allows you to set the outline and the fill of a shape separately. If you set the shape to one of these, you can now use `colour =` to set the outline and `fill =` to set the inside colour, resulting in a 'bubble chart'.
+Notice that shapes 21 through 25 are blue with a black outline? Using these allows you to set the outline and the fill of a shape separately. If you set the shape to one of these, you can now use `colour =` to set the outline and `fill =` to set the inside colour:
 
 ```{webr-r}
 
-nobel_summary |>
-ggplot(aes(x = avg_age, y = pct_female, size = n, fill = category), color = 'black') +
-  geom_point(shape = 21)
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
+  geom_point(shape = 21, colour = 'black', fill = 'lightblue')
 
 ```
 :::
 
+#### Size
+
+Finally, `size`. Outside the `aes()`, it makes every point bigger or smaller:
+
+```{webr-r}
+
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
+  geom_point(size = 0.5)
+
+```
+
+Inside the `aes()`, it maps a number column to the size of each point. This makes a 'bubble chart'. Here, using `nobel_summary`, each point is a whole prize category, sized by its number of laureates:
+
+```{webr-r}
+
+nobel_summary |>
+  ggplot(aes(x = avg_age, y = pct_female, size = n, colour = category)) +
+  geom_point()
+
+```
+
+Four aesthetics at once: x, y, size and colour. The categories that honour older laureates (Economics) have the lowest share of women, and Peace and Literature the highest. But be careful about calling this a relationship: with only six points, it could easily be chance.
+
+**Try it yourself:** make a new version of the bubble chart. Put the number of laureates (`n`) on the x axis, the percentage of women (`pct_female`) on the y axis, and map the average age (`avg_age`) to `size`.
+
+```{webr-r}
+
+```
+
 #### Use
 
-Scatterplots are often used to show relationships between variables, like the link between average age and gender balance shown here: the categories which tend to honour older laureates also tend to have the lowest share of women.
+Scatterplots are used to show relationships between two numeric variables, like the year of the award and the age of the laureate. They work best with many points. To compare the relationship across groups, colour the points by group, or split the chart into small multiples (see below).
 
 ## Geom_line
 
@@ -437,7 +450,7 @@ nobel_df |>
 By default, every panel has the same axes. You can let each panel have its own y axis with `facet_wrap(~ category, scales = 'free_y')`. This can be useful if some groups are much smaller than others, and you're interested in the *shape* of each line rather than its size. But be careful: with free scales, panels which look similar might represent very different numbers, and the viewer can no longer compare them directly. If you use them, make sure the reader can tell.
 :::
 
-**Try it yourself:** make a scatterplot of the age at award (`age_at_award`) against the year of the award (`award_year`), with a separate panel for each `gender`. Are women laureates getting older or younger over time?
+**Try it yourself:** go back to the scatterplot of the age at award (`age_at_award`) against the year of the award (`award_year`), and add a separate panel for each `category`. Are laureates getting older in every category?
 
 ```{webr-r}
 
