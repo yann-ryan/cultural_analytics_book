@@ -521,7 +521,7 @@ async function main() {
   tryIt("Groups with mutate() and slice_min()", "Chapter 18 · Grouping", [
     { text: "Make a new column with the total number who boarded at the same place as each passenger", starter: [[PL("titanic_df "), KW("|>")], [PL("  "), BL(), PL(" "), KW("|>")], [PL("  "), KW("mutate"), PL("(total_embarked = "), BL(), PL(")")]] },
     { text: "Who are the five youngest male and five youngest female passengers who boarded at each location?", starter: [[PL("titanic_df "), KW("|>")], [PL("  "), KW("group_by"), PL("("), BL(), PL(", "), BL(), PL(") "), KW("|>")], [PL("  "), BL()]] },
-  ], "1. group_by(embarked) |> mutate(total_embarked = n()). Every row is kept; everyone from Southampton gets 914.\n2. group_by(embarked, sex) |> slice_min(order_by = age, n = 5)  gives 34 rows, not 30: slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: individual people behind the rows.", "summarise() and group_by()");
+  ], "1. group_by(embarked) |> mutate(total_embarked = n()). Every row is kept; everyone from Southampton gets 914.\n2. group_by(embarked, sex) |> slice_min(order_by = age, n = 5)  gives 34 rows, not 30. Two reasons. Ties: slice_min() keeps everyone tied for 5th place, so 6 women from Queenstown (two aged 18) and 6 men from Southampton (three babies aged 10 months). And a seventh group: the 2 women with no port (embarked is NA) get a group of their own. 30 + 2 ties + 2 NA = 34. with_ties = FALSE gives 32. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: individual people behind the rows.", "summarise() and group_by()");
 
   // ===== Your turn =====
   pres.addSection({ title: "Your turn" });

@@ -56,7 +56,7 @@ Most aesthetics work on either discrete or continuous scales. We'll learn more a
 
 Which scale is suitable depends on the kind of data. Continuous data are things like age, height, or population, where the data might be any number from across a range. Discrete data are numbers where the value can only be one number or another, and not any value in between. Categorical data are data with a limited number of unordered categories, like gender, country, and so forth. A fourth type, ordinal, are categories where there is some inherent order, for example months of the year.
 
-![The four main data types](images/22_data-visualisation-1/02.webp){width="600"}
+![The four main data types, with examples from the Titanic passenger list. The bottom row shows which aesthetics suit each kind of data.](images/22_data-visualisation-1/data-types.png){width="100%"}
 
 ::: callout-note
 We have come across most of these data types in R already: values such as age in the passenger list are **continuous** (age could also be **discrete** if it was stored in full years); gender and place of embarking are both **categorical**. Categorical data are usually stored in columns with the string type (`<str>`), whereas continuous are stored as double (`<dbl>`). Discrete values may be stored as integers (`<int>`). Ordinal data in R is stored in a special data type, called a **factor**. [Factors are variables that have a fixed and known set of possible values](https://r4ds.had.co.nz/factors.html), and can be inherently ordered. We won't really delve into factors on this course, but there are some situations where they are useful, for example if you want to reorder elements of a data visualisation.

@@ -598,7 +598,7 @@ titanic_df |>
 ```
 
 ::: notes
-group_by(embarked, sex) |> slice_min(order_by = age, n = 5): 34 rows, not 30. slice_min() keeps ties (several babies aged 1), and the NA group only has 2 passengers. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.
+group_by(embarked, sex) |> slice_min(order_by = age, n = 5): 34 rows, not 30. Two reasons. Ties: slice_min() keeps everyone tied for 5th place, so 6 women from Queenstown (two aged 18) and 6 men from Southampton (three babies aged 10 months). And a seventh group: the 2 women with no port (embarked is NA) get a group of their own. 30 + 2 ties + 2 NA = 34. with_ties = FALSE gives 32. Point out the five Rice brothers, aged 2 to 10, who boarded at Queenstown: people behind the rows.
 :::
 
 ## Back to "women and children first" {.try-it}

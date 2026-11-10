@@ -120,16 +120,34 @@ A chart **maps** columns of data to aesthetics: bigger value → bigger circle, 
 From the Data Visualisation Basics chapter, which they were asked to read beforehand. We read size as amount, hotter colours as larger values, opacity as strength. Next week, the Gestalt chapter explains why these work.
 :::
 
-## What kind of data is it?
+## Mapping: a column becomes an aesthetic
 
-![](../images/22_data-visualisation-1/02.webp){height="420"}
+![](../images/22_data-visualisation-1/mapping.png)
 
-::: small
-Continuous `<dbl>` (age, fare) · discrete `<int>` · categorical `<chr>` (sex, port) · ordinal (months, class). Some aesthetics only suit one kind: shape can only show categories
+`aes(x = pclass, y = survival, fill = sex)`: each **column** is assigned to one **aesthetic**, and each **row** becomes one bar
+
+::: notes
+The opening chart, taken apart. Six rows in the table, six bars in the chart. pclass decides where a bar sits left to right, survival decides how tall it is, sex decides its colour. The orange square next to "female" in the table is the same orange as the bars: ggplot chooses that colour for each value and writes the key in the legend. aes() is just this list of assignments; we'll write it ourselves in a few minutes.
+:::
+
+## Same data, three mappings
+
+![](../images/22_data-visualisation-1/three-mappings.png)
+
+::: predict
+**Try:** in which chart is it easiest to see that survival for women in 3rd class (0.49) is about half that for women in 2nd class (0.89)? Why?
 :::
 
 ::: notes
-Ask: which type is pclass in the Titanic data? It's stored as a number, but it's really ordinal: there's no second-and-a-half class. That's why the chart on the earlier slide still worked, but ggplot would treat it as continuous if we asked for colour.
+All three use exactly the same six numbers; only the mapping changes. Most people say the bars: we judge position and length along a common baseline much more precisely than area or shade (Cleveland and McGill's 1984 ranking of visual encodings). The circles look closer than they are, and the shades of blue are only good for spotting the broad pattern. So the most important value in a chart should usually go on x or y; colour and size are for the secondary variable. That's also why the heatmap works better with many cells, when bars would be too crowded.
+:::
+
+## What kind of data is it?
+
+![](../images/22_data-visualisation-1/data-types.png){height="500"}
+
+::: notes
+The type of a column decides which aesthetics make sense. Numbers have a size, so they suit position, length, size and a gradient of lightness. Categories have no size, so they suit distinct hues and shapes: shape can only show categories. Ordinal sits in between: the groups have an order, so a light-to-dark scale works, but the gaps between them aren't measured. Ask: which type is pclass? It's stored as a number <dbl>, but it's really ordinal: there's no second-and-a-half class. sibsp (siblings and spouses on board) is discrete: most passengers had none, one dot per ~120 passengers. If we mapped pclass to colour, ggplot would treat it as continuous and give us a gradient; the "Categorical or continuous?" slide later shows that happening with fare.
 :::
 
 # ggplot2 {.section-break}
@@ -138,12 +156,14 @@ The grammar of graphics
 
 ## Layers
 
-![Artwork by Allison Horst, CC-BY 4.0](../images/23_ggplot2/01.png){height="440"}
+![](../images/22_data-visualisation-1/ggplot-layers.png){height="530"}
 
-Every chart is built from the same layers: **data**, **aesthetics** in `aes()`, one or more **geometries** `geom_...()`, joined with `+`
+::: small
+Every chart needs **data**, **aesthetics** in `aes()` and a **geometry** `geom_...()`, joined with `+`. Every other layer has a default you can change, with another `+`
+:::
 
 ::: notes
-The 'gg' is the grammar of graphics. The point of a grammar is that once you know it, every chart type uses the same rules: changing a bar chart into a line chart is one word. Scales, facets and themes come later in the course.
+The 'gg' is the grammar of graphics: a chart is a stack of independent layers. The bottom three you always write yourself. The rest are always there too, but ggplot fills them in for you: when we map a column to fill, a scale decides which colours and draws the legend; the coordinates are ordinary x and y; the theme is the grey background. Today: data, aesthetics, geoms, a bit of statistics (the histogram counts for you) and facets. Scales on Thursday and next Tuesday, themes on 19 Nov, coordinates when we get to maps. Because each layer is independent, changing a bar chart into a line chart is one word, and changing the colours never touches the geometry.
 :::
 
 ## Step 1: summarise
@@ -290,11 +310,12 @@ The Nobel Prize, 1901-2024
 ## The Nobel Prize data
 
 ```{webr-r}
-nobel_summary
+nobel_df |>
+  select(given_name, family_name, category, award_year, gender, age_at_award)
 ```
 
 ::: small
-`nobel_df`: one row per laureate (981) · `nobel_summary`: one row per category, with the number of laureates, the percentage of women, and the average age at the award
+`nobel_df`: one row per laureate (981), joined from the laureates and prizes tables, with `age_at_award` calculated from the birth date
 :::
 
 ::: notes
@@ -303,28 +324,35 @@ Physics 227 laureates, 2.2% women; Peace 17.1% and Literature 14.9%; Economics 3
 
 ## `geom_point()`: relationships
 
+Are Nobel laureates getting older?
+
 ```{webr-r}
-nobel_summary |>
-  ggplot(aes(x = avg_age, y = pct_female, size = n, colour = category)) +
+nobel_df |>
+  ggplot(aes(x = award_year, y = age_at_award)) +
   geom_point()
 ```
 
+::: small
+One point per laureate: 961 of them (the 20 organisations have no age, hence the warning)
+:::
+
 ::: notes
-Four aesthetics at once: x, y, size and colour. Categories that honour older laureates (Economics, 66.9) have the lowest share of women; Peace and Literature have the highest. Only six points, so be careful about reading too much into the 'relationship'.
+Ask what they see before saying anything. The cloud drifts upwards: the median age at the award was 55 in 1901-1924 and 68 since 2000 (correlation 0.35). A relationship is a pattern across many points, not a line through a handful. Two things to point out: the youngest laureate, bottom right (Malala Yousafzai, 17, Peace 2014), and the overlap: points sit on top of each other, so try geom_point(alpha = 0.3), outside aes() because it's a fixed value.
 :::
 
 ## `geom_point()` {.try-it}
 
-Put the number of laureates (`n`) on the x axis, the percentage of women on the y axis, and map the average age to `size`
+Does every prize follow the trend? Keep only `'Physics'`, and map `colour` to `gender`. Then try `'Peace'`
 
 ```{webr-r}
-nobel_summary |>
+nobel_df |>
+  filter(___) |>
   ggplot(aes(___)) +
   geom_point()
 ```
 
 ::: notes
-aes(x = n, y = pct_female, size = avg_age). Then a quick extension: make all the points forestgreen. Where does colour go? Outside aes(), in geom_point(colour = 'forestgreen').
+filter(category == 'Physics') and aes(x = award_year, y = age_at_award, colour = gender). Physics goes up steeply: median 48 before 1975, 65 since; from Lawrence Bragg at 25 (1915) to Arthur Ashkin at 96 (2018). Five women in total, which colour makes easy to find. Peace goes the other way (correlation -0.32): Joseph Rotblat 87 in 1995, Malala 17 in 2014. So the overall trend hides different stories per prize; facet_wrap(~ category) later today shows all six at once.
 :::
 
 ## `geom_line()`: change over time
