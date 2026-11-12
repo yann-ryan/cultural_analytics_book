@@ -419,6 +419,22 @@ Both use everything from this week and Tuesday: count(), geom_col / line / point
 
 Your dataset and your question
 
+## Report 1: data visualisation
+
+A short **visual essay**, written in R Markdown, that uses a dataset to explore a question you're interested in
+
+::: {style="font-size: 0.85em;"}
+-   Around **1,200-1,500 words**, with **three or four visualisations** made with ggplot2
+-   Explain your **question**, where your **data** comes from and how it was made, what you **did** to it, and what your **charts show**
+-   Reflect on the **limitations** of the data, and of your own choices
+-   A **humanities** dataset, with documentation of where it came from: see the Data sources page in the book for suggestions and example visual essays
+-   **20%** of the final grade · due **Monday 23 November** · the .Rmd and the knitted .html, as a .zip on Brightspace
+:::
+
+::: notes
+All from the Assessment section on the book's front page and the Data sources page. Points worth stressing: the documentation matters, because a third of a good report is about how the data was made and what that means; three or four well-chosen charts beat ten quick ones; every chart needs a sentence or two saying what the reader should see. Today and next week give them the rest: scales, colour, titles, themes and annotations (Thu 19 Nov: bring a draft chart). Report 2 (maps, 25%) can reuse the same dataset.
+:::
+
 ## Pitch your report
 
 In one or two sentences:
