@@ -190,25 +190,18 @@ A **scale** decides how values in the data become positions, colours and sizes. 
 Back to Tuesday's layers diagram: we did data, aesthetics, geometries, a bit of statistics and facets. Scales are the next layer up. Every aesthetic in aes() has a scale: x and y have position scales, fill has a colour scale, and so on. The scale is shown to the reader as an axis or a legend. Today: position scales. Tuesday: date scales and colour.
 :::
 
-## Which chart is right?
+## Same data, two charts
 
-```{webr-r}
-nobel_by_decade <- nobel_df |>
-  filter(award_year < 2020) |>
-  mutate(decade = floor(award_year / 10) * 10) |>
-  count(decade)
+Nobel Prize laureates per decade, 1900s to 2010s. The only difference is the limits of the y axis
 
-ggplot(nobel_by_decade, aes(x = decade, y = n)) +
-  geom_line() +
-  scale_y_continuous(limits = c(35, 120))
-```
+![](../images/27_gestalt/scales-zero-vs-zoom.png)
 
 ::: predict
-**Try:** change the limits to `c(0, 125)`. Has the number of laureates grown a lot, or a little? Which chart would you use?
+**Discuss:** in which chart has the number of laureates grown more? Which chart would you use, and why?
 :::
 
 ::: notes
-From the Chart scales chapter. 1900s: 56 laureates, 1940s 40 (the war: no prizes 1940-42), 2010s 117. Zoomed in, the war dip looks catastrophic and the growth dramatic; from 0, it's a steady doubling. Neither is faked. Bar charts must start at 0, because we read the length of the bar; for a line chart it depends on what the point is. The rule is to choose deliberately, and be able to say why. This exact question is in data challenge 3 (alternative), Part 4.
+From the Chart scales chapter. Ask for a show of hands: who thinks B shows more growth? Then point out that the numbers are identical: 56 laureates in the 1900s, 38 in the 1910s and 40 in the 1940s (the two world wars; no prizes 1940-42), 117 in the 2010s. In B the y axis starts at 35, so the dips look dramatic and the growth looks steep; in A, from 0, it's a steady doubling. Neither chart is faked. Bar charts must start at 0, because we read the length of the bar; for a line chart it depends on the point you want to make: B is fine if the dips are the story. The rule is to choose the limits deliberately, and be able to say why. Next: how to set them ourselves. The same question comes up in data challenge 3 (alternative), Part 4.
 :::
 
 ## Limits

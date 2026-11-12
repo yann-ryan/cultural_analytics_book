@@ -109,3 +109,19 @@ l3 <- ggplot(dumbbell, aes(y = reorder(category, `2010`))) +
   labs(title = "Connection", subtitle = "joined points are read as a pair",
        x = "Laureates: 1950s (blue), 2010s (red)", y = NULL) + base
 save_png(l1 + l2 + l3, "gestalt-lines.png", 2400, 900)
+
+# ---------------------------------------------------------------------------
+# 4. Scales: the same line from 0 and zoomed in (Nobel laureates per decade)
+# ---------------------------------------------------------------------------
+
+by_decade <- nobel |> filter(award_year < 2020) |> count(decade)
+z_base <- ggplot(by_decade, aes(decade, n)) +
+  geom_line(linewidth = 1.2, colour = oi[["blue"]]) +
+  geom_point(size = 2.5, colour = oi[["blue"]]) +
+  scale_x_continuous(breaks = seq(1900, 2010, by = 20)) +
+  labs(x = NULL, y = "Laureates per decade") + base
+z1 <- z_base + scale_y_continuous(limits = c(0, 125)) +
+  labs(title = "A", subtitle = "scale_y_continuous(limits = c(0, 125))")
+z2 <- z_base + scale_y_continuous(limits = c(35, 120)) +
+  labs(title = "B", subtitle = "scale_y_continuous(limits = c(35, 120))")
+save_png(z1 + z2, "scales-zero-vs-zoom.png", 2400, 900)
