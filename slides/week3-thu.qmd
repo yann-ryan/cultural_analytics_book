@@ -347,22 +347,40 @@ A text column on x gets a **discrete** scale: alphabetical by default, which is 
 :::
 
 ::: notes
-Physiology or Medicine 229, Physics 227, Chemistry 197, Literature 121, Peace 111, Economic Sciences 96. The long labels overlap too. Two fixes, next slide.
+Physiology or Medicine 229, Physics 227, Chemistry 197, Literature 121, Peace 111, Economic Sciences 96. The long labels overlap too.
 :::
 
-## Bars in order {.try-it}
-
-Use `reorder()` to put the bars in order, then `coord_flip()` so the labels can be read. Make the biggest bar come out at the top
+## `reorder()`
 
 ```{webr-r}
 nobel_summary |>
-  ggplot(aes(x = ___, y = n)) +
-  geom_col() +
-  ___
+  ggplot(aes(x = reorder(category, desc(n)), y = n)) +
+  geom_col()
 ```
 
+::: small
+`reorder(category, desc(n))` puts the categories in order of `n`, highest first · it goes in `aes()`, not in a scale
+:::
+
 ::: notes
-aes(x = reorder(category, n), y = n) and + coord_flip(). reorder(category, n) sorts the categories by n, smallest first; after flipping, smallest is at the bottom, so the biggest is on top. reorder(category, desc(n)) is biggest first, which is what you want without the flip. reorder() goes in aes(), not in a scale: it changes the data, not the scale. In data challenge 3 they'll use this with authors or artists.
+As in the chapter: reorder() changes the order of the data, not the scale. Without desc(), the order is lowest first.
+:::
+
+## `coord_flip()`
+
+```{webr-r}
+nobel_summary |>
+  ggplot(aes(x = reorder(category, n), y = n)) +
+  geom_col() +
+  coord_flip()
+```
+
+::: small
+`coord_flip()` swaps the x and y axes · the `desc()` is gone, so that the highest value is at the **top**
+:::
+
+::: notes
+Long labels like "Physiology or Medicine" are much easier to read horizontally. In data challenge 3 they'll use this with authors or artists.
 :::
 
 # Data challenge 3 {.section-break}
