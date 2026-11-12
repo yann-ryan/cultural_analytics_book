@@ -1,0 +1,131 @@
+---
+title: "Data challenge 3: Shakespeare and Company, in charts"
+---
+
+In [data challenge 2](20b_data-challenge-2.qmd) you used dplyr to find out what Hemingway read, and whether women at Shakespeare and Company read women writers. Now you can *see* the answers. This challenge goes back to the same lending library and turns it into charts, using everything from the last two weeks: `count()`, `group_by()` and `summarise()`, `ggplot()` with `geom_col()`, `geom_line()`, `geom_point()`, `geom_histogram()` and `geom_boxplot()`, aesthetics inside and outside `aes()`, `facet_wrap()`, `position = 'fill'`, position scales, `reorder()` and `coord_flip()`.
+
+Prefer music? There's an [alternative version of this challenge](29c_data-challenge-3-spotify.qmd) using about 30,000 songs from Spotify. It practises the same skills.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Each step gives a number in brackets, or tells you what you should see, so you can check your work.
+
+**Work through it in order.** Parts 1 and 2 need little more than a `count()` before each chart. Parts 3 to 5 need more wrangling, and the steps marked *Harder* are a stretch. Get as far as you can: it's fine not to finish.
+
+## Setting up
+
+You need three of the four csv files from data challenge 2 (events, members and book creators), saved in your project folder. If you don't have them any more, they're on Brightspace, or on [Princeton Data Commons](https://doi.org/10.34770/kf6c-b079).
+
+Copy this code into the first chunk of your .Rmd and run it. It's the same cleaning and joining you did in data challenge 2, with three extra columns: `item_year` (when the book was published), `borrow_duration_days` (how long the member kept it) and `year` (the year it was borrowed, as a number).
+
+``` r
+library(tidyverse)
+
+events   <- read_csv("SCoData_events_v2.0_2025.csv")
+members  <- read_csv("SCoData_members_v2.0_2025.csv")
+creators <- read_csv("SCoData_book_creators_v2.0_2025.csv")
+
+author_genders <- creators |>
+  filter(id != "james-henry-2") |>
+  select(sort_name, author_gender = gender)
+
+reader_genders <- members |>
+  select(id, reader_gender = gender)
+
+borrows <- events |>
+  filter(event_type == "Borrow") |>
+  filter(!str_detect(member_ids, ";")) |>
+  filter(!str_detect(item_authors, ";")) |>
+  select(member_ids, member_names, start_date, item_title, item_authors,
+         item_year, borrow_duration_days) |>
+  left_join(author_genders, by = c("item_authors" = "sort_name")) |>
+  left_join(reader_genders, by = c("member_ids" = "id")) |>
+  mutate(year = as.numeric(str_sub(start_date, 1, 4)))
+```
+
+`borrows` should have 18,475 rows, one per book borrowed. You'll see a warning: "NAs introduced by coercion". Look at a few values of `start_date` where `year` is `NA` (use `filter(is.na(year))`). Why couldn't R turn them into a number? *(64 rows)*
+
+## Part 1: who borrowed, and what?
+
+-   Count the borrows by `reader_gender`. Then make a bar chart of the result, with `reader_gender` on the x axis and `n` on the y axis. *(Female: 13,106)* What does the bar labelled `NA` stand for?
+
+-   Who were the most borrowed authors? Count the borrows by `item_authors` and `author_gender` (put both inside `count()`), and keep the top 15 with `slice_max(n, n = 15)`. Save the result as `top_authors`. *(D. H. Lawrence: 308)* How many rows does `top_authors` actually have? Why? *(16)*
+
+-   Make a bar chart of `top_authors`, with the authors on the x axis. The names are unreadable. Fix it in two steps: first add `coord_flip()`; then put the bars in order, with `reorder()`, so that the most borrowed author is at the top.
+
+-   Now map `fill` to `author_gender`. How many of the top authors are women, and who are they? *(two)*
+
+## Part 2: the library over time
+
+-   Count the borrows by `year`, and draw them as a bar chart with `year` on the x axis. You'll get a warning about a removed row. What is it? Something else looks odd: there are borrows long after Sylvia Beach closed the shop in December 1941. *(353 borrows from 1942 onwards)*
+
+-   We'll stick to the years the shop was open. Filter `borrows` to the years up to and including 1941, and save the result as `library_years`. *(18,058 rows)* Did the filter also remove the rows with no year?
+
+-   Count `library_years` by year, and draw it as a line chart. Add points on top with a second geom. Use `scale_x_continuous()` to put a break every two years, from 1919 to 1941 (remember `seq()`). Which year had the most borrows? *(1939: 1,687)*
+
+-   Did women or men do more of the borrowing, and did it change? Filter `library_years` to rows where `reader_gender` is `"Female"` or `"Male"` (use `%in%`). Count by `year` *and* `reader_gender`, and make a bar chart with `fill = reader_gender`. Then add `position = 'fill'` to `geom_col()`. What does the y axis show now? *(women did more than half of the borrowing in every year; their highest share was 84%, in 1940)*
+
+## Part 3: readers
+
+From here on, use `library_years`.
+
+-   How much did each member borrow? Count the borrows by `member_ids`, `member_names` and `reader_gender`, and save the result as `per_member`. *(552 members)*
+
+-   Draw a histogram of `n` from `per_member`, with `binwidth = 10`. Describe its shape in one sentence. The median member borrowed 9 books: use `median()` to check. *(9)*
+
+-   Most of the histogram is squashed against the left side. Use `scale_x_continuous(limits = c(0, 200))` to zoom in. Read the warning: which members have disappeared from the chart, and how many are there? *(12 members borrowed more than 200 books)*
+
+-   Who were the library's most active borrowers? Make a bar chart of the top 10 members in `per_member`, ordered and flipped like the authors in Part 1. *(Alice M. Killen: 1,372)*
+
+-   Did women and men borrow different amounts? Filter `per_member` to women and men, and make a boxplot with `reader_gender` on the x axis and `n` on the y axis. Calculate the median for each group with `group_by()` and `summarise()`. *(women: 12; men: 6)*
+
+-   The boxes are squashed by a few very active members. Zoom in with `scale_y_continuous(limits = c(0, 100))`. Read the warning, and compare the line in the middle of the women's box with the median you just calculated. Why are they different? *(41 members removed; the box now shows 10 for women)*
+
+-   *Harder:* the number of borrows rose sharply in the mid-1930s. Was that because there were more readers, or because the same readers borrowed more? Use `group_by(year)` and `summarise()` to make two columns: `borrows = n()` and `readers = n_distinct(member_ids)`. Use `pivot_longer()` to put both in one column, and draw a line chart with `facet_wrap()`, one panel for each. Try `scales = "free_y"` in `facet_wrap()`: why is it useful here, and what is the risk? *(1938 had the most readers: 109)*
+
+## Part 4: did women read women writers?
+
+In data challenge 2 you answered this question with a table. Now draw it.
+
+-   Make a dataframe called `gendered`: `library_years`, filtered to rows where both `author_gender` and `reader_gender` are `"Female"` or `"Male"`.
+
+-   Count `gendered` by `reader_gender` and `author_gender`, and draw a bar chart with `reader_gender` on the x axis and `fill = author_gender`, using `position = 'fill'`. Can you read the answer off the chart? *(women readers: 29% women authors; men: 15%)*
+
+-   Did it change over time? Count by `year`, `reader_gender` and `author_gender`. Then use `group_by(year, reader_gender)` and `mutate()` to turn the counts into percentages, and keep only the rows for women authors from 1920 onwards. Draw a line chart with `year` on the x axis, the percentage on the y axis, and `colour = reader_gender`. Start the y axis at 0 with `scale_y_continuous()`. *(women readers' line is above men's in every year; both rise, to 36% and 21% in 1941)*
+
+-   Look at the chart from the last step, and the stacked bar chart before it. Which Gestalt principles help you compare women and men readers in each one?
+
+## Part 5: new books or old books?
+
+Was Shakespeare and Company a library of new books, or of classics?
+
+-   Use `mutate()` to add a column called `age`: the year it was borrowed minus the year the book was published (`item_year`). Filter out the rows where `age` is `NA`, and save the result as `ages`. *(17,662 rows)*
+
+-   What is the median age of a borrowed book? *(4 years)* How many books were borrowed in the same year they were published? *(3,160)*
+
+-   Draw a histogram of `age` with `binwidth = 1`. A few very old books (*Le Morte d'Arthur*, from 1485) stretch the x axis, so filter `ages` to books up to 50 years old before you draw it. (You could zoom in with `scale_x_continuous(limits = ...)` instead, but try it: what happens to the bar at 0, and why?)
+
+-   A few ages are negative. Find them. How can a book be borrowed before it was published? *(3 rows)*
+
+-   Did it change over time? Use `group_by(year)` and `summarise()` to calculate the median age of the borrowed books in each year, and draw it as a line chart with points. What happens in 1940 and 1941? What was happening in Paris then, and why might it have changed what people could borrow? *(6 years in 1940, 9 in 1941)*
+
+**Write** a short paragraph (four or five sentences) about the library, based on your charts. Pick the chart you think tells the most interesting story, and say what it shows. Then think about the data: this dataset only includes the members whose lending library cards survived (between 12 and 109 people in any one year), and books with one author. How might that affect what your chart shows?
+
+## Bonus
+
+-   How long did people keep their books? Draw a histogram of `borrow_duration_days` from `library_years`, with `binwidth = 1`. Zoom in to the first 60 days, and set the breaks to every 7 days. What do you notice about the peaks? *(the median is 8 days)*
+
+-   Which books did people keep longest? Group by `item_title`, keep only books borrowed at least 20 times (`filter(n() >= 20)`), and calculate the median number of days. Make an ordered, flipped bar chart of the top 10. *(Moby-Dick: 21 days)*
+
+-   Go back to the four famous members from data challenge 2: Hemingway, Joyce, Stein and Simone de Beauvoir. Count their borrows by member and year, and make a bar chart with one panel per member. When was each of them using the library?
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Summarise a dataset with `count()` and turn the result into a chart
+-   [ ] Choose a chart type for a question: amounts, change over time, a distribution, or part-to-whole
+-   [ ] Make bar charts readable with `reorder()` and `coord_flip()`
+-   [ ] Use position scales to set breaks and to zoom in, and know what happens to values outside the limits
+-   [ ] Compare groups with `fill`, `colour`, `position = 'fill'` and `facet_wrap()`
+-   [ ] Think critically about what a chart can and can't tell you about the past

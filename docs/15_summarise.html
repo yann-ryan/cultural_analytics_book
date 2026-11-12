@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"setup","fig-height":5,"classes":"","autorun":"true","fig-width":7,"label":"unnamed-chunk-1"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-2"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-3"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-4"},"code":""},{"id":5,"options":{"comment":"","out-width":"700px","message":"true","dpi":72,"results":"markup","editor-quick-suggestions":"false","editor-font-scale":"1","editor-word-wrap":"true","fig-cap":"","read-only":"false","out-height":"","editor-max-height":"","warning":"true","output":"true","context":"interactive","fig-height":5,"classes":"","autorun":"false","fig-width":7,"label":"unnamed-chunk-5"},"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"output":"true","editor-word-wrap":"true","message":"true","warning":"true","fig-width":7,"fig-height":5,"label":"unnamed-chunk-1","autorun":"true","read-only":"false","classes":"","editor-quick-suggestions":"false","out-width":"700px","comment":"","results":"markup","editor-max-height":"","fig-cap":"","out-height":"","editor-font-scale":"1","context":"setup","dpi":72}},{"id":2,"code":"titanic_df |>\n  summarise(count = n())","options":{"output":"true","editor-word-wrap":"true","message":"true","warning":"true","fig-width":7,"fig-height":5,"label":"unnamed-chunk-2","autorun":"false","read-only":"false","classes":"","editor-quick-suggestions":"false","out-width":"700px","comment":"","results":"markup","editor-max-height":"","fig-cap":"","out-height":"","editor-font-scale":"1","context":"interactive","dpi":72}},{"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","options":{"output":"true","editor-word-wrap":"true","message":"true","warning":"true","fig-width":7,"fig-height":5,"label":"unnamed-chunk-3","autorun":"false","read-only":"false","classes":"","editor-quick-suggestions":"false","out-width":"700px","comment":"","results":"markup","editor-max-height":"","fig-cap":"","out-height":"","editor-font-scale":"1","context":"interactive","dpi":72}},{"id":4,"code":"","options":{"output":"true","editor-word-wrap":"true","message":"true","warning":"true","fig-width":7,"fig-height":5,"label":"unnamed-chunk-4","autorun":"false","read-only":"false","classes":"","editor-quick-suggestions":"false","out-width":"700px","comment":"","results":"markup","editor-max-height":"","fig-cap":"","out-height":"","editor-font-scale":"1","context":"interactive","dpi":72}},{"id":5,"code":"","options":{"output":"true","editor-word-wrap":"true","message":"true","warning":"true","fig-width":7,"fig-height":5,"label":"unnamed-chunk-5","autorun":"false","read-only":"false","classes":"","editor-quick-suggestions":"false","out-width":"700px","comment":"","results":"markup","editor-max-height":"","fig-cap":"","out-height":"","editor-font-scale":"1","context":"interactive","dpi":72}}];
 
 </script>
 <script type="module">
@@ -1889,6 +1889,18 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29b_data-challenge-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data challenge 3: Shakespeare and Company, in charts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29c_data-challenge-3-spotify.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Data challenge 3 (alternative): How has music changed over time?</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1903,25 +1915,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31a_data-visualisation-2-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1993,7 +2005,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">—</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">

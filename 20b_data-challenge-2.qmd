@@ -90,7 +90,7 @@ Now the big question. In home exercise 4 we looked at how much dialogue women ge
 
 -   Which women authors were borrowed most? Which were borrowed most by men? *(Virginia Woolf both times)*
 
--   Export `borrows_full` with `write_csv()`. We'll come back to this file when we start making visualisations next week.
+-   Export `borrows_full` with `write_csv()`. We'll come back to this data in [data challenge 3](29b_data-challenge-3.qmd), when we turn it into charts.
 
 **Write** a short paragraph (three or four sentences) answering the question in the heading of Part 4. Is there anything in how the data was made (whose cards survived, how gender was recorded, which books we removed) that should make us careful about the answer?
 

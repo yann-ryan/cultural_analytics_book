@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1,"options":{"results":"markup","editor-max-height":"","dpi":72,"warning":"true","output":"true","autorun":"true","read-only":"false","context":"setup","fig-cap":"","out-height":"","comment":"","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","label":"unnamed-chunk-1","fig-width":7,"fig-height":5,"editor-font-scale":"1","message":"true","out-width":"700px"}},{"code":"gapminder_population","id":2,"options":{"results":"markup","editor-max-height":"","dpi":72,"warning":"true","output":"true","autorun":"false","read-only":"false","context":"interactive","fig-cap":"","out-height":"","comment":"","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","label":"unnamed-chunk-2","fig-width":7,"fig-height":5,"editor-font-scale":"1","message":"true","out-width":"700px"}},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3,"options":{"results":"markup","editor-max-height":"","dpi":72,"warning":"true","output":"true","autorun":"false","read-only":"false","context":"interactive","fig-cap":"","out-height":"","comment":"","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","label":"unnamed-chunk-3","fig-width":7,"fig-height":5,"editor-font-scale":"1","message":"true","out-width":"700px"}},{"code":"","id":4,"options":{"results":"markup","editor-max-height":"","dpi":72,"warning":"true","output":"true","autorun":"false","read-only":"false","context":"interactive","fig-cap":"","out-height":"","comment":"","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","label":"unnamed-chunk-4","fig-width":7,"fig-height":5,"editor-font-scale":"1","message":"true","out-width":"700px"}},{"code":"","id":5,"options":{"results":"markup","editor-max-height":"","dpi":72,"warning":"true","output":"true","autorun":"false","read-only":"false","context":"interactive","fig-cap":"","out-height":"","comment":"","classes":"","editor-quick-suggestions":"false","editor-word-wrap":"true","label":"unnamed-chunk-5","fig-width":7,"fig-height":5,"editor-font-scale":"1","message":"true","out-width":"700px"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","out-width":"700px","classes":"","fig-width":7,"dpi":72,"editor-max-height":"","output":"true","comment":"","read-only":"false","results":"markup","label":"unnamed-chunk-1","context":"setup","fig-cap":"","editor-word-wrap":"true","message":"true","editor-quick-suggestions":"false","autorun":"true","fig-height":5,"out-height":"","editor-font-scale":"1"},"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"id":2,"options":{"warning":"true","out-width":"700px","classes":"","fig-width":7,"dpi":72,"editor-max-height":"","output":"true","comment":"","read-only":"false","results":"markup","label":"unnamed-chunk-2","context":"interactive","fig-cap":"","editor-word-wrap":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"out-height":"","editor-font-scale":"1"},"code":"gapminder_population"},{"id":3,"options":{"warning":"true","out-width":"700px","classes":"","fig-width":7,"dpi":72,"editor-max-height":"","output":"true","comment":"","read-only":"false","results":"markup","label":"unnamed-chunk-3","context":"interactive","fig-cap":"","editor-word-wrap":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"out-height":"","editor-font-scale":"1"},"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"},{"id":4,"options":{"warning":"true","out-width":"700px","classes":"","fig-width":7,"dpi":72,"editor-max-height":"","output":"true","comment":"","read-only":"false","results":"markup","label":"unnamed-chunk-4","context":"interactive","fig-cap":"","editor-word-wrap":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"out-height":"","editor-font-scale":"1"},"code":""},{"id":5,"options":{"warning":"true","out-width":"700px","classes":"","fig-width":7,"dpi":72,"editor-max-height":"","output":"true","comment":"","read-only":"false","results":"markup","label":"unnamed-chunk-5","context":"interactive","fig-cap":"","editor-word-wrap":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"out-height":"","editor-font-scale":"1"},"code":""}];
 
 </script>
 <script type="module">
@@ -1889,6 +1889,18 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29b_data-challenge-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data challenge 3: Shakespeare and Company, in charts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29c_data-challenge-3-spotify.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Data challenge 3 (alternative): How has music changed over time?</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1903,25 +1915,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31a_data-visualisation-2-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1993,7 +2005,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">—</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">

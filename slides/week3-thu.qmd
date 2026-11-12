@@ -1,0 +1,358 @@
+---
+title: "Data Visualisation 2"
+subtitle: "Week 3 · Thu 12 Nov"
+webr:
+  packages: ['dplyr', 'readr', 'stringr', 'tidyr', 'ggplot2']
+  cell-options:
+    editor-font-scale: 0.8
+    fig-width: 11
+    fig-height: 4.5
+---
+
+
+## Today
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(readr)
+library(stringr)
+library(tidyr)
+library(ggplot2)
+options(width = 80, pillar.print_min = 5, pillar.print_max = 5)
+theme_set(theme_grey(base_size = 16))
+
+url1 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv"
+download.file(url1, "laureates_df.csv")
+laureates_df <- read_csv("laureates_df.csv", show_col_types = FALSE)
+
+url2 <- "https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv"
+download.file(url2, "prize_df.csv")
+prize_df <- read_csv("prize_df.csv", show_col_types = FALSE)
+
+nobel_df <- laureates_df |>
+  left_join(prize_df, by = 'prize_id')
+
+nobel_summary <- nobel_df |>
+  count(category)
+
+nobel_by_year <- nobel_df |>
+  count(award_year)
+```
+
+1.  Why do charts work? Pre-attentive attributes and Gestalt principles
+2.  Critique, round 2: perception and design
+3.  Scales: limits, breaks, labels, and ordering bars
+4.  Data challenge 3, in two versions
+5.  Report 1: pitch your dataset and question
+
+::: notes
+Open the deck a minute before class: the setup downloads the Nobel data and loads ggplot2, which is slow in the browser. Have the four A3 critique sheets ready, one per group, same groups as Tuesday. The answers to each Try it yourself are in these notes. Rough timing for a two-hour seminar: perception 20 min, critique 25, scales 30, data challenge 5, pitches 30, your turn with what's left.
+:::
+
+## Warm-up
+
+How many 7s are there?
+
+![](../images/27_gestalt/preattentive-1.png)
+
+::: notes
+Give them about five seconds, then ask for answers. Expect a spread of guesses, and some still counting. Then next slide.
+:::
+
+## Again
+
+![](../images/27_gestalt/preattentive-2.png)
+
+::: predict
+Nine. Nothing about the data changed: only its colour
+:::
+
+::: notes
+Second time, everyone gets it at once. This is a pre-attentive attribute: colour (and size, orientation, position, motion) is processed automatically, in a fraction of a second, before we pay conscious attention. Reading the digits one by one is attentive, slow, and error-prone. Lesson for charts: if you want the reader to notice one thing, make it differ in a pre-attentive attribute, not in a label they have to read. And if everything is brightly coloured, nothing pops out.
+:::
+
+# Why do charts work? {.section-break}
+
+Gestalt principles
+
+## We see wholes, not parts
+
+Gestalt psychology (from about 1900): our minds group what we see into patterns, without being asked
+
+![](../images/27_gestalt/01.png){height="460"}
+
+::: notes
+From the Gestalt Principles chapter, which they were asked to read. "Gestalt" is German for shape or form. The six principles we use for charts: proximity, similarity, enclosure, closure, continuity, connection. Most of ggplot's defaults already use them; the point of knowing them is to have words for why a chart works, or doesn't. Those words are what the critique and the exam ask for.
+:::
+
+## Grouping
+
+![](../images/27_gestalt/gestalt-grouping.png)
+
+::: notes
+The same 342 penguins three times. Left: with no colour, we still see clusters, purely because the points are close together (proximity). Middle: colour makes the three species obvious, and shows that the two clusters in the bottom left are really two species overlapping (similarity). Right: an outline around each group (enclosure); we'll learn to draw these in the annotations chapter. Ask: in the middle chart, which principle wins when proximity and similarity disagree? Points of different colours sit close together where Adelie and Chinstrap overlap, and we still separate them by colour.
+:::
+
+## Lines
+
+![](../images/27_gestalt/gestalt-lines.png)
+
+::: notes
+Left: a dashed line is a series of separate dashes, but we read it as one line (closure). Middle: where the Physics and Chemistry lines cross, we still follow each one through, rather than seeing them bounce off each other (continuity). This is also why a line chart implies order: we assume each point leads to the next. Right: a dumbbell chart; the grey line ties the two dots together, so we compare the 1950s with the 2010s in each category (connection). Economics starts at 0 because the prize only began in 1969, and Literature's two dots sit on top of each other (10 in both decades). Ask: which of these would mislead if the x axis were categories with no order, like countries?
+:::
+
+## Proximity decides the comparison
+
+```{webr-r}
+nobel_df |>
+  filter(category %in% c('Physics', 'Chemistry', 'Peace', 'Literature')) |>
+  count(category, gender) |>
+  ggplot(aes(x = category, y = n, fill = gender)) +
+  geom_col(position = 'dodge')
+```
+
+::: predict
+**Try:** swap `x = category` and `fill = gender`. Which comparison is easier now, and which is harder?
+:::
+
+::: notes
+position = 'dodge' (from Tuesday) puts bars side by side. With category on x, the bars that sit next to each other are women and men in the same prize: easy to compare within a prize. Swapped, all the women's bars are together and all the men's: easy to compare prizes for one gender, harder to see the gap. Same data, same geom: the grouping by proximity decides what the reader compares. The rule: put the things you most want compared next to each other. Physics: 5 women, 222 men; Peace: 19 and 92; Literature: 18 and 103; Chemistry: 8 and 189.
+:::
+
+# Critique, round 2 {.section-break}
+
+Perception and design
+
+## Critique: perception and design
+
+Same groups, same sheet as Tuesday. Laptops closed. **15 minutes**, then two minutes per group
+
+::: {style="font-size: 0.85em;"}
+1.  Where does your eye go first? Is that the most important thing?
+2.  Is it obvious what you're meant to look at, and in what order? How long did it take you to work out how to read it?
+3.  Which Gestalt principles does it use (proximity, similarity, enclosure, closure, continuity, connection)? Do they help, or get in the way?
+4.  Does the design group together things that shouldn't be grouped, or split up things that belong together?
+5.  What would you remove, and what would you add, to make it easier to read?
+:::
+
+::: notes
+The Round 2 questions from the critique gallery page. Groups 1-4: Nightingale, Minard, Du Bois, Snow. Things to listen for. Nightingale: the eye goes to the big blue wedges (preventable disease), which is exactly her argument; wedges are read by area, and the radius is scaled so the area is right, but area is hard to compare; the two spirals are connected by a dashed line (connection, and closure). Minard: the eye follows the band (continuity) from left to right and back, the width shrinking; the temperature chart below is linked to the return journey by thin vertical lines (connection); a lot to take in at once. Du Bois: the spiral grabs attention, but makes the later, bigger values hard to compare with the early ones; colour separates the years (similarity). Snow: the black bars cluster around the Broad Street pump (proximity), which is the whole argument; the street plan is quiet, so the bars pop out (pre-attentive). Keep the summaries to two minutes each; pick one person per group.
+:::
+
+# Scales {.section-break}
+
+How data becomes position, colour and size
+
+## Scales: the next layer
+
+![](../images/22_data-visualisation-1/ggplot-layers.png){height="460"}
+
+::: small
+A **scale** decides how values in the data become positions, colours and sizes. ggplot always adds one; you only write it when you want to change it
+:::
+
+::: notes
+Back to Tuesday's layers diagram: we did data, aesthetics, geometries, a bit of statistics and facets. Scales are the next layer up. Every aesthetic in aes() has a scale: x and y have position scales, fill has a colour scale, and so on. The scale is shown to the reader as an axis or a legend. Today: position scales. Tuesday: date scales and colour.
+:::
+
+## Which chart is right?
+
+```{webr-r}
+nobel_by_decade <- nobel_df |>
+  filter(award_year < 2020) |>
+  mutate(decade = floor(award_year / 10) * 10) |>
+  count(decade)
+
+ggplot(nobel_by_decade, aes(x = decade, y = n)) +
+  geom_line() +
+  scale_y_continuous(limits = c(35, 120))
+```
+
+::: predict
+**Try:** change the limits to `c(0, 125)`. Has the number of laureates grown a lot, or a little? Which chart would you use?
+:::
+
+::: notes
+From the Chart scales chapter. 1900s: 56 laureates, 1940s 40 (the war: no prizes 1940-42), 2010s 117. Zoomed in, the war dip looks catastrophic and the growth dramatic; from 0, it's a steady doubling. Neither is faked. Bar charts must start at 0, because we read the length of the bar; for a line chart it depends on what the point is. The rule is to choose deliberately, and be able to say why. This exact question is in data challenge 3 (alternative), Part 4.
+:::
+
+## Limits
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000))
+```
+
+::: small
+`scale_x_continuous()` for the x axis · `scale_y_continuous()` for the y axis · `limits = c(start, end)`
+:::
+
+. . .
+
+::: predict
+Read the warning: "Removed 100 rows". Values outside the limits are **removed** before anything is drawn, not just hidden
+:::
+
+::: notes
+nobel_by_year has 121 rows (one per year with a prize); 21 of them fall between 1980 and 2000, so 100 are removed. For a line chart that doesn't matter. But for anything that calculates (a histogram, a boxplot, a mean), the calculation only sees what's left. Data challenge 3 has a step about exactly this: zooming in on a boxplot with limits changes the median line. If you want to zoom without throwing data away, coord_cartesian(xlim = ...) does that; not in the book, mention only if asked.
+:::
+
+## Limits {.try-it}
+
+Set the limits of the y axis to 0 and 20
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000)) +
+  ___
+```
+
+::: notes
+scale_y_continuous(limits = c(0, 20)). The first Try it yourself in the Position scales chapter. In these years there were 6 to 13 laureates a year, so this leaves room above. Note there's a separate scale per axis, each added with +.
+:::
+
+## Breaks
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000),
+                     breaks = seq(from = 1980, to = 2000, by = 2))
+```
+
+::: small
+`breaks` decides where the ticks and labels go · `seq(from, to, by)` makes a sequence, so you don't have to type every value
+:::
+
+::: notes
+Show seq(from = 1980, to = 2000, by = 2) on its own first, in the console of the cell, so they see it's just a vector of numbers. Breaks also set where the grid lines go; the fainter lines in between are minor_breaks, which can be set the same way.
+:::
+
+## Breaks and labels {.try-it}
+
+Put a break every 5 laureates on the y axis. Then give the x axis three breaks, labelled `'1980'`, `'Ten years later'` and `'2000'`
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000),
+                     breaks = ___,
+                     labels = ___) +
+  scale_y_continuous(breaks = ___)
+```
+
+::: notes
+scale_x_continuous(limits = c(1980, 2000), breaks = c(1980, 1990, 2000), labels = c('1980', 'Ten years later', '2000')) + scale_y_continuous(breaks = seq(from = 0, to = 20, by = 5)). The labels need one per break, in the same order; if the numbers don't match, ggplot gives an error ("breaks and labels have different lengths"). Breaks only show inside the range of the axis (6 to 13 laureates here), so most of the y breaks won't appear unless they also set limits = c(0, 20). Good point to discuss.
+:::
+
+## Bars in order
+
+```{webr-r}
+nobel_summary |>
+  ggplot(aes(x = category, y = n)) +
+  geom_col()
+```
+
+::: small
+A text column on x gets a **discrete** scale: alphabetical by default, which is almost never the order you want
+:::
+
+::: notes
+Physiology or Medicine 229, Physics 227, Chemistry 197, Literature 121, Peace 111, Economic Sciences 96. The long labels overlap too. Two fixes, next slide.
+:::
+
+## Bars in order {.try-it}
+
+Use `reorder()` to put the bars in order, then `coord_flip()` so the labels can be read. Make the biggest bar come out at the top
+
+```{webr-r}
+nobel_summary |>
+  ggplot(aes(x = ___, y = n)) +
+  geom_col() +
+  ___
+```
+
+::: notes
+aes(x = reorder(category, n), y = n) and + coord_flip(). reorder(category, n) sorts the categories by n, smallest first; after flipping, smallest is at the bottom, so the biggest is on top. reorder(category, desc(n)) is biggest first, which is what you want without the flip. reorder() goes in aes(), not in a scale: it changes the data, not the scale. In data challenge 3 they'll use this with authors or artists.
+:::
+
+# Data challenge 3 {.section-break}
+
+Two versions: choose one
+
+## Data challenge 3
+
+::: columns
+::: {.column width="50%"}
+**Shakespeare and Company, in charts** (chapter 36)
+
+Back to the lending library of data challenge 2: who borrowed, the library over time, the most active readers, and whether women read women writers, now as charts
+
+Uses the csv files from data challenge 2
+:::
+
+::: {.column width="50%"}
+**How has music changed over time?** (chapter 37)
+
+About 30,000 songs from 471 Spotify playlists, with Spotify's audio features: danceability, energy, valence
+
+Reads straight from the web: nothing to download
+:::
+:::
+
+::: predict
+Same skills, both with numbers in brackets to check your work. Parts 1 and 2 first; the *Harder* steps are a stretch
+:::
+
+::: notes
+Both use everything from this week and Tuesday: count(), geom_col / line / point / histogram / boxplot, inside and outside aes(), facet_wrap(), position = 'fill', limits and breaks, reorder() and coord_flip(). Either is good practice for Report 1. The Spotify one has a nice critical question about how the data was made (playlists collected in 2019, so few old songs, and most of those are rock). Not graded; answers discussed next week.
+:::
+
+# Report 1: pitch {.section-break}
+
+Your dataset and your question
+
+## Pitch your report
+
+In one or two sentences:
+
+> I want to find out **[question]**, using **[dataset]**, which was made by **[who]**, and has one row per **[what]**.
+
+::: {style="font-size: 0.85em;"}
+-   Is the question one a chart can answer? Which kind: amounts, change over time, a distribution, a relationship, part-to-whole?
+-   Have you loaded it into R yet? How many rows, and which columns will you need?
+-   What's one thing that might go wrong (missing values, the wrong unit of observation, a join that needs a key)?
+:::
+
+::: notes
+Go round the room, about a minute each, and ask one of the three questions back to each person. Note down datasets and anyone without one yet; follow up by email. Common problems to listen for: a question too broad for 1,500 words ("music over time"), a dataset with no clear row ("a website"), data that can't be downloaded. Suggestions for anyone stuck: the Data sources page in the book, TidyTuesday, the two data challenge 3 datasets, or the Nobel data. Report 1: 1,200-1,500 words, three or four ggplot2 charts, R Markdown, due Mon 23 Nov.
+:::
+
+## Your turn {.your-turn}
+
+In the course book:
+
+-   **Chapters 32-35**: More Data Visualisation, Gestalt Principles, Chart scales, Position scales. Try every Try it yourself
+-   **Data challenge 3**: chapter 36 or 37, whichever you prefer
+
+::: predict
+**Stuck?** Each axis has its own scale, added with `+` · `limits` and `breaks` need a vector: `c()` or `seq()` · one label per break · a warning about removed rows means values fell outside your limits · `reorder()` goes inside `aes()`
+:::
+
+## Before Tuesday
+
+**Report 1**: start working on your dataset. Get it into R, and make one rough chart
+
+**Read** Date scales and Colour and size scales (chapters 38-39)
+
+**Home exercise 6** (chapter 41): ungraded practice. Limits, breaks and fixed colours with the movie data
+
+**Tuesday 17 Nov:** Data Visualisation 2, part 2. Date and colour scales

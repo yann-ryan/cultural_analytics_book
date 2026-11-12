@@ -8,6 +8,7 @@ project:
     - "slides/*_files/**"
     # images used only by the slide decks (../images/...)
     - "images/22_data-visualisation-1/*.png"
+    - "images/27_gestalt/*.png"
 
 book:
   title: "Cultural Analytics: Course Book"
@@ -67,6 +68,8 @@ book:
         - 27_gestalt.qmd
         - 28_scales.qmd
         - 29_position-scales.qmd
+        - 29b_data-challenge-3.qmd
+        - 29c_data-challenge-3-spotify.qmd
     - part: "Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)"
       chapters:
         - 30_date-scales.qmd

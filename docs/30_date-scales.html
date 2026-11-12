@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>36&nbsp; Date scales – Cultural Analytics: Course Book</title>
+<title>38&nbsp; Date scales – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./31_colour.html" rel="next">
-<link href="./29_position-scales.html" rel="prev">
+<link href="./29c_data-challenge-3-spotify.html" rel="prev">
 <link href="./images/logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"message":"true","classes":"","fig-height":5,"editor-font-scale":"1","fig-width":7,"results":"markup","comment":"","out-height":"","out-width":"700px","output":"true","fig-cap":"","editor-max-height":"","label":"unnamed-chunk-1","read-only":"false","dpi":72,"editor-word-wrap":"true","context":"setup","autorun":"true","warning":"true","editor-quick-suggestions":"false"},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())"},{"id":2,"options":{"message":"true","classes":"","fig-height":5,"editor-font-scale":"1","fig-width":7,"results":"markup","comment":"","out-height":"","out-width":"700px","output":"true","fig-cap":"","editor-max-height":"","label":"unnamed-chunk-2","read-only":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","warning":"true","editor-quick-suggestions":"false"},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))"},{"id":3,"options":{"message":"true","classes":"","fig-height":5,"editor-font-scale":"1","fig-width":7,"results":"markup","comment":"","out-height":"","out-width":"700px","output":"true","fig-cap":"","editor-max-height":"","label":"unnamed-chunk-3","read-only":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","warning":"true","editor-quick-suggestions":"false"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")"},{"id":4,"options":{"message":"true","classes":"","fig-height":5,"editor-font-scale":"1","fig-width":7,"results":"markup","comment":"","out-height":"","out-width":"700px","output":"true","fig-cap":"","editor-max-height":"","label":"unnamed-chunk-4","read-only":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","warning":"true","editor-quick-suggestions":"false"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')"},{"id":5,"options":{"message":"true","classes":"","fig-height":5,"editor-font-scale":"1","fig-width":7,"results":"markup","comment":"","out-height":"","out-width":"700px","output":"true","fig-cap":"","editor-max-height":"","label":"unnamed-chunk-5","read-only":"false","dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","warning":"true","editor-quick-suggestions":"false"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")"}];
+globalThis.qwebrCellDetails = [{"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())","options":{"read-only":"false","dpi":72,"classes":"","results":"markup","out-height":"","fig-cap":"","context":"setup","comment":"","label":"unnamed-chunk-1","message":"true","editor-max-height":"","fig-height":5,"out-width":"700px","autorun":"true","editor-quick-suggestions":"false","warning":"true","fig-width":7,"editor-word-wrap":"true","output":"true","editor-font-scale":"1"},"id":1},{"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))","options":{"read-only":"false","dpi":72,"classes":"","results":"markup","out-height":"","fig-cap":"","context":"interactive","comment":"","label":"unnamed-chunk-2","message":"true","editor-max-height":"","fig-height":5,"out-width":"700px","autorun":"false","editor-quick-suggestions":"false","warning":"true","fig-width":7,"editor-word-wrap":"true","output":"true","editor-font-scale":"1"},"id":2},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")","options":{"read-only":"false","dpi":72,"classes":"","results":"markup","out-height":"","fig-cap":"","context":"interactive","comment":"","label":"unnamed-chunk-3","message":"true","editor-max-height":"","fig-height":5,"out-width":"700px","autorun":"false","editor-quick-suggestions":"false","warning":"true","fig-width":7,"editor-word-wrap":"true","output":"true","editor-font-scale":"1"},"id":3},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')","options":{"read-only":"false","dpi":72,"classes":"","results":"markup","out-height":"","fig-cap":"","context":"interactive","comment":"","label":"unnamed-chunk-4","message":"true","editor-max-height":"","fig-height":5,"out-width":"700px","autorun":"false","editor-quick-suggestions":"false","warning":"true","fig-width":7,"editor-word-wrap":"true","output":"true","editor-font-scale":"1"},"id":4},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")","options":{"read-only":"false","dpi":72,"classes":"","results":"markup","out-height":"","fig-cap":"","context":"interactive","comment":"","label":"unnamed-chunk-5","message":"true","editor-max-height":"","fig-height":5,"out-width":"700px","autorun":"false","editor-quick-suggestions":"false","warning":"true","fig-width":7,"editor-word-wrap":"true","output":"true","editor-font-scale":"1"},"id":5}];
 
 </script>
 <script type="module">
@@ -1570,7 +1570,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30_date-scales.html">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</a></li><li class="breadcrumb-item"><a href="./30_date-scales.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30_date-scales.html">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</a></li><li class="breadcrumb-item"><a href="./30_date-scales.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1889,6 +1889,18 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Position scales</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29b_data-challenge-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data challenge 3: Shakespeare and Company, in charts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29c_data-challenge-3-spotify.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Data challenge 3 (alternative): How has music changed over time?</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1903,25 +1915,25 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_date-scales.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_colour.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31a_data-visualisation-2-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Practice exercises: position and colour scales</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./32_at-home-6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -1993,7 +2005,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_data-sources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">—</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -2320,9 +2332,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30_date-scales.html">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</a></li><li class="breadcrumb-item"><a href="./30_date-scales.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./30_date-scales.html">Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)</a></li><li class="breadcrumb-item"><a href="./30_date-scales.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Date scales</span></h1>
+<h1 class="title"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Date scales</span></h1>
 </div>
 
 
@@ -2893,13 +2905,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./29_position-scales.html" class="pagination-link" aria-label="Position scales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Position scales</span></span>
+      <a href="./29c_data-challenge-3-spotify.html" class="pagination-link" aria-label="Data challenge 3 (alternative): How has music changed over time?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Data challenge 3 (alternative): How has music changed over time?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./31_colour.html" class="pagination-link" aria-label="Colour and size scales">
-        <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,125 @@
+---
+title: "Data challenge 3 (alternative): How has music changed over time?"
+---
+
+This is an alternative to [data challenge 3](29b_data-challenge-3.qmd). It practises the same skills on a different dataset: about 30,000 songs from Spotify. Do whichever one you like (or both). You'll use everything from the last two weeks: `count()`, `group_by()` and `summarise()`, `ggplot()` with `geom_col()`, `geom_line()`, `geom_point()`, `geom_histogram()` and `geom_boxplot()`, aesthetics inside and outside `aes()`, `facet_wrap()`, `position = 'fill'`, position scales, `reorder()` and `coord_flip()`.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Each step gives a number in brackets, or tells you what you should see, so you can check your work.
+
+**Work through it in order.** Parts 1 and 2 need little more than a `count()` before each chart. Parts 3 and 4 need more wrangling, and the steps marked *Harder* are a stretch. Get as far as you can: it's fine not to finish.
+
+## The data
+
+In 2019 the data scientist Kaylin Pavlik wanted to know whether a computer could tell musical genres apart just from how songs sound. She searched Spotify for playlists in six genres (EDM, Latin, pop, R&B, rap and rock, each split into four subgenres), and downloaded every song on 471 of them. For each song, Spotify's API gave her its release date, its popularity, and a set of **audio features**: numbers that Spotify's own algorithms calculate from the recording. The dataset was shared through [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-21) in January 2020.
+
+There is one row per song *on a playlist*. The columns you'll use most are:
+
+-   `track_name`, `track_artist`, `track_id`: the song, who it's by, and Spotify's ID for it.
+-   `playlist_genre` and `playlist_subgenre`: the genre of the *playlist* the song was found on.
+-   `track_album_release_date`: when the album the song is on came out.
+-   `track_popularity`: Spotify's popularity score in 2020, from 0 to 100.
+-   `duration_ms`: the length of the song, in milliseconds.
+-   `danceability`, `energy` and `valence`: scores from 0 to 1. Valence is how positive (happy, cheerful) a song sounds: a high score is happy, a low score sad or angry.
+-   `loudness`: the average loudness, in decibels. The values are negative: the closer to 0, the louder.
+-   `tempo`: the speed, in beats per minute.
+
+## Setting up
+
+You don't need to download anything: `read_csv()` can read a file straight from a web address. Copy this code into the first chunk of your .Rmd and run it. It adds two columns: `year` (the first four characters of the release date, as a number) and `duration_min` (the length in minutes).
+
+``` r
+library(tidyverse)
+
+spotify <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-01-21/spotify_songs.csv")
+
+spotify <- spotify |>
+  mutate(year = as.numeric(str_sub(track_album_release_date, 1, 4)),
+         duration_min = duration_ms / 60000)
+```
+
+`spotify` should have 32,833 rows. If your internet is slow, save a copy in your project folder with `write_csv(spotify, "spotify_songs.csv")`, and read that next time.
+
+Most release dates are written in full (`2019-06-14`), but some are just a year (`2012`). Why does `str_sub()` work for both? *(1,855 dates are just a year)*
+
+## Part 1: genres and artists
+
+-   Count the rows by `playlist_genre`, and make a bar chart of the result. Use `reorder()` to put the bars in order of size. *(edm: 6,043)*
+
+-   Count the rows by `playlist_genre` *and* `playlist_subgenre` (put both inside `count()`). How many subgenres are there? *(24)* Make a bar chart with the subgenres on the x axis, flipped with `coord_flip()` and ordered with `reorder()`. Then map `fill` to `playlist_genre`. Which is the biggest subgenre? *(progressive electro house: 1,809)*
+
+-   The subgenres of each genre are scattered across the chart, but you can still pick them out. Which Gestalt principle lets you do that?
+
+-   Who are the artists with the most songs in the dataset? Count the rows by `track_artist`, keep the top 15 with `slice_max(n, n = 15)`, and save the result as `top_artists`. Make an ordered, flipped bar chart. *(Martin Garrix: 161)*
+
+-   Is each artist tied to one genre? Filter `spotify` to the artists in `top_artists` (use `%in%` with `top_artists$track_artist`), then count by `track_artist` and `playlist_genre`. Make a flipped bar chart with `fill = playlist_genre`, then add `position = 'fill'` to `geom_col()`. Which three artists are almost entirely in one genre, and which artist is spread most evenly? *(Queen: 134 of 136 songs are rock; Drake's biggest genre has only 36 of his 100 songs)*
+
+## Part 2: songs over time
+
+-   A song can be on more than one playlist. How many *different* songs are there? Use `n_distinct()` on `track_id`. *(28,356)* Which song appears most often? Count by `track_id`, `track_name` and `track_artist`, and sort the result. In how many genres does it appear? *(10 rows, in five genres)*
+
+-   When we count songs over time, a song that appears on ten playlists would be counted ten times. So we'll keep just one row per song. Run this code:
+
+``` r
+songs <- spotify |>
+  distinct(track_id, .keep_all = TRUE)
+```
+
+`distinct()` keeps one row for each `track_id`, and `.keep_all = TRUE` keeps all the other columns too. `songs` should have 28,356 rows. Each song now has only the genre of the *first* playlist it was found on. Use `songs` from now on.
+
+-   Count `songs` by `year`, and draw it as a bar chart. Which year has the most songs? *(2019: 7,406)* How many songs came out in 2010 or later? *(20,460, almost three-quarters)* What are the oldest songs in the dataset? *(two, from 1957)*
+
+-   Why do you think so few old songs are in the dataset? Think about how it was made: who makes playlists, and when were these playlists collected?
+
+-   Did the genres change over time? Add a `decade` column to `songs` with `mutate(decade = floor(year / 10) * 10)`, and keep only the decades from 1970 to 2010. Save the result as `decades`. *(27,595 rows)* Count `decades` by `decade` and `playlist_genre`, and make a bar chart with `fill = playlist_genre` and `position = 'fill'`. Use `scale_x_continuous()` to put a break at each decade. *(rock: 89% of songs from the 1970s, 7% from the 2010s)*
+
+-   Keep that chart in mind. If we compare songs from the 1970s with songs from the 2010s, what are we really comparing?
+
+## Part 3: what does each genre sound like?
+
+-   Draw a histogram of `duration_min` from `songs`, with `binwidth = 0.25`. What is the median length of a song? *(3.6 minutes)* Find the shortest and longest songs with `slice_min()` and `slice_max()`. *(4 seconds; 8.6 minutes)*
+
+-   Which genre is the most danceable? Make a boxplot with `playlist_genre` on the x axis and `danceability` on the y axis. Put the boxes in order with `reorder(playlist_genre, danceability)`: this orders them by the average danceability of each genre. Then calculate the median for each genre with `group_by()` and `summarise()`. *(rap: 0.734; rock: 0.522)*
+
+-   Are loud songs energetic? Make a scatterplot with `loudness` on the x axis and `energy` on the y axis. With 28,000 points it's just a blob, so set `alpha = 0.1`. Should `alpha` go inside or outside `aes()`? Describe the relationship in one sentence.
+
+-   Add `facet_wrap(~ playlist_genre)` to the scatterplot. Which genre's points sit furthest to the top right? Check your answer with the median `energy` of each genre. *(edm: 0.838)*
+
+## Part 4: are songs getting shorter?
+
+Music journalists often say that songs are getting shorter, because streaming services pay per play, and listeners skip. Does this dataset agree?
+
+-   Filter `songs` to the years 1970 to 2019 (2020 had only just started when the data was collected). Then use `group_by(year)` and `summarise()` to make two columns: `songs = n()` and `median_duration = median(duration_min)`. Save the result as `durations`.
+
+-   Draw `median_duration` as a line chart with points on top. Use `scale_x_continuous()` to put a break every five years. In which year were songs longest, and how long were they in 2019? *(1990: 4.6 minutes; 2019: 3.2)*
+
+-   Now add `scale_y_continuous(limits = c(0, 5))`. How does the drop look now? Which version of the chart would you use, and why?
+
+-   Remember Part 2: the old songs are mostly rock, and the new ones aren't. Maybe songs are only getting shorter because rock songs are long? Use `decades` to calculate the median duration (and the number of songs, with `n()`) for each `decade` and `playlist_genre`. Draw a line chart with `decade` on the x axis and `colour = playlist_genre`. Are songs from the 2010s shorter than songs from the 1990s in every genre? Which genre changed most? *(yes; rap went from 4.4 to 3.3 minutes)*
+
+-   One point on that chart is much higher than the rest. Look at its number of songs. Should we trust it? *(edm in the 1970s: 7.6 minutes, from 4 songs)*
+
+-   *Harder:* has the sound of music changed too? Starting from `songs` filtered to 1970–2019, use `group_by(year)` and `summarise()` to calculate the median `loudness`, `valence` and `danceability` for each year. Use `pivot_longer()` to put the three medians in one column, and draw a line chart with `facet_wrap()`, one panel per feature. Try `scales = "free_y"`: why do you need it here? In which year were songs loudest, and when were they least happy? *(loudest: 2013; lowest valence: 2014)* Look up the "loudness war".
+
+**Write** a short paragraph (four or five sentences) about popular music, based on your charts. Pick the chart you think tells the most interesting story, and say what it shows. Then think about the data. These songs come from playlists one person found on Spotify in late 2019, in six genres she chose. The audio features come from Spotify's own algorithms, which aren't public (and which Spotify stopped sharing with new apps in 2024). The year is when the *album* came out, not the song. How might each of these things affect what your chart shows?
+
+## Bonus
+
+-   Draw a histogram of `track_popularity` with `binwidth = 1`. What's strange about it? *(2,620 songs have a popularity of 0)* Look at a few of them. Why might a well-known song get a 0? (Hint: remember that each version of a song has its own `track_id`.) Which is the most popular song? *(Dance Monkey: 100)*
+
+-   Filter `songs` to EDM, and draw a histogram of `tempo` with `binwidth = 1`. One tempo is far more common than any other. Which is it? *(128 beats per minute: 1,526 songs)*
+
+-   The `mode` column is 1 for songs in a major key and 0 for a minor key. Use `mutate()` and `if_else()` to turn it into `"major"` and `"minor"`, then make a bar chart with `playlist_genre` on the x axis, `fill = mode`, and `position = 'fill'`. Which genre has the most songs in a major key? *(rock: 69%)*
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Summarise a dataset with `count()` and turn the result into a chart
+-   [ ] Choose a chart type for a question: amounts, change over time, a distribution, a relationship, or part-to-whole
+-   [ ] Make bar charts readable with `reorder()` and `coord_flip()`
+-   [ ] Use position scales to set breaks and limits, and think about where an axis should start
+-   [ ] Compare groups with `fill`, `colour`, `position = 'fill'` and `facet_wrap()`
+-   [ ] Check what a dataset counts (rows, songs, playlists) before you chart it
+-   [ ] Think critically about how a dataset was made, and what that means for your charts
