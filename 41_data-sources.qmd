@@ -1,7 +1,4 @@
----
----
-
-# Data and Inspiration {.unnumbered}
+# Data sources for assignments {.unnumbered}
 
 On this page you can find links to humanities datasets, suggestions for datasets that would work well for each of the assignments, and examples of projects to get you thinking.
 
