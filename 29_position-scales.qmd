@@ -71,6 +71,10 @@ nobel_by_year |>
 
 You can see that it has limited the years to 1980 at earliest and 2000 at the latest.
 
+You'll also see a warning: "Removed 100 rows containing missing values or values outside the scale range". This tells you something important about how limits work. They don't just hide the data outside the limits: they **remove** it, before anything is drawn. Here the data has one row per year from 1901 to 2024, and only the 21 rows from 1980 to 2000 are left.
+
+For a line chart like this one, that makes no difference to what you see. But it does matter for any geom that calculates something from the data before drawing it, such as a histogram (which counts the values in each bin) or a boxplot (which calculates the median and quartiles). If you set limits on one of these, the calculation only uses the values that are left, so the chart can change, and not just zoom in. Whenever you see this warning, check how many rows were removed, and ask yourself whether that matters.
+
 **Try it yourself:** set the limits of the y axis to 0 and 20
 
 ```{webr-r}
@@ -91,7 +95,7 @@ nobel_by_year |>
                      breaks = c(1980, 1990, 2000))
 ```
 
-**Try it yourself:** Set the breaks for the y axis to every 5 instead of every 10
+**Try it yourself:** Set the breaks for the y axis to every 2 instead of every 5
 
 ```{webr-r}
 

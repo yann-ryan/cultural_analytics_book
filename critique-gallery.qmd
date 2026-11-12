@@ -1,6 +1,6 @@
 # Critique gallery {.unnumbered}
 
-Learning to make good data visualisations goes hand in hand with learning to *read* them critically. In four sessions of the course, you'll spend part of the class critiquing a visualisation in a small group. Each group is given one of the four visualisations below, printed on a large A3 sheet, and keeps the same one all the way through. This is a laptop-free exercise: everything you need is on the sheet. Each time, you come back to it with a new set of questions, based on what we've covered that week.
+Learning to make good data visualisations goes hand in hand with learning to *read* them critically. In three sessions of the course, you'll spend part of the class critiquing a visualisation in a small group. Each group is given one of the four visualisations below, printed on a large A3 sheet, and keeps the same one all the way through. This is a laptop-free exercise: everything you need is on the sheet. Each time, you come back to it with a new set of questions, based on what we've covered that week.
 
 How it works:
 
@@ -65,7 +65,7 @@ Each death in the cholera outbreak of 1854, drawn at the house where it happened
 
 ## Round 1: data and aesthetics
 
-**Tue 10 Nov**, with [Data Visualisation Basics](22_data-visualisation-1.qmd) and [More chart types](24_chart-types.qmd).
+**Thu 12 Nov**, together with round 2. Uses [Data Visualisation Basics](22_data-visualisation-1.qmd) and [More chart types](24_chart-types.qmd).
 
 1.  What is one *observation* in this visualisation: a person, a month, a year, a country? What are the *variables*?
 2.  What type is each variable: categorical, ordinal, discrete, or continuous?

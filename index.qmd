@@ -171,7 +171,7 @@ A few sessions start from a short chapter with no code, which explains the ideas
 -   Tue 24 Nov: [Ethics and data visualisation](37a_ethics.qmd)
 -   Thu 26 Nov: [Maps as data visualisation](42_digital-mapping-1.qmd)
 
-In four of these sessions (Tue 10 Nov, Thu 12 Nov, Tue 24 Nov and Thu 26 Nov), part of the class is a group critique of one visualisation, which your group keeps all the way through. See the [Critique gallery](critique-gallery.qmd).
+In three of these sessions (Thu 12 Nov, Tue 24 Nov and Thu 26 Nov), part of the class is a group critique of one visualisation, which your group keeps all the way through. See the [Critique gallery](critique-gallery.qmd).
 
 | **Week** | **Session** | **Date** | **Topic** | **Assignment** |
 |----|----|----|----|----|

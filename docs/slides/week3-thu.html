@@ -609,7 +609,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(stringr)\nlibrary(tidyr)\nlibrary(ggplot2)\noptions(width = 80, pillar.print_min = 5, pillar.print_max = 5)\ntheme_set(theme_grey(base_size = 16))\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv(\"laureates_df.csv\", show_col_types = FALSE)\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv(\"prize_df.csv\", show_col_types = FALSE)\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id')\n\nnobel_summary <- nobel_df |>\n  count(category)\n\nnobel_by_year <- nobel_df |>\n  count(award_year)","options":{"output":"true","fig-width":"11","context":"setup","label":"unnamed-chunk-1","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"true","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":1},{"code":"nobel_df |>\n  filter(category %in% c('Physics', 'Chemistry', 'Peace', 'Literature')) |>\n  count(category, gender) |>\n  ggplot(aes(x = category, y = n, fill = gender)) +\n  geom_col(position = 'dodge')","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-2","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":2},{"code":"nobel_by_decade <- nobel_df |>\n  filter(award_year < 2020) |>\n  mutate(decade = floor(award_year / 10) * 10) |>\n  count(decade)\n\nggplot(nobel_by_decade, aes(x = decade, y = n)) +\n  geom_line() +\n  scale_y_continuous(limits = c(35, 120))","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-3","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":3},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000))","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-4","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":4},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000)) +\n  ___","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-5","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":5},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = seq(from = 1980, to = 2000, by = 2))","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-6","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":6},{"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = ___,\n                     labels = ___) +\n  scale_y_continuous(breaks = ___)","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-7","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":7},{"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col()","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-8","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":8},{"code":"nobel_summary |>\n  ggplot(aes(x = ___, y = n)) +\n  geom_col() +\n  ___","options":{"output":"true","fig-width":"11","context":"interactive","label":"unnamed-chunk-9","editor-word-wrap":"true","read-only":"false","message":"true","fig-height":"4.5","fig-cap":"","editor-font-scale":"0.8","dpi":72,"editor-max-height":"","results":"markup","autorun":"false","out-height":"","classes":"","warning":"true","editor-quick-suggestions":"false","comment":"","out-width":"700px"},"id":9}];
+  globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(stringr)\nlibrary(tidyr)\nlibrary(ggplot2)\noptions(width = 80, pillar.print_min = 5, pillar.print_max = 5)\ntheme_set(theme_grey(base_size = 16))\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv(\"laureates_df.csv\", show_col_types = FALSE)\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv(\"prize_df.csv\", show_col_types = FALSE)\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id')\n\nnobel_summary <- nobel_df |>\n  count(category)\n\nnobel_by_year <- nobel_df |>\n  count(award_year)","options":{"comment":"","fig-cap":"","read-only":"false","context":"setup","warning":"true","message":"true","autorun":"true","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-1","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":2,"code":"nobel_df |>\n  filter(category %in% c('Physics', 'Chemistry', 'Peace', 'Literature')) |>\n  count(category, gender) |>\n  ggplot(aes(x = category, y = n, fill = gender)) +\n  geom_col(position = 'dodge')","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-2","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":3,"code":"nobel_by_decade <- nobel_df |>\n  filter(award_year < 2020) |>\n  mutate(decade = floor(award_year / 10) * 10) |>\n  count(decade)\n\nggplot(nobel_by_decade, aes(x = decade, y = n)) +\n  geom_line() +\n  scale_y_continuous(limits = c(35, 120))","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-3","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":4,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000))","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-4","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":5,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000)) +\n  ___","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-5","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":6,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000))","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-6","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":7,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = seq(from = 1980, to = 2000, by = 2))","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-7","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":8,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000)) +\n  ___","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-8","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":9,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000),\n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3'))","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-9","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":10,"code":"nobel_by_year |>\n  ggplot(aes(x = award_year, y = n)) +\n  geom_line() +\n  scale_x_continuous(limits = c(1980, 2000),\n                     breaks = c(1980, 1990, 2000),\n                     minor_breaks = ___,\n                     labels = ___)","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-10","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":11,"code":"nobel_summary |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col()","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-11","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}},{"id":12,"code":"nobel_summary |>\n  ggplot(aes(x = ___, y = n)) +\n  geom_col() +\n  ___","options":{"comment":"","fig-cap":"","read-only":"false","context":"interactive","warning":"true","message":"true","autorun":"false","classes":"","out-width":"700px","output":"true","fig-width":"11","label":"unnamed-chunk-12","fig-height":"4.5","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","dpi":72,"editor-font-scale":"0.8","results":"markup","out-height":""}}];
 
   </script>
   <script type="module">
@@ -2109,13 +2109,13 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ol type="1">
 <li>Why do charts work? Pre-attentive attributes and Gestalt principles</li>
-<li>Critique, round 2: perception and design</li>
+<li>Critique: data, aesthetics and perception</li>
 <li>Scales: limits, breaks, labels, and ordering bars</li>
 <li>Data challenge 3, in two versions</li>
 <li>Report 1: pitch your dataset and question</li>
 </ol>
 <aside class="notes">
-<p>Open the deck a minute before class: the setup downloads the Nobel data and loads ggplot2, which is slow in the browser. Have the four A3 critique sheets ready, one per group, same groups as Tuesday. The answers to each Try it yourself are in these notes. Rough timing for a two-hour seminar: perception 20 min, critique 25, scales 30, data challenge 5, pitches 30, your turn with what’s left.</p>
+<p>Open the deck a minute before class: the setup downloads the Nobel data and loads ggplot2, which is slow in the browser. Have the four A3 critique sheets ready: the critique didn’t happen on Tuesday, so groups are formed today and rounds 1 and 2 are done together. The answers to each Try it yourself are in these notes. Rough timing for a two-hour seminar: perception 15 min, critique 35, scales 30, data challenge 5, pitches 25, your turn with what’s left.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2130,10 +2130,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="warm-up" class="slide level2">
 <h2>Warm-up</h2>
-<p>How many 7s are there?</p>
+<p>Find the dot that’s different</p>
 
 <img data-src="../images/27_gestalt/preattentive-1.png" class="r-stretch"><aside class="notes">
-<p>Give them about five seconds, then ask for answers. Expect a spread of guesses, and some still counting. Then next slide.</p>
+<p>Give them a few seconds, and ask them to put a hand up when they’ve found it. Most will need to scan: one dot in the top row is slightly bigger. Then next slide.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2150,10 +2150,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <h2>Again</h2>
 
 <img data-src="../images/27_gestalt/preattentive-2.png" class="r-stretch"><div class="predict">
-<p>Nine. Nothing about the data changed: only its colour</p>
+<p>Instant. A strong difference in colour “pops out” before you start looking</p>
 </div>
 <aside class="notes">
-<p>Second time, everyone gets it at once. This is a pre-attentive attribute: colour (and size, orientation, position, motion) is processed automatically, in a fraction of a second, before we pay conscious attention. Reading the digits one by one is attentive, slow, and error-prone. Lesson for charts: if you want the reader to notice one thing, make it differ in a pre-attentive attribute, not in a label they have to read. And if everything is brightly coloured, nothing pops out.</p>
+<p>Second time, every hand goes up at once. These are pre-attentive attributes: colour, size, shape, orientation and position are processed automatically, in a fraction of a second, before we pay attention. But how strong the difference is matters: a small difference in size had to be searched for; a strong difference in colour didn’t. Lesson for charts: if you want the reader to notice one thing, make it clearly different in colour or size, rather than relying on a label they have to read. And if everything is brightly coloured, nothing pops out.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2245,24 +2245,63 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
       }</style></aside>
 </section></section>
 <section>
-<section id="critique-round-2" class="title-slide slide level1 section-break center">
-<h1>Critique, round 2</h1>
-<p>Perception and design</p>
+<section id="critique" class="title-slide slide level1 section-break center">
+<h1>Critique</h1>
+<p>Data, aesthetics and perception</p>
 </section>
-<section id="critique-perception-and-design" class="slide level2">
-<h2>Critique: perception and design</h2>
-<p>Same groups, same sheet as Tuesday. Laptops closed. <strong>15 minutes</strong>, then two minutes per group</p>
+<section id="the-critique-gallery" class="slide level2">
+<h2>The critique gallery</h2>
+<p>Four historical visualisations, printed on A3. Form <strong>four groups</strong>: each group gets one sheet, and keeps it for the rest of the course</p>
 <div style="font-size: 0.85em;">
 <ol type="1">
-<li>Where does your eye go first? Is that the most important thing?</li>
-<li>Is it obvious what you’re meant to look at, and in what order? How long did it take you to work out how to read it?</li>
-<li>Which Gestalt principles does it use (proximity, similarity, enclosure, closure, continuity, connection)? Do they help, or get in the way?</li>
-<li>Does the design group together things that shouldn’t be grouped, or split up things that belong together?</li>
-<li>What would you remove, and what would you add, to make it easier to read?</li>
+<li>Florence Nightingale, <em>Diagram of the causes of mortality in the army in the East</em>, 1858</li>
+<li>Charles Joseph Minard, <em>Napoleon’s Russian campaign of 1812</em>, 1869</li>
+<li>W.E.B. Du Bois and students at Atlanta University, <em>Assessed value of household and kitchen furniture owned by Georgia Negroes</em>, 1900</li>
+<li>John Snow, <em>Deaths from cholera in Soho, London, 1854</em>, published 1855</li>
 </ol>
 </div>
+<div class="small">
+<p>Laptops closed. Spend a few minutes just looking, close up: read the small print and the source line. We’ll come back to the same sheet on 24 and 26 Nov</p>
+</div>
 <aside class="notes">
-<p>The Round 2 questions from the critique gallery page. Groups 1-4: Nightingale, Minard, Du Bois, Snow. Things to listen for. Nightingale: the eye goes to the big blue wedges (preventable disease), which is exactly her argument; wedges are read by area, and the radius is scaled so the area is right, but area is hard to compare; the two spirals are connected by a dashed line (connection, and closure). Minard: the eye follows the band (continuity) from left to right and back, the width shrinking; the temperature chart below is linked to the return journey by thin vertical lines (connection); a lot to take in at once. Du Bois: the spiral grabs attention, but makes the later, bigger values hard to compare with the early ones; colour separates the years (similarity). Snow: the black bars cluster around the Broad Street pump (proximity), which is the whole argument; the street plan is quiet, so the bars pop out (pre-attentive). Keep the summaries to two minutes each; pick one person per group.</p>
+<p>The critique was planned for Tuesday but didn’t happen, so today does rounds 1 and 2 of the critique gallery page together. Number the groups 1-4 and hand out the sheets. Ask them to look in silence for two or three minutes before talking.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="critique-what-is-it-and-how-is-it-read" class="slide level2">
+<h2>Critique: what is it, and how is it read?</h2>
+<p><strong>25 minutes</strong>, then two minutes per group. Not every question fits every sheet: if one doesn’t, say why</p>
+<div class="columns" style="font-size: 0.72em;">
+<div class="column" style="width:50%;">
+<p><strong>The data and the chart</strong> (Tuesday)</p>
+<ol type="1">
+<li>What is one <em>observation</em>: a person, a month, a place? What are the <em>variables</em>, and what type is each: categorical, ordinal, discrete, continuous?</li>
+<li>Which <em>aesthetic</em> is each variable mapped to (position, length, area, colour, …)?</li>
+<li>What kind of chart is it, and what is it trying to show: amounts, change over time, part-to-whole, a relationship, something spatial?</li>
+<li>Could you read off an actual value if you wanted to?</li>
+<li>What is the main message, in one sentence?</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><strong>Perception and design</strong> (today)</p>
+<ol start="6" type="1">
+<li>Where does your eye go first? Is that the most important thing?</li>
+<li>Is it obvious what to look at, and in what order? How long did it take you to work out how to read it?</li>
+<li>Which Gestalt principles does it use? Do they help, or get in the way?</li>
+<li>Does it group together things that shouldn’t be grouped, or split up things that belong together?</li>
+<li>What would you remove, and what would you add, to make it easier to read?</li>
+</ol>
+</div></div>
+<aside class="notes">
+<p>Rounds 1 and 2 of the critique gallery page. If time is short, ask groups to do 1, 2, 5, 6 and 8 first. Things to listen for. Nightingale: one wedge per month, variables month, cause of death and number of deaths; deaths are mapped to the area of each wedge (the radius is scaled so that the area is right), but area is hard to compare; the eye goes to the big blue wedges (preventable disease), which is exactly her argument; the two spirals are joined by a dashed line (connection, closure). Minard: six variables on one sheet (the army’s size as the width of the band, its position, direction by colour, temperature, dates, and the places); the eye follows the band from left to right and back (continuity); the temperature chart below is tied to the return journey by thin vertical lines (connection); a lot to take in at once. Du Bois: one observation per year, value mapped to the length of each spiral band, which makes the later, bigger values hard to compare with the early ones; colour separates the years (similarity); striking, but you can’t read off values without the labels. Snow: one mark per death, at the house where it happened, so position carries the argument; the bars cluster around the Broad Street pump (proximity), and the quiet street plan lets them pop out (pre-attentive). Pick one person per group to sum up.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2371,10 +2410,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="small">
-<p><code>breaks</code> decides where the ticks and labels go · <code>seq(from, to, by)</code> makes a sequence, so you don’t have to type every value</p>
+<p><code>breaks</code> decides where the ticks, labels and grid lines go</p>
 </div>
 <aside class="notes">
-<p>Show seq(from = 1980, to = 2000, by = 2) on its own first, in the console of the cell, so they see it’s just a vector of numbers. Breaks also set where the grid lines go; the fainter lines in between are minor_breaks, which can be set the same way.</p>
+<p>The chapter’s first breaks example. The fainter grid lines in between are the minor breaks: a few slides on.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2387,13 +2426,76 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           display:block!important;
       }</style></aside>
 </section>
-<section id="breaks-and-labels" class="slide level2 try-it">
-<h2>Breaks and labels</h2>
-<p>Put a break every 5 laureates on the y axis. Then give the x axis three breaks, labelled <code>'1980'</code>, <code>'Ten years later'</code> and <code>'2000'</code></p>
+<section id="seq" class="slide level2">
+<h2><code>seq()</code></h2>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="small">
+<p><code>seq(from, to, by)</code> makes a sequence of numbers, so you don’t have to type every break</p>
+</div>
 <aside class="notes">
-<p>scale_x_continuous(limits = c(1980, 2000), breaks = c(1980, 1990, 2000), labels = c(‘1980’, ‘Ten years later’, ‘2000’)) + scale_y_continuous(breaks = seq(from = 0, to = 20, by = 5)). The labels need one per break, in the same order; if the numbers don’t match, ggplot gives an error (“breaks and labels have different lengths”). Breaks only show inside the range of the axis (6 to 13 laureates here), so most of the y breaks won’t appear unless they also set limits = c(0, 20). Good point to discuss.</p>
+<p>The tip box in the chapter. Run seq(from = 1980, to = 2000, by = 2) on its own first, so they see it’s just a vector of numbers: 1980, 1982, … 2000.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="breaks-1" class="slide level2 try-it">
+<h2>Breaks</h2>
+<p>Set the breaks for the y axis to every 2, instead of every 5</p>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
+<ul>
+<li>scale_y_continuous(breaks = seq(from = 0, to = 20, by = 2)). The second Try it yourself in the Position scales chapter. ggplot’s default y breaks here are 5 and 10. Breaks outside the range of the axis are simply not drawn, so they’ll see 2 to 14, not 0 to 20.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="minor-breaks-and-labels" class="slide level2">
+<h2>Minor breaks and labels</h2>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="small">
+<p><code>minor_breaks</code>: the fainter grid lines in between · <code>labels</code>: the text at each break, one per break, in the same order · <code>1980:2000</code> is every whole number from 1980 to 2000</p>
+</div>
+<aside class="notes">
+<p>The chapter’s last two examples, combined (the chapter adds labels to the minor breaks example). If the number of labels doesn’t match the number of breaks, ggplot gives an error (“breaks and labels have different lengths”).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="minor-breaks-and-labels-1" class="slide level2 try-it">
+<h2>Minor breaks and labels</h2>
+<p>Copy the chart above, but change the minor breaks to every 5 years, and the labels for the major breaks to <code>'First Year'</code>, <code>'Second Year'</code>, and so on</p>
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<aside class="notes">
+<p>minor_breaks = seq(from = 1980, to = 2000, by = 5), labels = c(‘First Year’, ‘Second Year’, ‘Third Year’). The third Try it yourself in the chapter. With minor breaks every 5 years, the minor lines fall at 1985 and 1995 (the others coincide with the major breaks).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2408,7 +2510,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="bars-in-order" class="slide level2">
 <h2>Bars in order</h2>
-<div id="qwebr-insertion-location-8"></div>
+<div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="small">
 <p>A text column on x gets a <strong>discrete</strong> scale: alphabetical by default, which is almost never the order you want</p>
@@ -2430,7 +2532,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="bars-in-order-1" class="slide level2 try-it">
 <h2>Bars in order</h2>
 <p>Use <code>reorder()</code> to put the bars in order, then <code>coord_flip()</code> so the labels can be read. Make the biggest bar come out at the top</p>
-<div id="qwebr-insertion-location-9"></div>
+<div id="qwebr-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
 <p>aes(x = reorder(category, n), y = n) and + coord_flip(). reorder(category, n) sorts the categories by n, smallest first; after flipping, smallest is at the bottom, so the biggest is on top. reorder(category, desc(n)) is biggest first, which is what you want without the flip. reorder() goes in aes(), not in a scale: it changes the data, not the scale. In data challenge 3 they’ll use this with authors or artists.</p>

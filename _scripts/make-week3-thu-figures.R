@@ -31,28 +31,27 @@ base <- theme_bw(base_size = 15, base_family = fam) +
         panel.grid.minor = element_blank())
 
 # ---------------------------------------------------------------------------
-# 1. Pre-attentive attributes: find the 7s
+# 1. Pre-attentive attributes: find the odd one out
+#    preattentive-1: one dot slightly bigger (slow to find)
+#    preattentive-2: one dot a different colour (instant)
 # ---------------------------------------------------------------------------
 
-set.seed(12)
-digits <- expand_grid(col = 1:22, row = 1:9) |>
-  mutate(d = sample(c(0:6, 8:9), n(), replace = TRUE))
-sevens <- sample(nrow(digits), 9)
-digits$d[sevens] <- 7
-digits <- digits |> mutate(is7 = d == 7)
-
-digit_plot <- function(highlight) {
-  ggplot(digits, aes(col, -row, label = d)) +
-    geom_text(aes(colour = if (highlight) is7 else FALSE),
-              size = 9, family = fam, fontface = "bold") +
-    scale_colour_manual(values = c(`FALSE` = "#555555", `TRUE` = oi[["red"]]),
-                        guide = "none") +
-    coord_cartesian(expand = TRUE) +
-    theme_void()
+dots <- expand_grid(col = 1:12, row = 1:5)
+dot_plot <- function(odd, kind) {
+  d <- dots |> mutate(odd = row_number() == odd)
+  p <- ggplot(d, aes(col, -row)) + theme_void() +
+    coord_fixed(xlim = c(0.5, 12.5), ylim = c(-5.5, -0.5))
+  if (kind == "size") {
+    p + geom_point(aes(size = odd), colour = "#555555") +
+      scale_size_manual(values = c(`FALSE` = 13, `TRUE` = 15.5), guide = "none")
+  } else {
+    p + geom_point(aes(colour = odd), size = 13) +
+      scale_colour_manual(values = c(`FALSE` = "#555555", `TRUE` = oi[["red"]]),
+                          guide = "none")
+  }
 }
-save_png(digit_plot(FALSE), "preattentive-1.png", 1800, 760)
-save_png(digit_plot(TRUE),  "preattentive-2.png", 1800, 760)
-cat("sevens:", sum(digits$is7), "\n")
+save_png(dot_plot(odd = 41, "size"),   "preattentive-1.png", 1800, 760)
+save_png(dot_plot(odd = 20, "colour"), "preattentive-2.png", 1800, 760)
 
 # ---------------------------------------------------------------------------
 # 2. Grouping: proximity, similarity, enclosure (penguins)

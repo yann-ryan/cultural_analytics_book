@@ -42,23 +42,23 @@ nobel_by_year <- nobel_df |>
 ```
 
 1.  Why do charts work? Pre-attentive attributes and Gestalt principles
-2.  Critique, round 2: perception and design
+2.  Critique: data, aesthetics and perception
 3.  Scales: limits, breaks, labels, and ordering bars
 4.  Data challenge 3, in two versions
 5.  Report 1: pitch your dataset and question
 
 ::: notes
-Open the deck a minute before class: the setup downloads the Nobel data and loads ggplot2, which is slow in the browser. Have the four A3 critique sheets ready, one per group, same groups as Tuesday. The answers to each Try it yourself are in these notes. Rough timing for a two-hour seminar: perception 20 min, critique 25, scales 30, data challenge 5, pitches 30, your turn with what's left.
+Open the deck a minute before class: the setup downloads the Nobel data and loads ggplot2, which is slow in the browser. Have the four A3 critique sheets ready: the critique didn't happen on Tuesday, so groups are formed today and rounds 1 and 2 are done together. The answers to each Try it yourself are in these notes. Rough timing for a two-hour seminar: perception 15 min, critique 35, scales 30, data challenge 5, pitches 25, your turn with what's left.
 :::
 
 ## Warm-up
 
-How many 7s are there?
+Find the dot that's different
 
 ![](../images/27_gestalt/preattentive-1.png)
 
 ::: notes
-Give them about five seconds, then ask for answers. Expect a spread of guesses, and some still counting. Then next slide.
+Give them a few seconds, and ask them to put a hand up when they've found it. Most will need to scan: one dot in the top row is slightly bigger. Then next slide.
 :::
 
 ## Again
@@ -66,11 +66,11 @@ Give them about five seconds, then ask for answers. Expect a spread of guesses, 
 ![](../images/27_gestalt/preattentive-2.png)
 
 ::: predict
-Nine. Nothing about the data changed: only its colour
+Instant. A strong difference in colour "pops out" before you start looking
 :::
 
 ::: notes
-Second time, everyone gets it at once. This is a pre-attentive attribute: colour (and size, orientation, position, motion) is processed automatically, in a fraction of a second, before we pay conscious attention. Reading the digits one by one is attentive, slow, and error-prone. Lesson for charts: if you want the reader to notice one thing, make it differ in a pre-attentive attribute, not in a label they have to read. And if everything is brightly coloured, nothing pops out.
+Second time, every hand goes up at once. These are pre-attentive attributes: colour, size, shape, orientation and position are processed automatically, in a fraction of a second, before we pay attention. But how strong the difference is matters: a small difference in size had to be searched for; a strong difference in colour didn't. Lesson for charts: if you want the reader to notice one thing, make it clearly different in colour or size, rather than relying on a label they have to read. And if everything is brightly coloured, nothing pops out.
 :::
 
 # Why do charts work? {.section-break}
@@ -121,24 +121,57 @@ nobel_df |>
 position = 'dodge' (from Tuesday) puts bars side by side. With category on x, the bars that sit next to each other are women and men in the same prize: easy to compare within a prize. Swapped, all the women's bars are together and all the men's: easy to compare prizes for one gender, harder to see the gap. Same data, same geom: the grouping by proximity decides what the reader compares. The rule: put the things you most want compared next to each other. Physics: 5 women, 222 men; Peace: 19 and 92; Literature: 18 and 103; Chemistry: 8 and 189.
 :::
 
-# Critique, round 2 {.section-break}
+# Critique {.section-break}
 
-Perception and design
+Data, aesthetics and perception
 
-## Critique: perception and design
+## The critique gallery
 
-Same groups, same sheet as Tuesday. Laptops closed. **15 minutes**, then two minutes per group
+Four historical visualisations, printed on A3. Form **four groups**: each group gets one sheet, and keeps it for the rest of the course
 
 ::: {style="font-size: 0.85em;"}
-1.  Where does your eye go first? Is that the most important thing?
-2.  Is it obvious what you're meant to look at, and in what order? How long did it take you to work out how to read it?
-3.  Which Gestalt principles does it use (proximity, similarity, enclosure, closure, continuity, connection)? Do they help, or get in the way?
-4.  Does the design group together things that shouldn't be grouped, or split up things that belong together?
-5.  What would you remove, and what would you add, to make it easier to read?
+1.  Florence Nightingale, *Diagram of the causes of mortality in the army in the East*, 1858
+2.  Charles Joseph Minard, *Napoleon's Russian campaign of 1812*, 1869
+3.  W.E.B. Du Bois and students at Atlanta University, *Assessed value of household and kitchen furniture owned by Georgia Negroes*, 1900
+4.  John Snow, *Deaths from cholera in Soho, London, 1854*, published 1855
+:::
+
+::: small
+Laptops closed. Spend a few minutes just looking, close up: read the small print and the source line. We'll come back to the same sheet on 24 and 26 Nov
 :::
 
 ::: notes
-The Round 2 questions from the critique gallery page. Groups 1-4: Nightingale, Minard, Du Bois, Snow. Things to listen for. Nightingale: the eye goes to the big blue wedges (preventable disease), which is exactly her argument; wedges are read by area, and the radius is scaled so the area is right, but area is hard to compare; the two spirals are connected by a dashed line (connection, and closure). Minard: the eye follows the band (continuity) from left to right and back, the width shrinking; the temperature chart below is linked to the return journey by thin vertical lines (connection); a lot to take in at once. Du Bois: the spiral grabs attention, but makes the later, bigger values hard to compare with the early ones; colour separates the years (similarity). Snow: the black bars cluster around the Broad Street pump (proximity), which is the whole argument; the street plan is quiet, so the bars pop out (pre-attentive). Keep the summaries to two minutes each; pick one person per group.
+The critique was planned for Tuesday but didn't happen, so today does rounds 1 and 2 of the critique gallery page together. Number the groups 1-4 and hand out the sheets. Ask them to look in silence for two or three minutes before talking.
+:::
+
+## Critique: what is it, and how is it read?
+
+**25 minutes**, then two minutes per group. Not every question fits every sheet: if one doesn't, say why
+
+::: {.columns style="font-size: 0.72em;"}
+::: {.column width="50%"}
+**The data and the chart** (Tuesday)
+
+1.  What is one *observation*: a person, a month, a place? What are the *variables*, and what type is each: categorical, ordinal, discrete, continuous?
+2.  Which *aesthetic* is each variable mapped to (position, length, area, colour, ...)?
+3.  What kind of chart is it, and what is it trying to show: amounts, change over time, part-to-whole, a relationship, something spatial?
+4.  Could you read off an actual value if you wanted to?
+5.  What is the main message, in one sentence?
+:::
+
+::: {.column width="50%"}
+**Perception and design** (today)
+
+6.  Where does your eye go first? Is that the most important thing?
+7.  Is it obvious what to look at, and in what order? How long did it take you to work out how to read it?
+8.  Which Gestalt principles does it use? Do they help, or get in the way?
+9.  Does it group together things that shouldn't be grouped, or split up things that belong together?
+10. What would you remove, and what would you add, to make it easier to read?
+:::
+:::
+
+::: notes
+Rounds 1 and 2 of the critique gallery page. If time is short, ask groups to do 1, 2, 5, 6 and 8 first. Things to listen for. Nightingale: one wedge per month, variables month, cause of death and number of deaths; deaths are mapped to the area of each wedge (the radius is scaled so that the area is right), but area is hard to compare; the eye goes to the big blue wedges (preventable disease), which is exactly her argument; the two spirals are joined by a dashed line (connection, closure). Minard: six variables on one sheet (the army's size as the width of the band, its position, direction by colour, temperature, dates, and the places); the eye follows the band from left to right and back (continuity); the temperature chart below is tied to the return journey by thin vertical lines (connection); a lot to take in at once. Du Bois: one observation per year, value mapped to the length of each spiral band, which makes the later, bigger values hard to compare with the early ones; colour separates the years (similarity); striking, but you can't read off values without the labels. Snow: one mark per death, at the house where it happened, so position carries the argument; the bars cluster around the Broad Street pump (proximity), and the quiet street plan lets them pop out (pre-attentive). Pick one person per group to sum up.
 :::
 
 # Scales {.section-break}
@@ -224,33 +257,88 @@ nobel_by_year |>
   ggplot(aes(x = award_year, y = n)) +
   geom_line() +
   scale_x_continuous(limits = c(1980, 2000),
-                     breaks = seq(from = 1980, to = 2000, by = 2))
+                     breaks = c(1980, 1990, 2000))
 ```
 
 ::: small
-`breaks` decides where the ticks and labels go · `seq(from, to, by)` makes a sequence, so you don't have to type every value
+`breaks` decides where the ticks, labels and grid lines go
 :::
 
 ::: notes
-Show seq(from = 1980, to = 2000, by = 2) on its own first, in the console of the cell, so they see it's just a vector of numbers. Breaks also set where the grid lines go; the fainter lines in between are minor_breaks, which can be set the same way.
+The chapter's first breaks example. The fainter grid lines in between are the minor breaks: a few slides on.
 :::
 
-## Breaks and labels {.try-it}
-
-Put a break every 5 laureates on the y axis. Then give the x axis three breaks, labelled `'1980'`, `'Ten years later'` and `'2000'`
+## `seq()`
 
 ```{webr-r}
 nobel_by_year |>
   ggplot(aes(x = award_year, y = n)) +
   geom_line() +
   scale_x_continuous(limits = c(1980, 2000),
-                     breaks = ___,
-                     labels = ___) +
-  scale_y_continuous(breaks = ___)
+                     breaks = seq(from = 1980, to = 2000, by = 2))
+```
+
+::: small
+`seq(from, to, by)` makes a sequence of numbers, so you don't have to type every break
+:::
+
+::: notes
+The tip box in the chapter. Run seq(from = 1980, to = 2000, by = 2) on its own first, so they see it's just a vector of numbers: 1980, 1982, ... 2000.
+:::
+
+## Breaks {.try-it}
+
+Set the breaks for the y axis to every 2, instead of every 5
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000),
+                     breaks = c(1980, 1990, 2000)) +
+  ___
 ```
 
 ::: notes
-scale_x_continuous(limits = c(1980, 2000), breaks = c(1980, 1990, 2000), labels = c('1980', 'Ten years later', '2000')) + scale_y_continuous(breaks = seq(from = 0, to = 20, by = 5)). The labels need one per break, in the same order; if the numbers don't match, ggplot gives an error ("breaks and labels have different lengths"). Breaks only show inside the range of the axis (6 to 13 laureates here), so most of the y breaks won't appear unless they also set limits = c(0, 20). Good point to discuss.
++ scale_y_continuous(breaks = seq(from = 0, to = 20, by = 2)). The second Try it yourself in the Position scales chapter. ggplot's default y breaks here are 5 and 10. Breaks outside the range of the axis are simply not drawn, so they'll see 2 to 14, not 0 to 20.
+:::
+
+## Minor breaks and labels
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000),
+                     breaks = c(1980, 1990, 2000),
+                     minor_breaks = 1980:2000,
+                     labels = c('Year 1', 'Year 2', 'Year 3'))
+```
+
+::: small
+`minor_breaks`: the fainter grid lines in between · `labels`: the text at each break, one per break, in the same order · `1980:2000` is every whole number from 1980 to 2000
+:::
+
+::: notes
+The chapter's last two examples, combined (the chapter adds labels to the minor breaks example). If the number of labels doesn't match the number of breaks, ggplot gives an error ("breaks and labels have different lengths").
+:::
+
+## Minor breaks and labels {.try-it}
+
+Copy the chart above, but change the minor breaks to every 5 years, and the labels for the major breaks to `'First Year'`, `'Second Year'`, and so on
+
+```{webr-r}
+nobel_by_year |>
+  ggplot(aes(x = award_year, y = n)) +
+  geom_line() +
+  scale_x_continuous(limits = c(1980, 2000),
+                     breaks = c(1980, 1990, 2000),
+                     minor_breaks = ___,
+                     labels = ___)
+```
+
+::: notes
+minor_breaks = seq(from = 1980, to = 2000, by = 5), labels = c('First Year', 'Second Year', 'Third Year'). The third Try it yourself in the chapter. With minor breaks every 5 years, the minor lines fall at 1985 and 1995 (the others coincide with the major breaks).
 :::
 
 ## Bars in order
