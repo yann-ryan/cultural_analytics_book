@@ -131,6 +131,14 @@ nobel_summary |>
 
 ```
 
+The midpoint should be a value that means something. 66 of the 981 laureates are women: 6.7%.
+
+**Try it yourself:** set the midpoint to 6.7. Which prizes have a smaller share of women than the Nobel Prizes overall?
+
+```{webr-r}
+
+```
+
 ### Discrete scales
 
 Discrete scales can also use 'built in' scales. The version of scale_fill_viridis for discrete scales is called `scale_fill_viridis_d`:
@@ -162,6 +170,12 @@ nobel_summary |>
   ggplot(aes(x = category, y = n, fill = category)) +
   geom_col() +
   scale_fill_manual(values = c('firebrick', 'forestgreen', 'orange', 'steelblue', 'goldenrod', 'orchid'))
+```
+
+**Try it yourself:** using `scale_fill_manual()`, make Peace and Literature one colour, and the four science prizes (including Economic Sciences) another. The colours are used in the order of the legend.
+
+```{webr-r}
+
 ```
 
 ## Size scales
@@ -196,6 +210,12 @@ nobel_summary |>
   ggplot(aes(x = category, y = n, fill = pct_female)) +
   geom_col() +
   scale_fill_continuous(limits = c(0,20))
+```
+
+**Try it yourself:** change the limits to 0 and 10. What happens to the Literature and Peace bars, and why?
+
+```{webr-r}
+
 ```
 
 Set the breaks using the below:

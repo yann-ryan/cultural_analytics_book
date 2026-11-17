@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","fig-cap":"","message":"true","read-only":"false","out-width":"700px","output":"true","editor-max-height":"","warning":"true","context":"setup","results":"markup","classes":"","comment":"","dpi":72,"editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"autorun":"true","fig-width":7},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())","id":1},{"options":{"label":"unnamed-chunk-2","fig-cap":"","message":"true","read-only":"false","out-width":"700px","output":"true","editor-max-height":"","warning":"true","context":"interactive","results":"markup","classes":"","comment":"","dpi":72,"editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"autorun":"false","fig-width":7},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))","id":2},{"options":{"label":"unnamed-chunk-3","fig-cap":"","message":"true","read-only":"false","out-width":"700px","output":"true","editor-max-height":"","warning":"true","context":"interactive","results":"markup","classes":"","comment":"","dpi":72,"editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"autorun":"false","fig-width":7},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")","id":3},{"options":{"label":"unnamed-chunk-4","fig-cap":"","message":"true","read-only":"false","out-width":"700px","output":"true","editor-max-height":"","warning":"true","context":"interactive","results":"markup","classes":"","comment":"","dpi":72,"editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"autorun":"false","fig-width":7},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')","id":4},{"options":{"label":"unnamed-chunk-5","fig-cap":"","message":"true","read-only":"false","out-width":"700px","output":"true","editor-max-height":"","warning":"true","context":"interactive","results":"markup","classes":"","comment":"","dpi":72,"editor-font-scale":"1","out-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-height":5,"autorun":"false","fig-width":7},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")","id":5}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-height":5,"output":"true","autorun":"true","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-1","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"setup","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())"},{"id":2,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-2","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))"},{"id":3,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-3","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")"},{"id":4,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-4","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')"},{"id":5,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-5","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":""},{"id":6,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-6","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")"},{"id":7,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-7","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":""}];
 
 </script>
 <script type="module">
@@ -1947,6 +1947,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_titles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1958,6 +1988,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2370,10 +2430,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Similarly, we can set the minor breaks to any date unit, using the argument <code>date_minor_breaks</code>.</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Try it yourself:</strong> put a major break every 6 months, and a minor break every month</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <section id="labels" class="level4">
 <h4 class="anchored" data-anchor-id="labels">Labels</h4>
 <p>Finally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument <code>date_labels</code>. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:</p>
-<div id="qwebr-insertion-location-5"></div>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Try it yourself:</strong> label the axis every 6 months, in the form ‘January 1846’</p>
+<div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>The full list of labels is available <a href="https://ggplot2-book.org/scales-position#sec-date-labels">here</a>.</p>
 </section>

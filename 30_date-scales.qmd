@@ -58,6 +58,12 @@ df |> ggplot() +
                date_minor_breaks = '1 week')
 ```
 
+**Try it yourself:** put a major break every 6 months, and a minor break every month
+
+```{webr-r}
+
+```
+
 #### Labels
 
 Finally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument `date_labels`. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:
@@ -67,6 +73,12 @@ df |> ggplot() +
   geom_line(aes(x = date_in, y = n)) +
   scale_x_date(date_breaks = "2 months",
                date_labels = "%b %y")
+```
+
+**Try it yourself:** label the axis every 6 months, in the form 'January 1846'
+
+```{webr-r}
+
 ```
 
 The full list of labels is available [here](https://ggplot2-book.org/scales-position#sec-date-labels).

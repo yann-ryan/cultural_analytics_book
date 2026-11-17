@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1,"options":{"editor-word-wrap":"true","classes":"","context":"setup","fig-height":5,"editor-max-height":"","out-height":"","warning":"true","output":"true","comment":"","editor-font-scale":"1","dpi":72,"results":"markup","out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","message":"true","fig-width":7,"autorun":"true","read-only":"false"}},{"code":"gapminder_population","id":2,"options":{"editor-word-wrap":"true","classes":"","context":"interactive","fig-height":5,"editor-max-height":"","out-height":"","warning":"true","output":"true","comment":"","editor-font-scale":"1","dpi":72,"results":"markup","out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","label":"unnamed-chunk-2","message":"true","fig-width":7,"autorun":"false","read-only":"false"}},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3,"options":{"editor-word-wrap":"true","classes":"","context":"interactive","fig-height":5,"editor-max-height":"","out-height":"","warning":"true","output":"true","comment":"","editor-font-scale":"1","dpi":72,"results":"markup","out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","message":"true","fig-width":7,"autorun":"false","read-only":"false"}},{"code":"","id":4,"options":{"editor-word-wrap":"true","classes":"","context":"interactive","fig-height":5,"editor-max-height":"","out-height":"","warning":"true","output":"true","comment":"","editor-font-scale":"1","dpi":72,"results":"markup","out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","label":"unnamed-chunk-4","message":"true","fig-width":7,"autorun":"false","read-only":"false"}},{"code":"","id":5,"options":{"editor-word-wrap":"true","classes":"","context":"interactive","fig-height":5,"editor-max-height":"","out-height":"","warning":"true","output":"true","comment":"","editor-font-scale":"1","dpi":72,"results":"markup","out-width":"700px","fig-cap":"","editor-quick-suggestions":"false","label":"unnamed-chunk-5","message":"true","fig-width":7,"autorun":"false","read-only":"false"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"read-only":"false","classes":"","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-max-height":"","autorun":"true","editor-font-scale":"1","message":"true","warning":"true","comment":"","out-height":"","label":"unnamed-chunk-1","fig-width":7,"dpi":72,"context":"setup","fig-height":5,"editor-word-wrap":"true","editor-quick-suggestions":"false"},"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"id":2,"options":{"read-only":"false","classes":"","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-max-height":"","autorun":"false","editor-font-scale":"1","message":"true","warning":"true","comment":"","out-height":"","label":"unnamed-chunk-2","fig-width":7,"dpi":72,"context":"interactive","fig-height":5,"editor-word-wrap":"true","editor-quick-suggestions":"false"},"code":"gapminder_population"},{"id":3,"options":{"read-only":"false","classes":"","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-max-height":"","autorun":"false","editor-font-scale":"1","message":"true","warning":"true","comment":"","out-height":"","label":"unnamed-chunk-3","fig-width":7,"dpi":72,"context":"interactive","fig-height":5,"editor-word-wrap":"true","editor-quick-suggestions":"false"},"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"},{"id":4,"options":{"read-only":"false","classes":"","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-max-height":"","autorun":"false","editor-font-scale":"1","message":"true","warning":"true","comment":"","out-height":"","label":"unnamed-chunk-4","fig-width":7,"dpi":72,"context":"interactive","fig-height":5,"editor-word-wrap":"true","editor-quick-suggestions":"false"},"code":""},{"id":5,"options":{"read-only":"false","classes":"","fig-cap":"","out-width":"700px","results":"markup","output":"true","editor-max-height":"","autorun":"false","editor-font-scale":"1","message":"true","warning":"true","comment":"","out-height":"","label":"unnamed-chunk-5","fig-width":7,"dpi":72,"context":"interactive","fig-height":5,"editor-word-wrap":"true","editor-quick-suggestions":"false"},"code":""}];
 
 </script>
 <script type="module">
@@ -1947,6 +1947,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_titles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1958,6 +1988,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">

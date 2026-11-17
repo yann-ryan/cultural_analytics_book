@@ -393,7 +393,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"label":"unnamed-chunk-1","message":"true","context":"setup","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"true","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":2,"code":"titanic_df |>\n  filter(sex == 'female') ","options":{"label":"unnamed-chunk-2","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":3,"code":"","options":{"label":"unnamed-chunk-3","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":4,"code":"titanic_df |>\n  filter(age == 50)","options":{"label":"unnamed-chunk-4","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":5,"code":"","options":{"label":"unnamed-chunk-5","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":6,"code":"titanic_df |> \n  filter(age > 50 & sex == 'female') ","options":{"label":"unnamed-chunk-6","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":7,"code":"","options":{"label":"unnamed-chunk-7","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":8,"code":"titanic_df |> \n  filter(fare > 50 | pclass == 1) ","options":{"label":"unnamed-chunk-8","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":9,"code":"titanic_df |>\n  filter(age %in% c(20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30))","options":{"label":"unnamed-chunk-9","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":10,"code":"titanic_df |>\n  filter(age %in% 20:30)","options":{"label":"unnamed-chunk-10","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":11,"code":"titanic_df |> \n  filter(embarked %in% c('C', 'Q'))","options":{"label":"unnamed-chunk-11","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":12,"code":"titanic_df |>\n  filter(!embarked %in% c('C', 'Q'))","options":{"label":"unnamed-chunk-12","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}},{"id":13,"code":"","options":{"label":"unnamed-chunk-13","message":"true","context":"interactive","out-height":"","read-only":"false","editor-word-wrap":"true","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","comment":"","results":"markup","warning":"true","editor-max-height":"","dpi":72,"autorun":"false","output":"true","fig-width":7,"classes":"","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"read-only":"false","context":"setup","fig-width":7,"message":"true","label":"unnamed-chunk-1","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"true","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":1},{"code":"titanic_df |>\n  filter(sex == 'female') ","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-2","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":2},{"code":"","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-3","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":3},{"code":"titanic_df |>\n  filter(age == 50)","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-4","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":4},{"code":"","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-5","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":5},{"code":"titanic_df |> \n  filter(age > 50 & sex == 'female') ","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-6","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":6},{"code":"","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-7","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":7},{"code":"titanic_df |> \n  filter(fare > 50 | pclass == 1) ","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-8","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":8},{"code":"titanic_df |>\n  filter(age %in% c(20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30))","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-9","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":9},{"code":"titanic_df |>\n  filter(age %in% 20:30)","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-10","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":10},{"code":"titanic_df |> \n  filter(embarked %in% c('C', 'Q'))","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-11","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":11},{"code":"titanic_df |>\n  filter(!embarked %in% c('C', 'Q'))","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-12","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":12},{"code":"","options":{"read-only":"false","context":"interactive","fig-width":7,"message":"true","label":"unnamed-chunk-13","fig-cap":"","editor-word-wrap":"true","fig-height":5,"results":"markup","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","dpi":72,"comment":"","classes":"","autorun":"false","out-height":"","editor-max-height":"","output":"true","warning":"true"},"id":13}];
 
 </script>
 <script type="module">
@@ -1981,6 +1981,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_data-visualisation-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_titles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35_themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36_annotations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1992,6 +2022,36 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">

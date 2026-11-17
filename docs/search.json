@@ -1809,7 +1809,7 @@
     "href": "30_date-scales.html#dates",
     "title": "38  Date scales",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nDate minor breaks\nSimilarly, we can set the minor breaks to any date unit, using the argument date_minor_breaks.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nLabels\nFinally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument date_labels. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe full list of labels is available here.",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nDate minor breaks\nSimilarly, we can set the minor breaks to any date unit, using the argument date_minor_breaks.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: put a major break every 6 months, and a minor break every month\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nLabels\nFinally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument date_labels. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: label the axis every 6 months, in the form ‘January 1846’\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe full list of labels is available here.",
     "crumbs": [
       "Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)",
       "<span class='chapter-number'>38</span>  <span class='chapter-title'>Date scales</span>"
@@ -1842,7 +1842,7 @@
     "href": "31_colour.html#colour-scales-with-continuous-and-discrete-data",
     "title": "39  Colour and size scales",
     "section": "",
-    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\n\nNote\n\n\n\nMapping fill to the same variable already on the x axis looks a little redundant here - each bar is already uniquely identified by its position. It’s still a very common thing to do though: it makes categories easier to scan at a glance, and becomes genuinely useful once you rearrange, facet, or remove the x axis labels later on.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\nContinuous scales\n\nUse ‘built in’ scales\nOne way to alter the continuous colour scale is to specify a ‘built in’ one, either from ggplot2 or from another package. One example is scale_fill_viridis_c, which is apparently good for perception and takes into account colour vision deficiencies:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCreate a scale from a palette\nUse scale_fill_distiller to specify that ggplot should take a particular palette and distribute the values evenly along it. This is the full list of palettes and their codes.\n\nTo use, simply pass one of the codes to the palette = argument of scale_fill_distiller:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Change the palette of this chart to ‘Greens’:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCreate your own continuous scale\nYou can also ‘make your own’ palette. For instance, scale_fill_gradient will create a gradient colour scale in between two colours you specify. A large list of R colour names can be found here: https://r-charts.com/colors/\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAn alternative is to use scale_fill_gradient2(), which allows you to specify 3 colours, a low, mid and high. The function will create a scale similar to above but with a specified midpoint:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nDiscrete scales\nDiscrete scales can also use ‘built in’ scales. The version of scale_fill_viridis for discrete scales is called scale_fill_viridis_d:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nCreate from a palette\nThe equivalent method for picking a scale from an existing palette is to use scale_fill_brewer. Again, choose a palette from the list supplied above:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nFully manual scales\nFinally, with discrete scales you can simply pick your own set of colours, using scale_fill_manual:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\n\nNote\n\n\n\nMapping fill to the same variable already on the x axis looks a little redundant here - each bar is already uniquely identified by its position. It’s still a very common thing to do though: it makes categories easier to scan at a glance, and becomes genuinely useful once you rearrange, facet, or remove the x axis labels later on.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\nContinuous scales\n\nUse ‘built in’ scales\nOne way to alter the continuous colour scale is to specify a ‘built in’ one, either from ggplot2 or from another package. One example is scale_fill_viridis_c, which is apparently good for perception and takes into account colour vision deficiencies:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCreate a scale from a palette\nUse scale_fill_distiller to specify that ggplot should take a particular palette and distribute the values evenly along it. This is the full list of palettes and their codes.\n\nTo use, simply pass one of the codes to the palette = argument of scale_fill_distiller:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Change the palette of this chart to ‘Greens’:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCreate your own continuous scale\nYou can also ‘make your own’ palette. For instance, scale_fill_gradient will create a gradient colour scale in between two colours you specify. A large list of R colour names can be found here: https://r-charts.com/colors/\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAn alternative is to use scale_fill_gradient2(), which allows you to specify 3 colours, a low, mid and high. The function will create a scale similar to above but with a specified midpoint:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe midpoint should be a value that means something. 66 of the 981 laureates are women: 6.7%.\nTry it yourself: set the midpoint to 6.7. Which prizes have a smaller share of women than the Nobel Prizes overall?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nDiscrete scales\nDiscrete scales can also use ‘built in’ scales. The version of scale_fill_viridis for discrete scales is called scale_fill_viridis_d:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nCreate from a palette\nThe equivalent method for picking a scale from an existing palette is to use scale_fill_brewer. Again, choose a palette from the list supplied above:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nFully manual scales\nFinally, with discrete scales you can simply pick your own set of colours, using scale_fill_manual:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: using scale_fill_manual(), make Peace and Literature one colour, and the four science prizes (including Economic Sciences) another. The colours are used in the order of the legend.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)",
       "<span class='chapter-number'>39</span>  <span class='chapter-title'>Colour and size scales</span>"
@@ -1864,7 +1864,7 @@
     "href": "31_colour.html#adjusting-the-legend",
     "title": "39  Colour and size scales",
     "section": "Adjusting the legend",
-    "text": "Adjusting the legend\nAs with position scales, we can set limits and breaks. In this case, we’ll see the change in the legend primarily.\nTo set the limit, specify within the scale_x_ or scale_y function you are using. In this, any values outside the limits will be coloured by a default NA value, in this case grey.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSet the breaks using the below:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can make changes to the legend in other ways, using the guides() function. Here are some examples:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nUse barheight to set the height of the legend (you can use barwidth to set the width):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nChange from vertical to horizontal:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nChanging the position and other visual aspects of the legend is done within themes, which we’ll cover later this week.",
+    "text": "Adjusting the legend\nAs with position scales, we can set limits and breaks. In this case, we’ll see the change in the legend primarily.\nTo set the limit, specify within the scale_x_ or scale_y function you are using. In this, any values outside the limits will be coloured by a default NA value, in this case grey.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: change the limits to 0 and 10. What happens to the Literature and Peace bars, and why?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSet the breaks using the below:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can make changes to the legend in other ways, using the guides() function. Here are some examples:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nUse barheight to set the height of the legend (you can use barwidth to set the width):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nChange from vertical to horizontal:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nChanging the position and other visual aspects of the legend is done within themes, which we’ll cover later this week.",
     "crumbs": [
       "Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)",
       "<span class='chapter-number'>39</span>  <span class='chapter-title'>Colour and size scales</span>"
@@ -1923,6 +1923,457 @@
     "crumbs": [
       "Week 4 · Tue 17 Nov: Data Visualisation 2 (part 2)",
       "<span class='chapter-number'>41</span>  <span class='chapter-title'>Home Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "33_data-visualisation-3.html",
+    "href": "33_data-visualisation-3.html",
+    "title": "42  Data Visualisation 3",
+    "section": "",
+    "text": "This week is about controlling the finer visual details of your charts. This example of a chart made in ggplot2, from the first chapter of this book, is a good example of some of the visual elements you can customise using ggplot2:\n\n\nShow the code\nlibrary(tidyverse)\nlibrary(ggthemes)\n\noptions(scipen = 999999)\n\ndf = data.table::fread('box_office.csv')\n\ndf = df %&gt;% \n  mutate(billions =total_inflation_adjusted_box_office/1000000000 )\n\nggplot() + \n  geom_point(data = df, aes(year, as.numeric(billions)), size= 1, alpha = .5) +\n  geom_smooth(data = df, aes(year, as.numeric(billions)), method = \"lm\",\n              formula = y ~ poly(x, 23), se = FALSE, color = 'black', alpha = .75) + \n  scale_y_continuous(limits = c(0, 15)) + \n  labs(title = 'Domestic Yearly Box Office, 1995 to 2023', \n       subtitle = \"In billion US dollars, adjusted for inflation\", \n       x = NULL, \n       y = \"Box office in billions US (inflation adjusted)\",\n       caption = \"Data from BoxOfficeMojo.com\")  +\n  geom_vline(xintercept=2020, color = 'red', alpha = .6, size = 2) +\n  annotate(\"text\", x=2019, y=5, label=\"First Pandemic Year\", angle=90) + \n  theme_economist() + theme(plot.caption = element_text(face = 'italic'))\n\n\n\n\n\n\n\n\n\n\nIt has a title and a subtitle\nThe y-axis title has been changed to read something more descriptive\nthe x-axis title has been removed completely, because it obviously refers to years.\nIt has an annotation to highlight the first year of the pandemic.\nSome elements of the underlying visual parts of the chart have been changed, for example the light blue background, and the white, horizontal gridlines (the vertical gridlines have been removed).\n\nThis is all done through the use of several more ggplot layers: primarily labels, annotations, and themes, which we’ll learn about this week.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>Data Visualisation 3</span>"
+    ]
+  },
+  {
+    "objectID": "34_titles.html",
+    "href": "34_titles.html",
+    "title": "43  Titles and Labels",
+    "section": "",
+    "text": "Communicating better with visualisations\nAdding titles, labels and annotations greatly increases the readability of your charts. This is dependent on context, too. It’s not usually required or recommended to add a chart title in a visualisation in an academic book or article, but a chart in a report, blog post, or piece of data journalism usually benefits from a title.\nA good principle is to try to make your chart stand on its own without further explanation, as far as possible. Even if your visualisation is embedded within a report, readers often skip to the chart first without looking at the underlying context. And charts often get separated from their context if they are shared on social media, for example.\nFor a chart to stand alone, consider adding the following:\nBe a little bit careful with this last point: it depends on the context. Dry, scientific publications probably don’t expect ‘editorialising’ through annotations or labels, but in the context of a blog post or newspaper article, they can be useful.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Titles and Labels</span>"
+    ]
+  },
+  {
+    "objectID": "34_titles.html#communicating-better-with-visualisations",
+    "href": "34_titles.html#communicating-better-with-visualisations",
+    "title": "43  Titles and Labels",
+    "section": "",
+    "text": "An eye-catching title, which explains the ‘headline’ of your chart.\nA subtitle, with further explanation\nA caption, which gives other relevant information, particularly the data source, or any necessary caveats to the data.\nRelevant labels for the axes and legends\nAnnotations pointing out key findings.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Titles and Labels</span>"
+    ]
+  },
+  {
+    "objectID": "34_titles.html#adding-labels-with-the-labs-function",
+    "href": "34_titles.html#adding-labels-with-the-labs-function",
+    "title": "43  Titles and Labels",
+    "section": "Adding labels with the labs() function",
+    "text": "Adding labels with the labs() function\nThere are many ways to add labels to your charts. The simplest is by adding labs() as a layer to your ggplot chart, using +. labs() allows you to specify titles and captions for your charts, as well as the label for the axis or legend of any of your aesthetics.\nWithin the parentheses of the labs() layer, you can specify the arguments title =, subtitle =, caption =, as well as any aesthetic in your plot, for example, x =, y =, fill = and so forth.\nMake sure to include the text of your label within quotation marks. If you would like to spread your title across multiple lines, you can specify a line break by adding the code \\n within your title.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAs an example, let’s reuse a dataset from the colour chapter. What aesthetics are specified in this chart?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nTitles, subtitles, and captions.\nTo add a title, subtitle, or caption, add within the labs() parenthesis, followed by the text you wish to add in quotation marks.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: add a subtitle noting the time period covered (1901-2024) and a caption citing the source of the data: the Nobel Prize API, https://www.nobelprize.org/organization/developer-zone-2/.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nYou can force ggplot to create a new line by adding \\n to your text, for example \"Age and Gender\\nat the Nobel Prize\". This is useful if you have longer titles which would otherwise overrun the width of the plot, because ggplot does not resize the text automatically.\n\n\n\n\nLabelling aesthetics\nTo recap the last chapter, when you specify an aesthetic, such as x/y, color and so forth, ggplot2 automatically creates a scale, which is visualised by either an axis or a legend. By default, ggplot takes the axis and legend labels directly from the column names. labs() allows you to override these labels. Simply specify the aesthetic and the new label:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nIf you are likely to have a lot of arguments within a function, like here, it can make it more readable to put each on a new line, after the comma.\n\n\nTry it yourself: Copy the plot above and change the y axis to “% of Laureates Who Were Women”, and the size legend to “Number of Laureates”. Put part of the size legend label on a new line.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can change the label for any aesthetic you specify in your chart. You can also remove a label completely by setting it to NULL, e.g.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis can be a good idea in some cases where the label is obvious, for example when it displays the year.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Titles and Labels</span>"
+    ]
+  },
+  {
+    "objectID": "34_titles.html#geom-text",
+    "href": "34_titles.html#geom-text",
+    "title": "43  Titles and Labels",
+    "section": "Geom text",
+    "text": "Geom text\nThere are a few ways you can add labels to your charts themselves. One is to add text as an aesthetic using geom_text(). Another is to add annotations directly using another layer: annotate().\nStarting with the first, using geom_text. Geom_text will add text to your chart based on x and y positions, plus an extra label argument specifying which column it should take labels from.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWith only six categories this is still fairly readable, but in cases with more categories, plotting all the names will result in an unreadable chart. One way to plot a small number of chosen labels is to create a new filtered dataset, and add this as the data = argument to geom_text().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWorking with text.\nSometimes, we’ll want to make changes to the labels using the data. We can do this using stringr and paste functions. Within the paste function, enter each column separated by a comma. You can add text within quotation marks, also separated by commas.\nThe function paste() allows us to paste together text from several columns. For example, we could make a new column containing the category and the percentage of women:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nQuestion: Can you fix the chart so the writing is not covered? (think back to the use of scales).\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nIt can also be useful to make changes to the text in other ways. the stringr package has some functions which will allow you to make changes to the formatting of the text before you plot it.\n\nstr_trunc will shorten the text to a fixed length, useful for overly long labels. Set the number of characters with the width = argument.\nstr_to_lower, str_to_upper, and str_to_title will change the text to lower case, upper case, and title case (where the first letter of each word is upper case) respectively.\nstr_extract and str_remove allow you to extract or remove parts of a text column based on regular expressions.\n\n\n\nTry it yourself: copy the code for the previous chart. Label all six categories, make them all upper case, and truncate the text to at most 12 letters (some category names, like “Physiology or Medicine”, are quite long!). Paste together the category name and the average age (rounded), with a comma in between.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Titles and Labels</span>"
+    ]
+  },
+  {
+    "objectID": "34_titles.html#learning-objectives",
+    "href": "34_titles.html#learning-objectives",
+    "title": "43  Titles and Labels",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nAdd a title, subtitle, caption, and axis labels with labs()\nRelabel an aesthetic (e.g. a legend title) via labs()\nUse geom_text() to label individual data points on a chart\nBuild a dynamic label with paste()",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>Titles and Labels</span>"
+    ]
+  },
+  {
+    "objectID": "35_themes.html",
+    "href": "35_themes.html",
+    "title": "44  Chart Themes",
+    "section": "",
+    "text": "Preset themes\nggplot2 has some preset themes, which, when added to your charts, will change multiple elements of your chart at once. To use one of these, simply add the theme name as a layer to your chart using +. Note that you can override individual elements of a theme by using a theme() layer after the preset.\nThe full list of themes are here. This will add theme_light() to the plot:\nTry it yourself: edit the code above and try out some of the other themes found in the link.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Chart Themes</span>"
+    ]
+  },
+  {
+    "objectID": "35_themes.html#preset-themes",
+    "href": "35_themes.html#preset-themes",
+    "title": "44  Chart Themes",
+    "section": "",
+    "text": "Please enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAdd-ons\nAnother way to change the complete look and feel of your chart is to download packages containing additional themes, such as ggthemes and ggtech. You can also make your own resusable themes from scratch.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Chart Themes</span>"
+    ]
+  },
+  {
+    "objectID": "35_themes.html#extra-chart-elements-using-theme",
+    "href": "35_themes.html#extra-chart-elements-using-theme",
+    "title": "44  Chart Themes",
+    "section": "Extra-chart elements using theme()",
+    "text": "Extra-chart elements using theme()\nUsing the default settings will make an accurate representation of your data but there are lots of ways to make a chart more readable. We can control many visual elements of the chart to a high degree.\nEach visual part of a chart is known as an element, and we can make changes to each part separately. This is done by adding + theme() layer to your chart, followed by the element you want to change, then an element type, and finally, the aesthetics of that element you want to change. The full list of elements and types can be found in the figure below - it’s very useful to save a copy as a reference.\nIt seems like a lot, so let’s see how this works with an example. Let’s change the size of the x axis title in the chart we made above (this is the axis label itself, e.g. “avg_age” - not to be confused with axis.text, which controls the tick labels/numbers along the axis).\nTo do this, I first add a new layer with + theme() to my existing plot.\nNext, within this theme(), I add:\n\nThe plot element I would like to change, which in this case is axis.title.x followed by an = sign. We can also change both axes at once using axis.title, or just the y axis using axis.title.y.\nThe type of element it is (we’ll come back to this), either element_text(), element_rect(), element_line() or, if I want to remove it entirely, element_blank().\n\nIn this case, it is a text element, so we use element_text().\nNext, within this element_text(), we specify the changes we want to make, using the usual set of aesthetics. For a text element, we can change the size, the font (using family) and whether it is bold or italic (using face).\nTo change the size of the text to 16, use the following full line of code:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDifferent types of elements need to be specified in different ways, and have different aspects which can be adjusted. Below is a full list of the plot parts and their related element types:",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Chart Themes</span>"
+    ]
+  },
+  {
+    "objectID": "35_themes.html#exercises",
+    "href": "35_themes.html#exercises",
+    "title": "44  Chart Themes",
+    "section": "Exercises:",
+    "text": "Exercises:\nCopy and paste the chart above into a new cell. Make the following changes:\n\nChange the panel background fill to lightblue.\nChange the size of the title to 24, and the ‘face’ to bold.\nChange the panel grid to the linetype ‘dashed’.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nSome useful things to change:\nChanging the angle of text in a bar chart. We change the angle, but because it rotates around the middle and we would like the end of the text to line up with the appropriate bar, we also need to use hjust and vjust. This is particularly useful here, since some of the category names (“Physiology or Medicine”, “Economic Sciences”) are too long to sit comfortably horizontally:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe text format of the title and subtitle:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can also change all the text at once:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Chart Themes</span>"
+    ]
+  },
+  {
+    "objectID": "35_themes.html#learning-objectives",
+    "href": "35_themes.html#learning-objectives",
+    "title": "44  Chart Themes",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nApply a preset theme (e.g. theme_light()) to a chart\nChange an individual theme element with theme() and the right element_ function\nRotate and align axis text so long labels are readable\nChange text formatting across an entire chart at once",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>Chart Themes</span>"
+    ]
+  },
+  {
+    "objectID": "36_annotations.html",
+    "href": "36_annotations.html",
+    "title": "45  Annotations and Highlights",
+    "section": "",
+    "text": "Drawing readers to the data in your chart\nThe chart above might be a faithful representation of the data, but it doesn’t really tell a story.\nTo do this, we’ll draw viewers’ attention to particular parts of the data using a few techniques. These use a cognitive process known as ‘pre-attentive processing’, meaning we are drawn to certain visual elements before others. Highlighting using colour and annotations are ways to use this to our advantage.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Annotations and Highlights</span>"
+    ]
+  },
+  {
+    "objectID": "36_annotations.html#adding-annotations-using-annotate",
+    "href": "36_annotations.html#adding-annotations-using-annotate",
+    "title": "45  Annotations and Highlights",
+    "section": "Adding annotations using annotate()",
+    "text": "Adding annotations using annotate()\nAnother way to add annotations to your text is using the layer annotate(). annotate allows you to add geoms directly to your plot, but instead of taking positions from your data, you specify them directly.\nFor annotate, you specify the name of the geom (a short version, so geom_rect becomes simply rect). Then you will directly specify the position coordinates and any other aesthetics. The most useful geom types here are the graphical ‘primitives’, such as rect, polygon, and segment, as well as text.\n\nText\nYou can use annotate() to manually add informative labels to your charts.\nIt’s usually useful to have an arrow along with text, pointing to something in the visualisation. Let’s walk through doing this using the following chart, which charts the average age at award and the percentage of female laureates, for each prize category:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nAdding a text annotation\nWe want to add the text Peace and an arrow pointing to the relevant point.\nFirst we’ll put a text annotation somewhere in the large empty space of the chart. Peace is towards the top-left of the plot (the highest share of women, at a fairly average age), so a spot up and to the left of it would be a good place to put the text.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAdd a line\nNext we want a curved line with an arrow running from just underneath the text to the middle of the point. To do this, look at the data and find the relevant variables to use as a starting point. The avg_age (our x axis) for Peace is 60.8 and pct_female (y axis) is 17.1.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nDrawing an arrow()\nFinally we can specify an arrow with a special arrow() function. Pay attention here because the arrow syntax is a little unintuitive. We can specify an arrow type, for instance ‘closed’ and a length. However the length is not a simple number but a ‘unit’ object, where we need to put the value within the function unit() and specify a unit, such as ‘mm’. You can also specify the arrow angle as a number between 0 and 90.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: Add a label, line, and arrow pointing to Physics. Run the first cell to get the relevant values as a starting point.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow add the text, curve, and arrow to the chart:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nother geoms with annotate()\nannotate() allows us to specify any of the geoms available, but besides text, the most useful ones are those which we didn’t use for data visualisation directly: segment, rectangle, and curve. You can then specify the usual aesthetics of those geoms such as colour, linetype, alpha and so forth.\n\nLines\nAdd a line to your plot using ‘segment’. For a vertical line set the x and xend to the desired value. To draw the line the whole way across the plot set y to 0 and yend to Inf (infinite). Let’s use it to mark 1969, the year the Economic Sciences prize was introduced (all the other five categories date back to 1901):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nThere’s actually a separate layer, geom_vline(), which you can use instead.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\nRectangles\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice the dip to zero in the early 1940s? No prizes at all were awarded in 1940, 1941, or 1942, because of the Second World War.\nTry it yourself: Create an annotated area which highlights the years from 1969 onwards, when the Economic Sciences prize has existed. Draw a label and an arrow for it. Set a colour, alpha and one other aesthetic value.\n\n\n\nHighlighting using colour\nOne effective method to draw attention to certain elements is to highlight using colours. This can be done fairly easily using our existing toolset. The set of steps are as follows:\n\nStart with your basic chart. Perhaps change colours or transparency to make the majority of the data ‘fade’ into the background.\nNext create new datasets containing only the data you wish to highlight.\nAdd these as layers to your existing chart\nChange the colours of these new elements\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Annotations and Highlights</span>"
+    ]
+  },
+  {
+    "objectID": "36_annotations.html#learning-objectives",
+    "href": "36_annotations.html#learning-objectives",
+    "title": "45  Annotations and Highlights",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nAdd a text label to a chart with annotate()\nDraw a curve or arrow pointing to a specific data point\nAdd a reference line with annotate('segment') or geom_vline()\nHighlight a region of a chart with annotate('rect')\nHighlight specific data points by colour, fading the rest into the background",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>Annotations and Highlights</span>"
+    ]
+  },
+  {
+    "objectID": "36a_data-visualisation-3-exercises.html",
+    "href": "36a_data-visualisation-3-exercises.html",
+    "title": "46  Practice exercises: titles, themes, and annotations",
+    "section": "",
+    "text": "The exercises below run in your browser and check your code automatically, giving you feedback as you go. Like the other ggplot2 exercises, these are checked by comparing your code to a model solution, so the feedback will point you to a specific part of your code to fix. The last two are a bit more of a challenge - don’t worry if you need a few tries.",
+    "crumbs": [
+      "Week 4 · Thu 19 Nov: Data Visualisation 3",
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>Practice exercises: titles, themes, and annotations</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html",
+    "href": "37a_ethics.html",
+    "title": "47  Ethics and data visualisation",
+    "section": "",
+    "text": "Data is not neutral\nIt’s tempting to think of data as raw facts which exist before anyone looks at them. But all data was collected by someone, for some purpose, and someone decided what was worth counting - and what wasn’t.\nCollecting data has always been a source of power. When Thomas Paine published Common Sense in 1776, arguing for American independence, he included a table estimating the cost of building a navy, ship by ship. The table was there to persuade: it made independence look not only right, but affordable. Governments count their populations to tax them, conscript them, and decide who belongs. Many of the historical datasets you might use for your reports were collected by states, companies, or colonial administrations, for their own purposes - not for yours.\nThis means that you should always ask:",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#data-is-not-neutral",
+    "href": "37a_ethics.html#data-is-not-neutral",
+    "title": "47  Ethics and data visualisation",
+    "section": "",
+    "text": "Who collected this data, and why?\nWhat did they choose to record, and what did they leave out?\nWho is in the data, and who is missing?",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#visualisations-are-not-neutral-either",
+    "href": "37a_ethics.html#visualisations-are-not-neutral-either",
+    "title": "47  Ethics and data visualisation",
+    "section": "Visualisations are not neutral either",
+    "text": "Visualisations are not neutral either\nCharts can feel even more objective than tables. A clean chart with a straight axis and a source line at the bottom looks like a simple picture of ‘what is’. The humanities scholar Johanna Drucker has argued that this is exactly the problem: visualisations are so persuasive that they’re often taken to be simply a presentation of “what is”, and we forget that someone made them.\nEvery chart is an argument. Think about the choices you’ve made in the earlier chapters:\n\nWhat to include. Filtering to one country, one period, or one category tells a different story to the full dataset.\nScales. Starting the y axis at zero, or not, can make a change look dramatic or trivial (see Chart scales).\nTitles and annotations. A title which states a conclusion (‘Unemployment is falling’) tells the viewer what to see. An arrow drawn on a line chart tells them where to look (see Titles and labels and Annotations).\n\nIn 2012, the New York Times showed how the same monthly US jobs report could be presented in two ways: one framed as a Democrat might see it (unemployment falling steadily) and the other as a Republican might see it (unemployment still stubbornly high). The data was identical. Only the framing changed - the period shown, the annotations, and the headline.\nNone of this means you should avoid titles, annotations, or a clear message. A good chart should tell a story. But you should make those choices deliberately, be honest about them, and make sure the story is one the data actually supports.\n\n\n\n\n\n\nRhetoric you might not notice\n\n\n\nEven design elements which don’t seem to say anything are persuasive. A source line (‘Source: World Bank’) lends a chart authority - sometimes called provenance rhetoric. A clean, minimal design signals that the chart is scientific and trustworthy, whether it is or not. Neither of these is bad in itself, but it’s worth noticing when a chart is borrowing authority it hasn’t earned.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#objectivity-perspective-and-emotion",
+    "href": "37a_ethics.html#objectivity-perspective-and-emotion",
+    "title": "47  Ethics and data visualisation",
+    "section": "Objectivity, perspective and emotion",
+    "text": "Objectivity, perspective and emotion\nIf every chart involves choices, can a chart ever be objective? Feminist scholars have offered some useful ways of thinking about this, which are summarised by Catherine D’Ignazio and Lauren Klein in their book Data Feminism.\n\nThe ‘god trick’. Donna Haraway described the kind of knowledge which claims to see everything from nowhere in particular - a view from above, by nobody - as a ‘god trick’. A chart which presents itself as a neutral view of the world is a good example. In fact, all knowledge is situated: it is made by particular people, in particular circumstances.\nPositionality. Linda Alcoff and others use the term positionality to describe how each of us comes to knowledge from a particular position, shaped by things like gender, ethnicity, class, ability, education, and nationality. This affects both how a visualisation is made, and how it is read - including by you.\nStrong objectivity. This doesn’t mean that anything goes. The philosopher Sandra Harding argued that being open about your perspective, and actively including perspectives which are usually left out, actually makes research more objective, not less. She called this ‘strong objectivity’.\n\nThis also raises the question of emotion. Data visualisation is often seen as the opposite of emotion: reason, numbers, and clean lines. But there’s no reason a chart can’t be both accurate and moving. Periscopic’s U.S. Gun Deaths (2013) shows each person killed by a gun in the US in one year as a single arc: the arc starts at their age when they died, and fades out at the age they might have lived to. The total at the top is not just the number of people killed, but the number of ‘stolen years’. The data is the same as you’d find in a table of statistics, but the design asks the viewer to see each death as a life.\nFor your own work, the practical lesson is: be transparent about your choices and your perspective. In your reports, say where your data came from, what you did to it, and what it can’t tell you.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#when-the-data-goes-wrong-missing-values",
+    "href": "37a_ethics.html#when-the-data-goes-wrong-missing-values",
+    "title": "47  Ethics and data visualisation",
+    "section": "When the data goes wrong: missing values",
+    "text": "When the data goes wrong: missing values\nSome of the most important ethical decisions in data analysis look like small technical ones. One of the most common is what to do with missing data.\nIn 2019, a team of researchers published a high-profile paper in Nature using a large historical database of past societies. It argued that complex societies developed before ‘moralising gods’ (gods who punish bad behaviour), rather than the other way around. Other researchers soon found a problem: in many cases where the database had no information about whether a society had moralising gods, the analysis had treated this as meaning the society didn’t have them. In other words, missing data (NA) had been treated as a zero. The paper was retracted in 2021.\nThis is a mistake which is very easy to make in R, and it’s worth seeing how much difference it makes. The Titanic dataset is missing the age of 263 of its 1,309 passengers. Here’s the average age of passengers in each class, leaving the missing ages out (as you learned in the summarise chapter, using na.rm = TRUE):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow let’s make the mistake on purpose. The code below uses mutate() and if_else() to replace every missing age with a zero, and then calculates the averages again:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe average age of third-class passengers has dropped by more than seven years - but first and second class have changed much less. Why? Let’s count how many passengers in each class have a missing age:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAlmost a third of third-class passengers have no recorded age, compared to around one in twenty in second class. The data is not missing at random: the people the records know least about are the poorest passengers. Treating their missing ages as zero doesn’t just make the numbers wrong - it makes them wrong in a way which falls on one group in particular.\nA chart makes this kind of mistake easy to spot, if you look. Here’s a histogram of ages, with the missing values replaced by zero:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThat spike at zero isn’t hundreds of babies - it’s hundreds of people whose ages nobody wrote down.\n\n\n\n\n\n\nMissing data in your own work\n\n\n\n\nBefore you do anything else with a dataset, check where the NA values are, for example with summarise() and sum(is.na(column)).\nNever replace NA with zero unless you’re sure that ‘no data’ really does mean ‘none’.\nAsk whose data is missing. Missing data often tells you something about who collected the data and who they thought was important.\nSay in your report how much data was missing, and what you did about it.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#visualising-people-and-sensitive-topics",
+    "href": "37a_ethics.html#visualising-people-and-sensitive-topics",
+    "title": "47  Ethics and data visualisation",
+    "section": "Visualising people and sensitive topics",
+    "text": "Visualising people and sensitive topics\nMany humanities datasets are about people, and some are about suffering: war, migration, slavery, disease. Design choices which are fine for a chart of book sales can be inappropriate here.\n\nThink about what your shapes suggest. Arrows on a migration map are a common choice, but large, bold arrows also look like the arrows on maps of military invasions - and have been used in exactly that way in propaganda maps. Maps of refugees fleeing Ukraine in 2022 published by The Economist, for example, avoided large arrows and used circles sized by the number of people arriving in each country. Same data, very different message.\nRemember that each data point is a person. A count of deaths is not like a count of books. Avoid sensationalist titles, jokey colours, or decorative design.\nConsider showing individuals. Like the gun deaths example above, showing people as individual marks rather than one total can help viewers remember that the data is about lives.\nProtect privacy. Be careful about publishing data, or maps, which could identify living individuals.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#data-that-challenges-power",
+    "href": "37a_ethics.html#data-that-challenges-power",
+    "title": "47  Ethics and data visualisation",
+    "section": "Data that challenges power",
+    "text": "Data that challenges power\nData visualisation has often been used to reinforce injustice. In the 1930s, the US government’s ‘redlining’ maps graded neighbourhoods by their supposed mortgage risk, largely on the basis of the race of the people who lived there - and those grades shaped who could get a loan for decades (you can explore these maps with the Mapping Inequality project, listed on the data page).\nBut it has also been used to challenge it.\n\nFor the 1900 Paris Exposition, W.E.B. Du Bois and his students at Atlanta University made a series of strikingly modern hand-drawn charts showing the progress of Black Americans since the end of slavery - a direct challenge to the racist ideas of the time.\nIn 1971, the Detroit Geographic Expedition and Institute, a collaboration between a Black youth activist, Gwendolyn Warren, and geographers, made a map called Where Commuters Run Over Black Children on the Pointes-Downtown Track. No official data showed the problem, so the community collected its own. The map made visible something which the people in charge had not wanted to see.\nIn 2016, journalists at ProPublica investigated a computer system used by US courts to predict whether a defendant would reoffend. They collected their own dataset on thousands of real defendants, and found the predictions were only somewhat more accurate than a coin flip - and that Black defendants were much more likely to be wrongly labelled as high risk.\n\nIn each case, the people making the visualisation had to ask the questions from the start of this chapter: who collected the data, who is missing, and who benefits?",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#a-checklist-for-your-own-visualisations",
+    "href": "37a_ethics.html#a-checklist-for-your-own-visualisations",
+    "title": "47  Ethics and data visualisation",
+    "section": "A checklist for your own visualisations",
+    "text": "A checklist for your own visualisations\nThe visualisation researcher Michael Correll has suggested some ethical goals for people who make visualisations. Adapted for this course, they make a useful checklist for your reports:\n\nMake the invisible visible. Is there something important in your data (or missing from it) which your chart hides?\nShow uncertainty. Be honest about what the data can’t tell you, and how reliable it is.\nRemember the people in the data. Can your design help viewers remember that the data is about people?\nProtect privacy. Could your chart, or the data you publish with it, identify anyone?\nQuestion power. Whose perspective does the data represent? Who collected it, and why?\n\nAnd here are some questions to ask of any visualisation, whether it’s yours or someone else’s:\n\nDoes it have a political or persuasive purpose? Is that purpose open, or hidden?\nHow was the data collected, and is this explained?\nWhat role does emotion play? How does the chart present itself - as neutral and objective, or as a particular point of view?\nWho is the chart about, and who is it for? Could it marginalise, or promote, particular groups?\nWhat do you imagine is the position of the person who made it? What about your own position - how does it affect the way you read the chart?",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#check-your-understanding",
+    "href": "37a_ethics.html#check-your-understanding",
+    "title": "47  Ethics and data visualisation",
+    "section": "Check your understanding",
+    "text": "Check your understanding\n1. A student is analysing a dataset of letters in an archive. The sender_gender column is NA for 40% of letters. To make a bar chart of letters by gender, they replace every NA with \"male\", because ‘most letter-writers in this period were men’. What’s the problem, and what would be a better approach?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThey’ve turned an assumption into data. The chart will now show many more letters by men than the archive can actually support - and it will hide the fact that 40% of the senders are unknown, which is itself an important finding. A better approach would be to keep the unknown senders as their own category (e.g. ‘Unknown’) in the chart, or to leave them out and say clearly in the text how many letters were excluded. They might also ask why so many senders are unknown: are letters by women more likely to be unattributed?\n\n\n\n2. A chart of the transatlantic slave trade uses bright red arrows of different thicknesses, and the title ‘The Great Migration Machine’. Give two ethical problems with this design.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nSome possible answers:\n\nThe title is flippant and sensationalist, and ‘migration’ hides the fact that this was forced: it treats a history of enormous suffering as a curiosity.\nBold arrows suggest movement as a kind of force or flow, and turn people into an abstract stream. A more respectful design might show numbers of people more soberly, or show individual voyages or people.\nBright red is likely to come across as alarming or decorative rather than respectful (and may also be a problem for colour-blind viewers).\nThe chart should also say where the data comes from, and that the records were made by the people who carried out the trade.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37a_ethics.html#learning-objectives",
+    "href": "37a_ethics.html#learning-objectives",
+    "title": "47  Ethics and data visualisation",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nExplain why neither data nor data visualisations are neutral\nIdentify how the choices in a chart (filtering, scales, titles, annotations) can persuade\nExplain what is meant by situated knowledge and positionality, and why being open about your perspective matters\nCheck a dataset for missing values, and explain why replacing NA with zero can mislead\nAsk whose data is missing, and what this tells you about the data\nSuggest more respectful ways to visualise sensitive topics\nUse a checklist of ethical questions to critique a visualisation, including your own",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>Ethics and data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "37_fair-data.html",
+    "href": "37_fair-data.html",
+    "title": "48  Reproducibility and FAIR data",
+    "section": "",
+    "text": "Reproducibility\nAn important principle in working with code and data is reproducibility. Reproducibility is a key part of scientific analysis: the idea that we should do work with the aim that anyone, given the same code, data, and methods, should be able to reproduce our work. This allows others to verify what we have done - that we haven’t accidentally (or maliciously) come to false conclusions.\nTo do this, we should generally publicly share the code and data in exactly the same formats, so others can recreate the exact same conditions.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Reproducibility and FAIR data</span>"
+    ]
+  },
+  {
+    "objectID": "37_fair-data.html#reproducibility",
+    "href": "37_fair-data.html#reproducibility",
+    "title": "48  Reproducibility and FAIR data",
+    "section": "",
+    "text": "Reproducibility with R\nLuckily, our workflow makes this quite easy. R Markdown files will only ‘knit’ if they have access to the data and when the code works from beginning to end. To make the project reproducible, you can simply ensure that all data used is included along with the code. In a ‘live’ project, you would make this publicly available (checking copyright restrictions), on a code repository, usually Github or Zenodo.\nFor your final project, think about packaging everything up so that it is fully reproducible - so that I or anyone else could open the folder and run the code from start to finish and end up with an exact copy of your visualisation. Include your datasets in the .zip file with the Markdown. If you created any additional datasets, for example to help with data cleaning, make sure you include these too. If possible, download your data from online sources rather than loading it directly from the web. Include basic comments on your code, particularly anything which you think is unclear or might need explaining.\n\n\n\n\n\n\nVersioning\n\n\n\nA further aspect of reproducibility is ‘versioning’. R versions and packages change and this can cause problems for others running your code later on. To fix this you can use something called version control. R has a package renv to help with this. It essentially creates a fixed snapshot of R and its packages as you used them at the time you wrote your code, which others can download and use to run your code too. Practicing this is outside the scope of this course, but good to be aware of.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Reproducibility and FAIR data</span>"
+    ]
+  },
+  {
+    "objectID": "37_fair-data.html#fair-data",
+    "href": "37_fair-data.html#fair-data",
+    "title": "48  Reproducibility and FAIR data",
+    "section": "FAIR Data",
+    "text": "FAIR Data\nWhen working with data, you will often hear about how to make it FAIR. FAIR is a set of principles developed to make data as reusable as possible. The principles are:\n\nFindable. This means making it easy to find your data, usually by adding keywords and making sure it is openly available and described correctly.\nAccessible. In this context, accessible means making data publicly available, where possible.\nInteroperable. Data should use existing standards and formats, so others can easily use or interact with it.\nReusable. Research data should be reusable by others - if data follows the above principles, plus is well documented, this will be the case.\n\nHow does this affect your own work? Primarily, you will be working on existing datasets when making visualisations on this course, but in many cases (on your own research project, for example), you might be responsible for creating datasets.\nHowever, it’s worth bearing in mind the FAIR principles because they can be relevant in how you make your own work reusable. In most cases, you are the ‘end user’ of FAIR data, rather than creating it yourself. However you can ensure that the work you do also results in FAIR data, for example by describing and documenting your own work, and how you analysed or cleaned data.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Reproducibility and FAIR data</span>"
+    ]
+  },
+  {
+    "objectID": "37_fair-data.html#learning-objectives",
+    "href": "37_fair-data.html#learning-objectives",
+    "title": "48  Reproducibility and FAIR data",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nExplain why reproducibility matters, and how R Markdown supports it\nKnow what the FAIR principles stand for (Findable, Accessible, Interoperable, Reusable)\nKnow what you can do, as an ‘end user’ of data, to keep your own work FAIR",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Reproducibility and FAIR data</span>"
+    ]
+  },
+  {
+    "objectID": "38_accessibility.html",
+    "href": "38_accessibility.html",
+    "title": "49  Data Visualisation and Accessibility Considerations",
+    "section": "",
+    "text": "What does it mean to make our content accessible?\nWhen making visualisations it is important to take into account accessibility. In this context, accessibility means making the content more readable and understandable by everyone.\nWe should remember that those viewing our content, particularly if it is placed online may have issues with:\nSome key ways in which we make visualisations less accessible include:",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Data Visualisation and Accessibility Considerations</span>"
+    ]
+  },
+  {
+    "objectID": "38_accessibility.html#making-non-data-elements-accessible",
+    "href": "38_accessibility.html#making-non-data-elements-accessible",
+    "title": "49  Data Visualisation and Accessibility Considerations",
+    "section": "Making non-data elements accessible",
+    "text": "Making non-data elements accessible\nIn the previous chapter we learned how to customise ‘non-data elements’ (titles, fonts, backgrounds, axis tick marks and so forth) using themes. Good use of these can also make data visualisations more accessible.\nSome general considerations for themes:\n\nMake the font as large as is suitable for the image\nUse a sans serif font\nUse a black or dark grey text for annotations and labels of lines or segments\nUse a lighter grey for axes labels so the important information stands out – see this colours guidance for more information\nOnly use coloured text when it is essential – if you are using coloured text use a contrast checker to make sure your text meets the contrast requirements against the background",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Data Visualisation and Accessibility Considerations</span>"
+    ]
+  },
+  {
+    "objectID": "38_accessibility.html#alt-text",
+    "href": "38_accessibility.html#alt-text",
+    "title": "49  Data Visualisation and Accessibility Considerations",
+    "section": "Alt-text",
+    "text": "Alt-text\nA final consideration, particularly when making charts which are to be viewed online, is to take into account readers who use screen-reading software. We should aim to provide alt-text for images, which will be read out loud by screen readers. In doing so, you should aim to summarise the visual elements and key points of the chart.\n\nAlt Text defined from Webaim:\n\nIt is read by screen readers in place of images allowing the content and function of the image to be accessible to those with visual or certain cognitive disabilities.\nIt is displayed in place of the image in browsers if the image file is not loaded or when the user has chosen not to view images.\nIt provides a semantic meaning and description to images which can be read by search engines or be used to later determine the content of the image from page context alone.\n\nThe following is a good template to use for writing alt-text:\n\n\nChart type\nIt’s helpful for people with partial sight to know what chart type it is and gives context for understanding the rest of the visual.\nExample: Line graph\n\n\nType of data\nWhat data is included in the chart? The x and y axis labels may help you figure this out.\nExample: number of bananas sold per day in the last year\n\n\nReason for including the chart\nThink about why you’re including this visual. What does it show that’s meaningful. There should be a point to every visual and you should tell people what to look for.\nExample: the winter months have more banana sales\n\n\nLink to data or source\nDon’t include this in your alt text, but it should be included somewhere in the surrounding text. People should be able to click on a link to view the source data or dig further into the visual. This provides transparency about your source and lets people explore the data.\nExample: Data from the USDA\n\n\n\nAdding alt-text in R Markdown.\nYou can add alt-text to static images or to generated plots made in code cells.\nTo add alt-text to R Markdown files, switch to the Source editor in RStudio.\n\nCode cell options\nWe can add what are known as ‘cell options’, which allow us to edit how the result of a code cell is displayed in the knitted markdown file. In R Markdown, enter your code cell options between the first set of curly brackets, after the r. Leave a space, then each option, an equal sign, and the required value. Leave a comma in between each option.\nYou can use this to change the figure width and height in the output (fig.width and fig.height), whether or not the code is displayed in the finished file (echo=false), and many more.\nAlt-text can be added to a generated figure from a code cell using the cell option fig.alt. The screenshot below shows how it should be added to a code cell:",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Data Visualisation and Accessibility Considerations</span>"
+    ]
+  },
+  {
+    "objectID": "38_accessibility.html#learning-objectives",
+    "href": "38_accessibility.html#learning-objectives",
+    "title": "49  Data Visualisation and Accessibility Considerations",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nExplain what makes a data visualisation more (or less) accessible\nChoose a colour-vision-deficiency-safe scale for sequential, diverging, and categorical data\nKnow why colour contrast matters, and how to improve it\nWrite good alt-text for a chart, and add it to a code cell",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Data Visualisation and Accessibility Considerations</span>"
+    ]
+  },
+  {
+    "objectID": "39_tidytuesday-challenge.html",
+    "href": "39_tidytuesday-challenge.html",
+    "title": "50  TidyTuesday visualisation challenge",
+    "section": "",
+    "text": "Challenge instructions\nThis challenge is where we put the FAIR data and accessibility principles from earlier this session into practice: as you work, keep asking whether your dataset is well-documented and reusable, and whether your finished chart is genuinely accessible to someone using assistive technology.\nDownload, explore, analyse, and visualise a cultural or humanities dataset from the TidyTuesday repository.\nTidyTuesday is a weekly project where a dataset is posted and participants create an analysis and/or visualisation using it.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
+    ]
+  },
+  {
+    "objectID": "39_tidytuesday-challenge.html#datasets",
+    "href": "39_tidytuesday-challenge.html#datasets",
+    "title": "50  TidyTuesday visualisation challenge",
+    "section": "Datasets",
+    "text": "Datasets\nAll the datasets used on the challenge since 2018 are available to download.\nYou can see the full list here.\nEach dataset has a link to the data, a link to the source, and a sample data article written using it, for inspiration.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
+    ]
+  },
+  {
+    "objectID": "39_tidytuesday-challenge.html#get-started",
+    "href": "39_tidytuesday-challenge.html#get-started",
+    "title": "50  TidyTuesday visualisation challenge",
+    "section": "Get started",
+    "text": "Get started\nThe easiest way to download the datasets is using the tidytuesdayR R package. Each one has two simple steps. First, downloading the data. Second, saving the data alone as an object.\nI have chosen three good examples to get you started. The links below link to the dataset download page, where you can find out some more information, how to download, plus the source and sample article.\nYou can also use any dataset on the site you like, as long as it has, broadly, a humanities or cultural focus. But if you want to do this, choose quickly, as time will fly!\nSelected British Literary Prizes (1990-2022)\nRolling Stone Album Rankings\nRefugees data\nOpen your cultural_analytics project in R-Studio, and create a new R Markdown file for this challenge.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
+    ]
+  },
+  {
+    "objectID": "39_tidytuesday-challenge.html#do-the-challenge",
+    "href": "39_tidytuesday-challenge.html#do-the-challenge",
+    "title": "50  TidyTuesday visualisation challenge",
+    "section": "Do the challenge",
+    "text": "Do the challenge\nUsing the markdown document, load in your chosen dataset. Read the associated information about it through the link above, as well as looking at the actual data in R-Studio. Look at the column names and types.\nIn the markdown document, do your data exploration and visualisation.\nNeed help choosing a suitable chart type? Try https://www.data-to-viz.com/\nConsider accessibility: choose a suitable colour scheme and adjust theme elements so they are readable.\nAdd a figure caption and alt-text, using the code chunk options.\nQuestions:\n\nWhat is the source of the dataset? Is it easy to find information on it?\nHow well does this dataset hold up against the FAIR principles - is it Findable, Accessible, Interoperable, and Reusable?\nWhat kinds of questions could be asked with this dataset?\nWhat ethical considerations are there with this dataset? (See the checklist in the ethics chapter.)",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
+    ]
+  },
+  {
+    "objectID": "39_tidytuesday-challenge.html#learning-objectives",
+    "href": "39_tidytuesday-challenge.html#learning-objectives",
+    "title": "50  TidyTuesday visualisation challenge",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nFind and download a TidyTuesday dataset with a humanities or cultural focus\nExplore and visualise a new, unfamiliar dataset independently\nApply FAIR data and accessibility principles to your own chart\nReflect critically on a dataset’s source and its ethical considerations",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>TidyTuesday visualisation challenge</span>"
+    ]
+  },
+  {
+    "objectID": "40_at-home-7.html",
+    "href": "40_at-home-7.html",
+    "title": "51  Home Exercise",
+    "section": "",
+    "text": "Instructions\nDo the at-home exercises in R-Studio, in your cultural_analytics project (see Installing R and RStudio). Download the files for this exercise from Brightspace and save them in your project folder. Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).\nI advise saving the new file straight away, and regularly re-save it.\nWhen you have finished the exercise (or part of it), ‘knit’ the file to check that it works.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>51</span>  <span class='chapter-title'>Home Exercise</span>"
+    ]
+  },
+  {
+    "objectID": "40_at-home-7.html#instructions",
+    "href": "40_at-home-7.html#instructions",
+    "title": "51  Home Exercise",
+    "section": "",
+    "text": "Note\n\n\n\nThis exercise is ungraded practice - you don’t need to submit it. But it’s the best preparation for the reports and the exam, so do try to complete it.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>51</span>  <span class='chapter-title'>Home Exercise</span>"
+    ]
+  },
+  {
+    "objectID": "40_at-home-7.html#task",
+    "href": "40_at-home-7.html#task",
+    "title": "51  Home Exercise",
+    "section": "Task",
+    "text": "Task\nYou’ve been asked to make a chart to accompany an article about the Nobel Prize awards and laureates. You leave it until the last minute and shamelessly recreate a chart you found here.\n\nlibrary(tidyverse)\nprizes_df &lt;- read_csv('prize_df.csv')\n\nlaureates_df &lt;- read_csv('laureates_df.csv')\n\nplot_df &lt;- laureates_df |&gt; \n  select(gender, prize_id)  |&gt;\n  left_join(prizes_df, by = 'prize_id') |&gt; \n  filter(!is.na(gender)) |&gt;\n  group_by(gender, category) |&gt;\n  summarise(n = n()) \n\nreorder_by_female = plot_df |&gt; \n  filter(gender == 'female') |&gt;\n  arrange(desc(n)) |&gt; pull(category)\n\nplot_df &lt;- plot_df |&gt; \n  mutate(category = factor(category, levels = reorder_by_female))\n  \nplot_df |&gt;\n  ggplot(aes(x = category, y = n, fill = gender)) + \n  geom_col(position = 'dodge') + \n  geom_text(aes(x = category, y = n + 10, label = n), position = position_dodge(0.9)) + \n  labs(title = \"The Nobel Prize Gender Gap\",\n       subtitle = \"Nobel Prize winners between 1901 and 2024\\nby category and gender\",\n       x = NULL, y = NULL)\n\n\n\n\n\n\n\n\nThe editor gets back to you and says it’s great (phew!), but requests that you make the chart more accessible, particularly for those with vision impairments, but generally just easier to read in a small online format.\n\nStart by saving the image and uploading to a CVD simulator. Do you think the colour combination would be difficult to distinguish for any types of CVD?\n\nCopy and paste the code for the chart into a new cell and make adjustments.\n\nChoose a better palette of fill colours using scale_fill_.\nMake adjustments to the bars so they are easier to distinguish from the background.\nAdjust the theme to make elements easier to read: for example the font size and face, the contrast between the panel background, the rotation of the axis text.\nWrite an alt text description, following the guidelines on the previous page.\nWhen you’re done, upload again to the colour blind checker to confirm this version meets the requirements.\n\nIn the Markdown document, write a very short description of your changes and why they improve accessibility.\nThe data and the code for this chart are in the files for this exercise on Brightspace.",
+    "crumbs": [
+      "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility",
+      "<span class='chapter-number'>51</span>  <span class='chapter-title'>Home Exercise</span>"
     ]
   },
   {
