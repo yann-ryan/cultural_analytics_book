@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","results":"markup","dpi":72,"autorun":"true","read-only":"false","output":"true","fig-cap":"","comment":"","warning":"true","fig-height":5,"fig-width":7,"out-width":"700px","context":"setup","editor-font-scale":"1","classes":"","message":"true","label":"unnamed-chunk-1"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","results":"markup","dpi":72,"autorun":"false","read-only":"false","output":"true","fig-cap":"","comment":"","warning":"true","fig-height":5,"fig-width":7,"out-width":"700px","context":"interactive","editor-font-scale":"1","classes":"","message":"true","label":"unnamed-chunk-2"},"id":2,"code":"titanic_df |>\n  summarise(count = n())"},{"options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","results":"markup","dpi":72,"autorun":"false","read-only":"false","output":"true","fig-cap":"","comment":"","warning":"true","fig-height":5,"fig-width":7,"out-width":"700px","context":"interactive","editor-font-scale":"1","classes":"","message":"true","label":"unnamed-chunk-3"},"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","results":"markup","dpi":72,"autorun":"false","read-only":"false","output":"true","fig-cap":"","comment":"","warning":"true","fig-height":5,"fig-width":7,"out-width":"700px","context":"interactive","editor-font-scale":"1","classes":"","message":"true","label":"unnamed-chunk-4"},"id":4,"code":""},{"options":{"editor-word-wrap":"true","editor-quick-suggestions":"false","out-height":"","editor-max-height":"","results":"markup","dpi":72,"autorun":"false","read-only":"false","output":"true","fig-cap":"","comment":"","warning":"true","fig-height":5,"fig-width":7,"out-width":"700px","context":"interactive","editor-font-scale":"1","classes":"","message":"true","label":"unnamed-chunk-5"},"id":5,"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"warning":"true","fig-cap":"","fig-width":7,"fig-height":5,"context":"setup","editor-word-wrap":"true","output":"true","autorun":"true","read-only":"false","editor-max-height":"","dpi":72,"results":"markup","out-width":"700px","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-1","message":"true","comment":"","out-height":"","editor-font-scale":"1"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"warning":"true","fig-cap":"","fig-width":7,"fig-height":5,"context":"interactive","editor-word-wrap":"true","output":"true","autorun":"false","read-only":"false","editor-max-height":"","dpi":72,"results":"markup","out-width":"700px","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-2","message":"true","comment":"","out-height":"","editor-font-scale":"1"},"id":2,"code":"titanic_df |>\n  summarise(count = n())"},{"options":{"warning":"true","fig-cap":"","fig-width":7,"fig-height":5,"context":"interactive","editor-word-wrap":"true","output":"true","autorun":"false","read-only":"false","editor-max-height":"","dpi":72,"results":"markup","out-width":"700px","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-3","message":"true","comment":"","out-height":"","editor-font-scale":"1"},"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"options":{"warning":"true","fig-cap":"","fig-width":7,"fig-height":5,"context":"interactive","editor-word-wrap":"true","output":"true","autorun":"false","read-only":"false","editor-max-height":"","dpi":72,"results":"markup","out-width":"700px","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-4","message":"true","comment":"","out-height":"","editor-font-scale":"1"},"id":4,"code":""},{"options":{"warning":"true","fig-cap":"","fig-width":7,"fig-height":5,"context":"interactive","editor-word-wrap":"true","output":"true","autorun":"false","read-only":"false","editor-max-height":"","dpi":72,"results":"markup","out-width":"700px","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-5","message":"true","comment":"","out-height":"","editor-font-scale":"1"},"id":5,"code":""}];
 
 </script>
 <script type="module">
@@ -1997,8 +1997,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36f_remaking-nightingale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Nightingale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -2015,31 +2021,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>

@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"editor-font-scale":"1","results":"markup","context":"setup","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-1","autorun":"true","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":2,"code":"titanic_df |> \n  mutate(price_today = fare * 78.17 ) |>\n  select(name, fare, price_today)","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-2","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":3,"code":"titanic_df |> \n  mutate(age_in_years = round(age)) |> \n  select(name, age, age_in_years)","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-3","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":4,"code":"titanic_df |> \n  mutate(status = if_else(age < 18, 'child', 'adult'))","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-4","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":5,"code":"titanic_df |> \n  mutate(status = \n           case_when(\n            age <13 ~ \"child\",\n            age >12 & age <20 ~ \"teenager\",\n            age>20 ~ \"adult\"\n           ))","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-5","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":6,"code":"","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-6","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":7,"code":"","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-7","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}},{"id":8,"code":"","options":{"editor-font-scale":"1","results":"markup","context":"interactive","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"label":"unnamed-chunk-8","autorun":"false","output":"true","warning":"true","read-only":"false","message":"true","fig-height":5,"out-width":"700px","dpi":72,"comment":"","editor-quick-suggestions":"false","fig-cap":"","classes":"","out-height":""}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"label":"unnamed-chunk-1","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"setup","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"label":"unnamed-chunk-2","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":"titanic_df |> \n  mutate(price_today = fare * 78.17 ) |>\n  select(name, fare, price_today)"},{"id":3,"options":{"label":"unnamed-chunk-3","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":"titanic_df |> \n  mutate(age_in_years = round(age)) |> \n  select(name, age, age_in_years)"},{"id":4,"options":{"label":"unnamed-chunk-4","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":"titanic_df |> \n  mutate(status = if_else(age < 18, 'child', 'adult'))"},{"id":5,"options":{"label":"unnamed-chunk-5","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":"titanic_df |> \n  mutate(status = \n           case_when(\n            age <13 ~ \"child\",\n            age >12 & age <20 ~ \"teenager\",\n            age>20 ~ \"adult\"\n           ))"},{"id":6,"options":{"label":"unnamed-chunk-6","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":""},{"id":7,"options":{"label":"unnamed-chunk-7","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":""},{"id":8,"options":{"label":"unnamed-chunk-8","editor-max-height":"","output":"true","editor-word-wrap":"true","results":"markup","editor-font-scale":"1","fig-cap":"","dpi":72,"comment":"","message":"true","classes":"","context":"interactive","fig-width":7,"out-width":"700px","warning":"true","read-only":"false","fig-height":5,"out-height":"","editor-quick-suggestions":"false","autorun":"false"},"code":""}];
 
 </script>
 <script type="module">
@@ -1997,8 +1997,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36f_remaking-nightingale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Nightingale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -2015,31 +2021,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>

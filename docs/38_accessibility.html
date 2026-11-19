@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>53&nbsp; Data Visualisation and Accessibility Considerations – Cultural Analytics: Course Book</title>
+<title>54&nbsp; Data Visualisation and Accessibility Considerations – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","options":{"warning":"true","dpi":72,"editor-quick-suggestions":"false","context":"setup","message":"true","editor-font-scale":"1","fig-cap":"","classes":"","output":"true","autorun":"true","editor-max-height":"","editor-word-wrap":"true","results":"markup","fig-width":7,"read-only":"false","label":"unnamed-chunk-1","out-width":"700px","out-height":"","comment":"","fig-height":5}},{"id":2,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","options":{"warning":"true","dpi":72,"editor-quick-suggestions":"false","context":"interactive","message":"true","editor-font-scale":"1","fig-cap":"","classes":"","output":"true","autorun":"false","editor-max-height":"","editor-word-wrap":"true","results":"markup","fig-width":7,"read-only":"false","label":"unnamed-chunk-2","out-width":"700px","out-height":"","comment":"","fig-height":5}},{"id":3,"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","options":{"warning":"false","dpi":72,"editor-quick-suggestions":"false","context":"interactive","message":"false","editor-font-scale":"1","fig-cap":"","classes":"","output":"true","error":"false","autorun":"false","editor-max-height":"","editor-word-wrap":"true","results":"markup","fig-width":7,"read-only":"false","label":"unnamed-chunk-3","out-width":"700px","out-height":"","comment":"","fig-height":5}},{"id":4,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","options":{"warning":"true","dpi":72,"editor-quick-suggestions":"false","context":"interactive","message":"true","editor-font-scale":"1","fig-cap":"","classes":"","output":"true","autorun":"false","editor-max-height":"","editor-word-wrap":"true","results":"markup","fig-width":7,"read-only":"false","label":"unnamed-chunk-4","out-width":"700px","out-height":"","comment":"","fig-height":5}},{"id":5,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","options":{"warning":"true","dpi":72,"editor-quick-suggestions":"false","context":"interactive","message":"true","editor-font-scale":"1","fig-cap":"","classes":"","output":"true","autorun":"false","editor-max-height":"","editor-word-wrap":"true","results":"markup","fig-width":7,"read-only":"false","label":"unnamed-chunk-5","out-width":"700px","out-height":"","comment":"","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"true","classes":"","label":"unnamed-chunk-1","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"setup","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":1,"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  "},{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","label":"unnamed-chunk-2","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":2,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  "},{"options":{"results":"markup","warning":"false","message":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","error":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":3,"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) "},{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","label":"unnamed-chunk-4","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":4,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) "},{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","label":"unnamed-chunk-5","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":5,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() "}];
 
 </script>
 <script type="module">
@@ -1570,7 +1570,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1997,8 +1997,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36f_remaking-nightingale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Nightingale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -2015,31 +2021,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2421,9 +2427,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./38_accessibility.html"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></h1>
+<h1 class="title"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></h1>
 </div>
 
 
@@ -3106,12 +3112,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./37_fair-data.html" class="pagination-link" aria-label="Reproducibility and FAIR data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./39_tidytuesday-challenge.html" class="pagination-link" aria-label="TidyTuesday visualisation challenge">
-        <span class="nav-page-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

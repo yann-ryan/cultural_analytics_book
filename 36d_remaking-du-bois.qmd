@@ -105,14 +105,25 @@ A fill scale where you give the colours yourself, one for each category, in orde
 The background of the whole chart is the theme element `plot.background`, and a background is a rectangle, so it needs `element_rect()`: see [Chart Themes](35_themes.qmd). Set its `fill`, and `colour = NA` to remove its border.
 :::
 
-**12.** Du Bois writes the year and the value at the start of each arc. Make a `label` column that joins the two, like `1880  $ 498,532`, and add it to the chart as text, at the start of each arc and just to the left of it.
+**12. New:** Du Bois writes the year and the value at the start of each arc, like `1880  $ 498,532`. This takes two new functions and some fiddly positioning, so the hint gives you the code.
 
 ::: {.callout-tip collapse="true"}
 ## Hint (new)
 
-Two new functions for the label: `str_c()` joins pieces of text, and `format(value, big.mark = ",")` writes a number with commas. Together: `str_c(year, "  $", format(value, big.mark = ","))`.
+First, add a `label` column to `furniture`, before the chart. `str_c()` joins pieces of text, and `format(value, big.mark = ",")` writes a number with commas:
 
-For the text layer: the start of each arc is where the value is 0, so put the text at `y = 0` (inside `aes()`). `hjust` moves the text sideways: a value just over 1, such as `hjust = 1.05`, puts the end of the text just before that point.
+``` r
+furniture <- furniture |>
+  mutate(label = str_c(year, "  $", format(value, big.mark = ",")))
+```
+
+Then add this layer to your chart, after `geom_col()`:
+
+``` r
+  geom_text(aes(y = 0, label = label), hjust = 1.05, size = 3)
+```
+
+`y = 0` puts each label where its arc starts. `hjust = 1.05` puts the end of the text just before that point, so the label sits to the left of the arc. It uses the `x` (the year) from `ggplot()`, so each label lands on its own ring.
 :::
 
 **13.** Add Du Bois's title, in capitals, centred.
@@ -155,9 +166,17 @@ Then:
 
 **14.** The four kinds don't add up to the total: the rest is everything else that was taxed, such as livestock, tools and money. Add a column called `other` for the rest. *(1899: 3,492,328)*
 
-**15.** Get the data ready to chart the four kinds of property (`land`, `town`, `furniture`, `other`) with a different colour for each: one column called `kind`, and one called `value`. *(24 rows)*
+**15.** Get the data ready to chart the four kinds of property (`land`, `town`, `furniture`, `other`) with a different colour for each: one column called `kind`, and one called `value`. *(24 rows, 4 columns: `year`, `total`, `kind`, `value`)*
 
-**16.** Add a column `share`: each value as a percentage of the total for that year. What share of all property was furniture in 1875, and in 1899? *(0.4% and 10.7%)*
+Pivot only the four kinds of property, and leave `total` out of the pivot, so that it stays a column of its own. It isn't a kind of property: it's the sum of all four. If you pivot it too, it becomes a fifth "kind", and a stacked chart would count every dollar twice. Kept as a column, it is repeated on every row for its year, which is what you need in the next step.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`pivot_longer(cols = c(land, town, furniture, other), names_to = ..., values_to = ...)`. Columns you don't list in `cols` (here `year` and `total`) are kept as they are, and copied onto each new row.
+:::
+
+**16.** Add a column `share`: each value as a percentage of the `total` on the same row. What share of all property was furniture in 1875, and in 1899? *(0.4% and 10.7%)*
 
 **17.** **Discuss:** calculating `other` assumes that the four kinds of property don't overlap, and that all four datasets measure the same thing in the same way. How could you check? And how precise are the numbers in `town`? (Look at how they end.)
 

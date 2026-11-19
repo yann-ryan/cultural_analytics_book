@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>51&nbsp; Ethics and data visualisation – Cultural Analytics: Course Book</title>
+<title>52&nbsp; Ethics and data visualisation – Cultural Analytics: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"editor-word-wrap":"true","autorun":"true","message":"true","results":"markup","fig-cap":"","read-only":"false","classes":"","comment":"","editor-max-height":"","context":"setup","fig-height":5,"output":"true","editor-font-scale":"1","fig-width":7,"editor-quick-suggestions":"false","out-height":"","label":"unnamed-chunk-1","dpi":72,"out-width":"700px","warning":"true"},"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df = read_csv('titanic_df.csv')"},{"options":{"editor-word-wrap":"true","autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","classes":"","comment":"","editor-max-height":"","context":"interactive","fig-height":5,"output":"true","editor-font-scale":"1","fig-width":7,"editor-quick-suggestions":"false","out-height":"","label":"unnamed-chunk-2","dpi":72,"out-width":"700px","warning":"true"},"id":2,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))"},{"options":{"editor-word-wrap":"true","autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","classes":"","comment":"","editor-max-height":"","context":"interactive","fig-height":5,"output":"true","editor-font-scale":"1","fig-width":7,"editor-quick-suggestions":"false","out-height":"","label":"unnamed-chunk-3","dpi":72,"out-width":"700px","warning":"true"},"id":3,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))"},{"options":{"editor-word-wrap":"true","autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","classes":"","comment":"","editor-max-height":"","context":"interactive","fig-height":5,"output":"true","editor-font-scale":"1","fig-width":7,"editor-quick-suggestions":"false","out-height":"","label":"unnamed-chunk-4","dpi":72,"out-width":"700px","warning":"true"},"id":4,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))"},{"options":{"editor-word-wrap":"true","autorun":"false","message":"true","results":"markup","fig-cap":"","read-only":"false","classes":"","comment":"","editor-max-height":"","context":"interactive","fig-height":5,"output":"true","editor-font-scale":"1","fig-width":7,"editor-quick-suggestions":"false","out-height":"","label":"unnamed-chunk-5","dpi":72,"out-width":"700px","warning":"true"},"id":5,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  ggplot() +\n  geom_histogram(aes(x = age), binwidth = 2)"}];
+globalThis.qwebrCellDetails = [{"options":{"dpi":72,"fig-cap":"","label":"unnamed-chunk-1","editor-max-height":"","editor-word-wrap":"true","warning":"true","context":"setup","message":"true","read-only":"false","results":"markup","classes":"","editor-font-scale":"1","autorun":"true","editor-quick-suggestions":"false","fig-width":7,"output":"true","fig-height":5,"comment":"","out-height":"","out-width":"700px"},"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df = read_csv('titanic_df.csv')"},{"options":{"dpi":72,"fig-cap":"","label":"unnamed-chunk-2","editor-max-height":"","editor-word-wrap":"true","warning":"true","context":"interactive","message":"true","read-only":"false","results":"markup","classes":"","editor-font-scale":"1","autorun":"false","editor-quick-suggestions":"false","fig-width":7,"output":"true","fig-height":5,"comment":"","out-height":"","out-width":"700px"},"id":2,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))"},{"options":{"dpi":72,"fig-cap":"","label":"unnamed-chunk-3","editor-max-height":"","editor-word-wrap":"true","warning":"true","context":"interactive","message":"true","read-only":"false","results":"markup","classes":"","editor-font-scale":"1","autorun":"false","editor-quick-suggestions":"false","fig-width":7,"output":"true","fig-height":5,"comment":"","out-height":"","out-width":"700px"},"id":3,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))"},{"options":{"dpi":72,"fig-cap":"","label":"unnamed-chunk-4","editor-max-height":"","editor-word-wrap":"true","warning":"true","context":"interactive","message":"true","read-only":"false","results":"markup","classes":"","editor-font-scale":"1","autorun":"false","editor-quick-suggestions":"false","fig-width":7,"output":"true","fig-height":5,"comment":"","out-height":"","out-width":"700px"},"id":4,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))"},{"options":{"dpi":72,"fig-cap":"","label":"unnamed-chunk-5","editor-max-height":"","editor-word-wrap":"true","warning":"true","context":"interactive","message":"true","read-only":"false","results":"markup","classes":"","editor-font-scale":"1","autorun":"false","editor-quick-suggestions":"false","fig-width":7,"output":"true","fig-height":5,"comment":"","out-height":"","out-width":"700px"},"id":5,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  ggplot() +\n  geom_histogram(aes(x = age), binwidth = 2)"}];
 
 </script>
 <script type="module">
@@ -1570,7 +1570,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./37a_ethics.html"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./37a_ethics.html"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1997,8 +1997,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36f_remaking-nightingale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Nightingale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -2015,31 +2021,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2420,9 +2426,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./37a_ethics.html"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37a_ethics.html">Week 5 · Tue 24 Nov: Ethics, FAIR Data &amp; Accessibility</a></li><li class="breadcrumb-item"><a href="./37a_ethics.html"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></h1>
+<h1 class="title"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></h1>
 </div>
 
 
@@ -3142,12 +3148,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./36a_data-visualisation-3-exercises.html" class="pagination-link" aria-label="Practice exercises: titles, themes, and annotations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./37_fair-data.html" class="pagination-link" aria-label="Reproducibility and FAIR data">
-        <span class="nav-page-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

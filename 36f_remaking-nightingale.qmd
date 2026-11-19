@@ -1,0 +1,181 @@
+---
+title: "Remaking the critique charts: Nightingale"
+---
+
+In this exercise you'll remake Florence Nightingale's "Diagram of the causes of mortality in the army in the East", with ggplot2. First you'll turn her monthly death counts into the death rates she drew, then build the two diagrams, and then look closely at the scale: in a diagram like this, it matters a great deal how a number becomes the size of a wedge. Finally you'll compare her design with a plainer chart of the same data.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Keep the Nightingale sheet (or the [full-size image](https://commons.wikimedia.org/wiki/File:Nightingale-mortality.jpg)) open as you go.
+
+**How this exercise works.** Most steps use things you have done before, and don't tell you which function to use. Try to work it out first, looking back at earlier chapters if you need to. If you're stuck, open the **Hint** under the step. Steps marked **New** use something we haven't covered: you can try to figure it out, but if you have no idea where to start, open the hint, which gives you the code. Numbers in brackets let you check your work.
+
+The two diagrams sit side by side, so put `fig.width=11, fig.height=6` in the options of your chart chunks: ```` ```{r, fig.width=11, fig.height=6} ````.
+
+## The data
+
+Nightingale's diagram, published in 1858, used figures from the army's own records, worked out with the statistician William Farr. Michael Friendly has made them available in R.
+
+Copy this into the first chunk of your .Rmd and run it:
+
+``` r
+library(tidyverse)
+
+deaths <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/nightingale/nightingale_deaths.csv")
+```
+
+Each row is one month, from April 1854 to March 1856:
+
+-   `month`: the month, as a date (the first day of the month).
+-   `army`: the average size of the British army in the East that month.
+-   `disease`: deaths from what Nightingale called "preventible or mitigable zymotic diseases": infectious diseases such as cholera, typhus and dysentery, spread by dirt, crowding and bad water.
+-   `wounds`: deaths from wounds.
+-   `other`: deaths from all other causes.
+
+## Part 1: from counts to rates
+
+**1.** Look at `deaths`. What was the worst month, and how many soldiers died from disease in it? How did the size of the army change over the two years? *(24 rows; January 1855: 2,761)*
+
+**2.** We want to draw the three causes in different colours, so they need to be in one column. Reshape the data so that there is a column `cause` and a column `deaths`. *(72 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`pivot_longer()`, on the three columns of deaths. Leave `month` and `army` as they are.
+:::
+
+**3.** How many soldiers died of each cause, over the two years? What percentage of all the deaths was from disease? *(80.5%)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`group_by()` and `summarise()` with `sum()`, then a `mutate()` to turn the totals into percentages. Without a `group_by()`, `sum()` in a `mutate()` adds up the whole column.
+:::
+
+**4.** The army was more than five times bigger in some months than in others, so the number of deaths alone can mislead. Nightingale drew the **annual death rate per 1,000 soldiers**: how many soldiers out of every 1,000 would die in a year, if that month's rate went on for twelve months. Add a column `rate`: the deaths divided by the size of the army, times 1,000, times 12. Check it against Nightingale: in January 1855, the rate for disease was 1,022.8. *(1,022.8)*
+
+**5.** **Discuss:** a rate of 1,022.8 per 1,000 means more soldiers than there were. How can that be? What does a rate like this let you compare, that the number of deaths doesn't?
+
+**6.** Nightingale drew two diagrams: one for April 1854 to March 1855, and one for April 1855 to March 1856. Add a column `period` that says which of the two each row belongs to. To compare a date with a fixed date, write the fixed date as `as.Date("1855-04-01")`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`if_else()`, inside `mutate()`: if `month` is before 1 April 1855, the first period; if not, the second.
+:::
+
+**7. New:** the diagram has one wedge per month, labelled with the month's name, so we need a column of month names, in order. Two steps:
+
+-   `format()` turns a date into text, with the same codes you used for date labels on Tuesday. `format(month, "%b")` gives `"Apr"`, `"May"`, and so on. Add it as a column called `month_name`.
+-   Text is put in alphabetical order on an axis. Turn `month_name` into a factor (categories) whose order is the order in the data, starting with April: `factor(month_name, levels = unique(month_name))`.
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+``` r
+mutate(month_name = format(month, "%b"),
+       month_name = factor(month_name, levels = unique(month_name)))
+```
+
+`unique()` lists each month name once, in the order it first appears. Using it as the `levels` makes that the order of the categories.
+:::
+
+## Part 2: the diagrams
+
+**8.** Start with an ordinary chart: a bar for each month, with the rate as the height, the causes in different colours, and one panel for each period.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`geom_col()` with `fill = cause`, and `facet_wrap()` on `period`.
+:::
+
+**9. New:** Nightingale's diagram is this bar chart, bent around a circle. `coord_radial()` does that. Its argument `theta`, the angle, says which axis goes around the circle. Here it's the months: `coord_radial(theta = "x")`. Add it to your chart.
+
+**10.** Compare your diagrams with Nightingale's. What's the same, and what's different? Which period is on the left on her sheet?
+
+## Part 3: scales
+
+Every aesthetic has a scale: here, `x` (the month, now an angle), `y` (the rate, now the distance from the centre) and `fill` (the cause).
+
+### Stacked or overlapping?
+
+**11.** In your diagram, the three causes are stacked: the wedge for wounds starts where the wedge for disease ends. Look closely at Nightingale's. Are hers stacked? Make the wedges start from the centre, one in front of another.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+You've changed how bars are placed before with `position` in `geom_col()` (`"dodge"`, `"fill"`). `position = "identity"` draws each bar exactly where its own value is, without moving it. The bars now overlap: add an outline (`colour`) and some transparency (`alpha`) so you can see them all.
+:::
+
+**12.** With overlapping wedges, a big wedge drawn last hides the small ones behind it. ggplot draws the rows in the order they appear in the data. Sort the data so that the biggest rates are drawn first and the smallest end up in front.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`arrange()`, with `desc()`, before the data goes into `ggplot()`.
+:::
+
+### The size of a wedge
+
+**13.** In January 1855, the rate for disease (1,022.8) was about twice the rate in March 1855 (480.3). Look at those two wedges. Does the January one look about twice as big?
+
+**14. New:** by default, the distance from the centre is in proportion to the rate. But we see the **area** of a wedge, and when the radius doubles, the area grows four times. Nightingale made the *area* of each wedge proportional to the rate. To do that in ggplot, put the rate on a square-root scale, with `scale_y_sqrt()`. Add it. What happens to the big winter wedges, and to the small wedges of the second year?
+
+**15.** **Discuss:** which version is honest? Think back to Minard's line widths, and to `scale_size_area()` on Tuesday: what's the same problem, and the same solution? What happens to the idea of "area shows the rate" if the wedges are stacked, as in step 9?
+
+**16.** **Discuss:** both diagrams use the same scale, so the second year looks small. Try `facet_wrap(~ period, scales = "free")`. What does a reader gain and lose? What did Nightingale choose, and why do you think she did?
+
+### Colour
+
+**17.** Nightingale's disease wedges are blue, wounds red, and other causes black. Use colours like hers.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`scale_fill_manual()`, with named `values`. Her blue and red are pale: try a hex code like `"#7fa6c4"` (blue) and `"#e8a2a0"` (red), or R colour names like `"lightsteelblue"`.
+:::
+
+## Part 4: titles, labels and guides
+
+**18.** The legend says `disease`, `wounds` and `other`, in alphabetical order. Change the labels to Nightingale's words, in an order that puts the most important cause first, and remove the legend title.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+In `scale_fill_manual()`, `breaks` sets which categories are shown in the legend and in what order, and `labels` what they're called (in the same order). The legend title is in `labs()`.
+:::
+
+**19.** Add a title, a subtitle that says what the size of a wedge means, and a caption with the source. Remove the axis titles, and the numbers on the y axis (on a square-root scale they're hard to read anyway).
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+The y axis numbers are the theme element `axis.text.y`. To remove any theme element, set it to `element_blank()`.
+:::
+
+**20.** **Discuss:** put your diagram next to Nightingale's. List three choices she made that you had to make again in code. Which of them changes the message most?
+
+## Part 5: a plainer chart (if you have time)
+
+**21.** Make a line chart of the same data: the month on the x axis, the rate on the y axis, one line per cause.
+
+**22.** The Sanitary Commission, sent by the government to clean up the army hospitals and camps, arrived in March 1855. Mark it on the chart with a dashed line and a label.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Two `annotate()` layers, as in [Annotations](36_annotations.qmd), at `x = as.Date("1855-03-01")`.
+:::
+
+**23.** **Discuss:** which chart shows the fall in deaths from disease more clearly, the line chart or the diagram? Which would you show to readers who weren't looking for numbers, and needed to be persuaded? Nightingale wanted the government to accept that most of the deaths could have been prevented. Did her choice of chart help?
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `pivot_longer()` and `mutate()` to turn counts into rates
+-   [ ] Put categories in a meaningful order with `factor()`
+-   [ ] Use `coord_radial()` and `position` to change how bars are drawn
+-   [ ] Explain why area needs a square-root scale, and use `scale_y_sqrt()`
+-   [ ] Change legend labels and order with `breaks` and `labels`, and remove theme elements with `element_blank()`

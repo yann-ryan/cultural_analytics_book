@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1,"options":{"results":"markup","autorun":"true","fig-cap":"","comment":"","out-width":"700px","read-only":"false","out-height":"","classes":"","editor-quick-suggestions":"false","message":"true","label":"unnamed-chunk-1","editor-font-scale":"1","fig-width":7,"warning":"true","fig-height":5,"context":"setup","editor-max-height":"","dpi":72,"editor-word-wrap":"true","output":"true"}},{"code":"gapminder_population","id":2,"options":{"results":"markup","autorun":"false","fig-cap":"","comment":"","out-width":"700px","read-only":"false","out-height":"","classes":"","editor-quick-suggestions":"false","message":"true","label":"unnamed-chunk-2","editor-font-scale":"1","fig-width":7,"warning":"true","fig-height":5,"context":"interactive","editor-max-height":"","dpi":72,"editor-word-wrap":"true","output":"true"}},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3,"options":{"results":"markup","autorun":"false","fig-cap":"","comment":"","out-width":"700px","read-only":"false","out-height":"","classes":"","editor-quick-suggestions":"false","message":"true","label":"unnamed-chunk-3","editor-font-scale":"1","fig-width":7,"warning":"true","fig-height":5,"context":"interactive","editor-max-height":"","dpi":72,"editor-word-wrap":"true","output":"true"}},{"code":"","id":4,"options":{"results":"markup","autorun":"false","fig-cap":"","comment":"","out-width":"700px","read-only":"false","out-height":"","classes":"","editor-quick-suggestions":"false","message":"true","label":"unnamed-chunk-4","editor-font-scale":"1","fig-width":7,"warning":"true","fig-height":5,"context":"interactive","editor-max-height":"","dpi":72,"editor-word-wrap":"true","output":"true"}},{"code":"","id":5,"options":{"results":"markup","autorun":"false","fig-cap":"","comment":"","out-width":"700px","read-only":"false","out-height":"","classes":"","editor-quick-suggestions":"false","message":"true","label":"unnamed-chunk-5","editor-font-scale":"1","fig-width":7,"warning":"true","fig-height":5,"context":"interactive","editor-max-height":"","dpi":72,"editor-word-wrap":"true","output":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-1","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"setup","autorun":"true","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":2,"code":"gapminder_population","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-2","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-3","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":4,"code":"","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-4","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":5,"code":"","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-5","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -1997,8 +1997,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36f_remaking-nightingale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Nightingale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -2015,31 +2021,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>

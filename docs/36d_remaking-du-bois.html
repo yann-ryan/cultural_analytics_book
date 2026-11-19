@@ -544,8 +544,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36f_remaking-nightingale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Nightingale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -562,31 +568,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -842,7 +848,7 @@ Hint
 </div>
 </div>
 </div>
-<p><strong>12.</strong> Du Bois writes the year and the value at the start of each arc. Make a <code>label</code> column that joins the two, like <code>1880  $ 498,532</code>, and add it to the chart as text, at the start of each arc and just to the left of it.</p>
+<p><strong>12. New:</strong> Du Bois writes the year and the value at the start of each arc, like <code>1880  $ 498,532</code>. This takes two new functions and some fiddly positioning, so the hint gives you the code.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -855,8 +861,12 @@ Hint (new)
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Two new functions for the label: <code>str_c()</code> joins pieces of text, and <code>format(value, big.mark = ",")</code> writes a number with commas. Together: <code>str_c(year, "  $", format(value, big.mark = ","))</code>.</p>
-<p>For the text layer: the start of each arc is where the value is 0, so put the text at <code>y = 0</code> (inside <code>aes()</code>). <code>hjust</code> moves the text sideways: a value just over 1, such as <code>hjust = 1.05</code>, puts the end of the text just before that point.</p>
+<p>First, add a <code>label</code> column to <code>furniture</code>, before the chart. <code>str_c()</code> joins pieces of text, and <code>format(value, big.mark = ",")</code> writes a number with commas:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>furniture <span class="ot">&lt;-</span> furniture <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">str_c</span>(year, <span class="st">"  $"</span>, <span class="fu">format</span>(value, <span class="at">big.mark =</span> <span class="st">","</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then add this layer to your chart, after <code>geom_col()</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> label), <span class="at">hjust =</span> <span class="fl">1.05</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>y = 0</code> puts each label where its arc starts. <code>hjust = 1.05</code> puts the end of the text just before that point, so the label sits to the left of the arc. It uses the <code>x</code> (the year) from <code>ggplot()</code>, so each label lands on its own ring.</p>
 </div>
 </div>
 </div>
@@ -943,15 +953,8 @@ Hint 2: the functions
 </div>
 <p>Then:</p>
 <p><strong>14.</strong> The four kinds don’t add up to the total: the rest is everything else that was taxed, such as livestock, tools and money. Add a column called <code>other</code> for the rest. <em>(1899: 3,492,328)</em></p>
-<p><strong>15.</strong> Get the data ready to chart the four kinds of property (<code>land</code>, <code>town</code>, <code>furniture</code>, <code>other</code>) with a different colour for each: one column called <code>kind</code>, and one called <code>value</code>. <em>(24 rows)</em></p>
-<p><strong>16.</strong> Add a column <code>share</code>: each value as a percentage of the total for that year. What share of all property was furniture in 1875, and in 1899? <em>(0.4% and 10.7%)</em></p>
-<p><strong>17.</strong> <strong>Discuss:</strong> calculating <code>other</code> assumes that the four kinds of property don’t overlap, and that all four datasets measure the same thing in the same way. How could you check? And how precise are the numbers in <code>town</code>? (Look at how they end.)</p>
-</section>
-<section id="part-3-charting-it" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-charting-it">Part 3: charting it</h2>
-<p>Make two charts from your long dataset, and decide which one works better.</p>
-<p><strong>18.</strong> <strong>In Du Bois’s style:</strong> adapt your spiral from Part 1, with one ring per year and the four kinds of property in different colours along each ring. Give each kind a colour from Du Bois’s palette.</p>
-<p><strong>19.</strong> <strong>In a plain style:</strong> a stacked bar chart, with one bar per year, the kinds of property in different colours, and the y axis labelled in dollars. Then make a version where every bar is the same height. What question does each version answer?</p>
+<p><strong>15.</strong> Get the data ready to chart the four kinds of property (<code>land</code>, <code>town</code>, <code>furniture</code>, <code>other</code>) with a different colour for each: one column called <code>kind</code>, and one called <code>value</code>. <em>(24 rows, 4 columns: <code>year</code>, <code>total</code>, <code>kind</code>, <code>value</code>)</em></p>
+<p>Pivot only the four kinds of property, and leave <code>total</code> out of the pivot, so that it stays a column of its own. It isn’t a kind of property: it’s the sum of all four. If you pivot it too, it becomes a fifth “kind”, and a stacked chart would count every dollar twice. Kept as a column, it is repeated on every row for its year, which is what you need in the next step.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -963,6 +966,30 @@ Hint
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>pivot_longer(cols = c(land, town, furniture, other), names_to = ..., values_to = ...)</code>. Columns you don’t list in <code>cols</code> (here <code>year</code> and <code>total</code>) are kept as they are, and copied onto each new row.</p>
+</div>
+</div>
+</div>
+<p><strong>16.</strong> Add a column <code>share</code>: each value as a percentage of the <code>total</code> on the same row. What share of all property was furniture in 1875, and in 1899? <em>(0.4% and 10.7%)</em></p>
+<p><strong>17.</strong> <strong>Discuss:</strong> calculating <code>other</code> assumes that the four kinds of property don’t overlap, and that all four datasets measure the same thing in the same way. How could you check? And how precise are the numbers in <code>town</code>? (Look at how they end.)</p>
+</section>
+<section id="part-3-charting-it" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-charting-it">Part 3: charting it</h2>
+<p>Make two charts from your long dataset, and decide which one works better.</p>
+<p><strong>18.</strong> <strong>In Du Bois’s style:</strong> adapt your spiral from Part 1, with one ring per year and the four kinds of property in different colours along each ring. Give each kind a colour from Du Bois’s palette.</p>
+<p><strong>19.</strong> <strong>In a plain style:</strong> a stacked bar chart, with one bar per year, the kinds of property in different colours, and the y axis labelled in dollars. Then make a version where every bar is the same height. What question does each version answer?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For dollars: <code>scale_y_continuous(labels = scales::label_dollar())</code> (new: <code>scales::</code> means “from the package <code>scales</code>”, which comes with ggplot2). For bars of the same height, you used a <code>position</code> in <code>geom_col()</code> in week 3.</p>
 </div>

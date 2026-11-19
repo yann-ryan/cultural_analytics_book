@@ -86,6 +86,7 @@ book:
         - 36c_remaking-snow.qmd
         - 36d_remaking-du-bois.qmd
         - 36e_remaking-du-bois-raw.qmd
+        - 36f_remaking-nightingale.qmd
         - 36a_data-visualisation-3-exercises.qmd
     - part: "Week 5 · Tue 24 Nov: Ethics, FAIR Data & Accessibility"
       chapters:
