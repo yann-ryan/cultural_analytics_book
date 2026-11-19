@@ -1,0 +1,133 @@
+---
+title: "Remaking the critique charts: Du Bois, from raw data (synthetic)"
+---
+
+::: callout-warning
+## This dataset is synthetic
+
+The data in this exercise was **invented for teaching**. It is not historical data, and you can't use it as evidence about Georgia, its counties or the people who lived there.
+
+Only the state totals are real: when you add up the file correctly, you get the numbers Du Bois printed on his charts. Everything below that level (the counties, the detailed categories, the missing returns, the spelling mistakes) was made up at random, to give you the kind of raw data that Du Bois and his students would have had to work from. Every row of the file says so in its `note` column.
+:::
+
+This is a harder version of the [Du Bois challenge](36d_remaking-du-bois.qmd). There, the numbers came already added up, one per year. Here you start from something closer to the tax records themselves: a table for each county, with property divided into twelve detailed categories, typed up by different clerks. Your job is to get from that to the numbers on Du Bois's chart, and then to chart them.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file.
+
+**How this exercise works.** As in the other remakes: most steps don't tell you which function to use. If you're stuck, open the **Hint**. Steps marked **New** use something we haven't covered, and their hint gives you the code. Numbers in brackets let you check your work.
+
+## The data
+
+``` r
+library(tidyverse)
+
+digest <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/dubois/property_by_county_SYNTHETIC.csv")
+```
+
+Each row is one kind of property in one county, with the assessed value in dollars of that property owned by Black Georgians, in each of six years. Some returns are missing: the cell is empty, or says `n.r.` (not returned).
+
+The twelve categories belong to the four kinds of property on Du Bois's charts:
+
+| Kind | Categories |
+|------------------------------------|------------------------------------|
+| land | Farm land, Woodland |
+| town | Town lots, City property |
+| furniture | Household furniture, Kitchen furniture |
+| other | Horses and mules, Cattle and hogs, Plantation and mechanical tools, Money and solvent debts, Merchandise, All other property |
+
+## Part 1: from raw data to Du Bois's numbers
+
+The goal of this part is a table with one row per year and kind of property, and the value for the whole state: *(24 rows)*
+
+| year | kind      | value  |
+|------|-----------|--------|
+| 1875 | furniture | 21,186 |
+| ...  | ...       | ...    |
+
+**1.** Look at `digest`. What is one row? How many counties are there? *(480 rows, 40 counties)* Is it tidy? What would you need to change to make a chart with the year on the x axis?
+
+**2.** How many different spellings of the categories are there? There should be twelve categories. *(36)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`count()` the `category` column, or use `n_distinct()` inside `summarise()`.
+:::
+
+**3.** Clean the category names, so that there are exactly twelve. Most of the problems are capital letters and extra spaces. One isn't. *(12 categories, 40 rows each)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`str_to_lower()` and `str_trim()`, inside `mutate()`, fix most of it (you used `str_trim()` in home exercise 6). Then `count()` again to find the one that's left, and fix it with `if_else()` or `case_when()`.
+:::
+
+**4.** Reshape the table so that there is one column for the year and one for the value. Make the year a number. *(2,880 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`pivot_longer()`. The columns are called `1875` to `1899`: names that start with a number need backticks, `` `1875`:`1899` ``. Column names always become text, so turn `year` into a number afterwards with `as.numeric()`.
+:::
+
+**5. New:** the values are text, like `"$18,313"`, because of the dollar sign and the commas. `parse_number()`, from the readr package, reads the number out of a piece of text, and ignores everything else: `parse_number("$18,313")` gives `18313`. Use it to turn `value` into a number. Read the warning: what does it tell you? How many values are missing now? *(40)*
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+`mutate(value = parse_number(value))`. The warning lists the cells that contain `n.r.`, which can't be read as a number. They become `NA`, like the empty cells.
+:::
+
+**6.** Add a column called `kind`, with the kind of property each category belongs to, using the table above.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`case_when()`, with `%in%` for each kind: `category %in% c("farm land", "woodland") ~ "land"`. The last line can be `TRUE ~ "other"`, which catches everything else. Is that safe, if one of your categories is still misspelt?
+:::
+
+**7.** Add up the values for the whole state, for each year and kind. *(24 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`group_by()` and `summarise()` with `sum()`. If you get `NA`s, look at what `sum()` does with missing values, and how to tell it to skip them.
+:::
+
+**8.** Check your numbers against Du Bois's chart. Furniture in 1875 should be 21,186 dollars, and in 1899, 1,434,975. If your furniture numbers are too small, go back to step 3.
+
+**9.** Add each year's total of all four kinds, and each kind's share of that total, as a percentage. *(total in 1899: 13,447,423; furniture was 0.4% of the total in 1875 and 10.7% in 1899)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+This time you want to keep every row, and add the year's total next to it: `group_by(year)` followed by `mutate()`, not `summarise()`.
+:::
+
+**10.** **Discuss:** 40 returns were missing. You skipped them in step 7, so they count as 0. Here, that happens to give the right answer, because we made up the data so that it would. With real records, what could you do about a missing return? Would Du Bois's numbers have had the same problem?
+
+## Part 2: the furniture spiral
+
+Keep only the furniture rows, and make Du Bois's spiral from them. Follow [Part 1 of the Du Bois challenge](36d_remaking-du-bois.qmd#part-1-the-furniture-spiral), from step 3: the hints are there.
+
+## Part 3: charting the four kinds
+
+Follow [Part 3 of the Du Bois challenge](36d_remaking-du-bois.qmd#part-3-charting-it): one chart in Du Bois's style, one in a plain style, and decide which works better. Your caption must say that the data is synthetic.
+
+## Part 4: what synthetic data can't tell you
+
+**11.** Make a chart of the value of furniture in each county in 1899, ordered from largest to smallest.
+
+**12.** **Discuss:** the chart looks like a finding: some counties look much richer than others. What does it actually show? What could you learn from real county-level data that you can't learn from the state totals, and what would you need to know about the counties to make sense of it (think of Report 1, and the data sources page)?
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Find and fix inconsistent text in a categorical column
+-   [ ] Turn text into numbers with `as.numeric()` and `parse_number()`, and check what became `NA`
+-   [ ] Group detailed categories into broader ones with `case_when()`
+-   [ ] Summarise raw data to the level a chart needs, and check the result against a source
+-   [ ] Explain what synthetic data is, and what it can and can't be used for

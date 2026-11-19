@@ -1,0 +1,182 @@
+---
+title: "Remaking the critique charts: Snow"
+---
+
+In this exercise you'll remake John Snow's map of the 1854 cholera outbreak in Soho, London, with ggplot2, and then use the data to test his argument: that the outbreak came from the water pump in Broad Street. First you'll draw the map, then work out which pump was nearest to each death, and finally draw the outbreak over time.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Keep the Snow sheet (or the [full-size image](https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg)) open as you go.
+
+**How this exercise works.** Most steps use things you have done before, and don't tell you which function to use. Try to work it out first, looking back at earlier chapters if you need to. If you're stuck, open the **Hint** under the step. Steps marked **New** use something we haven't covered: you can try to figure it out, but if you have no idea where to start, open the hint, which gives you the code. Numbers in brackets let you check your work.
+
+The map is square, so put `fig.width=8, fig.height=8` in the options of your map chunks: ```` ```{r, fig.width=8, fig.height=8} ````.
+
+## The data
+
+The geographer Waldo Tobler digitised Snow's map in 1994: every death, every pump and every street, as x and y coordinates measured on the map. Michael Friendly later added Snow's table of cases by date.
+
+Copy this into the first chunk of your .Rmd and run it:
+
+``` r
+library(tidyverse)
+
+deaths  <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/snow/snow_deaths.csv")
+pumps   <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/snow/snow_pumps.csv")
+streets <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/snow/snow_streets.csv")
+dates   <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/snow/snow_dates.csv")
+```
+
+-   `deaths`: one row per death on the map, with its position (`x`, `y`). Where several people died in the same house, Snow drew the deaths as a stack of bars, and the points are stacked in the same way. *(578 rows)*
+-   `pumps`: the 13 water pumps, with their names.
+-   `streets`: the streets, as lines. Each street is a few rows, one for each point along it, with a number in `street` saying which street the point belongs to.
+-   `dates`: Snow's table of fatal cases by day: the number of people who fell ill (`attacks`) and who died (`deaths`) on each day. Everyone in this table died; `attacks` is the day their illness began.
+
+## Part 1: the map
+
+Each layer of this map uses a different dataset. So far you have put the dataset in `ggplot()`, and every layer has used it. Here, leave `ggplot()` empty and give each layer its own: `geom_point(data = deaths, aes(...))`.
+
+**1. New:** start with the streets. `geom_path()` joins points in the order they appear in the data. Draw `streets` with `geom_path()`, in grey, with one line for each street. Try it without `group` first: what goes wrong?
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+``` r
+ggplot() +
+  geom_path(data = streets, aes(x = x, y = y, group = street), colour = "grey60")
+```
+:::
+
+**2.** Add the deaths, as small points.
+
+**3.** Add the pumps, as points that look different from the deaths (a different colour, shape and size), and label each pump with its name, just above the point.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Two more layers, both with `data = pumps`. Shape, colour and size go *outside* `aes()`, because they are the same for every pump: `shape = 17` is a triangle. For the names, `geom_text()` with `label` inside `aes()`. `vjust` moves text up or down; try `vjust = -1`.
+:::
+
+**4.** Find the Broad Street pump. Compare your map with Snow's: what's the same, and what's different? Snow drew a stack of small bars for each house: what can you see in his version that is harder to see with points?
+
+**5.** Save the map as `snow_map`, so you can add to it.
+
+**6. New:** the x and y coordinates are in the same units, so a step to the right should be the same distance as a step up. Add `coord_fixed()`, then make the plot window narrower and wider. What does `coord_fixed()` keep the same?
+
+**7.** The axes, their numbers and the grey background don't mean anything to a reader of this map. Remove them all at once, with a preset theme.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Look at the list of preset themes linked in [Chart Themes](35_themes.qmd). One of them is completely empty.
+:::
+
+## Part 2: which pump was nearest?
+
+Snow's argument was that the deaths cluster around one pump. We can test that with the data, by working out which pump was nearest to each death.
+
+**8.** `pumps` and `deaths` both have columns called `x` and `y`, which will clash when we put them together. Make a copy of `pumps` in which they are called `pump_x` and `pump_y`, and save it as `pumps2`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`rename()`, from the box at the end of [select()](07_select.qmd). The new name comes first.
+:::
+
+**9. New:** we want every death paired with every pump, so that we can measure the distance between them. `cross_join()` does this: it joins two datasets with no key, putting every row of one next to every row of the other. Do it with `deaths` and `pumps2`, and save the result as `pairs`. How many rows does it have, and why? *(7,514)*
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+`pairs <- deaths |> cross_join(pumps2)`
+:::
+
+**10.** Add a column called `distance`. The straight-line distance between two points is the square root of (the difference in x, squared, plus the difference in y, squared). In R, the square root is `sqrt()`, and "squared" is `^2`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`mutate(distance = sqrt((x - pump_x)^2 + (y - pump_y)^2))`
+:::
+
+**11.** For each death (`case`), keep only the row with the smallest distance. Save the result as `nearest`. *(578 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+You've kept the top or bottom rows of each group before, with `group_by()` and one of the `slice_` functions.
+:::
+
+**12.** Count the deaths by nearest pump, and make a bar chart: ordered, and turned so that the pump names are readable. *(Broad St: 359)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`count()`, then `reorder()` inside `aes()`, and `coord_flip()`, as in data challenge 3.
+:::
+
+**13.** Go back to the map. Add a column to `nearest` called `broad_street`, which is `TRUE` if the nearest pump is Broad Street and `FALSE` if not. Use `nearest` instead of `deaths` for the deaths layer, and colour the points by `broad_street`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`mutate(broad_street = pump == "Broad St")` gives `TRUE` or `FALSE` for each row. The colour goes inside `aes()` in the deaths layer.
+:::
+
+**14.** Make the Broad Street deaths stand out, and everything else grey or black. The legend says `TRUE` and `FALSE`, which means nothing to a reader: change the legend labels, and give the legend a title.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`scale_colour_manual()`, as on Tuesday. As well as `values`, it takes `labels`, and both can be named: `labels = c("TRUE" = "Broad Street", "FALSE" = ...)`. The legend title goes in `labs()`, under the name of the aesthetic.
+:::
+
+**15.** **Discuss:** 219 people who died lived nearer to another pump. Does that weaken Snow's argument? We measured distance in a straight line, but people walked along streets. Snow's second version of the map drew a line around the area where Broad Street was the nearest pump *on foot*. How would that change your chart? What else, apart from distance, decides which pump someone used?
+
+## Part 3: the outbreak over time
+
+The pump handle at Broad Street was removed on 8 September 1854, after Snow showed his evidence to the local parish authorities. Did that end the outbreak?
+
+**16.** Look at `dates`. The last row has no date. Think about what it means, then remove it. *(43 rows)*
+
+**17.** We want one line for `attacks` and one for `deaths`, in different colours. Get the data into the right shape. *(86 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+To map `colour` to "attacks or deaths", that has to be one column: the same reshaping you did for Minard.
+:::
+
+**18.** Draw a line chart, with the date on the x axis and a colour for attacks and for deaths.
+
+**19.** Put a break on the x axis every week, labelled like "04 Sep".
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`scale_x_date()`, from Tuesday. The codes for the day and the short month name are in [Date scales](30_date-scales.qmd).
+:::
+
+**20.** Mark the day the pump handle was removed with a vertical dashed line, and label it. To use a date as a position on the x axis, write it as `as.Date("1854-09-08")`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Two `annotate()` layers, from [Annotations](36_annotations.qmd): a `"segment"` (with `x`, `xend`, `y` and `yend`) and a `"text"`.
+:::
+
+**21.** Add a title, axis labels, a legend title and a caption with the source.
+
+**22.** **Discuss:** look at where your line for the pump handle falls. When was the outbreak at its worst? What had already happened by 8 September? Write the sentence you would put in the subtitle, and make sure the chart supports it. Is this a weakness in Snow's argument, or in the way it's usually told?
+
+**23.** **Discuss:** the table has 616 deaths in total, and the map has 578. Why might the two not match? Which number would you put in your title?
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Build a chart from several datasets, each in its own layer
+-   [ ] Use `mutate()`, `group_by()` and `slice_min()` to answer a question about the data, and show the answer on the chart
+-   [ ] Use `coord_fixed()` and `theme_void()` for a map, and know why
+-   [ ] Change the colours and legend labels of a discrete scale with `scale_colour_manual()`
+-   [ ] Use `pivot_longer()`, `scale_x_date()` and `annotate()` to make and explain a timeline

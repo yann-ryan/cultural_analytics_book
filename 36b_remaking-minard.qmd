@@ -1,0 +1,233 @@
+---
+title: "Remaking the critique charts: Minard"
+---
+
+In the critique sessions you've been looking at four famous visualisations printed on A3 sheets. In this exercise you'll make one of them yourself, with ggplot2: Charles Joseph Minard's chart of Napoleon's Russian campaign of 1812. First you'll get the data into the right shape, then build the chart, and then change its scales, legend and labels to see how each choice changes what the chart says.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Keep the Minard sheet (or the [full-size image](https://commons.wikimedia.org/wiki/File:Minard.png)) open as you go: you'll keep comparing your chart with his.
+
+**How this exercise works.** Most steps use things you have done before, and don't tell you which function to use. Try to work it out first, looking back at earlier chapters if you need to. If you're stuck, open the **Hint** under the step. Steps marked **New** use something we haven't covered: you can try to figure it out, but if you have no idea where to start, open the hint, which gives you the code. Numbers in brackets let you check your work.
+
+The chart is wide, so put `fig.width=10, fig.height=5` in the options of your chart chunks: ```` ```{r, fig.width=10, fig.height=5} ````.
+
+## The data
+
+Minard drew his chart by hand, from numbers in published histories of the campaign. The statistician Michael Friendly and others have since digitised it: they wrote down the position of each point where the band changes width or direction, with the number of soldiers Minard gives there.
+
+Copy this into the first chunk of your .Rmd and run it:
+
+``` r
+library(tidyverse)
+
+troops_wide <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/minard/minard_troops_wide.csv")
+cities      <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/minard/minard_cities.csv")
+temperature <- read_csv("https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/minard/minard_temperature.csv")
+```
+
+`troops_wide` has one row for each point on the army's route:
+
+-   `group`: the army didn't march as one. Group 1 is the main army, which went to Moscow; groups 2 and 3 are two smaller corps that marched further north and turned back earlier.
+-   `longitude` and `latitude`: where the point is.
+-   `advance`: how many soldiers passed this point on the way to Moscow.
+-   `retreat`: how many soldiers passed it on the way back.
+
+## Part 1: getting the data into shape
+
+**1.** Look at `troops_wide`. *(49 rows)* Most rows have a number in `advance` or in `retreat`, but not both. Why? Find the rows that have a number in both columns. Where are they, on Minard's chart? *(2 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+You want the rows where `advance` is not missing *and* `retreat` is not missing. You've used `is.na()` and `!` inside `filter()` before.
+:::
+
+**2.** To draw the chart, we want to map the number of soldiers to the width of the line, and the direction (advance or retreat) to its colour. Each of those needs to be a single column, but at the moment the numbers are spread over two columns. Reshape the data so that there is one column called `direction`, holding the words `advance` or `retreat`, and one called `survivors`, holding the numbers. Save it as `troops`. *(98 rows)* Why are there exactly twice as many rows as before?
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+This is a wide dataset, like the population data in [Tidying data](19_tidying-data.qmd). You need `pivot_longer()`, with three arguments: which columns to pivot, what to call the new column of names, and what to call the new column of values.
+:::
+
+**3.** Many of the new rows have no number in `survivors`: they are the empty cells from the wide table. Remove them, and save the result as `troops` again. *(51 rows)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+The same idea as step 1, on one column.
+:::
+
+**4.** Check the data against Minard. At the left of his chart, where the band begins, he writes that 422,000 men set out. Each group starts with its largest number. Add up the starting numbers of the three groups. *(422,000)*
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+Keep only the advance. Then, for each group, find the largest number of `survivors` (`group_by()` and `summarise()` with `max()`). Then add up the result with a second `summarise()` and `sum()`.
+:::
+
+Don't sort `troops`. The rows are in the order in which the army passed each point, and the chart in the next part joins them up in that order.
+
+## Part 2: building the chart
+
+**5. New:** to draw the route, use `geom_path()`. It is like `geom_line()`, but it joins the points in the order they appear in the data, instead of from left to right. Draw `troops` with `geom_path()`: longitude on the x axis, latitude on the y axis, the number of soldiers as the width of the line (the aesthetic is called `linewidth`), and the direction as its colour. You'll need one line for each of the three groups. Add `lineend = "round"` to `geom_path()` (outside `aes()`) to smooth the joins.
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+``` r
+ggplot(troops) +
+  geom_path(aes(x = longitude, y = latitude, group = group,
+                linewidth = survivors, colour = direction),
+            lineend = "round")
+```
+
+`group = group` tells ggplot to draw a separate line for each value of the `group` column.
+:::
+
+**6.** Add the city names from `cities` as a text layer. This layer uses a different dataset from the rest of the chart.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`geom_text()`, with `data = cities` inside the layer, and `label` inside `aes()`. Make the text smaller with `size`, outside `aes()`.
+:::
+
+**7.** Compare your chart with Minard's. Can you find Moscow, and the point where the main army crossed back over the Berezina river (near Studienska)? What is the same, and what is different?
+
+**8.** Try changing `geom_path()` to `geom_line()`. What goes wrong, and why? Change it back.
+
+**9.** Save your chart as `minard_plot`, so that you can add layers to it in the next parts.
+
+## Part 3: scales
+
+Every aesthetic in the chart has a scale: `x`, `y`, `linewidth` and `colour`. ggplot has chosen all four for you. In this part you change them, one at a time, starting each time from `minard_plot`.
+
+### Line width
+
+In the data, the widest part of the line stands for 340,000 men, and the thinnest for 4,000: the thick line should be 85 times as wide as the thin one.
+
+**10.** Look at your chart. Is it? By default, ggplot maps the smallest number in the data to a width of 1 and the largest to a width of 6, whatever the numbers are.
+
+**11.** The scale for line width is `scale_linewidth()`. Like `scale_size()`, it has a `range` argument, which sets the thinnest and thickest line. Make the range wider. What changes, and what stays the same?
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`range` takes two numbers, the thinnest and the thickest: `range = c(1, 20)`.
+:::
+
+**12.** Make the width of the line proportional to the number of soldiers, so that 0 soldiers would be a line of width 0. You need two arguments in `scale_linewidth()`. Pick a thickest line that looks right to you.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`limits` says which numbers in the data the scale covers, and `range` what they become on the chart. The bottom of both should be 0, and the top of the limits should be the largest number in the data.
+:::
+
+**13.** **Discuss:** in the proportional version, the retreat almost disappears. Is that more honest, or less readable? Which version is closer to Minard's? (His note at the top says that one millimetre of width stands for 10,000 men.) Think back to Tuesday: why did we say that bar charts should start at 0, and what does `scale_size_area()` do?
+
+### The legend
+
+**14.** The legend for the line width uses numbers like `1e+05`. That's how R writes 100,000 when a number is large. Choose which numbers appear in the legend (50,000, 100,000, 200,000 and 300,000 would work).
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+The same argument that chose the ticks on an axis on Tuesday, in `scale_linewidth()`.
+:::
+
+**15. New:** to write the numbers with commas, add `labels = scales::label_comma()` to the same scale. `scales` is a package that comes with ggplot2; `::` means "the function `label_comma()` from the package `scales`", so you don't need to load it.
+
+**16.** The thick keys in the legend may overlap. Make each key wider and taller. You changed how a colour bar was drawn on Tuesday: this is the same function, with a different guide.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`guides(linewidth = guide_legend(keywidth = unit(2, "cm"), keyheight = unit(1, "cm")))`. Change the numbers until the keys don't overlap.
+:::
+
+### Colour
+
+**17.** `direction` is a categorical variable, so ggplot has given it a qualitative palette. Make the advance tan and the retreat black, as in Minard's chart. R knows both colour names.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+You made your own colours for categories on Tuesday, with `scale_colour_manual()`. You can name which colour goes with which category: `values = c(advance = ..., retreat = ...)`.
+:::
+
+**18.** **Discuss:** why do you think Minard chose these two colours? Would you keep them?
+
+### Position
+
+**19. New:** `x` and `y` are longitude and latitude, so the chart is also a rough map. Add `coord_quickmap()`, which makes a kilometre east-west and a kilometre north-south the same length on the screen, like a map. What happens to the shape of the chart? Compare it with Minard's: was he drawing a map? (We'll come back to this in the maps weeks.)
+
+## Part 4: titles, labels and guides
+
+Put together your favourite versions of the scales from Part 3, and finish the chart.
+
+**20.** Add a title, a subtitle, and a caption that says where the data comes from: Minard (1869), digitised by Michael Friendly.
+
+**21.** The axes are labelled `longitude` and `latitude`, and the legend `survivors`. Change them, or remove the axis titles altogether. Do readers need them?
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+All of these are in `labs()`. Setting an axis title to `NULL` removes it.
+:::
+
+**22.** You have a legend for colour that says "advance" and "retreat". Minard's chart has no legend: he explains the colours in the text at the top. Remove the colour legend only, keep the one for line width, and explain the colours in your subtitle instead. Which do you prefer?
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`legend.position = "none"` would remove *all* the legends. To remove just one, use `guides()`, and set that aesthetic to `"none"`. If you already have a `guides()` from step 16, put both inside the same one, separated by a comma.
+:::
+
+**23.** Try a preset theme that removes the grey background, and move the legend to the bottom.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+[Chart Themes](35_themes.qmd) lists the presets, for example `theme_minimal()`. The legend's position is changed inside `theme()`.
+:::
+
+**24.** Add one label from Minard's chart: "422,000" where the main army sets out (longitude 24, latitude 55).
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+A label that doesn't come from the data: see [Annotations](36_annotations.qmd).
+:::
+
+**25.** **Discuss:** put your chart next to Minard's. List three choices he made that you had to make again in code (a scale, a colour, a label...). Which of your choices changes the message of the chart the most?
+
+## Part 5: temperature (if you have time)
+
+Under the map, Minard draws the temperature on the way back. The `temperature` dataset has the same numbers.
+
+**26.** Minard gives temperatures in degrees Réaumur, a scale used in France at the time, in which water freezes at 0 and boils at 80. To turn Réaumur into Celsius, multiply by 1.25. Add a column `temp_celsius`. What was the coldest temperature, and on what date? *(−37.5°C, 6 December)*
+
+**27.** Make a line chart of the temperature, with points, and with longitude on the x axis.
+
+**28.** Give your temperature chart and your troops chart the same x axis limits, so that each longitude is in the same place on both. Knit your file: do the two charts line up, one above the other? What else gets in the way? Why did Minard put the temperature *under* the map, with the same x axis?
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`scale_x_continuous(limits = ...)` on both charts, with the same two numbers: the data goes from about 23.5 to 38. A legend at the side, or `coord_quickmap()`, changes the width of the plotting area.
+:::
+
+**29. New:** label each point with its temperature and date, like `-37.5°C Dec06`. First make a `label` column. `str_c()` joins pieces of text together: `str_c(temp_celsius, "°C ", date)`. Then add a text layer that uses it. One label is missing. Why?
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Use `pivot_longer()` and `filter()` to get a wide dataset ready for a chart
+-   [ ] Check a dataset against its source with `group_by()` and `summarise()`
+-   [ ] Change the range, limits, breaks and labels of a scale, and explain how each choice affects the chart
+-   [ ] Change a legend with `guides()`, or remove it
+-   [ ] Add titles, a caption with the data source, and axis and legend labels with `labs()`

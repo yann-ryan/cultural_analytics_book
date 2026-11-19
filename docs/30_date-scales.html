@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-height":5,"output":"true","autorun":"true","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-1","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"setup","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())"},{"id":2,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-2","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))"},{"id":3,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-3","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")"},{"id":4,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-4","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')"},{"id":5,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-5","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":""},{"id":6,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-6","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")"},{"id":7,"options":{"fig-height":5,"output":"true","autorun":"false","comment":"","editor-font-scale":"1","results":"markup","classes":"","out-height":"","label":"unnamed-chunk-7","fig-cap":"","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","out-width":"700px","fig-width":7,"context":"interactive","dpi":72,"read-only":"false","warning":"true","message":"true"},"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-1","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"true","results":"markup","classes":"","editor-max-height":"","context":"setup","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":1,"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())"},{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-2","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"false","results":"markup","classes":"","editor-max-height":"","context":"interactive","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":2,"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))"},{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-3","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"false","results":"markup","classes":"","editor-max-height":"","context":"interactive","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":3,"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")"},{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-4","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"false","results":"markup","classes":"","editor-max-height":"","context":"interactive","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":4,"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')"},{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-5","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"false","results":"markup","classes":"","editor-max-height":"","context":"interactive","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":5,"code":""},{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-6","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"false","results":"markup","classes":"","editor-max-height":"","context":"interactive","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":6,"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")"},{"options":{"editor-font-scale":"1","editor-word-wrap":"true","warning":"true","read-only":"false","label":"unnamed-chunk-7","editor-quick-suggestions":"false","comment":"","output":"true","out-height":"","dpi":72,"autorun":"false","results":"markup","classes":"","editor-max-height":"","context":"interactive","out-width":"700px","fig-height":5,"fig-width":7,"message":"true","fig-cap":""},"id":7,"code":""}];
 
 </script>
 <script type="module">
@@ -1973,8 +1973,32 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./36b_remaking-minard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Minard</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36c_remaking-snow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Snow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36d_remaking-du-bois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Du Bois (challenge)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36e_remaking-du-bois-raw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Remaking the critique charts: Du Bois, from raw data (synthetic)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./36a_data-visualisation-3-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">Practice exercises: titles, themes, and annotations</span></span></a>
   </div>
 </li>
       </ul>
@@ -1991,31 +2015,31 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37a_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Ethics and data visualisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./37_fair-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./38_accessibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./39_tidytuesday-challenge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title">TidyTuesday visualisation challenge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_at-home-7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>

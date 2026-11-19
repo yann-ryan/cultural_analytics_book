@@ -1,0 +1,196 @@
+---
+title: "Remaking the critique charts: Du Bois (challenge)"
+---
+
+In Part 1 you'll recreate W.E.B. Du Bois's spiral chart of household furniture. In Part 2 you'll go beyond the chart on your sheet: Du Bois and his students made several charts about the property owned by Black Georgians, and you'll combine the data from four of them into one dataset. In Part 3 you'll decide how to chart it: in Du Bois's style, in a plainer one, or both.
+
+Do it in R-Studio, in your `cultural_analytics` project, in a new .Rmd file. Keep the Du Bois sheet (or the [full-size image](https://commons.wikimedia.org/wiki/File:The_Georgia_Negro_LCCN2013650445.jpg)) open as you go.
+
+**How this exercise works.** Most steps use things you have done before, and don't tell you which function to use. Try to work it out first, looking back at earlier chapters if you need to. If you're stuck, open the **Hint** under the step. Steps marked **New** use something we haven't covered: you can try to figure it out, but if you have no idea where to start, open the hint, which gives you the code. Numbers in brackets let you check your work. Get as far as you can.
+
+**A note on language.** The charts use the words of 1900, including "Negro", which was then the standard term, and which Du Bois himself used. We keep the original titles when we quote them; in your own titles and text, use present-day language, such as "Black Georgians".
+
+## The data
+
+The charts were made by Du Bois and students at Atlanta University for the 1900 Paris Exposition, from the tax records of the state of Georgia. The numbers below were transcribed from the charts by Anthony Starks for the [Du Bois Visualization Challenge](https://github.com/ajstarks/dubois-data-portraits), and are given exactly as he published them, problems included. Some of them are written on the charts; others had to be measured off the drawing.
+
+Copy this into the first chunk of your .Rmd and run it:
+
+``` r
+library(tidyverse)
+
+base_url <- "https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/data/dubois/"
+
+furniture    <- read_csv(str_c(base_url, "furniture.csv"))
+land         <- read_csv(str_c(base_url, "land.csv"))
+town         <- read_csv(str_c(base_url, "town_property.csv"))
+all_property <- read_csv(str_c(base_url, "all_property.csv"))
+```
+
+-   `furniture`: the assessed value of household and kitchen furniture (the chart on your sheet).
+-   `land`: the assessed value of land.
+-   `town`: the assessed value of town and city property.
+-   `all_property`: the assessed value of all taxable property.
+
+All values are in dollars, and all are for property owned by Black Georgians.
+
+## Part 1: the furniture spiral
+
+**1.** Look at `furniture`. The column names are awkward to type (and one is misspelt). Change them to `year` and `value`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`rename()`, from the box at the end of [select()](07_select.qmd). A column name with spaces or brackets has to go between backticks: `` `Houshold Value (Dollars)` ``.
+:::
+
+**2.** Make an ordinary bar chart of the value in each year.
+
+**3. New:** `factor()` turns a number into categories. Make the same bar chart with `x = factor(year)`. What changes on the x axis? (Think about continuous and discrete scales.) Each year needs to be a separate category for the next step.
+
+**4. New:** Du Bois drew each year as an arc. In ggplot, you can bend a bar chart around a circle with `coord_radial()`. It has an argument `theta`, the angle, which says which axis is bent around the circle: `"x"` or `"y"`. Try both. Which gives Du Bois's arcs? Colour each year differently.
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+``` r
+furniture |>
+  ggplot(aes(x = factor(year), y = value, fill = factor(year))) +
+  geom_col(width = 0.5) +
+  coord_radial(theta = "y", inner.radius = 0.2, expand = FALSE)
+```
+
+`inner.radius` leaves a hole in the middle, and `expand = FALSE` removes the gap around the edge. If you get an error that `coord_radial` doesn't exist, your ggplot2 is older than version 3.5: use `coord_polar(theta = "y")`, or update ggplot2.
+:::
+
+**5.** Compare your rings with Du Bois's. Which year is on the outside in his chart, and which in yours? Put the rings in his order.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+The years are a discrete scale on x (bent into rings). `scale_x_discrete()` has a `limits` argument which sets the order of the categories, and `limits = rev` reverses it.
+:::
+
+**6.** By default, the biggest value goes exactly once round the circle. Du Bois's arcs don't: the longest ones go more than once round, spiralling inwards. One full circle on his chart is about 900,000 dollars. Set the scale for the values so that a full circle is 900,000. What happens to the three biggest years, and why? A ring can't go round more than once, so pick a scale that keeps all six years and looks closest to Du Bois.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+The values are on y, so you need the `limits` of the y scale. Read the warning, and think back to what limits did to the bars on Tuesday.
+:::
+
+**7.** **Discuss:** an arc on the outside of the circle is longer than an arc on the inside, even for the same value. Du Bois put the smallest year, 1875, on the outside. Try it the other way round: which years look biggest now? Why do you think Du Bois chose his order?
+
+**8.** Look at 1875 and 1880. The value rose from 21,186 dollars to 498,532 in five years, more than 23 times as much. Is that likely? What else could explain it? Du Bois's chart shows the number as it is: would you?
+
+### Du Bois's style
+
+Starks has made a [guide to Du Bois's style](https://github.com/ajstarks/dubois-data-portraits/blob/master/dubois-style.pdf): a parchment background, flat bold colours, capital letters, and labels written on the chart instead of axes and legends. Make your chart look as much like Du Bois's as you can.
+
+**9.** Colour each year as on Du Bois's chart, picking from these colours, which are close to the ones he used: `"#ffc0cb"` (pink), `"#4682b4"` (blue), `"#a08a70"` (grey-brown), `"#ffd700"` (gold), `"#d2b48c"` (tan), `"#dc143c"` (crimson). For Part 3 there are also `"#00aa00"` (green), `"#654321"` (brown) and `"#000000"` (black).
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+A fill scale where you give the colours yourself, one for each category, in order.
+:::
+
+**10.** Remove the legend, the axes and the grey background.
+
+**11.** Make the background of the whole chart parchment-coloured, `"#e6d2bc"`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+The background of the whole chart is the theme element `plot.background`, and a background is a rectangle, so it needs `element_rect()`: see [Chart Themes](35_themes.qmd). Set its `fill`, and `colour = NA` to remove its border.
+:::
+
+**12.** Du Bois writes the year and the value at the start of each arc. Make a `label` column that joins the two, like `1880  $ 498,532`, and add it to the chart as text, at the start of each arc and just to the left of it.
+
+::: {.callout-tip collapse="true"}
+## Hint (new)
+
+Two new functions for the label: `str_c()` joins pieces of text, and `format(value, big.mark = ",")` writes a number with commas. Together: `str_c(year, "  $", format(value, big.mark = ","))`.
+
+For the text layer: the start of each arc is where the value is 0, so put the text at `y = 0` (inside `aes()`). `hjust` moves the text sideways: a value just over 1, such as `hjust = 1.05`, puts the end of the text just before that point.
+:::
+
+**13.** Add Du Bois's title, in capitals, centred.
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+`plot.title` is a text element; `hjust = 0.5` puts it in the middle.
+:::
+
+## Part 2: four charts, one dataset
+
+The furniture was only one kind of property. What share of everything Black Georgians owned was land, town property and furniture, and did that change? To answer, you need the four datasets in one table, with one row per year and one column for each kind of property:
+
+| year | total | land | town | furniture |
+|------|-------|------|------|-----------|
+| 1875 | ...   | ...  | ...  | ...       |
+
+There's no step-by-step here: plan first. Look at each of the four datasets, and write down:
+
+-   what the year column is called, and what the value column is called
+-   how many rows there are, and which years they cover
+-   anything else that looks wrong
+
+You should find at least two problems, in addition to the column names. Then decide how to fix each one, and how to put the four datasets together. Check your result: *(6 rows, 5 columns; total in 1880: 5,764,293)*
+
+::: {.callout-tip collapse="true"}
+## Hint 1: the problems
+
+Count the rows of `all_property`, and look at the years. Then compare the years in `town` with the years in the others.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2: the functions
+
+`rename()` for the names, `distinct()` to remove a row that is an exact copy of another, and a join to put them together. Which join, starting from which dataset, keeps only the years in `all_property`?
+:::
+
+Then:
+
+**14.** The four kinds don't add up to the total: the rest is everything else that was taxed, such as livestock, tools and money. Add a column called `other` for the rest. *(1899: 3,492,328)*
+
+**15.** Get the data ready to chart the four kinds of property (`land`, `town`, `furniture`, `other`) with a different colour for each: one column called `kind`, and one called `value`. *(24 rows)*
+
+**16.** Add a column `share`: each value as a percentage of the total for that year. What share of all property was furniture in 1875, and in 1899? *(0.4% and 10.7%)*
+
+**17.** **Discuss:** calculating `other` assumes that the four kinds of property don't overlap, and that all four datasets measure the same thing in the same way. How could you check? And how precise are the numbers in `town`? (Look at how they end.)
+
+## Part 3: charting it
+
+Make two charts from your long dataset, and decide which one works better.
+
+**18.** **In Du Bois's style:** adapt your spiral from Part 1, with one ring per year and the four kinds of property in different colours along each ring. Give each kind a colour from Du Bois's palette.
+
+**19.** **In a plain style:** a stacked bar chart, with one bar per year, the kinds of property in different colours, and the y axis labelled in dollars. Then make a version where every bar is the same height. What question does each version answer?
+
+::: {.callout-tip collapse="true"}
+## Hint
+
+For dollars: `scale_y_continuous(labels = scales::label_dollar())` (new: `scales::` means "from the package `scales`", which comes with ggplot2). For bars of the same height, you used a `position` in `geom_col()` in week 3.
+:::
+
+**20.** Give both charts a title, a subtitle that says what the reader should see, and a caption with the sources: Du Bois and Atlanta University (1900), transcribed by Anthony Starks.
+
+**21.** **Discuss:** which chart answers the question at the start of Part 2 better? What does the spiral do that the bar chart doesn't? Du Bois was making these charts for visitors to an exhibition in Paris, to show the progress made by Black Americans since the end of slavery. Does that change which style you would choose?
+
+## Bonus
+
+`acres.csv` has the number of acres of land owned by Black Georgians, from another of Du Bois's charts. Read it in, and calculate the average value of an acre of land in each year that you have both numbers for. Did the land get more valuable, or did people own more of it? *(1875: about 3.19 dollars an acre; 1899: about 3.97)*
+
+## Learning Objectives
+
+Before moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!
+
+(the checkboxes are just for your own use, they won't save if you leave or refresh the page)
+
+-   [ ] Check, clean and join several small datasets into one
+-   [ ] Use `pivot_longer()` and `mutate()` to prepare data for a chart
+-   [ ] Explain when a number should be a category (`factor()`), and what that does to a scale
+-   [ ] Use a coordinate system (`coord_radial()`) to change the shape of a chart, and explain what it does to the reader's perception
+-   [ ] Use scales, guides and themes to copy a historical style, and judge when that style helps
