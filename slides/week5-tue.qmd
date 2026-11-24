@@ -321,15 +321,23 @@ Chapter 54
 Sequential scales are affected least because they vary in lightness. The default ggplot blue gradient is hard for low vision: viridis is better. The chapter's map example is the 2020 US election, with red-blue diverging, which is fine for red-green CVD but the chapter asks how to improve it.
 :::
 
-## Colour scales {.try-it}
+## Colour scales: sequential {.try-it}
 
-Make both charts colour-blind safe
+Make this chart colour-blind safe: body mass is an ordered number
 
 ```{webr-r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,
                      colour = body_mass_g)) +
   geom_point(size = 3)
 ```
+
+::: notes
++ scale_colour_viridis_c(), or scale_colour_gradient(low = "lightyellow", high = "darkblue"). The warnings about removed rows are the two penguins with missing measurements.
+:::
+
+## Colour scales: qualitative {.try-it}
+
+Make this chart colour-blind safe: species is a category
 
 ```{webr-r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,
@@ -338,38 +346,64 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,
 ```
 
 ::: notes
-First: + scale_colour_viridis_c(), or scale_colour_gradient(low = "lightyellow", high = "darkblue"). Second: + scale_colour_brewer(palette = "Dark2"). Better still for the second: don't rely on colour alone, add shape = species in aes(), or label the groups directly. The warnings about removed rows are the two penguins with missing measurements.
++ scale_colour_brewer(palette = "Dark2"), or "Set2" or "Paired". Better still: don't rely on colour alone, add shape = species in aes(), or label the groups directly.
 :::
 
-## Contrast and alt text
+## Contrast
 
-::: columns
-::: {.column width="45%"}
-**Contrast** against white:
-
--   pure blue 8.6 : 1
--   pure red 4 : 1
--   pure green 1.4 : 1
-
-Large text, sans serif, dark text, coloured text only when needed
-:::
-
-::: {.column width="55%"}
-**Alt text**: chart type, the data, and what it shows
-
-```{{r}}
-#| fig.alt: "Scatter plot of bill length
-#|   against flipper length for 342 penguins.
-#|   Gentoo penguins have the longest
-#|   flippers."
+```{webr-r}
+#| fig-height: 3.6
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,
+                     colour = species)) +
+  geom_point(size = 3) +
+  scale_colour_manual(values = c("yellow", "pink", "lightblue")) +
+  theme_bw()
 ```
 
-or `{r, fig.alt = "..."}`
-:::
+::: small
+Contrast against white: yellow 1.1 : 1 · pink 1.5 : 1 · light blue 1.5 : 1 · pure red 4 : 1 · pure blue 8.6 : 1 · aim for at least **3 : 1** for points, lines and bars
 :::
 
 ::: notes
-The template from the chapter: chart type, type of data, reason for including it; the source goes in the surrounding text, not the alt text. In R Markdown both forms work: the chunk header {r, fig.alt = "..."} is the one the chapter's screenshot shows. Ask for a one-sentence alt text for the species chart, then go into the critique round, which asks each group to write one for their sheet.
+Pastel colours on a white background: everyone struggles, and anyone with low vision, a bad projector or a phone in sunlight can't read it at all. Contrast is the difference in luminance between two colours, from 1:1 (identical) to 21:1 (black on white). The 3:1 guideline for graphical elements is from the web accessibility guidelines (WCAG 2.1); text needs 4.5:1. Ratios on the slide were calculated with the WCAG formula. Ask the room which species is which before running it; then project it and ask the back row.
+:::
+
+## Contrast: safe is not always readable {.try-it}
+
+```{webr-r}
+#| fig-height: 3.6
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,
+                     colour = species)) +
+  geom_point(size = 3) +
+  scale_colour_brewer(palette = "Set2") +
+  theme_bw()
+```
+
+::: predict
+Set2 is colour-blind safe, but its colours are only 2.1-2.6 : 1 against white. Change it to `"Dark2"` (3.4-4.4 : 1). Which is easier to read? What else could you change?
+:::
+
+::: notes
+Both Set2 and Dark2 are on the chapter's list of colour-blind safe palettes: telling the colours apart from each other is a different question from telling them apart from the background. Other fixes: bigger points (size = 4), a darker outline (shape = 21 with fill = species and colour = "black"), shape = species as well as colour, or a light grey background (theme_grey(): but pale colours do even worse on grey, about 1.3:1 for pink). The same goes for text: dark grey or black for labels and annotations, coloured text only when it's needed, and check it with the WebAIM contrast checker.
+:::
+
+## Alt text
+
+**Chart type**, the **data**, and **what it shows**. The source goes in the text around it
+
+```{{r}}
+#| fig.alt: "Scatter plot of bill length against flipper length
+#|   for 342 penguins. Gentoo penguins have the longest flippers."
+```
+
+or in the chunk header: `{r, fig.alt = "..."}`
+
+::: predict
+Write one sentence of alt text for the penguin chart on the last slide
+:::
+
+::: notes
+The template from the chapter: chart type, type of data, reason for including it; the source goes in the surrounding text, not the alt text. In R Markdown both forms work: the chunk header {r, fig.alt = "..."} is the one the chapter's screenshot shows. Then go into the critique round, which asks each group to write one for their sheet.
 :::
 
 # Critique round 3 {.section-break}

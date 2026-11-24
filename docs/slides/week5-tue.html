@@ -674,7 +674,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\noptions(width = 80, pillar.print_min = 8, pillar.print_max = 8)\ntheme_set(theme_grey(base_size = 16))\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\ntitanic_df <- read_csv(\"titanic_df.csv\", show_col_types = FALSE)\n\npaintings <- tibble(\n  title = c(\"The Anatomy Lesson\", \"The Night Watch\", \"The Goldfinch\",\n            \"The Milkmaid\", \"View of Delft\", \"Girl with a Pearl Earring\",\n            \"The Jewish Bride\"),\n  artist = c(\"Rembrandt\", \"Rembrandt\", \"Fabritius\", \"Vermeer\", \"Vermeer\",\n             \"Vermeer\", \"Rembrandt\"),\n  year = c(1632, 1642, 1654, 1658, 1661, 1665, 1665),\n  museum = c(\"Mauritshuis\", \"Rijksmuseum\", \"Mauritshuis\", \"Rijksmuseum\",\n             \"Mauritshuis\", \"Mauritshuis\", \"Rijksmuseum\"),\n  width_cm = c(217, 454, 23, 41, 118, 39, 167)\n)\n\nartists <- tibble(\n  artist = c(\"Rembrandt\", \"Vermeer\"),\n  born = c(1606, 1632)\n)","options":{"comment":"","context":"setup","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-1","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"true","output":"true","out-height":"","warning":"true"}},{"id":2,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-2","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":3,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-3","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":4,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-4","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":5,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), no_cabin = ___)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-5","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":6,"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = body_mass_g)) +\n  geom_point(size = 3)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-6","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":7,"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = species)) +\n  geom_point(size = 3)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-7","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":8,"code":"paintings","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-8","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":9,"code":"artists","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-9","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":10,"code":"paintings |>\n  group_by(museum) |>\n  summarise(n = n(), widest = max(width_cm))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-10","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":11,"code":"paintings |>\n  inner_join(artists, by = \"artist\") |>\n  mutate(age = year - born)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-11","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":12,"code":"ggplot(paintings, aes(x = artist)) +\n  geom_bar()","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-12","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":13,"code":"ggplot(paintings, aes(x = title, y = width_cm, fill = title)) +\n  geom_col() +\n  coord_cartesian(ylim = c(20, 460), expand = FALSE)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-13","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\noptions(width = 80, pillar.print_min = 8, pillar.print_max = 8)\ntheme_set(theme_grey(base_size = 16))\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\ntitanic_df <- read_csv(\"titanic_df.csv\", show_col_types = FALSE)\n\npaintings <- tibble(\n  title = c(\"The Anatomy Lesson\", \"The Night Watch\", \"The Goldfinch\",\n            \"The Milkmaid\", \"View of Delft\", \"Girl with a Pearl Earring\",\n            \"The Jewish Bride\"),\n  artist = c(\"Rembrandt\", \"Rembrandt\", \"Fabritius\", \"Vermeer\", \"Vermeer\",\n             \"Vermeer\", \"Rembrandt\"),\n  year = c(1632, 1642, 1654, 1658, 1661, 1665, 1665),\n  museum = c(\"Mauritshuis\", \"Rijksmuseum\", \"Mauritshuis\", \"Rijksmuseum\",\n             \"Mauritshuis\", \"Mauritshuis\", \"Rijksmuseum\"),\n  width_cm = c(217, 454, 23, 41, 118, 39, 167)\n)\n\nartists <- tibble(\n  artist = c(\"Rembrandt\", \"Vermeer\"),\n  born = c(1606, 1632)\n)","id":1,"options":{"dpi":72,"context":"setup","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-1","autorun":"true","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))","id":2,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-2","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))","id":3,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-3","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))","id":4,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-4","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), no_cabin = ___)","id":5,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-5","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = body_mass_g)) +\n  geom_point(size = 3)","id":6,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-6","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = species)) +\n  geom_point(size = 3)","id":7,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-7","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = species)) +\n  geom_point(size = 3) +\n  scale_colour_manual(values = c(\"yellow\", \"pink\", \"lightblue\")) +\n  theme_bw()","id":8,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-8","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"3.6","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = species)) +\n  geom_point(size = 3) +\n  scale_colour_brewer(palette = \"Set2\") +\n  theme_bw()","id":9,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-9","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"3.6","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"paintings","id":10,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-10","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"artists","id":11,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-11","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"paintings |>\n  group_by(museum) |>\n  summarise(n = n(), widest = max(width_cm))","id":12,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-12","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"paintings |>\n  inner_join(artists, by = \"artist\") |>\n  mutate(age = year - born)","id":13,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-13","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"ggplot(paintings, aes(x = artist)) +\n  geom_bar()","id":14,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-14","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}},{"code":"ggplot(paintings, aes(x = title, y = width_cm, fill = title)) +\n  geom_col() +\n  coord_cartesian(ylim = c(20, 460), expand = FALSE)","id":15,"options":{"dpi":72,"context":"interactive","editor-font-scale":"0.8","warning":"true","fig-cap":"","comment":"","label":"unnamed-chunk-15","autorun":"false","output":"true","fig-width":"11","classes":"","results":"markup","out-height":"","message":"true","out-width":"700px","editor-max-height":"","read-only":"false","fig-height":"4.5","editor-quick-suggestions":"false","editor-word-wrap":"true"}}];
 
   </script>
   <script type="module">
@@ -2588,15 +2588,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           display:block!important;
       }</style></aside>
 </section>
-<section id="colour-scales" class="slide level2 try-it">
-<h2>Colour scales</h2>
-<p>Make both charts colour-blind safe</p>
+<section id="colour-scales-sequential" class="slide level2 try-it">
+<h2>Colour scales: sequential</h2>
+<p>Make this chart colour-blind safe: body mass is an ordered number</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>First: + scale_colour_viridis_c(), or scale_colour_gradient(low = “lightyellow”, high = “darkblue”). Second: + scale_colour_brewer(palette = “Dark2”). Better still for the second: don’t rely on colour alone, add shape = species in aes(), or label the groups directly. The warnings about removed rows are the two penguins with missing measurements.</p>
+<ul>
+<li>scale_colour_viridis_c(), or scale_colour_gradient(low = “lightyellow”, high = “darkblue”). The warnings about removed rows are the two penguins with missing measurements.</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2609,29 +2609,82 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           display:block!important;
       }</style></aside>
 </section>
-<section id="contrast-and-alt-text" class="slide level2">
-<h2>Contrast and alt text</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p><strong>Contrast</strong> against white:</p>
-<ul>
-<li>pure blue 8.6 : 1</li>
-<li>pure red 4 : 1</li>
-<li>pure green 1.4 : 1</li>
-</ul>
-<p>Large text, sans serif, dark text, coloured text only when needed</p>
-</div><div class="column" style="width:55%;">
-<p><strong>Alt text</strong>: chart type, the data, and what it shows</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href=""></a><span class="in">#| fig.alt: "Scatter plot of bill length</span></span>
-<span id="cb1-3"><a href=""></a><span class="in">#|   against flipper length for 342 penguins.</span></span>
-<span id="cb1-4"><a href=""></a><span class="in">#|   Gentoo penguins have the longest</span></span>
-<span id="cb1-5"><a href=""></a><span class="in">#|   flippers."</span></span>
-<span id="cb1-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or <code>{r, fig.alt = "..."}</code></p>
-</div></div>
+<section id="colour-scales-qualitative" class="slide level2 try-it">
+<h2>Colour scales: qualitative</h2>
+<p>Make this chart colour-blind safe: species is a category</p>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
-<p>The template from the chapter: chart type, type of data, reason for including it; the source goes in the surrounding text, not the alt text. In R Markdown both forms work: the chunk header {r, fig.alt = “…”} is the one the chapter’s screenshot shows. Ask for a one-sentence alt text for the species chart, then go into the critique round, which asks each group to write one for their sheet.</p>
+<ul>
+<li>scale_colour_brewer(palette = “Dark2”), or “Set2” or “Paired”. Better still: don’t rely on colour alone, add shape = species in aes(), or label the groups directly.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="contrast" class="slide level2">
+<h2>Contrast</h2>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="small">
+<p>Contrast against white: yellow 1.1 : 1 · pink 1.5 : 1 · light blue 1.5 : 1 · pure red 4 : 1 · pure blue 8.6 : 1 · aim for at least <strong>3 : 1</strong> for points, lines and bars</p>
+</div>
+<aside class="notes">
+<p>Pastel colours on a white background: everyone struggles, and anyone with low vision, a bad projector or a phone in sunlight can’t read it at all. Contrast is the difference in luminance between two colours, from 1:1 (identical) to 21:1 (black on white). The 3:1 guideline for graphical elements is from the web accessibility guidelines (WCAG 2.1); text needs 4.5:1. Ratios on the slide were calculated with the WCAG formula. Ask the room which species is which before running it; then project it and ask the back row.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="contrast-safe-is-not-always-readable" class="slide level2 try-it">
+<h2>Contrast: safe is not always readable</h2>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="predict">
+<p>Set2 is colour-blind safe, but its colours are only 2.1-2.6 : 1 against white. Change it to <code>"Dark2"</code> (3.4-4.4 : 1). Which is easier to read? What else could you change?</p>
+</div>
+<aside class="notes">
+<p>Both Set2 and Dark2 are on the chapter’s list of colour-blind safe palettes: telling the colours apart from each other is a different question from telling them apart from the background. Other fixes: bigger points (size = 4), a darker outline (shape = 21 with fill = species and colour = “black”), shape = species as well as colour, or a light grey background (theme_grey(): but pale colours do even worse on grey, about 1.3:1 for pink). The same goes for text: dark grey or black for labels and annotations, coloured text only when it’s needed, and check it with the WebAIM contrast checker.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="alt-text" class="slide level2">
+<h2>Alt text</h2>
+<p><strong>Chart type</strong>, the <strong>data</strong>, and <strong>what it shows</strong>. The source goes in the text around it</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href=""></a><span class="in">#| fig.alt: "Scatter plot of bill length against flipper length</span></span>
+<span id="cb1-3"><a href=""></a><span class="in">#|   for 342 penguins. Gentoo penguins have the longest flippers."</span></span>
+<span id="cb1-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or in the chunk header: <code>{r, fig.alt = "..."}</code></p>
+<div class="predict">
+<p>Write one sentence of alt text for the penguin chart on the last slide</p>
+</div>
+<aside class="notes">
+<p>The template from the chapter: chart type, type of data, reason for including it; the source goes in the surrounding text, not the alt text. In R Markdown both forms work: the chunk header {r, fig.alt = “…”} is the one the chapter’s screenshot shows. Then go into the critique round, which asks each group to write one for their sheet.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2781,9 +2834,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="example-data" class="slide level2">
 <h2>Example data</h2>
-<div id="qwebr-insertion-location-8"></div>
+<div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div id="qwebr-insertion-location-9"></div>
+<div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <aside class="notes">
 <p>Seven Dutch seventeenth-century paintings. Years are the usual (sometimes approximate) dates, widths rounded to the nearest centimetre. Fabritius is deliberately missing from artists. The exam prints tables like these, small enough to follow every row by hand. The examples are new; the practice exam in the book uses different data, so they can still do it under time pressure at home.</p>
@@ -2802,7 +2855,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="part-a-read-the-code" class="slide level2 try-it">
 <h2>Part A: read the code</h2>
 <p>Without running it: write out the table this produces</p>
-<div id="qwebr-insertion-location-10"></div>
+<div id="qwebr-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="predict">
 <p>And: which keeps only Vermeer’s paintings after 1660? <strong>a</strong> <code>filter(artist == "Vermeer", year &gt; 1660)</code> · <strong>b</strong> <code>filter(artist == "Vermeer" | year &gt; 1660)</code> · <strong>c</strong> <code>filter(artist = "Vermeer", year &gt; 1660)</code> · <strong>d</strong> <code>filter(artist == Vermeer, year &gt; 1660)</code></p>
@@ -2824,7 +2877,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="part-a-joins" class="slide level2 try-it">
 <h2>Part A: joins</h2>
 <p>How many rows? What happens to The Goldfinch?</p>
-<div id="qwebr-insertion-location-11"></div>
+<div id="qwebr-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="predict">
 <p>And with <code>left_join()</code> instead?</p>
@@ -2846,7 +2899,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="part-b-code-and-charts" class="slide level2 try-it">
 <h2>Part B: code and charts</h2>
 <p>Describe the chart this makes, before running it</p>
-<div id="qwebr-insertion-location-12"></div>
+<div id="qwebr-insertion-location-14"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="predict">
 <p>What would you change to (1) colour the bars by museum, and (2) make every bar the same height, showing the <em>share</em> in each museum?</p>
@@ -2867,7 +2920,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="part-c-critique-a-visualisation" class="slide level2 try-it">
 <h2>Part C: critique a visualisation</h2>
-<div id="qwebr-insertion-location-13"></div>
+<div id="qwebr-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="predict">
 <p>Find <strong>four</strong> problems. For each: <strong>what</strong> it is, <strong>why</strong> it matters, <strong>how</strong> to fix it</p>
