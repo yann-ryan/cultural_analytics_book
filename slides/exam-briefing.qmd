@@ -1,0 +1,315 @@
+---
+title: "Exam briefing"
+subtitle: "Week 6 · Thu 3 Dec"
+webr:
+  packages: ['dplyr', 'ggplot2']
+  cell-options:
+    editor-font-scale: 0.8
+    fig-width: 11
+    fig-height: 4.5
+---
+
+
+## Today
+
+```{webr-r}
+#| context: setup
+
+library(dplyr)
+library(ggplot2)
+options(width = 80, pillar.print_min = 8, pillar.print_max = 8)
+theme_set(theme_grey(base_size = 16))
+
+paintings <- tibble(
+  title = c("The Anatomy Lesson", "The Night Watch", "The Goldfinch",
+            "The Milkmaid", "View of Delft", "Girl with a Pearl Earring",
+            "The Jewish Bride"),
+  artist = c("Rembrandt", "Rembrandt", "Fabritius", "Vermeer", "Vermeer",
+             "Vermeer", "Rembrandt"),
+  year = c(1632, 1642, 1654, 1658, 1661, 1665, 1665),
+  museum = c("Mauritshuis", "Rijksmuseum", "Mauritshuis", "Rijksmuseum",
+             "Mauritshuis", "Mauritshuis", "Rijksmuseum"),
+  width_cm = c(217, 454, 23, 41, 118, 39, 167)
+)
+
+artists <- tibble(
+  artist = c("Rembrandt", "Vermeer"),
+  born = c(1606, 1632)
+)
+```
+
+1.  The practical details
+2.  The four parts, with one example question each
+3.  How the answers are marked
+4.  How to prepare
+5.  Questions
+
+::: notes
+About 40 minutes, after the mapping part of the class. The setup loads dplyr and ggplot2 and builds two small tables in the browser (no download), so open the deck a minute early. The example questions are new; the practice exam in the book (Preparing for the Exam, at the end of the menu) uses different data, so students can still do it under time pressure at home. Rough timing: details 5 min, the four parts 25 (about 2-3 minutes for students to try each example), marking and preparation 5, questions 5.
+:::
+
+# The practical details {.section-break}
+
+## When, where, what
+
+::: {style="font-size: 0.85em;"}
+-   **Tuesday 5 January 2027, 13:00-15:00**, Universitair Sportcentrum, Hall 2
+-   **Resit:** Tuesday 26 January 2027, 15:00-17:00, Lipsius 1.27
+-   **Two hours**, worth **40%** of your final grade
+-   **No R.** You read and reason about code; you don't run it
+-   **A function reference sheet** is provided: you don't need to memorise function names or arguments
+-   Check **MyTimetable** for changes
+:::
+
+::: notes
+All from the book (index and Preparing for the Exam). Things to confirm before class and add here if they're settled: whether the exam is on paper or digital; whether students need to register for it themselves; the university's rules on student ID and arriving late. The reports and checkpoints have no resit, only the exam.
+:::
+
+## The reference sheet
+
+::: columns
+::: {.column width="50%"}
+**On the sheet**
+
+-   Every function from the course, with a one-line description
+-   e.g. `left_join()`: "Keeps all rows of `x`; rows with no match get `NA`"
+:::
+
+::: {.column width="50%"}
+**Not on the sheet**
+
+-   *When* to use each function
+-   What happens to the rows and columns at each step
+-   The design ideas: Gestalt, colour scales, normalising, projections
+:::
+:::
+
+::: predict
+The full sheet is in the book, in **Preparing for the Exam**. Use it when you practise, so it's familiar on the day
+:::
+
+::: notes
+The sheet is exactly the table in the exam prep chapter. Its point is to remove memorising; it doesn't help with understanding. A student who knows what group_by() does from the sheet but has never used it will still struggle with Part A.
+:::
+
+# The four parts {.section-break}
+
+## The four parts
+
+| Part | What you do | Weight | Covers | Time |
+|----|----|----|----|----|
+| A | **Read the code**: predict the output, choose the right code, find the bug | 30% | Weeks 1-2 | ~35 min |
+| B | **Code and charts**: what chart does this make; what would you change? | 20% | Weeks 3-4 | ~20 min |
+| C | **Critique a visualisation**: problems, and how to fix them | 25% | Weeks 3-6 | ~30 min |
+| D | **Plan an analysis**: a new dataset and a research question | 25% | All | ~30 min |
+
+: {tbl-colwidths="[7,55,10,13,15]" .striped}
+
+::: small
+A and B have one right answer · C and D are open: there are many good answers · the times are a suggestion, roughly in proportion to the marks
+:::
+
+::: notes
+The times add up to 115 minutes, leaving five to check. The most common way to lose marks on a two-hour exam is to spend too long on Part A and rush D, which is worth almost as much. If a Part A question isn't working out, move on and come back.
+:::
+
+## The data for the examples
+
+```{webr-r}
+paintings
+```
+
+```{webr-r}
+artists
+```
+
+::: notes
+Seven Dutch seventeenth-century paintings in the two big Dutch collections. Years are the usual (sometimes approximate) dates, widths rounded to the nearest centimetre. Fabritius is deliberately missing from artists. The exam gives tables like these printed out, at about this size, so you can follow every row by hand.
+:::
+
+## Part A: predict the output {.try-it}
+
+Without running it: write out the table this produces
+
+```{webr-r}
+paintings |>
+  group_by(museum) |>
+  summarise(n = n(), widest = max(width_cm))
+```
+
+::: predict
+How many rows? Which columns? In what order? Then run it to check
+:::
+
+::: notes
+Two rows, one per museum, and three columns: museum, n, widest. Mauritshuis n = 4, widest 217 (The Anatomy Lesson); Rijksmuseum n = 3, widest 454 (The Night Watch). Mauritshuis comes first because grouped output is sorted alphabetically. The method to show: write down what each line does to the table. group_by() changes nothing you can see; summarise() makes one row per group and keeps only the grouping column plus the new ones.
+:::
+
+## Part A: choose the code {.try-it}
+
+Which of these keeps only Vermeer's paintings made after 1660?
+
+```{webr-r}
+# a
+paintings |> filter(artist == "Vermeer", year > 1660)
+# b
+# paintings |> filter(artist == "Vermeer" | year > 1660)
+# c
+# paintings |> filter(artist = "Vermeer", year > 1660)
+# d
+# paintings |> filter(artist == Vermeer, year > 1660)
+```
+
+::: predict
+For each wrong one: what does it do instead?
+:::
+
+::: notes
+a: two rows (View of Delft 1661, Girl with a Pearl Earring 1665). A comma means and. b: | means or, so four rows: every Vermeer (including The Milkmaid, 1658) plus every painting after 1660 (including The Jewish Bride, a Rembrandt). c: a single = gives an error, and dplyr says what happened: "This usually means that you've used `=` instead of `==`". d: without quotation marks, R looks for an object called Vermeer: "object 'Vermeer' not found". Remove the # to run each one. A good exam answer to "what goes wrong" names the result, not only "it's wrong".
+:::
+
+## Part A: joins {.try-it}
+
+How many rows does this produce? What happens to The Goldfinch?
+
+```{webr-r}
+paintings |>
+  inner_join(artists, by = "artist") |>
+  mutate(age = year - born)
+```
+
+::: predict
+And with `left_join()` instead?
+:::
+
+::: notes
+inner_join keeps only rows with a match in both tables: Fabritius isn't in artists, so The Goldfinch disappears and there are 6 rows. With left_join, all 7 rows of paintings stay, and The Goldfinch gets NA for born and so NA for age. The rest are each artist's age when the painting was made, e.g. 26 for Rembrandt and The Anatomy Lesson. Joins and missing values come up every year in Part A, and again in Part D.
+:::
+
+## Part B: code and charts {.try-it}
+
+Describe the chart this makes, before running it
+
+```{webr-r}
+ggplot(paintings, aes(x = artist)) +
+  geom_bar()
+```
+
+::: predict
+Then: what would you change to (1) colour the bars by museum, and (2) make every bar the same height, showing the *share* in each museum?
+:::
+
+::: notes
+A bar chart with three bars, one per artist, with the height being the number of rows: Fabritius 1, Rembrandt 3, Vermeer 3. geom_bar() counts rows itself; geom_col() would need a y. (1) aes(x = artist, fill = museum): fill, not colour, for bars (colour is only the outline). Inside aes(), because it comes from a column. (2) geom_bar(position = "fill"): each bar stacked to 1, so the y axis is now a proportion and should be relabelled. Students can edit the cell to check both.
+:::
+
+## Part C: critique a visualisation {.try-it}
+
+```{webr-r}
+ggplot(paintings, aes(x = title, y = width_cm, fill = title)) +
+  geom_col() +
+  coord_cartesian(ylim = c(20, 460), expand = FALSE)
+```
+
+::: predict
+Find **four** problems. For each: why is it a problem, and how would you fix it?
+:::
+
+::: notes
+A model answer: (1) The y axis starts at 20, not 0: bars encode values by length, so this exaggerates the differences (The Goldfinch nearly disappears). Remove the coord_cartesian(). (2) The fill repeats the x axis: seven colours that carry no information, and a legend that says nothing new. Remove fill, or use colour to highlight one painting (or the artist). (3) The titles overlap and are hard to read: put the titles on the y axis (aes(x = width_cm, y = title)), and order the bars by width (reorder()) rather than alphabetically. (4) Labels are column names (width_cm, title) and there's no title or source: labs() with 'Width (cm)', a title that says the finding, and a caption. Also fine: what question is this chart answering, and is width the right measure of size (area would use height too)?
+:::
+
+## How to answer a Part C question
+
+For each problem, write three things:
+
+1.  **What** the problem is: "the y axis starts at 20"
+2.  **Why** it matters, using the course's ideas: "bars are read by their length, so the differences look bigger than they are"
+3.  **How** to fix it: "start the axis at zero"
+
+::: predict
+"The colours are bad" earns very little. "The colours repeat the x axis and carry no information, so they should go" earns the marks
+:::
+
+::: notes
+The vocabulary is from the Gestalt, scales, colour, accessibility and ethics chapters: proximity, similarity, sequential/diverging/qualitative palettes, truncated axes, normalisation, colour-blindness, contrast, alt text. Students don't need code for the fixes in Part C, but naming the function (labs(), facet_wrap(), scale_fill_viridis_d()) is a precise way of saying what you'd do.
+:::
+
+## Part D: plan an analysis
+
+A dataset of **letters** from a seventeenth-century correspondence network. One row per letter:
+
+`sender` · `recipient` · `sender_place` · `recipient_place` · `date` · `language`
+
+::: predict
+**Question:** how did the geography of the network change between 1600 and 1700?
+
+In groups of two or three, five minutes: what steps would you take, what chart or map would you make, and what problems would you need to watch out for?
+:::
+
+::: notes
+Let them discuss before showing the next slide. This dataset is invented for the briefing but is like the many real ones (e.g. Early Modern Letters Online). There are no coordinates in it, which is the point: they need to bring in a second table.
+:::
+
+## Part D: a strong answer
+
+::: {style="font-size: 0.72em;"}
+::: columns
+::: {.column width="50%"}
+**Steps**
+
+1.  `mutate()` a year and a period (e.g. a decade) from `date`
+2.  `count()` letters by `sender_place` and period
+3.  `left_join()` a table of place names with coordinates; check for `NA`s (*Den Haag* vs *'s-Gravenhage*)
+4.  `st_as_sf()` to make points
+5.  A **points map**, size by number of letters, `facet_wrap()` by period: change over time and space
+:::
+
+::: {.column width="50%"}
+**Problems** (explain two or more)
+
+-   **Survival:** only some letters were kept. Whose? Is the map showing the network, or the archive?
+-   **Missing and uncertain dates**, which can't go in a period
+-   **Place names** spelled in many ways, and in several languages
+-   **Raw counts:** more letters may only mean more survived; compare shares, not totals
+-   **Projection** and the choice of map area
+:::
+:::
+:::
+
+::: notes
+What makes this strong: each step names a function and says why; the chart is chosen for the question (where and when, so a map with small multiples); and the problems are specific to this data, with a consequence. Writing code is not required, and syntax errors don't cost marks in Part D. A list of ten problems in one word each earns less than two explained properly.
+:::
+
+# Marking and preparing {.section-break}
+
+## How it's marked
+
+::: {style="font-size: 0.85em;"}
+-   **Parts A and B:** there is one correct answer. Show your working, by writing the steps or the intermediate table
+-   **Parts C and D:** marks for clear reasoning that uses the ideas and vocabulary of the course
+-   **The code doesn't have to be perfect.** In C and D, naming the function and saying what it does is enough
+-   **Answer the question that was asked:** if it asks for four problems, give four, each explained
+:::
+
+::: notes
+The book says A and B have one correct answer and C and D reward clear reasoning in the course's vocabulary; this slide only repeats that. Add here whether a wrong final answer in Part A gets partial credit for correct working, if that's decided.
+:::
+
+## How to prepare
+
+::: {style="font-size: 0.85em;"}
+1.  **Do the practice exam** in the book (Preparing for the Exam), in two hours with the reference sheet, *before* reading the model answers
+2.  **Check your understanding** boxes at the end of the chapters: same style as Parts A and B. Predict first, then run
+3.  **Learning objectives:** the exam prep chapter has a checklist of what you should be able to do
+4.  **Home exercises**, including the ones that aren't graded
+5.  **Critique** the charts you see in the news: what does it do well, what would you change?
+:::
+
+::: notes
+The exam prep chapter has to be visible in the book by today (it is hidden by default; release.R un-hides it on its next run, or remove the draft line by hand). The practice exam uses a table of six early modern books, a Titanic bar chart, a choropleth of European population and a VOC voyages question for Part D.
+:::
+
+## Questions?
+
+**Next:** no classes in week 7 (hackathon) · **Report 2** due **Monday 14 December** · **Exam** Tuesday 5 January, 13:00
