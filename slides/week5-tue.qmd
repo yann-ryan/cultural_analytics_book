@@ -86,12 +86,36 @@ Choices you've already made in R:
 -   **Titles and annotations:** a headline title tells the reader what to see; an arrow tells them where to look
 :::
 
-::: predict
-The New York Times (2012) showed one month's US jobs report two ways: as a Democrat might see it (unemployment falling) and as a Republican might see it (still stubbornly high). The data was identical. What could change?
+::: notes
+Drucker: visualisations are taken as "what is", and we forget someone made them. Provenance rhetoric: a source line and a clean minimal design both lend authority, earned or not. Next two slides: one jobs report, three ways.
+:::
+
+## One report, three charts
+
+![](../images/week5-tue/nyt-neutral.png){fig-align="center" height="560px" fig-alt="New York Times graphic from October 2012, neutral view: a bar chart of monthly change in jobs since 2008 and a line chart of the unemployment rate, falling to 7.8 percent."}
+
+::: small
+Mike Bostock, Shan Carter, Amanda Cox and Kevin Quealy, ["One Report, Diverging Perspectives"](https://archive.nytimes.com/www.nytimes.com/interactive/2012/10/05/business/economy/one-report-diverging-perspectives.html), *New York Times*, 5 October 2012
 :::
 
 ::: notes
-The period shown, the annotations, and the headline. Nothing in the data changed. This doesn't mean avoiding titles or a message: Thursday's deck said a good title says what the chart shows. It means making those choices deliberately, and making sure the data supports the story. Provenance rhetoric: a source line and a clean minimal design both lend authority, earned or not. Drucker: visualisations are taken as "what is" and we forget someone made them.
+The September 2012 jobs report, a month before the presidential election. This is the neutral view: 114,000 jobs added, unemployment 7.8%. Click the Democrat and Republican buttons on the live page if the room has a connection; the next two slides show them.
+:::
+
+## How a Democrat might see it
+
+![](../images/week5-tue/nyt-democrat.png){fig-align="center" height="600px" fig-alt="The Democrat view: private-sector jobs only, starting in 2010, captioned 'There have been 31 consecutive months of job growth', with a blue arrow showing unemployment falling since its peak."}
+
+## How a Republican might see it
+
+![](../images/week5-tue/nyt-republican.png){fig-align="center" height="520px" fig-alt="The Republican view: a dotted line at 150,000 jobs that most months fall below, captioned 'Job growth has been weak', and the unemployment area shaded red above an 8 percent line, 'above 8 percent for 43 months'."}
+
+::: predict
+**Discuss:** the data is identical. What changed?
+:::
+
+::: notes
+Democrat: only private-sector jobs, and the x axis starts in 2010, so the big losses of 2008-09 are gone; an arrow from the peak shows the fall. Republican: a reference line at 150,000 jobs (what's needed to keep up with population growth), so most bars look like failures; the area above 8% is shaded red. Changed: the period shown (filter), which series, reference lines, annotations, the captions. Each is a choice they've made themselves in ggplot this month: filter(), annotate(), geom_hline(), labs(). This doesn't mean avoiding a message: make the choices deliberately, and check the data supports the story.
 :::
 
 ## Situated knowledge
@@ -100,7 +124,6 @@ The period shown, the annotations, and the headline. Nothing in the data changed
 -   **The 'god trick'** (Haraway): claiming to see everything from nowhere in particular
 -   **Positionality** (Alcoff): we all come to knowledge from a position: gender, class, ethnicity, education, nationality...
 -   **Strong objectivity** (Harding): being open about your perspective, and including those usually left out, makes research *more* objective
--   **Emotion:** Periscopic's *U.S. Gun Deaths* (2013) shows each death as an arc of 'stolen years'
 :::
 
 ::: predict
@@ -108,7 +131,31 @@ For your reports: say where the data came from, what you did to it, and what it 
 :::
 
 ::: notes
-All summarised from D'Ignazio and Klein, Data Feminism. Show the Periscopic piece if there's time (guns.periscopic.com): the same numbers as a table of statistics, designed so each death reads as a life. Strong objectivity is not "anything goes"; it's transparency.
+All summarised from D'Ignazio and Klein, Data Feminism. Strong objectivity is not "anything goes"; it's transparency.
+:::
+
+## Emotion: *U.S. Gun Deaths*
+
+::: columns
+::: {.column width="62%"}
+![](../images/week5-tue/periscopic-2010.png){fig-alt="Periscopic's visualisation of US gun killings in 2010: 9,595 people killed, 414,139 stolen years. Each person is an arc, orange up to the age they were killed and grey for the years they might have lived, thousands of arcs together."}
+:::
+
+::: {.column width="38%"}
+![](../images/week5-tue/periscopic-one-life.png){fig-alt="The animation's first arc for 2013: one named person killed at 29, the arc turning grey for the rest of an expected lifetime."}
+
+::: small
+The animation starts with one person at a time
+:::
+:::
+:::
+
+::: small
+Periscopic, *U.S. Gun Deaths* (2013). Screenshots from Alberto Cairo, ["Periscopic's U.S. Gun Deaths"](https://www.peachpit.com/articles/article.aspx?p=2036558), Peachpit, 2013
+:::
+
+::: notes
+Each arc is one person: orange from birth to the age they were killed, grey from there to the age they might have lived to. The total on the right is not deaths but "stolen years". The animation starts with one arc at a time, each with a name, before building up the total. The data is FBI Uniform Crime Report data, the same as a table of statistics. Ask: is this more honest than a bar chart, or less? The "might have lived" part is an estimate (Periscopic modelled it), and Cairo's article discusses how it shows that uncertainty. The site itself is no longer online.
 :::
 
 # Missing values {.section-break}
@@ -169,10 +216,46 @@ What would happen to a chart of "passengers by deck" if you dropped the `NA`s?
 no_cabin = sum(is.na(cabin)). First class 67 of 323 (21%), second 254 of 277 (92%), third 693 of 709 (98%). A chart by deck that drops the NAs would be almost entirely first-class passengers, and would look like a chart of the whole ship. Ask what this says about who made the records: cabin numbers survive mostly from first-class lists. Checklist from the chapter: check NAs first (sum(is.na(col))), never replace NA with zero unless "no data" really means none, ask whose data is missing, and say in the report how much was missing and what you did.
 :::
 
+## Arrows or circles?
+
+::: columns
+::: {.column width="33%"}
+![](../images/week5-tue/bbc-refugees.png){height="330px" fig-alt="BBC map, early March 2022, 'Which countries are Ukrainians fleeing to?': thick teal arrows sweep out of Ukraine into Poland, Hungary, Slovakia, Romania, Moldova and Russia."}
+
+::: small
+BBC, refugees, March 2022
+:::
+:::
+
+::: {.column width="33%"}
+![](../images/week5-tue/bbc-invasion.png){height="330px" fig-alt="BBC map, 3 March 2022: red arrows showing the direction of the Russian advance on Kyiv."}
+
+::: small
+BBC, Russian advance, 3 March 2022
+:::
+:::
+
+::: {.column width="33%"}
+![](../images/week5-tue/economist-refugees.jpg){height="330px" fig-alt="The Economist map 'Mass exodus', refugee arrivals from Ukraine 24 February to 2 March 2022: a circle in each neighbouring country sized by arrivals (Poland 547,980) with small person icons crossing each border."}
+
+::: small
+*The Economist*, refugees, March 2022
+:::
+:::
+:::
+
+::: small
+All three collected by James Cheshire, ["More than arrows"](https://jcheshire.com/resources/more-than-arrows/) (2022), which has more alternatives
+:::
+
+::: notes
+Same week, same news organisation: the first two maps use the same visual language for refugees and for an invading army. Arrows suggest force and threat at the destination. Cheshire's point (and The Correspondent's in 2020): news maps of migration with big arrows make readers more negative about migrants. The Economist shows arrivals as circles sized by number of people, with small person icons crossing the borders: the same UNHCR data. The BBC later changed its refugee map to circles after criticism. A good example for Thursday too: maps as arguments.
+:::
+
 ## People and sensitive topics
 
 ::: {style="font-size: 0.85em;"}
--   **What do your shapes suggest?** Big bold arrows on a migration map look like invasion maps. *The Economist* (2022) showed refugees from Ukraine as circles sized by arrivals
+-   **What do your shapes suggest?** Arrows for people look like arrows for armies
 -   **Each data point is a person:** no sensationalist titles, jokey colours or decoration
 -   **Show individuals** where you can
 -   **Protect privacy:** could your chart identify a living person?

@@ -674,7 +674,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-1","output":"true","autorun":"true","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"setup","editor-quick-suggestions":"false","fig-width":"11"},"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\noptions(width = 80, pillar.print_min = 8, pillar.print_max = 8)\ntheme_set(theme_grey(base_size = 16))\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\ntitanic_df <- read_csv(\"titanic_df.csv\", show_col_types = FALSE)\n\npaintings <- tibble(\n  title = c(\"The Anatomy Lesson\", \"The Night Watch\", \"The Goldfinch\",\n            \"The Milkmaid\", \"View of Delft\", \"Girl with a Pearl Earring\",\n            \"The Jewish Bride\"),\n  artist = c(\"Rembrandt\", \"Rembrandt\", \"Fabritius\", \"Vermeer\", \"Vermeer\",\n             \"Vermeer\", \"Rembrandt\"),\n  year = c(1632, 1642, 1654, 1658, 1661, 1665, 1665),\n  museum = c(\"Mauritshuis\", \"Rijksmuseum\", \"Mauritshuis\", \"Rijksmuseum\",\n             \"Mauritshuis\", \"Mauritshuis\", \"Rijksmuseum\"),\n  width_cm = c(217, 454, 23, 41, 118, 39, 167)\n)\n\nartists <- tibble(\n  artist = c(\"Rembrandt\", \"Vermeer\"),\n  born = c(1606, 1632)\n)"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-2","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":2,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-3","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":3,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-4","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":4,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-5","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":5,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), no_cabin = ___)"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-6","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":6,"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = body_mass_g)) +\n  geom_point(size = 3)"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-7","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":7,"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = species)) +\n  geom_point(size = 3)"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-8","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":8,"code":"paintings"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-9","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":9,"code":"artists"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-10","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":10,"code":"paintings |>\n  group_by(museum) |>\n  summarise(n = n(), widest = max(width_cm))"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-11","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":11,"code":"paintings |>\n  inner_join(artists, by = \"artist\") |>\n  mutate(age = year - born)"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-12","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":12,"code":"ggplot(paintings, aes(x = artist)) +\n  geom_bar()"},{"options":{"fig-height":"4.5","warning":"true","message":"true","comment":"","fig-cap":"","dpi":72,"results":"markup","label":"unnamed-chunk-13","output":"true","autorun":"false","editor-font-scale":"0.8","read-only":"false","out-height":"","editor-max-height":"","classes":"","editor-word-wrap":"true","out-width":"700px","context":"interactive","editor-quick-suggestions":"false","fig-width":"11"},"id":13,"code":"ggplot(paintings, aes(x = title, y = width_cm, fill = title)) +\n  geom_col() +\n  coord_cartesian(ylim = c(20, 460), expand = FALSE)"}];
+  globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\noptions(width = 80, pillar.print_min = 8, pillar.print_max = 8)\ntheme_set(theme_grey(base_size = 16))\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\ntitanic_df <- read_csv(\"titanic_df.csv\", show_col_types = FALSE)\n\npaintings <- tibble(\n  title = c(\"The Anatomy Lesson\", \"The Night Watch\", \"The Goldfinch\",\n            \"The Milkmaid\", \"View of Delft\", \"Girl with a Pearl Earring\",\n            \"The Jewish Bride\"),\n  artist = c(\"Rembrandt\", \"Rembrandt\", \"Fabritius\", \"Vermeer\", \"Vermeer\",\n             \"Vermeer\", \"Rembrandt\"),\n  year = c(1632, 1642, 1654, 1658, 1661, 1665, 1665),\n  museum = c(\"Mauritshuis\", \"Rijksmuseum\", \"Mauritshuis\", \"Rijksmuseum\",\n             \"Mauritshuis\", \"Mauritshuis\", \"Rijksmuseum\"),\n  width_cm = c(217, 454, 23, 41, 118, 39, 167)\n)\n\nartists <- tibble(\n  artist = c(\"Rembrandt\", \"Vermeer\"),\n  born = c(1606, 1632)\n)","options":{"comment":"","context":"setup","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-1","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"true","output":"true","out-height":"","warning":"true"}},{"id":2,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-2","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":3,"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-3","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":4,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-4","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":5,"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), no_cabin = ___)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-5","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":6,"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = body_mass_g)) +\n  geom_point(size = 3)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-6","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":7,"code":"ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,\n                     colour = species)) +\n  geom_point(size = 3)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-7","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":8,"code":"paintings","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-8","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":9,"code":"artists","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-9","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":10,"code":"paintings |>\n  group_by(museum) |>\n  summarise(n = n(), widest = max(width_cm))","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-10","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":11,"code":"paintings |>\n  inner_join(artists, by = \"artist\") |>\n  mutate(age = year - born)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-11","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":12,"code":"ggplot(paintings, aes(x = artist)) +\n  geom_bar()","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-12","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}},{"id":13,"code":"ggplot(paintings, aes(x = title, y = width_cm, fill = title)) +\n  geom_col() +\n  coord_cartesian(ylim = c(20, 460), expand = FALSE)","options":{"comment":"","context":"interactive","out-width":"700px","results":"markup","editor-quick-suggestions":"false","label":"unnamed-chunk-13","editor-font-scale":"0.8","fig-cap":"","editor-max-height":"","dpi":72,"message":"true","classes":"","fig-height":"4.5","editor-word-wrap":"true","read-only":"false","fig-width":"11","autorun":"false","output":"true","out-height":"","warning":"true"}}];
 
   </script>
   <script type="module">
@@ -2235,11 +2235,64 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <li><strong>Titles and annotations:</strong> a headline title tells the reader what to see; an arrow tells them where to look</li>
 </ul>
 </div>
-<div class="predict">
-<p>The New York Times (2012) showed one month’s US jobs report two ways: as a Democrat might see it (unemployment falling) and as a Republican might see it (still stubbornly high). The data was identical. What could change?</p>
+<aside class="notes">
+<p>Drucker: visualisations are taken as “what is”, and we forget someone made them. Provenance rhetoric: a source line and a clean minimal design both lend authority, earned or not. Next two slides: one jobs report, three ways.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-report-three-charts" class="slide level2">
+<h2>One report, three charts</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/week5-tue/nyt-neutral.png" class="quarto-figure quarto-figure-center" alt="New York Times graphic from October 2012, neutral view: a bar chart of monthly change in jobs since 2008 and a line chart of the unemployment rate, falling to 7.8 percent." height="560"></p>
+</figure>
+</div>
+<div class="small">
+<p>Mike Bostock, Shan Carter, Amanda Cox and Kevin Quealy, <a href="https://archive.nytimes.com/www.nytimes.com/interactive/2012/10/05/business/economy/one-report-diverging-perspectives.html">“One Report, Diverging Perspectives”</a>, <em>New York Times</em>, 5 October 2012</p>
 </div>
 <aside class="notes">
-<p>The period shown, the annotations, and the headline. Nothing in the data changed. This doesn’t mean avoiding titles or a message: Thursday’s deck said a good title says what the chart shows. It means making those choices deliberately, and making sure the data supports the story. Provenance rhetoric: a source line and a clean minimal design both lend authority, earned or not. Drucker: visualisations are taken as “what is” and we forget someone made them.</p>
+<p>The September 2012 jobs report, a month before the presidential election. This is the neutral view: 114,000 jobs added, unemployment 7.8%. Click the Democrat and Republican buttons on the live page if the room has a connection; the next two slides show them.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-a-democrat-might-see-it" class="slide level2">
+<h2>How a Democrat might see it</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/week5-tue/nyt-democrat.png" class="quarto-figure quarto-figure-center" alt="The Democrat view: private-sector jobs only, starting in 2010, captioned 'There have been 31 consecutive months of job growth', with a blue arrow showing unemployment falling since its peak." height="600"></p>
+</figure>
+</div>
+</section>
+<section id="how-a-republican-might-see-it" class="slide level2">
+<h2>How a Republican might see it</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/week5-tue/nyt-republican.png" class="quarto-figure quarto-figure-center" alt="The Republican view: a dotted line at 150,000 jobs that most months fall below, captioned 'Job growth has been weak', and the unemployment area shaded red above an 8 percent line, 'above 8 percent for 43 months'." height="520"></p>
+</figure>
+</div>
+<div class="predict">
+<p><strong>Discuss:</strong> the data is identical. What changed?</p>
+</div>
+<aside class="notes">
+<p>Democrat: only private-sector jobs, and the x axis starts in 2010, so the big losses of 2008-09 are gone; an arrow from the peak shows the fall. Republican: a reference line at 150,000 jobs (what’s needed to keep up with population growth), so most bars look like failures; the area above 8% is shaded red. Changed: the period shown (filter), which series, reference lines, annotations, the captions. Each is a choice they’ve made themselves in ggplot this month: filter(), annotate(), geom_hline(), labs(). This doesn’t mean avoiding a message: make the choices deliberately, and check the data supports the story.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2259,14 +2312,41 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <li><strong>The ‘god trick’</strong> (Haraway): claiming to see everything from nowhere in particular</li>
 <li><strong>Positionality</strong> (Alcoff): we all come to knowledge from a position: gender, class, ethnicity, education, nationality…</li>
 <li><strong>Strong objectivity</strong> (Harding): being open about your perspective, and including those usually left out, makes research <em>more</em> objective</li>
-<li><strong>Emotion:</strong> Periscopic’s <em>U.S. Gun Deaths</em> (2013) shows each death as an arc of ‘stolen years’</li>
 </ul>
 </div>
 <div class="predict">
 <p>For your reports: say where the data came from, what you did to it, and what it can’t tell you</p>
 </div>
 <aside class="notes">
-<p>All summarised from D’Ignazio and Klein, Data Feminism. Show the Periscopic piece if there’s time (guns.periscopic.com): the same numbers as a table of statistics, designed so each death reads as a life. Strong objectivity is not “anything goes”; it’s transparency.</p>
+<p>All summarised from D’Ignazio and Klein, Data Feminism. Strong objectivity is not “anything goes”; it’s transparency.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="emotion-u.s.-gun-deaths" class="slide level2">
+<h2>Emotion: <em>U.S. Gun Deaths</em></h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<p><img data-src="../images/week5-tue/periscopic-2010.png" alt="Periscopic's visualisation of US gun killings in 2010: 9,595 people killed, 414,139 stolen years. Each person is an arc, orange up to the age they were killed and grey for the years they might have lived, thousands of arcs together."></p>
+</div><div class="column" style="width:38%;">
+<p><img data-src="../images/week5-tue/periscopic-one-life.png" alt="The animation's first arc for 2013: one named person killed at 29, the arc turning grey for the rest of an expected lifetime."></p>
+<div class="small">
+<p>The animation starts with one person at a time</p>
+</div>
+</div></div>
+<div class="small">
+<p>Periscopic, <em>U.S. Gun Deaths</em> (2013). Screenshots from Alberto Cairo, <a href="https://www.peachpit.com/articles/article.aspx?p=2036558">“Periscopic’s U.S. Gun Deaths”</a>, Peachpit, 2013</p>
+</div>
+<aside class="notes">
+<p>Each arc is one person: orange from birth to the age they were killed, grey from there to the age they might have lived to. The total on the right is not deaths but “stolen years”. The animation starts with one arc at a time, each with a name, before building up the total. The data is FBI Uniform Crime Report data, the same as a table of statistics. Ask: is this more honest than a bar chart, or less? The “might have lived” part is an estimate (Periscopic modelled it), and Cairo’s article discusses how it shows that uncertainty. The site itself is no longer online.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2348,11 +2428,47 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
           display:block!important;
       }</style></aside>
 </section>
+<section id="arrows-or-circles" class="slide level2">
+<h2>Arrows or circles?</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="../images/week5-tue/bbc-refugees.png" alt="BBC map, early March 2022, 'Which countries are Ukrainians fleeing to?': thick teal arrows sweep out of Ukraine into Poland, Hungary, Slovakia, Romania, Moldova and Russia." height="330"></p>
+<div class="small">
+<p>BBC, refugees, March 2022</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="../images/week5-tue/bbc-invasion.png" alt="BBC map, 3 March 2022: red arrows showing the direction of the Russian advance on Kyiv." height="330"></p>
+<div class="small">
+<p>BBC, Russian advance, 3 March 2022</p>
+</div>
+</div><div class="column" style="width:33%;">
+<p><img data-src="../images/week5-tue/economist-refugees.jpg" alt="The Economist map 'Mass exodus', refugee arrivals from Ukraine 24 February to 2 March 2022: a circle in each neighbouring country sized by arrivals (Poland 547,980) with small person icons crossing each border." height="330"></p>
+<div class="small">
+<p><em>The Economist</em>, refugees, March 2022</p>
+</div>
+</div></div>
+<div class="small">
+<p>All three collected by James Cheshire, <a href="https://jcheshire.com/resources/more-than-arrows/">“More than arrows”</a> (2022), which has more alternatives</p>
+</div>
+<aside class="notes">
+<p>Same week, same news organisation: the first two maps use the same visual language for refugees and for an invading army. Arrows suggest force and threat at the destination. Cheshire’s point (and The Correspondent’s in 2020): news maps of migration with big arrows make readers more negative about migrants. The Economist shows arrivals as circles sized by number of people, with small person icons crossing the borders: the same UNHCR data. The BBC later changed its refugee map to circles after criticism. A good example for Thursday too: maps as arguments.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="people-and-sensitive-topics" class="slide level2">
 <h2>People and sensitive topics</h2>
 <div style="font-size: 0.85em;">
 <ul>
-<li><strong>What do your shapes suggest?</strong> Big bold arrows on a migration map look like invasion maps. <em>The Economist</em> (2022) showed refugees from Ukraine as circles sized by arrivals</li>
+<li><strong>What do your shapes suggest?</strong> Arrows for people look like arrows for armies</li>
 <li><strong>Each data point is a person:</strong> no sensationalist titles, jokey colours or decoration</li>
 <li><strong>Show individuals</strong> where you can</li>
 <li><strong>Protect privacy:</strong> could your chart identify a living person?</li>

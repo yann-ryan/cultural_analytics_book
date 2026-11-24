@@ -9,6 +9,7 @@ project:
     # images used only by the slide decks (../images/...)
     - "images/22_data-visualisation-1/*.png"
     - "images/27_gestalt/*.png"
+    - "images/week5-tue/*"
 
 book:
   title: "Cultural Analytics: Course Book"
