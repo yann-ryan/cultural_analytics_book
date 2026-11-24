@@ -38,7 +38,7 @@ Some key ways in which we make visualisations *less* accessible include:
 
 Colour blindness (or colour vision deficiency, CVD) is the decreased ability to see colour or differences in colour, specifically hue.
 
-The most common is less distinction on red-green (deuteranomaly or protanomaly) or blue-yellow (tritanomaly) axis. Red green affects about 8% of males and 0.05% of females.
+The most common is less distinction on red-green (deuteranomaly or protanomaly) or blue-yellow (tritanomaly) axis. Red green affects about 8% of males and 0.5% of females.
 
 In order to understand how colour in data visualisation is perceived by those with CVD, we should think back to the previous week's lesson on the differences between scales. The three key scales, as you'll remember, are **sequential** (for continuous data), **categorical** (for text or categories), and **diverging** (which is sequential, but with a 'midpoint'). These are affected in different ways.
 

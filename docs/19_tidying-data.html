@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-1","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"setup","autorun":"true","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":2,"code":"gapminder_population","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-2","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":3,"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-3","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":4,"code":"","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-4","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}},{"id":5,"code":"","options":{"fig-width":7,"classes":"","message":"true","read-only":"false","comment":"","fig-cap":"","dpi":72,"fig-height":5,"label":"unnamed-chunk-5","editor-max-height":"","output":"true","warning":"true","editor-font-scale":"1","out-width":"700px","editor-quick-suggestions":"false","context":"interactive","autorun":"false","results":"markup","out-height":"","editor-word-wrap":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1,"options":{"out-width":"700px","classes":"","output":"true","fig-width":7,"context":"setup","label":"unnamed-chunk-1","autorun":"true","fig-height":5,"fig-cap":"","warning":"true","editor-font-scale":"1","read-only":"false","message":"true","dpi":72,"editor-quick-suggestions":"false","comment":"","out-height":"","editor-max-height":"","results":"markup","editor-word-wrap":"true"}},{"code":"gapminder_population","id":2,"options":{"out-width":"700px","classes":"","output":"true","fig-width":7,"context":"interactive","label":"unnamed-chunk-2","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","editor-font-scale":"1","read-only":"false","message":"true","dpi":72,"editor-quick-suggestions":"false","comment":"","out-height":"","editor-max-height":"","results":"markup","editor-word-wrap":"true"}},{"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3,"options":{"out-width":"700px","classes":"","output":"true","fig-width":7,"context":"interactive","label":"unnamed-chunk-3","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","editor-font-scale":"1","read-only":"false","message":"true","dpi":72,"editor-quick-suggestions":"false","comment":"","out-height":"","editor-max-height":"","results":"markup","editor-word-wrap":"true"}},{"code":"","id":4,"options":{"out-width":"700px","classes":"","output":"true","fig-width":7,"context":"interactive","label":"unnamed-chunk-4","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","editor-font-scale":"1","read-only":"false","message":"true","dpi":72,"editor-quick-suggestions":"false","comment":"","out-height":"","editor-max-height":"","results":"markup","editor-word-wrap":"true"}},{"code":"","id":5,"options":{"out-width":"700px","classes":"","output":"true","fig-width":7,"context":"interactive","label":"unnamed-chunk-5","autorun":"false","fig-height":5,"fig-cap":"","warning":"true","editor-font-scale":"1","read-only":"false","message":"true","dpi":72,"editor-quick-suggestions":"false","comment":"","out-height":"","editor-max-height":"","results":"markup","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -2059,6 +2059,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2070,6 +2094,18 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2115,6 +2151,12 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing for the Exam</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>

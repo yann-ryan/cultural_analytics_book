@@ -2773,6 +2773,490 @@
     ]
   },
   {
+    "objectID": "42_digital-mapping-1.html",
+    "href": "42_digital-mapping-1.html",
+    "title": "57  Maps as data visualisation",
+    "section": "",
+    "text": "Why make a map?\nMaps are useful because some information has inherently spatial aspects - where the data is from is as important as what. We might want to understand geographic patterns of a phenomenon, for instance how language is used in different regions, or where cultural institutions are concentrated.\nA map can also be a useful cognitive shortcut. Because we all have models of maps in our heads already (think about how you know roughly where the provinces of the Netherlands or the major cities of Europe are), we can often grasp a lot of information very quickly. If you know the rough positions of the provinces of the Netherlands, you will probably understand some data about them more quickly as a map than as a table.\nData maps also help us see patterns which are specifically geographic: that something is more common on coasts, in cities, or in particular regions, or that there are differences between the centre and the periphery.\nBut a map is not always the best choice. If the question you’re asking isn’t really about geography, a simple bar chart is often clearer. Ask yourself: does location actually matter here?",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Maps as data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "42_digital-mapping-1.html#how-computers-store-maps",
+    "href": "42_digital-mapping-1.html#how-computers-store-maps",
+    "title": "57  Maps as data visualisation",
+    "section": "How computers store maps",
+    "text": "How computers store maps\nThere are two common ways of representing the real world as data: raster and vector maps. On this course we’ll work only with vector maps, but it’s useful to know the difference.\n\nRaster maps\nA raster map represents the world as a grid of pixels, like a digital photograph. Each pixel is coloured, and the colour means something. A scan of a historical map is a raster map; so is an elevation map, in which each pixel is coloured by the height of the land at that point:\n\n\n\nVector maps\nA vector map instead represents geographic things as points, lines, and polygons (shapes), each stored as a set of coordinates. A city might be a point, a river a line, and a country a polygon. Unlike a raster map, a vector map knows that a certain shape is ‘the Netherlands’, so we can attach data to it - its population, its number of World Heritage sites, and so on. This is what makes vector data so useful for data visualisation.\n\n\n\nA vector map containing rivers, cities, and country borders",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Maps as data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "42_digital-mapping-1.html#maps-map-data-to-aesthetics-too",
+    "href": "42_digital-mapping-1.html#maps-map-data-to-aesthetics-too",
+    "title": "57  Maps as data visualisation",
+    "section": "Maps map data to aesthetics, too",
+    "text": "Maps map data to aesthetics, too\nJust as with every other chart on this course, making a data map means mapping data to aesthetics. The difference is that position is now a real place on the earth, rather than an x and y axis. On top of position, data maps mostly use colour, size, and shape. There are two main kinds:\n\nPoints maps\nA points map draws a point at a specific location, such as a town, a building, or an address. This first example simply uses position: each Covid death in the US has been drawn as a single tiny point, and through millions of these points we can see where the death toll was highest.\n\n\n\n\n\n\n\nNote\n\n\n\nThis map also shows one weakness of points maps: often, a map like this simply shows where people live, rather than revealing anything new. Always ask whether your map is just a population map in disguise!\n\n\n\nhttps://xkcd.com/1138/\n\n\n\n\nWe can also map further aesthetics to the points. In this example from the New York Times, each point is a weather station where a temperature record was broken. The colour shows whether it was a heat (red) or cold (blue) record, and the size shows by how much the previous record was broken:\n\n\n\nChoropleth maps\nThe other main kind of data map colours in regions - countries, provinces, municipalities - according to some data. This is called a choropleth map. Choropleths are useful when your data isn’t about a single point, but about an area. Election maps are a classic example, because votes are counted by region. In this map of the 2011 Dutch provincial elections, each municipality is coloured by the party which won the most votes there:\n\n\n\nThe trouble with choropleths\nChoropleths are very common, but they can easily mislead. In the election map above, about half of the map is blue. You might think that the VVD received around half of the votes. In fact, they won about one-fifth.\nThis is because the map gives every square kilometre the same visual weight, but votes are cast by people, not land. The VVD did well in rural areas, which are large but sparsely populated. A good rule in data visualisation is that the same amount of ‘ink’ should represent the same amount of data - and a choropleth often breaks this rule.\nThere are two common ways to deal with this:\n\nNormalise the data. Instead of mapping raw counts (the number of World Heritage sites in a country, say), map a rate: sites per million people, or per square kilometre. Otherwise, big countries will tend to look ‘more’ of everything. Choosing what to divide by is itself an important decision - we’ll come back to this next class.\nDistort the map. A cartogram resizes regions according to the data. This example resizes the countries of the EU according to how much they contributed to, or received from, the EU budget per person between 2007 and 2013:\n\n\n\n\nEvery map is a choice\nMaps feel objective - they look like a picture of the world as it is. But every map involves choices: which places to include, which borders to draw (and from which year), which projection to use, which data to show, and what to leave out. Borders themselves are often contested. It’s always worth asking who made a map, for what purpose, and whose view of the world it represents.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Maps as data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "42_digital-mapping-1.html#learning-objectives",
+    "href": "42_digital-mapping-1.html#learning-objectives",
+    "title": "57  Maps as data visualisation",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow the difference between raster and vector maps\nKnow the difference between a points map and a choropleth map, and when to use each\nExplain why choropleth maps can mislead, and how normalising the data helps\nRecognise that every map involves choices, and ask whose perspective a map represents",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>Maps as data visualisation</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html",
+    "href": "43_first-map.html",
+    "title": "58  Your first map",
+    "section": "",
+    "text": "Getting a map\nThe function ne_countries() downloads a map of all the world’s countries. It needs two arguments:\nSave the result as an object, so we can use it later:",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#getting-a-map",
+    "href": "43_first-map.html#getting-a-map",
+    "title": "58  Your first map",
+    "section": "",
+    "text": "scale = sets how detailed the borders are: 'small' or 'medium'. (There’s also 'large', but it needs an extra package and is far more detail than we need.)\nreturnclass = 'sf' tells it to give us the map in the format the sf package uses, called simple features. We’ll always use this.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nTip\n\n\n\nYou can also download individual countries, e.g. ne_countries(country = c('Netherlands', 'Belgium'), scale = 'medium', returnclass = 'sf'), or a map of coastlines without any borders, with ne_coastline(scale = 'medium', returnclass = 'sf').",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#what-is-a-simple-features-object",
+    "href": "43_first-map.html#what-is-a-simple-features-object",
+    "title": "58  Your first map",
+    "section": "What is a simple features object?",
+    "text": "What is a simple features object?\nLet’s look at the map. It’s a big object, so we’ll just select() a few of its columns:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIt looks very much like the dataframes we’ve been working with all along. Each row is one country, and there are columns with information about it - its name, continent, population (pop_est), and much more. In geographic terms, each row is called a feature.\nThe difference is the extra column at the end: geometry. This contains the shape of each country, as a long list of coordinates which, joined together, draw its outline. Notice that we didn’t ask for the geometry column in select(), but it’s still there: in an sf object, the geometry ‘sticks’ to each row, whatever you do to it.\nGeometries can be points, lines, or polygons (shapes):\n\n\n\nExamples of different geographic features. Countries are usually polygons, or multipolygons if they’re made up of several shapes, such as a mainland and islands.\n\n\nAbove the table, you’ll also see a line starting Geodetic CRS. This is the map’s coordinate reference system, which tells R how the coordinates relate to real places on the earth. We’ll come back to this in the chapter on projections.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#drawing-a-map-with-geom_sf",
+    "href": "43_first-map.html#drawing-a-map-with-geom_sf",
+    "title": "58  Your first map",
+    "section": "Drawing a map with geom_sf()",
+    "text": "Drawing a map with geom_sf()\nTo draw a map, we use ggplot2 exactly as before, with a new geom: geom_sf(). Unlike geom_point() or geom_col(), we don’t need to tell it what goes on the x and y axes - it reads the positions from the geometry column.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThat’s it - a map of the world!\n\nsf objects work with dplyr\nBecause an sf object behaves like a dataframe, we can use all the dplyr functions we’ve learned on it. For example, Antarctica takes up a lot of space at the bottom of the map. Let’s remove it with filter(), and save the result:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: make a map of only the countries of Africa.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#colouring-the-map-by-data",
+    "href": "43_first-map.html#colouring-the-map-by-data",
+    "title": "58  Your first map",
+    "section": "Colouring the map by data",
+    "text": "Colouring the map by data\nNow we can turn this into a data visualisation. As with any other chart, we map a column to an aesthetic inside aes(). For polygons, the most useful aesthetic is fill. Let’s fill each country by its continent:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nBecause continent is a categorical variable, ggplot uses a categorical colour scale. If we use a numeric column, such as population, we get a continuous scale instead:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nInside or outside aes()?\n\n\n\nThe same rule applies as for every other chart. Put an aesthetic inside aes() when it should depend on the data. Put it outside aes() when you want to set it to one fixed value - for example, to make all the borders white and thin:\ngeom_sf(data = worldmap, aes(fill = pop_est), colour = 'white', linewidth = 0.1)\nFor polygons, fill is the colour of the inside of the shape, and colour is the colour of its border.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#making-it-look-like-a-map",
+    "href": "43_first-map.html#making-it-look-like-a-map",
+    "title": "58  Your first map",
+    "section": "Making it look like a map",
+    "text": "Making it look like a map\nThe grey background, grid lines, and latitude/longitude labels are useful for a chart, but they usually aren’t needed on a map. The quickest way to remove them is theme_void(). Then we can use everything we’ve learned about scales and labels to finish the map:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nWarning\n\n\n\nThis map makes a good example, but not a very interesting one: big countries with lots of people stand out, as you’d expect. Next class we’ll see how to normalise data, so that countries of different sizes can be compared fairly.\n\n\nTry it yourself: the map has a column called income_grp, which puts each country into one of five income groups. Make a map filled by income group, with thin grey borders, a title, a better legend title, and theme_void().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#zooming-in",
+    "href": "43_first-map.html#zooming-in",
+    "title": "58  Your first map",
+    "section": "Zooming in",
+    "text": "Zooming in\nOften, we want to map only part of the world. There are two ways of doing this, and they do different things.\n\nFiltering\nThe first is to filter() the data, as we did with Antarctica. Let’s try making a map of Europe:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThat’s not what we wanted! The problem is that some European countries have territories elsewhere in the world. France, for example, includes French Guiana in South America, so the map has to stretch to fit it in. Russia also stretches all the way to the Pacific.\n\n\nZooming with coord_sf()\nThe second way is to keep all the data, but tell ggplot which area to show, using coord_sf(). This is the coordinates layer, which we’ve skipped over until now. Its xlim and ylim arguments set the range of longitude (east-west) and latitude (north-south) to show:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nOften, the best approach is a combination: filter to the data you need, and zoom with coord_sf() to choose the area. Zooming in with coord_sf() also means neighbouring countries are drawn at the edges, which helps readers find their way:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis last map has two geom_sf() layers: first the whole world in grey, and then Europe on top, in blue. As with every ggplot, layers are drawn in order, so the layer you want on top must come last.\n\n\n\n\n\n\nFinding the right limits\n\n\n\nTo find the longitude and latitude of an area, you can look it up on a map: for example, right-clicking on a place in Google Maps shows its coordinates (latitude first, then longitude). West of Greenwich and south of the equator are negative numbers.\n\n\nTry it yourself: adjust the limits to zoom in on Scandinavia.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nZooming doesn’t change the data, only the view. If you colour countries by some data and then zoom in, the colour scale is still based on all the countries, including the ones you can’t see. If this matters, filter the data first.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#exercise",
+    "href": "43_first-map.html#exercise",
+    "title": "58  Your first map",
+    "section": "Exercise",
+    "text": "Exercise\nMake a map of South America, with each country filled by its income group (income_grp). Then:\n\nZoom in so that there’s no empty space around the continent.\nMake the borders black.\nUse three colours of your choice with scale_fill_manual().\nAdd a title, subtitle, and legend title, and use theme_void().\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#check-your-understanding",
+    "href": "43_first-map.html#check-your-understanding",
+    "title": "58  Your first map",
+    "section": "Check your understanding",
+    "text": "Check your understanding\n1. A student’s map has the countries coloured in, but no borders are visible. What would they add to geom_sf() to draw the borders in white?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\ncolour = 'white', outside aes(): geom_sf(data = worldmap, aes(fill = continent), colour = 'white'). For polygons, colour controls the border, and fill the inside.\n\n\n\n2. What’s the difference between these two maps?\nworldmap |&gt; filter(continent == 'Asia') |&gt; ggplot() + geom_sf()\n\nworldmap |&gt; ggplot() + geom_sf() + coord_sf(xlim = c(25, 150), ylim = c(-10, 60))\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe first only draws the countries whose continent is Asia (and the map stretches to fit all of them in). The second draws all the countries, but zooms in on the area from 25° to 150° east and 10° south to 60° north, so neighbouring countries (and parts of Europe and Africa) are visible at the edges.\n\n\n\n3. In the code ggplot() + geom_sf(data = worldmap), why don’t we need to give an x and y aesthetic?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nBecause geom_sf() reads the positions from the special geometry column of the sf object, which contains the coordinates of each shape.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "43_first-map.html#learning-objectives",
+    "href": "43_first-map.html#learning-objectives",
+    "title": "58  Your first map",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nDownload a world map with ne_countries()\nExplain what a simple features (sf) object is, and what the geometry column contains\nUse dplyr functions such as filter() on an sf object\nDraw a map with geom_sf(), and fill it by a column of data\nSet the border colour and remove unnecessary elements with theme_void()\nZoom in with coord_sf(), and explain how this differs from filtering",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>Your first map</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html",
+    "href": "44_projections.html",
+    "title": "59  Map projections",
+    "section": "",
+    "text": "What gets distorted?\nA projection can preserve some properties of the earth’s surface, but never all of them at once:",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html#what-gets-distorted",
+    "href": "44_projections.html#what-gets-distorted",
+    "title": "59  Map projections",
+    "section": "",
+    "text": "Area: the relative sizes of places.\nShape (or angles): the shapes of places, at least locally.\nDistance: the distances between places.\n\n\n\n\nThe three families of map projection: the globe is projected onto a cylinder (a), a cone (b), or a flat plane (c), which is then unrolled.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html#changing-the-projection-with-coord_sf",
+    "href": "44_projections.html#changing-the-projection-with-coord_sf",
+    "title": "59  Map projections",
+    "section": "Changing the projection with coord_sf()",
+    "text": "Changing the projection with coord_sf()\nThe maps we made in the last chapter used a very simple ‘projection’: longitude was used directly as the x axis, and latitude as the y axis. This is easy, but it stretches everything away from the equator.\nTo change the projection, we use the coordinates layer again: coord_sf(), with the argument crs =. crs stands for coordinate reference system (more on this below). Each projection has a code, which we pass to crs as a text string starting with +proj=.\n\nMercator\nThe Mercator projection is the one you probably know best, because it’s used by Google Maps and most online maps:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nMercator preserves shape: a small island has the right shape, and a constant compass direction is a straight line, which made it very useful for navigation at sea. But it hugely distorts area towards the poles. Greenland looks about the size of Africa, when Africa is actually around fourteen times larger. For a data map, this matters: countries far from the equator - in Europe and North America, for instance - look much bigger, and so more important, than they are.\n\n\nEqual-area projections\nAn equal-area projection preserves the relative sizes of places, at the cost of distorting their shapes. For choropleth maps, where we colour in regions, this is usually what we want: otherwise, the area of colour a reader sees depends on the projection as well as on the data. The Equal Earth projection is a good modern choice:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nCompare the sizes of Greenland and Africa with the Mercator map above.\nAnother common equal-area projection is Mollweide ('+proj=moll'):\n\n\n\nThe Mollweide equal-area projection.\n\n\n\n\nCompromise projections\nA compromise projection doesn’t preserve any one property exactly, but tries to keep all the distortions reasonably small, so the map ‘looks right’. These are good for general-purpose world maps. The Robinson projection is a well-known example:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry it yourself: draw the world map, filled by continent, in the Mollweide projection ('+proj=moll'), and the Winkel Tripel projection ('+proj=wintri'), which is used by National Geographic. Which do you prefer?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html#projections-for-smaller-areas",
+    "href": "44_projections.html#projections-for-smaller-areas",
+    "title": "59  Map projections",
+    "section": "Projections for smaller areas",
+    "text": "Projections for smaller areas\nProjections matter most for world maps, but they matter for smaller areas too. For maps of Europe, Eurostat (the EU’s statistical office) uses an equal-area projection with the code 3035. Codes like this are called EPSG codes, and you give them to crs as a number rather than text.\nThere’s one catch: in a projected map, the coordinates are no longer longitude and latitude, but distances in metres. So if we zoom in with xlim and ylim, we need to tell coord_sf() that our limits are still in longitude and latitude, by setting default_crs to 4326 (the code for ordinary longitude and latitude):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nCompare this to the map of Europe in the last chapter: Scandinavia is no longer stretched, and the map curves the way the earth does.\n\n\n\n\n\n\nNote\n\n\n\nThe lines of longitude and latitude are now curved, so a ‘box’ of longitude and latitude no longer fits the map neatly. ggplot uses the corners of your limits to decide what to show, which means the edges of the area can get cut off. If that happens, just make the limits a little wider.\n\n\n\n\n\n\n\n\nTip\n\n\n\nFor a map of the Netherlands, the official Dutch projection is EPSG code 28992 (‘Amersfoort / RD New’). Most countries have their own standard projection: search for ‘[country] EPSG’ to find it.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html#coordinate-reference-systems",
+    "href": "44_projections.html#coordinate-reference-systems",
+    "title": "59  Map projections",
+    "section": "Coordinate reference systems",
+    "text": "Coordinate reference systems\nYou’ll often see the term coordinate reference system (CRS) in connection with maps. A CRS is the full set of rules which links the numbers in the geometry column to real places on the earth. There are two types:\n\nA geographic CRS uses longitude and latitude, in degrees. The most common is called WGS 84, with the EPSG code 4326. This is what GPS uses, and it’s the CRS of the Natural Earth maps.\n\n\n\n\nA geographic CRS: positions are given as degrees of longitude and latitude.\n\n\n\nA projected CRS uses a flat, projected map, with positions measured in metres from some starting point. EPSG 3035 and 28992 are both projected CRSs.\n\n\n\n\nA projected CRS: the Universal Transverse Mercator (UTM) system divides the world into zones, each with its own flat grid.\n\n\nYou can check the CRS of any sf object with st_crs():\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nWhy does this matter?\nMost of the time, ggplot takes care of the CRS for you. When you add several geom_sf() layers to one map, ggplot converts them all to the same CRS: the one set in coord_sf(), or, if you haven’t set one, the CRS of the first layer.\nWhere it does matter is when you make your own sf object, for example from a set of coordinates. Then you’ll need to tell R which CRS your coordinates use. We’ll do this in the chapter on points maps.\n\n\n\n\n\n\nNote\n\n\n\nYou might also come across the sf function st_transform(), which permanently converts an sf object to a different CRS, e.g. worldmap |&gt; st_transform(crs = '+proj=eqearth'). For drawing maps with ggplot, coord_sf(crs = ...) does the same job.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html#check-your-understanding",
+    "href": "44_projections.html#check-your-understanding",
+    "title": "59  Map projections",
+    "section": "Check your understanding",
+    "text": "Check your understanding\n1. You’re making a choropleth map of the world, showing the number of museums per person in each country. Which kind of projection should you choose, and why?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nAn equal-area projection, such as Equal Earth or Mollweide. In a choropleth, readers judge the data partly by how much area is coloured. A projection which enlarges some regions, like Mercator (which makes countries near the poles look much bigger), would give those countries more visual weight than the data justifies.\n\n\n\n2. Why does Greenland look as big as Africa on many online maps?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nMost online maps use the Mercator projection, which preserves shapes but increasingly exaggerates areas towards the poles.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "44_projections.html#learning-objectives",
+    "href": "44_projections.html#learning-objectives",
+    "title": "59  Map projections",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nExplain what a map projection is, and why every projection distorts something\nChange the projection of a map with coord_sf(crs = ...)\nChoose an equal-area projection for a choropleth map, and explain why\nExplain what a coordinate reference system (CRS) is, and the difference between a geographic and a projected CRS",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>Map projections</span>"
+    ]
+  },
+  {
+    "objectID": "45_at-home-8.html",
+    "href": "45_at-home-8.html",
+    "title": "60  Home Exercise",
+    "section": "",
+    "text": "Instructions\nDo the at-home exercises in R-Studio, in your cultural_analytics project (see Installing R and RStudio). Create a new .Rmd file (use File -&gt; New File -&gt; R Markdown).\nI advise saving the new file straight away, and regularly re-save it.\nWhen you have finished the exercise (or part of it), ‘knit’ the file to check that it works.\nBefore you begin, load the following packages at the top of your markdown document, and download the world map:\nlibrary(tidyverse)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap &lt;- ne_countries(scale = 'medium', returnclass = 'sf')",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Home Exercise</span>"
+    ]
+  },
+  {
+    "objectID": "45_at-home-8.html#instructions",
+    "href": "45_at-home-8.html#instructions",
+    "title": "60  Home Exercise",
+    "section": "",
+    "text": "Note\n\n\n\nThis exercise is ungraded practice - you don’t need to submit it. But it’s the best preparation for the reports and the exam, so do try to complete it.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Home Exercise</span>"
+    ]
+  },
+  {
+    "objectID": "45_at-home-8.html#tasks",
+    "href": "45_at-home-8.html#tasks",
+    "title": "60  Home Exercise",
+    "section": "Tasks",
+    "text": "Tasks\nThese tasks practise everything from Your first map and Map projections. For each one, write a sentence explaining what you’re doing, followed by the code.\n\nMake a map of the countries of Asia. Use coord_sf() to zoom in so there’s no unnecessary empty space.\nThe world map has a column gdp_md, containing each country’s GDP (the total value of its economy) in millions of US dollars. Use mutate() to make a new column containing the GDP per person (remember that gdp_md is in millions of dollars, and population is in pop_est). Watch out: missing values in this dataset are recorded as -99, so filter out any negative GDP values first.\nMake a map of the whole world (without Antarctica), with each country filled by GDP per person. Then:\n\nUse an equal-area projection.\nChoose a suitable colour scale, and give the legend a clear title.\nGive the borders a colour and width that make the map easy to read.\nAdd a title, subtitle, and a caption giving the source of the data.\nUse theme_void().\n\nMake a second version of the same map, this time filling the countries by total GDP instead of GDP per person. Write a few sentences comparing the two maps: what does each one show, and which would you use to compare how wealthy people are in different countries? Why?\nIn a few sentences, reflect on the data: where does it come from (look at the Natural Earth website), and what can’t a map of GDP tell you?\nOptional challenge: make a map of Europe in the projection with the EPSG code 3035, with each country filled by its income_grp, and the countries outside Europe drawn in light grey.",
+    "crumbs": [
+      "Week 5 · Thu 26 Nov: Digital Mapping 1",
+      "<span class='chapter-number'>60</span>  <span class='chapter-title'>Home Exercise</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html",
+    "href": "46_choropleth.html",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "",
+    "text": "The six steps of a choropleth map\nMaking a choropleth map from your own data always involves the same steps. We’ll go through each one in turn:",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#the-six-steps-of-a-choropleth-map",
+    "href": "46_choropleth.html#the-six-steps-of-a-choropleth-map",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "",
+    "text": "Get to know your data, and work out its geographic unit (countries? provinces? municipalities?).\nFind a map with features (shapes) for that same geographic unit.\nFind a common field: a column in your data and a column in the map which identify the places in the same way.\nSummarise your data, so there’s one row for each place on the map.\nJoin the summarised data to the map, with left_join().\nDraw the map, and think carefully about what you’re showing.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#step-1-get-to-know-your-data",
+    "href": "46_choropleth.html#step-1-get-to-know-your-data",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Step 1: Get to know your data",
+    "text": "Step 1: Get to know your data\nThe World Heritage List is published by UNESCO as open data. I’ve made a slightly simplified version for this course. Let’s load the packages we need and read it in:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nWhy na = \"\"?\n\n\n\nBy default, read_csv() treats any cell containing the text NA as a missing value. Usually that’s helpful - but in this dataset, NA is also the country code for Namibia! Setting na = \"\" tells R that only empty cells are missing. This is a good example of why you should always check your data after reading it in.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nEach row is one World Heritage site, with its name, its category (Cultural, Natural or Mixed), the year it was added to the list (date_inscribed), whether it’s on the list of sites ‘in danger’, and the country or countries it’s in, both as names (states) and as two-letter codes (iso_codes). There are also coordinates, which we’ll use for a points map in the next class.\nBefore mapping anything, it’s always worth exploring the data with the tools we already know. For example, UNESCO divides the world into five regions:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAlmost half of all World Heritage sites are in the region ‘Europe and North America’. Keep this in mind as we go.\n\nWhat’s the geographic unit?\nThe geographic unit of this data is the country - or, in UNESCO’s terms, the ‘State Party’ which nominated the site. So we need a map of the world’s countries.\nBut there’s a complication. Some sites cross borders, and are listed under more than one country:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe forest of Białowieża, for example, is in both Poland (PL) and Belarus (BY). We’ll deal with this in step 4.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#step-2-find-a-map",
+    "href": "46_choropleth.html#step-2-find-a-map",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Step 2: Find a map",
+    "text": "Step 2: Find a map\nFor countries, the Natural Earth world map we used last class is ideal:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nFor other geographic units - provinces, municipalities, historical borders - you’ll need to find and load a different map. That’s covered in the next chapter.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#step-3-find-a-common-field",
+    "href": "46_choropleth.html#step-3-find-a-common-field",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Step 3: Find a common field",
+    "text": "Step 3: Find a common field\nTo join two datasets, we need a column in each which identifies the same thing in the same way. We could try country names, but names are risky. UNESCO calls the UK ‘United Kingdom of Great Britain and Northern Ireland’, while Natural Earth calls it ‘United Kingdom’, so they wouldn’t match. Names can also be spelled differently, or written in different languages.\nIt’s much better to use a standard code, where one is available. For countries, the most common are the ISO codes: two letters (NL) or three letters (NLD). Our data has two-letter codes in the iso_codes column. The world map has a lot of columns with codes in them, but the one we want is called iso_a2_eh:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote\n\n\n\nNotice that the column iso_a2 gives France and Norway the code -99, meaning ‘missing’. That’s for complicated technical reasons to do with their overseas territories. The column iso_a2_eh fixes this, which is why we use it instead. Little traps like this are very common when joining data, so always check your join (see step 5).",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#step-4-summarise-your-data",
+    "href": "46_choropleth.html#step-4-summarise-your-data",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Step 4: Summarise your data",
+    "text": "Step 4: Summarise your data\nThe map has one row per country, so our data needs one row per country too. Right now, it has one row per site. We need to count the sites in each country.\nFirst, though, we need to deal with the cross-border sites. The function separate_rows() (from tidyr) splits a column containing several values into separate rows. Here, it splits iso_codes at each comma:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow Białowieża Forest has two rows: one for Poland, and one for Belarus. This means a cross-border site will count once for each country it’s in, which seems fair.\nNow we can count the number of sites for each country code, using count(). The argument name = sets the name of the new column:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#step-5-join-the-data-to-the-map",
+    "href": "46_choropleth.html#step-5-join-the-data-to-the-map",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Step 5: Join the data to the map",
+    "text": "Step 5: Join the data to the map\nNow we can join the two together, with left_join(). The map must be on the left, so that the result is still a map (an sf object), and so that every country is kept, even if it has no sites. Because the common columns have different names, we tell left_join() which column in the map matches which column in our data with by = c('map column' = 'data column'):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nCheck the join\nAlways check that a join has done what you expected. A good start is to look for rows that didn’t match, which will have NA in the new column:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nMost of these are countries which really have no World Heritage sites. Some are places which aren’t independent countries, like Jersey or Aruba, and some, like Taiwan, aren’t members of UNESCO at all. Greenland is here too: UNESCO lists its sites under Denmark. We’ll treat them all as having zero sites - but note that, for Taiwan, ‘zero’ means ‘can’t have any’, not ‘has none’.\nNext, check whether any places on the map share the same code. If they do, they’ll both be given the same number of sites. We can find them by grouping by the code, and keeping only the groups with more than one row:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSomaliland, Northern Cyprus and the Siachen Glacier share the ‘missing’ code -99, which doesn’t matter, as none of them has any sites. But two Australian territories - the Indian Ocean Territories and the uninhabited Ashmore and Cartier Islands - have each been given Australia’s 21 sites! Natural Earth draws some territories separately from their country, but gives them the country’s code. These territories have the type ‘Dependency’. Let’s remove them, and replace the remaining NA values with zero using replace_na():\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#step-6-draw-the-map",
+    "href": "46_choropleth.html#step-6-draw-the-map",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Step 6: Draw the map",
+    "text": "Step 6: Draw the map\nNow we can draw the map, filling each country by its number of sites. Following the chapter on projections, we’ll use an equal-area projection:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nBinning the colour scale\nWith a continuous colour scale, it’s hard for readers to tell exactly which value a colour stands for. On maps, it’s often clearer to bin the scale into a few groups, each with its own colour. The _b version of the viridis scale does this. We can set where the bins start and end with breaks =:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\ndirection = -1 reverses the colours, so that the countries with the most sites are the darkest, which most readers expect.\n\n\nNormalising the data\nThis map shows that Italy, China, France, Germany and Spain have the most sites. But as we saw in the first mapping chapter, maps of raw counts are often dominated by big countries. Bigger countries have more room for more sites.\nTo compare countries of different sizes, we can normalise the data: divide it by something that accounts for size. Let’s try the number of sites per million people:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe Vatican has two World Heritage sites and only around 800 inhabitants, so it has well over 2,000 sites per million people. Tiny countries like this would dominate any scale. One option is to leave them out, and say so on the map. Here, we’ll only include countries with at least one million people, and draw the others in grey (by setting their value to NA, and choosing a colour for NA with na.value =):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe two maps tell quite different stories. In the first, China and India stand out. In the second, Europe stands out even more strongly, as do countries with small populations, such as Mongolia, while China and India fall to the lowest group.\n\n\nWhat are we actually measuring?\nWhich map is ‘right’? Neither, on its own. Dividing by population answers a different question to dividing by area, and neither tells us how much heritage a country has. That’s because the list doesn’t measure heritage. It records which places have been nominated by governments and accepted by a UNESCO committee.\nMaking a nomination takes money, expertise, and political will. For decades, the criteria favoured the kinds of heritage valued in Europe, such as cathedrals, palaces, and historic town centres, over, for example, living traditions or sacred landscapes. UNESCO itself recognised this imbalance in 1994, when it launched a ‘Global Strategy’ to make the list more representative.\nIt’s always worth asking: who made this data, for what purpose, and whose idea of value does it represent? A good map - and a good report - should make this clear to the reader, for example in the title, the caption, or the text around it.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#exercises",
+    "href": "46_choropleth.html#exercises",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Exercises",
+    "text": "Exercises\n\nMake a map of the number of cultural sites (only category == 'Cultural') in each country of Europe. Use the projection with the EPSG code 3035 and zoom in on Europe, as in the projections chapter.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nMake a world map of the number of sites in danger (danger == TRUE) in each country. Do you need to normalise this data? Why, or why not?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nThe Nobel Prize dataset we used earlier in the course contains the country of birth of each laureate, as a three-letter ISO code, in the column iso_birth_country_now. Make a map of the number of Nobel laureates born in each country. The matching column in the world map is iso_a3_eh. Would it make sense to normalise this data? What would you divide by?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#check-your-understanding",
+    "href": "46_choropleth.html#check-your-understanding",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Check your understanding",
+    "text": "Check your understanding\n1. Why should the map be on the left side of left_join()?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nleft_join() keeps every row of the left-hand dataset, so with the map on the left, every country stays on the map, even those with no data. The result also keeps the class of the left-hand object, so it’s still an sf object which geom_sf() can draw. With the data on the left, countries with no data would disappear, and the result would be an ordinary dataframe.\n\n\n\n2. After a join, a country that you know has data shows up in grey (NA). Give two possible reasons.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe codes or names don’t match: for example, a spelling difference (‘Czechia’ vs ‘Czech Republic’), a different kind of code (two-letter vs three-letter ISO codes), or a missing-value code such as -99 in the map. Or the data itself has a problem, such as a code read in as NA (like Namibia’s NA code), or the country being recorded under a different name or historical state.\n\n\n\n3. A student maps the total number of museums in each country of Europe, and concludes that Germany and France are the most ‘museum-rich’ countries. What’s the problem, and how could they fix it?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nRaw counts mostly reflect the size of the countries: big countries with many people will usually have more museums. To compare countries fairly, they should normalise the data, e.g. museums per 100,000 people. They should also be clear about what the data actually measures - for instance, how ‘museum’ was defined, and by whom.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "46_choropleth.html#learning-objectives",
+    "href": "46_choropleth.html#learning-objectives",
+    "title": "61  Choropleth maps: joining your data to a map",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nList the six steps of making a choropleth map from your own data\nFind a common field to join data and map, and explain why codes are better than names\nUse separate_rows() to split a column containing several values\nJoin data to a map with left_join(), with the map on the left\nCheck a join for missing and unexpected matches\nUse a binned colour scale, and choose a colour for missing values\nNormalise data, and explain what difference it makes to a map",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>Choropleth maps: joining your data to a map</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html",
+    "href": "47_map-files.html",
+    "title": "62  Finding and reading map files",
+    "section": "",
+    "text": "Where to find map files\nMap files with official boundaries are usually published by government agencies, often for free. Some good places to look:",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#where-to-find-map-files",
+    "href": "47_map-files.html#where-to-find-map-files",
+    "title": "62  Finding and reading map files",
+    "section": "",
+    "text": "The Netherlands: PDOK and CBS publish boundaries of provinces, municipalities, neighbourhoods and more. The cartomap project makes simplified versions of the CBS boundaries for every year, which are ideal for data maps (the maps in this chapter come from there).\nEurope: Eurostat publishes the boundaries of the EU’s statistical regions, called NUTS regions, at three levels: NUTS 1 (large regions) to NUTS 3 (small regions). A lot of EU data is published by NUTS region, so these are very useful.\nThe whole world: geoBoundaries has open boundaries of regions and provinces for almost every country.\n\n\n\n\n\n\n\nHistorical maps\n\n\n\nBoundaries change over time, and a map of modern borders often isn’t suitable for historical data. There are also many projects which publish historical boundaries, such as the Historical GIS of the Low Countries and A Vision of Britain Through Time.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#map-file-formats",
+    "href": "47_map-files.html#map-file-formats",
+    "title": "62  Finding and reading map files",
+    "section": "Map file formats",
+    "text": "Map file formats\nYou’ll come across map files in several formats. The three most common are:\n\nGeoJSON (.geojson or .json): a single text file. Very common for maps published online.\nShapefile (.shp): an older but still very common format. A shapefile is actually a set of files with the same name and different endings, such as .shp (the shapes), .dbf (the data about each shape), and .prj (the projection). You read in the .shp file, but all the other files must be in the same folder. Shapefiles are usually downloaded as a .zip file: unzip it into your project folder, and keep the files together.\nGeoPackage (.gpkg): a newer format, which can contain several maps (called layers) in a single file.\n\nThe good news is that the sf package reads all of them with the same function: st_read().",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#reading-a-map-file-with-st_read",
+    "href": "47_map-files.html#reading-a-map-file-with-st_read",
+    "title": "62  Finding and reading map files",
+    "section": "Reading a map file with st_read()",
+    "text": "Reading a map file with st_read()\nLet’s load the packages, and download the map of the Dutch provinces, which is a GeoJSON file:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow read it in with st_read(), giving it the name of the file:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nst_read() prints a short summary: there are 12 features (the provinces), they’re multipolygons, and the CRS is WGS 84, i.e. ordinary longitude and latitude. Let’s look at the data, and draw it:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAs well as the names of the provinces (statnaam), there’s a column called statcode, with a code for each province: PV20 for Groningen, PV28 for Zuid-Holland, and so on. These are the codes CBS uses in its statistics, which will be very useful for joining.\n\n\n\n\n\n\nReading shapefiles and GeoPackages\n\n\n\nShapefiles are read in exactly the same way, giving the path to the .shp file:\nregions &lt;- st_read(\"NUTS_RG_60M_2024_4326/NUTS_RG_60M_2024_4326.shp\")\nA GeoPackage may contain several layers. Use st_layers() to list them, and then pick one with layer =:\nst_layers(\"wijkenbuurten_2024.gpkg\")\nmunicipalities &lt;- st_read(\"wijkenbuurten_2024.gpkg\", layer = \"gemeenten\")",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#joining-data-to-the-provinces",
+    "href": "47_map-files.html#joining-data-to-the-provinces",
+    "title": "62  Finding and reading map files",
+    "section": "Joining data to the provinces",
+    "text": "Joining data to the provinces\nThe number of national monuments in each province and municipality is published by CBS, the Dutch statistics office. I’ve downloaded the figures for 2024:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe data is in a ‘long’ format: for each region, there’s one row for each type of monument (archaeology, religious buildings, farms and mills, and so on), plus a row for the total. The regions include both provinces (with codes starting PV) and municipalities (GM).\nFollowing the six steps, our geographic unit is the province, our map is provinces, and the common field is the CBS code. Next, we need one row per province, so let’s filter to the provinces and the total number of monuments:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe obvious way to join the two is by the names of the provinces. Let’s try it, with the map on the left:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nEvery value is NA - nothing has matched! Let’s compare the names in the two datasets:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn the CBS data, every province name has ’ (PV)’ added at the end (for provincie), so ‘Groningen’ in the map doesn’t match ‘Groningen (PV)’ in the data. We could fix this by removing the extra text with str_remove(). But as we saw in the last chapter, it’s more reliable to join on a code, if one is available - and here, both datasets have the CBS code:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow the join works. Let’s draw the map:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNoord-Holland, which includes Amsterdam, has by far the most.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#going-further-municipalities",
+    "href": "47_map-files.html#going-further-municipalities",
+    "title": "62  Finding and reading map files",
+    "section": "Going further: municipalities",
+    "text": "Going further: municipalities\nProvinces are large, and hide a lot of variation. Let’s do the same at the level of the municipality (gemeente), of which there were 342 in 2025:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nA few municipalities, such as Amsterdam, have thousands of monuments, while most have a few hundred at most. With a continuous colour scale, almost every municipality would get the same colour. A binned scale, with bins that get wider as the numbers get bigger, shows the variation much better:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe big cities stand out, as you’d expect - but what do you notice about the north of the country? The first exercise below will help you find out what’s going on.\n\n\n\n\n\n\nMatch the year of your data and your map\n\n\n\nBoundaries change. Dutch municipalities merge with each other almost every year, so the list of municipalities in 2025 is different to the list in 2020. Always use a map of the boundaries from the same year as your data. CBS makes this easier by saying which year’s boundaries it used: this data uses the 2025 boundaries (‘indeling 2025’), so we use the 2025 map. If your data and map come from different years, some places won’t match.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#exercises",
+    "href": "47_map-files.html#exercises",
+    "title": "62  Finding and reading map files",
+    "section": "Exercises",
+    "text": "Exercises\n\nMake a map of the number of religious buildings that are national monuments in each municipality (type_of_monument == 'Religious buildings'). Look at the data to find the names of the other types of monument, and make a second map of another type. Do they show different patterns?\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nLarger municipalities have more room for monuments. Normalise the data by calculating the number of monuments per square kilometre. You can calculate the area of each municipality with the sf function st_area(), which gives the area in square metres. Areas are most reliable when measured on a flat map, so first convert the shapes to the official Dutch projection (EPSG 28992, see the projections chapter) with st_transform():\n\nmutate(area_km2 = as.numeric(st_area(st_transform(geometry, 28992))) / 1000000)\nHow does the map change?\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#check-your-understanding",
+    "href": "47_map-files.html#check-your-understanding",
+    "title": "62  Finding and reading map files",
+    "section": "Check your understanding",
+    "text": "Check your understanding\n1. A student downloads a shapefile as a zip, unzips it, and copies only the .shp file into their project folder. When they run st_read(), they get an error. Why?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nA shapefile is a set of files (.shp, .dbf, .prj, and others), and st_read() needs all of them, in the same folder. They need to copy all the files, not just the .shp.\n\n\n\n2. A student joins a dataset of library loans by municipality in 2015 to a map of the municipalities in 2025. Some municipalities don’t match. What’s the most likely reason?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nMunicipal boundaries have changed between 2015 and 2025: many municipalities have merged, so some 2015 municipalities no longer exist, and some 2025 municipalities didn’t exist yet. They should use a map of the 2015 boundaries.",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
+    "objectID": "47_map-files.html#learning-objectives",
+    "href": "47_map-files.html#learning-objectives",
+    "title": "62  Finding and reading map files",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBefore moving on, take a look and see if you are confident with all of the following learning objectives. If anything is unclear, try to go back over the material, or make a note and ask in our next class!\n(the checkboxes are just for your own use, they won’t save if you leave or refresh the page)\n\nKnow where to look for map files of regions, provinces and municipalities\nKnow the difference between GeoJSON, shapefile and GeoPackage files\nRead a map file into R with st_read()\nDiagnose a join that doesn’t match, and explain why joining on codes is more reliable than on names\nExplain why the year of your map should match the year of your data",
+    "crumbs": [
+      "Week 6 · Tue 1 Dec: Digital Mapping 2",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>Finding and reading map files</span>"
+    ]
+  },
+  {
     "objectID": "41_data-sources.html",
     "href": "41_data-sources.html",
     "title": "Data sources for assignments",
@@ -2924,6 +3408,72 @@
     "crumbs": [
       "Useful information",
       "Critique gallery"
+    ]
+  },
+  {
+    "objectID": "52_exam-prep.html",
+    "href": "52_exam-prep.html",
+    "title": "Preparing for the Exam",
+    "section": "",
+    "text": "About the exam\nThe exam has four parts. Each one relates to a different set of skills from the course:\nParts A and B have one correct answer. Parts C and D are open questions: there are many good answers, and you’ll be rewarded for clear reasoning which uses the ideas and vocabulary from the course.",
+    "crumbs": [
+      "Exam",
+      "Preparing for the Exam"
+    ]
+  },
+  {
+    "objectID": "52_exam-prep.html#about-the-exam",
+    "href": "52_exam-prep.html#about-the-exam",
+    "title": "Preparing for the Exam",
+    "section": "",
+    "text": "When and where: Tuesday 5 January 2027, 13:00-15:00, Universitair Sportcentrum, Hall 2. The resit is on Tuesday 26 January 2027, 15:00-17:00, Lipsius 1.27. Always check MyTimetable for changes.\nLength: two hours.\nNo R. You won’t have access to R or RStudio during the exam, and you won’t need it. You’ll be asked to read and reason about code, not to run it.\nFunction reference sheet. You’ll be given a copy of the reference sheet below. You don’t need to memorise function names or arguments - what matters is that you understand what they do and when to use them.\n\n\n\nExam structure\n\n\n\n\n\n\n\n\nPart\nWhat you’ll do\nWeight\nCovers\n\n\n\n\nA\nRead the code. Given a small table and some dplyr code, work out what the output will be, choose the code which produces a given result, or find the bug.\n30%\nWeeks 1-2: data analysis\n\n\nB\nCode and charts. Work out what chart some ggplot code produces, or what you’d change to get a particular effect.\n20%\nWeeks 3-4: data visualisation\n\n\nC\nCritique a visualisation. You’re shown a chart or map: identify its problems and explain how you would fix them.\n25%\nWeeks 3-6: design principles, colour, accessibility, mapping\n\n\nD\nPlan an analysis. You’re given a description of a dataset you haven’t seen before and a research question. Explain how you would use the data to answer it, and what you’d need to watch out for.\n25%\nThe whole course",
+    "crumbs": [
+      "Exam",
+      "Preparing for the Exam"
+    ]
+  },
+  {
+    "objectID": "52_exam-prep.html#how-to-prepare",
+    "href": "52_exam-prep.html#how-to-prepare",
+    "title": "Preparing for the Exam",
+    "section": "How to prepare",
+    "text": "How to prepare\n\nDo the home exercises. Only two are graded, but they are all written to prepare you for this exam and for the reports. Reading code is much easier once you’ve written lots of it.\nUse the ‘Check your understanding’ boxes at the end of chapters. They are written in the same style as Part A and B questions. Where there’s a code cell, predict the answer first, and then run the code to check.\nGo through the Learning Objectives at the end of each chapter. If you can’t tick one off, go back over that chapter.\nPractise critiquing. Whenever you see a chart in the news or on social media, ask yourself what it does well and what you’d change. The chapters on Gestalt principles, colour, and accessibility give you the vocabulary.\nDo the practice exam below, under time pressure, before looking at the answers.",
+    "crumbs": [
+      "Exam",
+      "Preparing for the Exam"
+    ]
+  },
+  {
+    "objectID": "52_exam-prep.html#what-you-should-be-able-to-do",
+    "href": "52_exam-prep.html#what-you-should-be-able-to-do",
+    "title": "Preparing for the Exam",
+    "section": "What you should be able to do",
+    "text": "What you should be able to do\n\nData analysis (weeks 1-2)\n\nExplain what a dataframe is, and what rows, columns and data types are\nPredict the output of select(), slice(), arrange(), filter(), mutate(), count(), group_by() and summarise()\nFollow a chain of functions joined with the pipe (|&gt;), step by step\nExplain what a join does, what a key is, and why a left_join() can produce NA values\nExplain the difference between ‘wide’ and ‘long’ (tidy) data\nSpot common mistakes, such as = instead of ==, or forgetting quotation marks\n\n\n\nData visualisation (weeks 3-4)\n\nExplain how ggplot2 maps columns of data to aesthetics (x, y, colour, fill, size…) using aes()\nExplain the difference between setting an aesthetic inside and outside aes()\nChoose an appropriate chart type (geom) for a given question and type of data\nExplain what scales do, and when to use a sequential, diverging, or qualitative colour scale\nUse Gestalt principles to explain why a chart works, or doesn’t\nExplain the role of titles, labels and annotations in telling a story with data\n\n\n\nEthics, FAIR data and accessibility (week 5)\n\nExplain the FAIR principles and evaluate a dataset against them\nIdentify accessibility problems in a visualisation (e.g. colour-blindness, contrast, missing alt text) and suggest fixes\nDiscuss how a dataset or visualisation was made, and whose perspective it represents\nExplain how choices such as filtering, scales, titles and the handling of missing values can make a visualisation misleading\nSuggest more respectful ways to visualise sensitive topics\n\n\n\nDigital mapping (weeks 5-6)\n\nExplain what a simple features (sf) object is, and how it differs from a regular dataframe\nExplain the steps of joining a dataset to a map, and spot problems with a join\nExplain how to turn a dataset of coordinates into points on a map\nExplain what a map projection is, and how the choice of projection can distort a map\nExplain when to use a choropleth and when to use a points map\nExplain why choropleth maps usually need normalised data (e.g. per person) rather than raw counts",
+    "crumbs": [
+      "Exam",
+      "Preparing for the Exam"
+    ]
+  },
+  {
+    "objectID": "52_exam-prep.html#function-reference-sheet",
+    "href": "52_exam-prep.html#function-reference-sheet",
+    "title": "Preparing for the Exam",
+    "section": "Function reference sheet",
+    "text": "Function reference sheet\nThis is the reference sheet you’ll be given in the exam.\n\nFunction reference sheet\n\n\n\n\n\n\nFunction\nWhat it does\n\n\n\n\nselect(df, col1, col2)\nKeep only the named columns. select(df, -col1) removes a column.\n\n\nslice(df, 1:5)\nKeep rows by position. slice_max(df, col, n = 5) / slice_min() keep the rows with the highest/lowest values.\n\n\narrange(df, col)\nSort rows by a column, smallest first. arrange(df, desc(col)) sorts largest first.\n\n\nfilter(df, condition)\nKeep rows where the condition is TRUE. Comparisons: ==, !=, &gt;, &lt;, &gt;=, &lt;=, %in%. Combine with & (and), | (or); negate with !.\n\n\nstr_detect(col, \"text\")\nTRUE if the text is found in the column (often used inside filter()).\n\n\nmutate(df, new_col = ...)\nAdd a new column, or change an existing one.\n\n\nif_else(condition, yes, no)\nReturn one value if a condition is TRUE, another if FALSE. case_when() handles several conditions.\n\n\nrename(df, new_name = old_name)\nRename a column.\n\n\ncount(df, col)\nCount the number of rows for each value of a column.\n\n\ngroup_by(df, col)\nGroup rows, so that the next function is applied to each group separately.\n\n\nsummarise(df, new_col = ...)\nReduce each group to one row, e.g. with n(), sum(), mean(), max(), min().\n\n\nleft_join(x, y, by = \"key\")\nAdd the columns of y to x, matching rows by a key. Keeps all rows of x; rows with no match get NA. Also inner_join(), full_join().\n\n\npivot_longer() / pivot_wider()\nReshape data from wide to long format, or from long to wide.\n\n\nggplot(df, aes(x = , y = , colour = , fill = , size = ))\nStart a chart, mapping columns to aesthetics.\n\n\ngeom_point(), geom_line(), geom_col(), geom_bar(), geom_histogram(), geom_text()\nDraw the data as points, lines, bars, a histogram, or text.\n\n\nscale_x_continuous(), scale_x_date(), scale_fill_brewer(), scale_colour_viridis_d(), …\nControl how data values are translated into positions or colours.\n\n\nfacet_wrap(~ col)\nSplit a chart into small multiples, one per value of a column.\n\n\nlabs(title = , x = , y = , caption = )\nSet titles and labels.\n\n\nannotate()\nAdd a single piece of text or a shape to a chart.\n\n\ntheme_minimal(), theme()\nChange the overall look of the chart.\n\n\ngeom_sf()\nDraw an sf object (a map): polygons, lines or points. Positions come from the geometry column.\n\n\ncoord_sf(xlim = , ylim = , crs = )\nZoom in on a map, and/or change its projection.\n\n\nst_read()\nRead a map file (e.g. a GeoJSON file or shapefile) into an sf object.\n\n\nst_as_sf(df, coords = c('longitude', 'latitude'), crs = 4326)\nTurn a dataframe with coordinates into an sf object of points.\n\n\nseparate_rows(df, col, sep = ', ')\nSplit a column containing several values into separate rows.",
+    "crumbs": [
+      "Exam",
+      "Preparing for the Exam"
+    ]
+  },
+  {
+    "objectID": "52_exam-prep.html#practice-exam",
+    "href": "52_exam-prep.html#practice-exam",
+    "title": "Preparing for the Exam",
+    "section": "Practice exam",
+    "text": "Practice exam\nTry this under exam conditions: two hours, no R, just the reference sheet above. Then compare your answers with the model answers (click to expand them).\n\nPart A: Read the code (30%)\nAll the questions in Part A use these two small dataframes. books contains six works of seventeenth- and eighteenth-century English literature:\n\nbooks\n\n\ntitle\nauthor\nyear\nformat\npages\n\n\n\n\nLeviathan\nHobbes\n1651\nfolio\n396\n\n\nParadise Lost\nMilton\n1667\nquarto\n342\n\n\nPilgrim’s Progress\nBunyan\n1678\noctavo\n232\n\n\nRobinson Crusoe\nDefoe\n1719\noctavo\n364\n\n\nGulliver’s Travels\nSwift\n1726\noctavo\n300\n\n\nPamela\nRichardson\n1740\nduodecimo\n250\n\n\n\nauthors contains the birth years of some of the authors:\n\nauthors\n\n\nauthor\nborn\n\n\n\n\nHobbes\n1588\n\n\nMilton\n1608\n\n\nDefoe\n1660\n\n\nSwift\n1667\n\n\nRichardson\n1689\n\n\n\nA1. What is the output of this code? Write out the resulting table.\nbooks |&gt;\n  filter(year &gt; 1700, format == \"octavo\") |&gt;\n  select(title, pages)\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\ntitle\npages\n\n\n\n\nRobinson Crusoe\n364\n\n\nGulliver’s Travels\n300\n\n\n\nOnly two rows have a year after 1700 and the format octavo (Pamela is after 1700 but is a duodecimo; Pilgrim’s Progress is an octavo but before 1700). select() then keeps only two columns.\n\n\n\nA2. How many rows will the result of this code have, and what will be in the first row?\nbooks |&gt;\n  group_by(format) |&gt;\n  summarise(n = n(), mean_pages = mean(pages)) |&gt;\n  arrange(desc(n))\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nFour rows, one for each format. The first row is octavo, with n = 3 and mean_pages = 298.7 (the average of 232, 364 and 300). summarise() reduces each group to a single row, and arrange(desc(n)) puts the most common format first.\n\n\n\nA3. A student wants to count how many of the books were published in each century. Which of these will work?\n\nbooks |&gt; count(year)\nbooks |&gt; mutate(century = if_else(year &lt; 1700, \"17th\", \"18th\")) |&gt; count(century)\nbooks |&gt; filter(year &lt; 1700) |&gt; count(year)\nbooks |&gt; group_by(year &lt; 1700)\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nb. It first makes a new column, century, and then counts the values in it (3 and 3). (a) counts each individual year, giving six rows with a count of 1. (c) only looks at the 17th century, and again counts individual years. (d) groups the data, but doesn’t count anything.\n\n\n\nA4. What does this code produce for Pilgrim’s Progress, and why?\nbooks |&gt;\n  left_join(authors, by = \"author\") |&gt;\n  mutate(age = year - born) |&gt;\n  select(author, age)\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nNA. Bunyan isn’t in the authors table, so the left_join() keeps the row (because books is on the left) but has no value to put in the born column, so it puts NA. Any calculation with NA also gives NA. The other rows give the author’s age when the book was published (e.g. 63 for Hobbes).\n\n\n\nA5. What does this return?\nbooks |&gt;\n  arrange(desc(pages)) |&gt;\n  slice(1:2)\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nThe two longest books: Leviathan (396 pages) and Robinson Crusoe (364 pages), with all their columns. arrange(desc(pages)) sorts the longest first, and slice(1:2) keeps the first two rows. slice_max(books, pages, n = 2) would do the same thing in one step.\n\n\n\nA6. This code gives an error. What’s wrong, and how would you fix it?\nbooks |&gt;\n  filter(format = \"quarto\")\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nA single = is used to set a value (e.g. an argument to a function), not to compare. To test whether two things are equal, you need ==: filter(format == \"quarto\").\n\n\n\n\n\nPart B: Code and charts (20%)\nB1. Which of these produces a scatterplot of year against number of pages, with the points coloured by format? For each of the others, explain what goes wrong.\n\nggplot(books, aes(x = year, y = pages, colour = format)) + geom_point()\nggplot(books, aes(x = year, y = pages)) + geom_point(colour = format)\nggplot(books, aes(x = year, y = pages, fill = format)) + geom_point()\nggplot(books, aes(x = format, y = pages)) + geom_col()\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\na. In (b), colour = format is outside aes(), so R doesn’t look for a column called format in the data - it gives an error. In (c), the points are drawn with fill mapped to format, but the default points are solid dots that have no fill, only a colour, so they all appear black. (d) is a bar chart of the total number of pages for each format, not a scatterplot.\n\n\n\nB2. A student writes the following code, expecting blue points. Instead the points are a pinkish-red, and there’s a legend with the single entry ‘blue’. Why, and how would you fix it?\nggplot(books, aes(x = year, y = pages)) +\n  geom_point(aes(colour = \"blue\"))\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nInside aes(), ggplot treats \"blue\" as a data value (as if there was a column where every row said “blue”), not as a colour. It gives that value the first colour in its default palette, and adds a legend for it. To set a fixed colour, put it outside aes(): geom_point(colour = \"blue\").\n\n\n\nB3. You’ve made a line chart of the number of books published per year, with one line per format. The lines overlap so much that it’s hard to read. Name two different changes you could make to the code to improve it, and explain what each does.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nGood answers include:\n\nfacet_wrap(~ format) to give each format its own small panel (small multiples), so the lines no longer overlap.\nHighlight one format and make the others grey, to focus on the story you want to tell.\nLabel the lines directly (e.g. with geom_text() or annotate()) instead of using a legend.\nSummarise by decade instead of year (using mutate() and group_by()), to make the lines smoother.\n\n\n\n\n\n\nPart C: Critique a visualisation (25%)\nC1. This chart shows the proportion of passengers who survived the sinking of the Titanic, by ticket class. Identify at least four problems with it, and explain how you would fix each.\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nThe y-axis doesn’t start at zero. Bar charts encode values by the length of the bar, so a truncated axis exaggerates the differences: the first-class bar looks about six times as long as the third-class bar, when the real difference is about 2.5 times. Start the axis at zero.\nThe colours carry no information and are hard to read. Red, green and blue are just repeating the x-axis, and red/green is a problem for colour-blind readers. Use a single colour, or a sequential palette if you want to emphasise the ordering of the classes.\nThe legend is redundant, and its title (‘factor(pclass)’) is a leftover from the code. Remove it.\nThe axis labels are column names, not explanations. Use e.g. ‘Ticket class’ (with labels ‘First’, ‘Second’, ‘Third’) and ‘Share of passengers who survived’, ideally as a percentage.\nThe title is sensationalist, and doesn’t tell the reader what they’re looking at. A good title states the finding plainly, e.g. ‘First-class passengers were more than twice as likely to survive as those in third class’.\nThe dark background reduces contrast. Use a light theme such as theme_minimal().\nNo source is given. Add a caption.\n\n\n\n\nC2. This map was made for a report arguing that Germany, France, and the UK are Europe’s most ‘bookish’ countries. The fill colour shows each country’s total population. Identify the problems with the map, and with the way it’s being used.\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nThe data doesn’t match the claim. The map shows total population, not reading. Big countries will always look ‘more’ of everything on a map of raw counts. To say anything about reading, you would need data about reading (e.g. library loans, book sales), and you’d need to normalise it - e.g. loans per person - so that countries of different sizes can be compared.\nThe rainbow colour scale has no natural order (is pink more than blue?), creates false boundaries between colours, and is not colour-blind friendly. For ordered numeric data, use a sequential palette (e.g. light to dark of one hue, or viridis).\nThe legend is unreadable: its title is a column name (pop_est) and the numbers are in scientific notation (8e+07). Give it a proper title (‘Population (millions)’) and readable labels.\nThe title makes a claim which the map can’t support.\nNo source is given, and there’s no information about the year of the data.\nThe projection: this map uses plain longitude and latitude, which stretches countries further from the equator (compare the size of Scandinavia and Spain). A projection designed for Europe would be better.\n\n\n\n\n\n\nPart D: Plan an analysis (25%)\nD1. You’re given a (simplified) dataset of voyages made by ships of the Dutch East India Company (VOC) from the Netherlands to Asia between 1595 and 1795. Each row is one voyage, with these columns:\n\nship_name: the name of the ship\ndeparture_date: the date the ship left the Netherlands\ndeparture_port: the Dutch port it left from\narrival_date: the date it arrived in Asia (empty if it never arrived)\narrival_port: the port it arrived at in Asia\ncrew_departure: the number of people on board when it left\ncrew_arrival: the number of people on board when it arrived\n\nYour research question is: How did the deadliness of the voyage to Asia change over the seventeenth and eighteenth centuries?\nExplain, step by step, how you would use this data to answer the question. Mention the functions you would use, and the chart you would make (and why). Then discuss at least two problems or limitations with the data, or ethical issues, that you would need to consider in your report.\n\n\n\n\n\n\nAnswer\n\n\n\n\n\nA strong answer would include something like the following. You don’t need to write perfect code: a clear explanation in words, naming the relevant functions, is enough.\nSteps:\n\nfilter() to keep only voyages which arrived, and where both crew columns have values (and explain that you’ve done this - see the problems below).\nmutate() to calculate the number of deaths (crew_departure - crew_arrival) and, more importantly, the proportion who died (deaths / crew_departure). The proportion is better than the raw number, because ships became bigger over time, so a raw count would mostly show the size of the ships.\nmutate() to extract the year from departure_date, and then make a decade column (e.g. floor(year / 10) * 10).\ngroup_by(decade) and summarise() to calculate the average proportion of deaths per decade, and the number of voyages, n().\nMake a line chart (geom_line()) with decade on the x-axis and the average mortality on the y-axis, because the question is about change over time. Add clear labels, a title that states the finding, a source, and perhaps annotations for important events.\n\nProblems and limitations (any two, well explained):\n\nMissing data: ships which were wrecked or captured never arrived, so they have no arrival crew number. If you filter them out, you leave out the most deadly voyages, and underestimate mortality. You could count these separately, or make a second chart of the share of ships that never arrived.\nThe numbers don’t only reflect deaths: people could also leave or join the ship at stops along the way (e.g. at the Cape), so a lower number on arrival isn’t only deaths.\nSources and FAIR: you’d need to find out where the numbers come from (VOC records), how they were transcribed, and how complete they are for different periods - the early decades may be less well recorded.\nEthics and perspective: this data was produced by a colonial trading company, and records people as numbers of ‘crew’. It says nothing about who they were, and nothing about the people in Asia affected by the VOC. You could reflect on whose perspective the data represents, and on how to present deaths respectfully (e.g. avoiding sensationalist titles).",
+    "crumbs": [
+      "Exam",
+      "Preparing for the Exam"
     ]
   }
 ]

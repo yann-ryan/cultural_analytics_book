@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","results":"markup","fig-cap":"","autorun":"true","read-only":"false","context":"setup","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id') |>\n  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),\n         age_at_award = award_year - birth_year)\n\ndf <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n(),\n            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,\n            avg_age = mean(age_at_award, na.rm = TRUE))","id":1},{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-2","results":"markup","fig-cap":"","autorun":"false","read-only":"false","context":"interactive","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point()+\n  theme_light()","id":2},{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","results":"markup","fig-cap":"","autorun":"false","read-only":"false","context":"interactive","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  theme(axis.title.x = element_text(size = 16))","id":3},{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-4","results":"markup","fig-cap":"","autorun":"false","read-only":"false","context":"interactive","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"","id":4},{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-5","results":"markup","fig-cap":"","autorun":"false","read-only":"false","context":"interactive","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"df |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))","id":5},{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-6","results":"markup","fig-cap":"","autorun":"false","read-only":"false","context":"interactive","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"df |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +\n  labs(title = \"Nobel Prizes by Category\", subtitle = \"1901 - 2024\") +\n  theme(plot.title = element_text(family = \"Times New Roman\", size = 22),\n        plot.subtitle = element_text(family = \"Times New Roman\", face = \"bold\"))","id":6},{"options":{"output":"true","message":"true","editor-font-scale":"1","editor-max-height":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-7","results":"markup","fig-cap":"","autorun":"false","read-only":"false","context":"interactive","dpi":72,"fig-width":7,"out-width":"700px","comment":"","warning":"true","editor-word-wrap":"true","fig-height":5},"code":"df |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +\n  labs(title = \"Nobel Prizes by Category\", subtitle = \"1901 - 2024\") +\n  theme(text = element_text(family = 'Times New Roman'))","id":7}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\n\nurl1 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/laureates_df.csv\"\ndownload.file(url1, \"laureates_df.csv\")\nlaureates_df <- read_csv('laureates_df.csv')\n\nurl2 <- \"https://raw.githubusercontent.com/yann-ryan/infovis_data/main/nobel/prize_df.csv\"\ndownload.file(url2, \"prize_df.csv\")\nprize_df <- read_csv('prize_df.csv')\n\nnobel_df <- laureates_df |>\n  left_join(prize_df, by = 'prize_id') |>\n  mutate(birth_year = as.numeric(str_sub(birth_date, 1, 4)),\n         age_at_award = award_year - birth_year)\n\ndf <- nobel_df |>\n  group_by(category) |>\n  summarise(n = n(),\n            pct_female = mean(gender == 'female', na.rm = TRUE) * 100,\n            avg_age = mean(age_at_award, na.rm = TRUE))","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"true","context":"setup","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-1","fig-width":7,"editor-word-wrap":"true"}},{"id":2,"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point()+\n  theme_light()","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"false","context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-2","fig-width":7,"editor-word-wrap":"true"}},{"id":3,"code":"df |>\n  ggplot(aes(x = avg_age, y = pct_female, size = n, color = category))  +\n  geom_point() +\n  theme(axis.title.x = element_text(size = 16))","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"false","context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-3","fig-width":7,"editor-word-wrap":"true"}},{"id":4,"code":"","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"false","context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-4","fig-width":7,"editor-word-wrap":"true"}},{"id":5,"code":"df |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"false","context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-5","fig-width":7,"editor-word-wrap":"true"}},{"id":6,"code":"df |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +\n  labs(title = \"Nobel Prizes by Category\", subtitle = \"1901 - 2024\") +\n  theme(plot.title = element_text(family = \"Times New Roman\", size = 22),\n        plot.subtitle = element_text(family = \"Times New Roman\", face = \"bold\"))","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"false","context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-6","fig-width":7,"editor-word-wrap":"true"}},{"id":7,"code":"df |>\n  ggplot(aes(x = category, y = n)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +\n  labs(title = \"Nobel Prizes by Category\", subtitle = \"1901 - 2024\") +\n  theme(text = element_text(family = 'Times New Roman'))","options":{"out-height":"","output":"true","dpi":72,"out-width":"700px","comment":"","results":"markup","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","message":"true","editor-font-scale":"1","classes":"","autorun":"false","context":"interactive","editor-quick-suggestions":"false","fig-height":5,"label":"unnamed-chunk-7","fig-width":7,"editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -2059,6 +2059,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2070,6 +2094,18 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2115,6 +2151,12 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing for the Exam</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>

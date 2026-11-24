@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"true","classes":"","label":"unnamed-chunk-1","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"setup","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":1,"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  "},{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","label":"unnamed-chunk-2","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":2,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  "},{"options":{"results":"markup","warning":"false","message":"false","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","error":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":3,"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) "},{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","label":"unnamed-chunk-4","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":4,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) "},{"options":{"results":"markup","warning":"true","message":"true","out-height":"","out-width":"700px","editor-word-wrap":"true","autorun":"false","classes":"","label":"unnamed-chunk-5","read-only":"false","comment":"","fig-width":7,"fig-cap":"","dpi":72,"context":"interactive","editor-quick-suggestions":"false","output":"true","editor-max-height":"","fig-height":5,"editor-font-scale":"1"},"id":5,"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() "}];
+globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","message":"true","autorun":"true","fig-height":5,"out-width":"700px","read-only":"false","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-max-height":"","classes":"","output":"true","comment":"","fig-cap":"","results":"markup","dpi":72,"context":"setup","editor-font-scale":"1","fig-width":7,"out-height":""},"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","id":1},{"options":{"label":"unnamed-chunk-2","message":"true","autorun":"false","fig-height":5,"out-width":"700px","read-only":"false","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-max-height":"","classes":"","output":"true","comment":"","fig-cap":"","results":"markup","dpi":72,"context":"interactive","editor-font-scale":"1","fig-width":7,"out-height":""},"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","id":2},{"options":{"label":"unnamed-chunk-3","message":"false","autorun":"false","fig-height":5,"out-width":"700px","read-only":"false","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"false","editor-max-height":"","classes":"","output":"true","comment":"","error":"false","fig-cap":"","results":"markup","dpi":72,"context":"interactive","editor-font-scale":"1","fig-width":7,"out-height":""},"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","id":3},{"options":{"label":"unnamed-chunk-4","message":"true","autorun":"false","fig-height":5,"out-width":"700px","read-only":"false","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-max-height":"","classes":"","output":"true","comment":"","fig-cap":"","results":"markup","dpi":72,"context":"interactive","editor-font-scale":"1","fig-width":7,"out-height":""},"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","id":4},{"options":{"label":"unnamed-chunk-5","message":"true","autorun":"false","fig-height":5,"out-width":"700px","read-only":"false","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","editor-max-height":"","classes":"","output":"true","comment":"","fig-cap":"","results":"markup","dpi":72,"context":"interactive","editor-font-scale":"1","fig-width":7,"out-height":""},"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","id":5}];
 
 </script>
 <script type="module">
@@ -2059,6 +2059,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2070,6 +2094,18 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2115,6 +2151,12 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing for the Exam</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -2472,7 +2514,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="color-blindness" class="level3">
 <h3 class="anchored" data-anchor-id="color-blindness">Color-blindness</h3>
 <p>Colour blindness (or colour vision deficiency, CVD) is the decreased ability to see colour or differences in colour, specifically hue.</p>
-<p>The most common is less distinction on red-green (deuteranomaly or protanomaly) or blue-yellow (tritanomaly) axis. Red green affects about 8% of males and 0.05% of females.</p>
+<p>The most common is less distinction on red-green (deuteranomaly or protanomaly) or blue-yellow (tritanomaly) axis. Red green affects about 8% of males and 0.5% of females.</p>
 <p>In order to understand how colour in data visualisation is perceived by those with CVD, we should think back to the previous week’s lesson on the differences between scales. The three key scales, as you’ll remember, are <strong>sequential</strong> (for continuous data), <strong>categorical</strong> (for text or categories), and <strong>diverging</strong> (which is sequential, but with a ‘midpoint’). These are affected in different ways.</p>
 <section id="sequential-colour-scales" class="level4">
 <h4 class="anchored" data-anchor-id="sequential-colour-scales">Sequential colour scales</h4>

@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)\n\n# the same table, but with Southampton listed twice\nlocations_twice = tribble(\n  ~code, ~location_name,      ~country,\n  \"Q\",   \"Queenstown\",        \"Ireland\",\n  \"S\",   \"Southampton\",       \"United Kingdom\",\n  \"S\",   \"Southampton Docks\", \"United Kingdom\",\n  \"C\",   \"Cherbourg\",         \"France\"\n)","options":{"context":"setup","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"true","fig-width":7,"out-width":"700px","label":"unnamed-chunk-1","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":2,"code":"locations_df","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-2","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":3,"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-3","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":4,"code":"joined = titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))\n\nnrow(joined)","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-4","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":5,"code":"no_queenstown = locations_df |> filter(code != 'Q')\n\ntitanic_df |> left_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()\ntitanic_df |> inner_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-5","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":6,"code":"titanic_df |>\n  left_join(locations_twice, by = c('embarked' = 'code')) |>\n  nrow()","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-6","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":7,"code":"locations_twice |>\n  count(code) |>\n  filter(n > 1)","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-7","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":8,"code":"","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-8","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}},{"id":9,"code":"","options":{"context":"interactive","message":"true","results":"markup","read-only":"false","fig-height":5,"autorun":"false","fig-width":7,"out-width":"700px","label":"unnamed-chunk-9","classes":"","editor-quick-suggestions":"false","fig-cap":"","dpi":72,"editor-word-wrap":"true","comment":"","editor-max-height":"","output":"true","editor-font-scale":"1","out-height":"","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"true","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-1","read-only":"false","message":"true","context":"setup","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)\n\n# the same table, but with Southampton listed twice\nlocations_twice = tribble(\n  ~code, ~location_name,      ~country,\n  \"Q\",   \"Queenstown\",        \"Ireland\",\n  \"S\",   \"Southampton\",       \"United Kingdom\",\n  \"S\",   \"Southampton Docks\", \"United Kingdom\",\n  \"C\",   \"Cherbourg\",         \"France\"\n)"},{"id":2,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-2","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"locations_df"},{"id":3,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-3","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-4","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"joined = titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))\n\nnrow(joined)"},{"id":5,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-5","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"no_queenstown = locations_df |> filter(code != 'Q')\n\ntitanic_df |> left_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()\ntitanic_df |> inner_join(no_queenstown, by = c('embarked' = 'code')) |> nrow()"},{"id":6,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-6","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"titanic_df |>\n  left_join(locations_twice, by = c('embarked' = 'code')) |>\n  nrow()"},{"id":7,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-7","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":"locations_twice |>\n  count(code) |>\n  filter(n > 1)"},{"id":8,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-8","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":""},{"id":9,"options":{"warning":"true","classes":"","fig-width":7,"comment":"","output":"true","dpi":72,"autorun":"false","out-width":"700px","results":"markup","editor-quick-suggestions":"false","editor-word-wrap":"true","editor-font-scale":"1","label":"unnamed-chunk-9","read-only":"false","message":"true","context":"interactive","editor-max-height":"","fig-height":5,"out-height":"","fig-cap":""},"code":""}];
 
 </script>
 <script type="module">
@@ -2059,6 +2059,30 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_digital-mapping-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title">Maps as data visualisation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_first-map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title">Your first map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44_projections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title">Map projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2070,6 +2094,18 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -2115,6 +2151,12 @@ globalThis.qwebrExecuteCode = async function (
           </a> 
       </div>
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./52_exam-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing for the Exam</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
