@@ -1,0 +1,11 @@
+---
+title: "Practice exercises: your first map and projections"
+---
+
+The exercises below run in your browser and check your code automatically, giving you feedback as you go. They practise everything from [Your first map](43_first-map.qmd) and [Map projections](44_projections.qmd): filtering, filling, zooming, highlighting and projections. There's also some `mutate()` practice: normalising population by area, to compare how crowded countries are, not just how big they are. Next class picks this up for choropleth maps.
+
+The map exercises are checked by comparing your **code** to a model solution, and the `mutate()` exercises by comparing your **result**. The last two are a bit more of a challenge. The map data takes a few seconds to load the first time.
+
+```{=html}
+<iframe class="exercise-frame" src="https://yann-ryan.github.io/cultural-analytics-exercises/digital-mapping-1.html" width="100%" height="800" style="border: 1px solid #ddd; border-radius: 6px;" loading="lazy"></iframe>
+```

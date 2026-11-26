@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"context":"setup","dpi":72,"autorun":"true","editor-word-wrap":"true","editor-max-height":"","output":"true","fig-cap":"","out-width":"700px","comment":"","classes":"","read-only":"false","editor-font-scale":"1","fig-height":5,"label":"unnamed-chunk-1","out-height":"","fig-width":7,"warning":"true","editor-quick-suggestions":"false","message":"true","results":"markup"},"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df = read_csv('titanic_df.csv')","id":1},{"options":{"context":"interactive","dpi":72,"autorun":"false","editor-word-wrap":"true","editor-max-height":"","output":"true","fig-cap":"","out-width":"700px","comment":"","classes":"","read-only":"false","editor-font-scale":"1","fig-height":5,"label":"unnamed-chunk-2","out-height":"","fig-width":7,"warning":"true","editor-quick-suggestions":"false","message":"true","results":"markup"},"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))","id":2},{"options":{"context":"interactive","dpi":72,"autorun":"false","editor-word-wrap":"true","editor-max-height":"","output":"true","fig-cap":"","out-width":"700px","comment":"","classes":"","read-only":"false","editor-font-scale":"1","fig-height":5,"label":"unnamed-chunk-3","out-height":"","fig-width":7,"warning":"true","editor-quick-suggestions":"false","message":"true","results":"markup"},"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))","id":3},{"options":{"context":"interactive","dpi":72,"autorun":"false","editor-word-wrap":"true","editor-max-height":"","output":"true","fig-cap":"","out-width":"700px","comment":"","classes":"","read-only":"false","editor-font-scale":"1","fig-height":5,"label":"unnamed-chunk-4","out-height":"","fig-width":7,"warning":"true","editor-quick-suggestions":"false","message":"true","results":"markup"},"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))","id":4},{"options":{"context":"interactive","dpi":72,"autorun":"false","editor-word-wrap":"true","editor-max-height":"","output":"true","fig-cap":"","out-width":"700px","comment":"","classes":"","read-only":"false","editor-font-scale":"1","fig-height":5,"label":"unnamed-chunk-5","out-height":"","fig-width":7,"warning":"true","editor-quick-suggestions":"false","message":"true","results":"markup"},"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  ggplot() +\n  geom_histogram(aes(x = age), binwidth = 2)","id":5}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df = read_csv('titanic_df.csv')","options":{"fig-height":5,"results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-1","warning":"true","out-height":"","fig-cap":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"output":"true","comment":"","context":"setup","editor-quick-suggestions":"false","read-only":"false","autorun":"true","out-width":"700px","classes":"","editor-word-wrap":"true"},"id":1},{"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age, na.rm = TRUE))","options":{"fig-height":5,"results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-2","warning":"true","out-height":"","fig-cap":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"output":"true","comment":"","context":"interactive","editor-quick-suggestions":"false","read-only":"false","autorun":"false","out-width":"700px","classes":"","editor-word-wrap":"true"},"id":2},{"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  group_by(pclass) |>\n  summarise(average_age = mean(age))","options":{"fig-height":5,"results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-3","warning":"true","out-height":"","fig-cap":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"output":"true","comment":"","context":"interactive","editor-quick-suggestions":"false","read-only":"false","autorun":"false","out-width":"700px","classes":"","editor-word-wrap":"true"},"id":3},{"code":"titanic_df |>\n  group_by(pclass) |>\n  summarise(total = n(), missing_age = sum(is.na(age))) |>\n  mutate(percent_missing = round(missing_age / total * 100))","options":{"fig-height":5,"results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-4","warning":"true","out-height":"","fig-cap":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"output":"true","comment":"","context":"interactive","editor-quick-suggestions":"false","read-only":"false","autorun":"false","out-width":"700px","classes":"","editor-word-wrap":"true"},"id":4},{"code":"titanic_df |>\n  mutate(age = if_else(is.na(age), 0, age)) |>\n  ggplot() +\n  geom_histogram(aes(x = age), binwidth = 2)","options":{"fig-height":5,"results":"markup","dpi":72,"message":"true","label":"unnamed-chunk-5","warning":"true","out-height":"","fig-cap":"","editor-font-scale":"1","editor-max-height":"","fig-width":7,"output":"true","comment":"","context":"interactive","editor-quick-suggestions":"false","read-only":"false","autorun":"false","out-width":"700px","classes":"","editor-word-wrap":"true"},"id":5}];
 
 </script>
 <script type="module">
@@ -2079,8 +2079,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./44a_digital-mapping-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Practice exercises: your first map and projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2097,13 +2103,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2120,13 +2126,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>

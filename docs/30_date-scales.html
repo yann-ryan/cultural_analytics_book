@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())","options":{"label":"unnamed-chunk-1","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"setup","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"true","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":1},{"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))","options":{"label":"unnamed-chunk-2","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"interactive","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":2},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")","options":{"label":"unnamed-chunk-3","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"interactive","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":3},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')","options":{"label":"unnamed-chunk-4","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"interactive","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":4},{"code":"","options":{"label":"unnamed-chunk-5","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"interactive","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":5},{"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")","options":{"label":"unnamed-chunk-6","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"interactive","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":6},{"code":"","options":{"label":"unnamed-chunk-7","out-height":"","editor-font-scale":"1","editor-max-height":"","context":"interactive","comment":"","output":"true","fig-cap":"","results":"markup","message":"true","out-width":"700px","fig-height":5,"fig-width":7,"autorun":"false","editor-quick-suggestions":"false","editor-word-wrap":"true","classes":"","warning":"true","read-only":"false","dpi":72},"id":7}];
+globalThis.qwebrCellDetails = [{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"true","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-1","context":"setup","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"library(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/cultural_analytics_book/main/bellevue_almshouse_modified.csv\"\ndownload.file(url, \"bellevue_almshouse_modified.csv\")\nbellevue_dataset = read_csv('bellevue_almshouse_modified.csv')\n\ndf <- bellevue_dataset |>\n  group_by(date_in) |>\n  summarise(n = n())","id":1},{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"false","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-2","context":"interactive","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"df |>\n  ggplot() +\n  geom_line(aes(x = date_in, y = n))","id":2},{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"false","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-3","context":"interactive","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\")","id":3},{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"false","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-4","context":"interactive","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_minor_breaks = '1 week')","id":4},{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"false","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-5","context":"interactive","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"","id":5},{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"false","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-6","context":"interactive","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"df |> ggplot() +\n  geom_line(aes(x = date_in, y = n)) +\n  scale_x_date(date_breaks = \"2 months\",\n               date_labels = \"%b %y\")","id":6},{"options":{"out-width":"700px","dpi":72,"editor-word-wrap":"true","editor-font-scale":"1","output":"true","results":"markup","message":"true","autorun":"false","out-height":"","warning":"true","fig-width":7,"comment":"","editor-quick-suggestions":"false","classes":"","label":"unnamed-chunk-7","context":"interactive","fig-cap":"","read-only":"false","fig-height":5,"editor-max-height":""},"code":"","id":7}];
 
 </script>
 <script type="module">
@@ -2079,8 +2079,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./44a_digital-mapping-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Practice exercises: your first map and projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2097,13 +2103,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2120,13 +2126,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>

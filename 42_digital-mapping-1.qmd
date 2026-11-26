@@ -40,7 +40,7 @@ A raster map represents the world as a grid of pixels, like a digital photograph
 
 A vector map instead represents geographic things as **points**, **lines**, and **polygons** (shapes), each stored as a set of coordinates. A city might be a point, a river a line, and a country a polygon. Unlike a raster map, a vector map knows that a certain shape is 'the Netherlands', so we can attach data to it - its population, its number of World Heritage sites, and so on. This is what makes vector data so useful for data visualisation.
 
-![A vector map containing rivers, cities, and country borders](images/42_digital-mapping-1/06.svg){width="472" fig-alt="A vector map drawn with lines for rivers, points for cities, and polygons for country borders."}
+![A vector map of the Low Countries: countries are polygons, the Rhine and Maas are lines, and cities are points. Data: Natural Earth.](images/42_digital-mapping-1/07.png){width="480" fig-alt="A map of the Low Countries: countries drawn as filled shapes with brown borders, the Rhine and Maas as blue lines, and Amsterdam, Rotterdam, Utrecht, Leiden, Antwerp, Brussels and Cologne as red points."}
 
 ## Maps map data to aesthetics, too
 

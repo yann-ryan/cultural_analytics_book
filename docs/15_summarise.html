@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"context":"setup","message":"true","output":"true","results":"markup","classes":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","fig-cap":"","label":"unnamed-chunk-1","comment":"","dpi":72,"autorun":"true","read-only":"false","fig-width":7,"editor-font-scale":"1","out-width":"700px","fig-height":5}},{"id":2,"code":"titanic_df |>\n  summarise(count = n())","options":{"context":"interactive","message":"true","output":"true","results":"markup","classes":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","fig-cap":"","label":"unnamed-chunk-2","comment":"","dpi":72,"autorun":"false","read-only":"false","fig-width":7,"editor-font-scale":"1","out-width":"700px","fig-height":5}},{"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))","options":{"context":"interactive","message":"true","output":"true","results":"markup","classes":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","fig-cap":"","label":"unnamed-chunk-3","comment":"","dpi":72,"autorun":"false","read-only":"false","fig-width":7,"editor-font-scale":"1","out-width":"700px","fig-height":5}},{"id":4,"code":"","options":{"context":"interactive","message":"true","output":"true","results":"markup","classes":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","fig-cap":"","label":"unnamed-chunk-4","comment":"","dpi":72,"autorun":"false","read-only":"false","fig-width":7,"editor-font-scale":"1","out-width":"700px","fig-height":5}},{"id":5,"code":"","options":{"context":"interactive","message":"true","output":"true","results":"markup","classes":"","out-height":"","editor-max-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","warning":"true","fig-cap":"","label":"unnamed-chunk-5","comment":"","dpi":72,"autorun":"false","read-only":"false","fig-width":7,"editor-font-scale":"1","out-width":"700px","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"context":"setup","comment":"","out-height":"","fig-width":7,"editor-word-wrap":"true","results":"markup","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","message":"true","classes":"","dpi":72,"read-only":"false","out-width":"700px","autorun":"true","label":"unnamed-chunk-1","editor-font-scale":"1","output":"true","fig-height":5},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"context":"interactive","comment":"","out-height":"","fig-width":7,"editor-word-wrap":"true","results":"markup","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","message":"true","classes":"","dpi":72,"read-only":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-2","editor-font-scale":"1","output":"true","fig-height":5},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"context":"interactive","comment":"","out-height":"","fig-width":7,"editor-word-wrap":"true","results":"markup","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","message":"true","classes":"","dpi":72,"read-only":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-3","editor-font-scale":"1","output":"true","fig-height":5},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = TRUE))"},{"id":4,"options":{"context":"interactive","comment":"","out-height":"","fig-width":7,"editor-word-wrap":"true","results":"markup","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","message":"true","classes":"","dpi":72,"read-only":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-4","editor-font-scale":"1","output":"true","fig-height":5},"code":""},{"id":5,"options":{"context":"interactive","comment":"","out-height":"","fig-width":7,"editor-word-wrap":"true","results":"markup","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","message":"true","classes":"","dpi":72,"read-only":"false","out-width":"700px","autorun":"false","label":"unnamed-chunk-5","editor-font-scale":"1","output":"true","fig-height":5},"code":""}];
 
 </script>
 <script type="module">
@@ -2079,8 +2079,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./44a_digital-mapping-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Practice exercises: your first map and projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2097,13 +2103,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2120,13 +2126,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>

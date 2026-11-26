@@ -10,6 +10,7 @@ project:
     - "images/22_data-visualisation-1/*.png"
     - "images/27_gestalt/*.png"
     - "images/week5-tue/*"
+    - "images/week5-thu/*"
 
 book:
   title: "Cultural Analytics: Course Book"
@@ -101,6 +102,7 @@ book:
         - 42_digital-mapping-1.qmd
         - 43_first-map.qmd
         - 44_projections.qmd
+        - 44a_digital-mapping-1-exercises.qmd
         - 45_at-home-8.qmd
     - part: "Week 6 · Tue 1 Dec: Digital Mapping 2"
       chapters:

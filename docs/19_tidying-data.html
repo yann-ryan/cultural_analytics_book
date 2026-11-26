@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"dpi":72,"classes":"","fig-cap":"","out-width":"700px","results":"markup","label":"unnamed-chunk-1","editor-quick-suggestions":"false","autorun":"true","output":"true","editor-font-scale":"1","fig-height":5,"context":"setup","message":"true","out-height":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","warning":"true","comment":"","fig-width":7},"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n"},{"id":2,"options":{"dpi":72,"classes":"","fig-cap":"","out-width":"700px","results":"markup","label":"unnamed-chunk-2","editor-quick-suggestions":"false","autorun":"false","output":"true","editor-font-scale":"1","fig-height":5,"context":"interactive","message":"true","out-height":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","warning":"true","comment":"","fig-width":7},"code":"gapminder_population"},{"id":3,"options":{"dpi":72,"classes":"","fig-cap":"","out-width":"700px","results":"markup","label":"unnamed-chunk-3","editor-quick-suggestions":"false","autorun":"false","output":"true","editor-font-scale":"1","fig-height":5,"context":"interactive","message":"true","out-height":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","warning":"true","comment":"","fig-width":7},"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')"},{"id":4,"options":{"dpi":72,"classes":"","fig-cap":"","out-width":"700px","results":"markup","label":"unnamed-chunk-4","editor-quick-suggestions":"false","autorun":"false","output":"true","editor-font-scale":"1","fig-height":5,"context":"interactive","message":"true","out-height":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","warning":"true","comment":"","fig-width":7},"code":""},{"id":5,"options":{"dpi":72,"classes":"","fig-cap":"","out-width":"700px","results":"markup","label":"unnamed-chunk-5","editor-quick-suggestions":"false","autorun":"false","output":"true","editor-font-scale":"1","fig-height":5,"context":"interactive","message":"true","out-height":"","editor-max-height":"","editor-word-wrap":"true","read-only":"false","warning":"true","comment":"","fig-width":7},"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","label":"unnamed-chunk-1","editor-quick-suggestions":"false","comment":"","out-height":"","dpi":72,"editor-max-height":"","context":"setup","autorun":"true","out-width":"700px","editor-word-wrap":"true","classes":"","output":"true","message":"true","fig-cap":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"editor-font-scale":"1"},"code":"library(dplyr)\nlibrary(readr)\nlibrary(tidyr)\n\nurl <- \"https://vincentarelbundock.github.io/Rdatasets/csv/gapminder/gapminder.csv\"\ndownload.file(url, \"gapminder.csv\")\n\ngapminder_df =  read_csv('gapminder.csv')\n\ngapminder_population =  gapminder_df |> filter(continent == 'Europe') |> select(country, year, pop) |> pivot_wider(names_from = year, values_from = pop)\n","id":1},{"options":{"results":"markup","label":"unnamed-chunk-2","editor-quick-suggestions":"false","comment":"","out-height":"","dpi":72,"editor-max-height":"","context":"interactive","autorun":"false","out-width":"700px","editor-word-wrap":"true","classes":"","output":"true","message":"true","fig-cap":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"editor-font-scale":"1"},"code":"gapminder_population","id":2},{"options":{"results":"markup","label":"unnamed-chunk-3","editor-quick-suggestions":"false","comment":"","out-height":"","dpi":72,"editor-max-height":"","context":"interactive","autorun":"false","out-width":"700px","editor-word-wrap":"true","classes":"","output":"true","message":"true","fig-cap":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"editor-font-scale":"1"},"code":"gapminder_population |>\n  pivot_longer(cols = 2:13, names_to = 'year', values_to ='population')","id":3},{"options":{"results":"markup","label":"unnamed-chunk-4","editor-quick-suggestions":"false","comment":"","out-height":"","dpi":72,"editor-max-height":"","context":"interactive","autorun":"false","out-width":"700px","editor-word-wrap":"true","classes":"","output":"true","message":"true","fig-cap":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"editor-font-scale":"1"},"code":"","id":4},{"options":{"results":"markup","label":"unnamed-chunk-5","editor-quick-suggestions":"false","comment":"","out-height":"","dpi":72,"editor-max-height":"","context":"interactive","autorun":"false","out-width":"700px","editor-word-wrap":"true","classes":"","output":"true","message":"true","fig-cap":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"editor-font-scale":"1"},"code":"","id":5}];
 
 </script>
 <script type="module">
@@ -2079,8 +2079,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./44a_digital-mapping-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Practice exercises: your first map and projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2097,13 +2103,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2120,13 +2126,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>

@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./45_at-home-8.html" rel="next">
+<link href="./44a_digital-mapping-1-exercises.html" rel="next">
 <link href="./43_first-map.html" rel="prev">
 <link href="./images/logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -359,7 +359,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')","id":1,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"setup","comment":"","autorun":"true","dpi":72,"output":"true","label":"unnamed-chunk-1","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')","id":2,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-2","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = '+proj=merc')","id":3,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-3","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = '+proj=eqearth')","id":4,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-4","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = '+proj=robin')","id":5,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-5","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"","id":6,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-6","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = 3035,\n           xlim = c(-15, 50), ylim = c(35, 72),\n           default_crs = 4326)","id":7,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-7","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}},{"code":"st_crs(worldmap)","id":8,"options":{"read-only":"false","editor-quick-suggestions":"false","fig-cap":"","out-height":"","results":"markup","warning":"true","editor-font-scale":"1","message":"true","editor-word-wrap":"true","context":"interactive","comment":"","autorun":"false","dpi":72,"output":"true","label":"unnamed-chunk-8","editor-max-height":"","classes":"","out-width":"700px","fig-height":5,"fig-width":7}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')","id":1,"options":{"context":"setup","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-1","dpi":72,"autorun":"true","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"library(dplyr)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(rnaturalearth)\n\nworldmap <- ne_countries(scale = 'medium', returnclass = 'sf') |>\n  filter(continent != 'Antarctica')","id":2,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-2","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = '+proj=merc')","id":3,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-3","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = '+proj=eqearth')","id":4,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-4","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = '+proj=robin')","id":5,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-5","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"","id":6,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-6","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"ggplot() +\n  geom_sf(data = worldmap) +\n  coord_sf(crs = 3035,\n           xlim = c(-15, 50), ylim = c(35, 72),\n           default_crs = 4326)","id":7,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-7","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}},{"code":"st_crs(worldmap)","id":8,"options":{"context":"interactive","fig-cap":"","classes":"","read-only":"false","out-height":"","message":"true","editor-quick-suggestions":"false","editor-font-scale":"1","results":"markup","fig-height":5,"output":"true","comment":"","fig-width":7,"label":"unnamed-chunk-8","dpi":72,"autorun":"false","editor-max-height":"","out-width":"700px","warning":"true","editor-word-wrap":"true"}}];
 
 </script>
 <script type="module">
@@ -2079,8 +2079,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./44a_digital-mapping-1-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Practice exercises: your first map and projections</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./45_at-home-8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -2097,13 +2103,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./46_choropleth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Choropleth maps: joining your data to a map</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./47_map-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Finding and reading map files</span></span></a>
   </div>
 </li>
       </ul>
@@ -2120,13 +2126,13 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./48_points-map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Points maps</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./49_coordinates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title">Finding coordinates</span></span></a>
   </div>
 </li>
       </ul>
@@ -2621,7 +2627,7 @@ Tip
 <section id="why-does-this-matter" class="level3">
 <h3 class="anchored" data-anchor-id="why-does-this-matter">Why does this matter?</h3>
 <p>Most of the time, ggplot takes care of the CRS for you. When you add several <code>geom_sf()</code> layers to one map, ggplot converts them all to the same CRS: the one set in <code>coord_sf()</code>, or, if you haven’t set one, the CRS of the first layer.</p>
-<p>Where it does matter is when you <strong>make your own</strong> sf object, for example from a set of coordinates. Then you’ll need to tell R which CRS your coordinates use. We’ll do this in the chapter on points maps.</p>
+<p>Where it does matter is when you <strong>make your own</strong> sf object, for example from a set of coordinates. Then you’ll need to tell R which CRS your coordinates use. We’ll do this in the <a href="./48_points-map.html">chapter on points maps</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3206,8 +3212,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./45_at-home-8.html" class="pagination-link" aria-label="Home Exercise">
-        <span class="nav-page-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Home Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./44a_digital-mapping-1-exercises.html" class="pagination-link" aria-label="Practice exercises: your first map and projections">
+        <span class="nav-page-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title">Practice exercises: your first map and projections</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
